@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## ADR Template
 
@@ -62,14 +62,14 @@ _Last updated: 2026-08-18_
 ## ADR-004: Implementation Technology Stack
 
 - Date: 2026-08-18
-- Status: Proposed
-- Decision maker: Architect → Human approval required
+- Status: Accepted
+- Decision maker: User
 
 **Context**: The PRD defers the language, framework, package manager, and test tools to the implementation plan.  
-**Decision**: Select [LANG], [FRAMEWORK], [PKG_MANAGER], and [TEST_STACK] after comparing candidates.  
-**Rationale**: Static deployment, small bundles, testability, maintainability, and licensing must be evaluated together.  
-**Trade-offs**: Actual development commands and dependencies remain undefined until the decision.  
-**Consequences**: Preserve placeholders until TASK-001 is approved.
+**Decision**: Use TypeScript 7.0.2 on Node.js 24.19.0 LTS for browser, shared, test, and pipeline code; Preact 10.29.8 with Vite 8.2.1 for the static UI; npm 11.17.0 in a single repository and single package; Preact-local state without a router or external store; and Vitest, Testing Library, Playwright, and axe for testing. Use Node's native erasable TypeScript execution for pipeline scripts and keep static JSON outside the JavaScript bundle.
+**Rationale**: One language reduces schema and safety-rule drift. Preact provides declarative UI state with an approximately 3.5 kB runtime, while Vite directly supports static builds and GitHub Pages subpaths. The selected test layers cover pure logic, offline pipeline fixtures, accessible component behavior, three browser engines, and automated WCAG checks.
+**Trade-offs**: Preact has a smaller ecosystem than React. Native Node TypeScript execution excludes transform-required syntax and ignores `tsconfig.json` at runtime. The single-package structure provides less enforced isolation than workspaces. Automated accessibility tests still require manual keyboard and screen-reader review.
+**Consequences**: TASK-002 may scaffold the approved module directories and pinned build dependencies. TASK-003 may configure the approved test tools. New dependencies, major upgrades, lint/format choices, and coverage thresholds still require their applicable approval and review gates. See `docs/superpowers/specs/2026-08-20-technology-stack-design.md`.
 
 ## ADR-005: English-Only Harness Documentation
 

@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## System Overview
 
@@ -58,6 +58,9 @@ The output schema must at minimum represent an identifier; original and normaliz
 
 | Decision | Choice | Date |
 |---|---|---|
+| Implementation stack | TypeScript 7.0.2, Node.js 24.19.0 LTS, Preact 10.29.8, Vite 8.2.1, npm 11.17.0 | 2026-08-20 |
+| Repository | Single repository and single npm package with module directories | 2026-08-20 |
+| Test stack | Vitest, Testing Library, Playwright, and axe | 2026-08-20 |
 | Harness | AI Development Harness v1.1 Standard | 2026-08-18 |
 | Runtime | Static site with in-browser search | 2026-08-18 |
 | Data processing | GitHub Actions ETL and static JSON | 2026-08-18 |
@@ -72,5 +75,7 @@ See `memory/decisions.md` for details.
 - Support splitting data files by Seoul district or business category as data grows.
 - Do not assume a static-site base path; test GitHub Pages subpath deployment.
 - Do not deploy a pipeline that lacks a last-known-good data preservation strategy.
-- The stack and data contract remain undecided and must not become implementation assumptions before approval.
-
+- The source-data contract remains undecided and must not become an implementation assumption before TASK-004 approval.
+- Keep browser, search, domain, pipeline, and shared TypeScript modules in explicit directories within one npm package.
+- Use Preact-local state only; no router or external state-management dependency is approved.
+- Keep Node-executed pipeline and shared code compatible with native erasable TypeScript syntax.

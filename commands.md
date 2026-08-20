@@ -7,14 +7,14 @@ Harness Version: 1.1
 
 # commands.md — open-store-searcher Command Reference
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
-> The PRD defers the technology stack to a later implementation plan. Replace the placeholders below with real commands after stack approval.
+> TASK-001 approved Node.js 24.19.0, npm 11.17.0, TypeScript, Preact, Vite, and the test stack. TASK-002 and TASK-003 will replace the remaining command placeholders when the configuration exists.
 
 ## Install
 
 ```bash
-[PKG_MANAGER] install
+npm ci
 ```
 
 ## Develop
@@ -65,4 +65,3 @@ GitHub Pages deployment requires both Reviewer approval and final human approval
 [TOP3_RECALL_COMMAND]            # Target Top-3 recall >= 90% on exact name-and-address set
 [STALE_DATA_CHECK_COMMAND]       # Warn when data is more than seven days old
 ```
-

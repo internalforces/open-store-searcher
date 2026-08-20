@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## Summary
 
@@ -16,21 +16,21 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: PRD review complete; implementation planning has not started
+- Phase: M0 technology stack approved; foundation implementation has not started
 - Next milestone: M0 — Technology decisions and foundation
-- Overall health: 🟡 Caution — product requirements are specific, but the technology stack and source-data contract remain undecided
+- Overall health: 🟡 Caution — the technology stack is approved, but the source-data contract remains undecided
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
 
 | Item | Value |
 |---|---|
-| Language | [LANG] |
-| Framework | [FRAMEWORK] |
+| Language | TypeScript 7.0.2 on Node.js 24.19.0 LTS |
+| Framework | Preact 10.29.8 + Vite 8.2.1 |
 | Data storage | No runtime database; static JSON |
 | Infrastructure | GitHub Pages + GitHub Actions |
-| Package manager | [PKG_MANAGER] |
-| Repository structure | [REPO_STRUCTURE] |
+| Package manager | npm 11.17.0 |
+| Repository structure | Single repository and single npm package with module directories |
 
 ## Key Paths
 
@@ -46,12 +46,13 @@ open-store-searcher/
 └── handbook/ko/    # Human-facing Korean explanations; excluded from implementation context
 ```
 
-Application source paths will be added after the technology stack is selected.
+Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 will create them.
 
 ## Recent Changes
 
 | Date | Change |
 |---|---|
+| 2026-08-20 | Approved the TypeScript, Node.js, Preact, Vite, npm, and test-stack baseline through ADR-004 |
 | 2026-08-18 | Established a separate Korean human handbook, implementation-context boundary, and recurring milestone review gate |
 | 2026-08-18 | Established English as the required language for all harness documentation |
 | 2026-08-18 | Created the PRD-based AI Development Harness v1.1 Standard |

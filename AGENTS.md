@@ -9,7 +9,7 @@ Harness Version: 1.1
 
 > Every agent must read this document before starting work. If instructions conflict, the user's current request and this document take precedence over other project documents.
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## Project Overview
 
@@ -17,11 +17,11 @@ _Last updated: 2026-08-18_
 |---|---|
 | Project | open-store-searcher |
 | Goal | A free, open-source static dashboard that searches Seoul-licensed businesses by name or address and shows their administrative status with the source, as-of date, and uncertainty |
-| Language | [LANG] |
-| Framework | [FRAMEWORK] |
+| Language | TypeScript 7.0.2 on Node.js 24.19.0 LTS |
+| Framework | Preact 10.29.8 + Vite 8.2.1 |
 | Database | None — built static JSON only |
 | Infrastructure | GitHub Pages + GitHub Actions |
-| Repository structure | [REPO_STRUCTURE] |
+| Repository structure | Single repository and single npm package with module directories |
 | Harness tier | standard |
 | Harness documentation language | English only |
 

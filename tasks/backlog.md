@@ -7,11 +7,10 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-001 | Compare language, framework, package manager, and test stack; approve ADR | High | M0 | M | Foundation for all implementation |
 | TASK-002 | Configure Apache-2.0 single/mono repository foundation, static build, lint, format, and typecheck | High | M0 | M | Open source, maintainability |
 | TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | High | M0 | M | Section 16, release criteria |
 | TASK-004 | Research local administrative licensing data download, schema, terms of use, and attribution | High | M1 | M | Section 12.1, Section 20 |
@@ -39,8 +38,8 @@ _Last updated: 2026-08-18_
 
 ## Recommended Start Order
 
-1. Activate TASK-001 and obtain human approval for the stack.
-2. Build a reproducible development foundation with TASK-002 and TASK-003.
+1. Complete TASK-001 written-spec review and decision-record verification.
+2. Build a reproducible development foundation with TASK-002 and TASK-003 after TASK-001 closes.
 3. Begin M1 implementation after TASK-004 verifies the source contract.
 4. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 

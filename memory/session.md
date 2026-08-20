@@ -7,49 +7,51 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 > After a session, add a snapshot to `memory/sessions/YYYY-MM-DD-ROLE.md` when useful.
 
 ## Session Information
 
-- Date: 2026-08-18
-- Agent role: Documenter
-- Session goal: Implement the Korean human-facing handbook and its AI context boundary
+- Date: 2026-08-20
+- Agent role: Architect
+- Session goal: Complete TASK-001 technology-stack comparison, approval, and decision documentation
 
 ## Previous Session Summary
 
-The user approved a design that separates Korean human explanations from the authoritative English AI harness. The technology stack and source-data contract remain undecided.
+TASK-025 established the Korean handbook boundary. The source-data contract remains undecided, and TASK-001 was the next approved task.
 
 ## Current Work
 
-- [x] Write and self-review the handbook implementation plan.
-- [x] Implement the constitutional, workflow, roadmap, prompt, task, decision, and traceability changes.
-- [x] Create eight Korean Pre-M0 handbook documents.
-- [x] Run full documentation and policy-boundary verification.
-- [x] Move TASK-025 to the completed-task record.
+- [x] Activate TASK-001 on `codex/task-001-tech-stack`.
+- [x] Compare unified TypeScript stack approaches against the PRD and official documentation.
+- [x] Obtain explicit human choices for language, browser baseline, UI framework, repository structure, package manager, and test stack.
+- [x] Obtain section-by-section approval for architecture, data flow, failure boundaries, versions, licenses, and direct dependencies.
+- [x] Write the technology-stack design and update ADR-004 and directly linked harness placeholders.
+- [ ] Obtain human review of the written specification before closing TASK-001.
 
 ## Completed This Session
 
-- [x] Added ADR-006 and the `handbook/ko/**` authority and access rules.
-- [x] Added explicit exclusions to all non-Documenter role prompts and a limited Documenter exception.
-- [x] Added a recurring handbook pass and human Korean-language review to every milestone close.
-- [x] Created the handbook index, overview, architecture, data/status, search/UI, operations, glossary, and milestone history.
-- [x] Verified 10 expected files, 8 handbook files, 11 prompt boundaries, 5 milestone gates, balanced code fences, clean unresolved-marker scan, safety copy, and implementation-context exclusion.
+- [x] Selected Node.js 24.19.0 LTS, npm 11.17.0, TypeScript 7.0.2, Preact 10.29.8, and Vite 8.2.1.
+- [x] Selected a single repository and single npm package with explicit app, search, domain, pipeline, and shared module directories.
+- [x] Selected Preact-local state without a router or external store.
+- [x] Selected Vitest, Testing Library, Playwright, and axe with manual keyboard and screen-reader review.
+- [x] Approved the exact initial direct dependency and license baseline without installing packages.
 
 ## Issues and Decisions Found
 
-- ADR-005 remains valid because the Korean handbook is human-facing output rather than harness content.
-- ADR-006 establishes the separate handbook boundary, implementation-role prohibition, Documenter exception, authority rule, and milestone update policy.
-- The handbook intentionally describes the Pre-M0 baseline. It labels unimplemented search, pipeline, UI, and operations behavior as planned.
-- The current directory is not initialized as a Git repository, so no commit could be created. The user intends to initialize or use Git and commit the finished work.
+- ADR-004 is accepted by the user; the written specification remains at its explicit review gate.
+- Node.js native TypeScript execution avoids a `tsx` dependency but requires erasable syntax and a separate `tsc --noEmit` check.
+- Static JSON remains separate from the JavaScript bundle. Search starts on the main thread, and a Web Worker is deferred until performance evidence requires it.
+- Linting, formatting, coverage thresholds, source-data terms, publication mechanics, and deployment remain deferred to their assigned tasks.
+- No package installation, application scaffolding, deployment, or production-data operation occurred.
 
 ## Next Session
 
-1. The user reviews the Korean handbook and commits the completed documentation work to the Git repository.
-2. Activate TASK-001 and obtain human approval for the technology stack.
-3. Preserve the handbook context boundary during all product implementation work.
+1. The user reviews `docs/superpowers/specs/2026-08-20-technology-stack-design.md`.
+2. After approval, close TASK-001 and perform the required transition to implementation planning without activating or implementing TASK-002 unless authorized.
+3. Preserve the handbook context boundary during all implementation work.
 
 ## Important Context
 
-The PRD's zero-cost operation, static hosting, no-collection privacy model, scraping and paid-API prohibitions, and fail-safe status determination are product invariants that implementation convenience cannot relax.
+The approved stack does not change the PRD's zero-cost operation, static hosting, no-collection privacy model, scraping and paid-API prohibitions, or fail-safe status determination. TASK-001 remains active only for written-spec review and closure.

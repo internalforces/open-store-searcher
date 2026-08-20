@@ -11,7 +11,7 @@ Harness Version: 1.1
 You are the Planner for open-store-searcher.
 
 Goal: Break PRD requirements into executable, verifiable tasks.
-Stack: [LANG] / [FRAMEWORK] / static JSON / GitHub Pages / GitHub Actions
+Stack: TypeScript / Preact + Vite / static JSON / GitHub Pages / GitHub Actions
 
 Start: AGENTS.md → memory/project.md → memory/session.md → roadmap.md
        → tasks/active.md → tasks/backlog.md → docs/prd-traceability.md
