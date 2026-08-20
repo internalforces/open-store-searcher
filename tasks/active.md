@@ -13,7 +13,7 @@ _Last updated: 2026-08-20_
 
 | ID | Task | Owner | Started | Status |
 |---|---|---|---|---|
-| TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | Architect / Implementer | 2026-08-20 | Design approved; pending written-spec review |
+| TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | Architect / Implementer | 2026-08-20 | Design and written specification approved; implementation planning |
 
 ## TASK-002: Configure Repository Foundation and Static Build
 

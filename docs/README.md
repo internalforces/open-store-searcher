@@ -29,7 +29,8 @@ The source PRD is the source of truth for product requirements. This harness tur
 - `../memory/architecture.md`: system structure and data flow
 - `../memory/decisions.md`: architecture decision records
 - `superpowers/specs/2026-08-20-technology-stack-design.md`: approved TASK-001 technology-stack design
-- `superpowers/specs/2026-08-20-repository-foundation-design.md`: approved TASK-002 repository-foundation design pending written review
+- `superpowers/specs/2026-08-20-repository-foundation-design.md`: approved TASK-002 repository-foundation design including written review
+- `superpowers/plans/2026-08-20-repository-foundation.md`: detailed TASK-002 repository-foundation implementation plan
 - `superpowers/specs/2026-08-18-korean-human-handbook-design.md`: approved design for a Korean human-facing handbook that is excluded from implementation context
 - `superpowers/plans/2026-08-18-korean-human-handbook.md`: implementation plan for the handbook boundary, workflow, and Pre-M0 baseline
 

@@ -9,7 +9,7 @@ Harness Version: 1.1
 
 _Date: 2026-08-20_
 
-_Status: Approved, pending written-spec review_
+_Status: Approved, including written-spec review_
 
 _Related task: TASK-002_
 

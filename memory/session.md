@@ -30,7 +30,7 @@ TASK-001 was merged to `main` through pull request #1 at `83dbe84`. No task was 
 - [x] Obtain explicit approval to change the project code license from Apache-2.0 to MIT.
 - [x] Obtain section-by-section approval for the repository, build, command, verification, and acceptance design.
 - [x] Create the isolated `codex/task-002-foundation` worktree.
-- [ ] Obtain human review of the written TASK-002 design specification.
+- [x] Obtain human review of the written TASK-002 design specification.
 - [ ] Write and review the detailed implementation plan.
 - [ ] Implement and verify TASK-002.
 
