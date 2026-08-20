@@ -288,9 +288,6 @@ Create `biome.json`:
   },
   "linter": {
     "enabled": true,
-    "rules": {
-      "recommended": true
-    },
     "domains": {
       "react": "recommended"
     }
