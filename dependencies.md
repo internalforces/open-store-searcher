@@ -51,6 +51,16 @@ TASK-001 approved the initial direct dependencies below. TASK-002 and TASK-003 w
 - User analytics, advertising, or tracking SDKs
 - AI-based status-determination services
 
+## TASK-002 Installation Audit
+
+- The repository foundation installs only Preact, TypeScript, Vite, `@preact/preset-vite`, and Biome as direct packages.
+- Every locked package version has a declared license.
+- The recorded licenses are compatible with distribution of this MIT-licensed project.
+- No paid service, runtime server, database, analytics, advertising, tracking, scraper, or AI-status dependency is present.
+- `@biomejs/biome` is consumed under the MIT option in its `MIT OR Apache-2.0` expression.
+
+`reports/dependency-licenses-2026-08-20.md` records the exact direct and transitive package versions and declared licenses from the TASK-002 lockfile.
+
 ## Version Policy
 
 - New dependencies and major upgrades require human approval and the full test suite.
