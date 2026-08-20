@@ -28,7 +28,7 @@ TASK-025 established the Korean handbook boundary. The source-data contract rema
 - [x] Obtain explicit human choices for language, browser baseline, UI framework, repository structure, package manager, and test stack.
 - [x] Obtain section-by-section approval for architecture, data flow, failure boundaries, versions, licenses, and direct dependencies.
 - [x] Write the technology-stack design and update ADR-004 and directly linked harness placeholders.
-- [ ] Obtain human review of the written specification before closing TASK-001.
+- [x] Obtain human review of the written specification and close TASK-001.
 
 ## Completed This Session
 
@@ -40,7 +40,7 @@ TASK-025 established the Korean handbook boundary. The source-data contract rema
 
 ## Issues and Decisions Found
 
-- ADR-004 is accepted by the user; the written specification remains at its explicit review gate.
+- ADR-004 and the written technology-stack specification are accepted by the user.
 - Node.js native TypeScript execution avoids a `tsx` dependency but requires erasable syntax and a separate `tsc --noEmit` check.
 - Static JSON remains separate from the JavaScript bundle. Search starts on the main thread, and a Web Worker is deferred until performance evidence requires it.
 - Linting, formatting, coverage thresholds, source-data terms, publication mechanics, and deployment remain deferred to their assigned tasks.
@@ -48,10 +48,10 @@ TASK-025 established the Korean handbook boundary. The source-data contract rema
 
 ## Next Session
 
-1. The user reviews `docs/superpowers/specs/2026-08-20-technology-stack-design.md`.
-2. After approval, close TASK-001 and perform the required transition to implementation planning without activating or implementing TASK-002 unless authorized.
+1. Obtain user authorization before activating TASK-002.
+2. Compare and approve TASK-002 linting, formatting, style, and foundation choices before writing its implementation plan.
 3. Preserve the handbook context boundary during all implementation work.
 
 ## Important Context
 
-The approved stack does not change the PRD's zero-cost operation, static hosting, no-collection privacy model, scraping and paid-API prohibitions, or fail-safe status determination. TASK-001 remains active only for written-spec review and closure.
+The approved stack does not change the PRD's zero-cost operation, static hosting, no-collection privacy model, scraping and paid-API prohibitions, or fail-safe status determination. No task is active after TASK-001 closure.

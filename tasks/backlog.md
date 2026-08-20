@@ -38,8 +38,8 @@ _Last updated: 2026-08-20_
 
 ## Recommended Start Order
 
-1. Complete TASK-001 written-spec review and decision-record verification.
-2. Build a reproducible development foundation with TASK-002 and TASK-003 after TASK-001 closes.
+1. Activate TASK-002 and obtain approval for its linting and formatting dependencies and standards.
+2. Configure the test harness through TASK-003 after the repository foundation exists.
 3. Begin M1 implementation after TASK-004 verifies the source contract.
 4. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 
