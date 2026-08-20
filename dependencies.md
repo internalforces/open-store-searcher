@@ -11,7 +11,7 @@ _Last updated: 2026-08-20_
 
 ## Core Dependencies
 
-TASK-001 approved the initial direct dependencies below. TASK-002 and TASK-003 will install them and record the resulting lockfile and transitive-license audit. Before adding any other package, record its purpose, exact version, license, bundle impact, alternatives, and human approval.
+TASK-001 approved the initial direct dependencies below. TASK-002 installed only Preact, TypeScript, Vite, `@preact/preset-vite`, and Biome, and recorded the resulting lockfile and transitive-license evidence. TASK-003 will install the remaining approved test dependencies. Before adding any other package, record its purpose, exact version, license, bundle impact, alternatives, and human approval.
 
 | Package | Version | Purpose | License | Approval |
 |---|---|---|---|---|

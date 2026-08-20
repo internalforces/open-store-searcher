@@ -9,7 +9,7 @@ Harness Version: 1.1
 
 _Last updated: 2026-08-20_
 
-> TASK-001 approved Node.js 24.19.0, npm 11.17.0, TypeScript, Preact, Vite, and the test stack. TASK-002 and TASK-003 will replace the remaining command placeholders when the configuration exists.
+> TASK-001 approved Node.js 24.19.0, npm 11.17.0, TypeScript, Preact, Vite, and the test stack. TASK-002 foundation commands are implemented; TASK-003 test command placeholders remain until the test harness configuration exists.
 
 ## Install
 
