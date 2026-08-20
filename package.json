@@ -9,6 +9,11 @@
     "node": "24.19.0",
     "npm": "11.17.0"
   },
+  "scripts": {
+    "lint": "biome lint --error-on-warnings .",
+    "format": "biome format --write .",
+    "format:check": "biome format ."
+  },
   "dependencies": {
     "preact": "10.29.8"
   },
