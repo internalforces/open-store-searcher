@@ -571,10 +571,44 @@ const directNames = new Set([
 ]);
 
 function packageNameFromPath(packagePath) {
-  const marker = 'node_modules/';
-  const tail = packagePath.slice(packagePath.lastIndexOf(marker) + marker.length);
-  const parts = tail.split('/');
-  return tail.startsWith('@') ? parts.slice(0, 2).join('/') : parts[0];
+  const parts = packagePath.split('/');
+  let index = 0;
+  let name = '';
+
+  while (index < parts.length) {
+    if (parts[index] !== 'node_modules') {
+      throw new Error(`Invalid npm lock package path: ${packagePath}`);
+    }
+
+    index += 1;
+    const firstNamePart = parts[index];
+
+    if (!firstNamePart) {
+      throw new Error(`Invalid npm lock package path: ${packagePath}`);
+    }
+
+    if (firstNamePart.startsWith('@')) {
+      const secondNamePart = parts[index + 1];
+      if (
+        !/^@[a-z0-9][a-z0-9._-]*$/i.test(firstNamePart) ||
+        !/^[a-z0-9][a-z0-9._-]*$/i.test(secondNamePart ?? '')
+      ) {
+        throw new Error(`Invalid npm lock package path: ${packagePath}`);
+      }
+
+      name = `${firstNamePart}/${secondNamePart}`;
+      index += 2;
+    } else {
+      if (!/^[a-z0-9][a-z0-9._-]*$/i.test(firstNamePart)) {
+        throw new Error(`Invalid npm lock package path: ${packagePath}`);
+      }
+
+      name = firstNamePart;
+      index += 1;
+    }
+  }
+
+  return name;
 }
 
 function normalizeLicense(value) {
@@ -601,23 +635,36 @@ for (const [packagePath, lockPackage] of Object.entries(lock.packages)) {
     continue;
   }
 
-  let manifest = {};
+  const name = packageNameFromPath(packagePath);
+  const version = lockPackage.version;
+  let manifest;
   try {
     manifest = JSON.parse(readFileSync(join(root, packagePath, 'package.json'), 'utf8'));
-  } catch {
-    // Platform-specific optional packages can be present only in the lockfile.
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      throw error;
+    }
+
+    if (lockPackage.optional !== true) {
+      throw new Error(`Missing installed manifest for non-optional lock package: ${packagePath}`);
+    }
   }
 
-  const name = manifest.name ?? packageNameFromPath(packagePath);
-  const version = manifest.version ?? lockPackage.version;
-  const license = normalizeLicense(manifest.license ?? lockPackage.license);
+  if (manifest && (manifest.name !== name || manifest.version !== version)) {
+    throw new Error(
+      `Manifest does not match lock package: ${packagePath}: expected ${name}@${version}, found ${manifest.name}@${manifest.version}`,
+    );
+  }
+
+  const license = normalizeLicense(manifest?.license ?? lockPackage.license);
 
   if (!name || !version || !license) {
     missing.push(`${packagePath}: name=${name || 'missing'}, version=${version || 'missing'}, license=${license || 'missing'}`);
     continue;
   }
 
-  const relationship = directNames.has(name) ? 'Direct' : 'Transitive';
+  const relationship =
+    packagePath === `node_modules/${name}` && directNames.has(name) ? 'Direct' : 'Transitive';
   const key = `${name}@${version}`;
   const existing = records.get(key);
 
