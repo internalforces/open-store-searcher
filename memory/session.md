@@ -56,9 +56,9 @@ TASK-001 was merged to `main` through pull request #1 at `83dbe84`. No task was 
 
 ## Next Session
 
-1. Obtain human review of `docs/superpowers/specs/2026-08-20-repository-foundation-design.md`.
-2. Write the TASK-002 implementation plan with exact files, commands, verification, and commit boundaries.
-3. Execute the approved plan in the isolated worktree, then run Tester and Reviewer gates.
+1. Run Task 7 clean verification with the approved pinned toolchain.
+2. Obtain independent Tester and Reviewer evidence for TASK-002.
+3. Fix any findings and close TASK-002 only after both independent approvals.
 
 ## Important Context
 

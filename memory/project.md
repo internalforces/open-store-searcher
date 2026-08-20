@@ -46,7 +46,7 @@ open-store-searcher/
 └── handbook/ko/    # Human-facing Korean explanations; excluded from implementation context
 ```
 
-Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 will create them.
+Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 created them.
 
 ## Recent Changes
 
