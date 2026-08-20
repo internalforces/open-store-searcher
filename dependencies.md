@@ -24,6 +24,7 @@ TASK-001 approved the initial direct dependencies below. TASK-002 and TASK-003 w
 | typescript | 7.0.2 | Strict type checking | Apache-2.0 | User approved 2026-08-20 |
 | vite | 8.2.1 | Static development and production build | MIT | User approved 2026-08-20 |
 | @preact/preset-vite | 2.10.6 | Preact integration for Vite | MIT | User approved 2026-08-20 |
+| @biomejs/biome | 2.5.9 | TypeScript/TSX linting and formatting; consumed under the MIT option | MIT OR Apache-2.0 | User approved MIT option 2026-08-20 |
 | vitest | 4.1.11 | Unit and offline pipeline tests | MIT | User approved 2026-08-20 |
 | @vitest/coverage-v8 | 4.1.11 | Vitest code coverage | MIT | User approved 2026-08-20 |
 | @testing-library/preact | 3.2.4 | Accessible component tests | MIT | User approved 2026-08-20 |

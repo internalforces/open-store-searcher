@@ -12,9 +12,10 @@ _Last updated: 2026-08-20_
 ## Code Style
 
 - Language: TypeScript 7.0.2 in strict mode
-- Indentation: [INDENT]
-- Maximum line length: [MAX_LINE_LENGTH]
-- Naming: Define the standard conventions for the selected language in the stack-decision ADR.
+- Indentation: Two spaces; tabs are not permitted for code indentation
+- Maximum line length: 100 columns
+- Strings and punctuation: Single-quoted TypeScript, double-quoted JSX attributes, semicolons, and trailing commas where supported
+- Naming: `PascalCase` types and components, `camelCase` functions, variables, and Hooks, `kebab-case` filenames, and `*.test.ts` or `*.test.tsx` test files
 - Keep collection, transformation, validation, status mapping, search scoring, and presentation in independent modules.
 - Code and tests must share a single source of truth for status mapping.
 

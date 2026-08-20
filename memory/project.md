@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M0 technology stack approved; foundation implementation has not started
+- Phase: M0 TASK-002 repository-foundation design approved; implementation pending written-spec review
 - Next milestone: M0 — Technology decisions and foundation
 - Overall health: 🟡 Caution — the technology stack is approved, but the source-data contract remains undecided
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
@@ -52,6 +52,7 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-08-20 | Approved TASK-002 and changed the project code license from Apache-2.0 to MIT through ADR-007 |
 | 2026-08-20 | Approved the TypeScript, Node.js, Preact, Vite, npm, and test-stack baseline through ADR-004 |
 | 2026-08-18 | Established a separate Korean human handbook, implementation-context boundary, and recurring milestone review gate |
 | 2026-08-18 | Established English as the required language for all harness documentation |
@@ -65,5 +66,5 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 - No automated map-page collection and no AI status determination
 - Missing results, conflicts, and new status codes map to `확인되지 않음` (unverified)
 - Preserve the last known-good data after validation failure
-- Initial region: Seoul; code license: Apache-2.0
+- Initial region: Seoul; code license: MIT
 - Korean human explanations live under `handbook/ko/**` and are not implementation input

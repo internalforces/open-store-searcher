@@ -13,7 +13,7 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 
 | Question | Current placeholder | Decision location | Affected documents |
 |---|---|---|---|
-| What are the indentation, line-length, and minimum-coverage standards? | [INDENT], [MAX_LINE_LENGTH], [MIN_COVERAGE] | TASK-002 through TASK-003 | standards |
+| What is the minimum-coverage standard? | [MIN_COVERAGE] | TASK-003 | standards |
 | What are the development, verification, and build commands? | [*_COMMAND] in commands.md | TASK-002 through TASK-003 | commands |
 | What are the Preview and Production URLs? | [STAGING_URL], [PROD_URL] | Deployment design | tech-stack |
 | What are the source data's official download contract and authentication method? | Research required | TASK-004 | dependencies, architecture |
@@ -24,11 +24,12 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 - Project phase: new, pre-implementation
 - Database: none; static JSON
 - Infrastructure and CI/CD: GitHub Pages + GitHub Actions
-- Code license: Apache-2.0
+- Code license: MIT
 - Runtime and language: Node.js 24.19.0 LTS, npm 11.17.0, and TypeScript 7.0.2
 - UI and build: Preact 10.29.8 with Vite 8.2.1 and local hook/reducer state only
 - Repository: one repository and one npm package with explicit module directories
 - Tests: Vitest, Testing Library, Playwright, and axe, plus manual keyboard and screen-reader review
+- Lint and format: Biome 2.5.9 under the MIT license option; two-space indentation and a 100-column line limit
 - Active roles: six core roles plus Tester, Documenter, Security Reviewer, Performance Engineer, and Release Manager
 - Absolute constraints: zero-cost operation, static hosting, no collection of personal or usage data, no paid APIs/scraping/AI determination, and fail-safe status determination
 - Harness documentation language: English only, except exact quoted product/source literals

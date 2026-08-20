@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Documentation Index
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## Source Requirements
 
@@ -28,6 +28,8 @@ The source PRD is the source of truth for product requirements. This harness tur
 - `open-questions.md`: unresolved questions that replace placeholders
 - `../memory/architecture.md`: system structure and data flow
 - `../memory/decisions.md`: architecture decision records
+- `superpowers/specs/2026-08-20-technology-stack-design.md`: approved TASK-001 technology-stack design
+- `superpowers/specs/2026-08-20-repository-foundation-design.md`: approved TASK-002 repository-foundation design pending written review
 - `superpowers/specs/2026-08-18-korean-human-handbook-design.md`: approved design for a Korean human-facing handbook that is excluded from implementation context
 - `superpowers/plans/2026-08-18-korean-human-handbook.md`: implementation plan for the handbook boundary, workflow, and Pre-M0 baseline
 
