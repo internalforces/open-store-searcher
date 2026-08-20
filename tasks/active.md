@@ -11,9 +11,7 @@ _Last updated: 2026-08-20_
 
 ## In Progress
 
-| ID | Task | Owner | Started | Status |
-|---|---|---|---|---|
-| — | None — TASK-001 completed; awaiting authorization for the next M0 task | — | — | Not started |
+No active task. TASK-003 is the next planned task and requires activation approval before work begins.
 
 ## Task Detail Template
 

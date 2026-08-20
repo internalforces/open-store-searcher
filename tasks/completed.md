@@ -15,6 +15,13 @@ _Last updated: 2026-08-20_
 | HARNESS-002 | English-only harness documentation migration | 2026-08-18 | Documenter | Added the language policy and translated all repository harness Markdown |
 | TASK-025 | Establish the Korean human handbook boundary and Pre-M0 baseline | 2026-08-18 | Documenter | User-approved design implemented; documentation verification passed |
 | TASK-001 | Select and approve the implementation technology stack | 2026-08-20 | Architect | User approved all choices, direct dependencies, design sections, and written specification; ADR-004 accepted |
+| TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | 2026-08-20 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; pinned clean install, command suite, subpath build, license audit, and scope audit passed |
+
+## TASK-002 Verification Evidence
+
+- Independent Tester evidence in `reports/test-2026-08-20-task-002.md` records PASS for Node.js 24.19.0, npm 11.17.0, clean `npm ci`, lint, format, typecheck, build, combined verification, license generation, and subpath artifact checks.
+- Independent Reviewer approval in `reports/review-2026-08-20-task-002.md` confirms the approved dependency and license scope, static architecture, privacy boundary, minimal accessibility semantics, and preserved product-safety invariants.
+- Both independent gates verified the changed-path and whitespace audits, with no handbook, secret, environment, production-data, workflow, deployment, server, database, test-harness, or status/data implementation change.
 
 ## TASK-001 Verification Evidence
 

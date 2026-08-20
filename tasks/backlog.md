@@ -11,7 +11,6 @@ _Last updated: 2026-08-20_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-002 | Configure Apache-2.0 single/mono repository foundation, static build, lint, format, and typecheck | High | M0 | M | Open source, maintainability |
 | TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | High | M0 | M | Section 16, release criteria |
 | TASK-004 | Research local administrative licensing data download, schema, terms of use, and attribution | High | M1 | M | Section 12.1, Section 20 |
 | TASK-005 | Implement a change-detecting Seoul data collector | High | M1 | M | FR-13, Section 12.3 |
@@ -38,10 +37,9 @@ _Last updated: 2026-08-20_
 
 ## Recommended Start Order
 
-1. Activate TASK-002 and obtain approval for its linting and formatting dependencies and standards.
-2. Configure the test harness through TASK-003 after the repository foundation exists.
-3. Begin M1 implementation after TASK-004 verifies the source contract.
-4. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
+1. Configure the test harness through TASK-003.
+2. Begin M1 implementation after TASK-004 verifies the source contract.
+3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 remains the separate M3 deliverable for public setup, deployment, contribution, policy, and release documentation.
 

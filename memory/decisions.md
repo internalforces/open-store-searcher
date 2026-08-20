@@ -98,3 +98,19 @@ _Last updated: 2026-08-20_
 **Trade-offs**: The access restriction is policy-enforced rather than a universal technical sandbox. The handbook may intentionally lag work in progress until milestone close.
 
 **Consequences**: The English harness and verification evidence remain authoritative. `AGENTS.md`, role prompts, workflow, roadmap, and task routing enforce the boundary. Conflicts are fixed in the handbook rather than in implementation.
+
+## ADR-007: MIT Repository Foundation and Biome Quality Tooling
+
+- Date: 2026-08-20
+- Status: Accepted
+- Decision maker: User
+
+**Context**: TASK-002 must establish the first reproducible repository foundation and resolve the deferred linting, formatting, style, and code-license choices before packages are installed. The source PRD and initial harness selected Apache-2.0, but the user explicitly requested MIT during the TASK-002 design review. The approved TypeScript version is 7.0.2, while the current typescript-eslint metadata supports TypeScript only below 6.1.0.
+
+**Decision**: License the project source code under MIT. Use `@biomejs/biome` 2.5.9 under its MIT option as the sole additional direct development dependency for linting and formatting. Use two-space indentation, 100-column lines, LF endings, single-quoted TypeScript, double-quoted JSX attributes, semicolons, trailing commas, and conventional TypeScript naming. Pin Node.js 24.19.0, npm 11.17.0, and every direct dependency exactly.
+
+**Rationale**: MIT matches the user's approved open-source preference. Biome provides officially documented TypeScript, TSX, JSX, formatter, linter, Hooks, and accessibility support without relying on the current typescript-eslint TypeScript-version range. One quality-tool dependency reduces configuration, transitive dependencies, and supply-chain surface.
+
+**Trade-offs**: Biome has a smaller plugin ecosystem than ESLint and does not reproduce every ESLint or Prettier rule. The React-domain naming is used for Preact's compatible Hooks model. Changing the license requires coordinated updates to the source PRD and authoritative project documents.
+
+**Consequences**: TASK-002 installs only the approved build dependencies plus Biome, commits an exact lockfile, records transitive licenses, and creates the minimal static build. TASK-003 remains responsible for tests and coverage. Future lint-tool changes or new dependencies require their normal approval gates. See `docs/superpowers/specs/2026-08-20-repository-foundation-design.md`.

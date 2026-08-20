@@ -11,7 +11,7 @@ _Last updated: 2026-08-20_
 
 ## Core Dependencies
 
-TASK-001 approved the initial direct dependencies below. TASK-002 and TASK-003 will install them and record the resulting lockfile and transitive-license audit. Before adding any other package, record its purpose, exact version, license, bundle impact, alternatives, and human approval.
+TASK-001 approved the initial direct dependencies below. TASK-002 installed only Preact, TypeScript, Vite, `@preact/preset-vite`, and Biome, and recorded the resulting lockfile and transitive-license evidence. TASK-003 will install the remaining approved test dependencies. Before adding any other package, record its purpose, exact version, license, bundle impact, alternatives, and human approval.
 
 | Package | Version | Purpose | License | Approval |
 |---|---|---|---|---|
@@ -24,6 +24,7 @@ TASK-001 approved the initial direct dependencies below. TASK-002 and TASK-003 w
 | typescript | 7.0.2 | Strict type checking | Apache-2.0 | User approved 2026-08-20 |
 | vite | 8.2.1 | Static development and production build | MIT | User approved 2026-08-20 |
 | @preact/preset-vite | 2.10.6 | Preact integration for Vite | MIT | User approved 2026-08-20 |
+| @biomejs/biome | 2.5.9 | TypeScript/TSX linting and formatting; consumed under the MIT option | MIT OR Apache-2.0 | User approved MIT option 2026-08-20 |
 | vitest | 4.1.11 | Unit and offline pipeline tests | MIT | User approved 2026-08-20 |
 | @vitest/coverage-v8 | 4.1.11 | Vitest code coverage | MIT | User approved 2026-08-20 |
 | @testing-library/preact | 3.2.4 | Accessible component tests | MIT | User approved 2026-08-20 |
@@ -49,6 +50,16 @@ TASK-001 approved the initial direct dependencies below. TASK-002 and TASK-003 w
 - Map or search-page scrapers and headless browsers
 - User analytics, advertising, or tracking SDKs
 - AI-based status-determination services
+
+## TASK-002 Installation Audit
+
+- The repository foundation installs only Preact, TypeScript, Vite, `@preact/preset-vite`, and Biome as direct packages.
+- Every locked package version has a declared license.
+- The recorded licenses are compatible with distribution of this MIT-licensed project.
+- No paid service, runtime server, database, analytics, advertising, tracking, scraper, or AI-status dependency is present.
+- `@biomejs/biome` is consumed under the MIT option in its `MIT OR Apache-2.0` expression.
+
+`reports/dependency-licenses-2026-08-20.md` records the exact direct and transitive package versions and declared licenses from the TASK-002 lockfile.
 
 ## Version Policy
 

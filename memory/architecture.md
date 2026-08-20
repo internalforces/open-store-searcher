@@ -60,6 +60,7 @@ The output schema must at minimum represent an identifier; original and normaliz
 |---|---|---|
 | Implementation stack | TypeScript 7.0.2, Node.js 24.19.0 LTS, Preact 10.29.8, Vite 8.2.1, npm 11.17.0 | 2026-08-20 |
 | Repository | Single repository and single npm package with module directories | 2026-08-20 |
+| Repository foundation | MIT-licensed single npm package; strict TypeScript; Biome; relative Vite base | 2026-08-20 |
 | Test stack | Vitest, Testing Library, Playwright, and axe | 2026-08-20 |
 | Harness | AI Development Harness v1.1 Standard | 2026-08-18 |
 | Runtime | Static site with in-browser search | 2026-08-18 |
@@ -79,3 +80,5 @@ See `memory/decisions.md` for details.
 - Keep browser, search, domain, pipeline, and shared TypeScript modules in explicit directories within one npm package.
 - Use Preact-local state only; no router or external state-management dependency is approved.
 - Keep Node-executed pipeline and shared code compatible with native erasable TypeScript syntax.
+- Use the committed Node.js, npm, package-lock, TypeScript, Biome, and Vite configuration as the reproducible foundation.
+- Keep `handbook/ko/**` outside linting, formatting, and all implementation context.
