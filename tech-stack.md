@@ -7,25 +7,27 @@ Harness Version: 1.1
 
 # tech-stack.md — open-store-searcher Technology Stack
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## Stack Overview
 
 | Layer | Technology | Version | Status and rationale |
 |---|---|---|---|
-| Language | [LANG] | [VER] | Undecided — maintainability in both the browser and GitHub Actions requires evaluation |
-| Web framework | [FRAMEWORK] | [VER] | Undecided — must support static builds, small bundles, and subpath deployment |
+| Runtime | Node.js | 24.19.0 LTS | Approved — shared runtime for GitHub Actions pipeline and development tools |
+| Language | TypeScript | 7.0.2 | Approved — strict shared types for browser, domain, tests, and pipeline |
+| Web framework | Preact | 10.29.8 | Approved — small declarative UI runtime |
+| Build tool | Vite | 8.2.1 | Approved — static build and GitHub Pages subpath support |
 | Data storage | Static JSON | Schema undecided | Runtime databases are prohibited; searches run in the browser |
 | Hosting | GitHub Pages | Managed | Zero-cost static deployment |
 | Automation and CI/CD | GitHub Actions | Managed | Daily data refresh, validation, and Pages deployment |
-| Package manager | [PKG_MANAGER] | [VER] | Undecided |
-| Test tools | [TEST_STACK] | [VER] | Undecided — must support unit, pipeline, E2E, and accessibility testing |
+| Package manager | npm | 11.17.0 | Approved — single-package lockfile and `npm ci` workflow |
+| Test tools | Vitest, Testing Library, Playwright, axe | See `dependencies.md` | Approved — unit, pipeline, component, E2E, and accessibility coverage |
 
 ## Approved Architecture Patterns
 
 - Structure: static frontend + CI-based ETL + client-side search
 - API style: no runtime API
-- State management: [STATE_MANAGEMENT]
+- State management: Preact-local hooks and reducers; no router or external store
 - Data flow: local administrative licensing open data → GitHub Actions collection, normalization, and validation → static JSON → GitHub Pages → browser search
 - Deployment model: publish only validated new artifacts atomically; preserve the last known-good deployment after a failure
 
@@ -47,8 +49,7 @@ _Last updated: 2026-08-18_
 
 ## Open Decisions
 
-- [ ] Compare [LANG], [FRAMEWORK], [PKG_MANAGER], and [TEST_STACK], then obtain human approval.
 - [ ] Define static JSON partitioning and the search-index format.
 - [ ] Define the source-data download method and terms of use.
 - [ ] Define the Pages deployment method and last-known-good artifact preservation strategy.
-
+- [ ] Define linting, formatting, minimum coverage, and complete build/test commands in TASK-002 and TASK-003.

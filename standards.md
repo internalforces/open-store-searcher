@@ -7,11 +7,11 @@ Harness Version: 1.1
 
 # standards.md — open-store-searcher Quality Standards
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## Code Style
 
-- Language: [LANG]
+- Language: TypeScript 7.0.2 in strict mode
 - Indentation: [INDENT]
 - Maximum line length: [MAX_LINE_LENGTH]
 - Naming: Define the standard conventions for the selected language in the stack-decision ADR.
@@ -81,4 +81,3 @@ _Last updated: 2026-08-18_
 - [ ] Previous known-good data is preserved after validation failure.
 - [ ] New dependencies, infrastructure, and public interfaces are approved.
 - [ ] Related harness and user documentation is current and written in English.
-

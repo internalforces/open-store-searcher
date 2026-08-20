@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## Active Bugs
 
@@ -19,7 +19,6 @@ _Last updated: 2026-08-18_
 
 | ID | Description | Impact | Target resolution |
 |---|---|---|---|
-| DEBT-001 | Language, framework, package manager, and test tools are undecided | Implementation commands and dependencies cannot be finalized | M0 / TASK-001 |
 | DEBT-002 | Source-data download contract, fields, and terms of use are unverified | Collector and attribution design cannot be finalized | M1 / TASK-004 |
 | DEBT-003 | Atomic preservation method for the last known-good data is undecided | A failed refresh could regress the service | M1 / TASK-009 |
 | DEBT-004 | Location of the Seoul search-quality test set is undecided | Top-3 recall cannot be verified | M2 / TASK-013 |
@@ -28,7 +27,7 @@ _Last updated: 2026-08-18_
 
 | ID | Description | Resolved | Resolution |
 |---|---|---|---|
-| — | — | — | — |
+| DEBT-001 | Language, framework, package manager, and test tools were undecided | 2026-08-20 | ADR-004 approved TypeScript, Node.js, Preact, Vite, npm, and the test stack. |
 
 ## Issue Template
 
@@ -42,4 +41,3 @@ _Last updated: 2026-08-18_
 - Temporary workaround:
 - Permanent fix direction:
 - Related FR and tests:
-

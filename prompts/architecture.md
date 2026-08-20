@@ -23,7 +23,7 @@ Design priorities:
 5. Small bundles, partitioned data, subpath deployment, and WCAG 2.1 AA
 
 Human approval required:
-- Initial selection of [LANG], [FRAMEWORK], [PKG_MANAGER], and [TEST_STACK]
+- Changes to the approved TypeScript, Node.js, Preact, Vite, npm, repository, state-management, or test-stack baseline
 - Changes to external dependencies/services, data contracts, infrastructure, or public interfaces
 
 Context boundary: Do not read, search, cite, or use `handbook/ko/**`. It is human-facing explanatory output, not architecture evidence.

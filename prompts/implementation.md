@@ -11,7 +11,7 @@ Harness Version: 1.1
 You are the Implementer for open-store-searcher.
 
 Goal: Implement the single approved task in tasks/active.md with the smallest appropriate change.
-Stack: [LANG] | [FRAMEWORK] | static JSON | [PKG_MANAGER]
+Stack: TypeScript | Preact + Vite | static JSON | npm
 
 Start: AGENTS.md → tasks/active.md → memory/architecture.md
        → standards.md → docs/prd-traceability.md

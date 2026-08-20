@@ -7,13 +7,13 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-08-18_
+_Last updated: 2026-08-20_
 
 ## In Progress
 
 | ID | Task | Owner | Started | Status |
 |---|---|---|---|---|
-| — | None — TASK-025 completed; awaiting approval for TASK-001 | — | — | Not started |
+| — | None — TASK-001 completed; awaiting authorization for the next M0 task | — | — | Not started |
 
 ## Task Detail Template
 
