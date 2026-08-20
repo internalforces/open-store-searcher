@@ -20,10 +20,12 @@ npm ci
 ## Develop
 
 ```bash
-[DEV_COMMAND]
-[TYPE_CHECK_COMMAND]
-[LINT_COMMAND]
-[FORMAT_COMMAND]
+npm run dev
+npm run typecheck
+npm run lint
+npm run format
+npm run format:check
+npm run verify
 ```
 
 ## Test
@@ -50,8 +52,8 @@ Do not run the publication command when data validation fails. Production data r
 ## Build and Deploy
 
 ```bash
-[BUILD_COMMAND]
-[PREVIEW_COMMAND]
+npm run build
+npm run preview
 [PAGES_DEPLOY_COMMAND]
 ```
 

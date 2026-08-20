@@ -14,7 +14,7 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 | Question | Current placeholder | Decision location | Affected documents |
 |---|---|---|---|
 | What is the minimum-coverage standard? | [MIN_COVERAGE] | TASK-003 | standards |
-| What are the development, verification, and build commands? | [*_COMMAND] in commands.md | TASK-002 through TASK-003 | commands |
+| What are the test, coverage, pipeline, deployment, and later verification commands? | Remaining `[*_COMMAND]` values in `commands.md` | TASK-003 and later assigned tasks | commands |
 | What are the Preview and Production URLs? | [STAGING_URL], [PROD_URL] | Deployment design | tech-stack |
 | What are the source data's official download contract and authentication method? | Research required | TASK-004 | dependencies, architecture |
 

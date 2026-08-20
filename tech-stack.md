@@ -21,6 +21,7 @@ _Last updated: 2026-08-20_
 | Hosting | GitHub Pages | Managed | Zero-cost static deployment |
 | Automation and CI/CD | GitHub Actions | Managed | Daily data refresh, validation, and Pages deployment |
 | Package manager | npm | 11.17.0 | Approved — single-package lockfile and `npm ci` workflow |
+| Code license | MIT | — | Approved through ADR-007 |
 | Test tools | Vitest, Testing Library, Playwright, axe | See `dependencies.md` | Approved — unit, pipeline, component, E2E, and accessibility coverage |
 
 ## Approved Architecture Patterns
@@ -52,4 +53,4 @@ _Last updated: 2026-08-20_
 - [ ] Define static JSON partitioning and the search-index format.
 - [ ] Define the source-data download method and terms of use.
 - [ ] Define the Pages deployment method and last-known-good artifact preservation strategy.
-- [ ] Define linting, formatting, minimum coverage, and complete build/test commands in TASK-002 and TASK-003.
+- [ ] Define minimum coverage and complete test commands in TASK-003.

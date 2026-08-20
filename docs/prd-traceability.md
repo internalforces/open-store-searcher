@@ -47,7 +47,7 @@ _Last updated: 2026-08-20_
 
 | Area | Criterion | Tasks | Evidence | Status |
 |---|---|---|---|---|
-| Cost | Zero mandatory monthly cost and no payment method | TASK-001, 002, 010, 021 | Dependency, license, static-build, and deployment audit | In progress |
+| Cost | Zero mandatory monthly cost and no payment method | TASK-001, 002, 010, 021 | Dependency, license, static-build, and deployment audit; TASK-002 dependency-license report and static-build verification | In progress |
 | Search quality | Exact name-and-address Top-3 recall >= 90% | TASK-013, 021 | Benchmark report | Planned |
 | Refresh reliability | Success rate >= 95% over the last 30 days | TASK-010, 021 | Actions run history | Planned |
 | Freshness | As-of date within seven days during normal operation | TASK-008, 015 | Stale-data check | Planned |

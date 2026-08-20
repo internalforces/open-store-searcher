@@ -13,7 +13,7 @@ _Last updated: 2026-08-20_
 
 | ID | Task | Owner | Started | Status |
 |---|---|---|---|---|
-| TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | Architect / Implementer | 2026-08-20 | Design and written specification approved; implementation planning |
+| TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | Architect / Implementer | 2026-08-20 | Implementation verified; Reviewer approval pending |
 
 ## TASK-002: Configure Repository Foundation and Static Build
 
@@ -25,15 +25,15 @@ _Last updated: 2026-08-20_
 - Dependencies: TASK-001; approved repository-foundation design; explicit approval for MIT and `@biomejs/biome` 2.5.9
 - Risks: Tool-version drift, unapproved dependency expansion, license incompatibility, speculative product interfaces, and broken GitHub Pages subpaths
 - Acceptance criteria:
-  - [ ] MIT is recorded consistently in the source PRD, repository license, package metadata, ADR, and affected authoritative harness documents.
-  - [ ] Node.js 24.19.0 and npm 11.17.0 reproduce the exact lockfile and clean install.
-  - [ ] Only approved exact direct dependencies are installed, and every transitive license is recorded and compatible.
-  - [ ] The approved source directories and minimal Preact/Vite entry build without implementing later product scope.
-  - [ ] Biome lint and format checks, strict TypeScript checking, the static build, and the combined verification command pass.
-  - [ ] A GitHub Pages-style subpath build emits safe asset references.
+  - [x] MIT is recorded consistently in the source PRD, repository license, package metadata, ADR, and affected authoritative harness documents.
+  - [x] Node.js 24.19.0 and npm 11.17.0 reproduce the exact lockfile and clean install.
+  - [x] Only approved exact direct dependencies are installed, and every transitive license is recorded and compatible.
+  - [x] The approved source directories and minimal Preact/Vite entry build without implementing later product scope.
+  - [x] Biome lint and format checks, strict TypeScript checking, the static build, and the combined verification command pass.
+  - [x] A GitHub Pages-style subpath build emits safe asset references.
   - [ ] Reviewer verification confirms scope, licensing, privacy, static architecture, and product-safety compliance.
 - Verification commands: `npm ci`; `npm run lint`; `npm run format:check`; `npm run typecheck`; `npm run build`; `npm run verify`; subpath build smoke check; dependency-license audit; `git diff --check`
-- Results and evidence: Pending implementation and independent review
+- Results and evidence: Author verification is recorded in `memory/session.md`, including command, subpath-build, and dependency-license evidence. Independent review remains pending.
 
 ## Task Detail Template
 
