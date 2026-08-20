@@ -11,7 +11,6 @@ _Last updated: 2026-08-20_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | High | M0 | M | Section 16, release criteria |
 | TASK-004 | Research local administrative licensing data download, schema, terms of use, and attribution | High | M1 | M | Section 12.1, Section 20 |
 | TASK-005 | Implement a change-detecting Seoul data collector | High | M1 | M | FR-13, Section 12.3 |
 | TASK-006 | Implement transformation schema and identifiers that separate original display values from normalized search values | High | M1 | L | FR-05 through FR-06, Section 12.2 |
@@ -37,7 +36,7 @@ _Last updated: 2026-08-20_
 
 ## Recommended Start Order
 
-1. Configure the test harness through TASK-003.
+1. Complete the active test-harness work through TASK-003.
 2. Begin M1 implementation after TASK-004 verifies the source contract.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 

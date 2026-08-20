@@ -114,3 +114,36 @@ _Last updated: 2026-08-20_
 **Trade-offs**: Biome has a smaller plugin ecosystem than ESLint and does not reproduce every ESLint or Prettier rule. The React-domain naming is used for Preact's compatible Hooks model. Changing the license requires coordinated updates to the source PRD and authoritative project documents.
 
 **Consequences**: TASK-002 installs only the approved build dependencies plus Biome, commits an exact lockfile, records transitive licenses, and creates the minimal static build. TASK-003 remains responsible for tests and coverage. Future lint-tool changes or new dependencies require their normal approval gates. See `docs/superpowers/specs/2026-08-20-repository-foundation-design.md`.
+
+## ADR-008: Layered Test Harness and Coverage Policy
+
+- Date: 2026-08-20
+- Status: Accepted
+- Decision maker: User
+
+**Context**: TASK-003 must configure the approved test stack before data, search, status, and
+dashboard features exist. The project needs fast local verification, a full browser matrix,
+deterministic offline fixtures, explicit coverage minimums, and GitHub Pages subpath validation
+without assuming the unresolved source-data contract.
+
+**Decision**: Use one Vitest configuration with Node unit, Node pipeline, and jsdom component
+projects, plus one Playwright configuration with desktop Chromium, Firefox, WebKit, and mobile
+Chromium projects. Enforce global minimums of 80% for statements, lines, and functions and 75%
+for branches. Require 100% file-level coverage for the future status-mapping module after TASK-007
+defines its exact path. Separate fast verification from the full browser and accessibility matrix,
+and verify the built app at `/open-store-searcher/` on a local preview server.
+
+**Rationale**: Shared root configurations avoid duplicated policy while project-specific
+environments keep browser code separate from Node pipeline tests. The split command cadence keeps
+routine feedback fast and retains a mandatory full gate for task completion and releases.
+
+**Trade-offs**: Empty unit and pipeline projects temporarily permit no tests until their owning
+features are implemented. Full verification requires installed Playwright browsers and takes
+longer than routine verification. Automated accessibility testing remains incomplete without
+manual keyboard and screen-reader review.
+
+**Consequences**: TASK-003 installs only the seven already approved test dependencies, adds the
+layered configurations and current-app smoke tests, and defines fixture rules without speculative
+source data. Later feature tasks must add tests to their owning project, and TASK-007 must add the
+100% status-mapping threshold. See
+`docs/superpowers/specs/2026-08-20-test-harness-design.md`.
