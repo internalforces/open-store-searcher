@@ -1,0 +1,100 @@
+<!--
+Purpose:        Permanently record important product and technical decisions as ADRs
+Owner:          Architect / Researcher
+Update Trigger: When an important choice is proposed, accepted, deprecated, or superseded
+Harness Version: 1.1
+-->
+
+# Decision Log — open-store-searcher
+
+_Last updated: 2026-08-18_
+
+## ADR Template
+
+### ADR-NNN: Title
+
+- Date: YYYY-MM-DD
+- Status: Proposed | Accepted | Deprecated | Superseded
+- Decision maker: Role or user
+
+**Context**: Why a decision is needed  
+**Decision**: What was selected  
+**Rationale**: Why it was selected  
+**Trade-offs**: Disadvantages  
+**Consequences**: What changes
+
+## ADR-001: Adopt AI Development Harness v1.1
+
+- Date: 2026-08-18
+- Status: Accepted
+- Decision maker: User
+
+**Context**: Multiple AI roles must share the same constraints and state while moving from the PRD to implementation.  
+**Decision**: Adopt the Standard tier of AI Development Harness v1.1.  
+**Rationale**: Maintain roles, approval gates, memory, tasks, prompts, and traceability consistently.  
+**Trade-offs**: The documentation requires ongoing maintenance.  
+**Consequences**: Every agent works from `AGENTS.md` and the memory and task documents.
+
+## ADR-002: Zero-Cost Static Runtime
+
+- Date: 2026-08-18
+- Status: Accepted
+- Decision maker: User through the approved PRD
+
+**Context**: The product must eliminate long-term operating costs and risks from automated collection of external sites.  
+**Decision**: GitHub Actions builds the data, GitHub Pages serves the static application and JSON, and search runs in the browser.  
+**Rationale**: This satisfies the core requirements without a server, database, paid API, sign-up flow, or API key.  
+**Trade-offs**: Static file size, browser memory use, and search performance require active management.  
+**Consequences**: Runtime API and database dependencies are prohibited; data partitioning and lazy loading remain design considerations.
+
+## ADR-003: Fail-Safe Status Determination
+
+- Date: 2026-08-18
+- Status: Accepted
+- Decision maker: User through the approved PRD
+
+**Context**: Missing results, same-name businesses, address conflicts, and new raw statuses could produce incorrect closure determinations.  
+**Decision**: Without clear evidence, display `확인되지 않음` (unverified) and separate low-confidence matches into similar candidates.  
+**Rationale**: The harm from a false certainty is greater than the cost of asking the user to inspect candidates.  
+**Trade-offs**: The automatic-confirmation rate may be lower.  
+**Consequences**: Search and status tests include these safety rules as regression gates.
+
+## ADR-004: Implementation Technology Stack
+
+- Date: 2026-08-18
+- Status: Proposed
+- Decision maker: Architect → Human approval required
+
+**Context**: The PRD defers the language, framework, package manager, and test tools to the implementation plan.  
+**Decision**: Select [LANG], [FRAMEWORK], [PKG_MANAGER], and [TEST_STACK] after comparing candidates.  
+**Rationale**: Static deployment, small bundles, testability, maintainability, and licensing must be evaluated together.  
+**Trade-offs**: Actual development commands and dependencies remain undefined until the decision.  
+**Consequences**: Preserve placeholders until TASK-001 is approved.
+
+## ADR-005: English-Only Harness Documentation
+
+- Date: 2026-08-18
+- Status: Accepted
+- Decision maker: User
+
+**Context**: The harness needs one consistent language for governance, handoffs, tasks, prompts, and reviews.  
+**Decision**: Write all harness documentation in English. Preserve Korean text only as exact quoted product copy, source-system values, test fixtures, or glossary terms when spelling is semantically necessary.  
+**Rationale**: A single documentation language improves consistency and makes agent instructions and handoffs easier to audit.  
+**Trade-offs**: Korean product copy needs an English explanation when it appears in harness documents.  
+**Consequences**: Existing harness Markdown is translated to English, and future updates must pass the same language rule.
+
+## ADR-006: Separate Korean Human Handbook from AI Implementation Context
+
+- Date: 2026-08-18
+- Status: Accepted
+- Decision maker: User
+
+**Context**: Korean-speaking people need project-understanding documentation, while implementation agents need a small, authoritative English context without duplicated explanatory material.
+
+**Decision**: Place curated Korean explanations under `handbook/ko/**` and classify them as human-facing output rather than harness content. Implementation roles must not read or use the handbook. The Documenter may access it only during an authorized milestone-close documentation pass or after an explicit human request. Every milestone closes only after affected handbook files are updated or reviewed without change and a human reviews the Korean text.
+
+**Rationale**: A separate repository boundary and explicit role routing make the audience and authority clear while keeping documentation versioned with the project.
+
+**Trade-offs**: The access restriction is policy-enforced rather than a universal technical sandbox. The handbook may intentionally lag work in progress until milestone close.
+
+**Consequences**: The English harness and verification evidence remain authoritative. `AGENTS.md`, role prompts, workflow, roadmap, and task routing enforce the boundary. Conflicts are fixed in the handbook rather than in implementation.
