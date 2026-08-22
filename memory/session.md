@@ -7,13 +7,13 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-22_
 
 > After a session, add a snapshot to `memory/sessions/YYYY-MM-DD-ROLE.md` when useful.
 
 ## Session Information
 
-- Date: 2026-08-20
+- Date: 2026-08-22
 - Agent role: Architect / Implementer
 - Session goal: Design, plan, implement, and verify TASK-003
 
@@ -29,8 +29,8 @@ and Reviewer APPROVED. No task was active, and TASK-003 was the next recommended
       design.
 - [x] Create the isolated `codex/task-003-test-harness` worktree.
 - [x] Verify the clean TASK-002 baseline with Node.js 24.19.0 and npm 11.17.0.
-- [ ] Obtain human review of the written TASK-003 design specification.
-- [ ] Write and review the detailed implementation plan.
+- [x] Obtain human review of the written TASK-003 design specification.
+- [x] Write and review the detailed implementation plan.
 - [ ] Implement and verify TASK-003.
 - [ ] Obtain independent Tester PASS evidence for TASK-003.
 - [ ] Obtain independent Reviewer APPROVED evidence for TASK-003.
@@ -49,6 +49,8 @@ and Reviewer APPROVED. No task was active, and TASK-003 was the next recommended
 - [x] Ran a clean `npm ci` and existing `npm run verify` successfully with Node.js 24.19.0 and npm
       11.17.0 before implementation.
 - [x] Wrote the approved design specification and ADR-008.
+- [x] Obtained human approval of the written TASK-003 design specification.
+- [x] Wrote and self-reviewed the detailed TASK-003 implementation plan.
 
 ## Issues and Decisions Found
 
@@ -65,8 +67,9 @@ and Reviewer APPROVED. No task was active, and TASK-003 was the next recommended
 
 ## Next Session
 
-1. Obtain human review of the TASK-003 written design specification.
-2. Write the implementation plan after approval, then implement and verify it.
+1. Execute `docs/superpowers/plans/2026-08-22-test-harness.md` after the user selects an execution
+   mode.
+2. Obtain independent Tester PASS and Reviewer APPROVED evidence after implementation.
 3. Keep M0 open until its implementation, test, review, and handbook gates are complete.
 
 ## Important Context

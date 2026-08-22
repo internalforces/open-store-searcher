@@ -41,7 +41,8 @@ _Last updated: 2026-08-20_
 - Verification commands: `npm ci`, `npm run verify`, `npm run verify:full`, and
   `node scripts/report-dependency-licenses.mjs` under Node.js 24.19.0 and npm 11.17.0.
 - Results and evidence: Implementation pending. Approved design:
-  `docs/superpowers/specs/2026-08-20-test-harness-design.md`.
+  `docs/superpowers/specs/2026-08-20-test-harness-design.md`. Reviewed implementation plan:
+  `docs/superpowers/plans/2026-08-22-test-harness.md`.
 
 ## Task Detail Template
 
