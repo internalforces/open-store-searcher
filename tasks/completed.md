@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
@@ -16,6 +16,20 @@ _Last updated: 2026-08-20_
 | TASK-025 | Establish the Korean human handbook boundary and Pre-M0 baseline | 2026-08-18 | Documenter | User-approved design implemented; documentation verification passed |
 | TASK-001 | Select and approve the implementation technology stack | 2026-08-20 | Architect | User approved all choices, direct dependencies, design sections, and written specification; ADR-004 accepted |
 | TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | 2026-08-20 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; pinned clean install, command suite, subpath build, license audit, and scope audit passed |
+| TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | 2026-08-24 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; clean install, 100% Vitest coverage, four-browser Pages-subpath smoke, two zero-violation axe scans, and 302 dependency-license rows passed |
+
+## TASK-003 Verification Evidence
+
+- Independent Tester PASS in `reports/test-2026-08-24-task-003.md` records the required Node.js
+  24.19.0 and npm 11.17.0 clean installation, one component smoke test, 100% coverage, four
+  Pages-subpath browser projects, two zero-violation accessibility scans, and 302 dependency
+  license rows.
+- Independent Reviewer APPROVED in `reports/review-2026-08-24-task-003.md` confirms the approved
+  dependency scope, configuration ownership, fixture boundary, coverage policy, static/privacy
+  boundaries, and evidence integrity.
+- TASK-003 establishes automated test and accessibility foundations only. Product accessibility,
+  later functional requirements, TASK-004, and M0 closure remain pending; TASK-026 is the required
+  M0 handbook and human-language-review gate.
 
 ## TASK-002 Verification Evidence
 
