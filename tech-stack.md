@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # tech-stack.md — open-store-searcher Technology Stack
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 ## Stack Overview
 
@@ -53,4 +53,4 @@ _Last updated: 2026-08-20_
 - [ ] Define static JSON partitioning and the search-index format.
 - [ ] Define the source-data download method and terms of use.
 - [ ] Define the Pages deployment method and last-known-good artifact preservation strategy.
-- [ ] Define minimum coverage and complete test commands in TASK-003.
+- [x] Define minimum coverage and complete test commands in TASK-003.

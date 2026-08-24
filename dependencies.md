@@ -7,11 +7,14 @@ Harness Version: 1.1
 
 # dependencies.md — open-store-searcher Dependencies
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 ## Core Dependencies
 
-TASK-001 approved the initial direct dependencies below. TASK-002 installed only Preact, TypeScript, Vite, `@preact/preset-vite`, and Biome, and recorded the resulting lockfile and transitive-license evidence. TASK-003 will install the remaining approved test dependencies. Before adding any other package, record its purpose, exact version, license, bundle impact, alternatives, and human approval.
+TASK-001 approved the initial direct dependencies below. TASK-002 installed only Preact,
+TypeScript, Vite, `@preact/preset-vite`, and Biome. TASK-003 installed only the seven approved test
+dependencies. Before adding any other package, record its purpose, exact version, license, bundle
+impact, alternatives, and human approval.
 
 | Package | Version | Purpose | License | Approval |
 |---|---|---|---|---|
@@ -60,6 +63,20 @@ TASK-001 approved the initial direct dependencies below. TASK-002 installed only
 - `@biomejs/biome` is consumed under the MIT option in its `MIT OR Apache-2.0` expression.
 
 `reports/dependency-licenses-2026-08-20.md` records the exact direct and transitive package versions and declared licenses from the TASK-002 lockfile.
+
+## TASK-003 Installation Audit
+
+- The test harness adds exactly seven direct development dependencies: `vitest`,
+  `@vitest/coverage-v8`, `@testing-library/preact`, `@testing-library/user-event`, `jsdom`,
+  `@playwright/test`, and `@axe-core/playwright`.
+- All seven packages are development-only and do not enter the browser runtime dependency set.
+- Every locked package version has a declared license, and the recorded licenses are compatible
+  with distribution of this MIT-licensed project.
+- No paid service, runtime server, database, analytics, advertising, tracking, scraper, or
+  AI-status dependency is present.
+
+`reports/dependency-licenses-2026-08-24.md` records the exact direct and transitive package
+versions and declared licenses from the TASK-003 lockfile.
 
 ## Version Policy
 

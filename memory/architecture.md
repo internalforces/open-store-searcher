@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 ## System Overview
 
@@ -32,6 +32,8 @@ GitHub Actions collects, normalizes, and validates public administrative data in
 5. Static data: includes the minimum records plus source and as-of metadata needed for browser search.
 6. Search engine: normalizes input and calculates candidate matches, scores, address conflicts, and confidence.
 7. Dashboard: displays status, evidence, uncertainty, dates, external-verification links, and error states.
+8. Test harness: Vitest projects separate Node unit, Node pipeline, and jsdom component ownership;
+   Playwright projects cover Chromium, Firefox, WebKit, and mobile Chromium.
 
 ## Data Flow
 
@@ -81,4 +83,9 @@ See `memory/decisions.md` for details.
 - Use Preact-local state only; no router or external state-management dependency is approved.
 - Keep Node-executed pipeline and shared code compatible with native erasable TypeScript syntax.
 - Use the committed Node.js, npm, package-lock, TypeScript, Biome, and Vite configuration as the reproducible foundation.
+- Build and preview browser tests locally at `/open-store-searcher/` without changing the
+  production Vite base or contacting a deployed environment.
+- Use `npm run verify` for the fast lint, format, typecheck, coverage, and build loop. Use
+  `npm run verify:full` for task completion and release-oriented verification by adding the full
+  browser matrix and desktop/mobile Chromium accessibility scans.
 - Keep `handbook/ko/**` outside linting, formatting, and all implementation context.

@@ -7,11 +7,12 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 ## In Progress
 
-No active task. TASK-003 is the next planned task and requires activation approval before work begins.
+No active task. TASK-003 completed after independent Tester PASS and Reviewer APPROVED. TASK-026
+is the required next M0 close gate; TASK-004 remains unstarted until that gate is handled.
 
 ## Task Detail Template
 

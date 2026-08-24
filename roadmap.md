@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # roadmap.md — open-store-searcher Roadmap
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 ## Goal
 
@@ -16,8 +16,8 @@ Deliver a zero-cost, open-source static dashboard that lets users search Seoul-l
 ## M0 — Technology Decisions and Foundation
 
 - [x] Approve the language, framework, package manager, and repository structure through an ADR.
-- [ ] Set up the MIT-licensed repository and development, testing, and static-build foundation.
-- [ ] Verify GitHub Pages subpath deployment and the accessibility-test foundation.
+- [x] Set up the MIT-licensed repository and development, testing, and static-build foundation.
+- [x] Verify GitHub Pages subpath deployment and the accessibility-test foundation.
 - [ ] Update or review the Korean human handbook for verified M0 outcomes and pass human language review.
 
 ## M1 — Verifiable Data Pipeline
