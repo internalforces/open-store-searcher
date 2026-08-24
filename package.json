@@ -15,9 +15,14 @@
     "format": "biome format --write .",
     "format:check": "biome format .",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run --project=unit --passWithNoTests",
+    "test:pipeline": "vitest run --project=pipeline --passWithNoTests",
+    "test:component": "vitest run --project=component",
+    "test:coverage": "vitest run --coverage",
     "build": "vite build",
     "preview": "vite preview",
-    "verify": "biome lint --error-on-warnings . && biome format . && tsc --noEmit && vite build"
+    "verify": "npm run lint && npm run format:check && npm run typecheck && npm run test:coverage && npm run build"
   },
   "dependencies": {
     "preact": "10.29.8"
