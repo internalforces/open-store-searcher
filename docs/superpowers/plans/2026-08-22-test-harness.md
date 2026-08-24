@@ -52,7 +52,7 @@ Do not commit generated `coverage/`, `dist/`, `playwright-report/`, or `test-res
 - Modify: `package.json`
 - Modify: `package-lock.json`
 - Modify: `scripts/report-dependency-licenses.mjs`
-- Create: `reports/dependency-licenses-2026-08-22.md`
+- Create: `reports/dependency-licenses-2026-08-24.md`
 
 **Interfaces:**
 
@@ -95,7 +95,7 @@ and npm reports no missing or invalid direct dependency.
 In `scripts/report-dependency-licenses.mjs`, replace the report metadata and output target with:
 
 ```javascript
-const reportDate = '2026-08-22';
+const reportDate = '2026-08-24';
 const reportTask = 'TASK-003';
 
 const report = [
@@ -130,7 +130,7 @@ Run:
 ```bash
 runtime_bin=/Users/sonmyeong-gwan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin
 PATH="$runtime_bin:$PATH" "$runtime_bin/node" scripts/report-dependency-licenses.mjs
-rg -n '^\| (vitest|@vitest/coverage-v8|@testing-library/preact|@testing-library/user-event|jsdom|@playwright/test|@axe-core/playwright) \|' reports/dependency-licenses-2026-08-22.md
+rg -n '^\| (vitest|@vitest/coverage-v8|@testing-library/preact|@testing-library/user-event|jsdom|@playwright/test|@axe-core/playwright) \|' reports/dependency-licenses-2026-08-24.md
 ```
 
 Expected: the generator exits zero, reports no incomplete metadata, and the search returns all
@@ -152,7 +152,7 @@ the lockfile contains their required transitive packages; the whitespace check e
 
 ```bash
 git add package.json package-lock.json scripts/report-dependency-licenses.mjs \
-  reports/dependency-licenses-2026-08-22.md
+  reports/dependency-licenses-2026-08-24.md
 git commit -m "chore(test): install approved harness dependencies"
 ```
 
@@ -717,7 +717,7 @@ In `standards.md`:
 
 In `dependencies.md`, add a TASK-003 installation audit that names the seven new direct test
 packages, confirms development-only use, and links
-`reports/dependency-licenses-2026-08-22.md`.
+`reports/dependency-licenses-2026-08-24.md`.
 
 In `tech-stack.md`, check the TASK-003 coverage-and-command item.
 
@@ -793,8 +793,8 @@ git commit -m "docs(test): integrate task-003 verification"
 
 **Files:**
 
-- Create: `reports/test-2026-08-22-task-003.md`
-- Create: `reports/review-2026-08-22-task-003.md`
+- Create: `reports/test-2026-08-24-task-003.md`
+- Create: `reports/review-2026-08-24-task-003.md`
 - Modify after both approvals: `tasks/active.md`
 - Modify after both approvals: `tasks/completed.md`
 - Modify after both approvals: `roadmap.md`
@@ -827,7 +827,7 @@ PATH="$runtime_bin:$PATH" "$runtime_bin/node" scripts/report-dependency-licenses
 
 The Tester records commands, exact versions, counts, coverage, browser projects, accessibility
 results, license results, scope audit, and PASS/FAIL in
-`reports/test-2026-08-22-task-003.md`. Any failure returns to the Implementer with a reproducing
+`reports/test-2026-08-24-task-003.md`. Any failure returns to the Implementer with a reproducing
 test or exact command output; the author cannot issue the independent PASS.
 
 - [ ] **Step 2: Have an independent Reviewer assess the implementation and Tester evidence**
@@ -836,7 +836,7 @@ The Reviewer inspects `origin/main...HEAD`, the design, active-task criteria, de
 license report, command separation, coverage exclusions, no-test allowances, fixture boundary,
 Pages subpath, browser matrix, accessibility tags, privacy/static-hosting boundaries, and Tester
 report. The Reviewer records findings and APPROVED/CHANGES REQUESTED in
-`reports/review-2026-08-22-task-003.md`. Any finding is fixed and sent through both independent
+`reports/review-2026-08-24-task-003.md`. Any finding is fixed and sent through both independent
 gates again; the author cannot self-approve.
 
 - [ ] **Step 3: Close TASK-003 only after both independent gates pass**
@@ -858,7 +858,7 @@ Run:
 
 ```bash
 git diff --check
-rg -n 'TASK-003|test-2026-08-22-task-003|review-2026-08-22-task-003' \
+rg -n 'TASK-003|test-2026-08-24-task-003|review-2026-08-24-task-003' \
   tasks/completed.md memory/project.md memory/session.md docs/prd-traceability.md
 rg -n 'TASK-026' tasks/active.md memory/project.md memory/session.md
 ```
@@ -869,7 +869,7 @@ next; no document claims M0 or product accessibility is complete.
 Commit:
 
 ```bash
-git add reports/test-2026-08-22-task-003.md reports/review-2026-08-22-task-003.md \
+git add reports/test-2026-08-24-task-003.md reports/review-2026-08-24-task-003.md \
   tasks/active.md tasks/completed.md roadmap.md memory/project.md memory/session.md \
   docs/prd-traceability.md
 git commit -m "docs(tasks): complete task-003"
@@ -882,4 +882,4 @@ git commit -m "docs(tasks): complete task-003"
 - Scope: every production behavior owned by TASK-004 or later remains excluded.
 - Type consistency: Vitest project names and Playwright project names match every package command.
 - Coverage consistency: global 80/80/80/75 values match the accepted ADR and specification.
-- Evidence consistency: the TASK-003 license, test, and review reports use the 2026-08-22 date.
+- Evidence consistency: the TASK-003 license, test, and review reports use the 2026-08-24 date.
