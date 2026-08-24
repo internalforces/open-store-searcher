@@ -42,8 +42,9 @@ _Last updated: 2026-08-24_
   dependency scope, configuration ownership, fixture boundary, coverage policy, static/privacy
   boundaries, and evidence integrity.
 - TASK-003 establishes automated test and accessibility foundations only. Product accessibility,
-  later functional requirements, TASK-004, and M0 closure remain pending; TASK-026 is the required
-  M0 handbook and human-language-review gate.
+  later functional requirements, and TASK-004 remain pending. At TASK-003 completion, M0 closure
+  still required the TASK-026 handbook and human-language-review gate; the TASK-026 M0 record above
+  confirms that this final gate later passed.
 
 ## TASK-002 Verification Evidence
 
