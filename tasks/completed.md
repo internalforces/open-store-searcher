@@ -17,6 +17,20 @@ _Last updated: 2026-08-24_
 | TASK-001 | Select and approve the implementation technology stack | 2026-08-20 | Architect | User approved all choices, direct dependencies, design sections, and written specification; ADR-004 accepted |
 | TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | 2026-08-20 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; pinned clean install, command suite, subpath build, license audit, and scope audit passed |
 | TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | 2026-08-24 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; clean install, 100% Vitest coverage, four-browser Pages-subpath smoke, two zero-violation axe scans, and 302 dependency-license rows passed |
+| TASK-026 (M0) | Review the Korean handbook and pass the M0 human-language gate | 2026-08-24 | Documenter / Planner | All eight handbook files recorded as Updated or Reviewed without content change; user approved Korean clarity, safety terminology, and accuracy; M0 closed |
+
+## TASK-026 M0 Verification Evidence
+
+- Updated six handbook documents and reviewed `data-and-status.md` and `search-and-ui.md` without
+  content changes; all eight files received current M0 review metadata.
+- Recorded the verified TASK-001 through TASK-003 outcomes, incomplete product boundaries,
+  authoritative evidence paths, and per-file results in `handbook/ko/milestone-history.md`.
+- Corrected the superseded Apache-2.0 handbook statement to the approved MIT project-source license
+  while preserving separate dependency-license treatment.
+- Passed handbook inventory, metadata, relative-link, safety-term, review-record, formatting,
+  whitespace, and changed-scope verification.
+- The user approved Korean clarity, safety terminology, implementation-versus-plan distinctions,
+  and factual accuracy on 2026-08-24.
 
 ## TASK-003 Verification Evidence
 
@@ -28,8 +42,9 @@ _Last updated: 2026-08-24_
   dependency scope, configuration ownership, fixture boundary, coverage policy, static/privacy
   boundaries, and evidence integrity.
 - TASK-003 establishes automated test and accessibility foundations only. Product accessibility,
-  later functional requirements, TASK-004, and M0 closure remain pending; TASK-026 is the required
-  M0 handbook and human-language-review gate.
+  later functional requirements, and TASK-004 remain pending. At TASK-003 completion, M0 closure
+  still required the TASK-026 handbook and human-language-review gate; the TASK-026 M0 record above
+  confirms that this final gate later passed.
 
 ## TASK-002 Verification Evidence
 

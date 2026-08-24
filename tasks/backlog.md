@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
@@ -36,8 +36,9 @@ _Last updated: 2026-08-20_
 
 ## Recommended Start Order
 
-1. Complete the active test-harness work through TASK-003.
-2. Begin M1 implementation after TASK-004 verifies the source contract.
+1. Begin M1 with TASK-004 to verify the source contract.
+2. Continue the data pipeline only after TASK-004 resolves the official download, schema, terms,
+   and attribution requirements.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 remains the separate M3 deliverable for public setup, deployment, contribution, policy, and release documentation.
