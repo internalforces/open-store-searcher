@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 ## Usage Rules
 
@@ -52,7 +52,7 @@ _Last updated: 2026-08-20_
 | Refresh reliability | Success rate >= 95% over the last 30 days | TASK-010, 021 | Actions run history | Planned |
 | Freshness | As-of date within seven days during normal operation | TASK-008, 015 | Stale-data check | Planned |
 | Performance | LCP target 2.5 s, search 500 ms, code 300 KB | TASK-018 | Performance report | Planned |
-| Accessibility | Baseline WCAG 2.1 AA, zero critical automated errors | TASK-017, 021 | Automated and manual audit | Planned |
+| Accessibility | Baseline WCAG 2.1 AA, zero critical automated errors | TASK-003, 017, 021 | TASK-003 Vitest/Playwright configuration and WCAG 2.1 A/AA smoke scan establish the automated foundation; product-level automated and manual audit remains pending | In progress |
 | Privacy | Zero collection of search terms or behavior | TASK-019, 021 | Network and code audit | Planned |
 | Safety | Zero missing-result-to-closed or new-code auto-mappings | TASK-007, 013, 021 | Regression tests | Planned |
 | Recovery | Preserve last known-good data after validation failure | TASK-009, 010, 021 | Failure-injection tests | Planned |

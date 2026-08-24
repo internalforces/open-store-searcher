@@ -7,14 +7,13 @@ Harness Version: 1.1
 
 # Open Questions — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 Values that cannot be confirmed from the PRD and empty repository are not assumed. When an item below is decided, update the related placeholders across all linked documents.
 
 | Question | Current placeholder | Decision location | Affected documents |
 |---|---|---|---|
-| What is the minimum-coverage standard? | [MIN_COVERAGE] | TASK-003 | standards |
-| What are the test, coverage, pipeline, deployment, and later verification commands? | Remaining `[*_COMMAND]` values in `commands.md` | TASK-003 and later assigned tasks | commands |
+| What are the data-pipeline, deployment, performance, recall, freshness, and publication commands? | Remaining `[*_COMMAND]` values in `commands.md` | Later assigned tasks | commands |
 | What are the Preview and Production URLs? | [STAGING_URL], [PROD_URL] | Deployment design | tech-stack |
 | What are the source data's official download contract and authentication method? | Research required | TASK-004 | dependencies, architecture |
 
@@ -29,6 +28,11 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 - UI and build: Preact 10.29.8 with Vite 8.2.1 and local hook/reducer state only
 - Repository: one repository and one npm package with explicit module directories
 - Tests: Vitest, Testing Library, Playwright, and axe, plus manual keyboard and screen-reader review
+- Coverage: 80% statements, 80% lines, 80% functions, and 75% branches globally; the
+  TASK-007 status-mapping file will require 100% after its exact path is defined
+- Test commands: `test`, `test:unit`, `test:pipeline`, `test:component`, `test:coverage`,
+  `test:e2e`, `test:e2e:full`, `test:a11y`, `verify`, and `verify:full`; the Vitest 4
+  `--passWithNoTests` allowance is scoped only to `test:unit` and `test:pipeline`
 - Lint and format: Biome 2.5.9 under the MIT license option; two-space indentation and a 100-column line limit
 - Active roles: six core roles plus Tester, Documenter, Security Reviewer, Performance Engineer, and Release Manager
 - Absolute constraints: zero-cost operation, static hosting, no collection of personal or usage data, no paid APIs/scraping/AI determination, and fail-safe status determination

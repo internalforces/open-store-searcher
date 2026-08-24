@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # standards.md — open-store-searcher Quality Standards
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
 ## Code Style
 
@@ -29,10 +29,14 @@ _Last updated: 2026-08-20_
 
 ## Testing Standards
 
-- Minimum coverage: [MIN_COVERAGE]%
+- Minimum global coverage: 80% statements, 80% lines, 80% functions, and 75% branches.
+- Require 100% file-level coverage for the status-mapping file after TASK-007 defines its exact
+  path.
 - Unit-test all status mappings and search-scoring business logic.
-- The pipeline must be reproducible without network access by using small, fixed fixtures.
+- Follow the deterministic, offline shared-fixture rules in `tests/fixtures/README.md`.
+- Every later feature task must add tests to the Vitest project that owns its implemented behavior.
 - Verify mobile and desktop UI, keyboard-only use, screen-reader status announcements, and the GitHub Pages subpath.
+- Require `npm run verify:full` for task completion and release-oriented verification.
 - Add a reproducing test before fixing a bug.
 
 ## Data Quality

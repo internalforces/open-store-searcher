@@ -7,9 +7,9 @@ Harness Version: 1.1
 
 # commands.md — open-store-searcher Command Reference
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-24_
 
-> TASK-001 approved Node.js 24.19.0, npm 11.17.0, TypeScript, Preact, Vite, and the test stack. TASK-002 foundation commands are implemented; TASK-003 test command placeholders remain until the test harness configuration exists.
+> TASK-001 approved Node.js 24.19.0, npm 11.17.0, TypeScript, Preact, Vite, and the test stack. TASK-002 foundation commands and TASK-003 test commands are implemented.
 
 ## Install
 
@@ -31,11 +31,15 @@ npm run verify
 ## Test
 
 ```bash
-[UNIT_TEST_COMMAND]
-[PIPELINE_TEST_COMMAND]
-[E2E_TEST_COMMAND]
-[ACCESSIBILITY_TEST_COMMAND]
-[COVERAGE_COMMAND]
+npm run test
+npm run test:unit
+npm run test:pipeline
+npm run test:component
+npm run test:coverage
+npm run test:e2e
+npm run test:e2e:full
+npm run test:a11y
+npm run verify:full
 ```
 
 ## Data Pipeline
