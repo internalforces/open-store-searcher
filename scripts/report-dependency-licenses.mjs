@@ -134,17 +134,20 @@ const rows = [...records.values()]
       `| ${name} | ${version} | ${relationship} | ${license} |`,
   );
 
+const reportDate = '2026-08-24';
+const reportTask = 'TASK-003';
+
 const report = [
   '<!--',
-  'Purpose:        Record exact direct and transitive dependency licenses for TASK-002',
+  `Purpose:        Record exact direct and transitive dependency licenses for ${reportTask}`,
   'Owner:          Implementer / Reviewer',
   'Update Trigger: When package-lock.json changes',
   'Harness Version: 1.1',
   '-->',
   '',
-  '# TASK-002 Dependency License Report',
+  `# ${reportTask} Dependency License Report`,
   '',
-  '_Generated from `package-lock.json` and installed package manifests on 2026-08-20._',
+  `_Generated from \`package-lock.json\` and installed package manifests on ${reportDate}._`,
   '',
   '| Package | Version | Relationship | Declared license |',
   '|---|---|---|---|',
@@ -152,5 +155,5 @@ const report = [
   '',
 ].join('\n');
 
-writeFileSync(join(root, 'reports/dependency-licenses-2026-08-20.md'), report);
+writeFileSync(join(root, `reports/dependency-licenses-${reportDate}.md`), report);
 console.log(`Recorded ${rows.length} unique package versions.`);
