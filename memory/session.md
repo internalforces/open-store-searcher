@@ -50,10 +50,8 @@ and Reviewer APPROVED. M0 remained open solely for the recurring TASK-026 handbo
 
 ## Issues and Decisions Found
 
-- The handbook still describes the project as Pre-M0 and lists the approved stack, repository,
-  commands, and test tools as undecided.
-- `handbook/ko/project-overview.md` still states the superseded Apache-2.0 code license; ADR-007
-  changed the project license to MIT.
+- Resolved during this session: the handbook's stale Pre-M0 baseline and superseded Apache-2.0
+  project-license statement were updated to the verified M0 baseline and ADR-007's MIT license.
 - M0 established an automated accessibility-test foundation, not product-level accessibility.
 - The source-data contract, data pipeline, search, dashboard, deployment workflow, and operating URL
   remain unimplemented and must not be described as complete.
