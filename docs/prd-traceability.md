@@ -56,7 +56,7 @@ _Last updated: 2026-08-24_
 | Privacy | Zero collection of search terms or behavior | TASK-019, 021 | Network and code audit | Planned |
 | Safety | Zero missing-result-to-closed or new-code auto-mappings | TASK-007, 013, 021 | Regression tests | Planned |
 | Recovery | Preserve last known-good data after validation failure | TASK-009, 010, 021 | Failure-injection tests | Planned |
-| Documentation | Public setup, deployment, source, disclaimer, and milestone handbook review | TASK-020, 021, 025, 026 | Public-documentation checklist plus milestone handbook review record | In progress |
+| Documentation | Public setup, deployment, source, disclaimer, and milestone handbook review | TASK-020, 021, 025, 026 | M0 TASK-026 handbook review record and human approval complete; public-documentation checklist remains pending TASK-020 and TASK-021 | In progress |
 
 ## Human Handbook Governance
 

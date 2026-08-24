@@ -11,8 +11,8 @@ _Last updated: 2026-08-24_
 
 ## In Progress
 
-No active task. TASK-003 completed after independent Tester PASS and Reviewer APPROVED. TASK-026
-is the required next M0 close gate; TASK-004 remains unstarted until that gate is handled.
+No active task. TASK-026 completed the M0 handbook and human-language-review gate. M0 is closed;
+TASK-004 is the next planned task and requires activation before work begins.
 
 ## Task Detail Template
 

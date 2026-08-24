@@ -14,96 +14,59 @@ _Last updated: 2026-08-24_
 ## Session Information
 
 - Date: 2026-08-24
-- Agent role: Architect / Implementer
-- Session goal: Design, plan, implement, independently verify, and close TASK-003
+- Agent role: Documenter / Planner
+- Session goal: Complete the TASK-026 M0 handbook gate and close M0 after human language review
 
 ## Previous Session Summary
 
-TASK-002 was merged to `main` through pull request #2 at `faf97b4` after independent Tester PASS
-and Reviewer APPROVED. No task was active, and TASK-003 was the next recommended M0 task.
+TASK-003 was merged to `main` through pull request #3 at `02c4054` after independent Tester PASS
+and Reviewer APPROVED. M0 remained open solely for the recurring TASK-026 handbook gate.
 
 ## Current Work
 
-- [x] Obtain authorization to activate TASK-003.
-- [x] Obtain section-by-section approval for coverage, fixture, command, browser, and acceptance
-      design.
-- [x] Create the isolated `codex/task-003-test-harness` worktree.
-- [x] Verify the clean TASK-002 baseline with Node.js 24.19.0 and npm 11.17.0.
-- [x] Obtain human review of the written TASK-003 design specification.
-- [x] Write and review the detailed implementation plan.
-- [x] Implement and locally verify TASK-003.
-- [x] Obtain independent Tester PASS evidence for TASK-003.
-- [x] Obtain independent Reviewer APPROVED evidence for TASK-003.
-- [x] Close TASK-003 records after both independent gates passed.
+- [x] Confirm the TASK-003 merge and fast-forward local `main`.
+- [x] Obtain user approval for the bounded TASK-026 documentation design.
+- [x] Create `codex/task-026-m0-handbook` and activate TASK-026.
+- [x] Update or review every Korean handbook document against verified M0 outcomes.
+- [x] Run documentation and repository-scope verification.
+- [x] Obtain human Korean-language review.
+- [x] Close TASK-026 and M0 after the human review passed.
 
 ## Completed This Session
 
-- [x] Confirmed TASK-002 merge commit `faf97b4` as the clean TASK-003 baseline.
-- [x] Obtained user approval to activate TASK-003.
-- [x] Approved the 80% statements, lines, and functions plus 75% branches coverage policy and the
-      future 100% status-mapping file threshold.
-- [x] Approved the colocated test, shared fixture, setup, and E2E directory conventions.
-- [x] Approved the unified Vitest-project and Playwright-project architecture.
-- [x] Approved the fast and full command cadence, Pages-subpath preview flow, scope boundary, and
-      acceptance gates.
-- [x] Created the `codex/task-003-test-harness` isolated worktree.
-- [x] Ran a clean `npm ci` and existing `npm run verify` successfully with Node.js 24.19.0 and npm
-      11.17.0 before implementation.
-- [x] Wrote the approved design specification and ADR-008.
-- [x] Obtained human approval of the written TASK-003 design specification.
-- [x] Wrote and self-reviewed the detailed TASK-003 implementation plan.
-- [x] Installed the seven exact approved test dependencies and recorded 302 direct and transitive
-      package-version licenses in `reports/dependency-licenses-2026-08-24.md`.
-- [x] Added three Vitest projects, deterministic fixture rules, four Playwright projects, and
-      desktop/mobile Chromium WCAG 2.1 A/AA scans.
-- [x] Ran `npm run verify` and `npm run verify:full` under Node.js 24.19.0 and npm 11.17.0;
-      coverage was 100% for statements, branches, functions, and lines, all four browser smoke
-      projects passed, and both axe projects passed with zero violations.
-- [x] Received independent Tester PASS in `reports/test-2026-08-24-task-003.md` after a clean
-      installation and complete command suite.
-- [x] Received independent Reviewer APPROVED in `reports/review-2026-08-24-task-003.md` after its
-      focused evidence-integrity correction round.
-- [x] Closed TASK-003 while retaining the M0 handbook and human-language-review gate.
-
-Exact final verification commands used the approved runtime prefix:
-
-```bash
-runtime_bin=/Users/sonmyeong-gwan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin
-PATH="$runtime_bin:$PATH" npx --yes npm@11.17.0 ci
-PATH="$runtime_bin:$PATH" npx --yes npm@11.17.0 run verify
-PATH="$runtime_bin:$PATH" npx --yes npm@11.17.0 run verify:full
-PATH="$runtime_bin:$PATH" "$runtime_bin/node" scripts/report-dependency-licenses.mjs
-```
-
-The fast and full verification commands each ran one passing component test. The full command
-also passed four Playwright smoke tests and two Playwright axe tests.
+- [x] Confirmed remote and local `main` at TASK-003 merge commit `02c4054`.
+- [x] Limited the authorized handbook pass to completed M0 evidence from TASK-001 through TASK-003.
+- [x] Updated six handbook documents and reviewed two without content changes, while refreshing the
+      visible baseline and review metadata in all eight files.
+- [x] Corrected the superseded Apache-2.0 handbook statement to the approved MIT project-source
+      license and preserved separate dependency-license treatment.
+- [x] Added the M0 history entry, authoritative evidence paths, incomplete-work boundary, per-file
+      review table, and pending human-review state.
+- [x] Passed format, changed-line whitespace, handbook inventory, date, implementation-boundary,
+      relative-link, safety-term, review-record, superseded-license, and changed-scope checks.
+- [x] Received user approval for Korean clarity, safety terminology, implementation-versus-plan
+      distinctions, and factual accuracy.
+- [x] Closed TASK-026 and M0 in the handbook, roadmap, task, project, and traceability records.
 
 ## Issues and Decisions Found
 
-- The default shell uses Node.js 22.22.3 and npm 10.9.8, but the Codex bundled runtime provides the approved Node.js 24.19.0. Verification must run npm 11.17.0 through that runtime.
-- The bundled Node runtime does not expose its own npm binary. Use npm 11.17.0 through the
-  approved runtime path for all installation and verification commands.
-- TASK-003 permits no-test results only for the intentionally empty unit and pipeline projects;
-  Vitest 4.1.11 rejected project-level `passWithNoTests`, so the reviewed implementation scopes
-  `--passWithNoTests` only to `test:unit` and `test:pipeline`. Each later feature task must add its
-  owned tests.
-- Playwright emits a host-provided `NO_COLOR`/`FORCE_COLOR` warning. It is environmental,
-  non-functional Minor evidence and does not affect the browser or accessibility outcomes.
-- TASK-004 must verify the source-data contract before any administrative-data fixture schema is
-  created.
-- M0 remains open solely for TASK-026, the handbook update-or-review and human Korean-language
-  review gate. Product accessibility remains pending TASK-017 and TASK-021; no deployment,
-  production-data operation, or handbook access has occurred.
+- The handbook still describes the project as Pre-M0 and lists the approved stack, repository,
+  commands, and test tools as undecided.
+- `handbook/ko/project-overview.md` still states the superseded Apache-2.0 code license; ADR-007
+  changed the project license to MIT.
+- M0 established an automated accessibility-test foundation, not product-level accessibility.
+- The source-data contract, data pipeline, search, dashboard, deployment workflow, and operating URL
+  remain unimplemented and must not be described as complete.
 
 ## Next Session
 
-1. Run TASK-026 for the M0 handbook update-or-review and human Korean-language review gate.
-2. Keep M0 open until TASK-026 is complete; TASK-004 remains unstarted until then.
+1. Activate TASK-004 after approval.
+2. Research the official source-data download contract, schema, terms of use, and attribution
+   requirements before creating administrative-data fixtures or implementation assumptions.
 
 ## Important Context
 
-TASK-003 is complete on `codex/task-003-test-harness` after independent Tester PASS and Reviewer
-APPROVED. Its approved design adds only test infrastructure and does not alter zero-cost operation,
-static hosting, no-collection privacy, scraping and paid-API prohibitions, or fail-safe status
-determination. M0 remains open for TASK-026, TASK-004 remains unstarted, product accessibility is
-not complete, and `handbook/ko/**` remains excluded from implementation context.
+TASK-026 and M0 are complete after the required user Korean-language approval. No task is active;
+TASK-004 is next. The handbook remains human-facing output rather than implementation evidence. No
+deployment, production-data operation, source-data contract decision, or product-feature
+implementation occurred.

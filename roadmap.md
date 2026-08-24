@@ -18,7 +18,7 @@ Deliver a zero-cost, open-source static dashboard that lets users search Seoul-l
 - [x] Approve the language, framework, package manager, and repository structure through an ADR.
 - [x] Set up the MIT-licensed repository and development, testing, and static-build foundation.
 - [x] Verify GitHub Pages subpath deployment and the accessibility-test foundation.
-- [ ] Update or review the Korean human handbook for verified M0 outcomes and pass human language review.
+- [x] Update or review the Korean human handbook for verified M0 outcomes and pass human language review.
 
 ## M1 — Verifiable Data Pipeline
 
