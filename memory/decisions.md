@@ -187,3 +187,29 @@ date. Publication remains prohibited until archive integrity, the approved 195-c
 required schema, conservative as-of derivation, bounded change checks, and last-known-good
 preservation are designed and verified by their owning tasks. Unknown statuses remain
 `확인되지 않음`; ADR-009 does not authorize production data, workflows, or deployment.
+
+## ADR-010: Native Node Collector with an Info-ZIP Adapter
+
+- Date: 2026-08-28
+- Status: Accepted
+- Decision maker: User
+
+**Context**: TASK-005 needs to stream and inspect an approximately 206 MiB ZIP without adding a ZIP
+runtime package or implementing a security-sensitive archive parser. Strict TypeScript also needs
+Node API declarations, which the existing dependency set does not include.
+
+**Decision**: Implement the collector with Node.js 24.19.0 native HTTP, stream, filesystem,
+child-process, and SHA-256 APIs. Put the system `unzip` executable behind an injected adapter and
+invoke it without a shell. Add `@types/node` 24.13.3 as the sole new direct development dependency.
+
+**Rationale**: GitHub-hosted Ubuntu 24.04 and the current macOS development environment provide
+Info-ZIP. This approach streams large inputs, avoids a browser bundle effect, keeps the npm
+supply-chain addition to type declarations, and makes the archive boundary replaceable.
+
+**Trade-offs**: Local execution requires a compatible `unzip` executable and is not guaranteed on
+Windows. A missing or incompatible executable fails closed with a typed environment rejection.
+Changing to a JavaScript ZIP package requires a separate dependency decision.
+
+**Consequences**: TASK-005 adds no workflow, deployment, production data, or publication path. It
+must follow `docs/superpowers/specs/2026-08-28-seoul-collector-design.md`, use offline pipeline
+tests, and record only schema-level evidence from its one manually initiated live probe.

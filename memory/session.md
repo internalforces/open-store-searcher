@@ -34,7 +34,8 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Evaluate all PR #5 review findings against the repository constraints.
 - [x] Complete the all-category permission and attribution evidence gate before closing TASK-004.
 - [x] Pass TASK-004 verification and review, close it, and activate TASK-005.
-- [ ] Obtain approval for the TASK-005 collector design before implementation.
+- [x] Obtain approval for the TASK-005 collector approach and `@types/node` 24.13.3 dependency.
+- [ ] Obtain confirmation of the committed TASK-005 written specification before planning.
 
 ## Completed This Session
 
@@ -62,6 +63,9 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Passed the TASK-004 live link, provider, title, permission, consistency, formatting, and
       whitespace gates; Reviewer APPROVED with no findings.
 - [x] Closed TASK-004 and activated TASK-005 for collector design.
+- [x] Received user approval for native Node streaming, an injected Info-ZIP adapter, and the sole
+      new direct development dependency `@types/node` 24.13.3.
+- [x] Wrote the TASK-005 collector design and recorded ADR-010; written-spec confirmation remains.
 
 ## Issues and Decisions Found
 
@@ -76,8 +80,8 @@ required human Korean-language review. No source-data contract or M1 implementat
 
 ## Next Session
 
-1. Obtain user approval for the TASK-005 collector design.
-2. Write the approved design specification and implementation plan, then implement through TDD.
+1. Obtain user confirmation of the committed TASK-005 written specification.
+2. Write the implementation plan, then implement inline through TDD.
 
 ## Important Context
 

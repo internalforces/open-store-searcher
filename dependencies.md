@@ -35,6 +35,7 @@ impact, alternatives, and human approval.
 | jsdom | 30.0.1 | DOM environment for component tests | MIT | User approved 2026-08-20 |
 | @playwright/test | 1.62.1 | Chromium, Firefox, WebKit, and viewport E2E tests | Apache-2.0 | User approved 2026-08-20 |
 | @axe-core/playwright | 4.13.0 | Automated WCAG checks in Playwright | MPL-2.0 | User approved 2026-08-20 |
+| @types/node | 24.13.3 | Strict type declarations for approved Node.js 24 pipeline APIs; installation pending TASK-005 | MIT | User approved 2026-08-28 |
 
 ## External Services and Data
 

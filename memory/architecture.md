@@ -90,6 +90,8 @@ See `memory/decisions.md` for details.
 - Use Preact-local state only; no router or external state-management dependency is approved.
 - Keep Node-executed pipeline and shared code compatible with native erasable TypeScript syntax.
 - Use the committed Node.js, npm, package-lock, TypeScript, Biome, and Vite configuration as the reproducible foundation.
+- Implement TASK-005 with native Node.js streaming and hashing plus an injected, shell-free
+  Info-ZIP adapter. Collector output is temporary evidence only and cannot publish artifacts.
 - Build and preview browser tests locally at `/open-store-searcher/` without changing the
   production Vite base or contacting a deployed environment.
 - Use `npm run verify` for the fast lint, format, typecheck, coverage, and build loop. Use
