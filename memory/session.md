@@ -14,8 +14,8 @@ _Last updated: 2026-08-28_
 ## Session Information
 
 - Date: 2026-08-28
-- Agent role: Researcher / Reviewer / Planner
-- Session goal: Close TASK-004 and begin sequential M1 implementation with TASK-005
+- Agent role: Architect / Implementer / Tester
+- Session goal: Implement and verify TASK-005 sequentially without publication
 
 ## Previous Session Summary
 
@@ -35,7 +35,14 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Complete the all-category permission and attribution evidence gate before closing TASK-004.
 - [x] Pass TASK-004 verification and review, close it, and activate TASK-005.
 - [x] Obtain approval for the TASK-005 collector approach and `@types/node` 24.13.3 dependency.
-- [ ] Obtain confirmation of the committed TASK-005 written specification before planning.
+- [x] Obtain confirmation of the committed TASK-005 written specification before planning.
+- [x] Implement native HTTP probing, staged streaming, SHA-256, strict CSV inspection, and typed
+      fail-closed outcomes through TDD.
+- [x] Implement and test shell-free Info-ZIP integrity, inventory, bounded prefix, schema,
+      permission, timestamp, and orchestration gates.
+- [x] Run the official limit, range, complete-transfer, digest, integrity, and entry-count probe.
+- [ ] Generate the accepted 195-entry schema contract on a compatible Info-ZIP environment.
+- [ ] Obtain independent Reviewer approval after the schema contract is accepted.
 
 ## Completed This Session
 
@@ -66,6 +73,11 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Received user approval for native Node streaming, an injected Info-ZIP adapter, and the sole
       new direct development dependency `@types/node` 24.13.3.
 - [x] Wrote the TASK-005 collector design and recorded ADR-010; written-spec confirmation remains.
+- [x] Installed the approved `@types/node` 24.13.3 declaration package and regenerated all 304
+      dependency-license rows.
+- [x] Added 51 offline pipeline tests; the full 52-test coverage run exceeds every threshold.
+- [x] Passed fixed Node 24.19.0 / npm 11.17.0 `verify:full`, including all browsers and accessibility.
+- [x] Recorded the official 215,968,197-byte archive SHA-256 and removed the temporary archive.
 
 ## Issues and Decisions Found
 
@@ -73,21 +85,20 @@ required human Korean-language review. No source-data contract or M1 implementat
   now verifies permission and attribution coverage across all 195 selected categories. Automation
   stability, full schema, cross-entry timestamp consistency, and the as-of rule still require a
   TASK-005 contract probe before production use.
-- OpenAPI requires account application and an external service key, so it is not recommended as the
-  mandatory default under the current zero-key constraint.
-- TASK-004 is research only. It does not authorize collector implementation, status mapping,
-  production-data publication, an external dependency, or a deployment change.
+- Both available macOS Info-ZIP builds transform the archive's UTF-8 Korean entry names. The
+  collector correctly rejects this environment; no schema contract was guessed or accepted.
+- No production dataset, workflow, publication, status mapping, deployment, or browser runtime
+  dependency was added.
 
 ## Next Session
 
-1. Obtain user confirmation of the committed TASK-005 written specification.
-2. Write the implementation plan, then implement inline through TDD.
+1. Run `scripts/probe-seoul-source.mjs` with a compatible Info-ZIP executable on Ubuntu 24.04.
+2. Review and commit the schema-only 195-entry contract, then rerun the normal inspection gate.
+3. Obtain an independent Reviewer decision before closing TASK-005 or activating TASK-006.
 
 ## Important Context
 
-TASK-004 is complete after its 195-category permission audit and Reviewer approval. TASK-005 is
-active at the mandatory design-approval gate. ADR-009 does not by itself authorize production
-collection or publication. The handbook
-remains human-facing output rather than implementation evidence and was not read. No collector,
-fixture schema, status mapping, production-data operation, dependency, workflow, or deployment
-change occurred.
+TASK-005 implementation and local verification are complete except for the accepted schema contract
+and independent review. The official HTTP and archive transfer contract passed, but ISS-001 blocks
+exact filename matching on the current macOS host. The handbook remains human-facing output rather
+than implementation evidence and was not read. No production archive remains on disk or in Git.

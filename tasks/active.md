@@ -32,26 +32,32 @@ _Last updated: 2026-08-28_
   - Silently bypassing a provider denial could violate the bounded contract.
 - Acceptance criteria:
   - [x] Write and obtain approval for an English collector design before implementation.
-  - [ ] Probe redirect behavior, required request headers, the lightweight download-limit check,
+  - [x] Probe redirect behavior, required request headers, the lightweight download-limit check,
         range behavior, and provider denials without silently bypassing an access refusal.
-  - [ ] Download only to temporary staging, require a complete successful transfer, and keep
+  - [x] Download only to temporary staging, require a complete successful transfer, and keep
         incomplete data outside every publication path.
   - [ ] Validate ZIP integrity, the approved 195-category entry manifest, encodings, delimiters,
         required headers, and permission metadata before accepting a staged archive.
   - [ ] Detect changes with a SHA-256 content digest plus normalized entry and schema manifests;
         report unchanged inputs without rewriting downstream artifacts.
-  - [ ] Keep retrieval time, provider-stated freshness, per-entry timestamps, and future `dataAsOf`
+  - [x] Keep retrieval time, provider-stated freshness, per-entry timestamps, and future `dataAsOf`
         derivation inputs separate; never present retrieval time as data as-of.
-  - [ ] Cover success, unchanged, denial, redirect drift, partial transfer, corrupt archive, missing
+  - [x] Cover success, unchanged, denial, redirect drift, partial transfer, corrupt archive, missing
         category, schema drift, permission drift, and mixed-vintage evidence with pipeline tests.
-  - [ ] Add no external dependency, production dataset, workflow, publication, or deployment change
+  - [x] Add no external dependency, production dataset, workflow, publication, or deployment change
         without its separate approval and owning task.
 - Verification commands:
   - `npm run test:pipeline`
   - `npm run verify:full`
   - `git diff --check`
-- Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28;
-  implementation is in progress.
+- Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
+  The native streaming collector, shell-free archive adapter, schema inspection, deterministic
+  discovery, 51 pipeline tests, and manual probe are implemented. The fixed Node 24.19.0 / npm
+  11.17.0 `verify:full` gate passes. `reports/probe-2026-08-28-seoul-archive-contract.md` records
+  HTTP 200/206, a complete 215,968,197-byte ZIP, SHA-256, integrity, and 195 entries. TASK-005 stays
+  active because both tested macOS Info-ZIP builds transform the archive's UTF-8 Korean entry names;
+  the schema-only 195-entry contract and independent final review remain pending on a compatible
+  Ubuntu Info-ZIP environment or an approved adapter revision.
 
 ## Task Detail Template
 

@@ -34,6 +34,9 @@ GitHub Actions collects, normalizes, and validates public administrative data in
 7. Dashboard: displays status, evidence, uncertainty, dates, external-verification links, and error states.
 8. Test harness: Vitest projects separate Node unit, Node pipeline, and jsdom component ownership;
    Playwright projects cover Chromium, Firefox, WebKit, and mobile Chromium.
+9. Staged Seoul collector: native Node HTTP streams and SHA-256 feed isolated temporary storage;
+   a shell-free injected Info-ZIP adapter inspects integrity and schema without extraction or any
+   publication capability.
 
 ## Data Flow
 
@@ -92,6 +95,9 @@ See `memory/decisions.md` for details.
 - Use the committed Node.js, npm, package-lock, TypeScript, Biome, and Vite configuration as the reproducible foundation.
 - Implement TASK-005 with native Node.js streaming and hashing plus an injected, shell-free
   Info-ZIP adapter. Collector output is temporary evidence only and cannot publish artifacts.
+- Treat compatible UTF-8 filename handling as part of the Info-ZIP environment gate. The current
+  macOS builds fail that gate; never guess or normalize transformed provider entry names into an
+  accepted archive contract.
 - Build and preview browser tests locally at `/open-store-searcher/` without changing the
   production Vite base or contacting a deployed environment.
 - Use `npm run verify` for the fast lint, format, typecheck, coverage, and build loop. Use

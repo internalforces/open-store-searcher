@@ -32,7 +32,7 @@ _Last updated: 2026-08-28_
 | FR-10 | Naver and Kakao search links | TASK-016 | URL encoding and new-window security tests | Planned |
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | E2E tests at primary viewports | Planned |
 | FR-12 | No collection of personal or usage data | TASK-019 | Network, storage, and script audit | Planned |
-| FR-13 | Preserve previous data after refresh failure | TASK-008 through TASK-010, 015 | Failure injection and preservation tests | Planned |
+| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 fail-closed staged collector and rejection tests establish the non-publication boundary; last-known-good replacement and workflow failure injection remain pending | In progress |
 | FR-14 | Warning for data older than seven days | TASK-008, 015 | Boundary-date fixtures and UI tests | Planned |
 
 ## P1 Functional Requirements
