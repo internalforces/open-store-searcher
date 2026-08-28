@@ -64,3 +64,19 @@ test('rejects a filename that cannot map uniquely to approved permission evidenc
     }),
   ).rejects.toThrow('unique permission mapping');
 });
+
+test('identifies the entry whose header cannot be decoded without exposing record values', async () => {
+  const invalid = adapter(['문화_음반업.csv', '식품_일반음식점.csv']);
+  invalid.readEntryPrefix = async (_archivePath, entryName) =>
+    entryName === '문화_음반업.csv'
+      ? new Uint8Array([0xff, 0xff, 0x0a])
+      : new TextEncoder().encode('name\n');
+  await expect(
+    discoverArchiveContract({
+      adapter: invalid,
+      archivePath: '/tmp/source.zip',
+      permissionManifest: manifest,
+      limits: DEFAULT_COLLECTOR_LIMITS,
+    }),
+  ).rejects.toThrow('문화_음반업.csv');
+});

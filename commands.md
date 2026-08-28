@@ -48,7 +48,8 @@ npm run verify:full
 node scripts/probe-seoul-source.mjs \
   --staging=<absolute-temporary-directory-outside-the-repository> \
   --output=<absolute-schema-candidate-json> \
-  --unzip=<compatible-info-zip-executable>
+  --unzip=<compatible-info-zip-executable> \
+  [--docker-container=<approved-ubuntu-container>]
 [DATA_TRANSFORM_COMMAND]
 [DATA_VALIDATE_COMMAND]
 [DATA_BUILD_COMMAND]

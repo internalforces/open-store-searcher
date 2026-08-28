@@ -30,6 +30,12 @@ describe('inspectCsvHeader', () => {
     });
   });
 
+  test('does not decode record bytes beyond the complete header', () => {
+    const headerBytes = new TextEncoder().encode('사업장명,주소\n');
+    const bytes = new Uint8Array([...headerBytes, 0xff, 0xff]);
+    expect(inspectCsvHeader(bytes)).toMatchObject({ headers: ['사업장명', '주소'] });
+  });
+
   test('rejects duplicate normalized headers', () => {
     const bytes = new TextEncoder().encode('사업장명, 사업장명 \n');
     expect(() => inspectCsvHeader(bytes)).toThrow('duplicate CSV header');

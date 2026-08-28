@@ -52,12 +52,12 @@ _Last updated: 2026-08-28_
   - `git diff --check`
 - Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
   The native streaming collector, shell-free archive adapter, schema inspection, deterministic
-  discovery, 51 pipeline tests, and manual probe are implemented. The fixed Node 24.19.0 / npm
+  discovery, 53 pipeline tests, and manual probe are implemented. The fixed Node 24.19.0 / npm
   11.17.0 `verify:full` gate passes. `reports/probe-2026-08-28-seoul-archive-contract.md` records
-  HTTP 200/206, a complete 215,968,197-byte ZIP, SHA-256, integrity, and 195 entries. TASK-005 stays
-  active because both tested macOS Info-ZIP builds transform the archive's UTF-8 Korean entry names;
-  the schema-only 195-entry contract and independent final review remain pending on a compatible
-  Ubuntu Info-ZIP environment or an approved adapter revision.
+  HTTP 200/206, a complete 215,968,197-byte ZIP, SHA-256, integrity, and 195 entries. Ubuntu 24.04
+  Info-ZIP preserves all filenames, but one official archive filename differs from its audited
+  portal title while the other 194 match exactly. TASK-005 stays active until the user approves or
+  rejects that explicit alias; the schema-only contract and independent final review follow.
 
 ## Task Detail Template
 

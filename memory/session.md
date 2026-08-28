@@ -41,7 +41,9 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Implement and test shell-free Info-ZIP integrity, inventory, bounded prefix, schema,
       permission, timestamp, and orchestration gates.
 - [x] Run the official limit, range, complete-transfer, digest, integrity, and entry-count probe.
-- [ ] Generate the accepted 195-entry schema contract on a compatible Info-ZIP environment.
+- [x] Confirm all 195 filenames on Ubuntu 24.04 with compatible Info-ZIP.
+- [ ] Obtain approval for or rejection of the one non-exact filename-to-title mapping.
+- [ ] Generate the accepted 195-entry schema contract after that decision.
 - [ ] Obtain independent Reviewer approval after the schema contract is accepted.
 
 ## Completed This Session
@@ -75,7 +77,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Wrote the TASK-005 collector design and recorded ADR-010; written-spec confirmation remains.
 - [x] Installed the approved `@types/node` 24.13.3 declaration package and regenerated all 304
       dependency-license rows.
-- [x] Added 51 offline pipeline tests; the full 52-test coverage run exceeds every threshold.
+- [x] Added 53 offline pipeline tests; the full 54-test coverage run exceeds every threshold.
 - [x] Passed fixed Node 24.19.0 / npm 11.17.0 `verify:full`, including all browsers and accessibility.
 - [x] Recorded the official 215,968,197-byte archive SHA-256 and removed the temporary archive.
 
@@ -85,20 +87,22 @@ required human Korean-language review. No source-data contract or M1 implementat
   now verifies permission and attribution coverage across all 195 selected categories. Automation
   stability, full schema, cross-entry timestamp consistency, and the as-of rule still require a
   TASK-005 contract probe before production use.
-- Both available macOS Info-ZIP builds transform the archive's UTF-8 Korean entry names. The
-  collector correctly rejects this environment; no schema contract was guessed or accepted.
+- Both available macOS Info-ZIP builds transform the archive's UTF-8 Korean entry names. Ubuntu
+  24.04 preserves them, revealing 194 exact permission-title matches and one hyphen-versus-`및`
+  difference. No alias was guessed or accepted.
 - No production dataset, workflow, publication, status mapping, deployment, or browser runtime
   dependency was added.
 
 ## Next Session
 
-1. Run `scripts/probe-seoul-source.mjs` with a compatible Info-ZIP executable on Ubuntu 24.04.
-2. Review and commit the schema-only 195-entry contract, then rerun the normal inspection gate.
+1. Obtain the user's explicit decision on the one literal filename alias recorded in ISS-002.
+2. If approved, test and record the alias, generate and commit the schema-only 195-entry contract,
+   and rerun normal inspection on Ubuntu 24.04.
 3. Obtain an independent Reviewer decision before closing TASK-005 or activating TASK-006.
 
 ## Important Context
 
 TASK-005 implementation and local verification are complete except for the accepted schema contract
-and independent review. The official HTTP and archive transfer contract passed, but ISS-001 blocks
-exact filename matching on the current macOS host. The handbook remains human-facing output rather
+and independent review. The official HTTP and archive transfer contract passed; ISS-002 blocks the
+one non-exact source-title mapping. The handbook remains human-facing output rather
 than implementation evidence and was not read. No production archive remains on disk or in Git.

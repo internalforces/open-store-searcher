@@ -16,10 +16,10 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-005 implementation verified; compatible archive-contract gate pending
-- Next milestone: M1 — generate and review the 195-entry schema contract on compatible Ubuntu
-- Overall health: 🟡 Caution — fail-closed collection code and tests pass, but local macOS Info-ZIP
-  transforms the official archive's Korean filenames and prevents contract acceptance
+- Phase: M1 — TASK-005 implementation verified; one source-alias approval gate pending
+- Next milestone: M1 — approve or reject one literal filename alias, then review the schema contract
+- Overall health: 🟡 Caution — Ubuntu handles all filenames, but one of 195 names differs from its
+  portal title and the fail-closed collector requires an explicit mapping decision
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -53,7 +53,7 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
-| 2026-08-28 | Implemented and fully tested the TASK-005 fail-closed staged collector; the official 215,968,197-byte archive passed HTTP, digest, integrity, and 195-entry checks, but macOS Info-ZIP filename transformation keeps the schema-contract and independent-review gates open |
+| 2026-08-28 | Implemented and fully tested the TASK-005 fail-closed staged collector; Ubuntu verified 195 preserved filenames, with 194 exact permission-title matches and one explicit alias awaiting approval before schema-contract review |
 | 2026-08-28 | Completed TASK-004 after the 195-category live permission audit and Reviewer APPROVED; activated TASK-005 design |
 | 2026-08-28 | Audited 195 distinct official file-data pages and verified that every selected category names the Ministry as provider and displays unrestricted permission; TASK-004 review remains before TASK-005 activation |
 | 2026-08-28 | User approved ADR-009's bounded Seoul all-category ZIP candidate; PR review kept TASK-004 open until permission and attribution evidence covers every selected category |

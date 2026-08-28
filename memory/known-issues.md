@@ -14,6 +14,7 @@ _Last updated: 2026-08-28_
 | ID | Severity | Description | Found | Owner |
 |---|---|---|---|---|
 | ISS-001 | High | macOS bundled Info-ZIP and Homebrew Info-ZIP 6.00_8 transform UTF-8 Korean filenames in the official Seoul ZIP inventory, so the exact schema contract cannot be accepted locally | 2026-08-28 | Architect / Implementer |
+| ISS-002 | High | One official ZIP filename uses a hyphen where the audited portal category title uses `및`; mapping it requires explicit approval | 2026-08-28 | Architect / Implementer |
 
 ## Technical Debt and Unresolved Risks
 
@@ -35,11 +36,26 @@ _Last updated: 2026-08-28_
   schema contract or production collection can be accepted from this host.
 - Temporary workaround: Run the committed manual probe on the approved Ubuntu 24.04 environment
   with a compatible Info-ZIP build. Do not normalize or guess transformed names.
-- Permanent fix direction: Confirm Ubuntu output first. If it is also incompatible, obtain user
-  approval before revising ADR-010 to a reviewed archive adapter.
+- Permanent fix direction: Use the verified compatible Ubuntu 24.04 Info-ZIP 6.0-28ubuntu4.1
+  environment for contract probing and future automation.
 - Related FR and tests: FR-13; `src/pipeline/unzip-archive.test.ts`,
   `src/pipeline/discover-archive-contract.test.ts`, and
   `reports/probe-2026-08-28-seoul-archive-contract.md`.
+
+### ISS-002: One archive filename differs from its portal title
+
+- Severity: High
+- Found: 2026-08-28
+- Reproduction: Compare the Ubuntu-preserved 195 archive filenames with the audited TASK-004
+  permission titles after removing only the exact `행정안전부_` prefix and `.csv` suffix.
+- Root cause: The archive uses `자원환경_단독정화조-오수처리시설설계시공업.csv`; the matching
+  portal title is `행정안전부_자원환경_단독정화조 및 오수처리시설설계시공업`.
+- Impact: 194 mappings are exact; the remaining mapping cannot be accepted under the approved exact
+  contract without a reviewed alias.
+- Temporary workaround: None. The collector rejects the candidate.
+- Permanent fix direction: With user approval, record one literal entry-name-to-file-data-ID alias,
+  test uniqueness, and rerun schema discovery and exact inspection.
+- Related FR and tests: FR-13 and `src/pipeline/discover-archive-contract.test.ts`.
 
 ## Resolved
 

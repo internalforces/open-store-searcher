@@ -46,14 +46,18 @@ export async function discoverArchiveContract(options: DiscoveryOptions): Promis
       throw new Error(`archive entry lacks a unique permission mapping: ${entryName}`);
     }
     usedIds.add(fileDataId);
-    const bytes = await options.adapter.readEntryPrefix(
-      options.archivePath,
-      listed.name,
-      options.limits.maxHeaderBytes,
-      options.signal,
-    );
-    const schema = inspectCsvHeader(bytes);
-    discovered.push({ entryName, fileDataId, ...schema });
+    try {
+      const bytes = await options.adapter.readEntryPrefix(
+        options.archivePath,
+        listed.name,
+        options.limits.maxHeaderBytes,
+        options.signal,
+      );
+      const schema = inspectCsvHeader(bytes);
+      discovered.push({ entryName, fileDataId, ...schema });
+    } catch (error) {
+      throw new Error(`archive header discovery failed for ${entryName}`, { cause: error });
+    }
   }
   discovered.sort((left, right) => left.entryName.localeCompare(right.entryName));
   return {

@@ -10,6 +10,7 @@ function argument(name) {
 const stagingRoot = argument('staging');
 const outputPath = argument('output');
 const unzipExecutable = argument('unzip') ?? 'unzip';
+const dockerContainer = argument('docker-container');
 
 if (
   !stagingRoot ||
@@ -20,7 +21,7 @@ if (
   resolve(outputPath) !== outputPath
 ) {
   throw new Error(
-    'Usage: node scripts/probe-seoul-source.mjs --staging=<absolute-temp-directory> --output=<absolute-candidate-json> [--unzip=<executable>]',
+    'Usage: node scripts/probe-seoul-source.mjs --staging=<absolute-temp-directory> --output=<absolute-candidate-json> [--unzip=<executable>] [--docker-container=<name>]',
   );
 }
 
@@ -33,12 +34,15 @@ try {
       server.ssrLoadModule('/src/pipeline/probe-source.ts'),
       server.ssrLoadModule('/src/pipeline/staged-download.ts'),
     ]);
-  const [{ parsePermissionManifest }, { UnzipArchiveAdapter }, { discoverArchiveContract }] =
-    await Promise.all([
-      server.ssrLoadModule('/src/pipeline/source-contract.ts'),
-      server.ssrLoadModule('/src/pipeline/unzip-archive.ts'),
-      server.ssrLoadModule('/src/pipeline/discover-archive-contract.ts'),
-    ]);
+  const [
+    { parsePermissionManifest },
+    { runProcess, UnzipArchiveAdapter },
+    { discoverArchiveContract },
+  ] = await Promise.all([
+    server.ssrLoadModule('/src/pipeline/source-contract.ts'),
+    server.ssrLoadModule('/src/pipeline/unzip-archive.ts'),
+    server.ssrLoadModule('/src/pipeline/discover-archive-contract.ts'),
+  ]);
   const manifest = parsePermissionManifest(
     JSON.parse(await readFile('reports/source-permission-manifest-2026-08-28.json', 'utf8')),
   );
@@ -53,7 +57,15 @@ try {
   });
   if (download.kind === 'rejected') throw new Error(`${download.code}: ${download.message}`);
   archivePath = download.archivePath;
-  const adapter = new UnzipArchiveAdapter(unzipExecutable, DEFAULT_COLLECTOR_LIMITS);
+  const dockerRunner = dockerContainer
+    ? (request) =>
+        runProcess({
+          ...request,
+          executable: 'docker',
+          args: ['exec', dockerContainer, request.executable, ...request.args],
+        })
+    : undefined;
+  const adapter = new UnzipArchiveAdapter(unzipExecutable, DEFAULT_COLLECTOR_LIMITS, dockerRunner);
   if (!(await adapter.checkEnvironment()).ok) throw new Error('environment_unavailable: Info-ZIP');
   const contract = await discoverArchiveContract({
     adapter,

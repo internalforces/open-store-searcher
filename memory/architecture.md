@@ -96,8 +96,8 @@ See `memory/decisions.md` for details.
 - Implement TASK-005 with native Node.js streaming and hashing plus an injected, shell-free
   Info-ZIP adapter. Collector output is temporary evidence only and cannot publish artifacts.
 - Treat compatible UTF-8 filename handling as part of the Info-ZIP environment gate. The current
-  macOS builds fail that gate; never guess or normalize transformed provider entry names into an
-  accepted archive contract.
+  macOS builds fail that gate, while Ubuntu 24.04 Info-ZIP 6.0-28ubuntu4.1 passes it. Never guess or
+  normalize transformed provider entry names into an accepted archive contract.
 - Build and preview browser tests locally at `/open-store-searcher/` without changing the
   production Vite base or contacting a deployed environment.
 - Use `npm run verify` for the fast lint, format, typecheck, coverage, and build loop. Use

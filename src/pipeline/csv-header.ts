@@ -16,6 +16,21 @@ function decode(bytes: Uint8Array): { text: string; encoding: 'utf-8' | 'euc-kr'
   throw new Error('CSV encoding is neither strict UTF-8 nor EUC-KR');
 }
 
+function encodedFirstRecord(bytes: Uint8Array): Uint8Array {
+  let quoted = false;
+  for (let index = 0; index < bytes.length; index += 1) {
+    const byte = bytes[index];
+    if (byte === 0x22) {
+      if (quoted && bytes[index + 1] === 0x22) index += 1;
+      else quoted = !quoted;
+    } else if (!quoted && (byte === 0x0a || byte === 0x0d)) {
+      const end = byte === 0x0d && bytes[index + 1] === 0x0a ? index + 2 : index + 1;
+      return bytes.subarray(0, end);
+    }
+  }
+  throw new Error('bytes do not contain a complete CSV header record');
+}
+
 function firstRecord(text: string): string {
   let quoted = false;
   for (let index = 0; index < text.length; index += 1) {
@@ -73,7 +88,7 @@ function parseRecord(record: string): string[] {
 }
 
 export function inspectCsvHeader(bytes: Uint8Array): CsvHeaderEvidence {
-  const decoded = decode(bytes);
+  const decoded = decode(encodedFirstRecord(bytes));
   const text = decoded.text.startsWith('\ufeff') ? decoded.text.slice(1) : decoded.text;
   const headers = parseRecord(firstRecord(text)).map((header) => header.normalize('NFC').trim());
   if (headers.some((header) => header.length === 0)) throw new Error('empty CSV header');
