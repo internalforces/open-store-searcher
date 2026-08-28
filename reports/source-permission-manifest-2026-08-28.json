@@ -1,0 +1,1398 @@
+{
+  "purpose": "Audited permission and provenance evidence for the 195 local administrative licensing categories selected by ADR-009",
+  "auditDate": "2026-08-28",
+  "provider": "행정안전부",
+  "providerEnglish": "Ministry of the Interior and Safety",
+  "sourceNoticeUrl": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004709",
+  "portalPolicyUrl": "https://www.data.go.kr/ugs/selectPortalPolicyView.do",
+  "expectedCategoryCount": 195,
+  "verifiedCategoryCount": 195,
+  "permissionLabel": "이용허락범위 제한 없음",
+  "permissionClass": "unrestricted",
+  "productAttributionRequirement": "FR-09 requires provider, source URL, retrieval time, data as-of date, transformation notice, and raw status evidence in built artifacts.",
+  "auditMethod": [
+    "Take the 195 category API identifiers and titles from the official 2026 service notice.",
+    "Resolve the same-title Ministry file dataset through the portal recommendation surface or exact official portal result.",
+    "Require a distinct file-data identifier, an exact page-title prefix, the Ministry as provider, and the unrestricted permission label.",
+    "Treat the portal policy page as the interpretation source for the displayed permission class."
+  ],
+  "portalMappingCorrections": [
+    {
+      "apiId": "15154955",
+      "issue": "The recommendation title for the general-game-provider file pointed to the youth-game-provider page.",
+      "verifiedFileDataId": "15045071"
+    },
+    {
+      "apiId": "15155147",
+      "issue": "One recommendation response omitted the exact measuring-instrument-manufacturer file result.",
+      "verifiedFileDataId": "15045077"
+    }
+  ],
+  "categories": [
+    {
+      "apiId": "15154458",
+      "apiTitle": "행정안전부_건강_병원 조회서비스",
+      "fileDataId": "15045025",
+      "fileDataTitle": "행정안전부_건강_병원",
+      "fileDataUrl": "https://www.data.go.kr/data/15045025/fileData.do"
+    },
+    {
+      "apiId": "15154643",
+      "apiTitle": "행정안전부_건강_부속의료기관 조회서비스",
+      "fileDataId": "15045030",
+      "fileDataTitle": "행정안전부_건강_부속의료기관",
+      "fileDataUrl": "https://www.data.go.kr/data/15045030/fileData.do"
+    },
+    {
+      "apiId": "15154784",
+      "apiTitle": "행정안전부_식품_집단급식소식품판매업 조회서비스",
+      "fileDataId": "15044984",
+      "fileDataTitle": "행정안전부_식품_집단급식소식품판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044984/fileData.do"
+    },
+    {
+      "apiId": "15154787",
+      "apiTitle": "행정안전부_자원환경_액화석유가스용품제조업체 조회서비스",
+      "fileDataId": "15044992",
+      "fileDataTitle": "행정안전부_자원환경_액화석유가스용품제조업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044992/fileData.do"
+    },
+    {
+      "apiId": "15154788",
+      "apiTitle": "행정안전부_문화_자동차야영장업 조회서비스",
+      "fileDataId": "15045088",
+      "fileDataTitle": "행정안전부_문화_자동차야영장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045088/fileData.do"
+    },
+    {
+      "apiId": "15154791",
+      "apiTitle": "행정안전부_건강_안전상비의약품 판매업소 조회서비스",
+      "fileDataId": "15045034",
+      "fileDataTitle": "행정안전부_건강_안전상비의약품 판매업소",
+      "fileDataUrl": "https://www.data.go.kr/data/15045034/fileData.do"
+    },
+    {
+      "apiId": "15154803",
+      "apiTitle": "행정안전부_식품_집유업 조회서비스",
+      "fileDataId": "15045055",
+      "fileDataTitle": "행정안전부_식품_집유업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045055/fileData.do"
+    },
+    {
+      "apiId": "15154808",
+      "apiTitle": "행정안전부_문화_한옥체험업 조회서비스",
+      "fileDataId": "15045085",
+      "fileDataTitle": "행정안전부_문화_한옥체험업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045085/fileData.do"
+    },
+    {
+      "apiId": "15154821",
+      "apiTitle": "행정안전부_문화_국내여행업 조회서비스",
+      "fileDataId": "15044998",
+      "fileDataTitle": "행정안전부_문화_국내여행업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044998/fileData.do"
+    },
+    {
+      "apiId": "15154822",
+      "apiTitle": "행정안전부_건강_약국 조회서비스",
+      "fileDataId": "15045036",
+      "fileDataTitle": "행정안전부_건강_약국",
+      "fileDataUrl": "https://www.data.go.kr/data/15045036/fileData.do"
+    },
+    {
+      "apiId": "15154825",
+      "apiTitle": "행정안전부_문화_국내외여행업 조회서비스",
+      "fileDataId": "15044996",
+      "fileDataTitle": "행정안전부_문화_국내외여행업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044996/fileData.do"
+    },
+    {
+      "apiId": "15154829",
+      "apiTitle": "행정안전부_문화_종합여행업 조회서비스",
+      "fileDataId": "15044997",
+      "fileDataTitle": "행정안전부_문화_종합여행업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044997/fileData.do"
+    },
+    {
+      "apiId": "15154834",
+      "apiTitle": "행정안전부_건강_응급환자이송업 조회서비스",
+      "fileDataId": "15045031",
+      "fileDataTitle": "행정안전부_건강_응급환자이송업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045031/fileData.do"
+    },
+    {
+      "apiId": "15154835",
+      "apiTitle": "행정안전부_자원환경_일반도시가스업체 조회서비스",
+      "fileDataId": "15044993",
+      "fileDataTitle": "행정안전부_자원환경_일반도시가스업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044993/fileData.do"
+    },
+    {
+      "apiId": "15154837",
+      "apiTitle": "행정안전부_문화_영화배급업 조회서비스",
+      "fileDataId": "15045009",
+      "fileDataTitle": "행정안전부_문화_영화배급업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045009/fileData.do"
+    },
+    {
+      "apiId": "15154842",
+      "apiTitle": "행정안전부_식품_축산가공업 조회서비스",
+      "fileDataId": "15101550",
+      "fileDataTitle": "행정안전부_식품_축산가공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15101550/fileData.do"
+    },
+    {
+      "apiId": "15154848",
+      "apiTitle": "행정안전부_문화_영화상영관 조회서비스",
+      "fileDataId": "15045008",
+      "fileDataTitle": "행정안전부_문화_영화상영관",
+      "fileDataUrl": "https://www.data.go.kr/data/15045008/fileData.do"
+    },
+    {
+      "apiId": "15154851",
+      "apiTitle": "행정안전부_식품_축산물보관업 조회서비스",
+      "fileDataId": "15101552",
+      "fileDataTitle": "행정안전부_식품_축산물보관업",
+      "fileDataUrl": "https://www.data.go.kr/data/15101552/fileData.do"
+    },
+    {
+      "apiId": "15154853",
+      "apiTitle": "행정안전부_건강_의료법인 조회서비스",
+      "fileDataId": "15045026",
+      "fileDataTitle": "행정안전부_건강_의료법인",
+      "fileDataUrl": "https://www.data.go.kr/data/15045026/fileData.do"
+    },
+    {
+      "apiId": "15154854",
+      "apiTitle": "행정안전부_자원환경_전력기술감리업체 조회서비스",
+      "fileDataId": "15044989",
+      "fileDataTitle": "행정안전부_자원환경_전력기술감리업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044989/fileData.do"
+    },
+    {
+      "apiId": "15154857",
+      "apiTitle": "행정안전부_문화_영화상영업 조회서비스",
+      "fileDataId": "15045005",
+      "fileDataTitle": "행정안전부_문화_영화상영업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045005/fileData.do"
+    },
+    {
+      "apiId": "15154861",
+      "apiTitle": "행정안전부_식품_축산물운반업 조회서비스",
+      "fileDataId": "15045049",
+      "fileDataTitle": "행정안전부_식품_축산물운반업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045049/fileData.do"
+    },
+    {
+      "apiId": "15154864",
+      "apiTitle": "행정안전부_건강_의료유사업 조회서비스",
+      "fileDataId": "15006706",
+      "fileDataTitle": "행정안전부_건강_의료유사업",
+      "fileDataUrl": "https://www.data.go.kr/data/15006706/fileData.do"
+    },
+    {
+      "apiId": "15154866",
+      "apiTitle": "행정안전부_자원환경_전력기술설계업체 조회서비스",
+      "fileDataId": "15044988",
+      "fileDataTitle": "행정안전부_자원환경_전력기술설계업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044988/fileData.do"
+    },
+    {
+      "apiId": "15154869",
+      "apiTitle": "행정안전부_문화_영화수입업 조회서비스",
+      "fileDataId": "15045007",
+      "fileDataTitle": "행정안전부_문화_영화수입업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045007/fileData.do"
+    },
+    {
+      "apiId": "15154871",
+      "apiTitle": "행정안전부_식품_축산판매업 조회서비스",
+      "fileDataId": "15101549",
+      "fileDataTitle": "행정안전부_식품_축산판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15101549/fileData.do"
+    },
+    {
+      "apiId": "15154874",
+      "apiTitle": "행정안전부_건강_의원 조회서비스",
+      "fileDataId": "15045024",
+      "fileDataTitle": "행정안전부_건강_의원",
+      "fileDataUrl": "https://www.data.go.kr/data/15045024/fileData.do"
+    },
+    {
+      "apiId": "15154875",
+      "apiTitle": "행정안전부_문화_영화제작업 조회서비스",
+      "fileDataId": "15045006",
+      "fileDataTitle": "행정안전부_문화_영화제작업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045006/fileData.do"
+    },
+    {
+      "apiId": "15154879",
+      "apiTitle": "행정안전부_문화_온라인음악서비스제공업 조회서비스",
+      "fileDataId": "15045021",
+      "fileDataTitle": "행정안전부_문화_온라인음악서비스제공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045021/fileData.do"
+    },
+    {
+      "apiId": "15154881",
+      "apiTitle": "행정안전부_자원환경_특정고압가스업 조회서비스",
+      "fileDataId": "15044991",
+      "fileDataTitle": "행정안전부_자원환경_특정고압가스업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044991/fileData.do"
+    },
+    {
+      "apiId": "15154883",
+      "apiTitle": "행정안전부_식품_단란주점영업 조회서비스",
+      "fileDataId": "15045017",
+      "fileDataTitle": "행정안전부_식품_단란주점영업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045017/fileData.do"
+    },
+    {
+      "apiId": "15154886",
+      "apiTitle": "행정안전부_문화_음반및음악영상물배급업 조회서비스",
+      "fileDataId": "15045023",
+      "fileDataTitle": "행정안전부_문화_음반및음악영상물배급업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045023/fileData.do"
+    },
+    {
+      "apiId": "15154890",
+      "apiTitle": "행정안전부_식품_유흥주점영업 조회서비스",
+      "fileDataId": "15045018",
+      "fileDataTitle": "행정안전부_식품_유흥주점영업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045018/fileData.do"
+    },
+    {
+      "apiId": "15154891",
+      "apiTitle": "행정안전부_자원환경_지하수시공업체 조회서비스",
+      "fileDataId": "15101553",
+      "fileDataTitle": "행정안전부_자원환경_지하수시공업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15101553/fileData.do"
+    },
+    {
+      "apiId": "15154895",
+      "apiTitle": "행정안전부_문화_음반및음악영상물제작업 조회서비스",
+      "fileDataId": "15045020",
+      "fileDataTitle": "행정안전부_문화_음반및음악영상물제작업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045020/fileData.do"
+    },
+    {
+      "apiId": "15154897",
+      "apiTitle": "행정안전부_식품_관광식당 조회서비스",
+      "fileDataId": "15045095",
+      "fileDataTitle": "행정안전부_식품_관광식당",
+      "fileDataUrl": "https://www.data.go.kr/data/15045095/fileData.do"
+    },
+    {
+      "apiId": "15154899",
+      "apiTitle": "행정안전부_건강_안경업 조회서비스",
+      "fileDataId": "15045028",
+      "fileDataTitle": "행정안전부_건강_안경업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045028/fileData.do"
+    },
+    {
+      "apiId": "15154900",
+      "apiTitle": "행정안전부_자원환경_지하수영향조사기관 조회서비스",
+      "fileDataId": "15045118",
+      "fileDataTitle": "행정안전부_자원환경_지하수영향조사기관",
+      "fileDataUrl": "https://www.data.go.kr/data/15045118/fileData.do"
+    },
+    {
+      "apiId": "15154902",
+      "apiTitle": "행정안전부_문화_음반물배급업 조회서비스",
+      "fileDataId": "15045022",
+      "fileDataTitle": "행정안전부_문화_음반물배급업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045022/fileData.do"
+    },
+    {
+      "apiId": "15154903",
+      "apiTitle": "행정안전부_식품_관광유흥음식점업 조회서비스",
+      "fileDataId": "15045096",
+      "fileDataTitle": "행정안전부_식품_관광유흥음식점업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045096/fileData.do"
+    },
+    {
+      "apiId": "15154905",
+      "apiTitle": "행정안전부_자원환경_지하수정화업체 조회서비스",
+      "fileDataId": "15045117",
+      "fileDataTitle": "행정안전부_자원환경_지하수정화업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15045117/fileData.do"
+    },
+    {
+      "apiId": "15154909",
+      "apiTitle": "행정안전부_문화_음반물제작업 조회서비스",
+      "fileDataId": "15045019",
+      "fileDataTitle": "행정안전부_문화_음반물제작업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045019/fileData.do"
+    },
+    {
+      "apiId": "15154910",
+      "apiTitle": "행정안전부_식품_외국인전용유흥음식점업 조회서비스",
+      "fileDataId": "15006700",
+      "fileDataTitle": "행정안전부_식품_외국인전용유흥음식점업",
+      "fileDataUrl": "https://www.data.go.kr/data/15006700/fileData.do"
+    },
+    {
+      "apiId": "15154913",
+      "apiTitle": "행정안전부_건강_의료기기수리업 조회서비스",
+      "fileDataId": "15045033",
+      "fileDataTitle": "행정안전부_건강_의료기기수리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045033/fileData.do"
+    },
+    {
+      "apiId": "15154914",
+      "apiTitle": "행정안전부_자원환경_가축분뇨수집운반업 조회서비스",
+      "fileDataId": "15045067",
+      "fileDataTitle": "행정안전부_자원환경_가축분뇨수집운반업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045067/fileData.do"
+    },
+    {
+      "apiId": "15154916",
+      "apiTitle": "행정안전부_식품_일반음식점 조회서비스",
+      "fileDataId": "15045016",
+      "fileDataTitle": "행정안전부_식품_일반음식점",
+      "fileDataUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+    },
+    {
+      "apiId": "15154918",
+      "apiTitle": "행정안전부_생활_미용업 조회서비스",
+      "fileDataId": "15045037",
+      "fileDataTitle": "행정안전부_생활_미용업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045037/fileData.do"
+    },
+    {
+      "apiId": "15154921",
+      "apiTitle": "행정안전부_식품_휴게음식점 조회서비스",
+      "fileDataId": "15006730",
+      "fileDataTitle": "행정안전부_식품_휴게음식점",
+      "fileDataUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+    },
+    {
+      "apiId": "15154922",
+      "apiTitle": "행정안전부_생활_이용업 조회서비스",
+      "fileDataId": "15045038",
+      "fileDataTitle": "행정안전부_생활_이용업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045038/fileData.do"
+    },
+    {
+      "apiId": "15154923",
+      "apiTitle": "행정안전부_건강_의료기기판매(임대)업 조회서비스",
+      "fileDataId": "15045032",
+      "fileDataTitle": "행정안전부_건강_의료기기판매(임대)업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045032/fileData.do"
+    },
+    {
+      "apiId": "15154926",
+      "apiTitle": "행정안전부_문화_게임물배급업 조회서비스",
+      "fileDataId": "15045070",
+      "fileDataTitle": "행정안전부_문화_게임물배급업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045070/fileData.do"
+    },
+    {
+      "apiId": "15154927",
+      "apiTitle": "행정안전부_생활_세탁업 조회서비스",
+      "fileDataId": "15044964",
+      "fileDataTitle": "행정안전부_생활_세탁업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044964/fileData.do"
+    },
+    {
+      "apiId": "15154930",
+      "apiTitle": "행정안전부_자원환경_가축분뇨배출시설관리업(사업장) 조회서비스",
+      "fileDataId": "15045068",
+      "fileDataTitle": "행정안전부_자원환경_가축분뇨배출시설관리업(사업장)",
+      "fileDataUrl": "https://www.data.go.kr/data/15045068/fileData.do"
+    },
+    {
+      "apiId": "15154931",
+      "apiTitle": "행정안전부_문화_게임물제작업 조회서비스",
+      "fileDataId": "15045074",
+      "fileDataTitle": "행정안전부_문화_게임물제작업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045074/fileData.do"
+    },
+    {
+      "apiId": "15154932",
+      "apiTitle": "행정안전부_생활_의료기관세탁물처리업 조회서비스",
+      "fileDataId": "15044963",
+      "fileDataTitle": "행정안전부_생활_의료기관세탁물처리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044963/fileData.do"
+    },
+    {
+      "apiId": "15154933",
+      "apiTitle": "행정안전부_건강_치과기공소 조회서비스",
+      "fileDataId": "15045029",
+      "fileDataTitle": "행정안전부_건강_치과기공소",
+      "fileDataUrl": "https://www.data.go.kr/data/15045029/fileData.do"
+    },
+    {
+      "apiId": "15154937",
+      "apiTitle": "행정안전부_문화_복합영상물제공업 조회서비스",
+      "fileDataId": "15044999",
+      "fileDataTitle": "행정안전부_문화_복합영상물제공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044999/fileData.do"
+    },
+    {
+      "apiId": "15154939",
+      "apiTitle": "행정안전부_생활_다단계판매업체 조회서비스",
+      "fileDataId": "15045014",
+      "fileDataTitle": "행정안전부_생활_다단계판매업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15045014/fileData.do"
+    },
+    {
+      "apiId": "15154940",
+      "apiTitle": "행정안전부_자원환경_개인하수처리시설관리업(사업장) 조회서비스",
+      "fileDataId": "15045010",
+      "fileDataTitle": "행정안전부_자원환경_개인하수처리시설관리업(사업장)",
+      "fileDataUrl": "https://www.data.go.kr/data/15045010/fileData.do"
+    },
+    {
+      "apiId": "15154944",
+      "apiTitle": "행정안전부_동물_동물미용업 조회서비스",
+      "fileDataId": "15107032",
+      "fileDataTitle": "행정안전부_동물_동물미용업",
+      "fileDataUrl": "https://www.data.go.kr/data/15107032/fileData.do"
+    },
+    {
+      "apiId": "15154945",
+      "apiTitle": "행정안전부_문화_복합유통게임제공업 조회서비스",
+      "fileDataId": "15045072",
+      "fileDataTitle": "행정안전부_문화_복합유통게임제공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045072/fileData.do"
+    },
+    {
+      "apiId": "15154948",
+      "apiTitle": "행정안전부_생활_대규모점포 조회서비스",
+      "fileDataId": "15045013",
+      "fileDataTitle": "행정안전부_생활_대규모점포",
+      "fileDataUrl": "https://www.data.go.kr/data/15045013/fileData.do"
+    },
+    {
+      "apiId": "15154949",
+      "apiTitle": "행정안전부_자원환경_건물위생관리업 조회서비스",
+      "fileDataId": "15045081",
+      "fileDataTitle": "행정안전부_자원환경_건물위생관리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045081/fileData.do"
+    },
+    {
+      "apiId": "15154951",
+      "apiTitle": "행정안전부_문화_인터넷컴퓨터게임시설제공업 조회서비스",
+      "fileDataId": "15045073",
+      "fileDataTitle": "행정안전부_문화_인터넷컴퓨터게임시설제공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045073/fileData.do"
+    },
+    {
+      "apiId": "15154952",
+      "apiTitle": "행정안전부_동물_동물병원 조회서비스",
+      "fileDataId": "15045050",
+      "fileDataTitle": "행정안전부_동물_동물병원",
+      "fileDataUrl": "https://www.data.go.kr/data/15045050/fileData.do"
+    },
+    {
+      "apiId": "15154954",
+      "apiTitle": "행정안전부_자원환경_건설폐기물처리업 조회서비스",
+      "fileDataId": "15045064",
+      "fileDataTitle": "행정안전부_자원환경_건설폐기물처리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045064/fileData.do"
+    },
+    {
+      "apiId": "15154955",
+      "apiTitle": "행정안전부_문화_일반게임제공업 조회서비스",
+      "fileDataId": "15045071",
+      "fileDataTitle": "행정안전부_문화_일반게임제공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045071/fileData.do"
+    },
+    {
+      "apiId": "15154956",
+      "apiTitle": "행정안전부_생활_방문판매업 조회서비스",
+      "fileDataId": "15044952",
+      "fileDataTitle": "행정안전부_생활_방문판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044952/fileData.do"
+    },
+    {
+      "apiId": "15154957",
+      "apiTitle": "행정안전부_동물_동물생산업 조회서비스",
+      "fileDataId": "15107030",
+      "fileDataTitle": "행정안전부_동물_동물생산업",
+      "fileDataUrl": "https://www.data.go.kr/data/15107030/fileData.do"
+    },
+    {
+      "apiId": "15154958",
+      "apiTitle": "행정안전부_문화_청소년게임제공업 조회서비스",
+      "fileDataId": "15045069",
+      "fileDataTitle": "행정안전부_문화_청소년게임제공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045069/fileData.do"
+    },
+    {
+      "apiId": "15154960",
+      "apiTitle": "행정안전부_생활_전화권유판매업 조회서비스",
+      "fileDataId": "15045059",
+      "fileDataTitle": "행정안전부_생활_전화권유판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045059/fileData.do"
+    },
+    {
+      "apiId": "15154961",
+      "apiTitle": "행정안전부_동물_동물수입업 조회서비스",
+      "fileDataId": "15107031",
+      "fileDataTitle": "행정안전부_동물_동물수입업",
+      "fileDataUrl": "https://www.data.go.kr/data/15107031/fileData.do"
+    },
+    {
+      "apiId": "15154963",
+      "apiTitle": "행정안전부_생활_통신판매업 조회서비스",
+      "fileDataId": "15045060",
+      "fileDataTitle": "행정안전부_생활_통신판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+    },
+    {
+      "apiId": "15154964",
+      "apiTitle": "행정안전부_자원환경_급수공사대행업 조회서비스",
+      "fileDataId": "15045115",
+      "fileDataTitle": "행정안전부_자원환경_급수공사대행업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045115/fileData.do"
+    },
+    {
+      "apiId": "15154966",
+      "apiTitle": "행정안전부_문화_공연장 조회서비스",
+      "fileDataId": "15045106",
+      "fileDataTitle": "행정안전부_문화_공연장",
+      "fileDataUrl": "https://www.data.go.kr/data/15045106/fileData.do"
+    },
+    {
+      "apiId": "15154968",
+      "apiTitle": "행정안전부_자원환경_단독정화조 및 오수처리시설설계시공업 조회서비스",
+      "fileDataId": "15045011",
+      "fileDataTitle": "행정안전부_자원환경_단독정화조 및 오수처리시설설계시공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045011/fileData.do"
+    },
+    {
+      "apiId": "15154969",
+      "apiTitle": "행정안전부_생활_후원방문판매업체 조회서비스",
+      "fileDataId": "15044953",
+      "fileDataTitle": "행정안전부_생활_후원방문판매업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044953/fileData.do"
+    },
+    {
+      "apiId": "15154970",
+      "apiTitle": "행정안전부_문화_관광공연장업 조회서비스",
+      "fileDataId": "15045091",
+      "fileDataTitle": "행정안전부_문화_관광공연장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045091/fileData.do"
+    },
+    {
+      "apiId": "15154971",
+      "apiTitle": "행정안전부_동물_동물용의료용구판매업 조회서비스",
+      "fileDataId": "15045052",
+      "fileDataTitle": "행정안전부_동물_동물용의료용구판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045052/fileData.do"
+    },
+    {
+      "apiId": "15154973",
+      "apiTitle": "행정안전부_자원환경_대기오염물질배출시설설치사업장 조회서비스",
+      "fileDataId": "15044957",
+      "fileDataTitle": "행정안전부_자원환경_대기오염물질배출시설설치사업장",
+      "fileDataUrl": "https://www.data.go.kr/data/15044957/fileData.do"
+    },
+    {
+      "apiId": "15154975",
+      "apiTitle": "행정안전부_생활_골프연습장업 조회서비스",
+      "fileDataId": "15045079",
+      "fileDataTitle": "행정안전부_생활_골프연습장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045079/fileData.do"
+    },
+    {
+      "apiId": "15154976",
+      "apiTitle": "행정안전부_자원환경_배출가스전문정비사업자(확인검사대행자) 조회서비스",
+      "fileDataId": "15044956",
+      "fileDataTitle": "행정안전부_자원환경_배출가스전문정비사업자(확인검사대행자)",
+      "fileDataUrl": "https://www.data.go.kr/data/15044956/fileData.do"
+    },
+    {
+      "apiId": "15154978",
+      "apiTitle": "행정안전부_생활_골프장 조회서비스",
+      "fileDataId": "15045080",
+      "fileDataTitle": "행정안전부_생활_골프장",
+      "fileDataUrl": "https://www.data.go.kr/data/15045080/fileData.do"
+    },
+    {
+      "apiId": "15154979",
+      "apiTitle": "행정안전부_자원환경_분뇨수집운반업 조회서비스",
+      "fileDataId": "15045063",
+      "fileDataTitle": "행정안전부_자원환경_분뇨수집운반업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045063/fileData.do"
+    },
+    {
+      "apiId": "15154981",
+      "apiTitle": "행정안전부_건강_산후조리업 조회서비스",
+      "fileDataId": "15045027",
+      "fileDataTitle": "행정안전부_건강_산후조리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045027/fileData.do"
+    },
+    {
+      "apiId": "15154982",
+      "apiTitle": "행정안전부_자원환경_소독업 조회서비스",
+      "fileDataId": "15045035",
+      "fileDataTitle": "행정안전부_자원환경_소독업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045035/fileData.do"
+    },
+    {
+      "apiId": "15154983",
+      "apiTitle": "행정안전부_문화_관광극장유흥업 조회서비스",
+      "fileDataId": "15045094",
+      "fileDataTitle": "행정안전부_문화_관광극장유흥업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045094/fileData.do"
+    },
+    {
+      "apiId": "15154984",
+      "apiTitle": "행정안전부_동물_동물용의약품도매상 조회서비스",
+      "fileDataId": "15101544",
+      "fileDataTitle": "행정안전부_동물_동물용의약품도매상",
+      "fileDataUrl": "https://www.data.go.kr/data/15101544/fileData.do"
+    },
+    {
+      "apiId": "15154989",
+      "apiTitle": "행정안전부_자원환경_수질오염원설치시설(기타) 조회서비스",
+      "fileDataId": "15045116",
+      "fileDataTitle": "행정안전부_자원환경_수질오염원설치시설(기타)",
+      "fileDataUrl": "https://www.data.go.kr/data/15045116/fileData.do"
+    },
+    {
+      "apiId": "15155004",
+      "apiTitle": "행정안전부_기타_옥외광고업 조회서비스",
+      "fileDataId": "15006697",
+      "fileDataTitle": "행정안전부_기타_옥외광고업",
+      "fileDataUrl": "https://www.data.go.kr/data/15006697/fileData.do"
+    },
+    {
+      "apiId": "15155011",
+      "apiTitle": "행정안전부_생활_당구장업 조회서비스",
+      "fileDataId": "15045107",
+      "fileDataTitle": "행정안전부_생활_당구장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045107/fileData.do"
+    },
+    {
+      "apiId": "15155014",
+      "apiTitle": "행정안전부_기타_인쇄사 조회서비스",
+      "fileDataId": "15045057",
+      "fileDataTitle": "행정안전부_기타_인쇄사",
+      "fileDataUrl": "https://www.data.go.kr/data/15045057/fileData.do"
+    },
+    {
+      "apiId": "15155015",
+      "apiTitle": "행정안전부_자원환경_쓰레기종량제봉투판매업 조회서비스",
+      "fileDataId": "15045062",
+      "fileDataTitle": "행정안전부_자원환경_쓰레기종량제봉투판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045062/fileData.do"
+    },
+    {
+      "apiId": "15155018",
+      "apiTitle": "행정안전부_생활_등록체육시설업 조회서비스",
+      "fileDataId": "15045040",
+      "fileDataTitle": "행정안전부_생활_등록체육시설업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045040/fileData.do"
+    },
+    {
+      "apiId": "15155019",
+      "apiTitle": "행정안전부_자원환경_저수조청소업 조회서비스",
+      "fileDataId": "15045061",
+      "fileDataTitle": "행정안전부_자원환경_저수조청소업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045061/fileData.do"
+    },
+    {
+      "apiId": "15155020",
+      "apiTitle": "행정안전부_기타_출판사 조회서비스",
+      "fileDataId": "15045058",
+      "fileDataTitle": "행정안전부_기타_출판사",
+      "fileDataUrl": "https://www.data.go.kr/data/15045058/fileData.do"
+    },
+    {
+      "apiId": "15155021",
+      "apiTitle": "행정안전부_자원환경_환경관리대행기관 조회서비스",
+      "fileDataId": "15045065",
+      "fileDataTitle": "행정안전부_자원환경_환경관리대행기관",
+      "fileDataUrl": "https://www.data.go.kr/data/15045065/fileData.do"
+    },
+    {
+      "apiId": "15155022",
+      "apiTitle": "행정안전부_생활_무도장업 조회서비스",
+      "fileDataId": "15045110",
+      "fileDataTitle": "행정안전부_생활_무도장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045110/fileData.do"
+    },
+    {
+      "apiId": "15155024",
+      "apiTitle": "행정안전부_동물_동물운송업 조회서비스",
+      "fileDataId": "15107028",
+      "fileDataTitle": "행정안전부_동물_동물운송업",
+      "fileDataUrl": "https://www.data.go.kr/data/15107028/fileData.do"
+    },
+    {
+      "apiId": "15155025",
+      "apiTitle": "행정안전부_문화_비디오물배급업 조회서비스",
+      "fileDataId": "15045002",
+      "fileDataTitle": "행정안전부_문화_비디오물배급업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045002/fileData.do"
+    },
+    {
+      "apiId": "15155027",
+      "apiTitle": "행정안전부_자원환경_환경전문공사업 조회서비스",
+      "fileDataId": "15044954",
+      "fileDataTitle": "행정안전부_자원환경_환경전문공사업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044954/fileData.do"
+    },
+    {
+      "apiId": "15155028",
+      "apiTitle": "행정안전부_기타_담배도매업 조회서비스",
+      "fileDataId": "15045103",
+      "fileDataTitle": "행정안전부_기타_담배도매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045103/fileData.do"
+    },
+    {
+      "apiId": "15155029",
+      "apiTitle": "행정안전부_생활_무도학원업 조회서비스",
+      "fileDataId": "15045108",
+      "fileDataTitle": "행정안전부_생활_무도학원업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045108/fileData.do"
+    },
+    {
+      "apiId": "15155030",
+      "apiTitle": "행정안전부_자원환경_환경측정대행업 조회서비스",
+      "fileDataId": "15044955",
+      "fileDataTitle": "행정안전부_자원환경_환경측정대행업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044955/fileData.do"
+    },
+    {
+      "apiId": "15155031",
+      "apiTitle": "행정안전부_기타_담배소매업 조회서비스",
+      "fileDataId": "15045104",
+      "fileDataTitle": "행정안전부_기타_담배소매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045104/fileData.do"
+    },
+    {
+      "apiId": "15155033",
+      "apiTitle": "행정안전부_생활_빙상장업 조회서비스",
+      "fileDataId": "15045042",
+      "fileDataTitle": "행정안전부_생활_빙상장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045042/fileData.do"
+    },
+    {
+      "apiId": "15155036",
+      "apiTitle": "행정안전부_자원환경_환경컨설팅회사 조회서비스",
+      "fileDataId": "15045066",
+      "fileDataTitle": "행정안전부_자원환경_환경컨설팅회사",
+      "fileDataUrl": "https://www.data.go.kr/data/15045066/fileData.do"
+    },
+    {
+      "apiId": "15155038",
+      "apiTitle": "행정안전부_생활_수영장업 조회서비스",
+      "fileDataId": "15045047",
+      "fileDataTitle": "행정안전부_생활_수영장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045047/fileData.do"
+    },
+    {
+      "apiId": "15155041",
+      "apiTitle": "행정안전부_생활_스키장 조회서비스",
+      "fileDataId": "15045043",
+      "fileDataTitle": "행정안전부_생활_스키장",
+      "fileDataUrl": "https://www.data.go.kr/data/15045043/fileData.do"
+    },
+    {
+      "apiId": "15155043",
+      "apiTitle": "행정안전부_문화_비디오물소극장업 조회서비스",
+      "fileDataId": "15045001",
+      "fileDataTitle": "행정안전부_문화_비디오물소극장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045001/fileData.do"
+    },
+    {
+      "apiId": "15155045",
+      "apiTitle": "행정안전부_생활_승마장업 조회서비스",
+      "fileDataId": "15045041",
+      "fileDataTitle": "행정안전부_생활_승마장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045041/fileData.do"
+    },
+    {
+      "apiId": "15155047",
+      "apiTitle": "행정안전부_기타_담배수입판매업체 조회서비스",
+      "fileDataId": "15045105",
+      "fileDataTitle": "행정안전부_기타_담배수입판매업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15045105/fileData.do"
+    },
+    {
+      "apiId": "15155051",
+      "apiTitle": "행정안전부_생활_썰매장업 조회서비스",
+      "fileDataId": "15045044",
+      "fileDataTitle": "행정안전부_생활_썰매장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045044/fileData.do"
+    },
+    {
+      "apiId": "15155055",
+      "apiTitle": "행정안전부_동물_동물위탁관리업 조회서비스",
+      "fileDataId": "15107029",
+      "fileDataTitle": "행정안전부_동물_동물위탁관리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15107029/fileData.do"
+    },
+    {
+      "apiId": "15155056",
+      "apiTitle": "행정안전부_기타_국제물류주선업 조회서비스",
+      "fileDataId": "15006727",
+      "fileDataTitle": "행정안전부_기타_국제물류주선업",
+      "fileDataUrl": "https://www.data.go.kr/data/15006727/fileData.do"
+    },
+    {
+      "apiId": "15155059",
+      "apiTitle": "행정안전부_문화_비디오물시청제공업 조회서비스",
+      "fileDataId": "15045004",
+      "fileDataTitle": "행정안전부_문화_비디오물시청제공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045004/fileData.do"
+    },
+    {
+      "apiId": "15155061",
+      "apiTitle": "행정안전부_생활_요트장업 조회서비스",
+      "fileDataId": "15045046",
+      "fileDataTitle": "행정안전부_생활_요트장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045046/fileData.do"
+    },
+    {
+      "apiId": "15155065",
+      "apiTitle": "행정안전부_동물_동물장묘업 조회서비스",
+      "fileDataId": "15045054",
+      "fileDataTitle": "행정안전부_동물_동물장묘업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045054/fileData.do"
+    },
+    {
+      "apiId": "15155066",
+      "apiTitle": "행정안전부_기타_물류창고업체 조회서비스",
+      "fileDataId": "15006668",
+      "fileDataTitle": "행정안전부_기타_물류창고업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15006668/fileData.do"
+    },
+    {
+      "apiId": "15155071",
+      "apiTitle": "행정안전부_생활_종합체육시설업 조회서비스",
+      "fileDataId": "15045039",
+      "fileDataTitle": "행정안전부_생활_종합체육시설업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045039/fileData.do"
+    },
+    {
+      "apiId": "15155075",
+      "apiTitle": "행정안전부_동물_동물전시업 조회서비스",
+      "fileDataId": "15106988",
+      "fileDataTitle": "행정안전부_동물_동물전시업",
+      "fileDataUrl": "https://www.data.go.kr/data/15106988/fileData.do"
+    },
+    {
+      "apiId": "15155077",
+      "apiTitle": "행정안전부_생활_체력단련장업 조회서비스",
+      "fileDataId": "15045048",
+      "fileDataTitle": "행정안전부_생활_체력단련장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045048/fileData.do"
+    },
+    {
+      "apiId": "15155078",
+      "apiTitle": "행정안전부_문화_비디오물제작업 조회서비스",
+      "fileDataId": "15045000",
+      "fileDataTitle": "행정안전부_문화_비디오물제작업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045000/fileData.do"
+    },
+    {
+      "apiId": "15155082",
+      "apiTitle": "행정안전부_기타_민방위급수시설 조회서비스",
+      "fileDataId": "15044950",
+      "fileDataTitle": "행정안전부_기타_민방위급수시설",
+      "fileDataUrl": "https://www.data.go.kr/data/15044950/fileData.do"
+    },
+    {
+      "apiId": "15155083",
+      "apiTitle": "행정안전부_동물_동물판매업 조회서비스",
+      "fileDataId": "15106987",
+      "fileDataTitle": "행정안전부_동물_동물판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15106987/fileData.do"
+    },
+    {
+      "apiId": "15155085",
+      "apiTitle": "행정안전부_생활_체육도장업 조회서비스",
+      "fileDataId": "15045045",
+      "fileDataTitle": "행정안전부_생활_체육도장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045045/fileData.do"
+    },
+    {
+      "apiId": "15155088",
+      "apiTitle": "행정안전부_기타_상조업 조회서비스",
+      "fileDataId": "15006679",
+      "fileDataTitle": "행정안전부_기타_상조업",
+      "fileDataUrl": "https://www.data.go.kr/data/15006679/fileData.do"
+    },
+    {
+      "apiId": "15155089",
+      "apiTitle": "행정안전부_동물_가축사육업 조회서비스",
+      "fileDataId": "15101545",
+      "fileDataTitle": "행정안전부_동물_가축사육업",
+      "fileDataUrl": "https://www.data.go.kr/data/15101545/fileData.do"
+    },
+    {
+      "apiId": "15155090",
+      "apiTitle": "행정안전부_문화_관광숙박업 조회서비스",
+      "fileDataId": "15044967",
+      "fileDataTitle": "행정안전부_문화_관광숙박업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044967/fileData.do"
+    },
+    {
+      "apiId": "15155091",
+      "apiTitle": "행정안전부_생활_목욕장업 조회서비스",
+      "fileDataId": "15045082",
+      "fileDataTitle": "행정안전부_생활_목욕장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045082/fileData.do"
+    },
+    {
+      "apiId": "15155093",
+      "apiTitle": "행정안전부_기타_유료직업소개소 조회서비스",
+      "fileDataId": "15045101",
+      "fileDataTitle": "행정안전부_기타_유료직업소개소",
+      "fileDataUrl": "https://www.data.go.kr/data/15045101/fileData.do"
+    },
+    {
+      "apiId": "15155095",
+      "apiTitle": "행정안전부_기타_승강기유지관리업체 조회서비스",
+      "fileDataId": "15044969",
+      "fileDataTitle": "행정안전부_기타_승강기유지관리업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044969/fileData.do"
+    },
+    {
+      "apiId": "15155097",
+      "apiTitle": "행정안전부_동물_가축인공수정소 조회서비스",
+      "fileDataId": "15045056",
+      "fileDataTitle": "행정안전부_동물_가축인공수정소",
+      "fileDataUrl": "https://www.data.go.kr/data/15045056/fileData.do"
+    },
+    {
+      "apiId": "15155098",
+      "apiTitle": "행정안전부_자원환경_목재수입유통업 조회서비스",
+      "fileDataId": "15044960",
+      "fileDataTitle": "행정안전부_자원환경_목재수입유통업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044960/fileData.do"
+    },
+    {
+      "apiId": "15155099",
+      "apiTitle": "행정안전부_기타_무료직업소개소 조회서비스",
+      "fileDataId": "15045102",
+      "fileDataTitle": "행정안전부_기타_무료직업소개소",
+      "fileDataUrl": "https://www.data.go.kr/data/15045102/fileData.do"
+    },
+    {
+      "apiId": "15155100",
+      "apiTitle": "행정안전부_기타_승강기제조및수입업체 조회서비스",
+      "fileDataId": "15044970",
+      "fileDataTitle": "행정안전부_기타_승강기제조및수입업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044970/fileData.do"
+    },
+    {
+      "apiId": "15155103",
+      "apiTitle": "행정안전부_문화_관광펜션업 조회서비스",
+      "fileDataId": "15044965",
+      "fileDataTitle": "행정안전부_문화_관광펜션업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044965/fileData.do"
+    },
+    {
+      "apiId": "15155105",
+      "apiTitle": "행정안전부_동물_도축업 조회서비스",
+      "fileDataId": "15045053",
+      "fileDataTitle": "행정안전부_동물_도축업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045053/fileData.do"
+    },
+    {
+      "apiId": "15155108",
+      "apiTitle": "행정안전부_기타_요양보호사교육기관 조회서비스",
+      "fileDataId": "15045097",
+      "fileDataTitle": "행정안전부_기타_요양보호사교육기관",
+      "fileDataUrl": "https://www.data.go.kr/data/15045097/fileData.do"
+    },
+    {
+      "apiId": "15155110",
+      "apiTitle": "행정안전부_기타_장례지도사 교육기관 조회서비스",
+      "fileDataId": "15045098",
+      "fileDataTitle": "행정안전부_기타_장례지도사 교육기관",
+      "fileDataUrl": "https://www.data.go.kr/data/15045098/fileData.do"
+    },
+    {
+      "apiId": "15155112",
+      "apiTitle": "행정안전부_동물_부화업 조회서비스",
+      "fileDataId": "15045051",
+      "fileDataTitle": "행정안전부_동물_부화업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045051/fileData.do"
+    },
+    {
+      "apiId": "15155113",
+      "apiTitle": "행정안전부_문화_농어촌민박업 조회서비스",
+      "fileDataId": "15113628",
+      "fileDataTitle": "행정안전부_문화_농어촌민박업",
+      "fileDataUrl": "https://www.data.go.kr/data/15113628/fileData.do"
+    },
+    {
+      "apiId": "15155114",
+      "apiTitle": "행정안전부_자원환경_원목생산업 조회서비스",
+      "fileDataId": "15044959",
+      "fileDataTitle": "행정안전부_자원환경_원목생산업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044959/fileData.do"
+    },
+    {
+      "apiId": "15155118",
+      "apiTitle": "행정안전부_동물_종축업 조회서비스",
+      "fileDataId": "15101548",
+      "fileDataTitle": "행정안전부_동물_종축업",
+      "fileDataUrl": "https://www.data.go.kr/data/15101548/fileData.do"
+    },
+    {
+      "apiId": "15155120",
+      "apiTitle": "행정안전부_자원환경_제재업 조회서비스",
+      "fileDataId": "15044958",
+      "fileDataTitle": "행정안전부_자원환경_제재업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044958/fileData.do"
+    },
+    {
+      "apiId": "15155121",
+      "apiTitle": "행정안전부_동물_사료제조업 조회서비스",
+      "fileDataId": "15101546",
+      "fileDataTitle": "행정안전부_동물_사료제조업",
+      "fileDataUrl": "https://www.data.go.kr/data/15101546/fileData.do"
+    },
+    {
+      "apiId": "15155124",
+      "apiTitle": "행정안전부_문화_숙박업 조회서비스",
+      "fileDataId": "15044968",
+      "fileDataTitle": "행정안전부_문화_숙박업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044968/fileData.do"
+    },
+    {
+      "apiId": "15155126",
+      "apiTitle": "행정안전부_식품_식품소분업 조회서비스",
+      "fileDataId": "15044972",
+      "fileDataTitle": "행정안전부_식품_식품소분업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044972/fileData.do"
+    },
+    {
+      "apiId": "15155127",
+      "apiTitle": "행정안전부_자원환경_계량기수리업 조회서비스",
+      "fileDataId": "15045078",
+      "fileDataTitle": "행정안전부_자원환경_계량기수리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045078/fileData.do"
+    },
+    {
+      "apiId": "15155128",
+      "apiTitle": "행정안전부_문화_비디오물감상실업 조회서비스",
+      "fileDataId": "15045003",
+      "fileDataTitle": "행정안전부_문화_비디오물감상실업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045003/fileData.do"
+    },
+    {
+      "apiId": "15155130",
+      "apiTitle": "행정안전부_문화_관광사업자 조회서비스",
+      "fileDataId": "15044995",
+      "fileDataTitle": "행정안전부_문화_관광사업자",
+      "fileDataUrl": "https://www.data.go.kr/data/15044995/fileData.do"
+    },
+    {
+      "apiId": "15155133",
+      "apiTitle": "행정안전부_식품_식품운반업 조회서비스",
+      "fileDataId": "15044971",
+      "fileDataTitle": "행정안전부_식품_식품운반업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044971/fileData.do"
+    },
+    {
+      "apiId": "15155134",
+      "apiTitle": "행정안전부_문화_관광유람선업 조회서비스",
+      "fileDataId": "15045087",
+      "fileDataTitle": "행정안전부_문화_관광유람선업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045087/fileData.do"
+    },
+    {
+      "apiId": "15155135",
+      "apiTitle": "행정안전부_문화_노래연습장업 조회서비스",
+      "fileDataId": "15045109",
+      "fileDataTitle": "행정안전부_문화_노래연습장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045109/fileData.do"
+    },
+    {
+      "apiId": "15155137",
+      "apiTitle": "행정안전부_자원환경_계량기수입업 조회서비스",
+      "fileDataId": "15045075",
+      "fileDataTitle": "행정안전부_자원환경_계량기수입업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045075/fileData.do"
+    },
+    {
+      "apiId": "15155138",
+      "apiTitle": "행정안전부_문화_국제회의시설업 조회서비스",
+      "fileDataId": "15045100",
+      "fileDataTitle": "행정안전부_문화_국제회의시설업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045100/fileData.do"
+    },
+    {
+      "apiId": "15155139",
+      "apiTitle": "행정안전부_문화_외국인관광도시민박업 조회서비스",
+      "fileDataId": "15044966",
+      "fileDataTitle": "행정안전부_문화_외국인관광도시민박업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044966/fileData.do"
+    },
+    {
+      "apiId": "15155142",
+      "apiTitle": "행정안전부_문화_문화예술법인 조회서비스",
+      "fileDataId": "15045111",
+      "fileDataTitle": "행정안전부_문화_문화예술법인",
+      "fileDataUrl": "https://www.data.go.kr/data/15045111/fileData.do"
+    },
+    {
+      "apiId": "15155144",
+      "apiTitle": "행정안전부_식품_식품자동판매기업 조회서비스",
+      "fileDataId": "15044983",
+      "fileDataTitle": "행정안전부_식품_식품자동판매기업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044983/fileData.do"
+    },
+    {
+      "apiId": "15155146",
+      "apiTitle": "행정안전부_문화_박물관 및 미술관 조회서비스",
+      "fileDataId": "15045093",
+      "fileDataTitle": "행정안전부_문화_박물관 및 미술관",
+      "fileDataUrl": "https://www.data.go.kr/data/15045093/fileData.do"
+    },
+    {
+      "apiId": "15155147",
+      "apiTitle": "행정안전부_자원환경_계량기제조업 조회서비스",
+      "fileDataId": "15045077",
+      "fileDataTitle": "행정안전부_자원환경_계량기제조업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045077/fileData.do"
+    },
+    {
+      "apiId": "15155149",
+      "apiTitle": "행정안전부_문화_일반야영장업 조회서비스",
+      "fileDataId": "15096255",
+      "fileDataTitle": "행정안전부_문화_일반야영장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15096255/fileData.do"
+    },
+    {
+      "apiId": "15155150",
+      "apiTitle": "행정안전부_식품_식품제조가공업 조회서비스",
+      "fileDataId": "15044976",
+      "fileDataTitle": "행정안전부_식품_식품제조가공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044976/fileData.do"
+    },
+    {
+      "apiId": "15155152",
+      "apiTitle": "행정안전부_문화_시내순환관광업 조회서비스",
+      "fileDataId": "15006741",
+      "fileDataTitle": "행정안전부_문화_시내순환관광업",
+      "fileDataUrl": "https://www.data.go.kr/data/15006741/fileData.do"
+    },
+    {
+      "apiId": "15155154",
+      "apiTitle": "행정안전부_자원환경_계량기증명업 조회서비스",
+      "fileDataId": "15045076",
+      "fileDataTitle": "행정안전부_자원환경_계량기증명업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045076/fileData.do"
+    },
+    {
+      "apiId": "15155155",
+      "apiTitle": "행정안전부_문화_대중문화예술기획업 조회서비스",
+      "fileDataId": "15045112",
+      "fileDataTitle": "행정안전부_문화_대중문화예술기획업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045112/fileData.do"
+    },
+    {
+      "apiId": "15155157",
+      "apiTitle": "행정안전부_문화_일반테마파크업 조회서비스",
+      "fileDataId": "15045092",
+      "fileDataTitle": "행정안전부_문화_일반테마파크업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045092/fileData.do"
+    },
+    {
+      "apiId": "15155159",
+      "apiTitle": "행정안전부_식품_위탁급식영업 조회서비스",
+      "fileDataId": "15044975",
+      "fileDataTitle": "행정안전부_식품_위탁급식영업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044975/fileData.do"
+    },
+    {
+      "apiId": "15155162",
+      "apiTitle": "행정안전부_식품_식품첨가물제조업 조회서비스",
+      "fileDataId": "15044974",
+      "fileDataTitle": "행정안전부_식품_식품첨가물제조업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044974/fileData.do"
+    },
+    {
+      "apiId": "15155163",
+      "apiTitle": "행정안전부_자원환경_고압가스업 조회서비스",
+      "fileDataId": "15044987",
+      "fileDataTitle": "행정안전부_자원환경_고압가스업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044987/fileData.do"
+    },
+    {
+      "apiId": "15155164",
+      "apiTitle": "행정안전부_식품_식품냉동냉장업 조회서비스",
+      "fileDataId": "15044982",
+      "fileDataTitle": "행정안전부_식품_식품냉동냉장업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044982/fileData.do"
+    },
+    {
+      "apiId": "15155166",
+      "apiTitle": "행정안전부_문화_국제회의기획업 조회서비스",
+      "fileDataId": "15045099",
+      "fileDataTitle": "행정안전부_문화_국제회의기획업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045099/fileData.do"
+    },
+    {
+      "apiId": "15155168",
+      "apiTitle": "행정안전부_식품_집단급식소 조회서비스",
+      "fileDataId": "15096257",
+      "fileDataTitle": "행정안전부_식품_집단급식소",
+      "fileDataUrl": "https://www.data.go.kr/data/15096257/fileData.do"
+    },
+    {
+      "apiId": "15155169",
+      "apiTitle": "행정안전부_식품_식육포장처리업 조회서비스",
+      "fileDataId": "15101551",
+      "fileDataTitle": "행정안전부_식품_식육포장처리업",
+      "fileDataUrl": "https://www.data.go.kr/data/15101551/fileData.do"
+    },
+    {
+      "apiId": "15155170",
+      "apiTitle": "행정안전부_식품_식품판매업(기타) 조회서비스",
+      "fileDataId": "15044979",
+      "fileDataTitle": "행정안전부_식품_식품판매업(기타)",
+      "fileDataUrl": "https://www.data.go.kr/data/15044979/fileData.do"
+    },
+    {
+      "apiId": "15155171",
+      "apiTitle": "행정안전부_자원환경_석연탄제조업 조회서비스",
+      "fileDataId": "15044994",
+      "fileDataTitle": "행정안전부_자원환경_석연탄제조업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044994/fileData.do"
+    },
+    {
+      "apiId": "15155173",
+      "apiTitle": "행정안전부_식품_건강기능식품유통전문판매업 조회서비스",
+      "fileDataId": "15044981",
+      "fileDataTitle": "행정안전부_식품_건강기능식품유통전문판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044981/fileData.do"
+    },
+    {
+      "apiId": "15155221",
+      "apiTitle": "행정안전부_식품_건강기능식품일반판매업 조회서비스",
+      "fileDataId": "15044985",
+      "fileDataTitle": "행정안전부_식품_건강기능식품일반판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044985/fileData.do"
+    },
+    {
+      "apiId": "15155226",
+      "apiTitle": "행정안전부_식품_식용얼음판매업 조회서비스",
+      "fileDataId": "15044986",
+      "fileDataTitle": "행정안전부_식품_식용얼음판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044986/fileData.do"
+    },
+    {
+      "apiId": "15155232",
+      "apiTitle": "행정안전부_문화_전문휴양업 조회서비스",
+      "fileDataId": "15045090",
+      "fileDataTitle": "행정안전부_문화_전문휴양업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045090/fileData.do"
+    },
+    {
+      "apiId": "15155235",
+      "apiTitle": "행정안전부_문화_전통사찰 조회서비스",
+      "fileDataId": "15045113",
+      "fileDataTitle": "행정안전부_문화_전통사찰",
+      "fileDataUrl": "https://www.data.go.kr/data/15045113/fileData.do"
+    },
+    {
+      "apiId": "15155236",
+      "apiTitle": "행정안전부_문화_관광궤도업 조회서비스",
+      "fileDataId": "15045083",
+      "fileDataTitle": "행정안전부_문화_관광궤도업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045083/fileData.do"
+    },
+    {
+      "apiId": "15155237",
+      "apiTitle": "행정안전부_식품_옹기류제조업 조회서비스",
+      "fileDataId": "15045012",
+      "fileDataTitle": "행정안전부_식품_옹기류제조업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045012/fileData.do"
+    },
+    {
+      "apiId": "15155238",
+      "apiTitle": "행정안전부_문화_종합테마파크업 조회서비스",
+      "fileDataId": "15045084",
+      "fileDataTitle": "행정안전부_문화_종합테마파크업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045084/fileData.do"
+    },
+    {
+      "apiId": "15155242",
+      "apiTitle": "행정안전부_문화_종합휴양업 조회서비스",
+      "fileDataId": "15045086",
+      "fileDataTitle": "행정안전부_문화_종합휴양업",
+      "fileDataUrl": "https://www.data.go.kr/data/15045086/fileData.do"
+    },
+    {
+      "apiId": "15155245",
+      "apiTitle": "행정안전부_식품_즉석판매제조가공업 조회서비스",
+      "fileDataId": "15044977",
+      "fileDataTitle": "행정안전부_식품_즉석판매제조가공업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044977/fileData.do"
+    },
+    {
+      "apiId": "15155246",
+      "apiTitle": "행정안전부_문화_지방문화원 조회서비스",
+      "fileDataId": "15045114",
+      "fileDataTitle": "행정안전부_문화_지방문화원",
+      "fileDataUrl": "https://www.data.go.kr/data/15045114/fileData.do"
+    },
+    {
+      "apiId": "15155250",
+      "apiTitle": "행정안전부_문화_테마파크업(기타) 조회서비스",
+      "fileDataId": "15045089",
+      "fileDataTitle": "행정안전부_문화_테마파크업(기타)",
+      "fileDataUrl": "https://www.data.go.kr/data/15045089/fileData.do"
+    },
+    {
+      "apiId": "15155251",
+      "apiTitle": "행정안전부_식품_유통전문판매업 조회서비스",
+      "fileDataId": "15044978",
+      "fileDataTitle": "행정안전부_식품_유통전문판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044978/fileData.do"
+    },
+    {
+      "apiId": "15155252",
+      "apiTitle": "행정안전부_식품_제과점영업 조회서비스",
+      "fileDataId": "15044973",
+      "fileDataTitle": "행정안전부_식품_제과점영업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044973/fileData.do"
+    },
+    {
+      "apiId": "15155253",
+      "apiTitle": "행정안전부_자원환경_석유판매업 조회서비스",
+      "fileDataId": "15044961",
+      "fileDataTitle": "행정안전부_자원환경_석유판매업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044961/fileData.do"
+    },
+    {
+      "apiId": "15155257",
+      "apiTitle": "행정안전부_식품_용기냉동기특정설비 조회서비스",
+      "fileDataId": "15045015",
+      "fileDataTitle": "행정안전부_식품_용기냉동기특정설비",
+      "fileDataUrl": "https://www.data.go.kr/data/15045015/fileData.do"
+    },
+    {
+      "apiId": "15155258",
+      "apiTitle": "행정안전부_자원환경_석유및석유대체연료판매업체 조회서비스",
+      "fileDataId": "15044962",
+      "fileDataTitle": "행정안전부_자원환경_석유및석유대체연료판매업체",
+      "fileDataUrl": "https://www.data.go.kr/data/15044962/fileData.do"
+    },
+    {
+      "apiId": "15155262",
+      "apiTitle": "행정안전부_식품_용기및포장지제조업 조회서비스",
+      "fileDataId": "15044980",
+      "fileDataTitle": "행정안전부_식품_용기및포장지제조업",
+      "fileDataUrl": "https://www.data.go.kr/data/15044980/fileData.do"
+    },
+    {
+      "apiId": "15155272",
+      "apiTitle": "행정안전부_동물_동물약국 조회서비스",
+      "fileDataId": "15101543",
+      "fileDataTitle": "행정안전부_동물_동물약국",
+      "fileDataUrl": "https://www.data.go.kr/data/15101543/fileData.do"
+    }
+  ]
+}

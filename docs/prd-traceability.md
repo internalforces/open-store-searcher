@@ -28,7 +28,7 @@ _Last updated: 2026-08-28_
 | FR-06 | Basic information and dates | TASK-006, 014 | Missing-value display tests | Planned |
 | FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | Regression tests for missing results, conflicts, and new codes | Planned |
 | FR-08 | Data as-of date | TASK-008, 014 | Page and card as-of-date tests | Planned |
-| FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; `reports/research-2026-08-28-source-data-contract.md` documents representative provenance and as-of evidence; all-category permission coverage, UI, and documentation review pending | In progress |
+| FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; UI and public documentation remain pending | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | URL encoding and new-window security tests | Planned |
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | E2E tests at primary viewports | Planned |
 | FR-12 | No collection of personal or usage data | TASK-019 | Network, storage, and script audit | Planned |

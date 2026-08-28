@@ -18,6 +18,21 @@ _Last updated: 2026-08-28_
 | TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | 2026-08-20 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; pinned clean install, command suite, subpath build, license audit, and scope audit passed |
 | TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | 2026-08-24 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; clean install, 100% Vitest coverage, four-browser Pages-subpath smoke, two zero-violation axe scans, and 302 dependency-license rows passed |
 | TASK-026 (M0) | Review the Korean handbook and pass the M0 human-language gate | 2026-08-24 | Documenter / Planner | All eight handbook files recorded as Updated or Reviewed without content change; user approved Korean clarity, safety terminology, and accuracy; M0 closed |
+| TASK-004 | Research the local administrative licensing source-data contract | 2026-08-28 | Researcher / Architect | ADR-009 approved the bounded zero-key candidate; 195 distinct official Ministry file-data pages passed the permission and attribution audit; Reviewer APPROVED |
+
+## TASK-004 Verification Evidence
+
+- `reports/source-permission-manifest-2026-08-28.json` maps the official notice's 195 API
+  categories one-to-one to 195 distinct official Ministry file-data pages.
+- A live review audit fetched all 195 pages: every response was HTTP 200, every provider was the
+  Ministry of the Interior and Safety, every title matched its category, and every displayed
+  permission was unrestricted.
+- The audit rejected two incorrect or incomplete portal recommendation mappings and recorded the
+  exact official file-data identifiers used instead.
+- `reports/review-2026-08-28-task-004-permission-gate.md` records APPROVED with no findings.
+- TASK-004 authorizes only the bounded TASK-005 non-production contract probe. Production
+  collection, status mapping, workflow, publication, and deployment remain gated by their owning
+  tasks.
 
 ## TASK-026 M0 Verification Evidence
 

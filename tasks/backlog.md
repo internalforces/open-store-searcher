@@ -11,7 +11,6 @@ _Last updated: 2026-08-28_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-005 | Implement a change-detecting Seoul data collector | High | M1 | M | FR-13, Section 12.3 |
 | TASK-006 | Implement transformation schema and identifiers that separate original display values from normalized search values | High | M1 | L | FR-05 through FR-06, Section 12.2 |
 | TASK-007 | Implement fail-safe four-status mapping and unknown-code handling | High | M1 | M | FR-04, FR-07 |
 | TASK-008 | Implement validation for required columns, abrupt changes, duplicates, missing values, status changes, as-of dates, and JSON size | High | M1 | L | FR-08, FR-13 through FR-14 |
@@ -35,9 +34,8 @@ _Last updated: 2026-08-28_
 
 ## Recommended Start Order
 
-1. Begin M1 with TASK-004 to verify the source contract.
-2. Continue the data pipeline only after TASK-004 resolves the official download, schema, terms,
-   and attribution requirements.
+1. Continue M1 with active TASK-005's bounded contract probe and staged collector.
+2. Keep TASK-006 through TASK-010 sequential so each data contract is tested before its consumer.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 remains the separate M3 deliverable for public setup, deployment, contribution, policy, and release documentation.

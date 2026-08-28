@@ -178,9 +178,10 @@ depends on observed request behavior that may change. A full staged download and
 needed for change detection. Every category's entries, schema, permission, identity, raw statuses,
 and time fields still require validation.
 
-**Consequences**: TASK-004 remains open until official permission and attribution evidence covers
-every selected category. Only after that gate passes may TASK-005 implement a non-production,
-fail-safe contract probe and staged collector. The probe must validate cross-entry timestamp
+**Consequences**: TASK-004 subsequently verified official permission and attribution evidence for
+all 195 selected categories in `reports/source-permission-manifest-2026-08-28.json`. TASK-005 may
+therefore design and implement a non-production, fail-safe contract probe and staged collector. The
+probe must validate cross-entry timestamp
 consistency before treating the archive as a single data cut or deriving an archive-wide as-of
 date. Publication remains prohibited until archive integrity, the approved 195-category manifest,
 required schema, conservative as-of derivation, bounded change checks, and last-known-good
