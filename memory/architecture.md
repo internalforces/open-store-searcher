@@ -64,7 +64,7 @@ The output schema must at minimum represent an identifier; original and normaliz
 | Repository | Single repository and single npm package with module directories | 2026-08-20 |
 | Repository foundation | MIT-licensed single npm package; strict TypeScript; Biome; relative Vite base | 2026-08-20 |
 | Test stack | Vitest, Testing Library, Playwright, and axe | 2026-08-20 |
-| Candidate source contract | Official Seoul all-category ZIP, gated by TASK-004 permission coverage and a fail-safe TASK-005 contract probe | 2026-08-28 |
+| Candidate source contract | Official Seoul all-category ZIP with TASK-004 permission coverage, gated by a fail-safe TASK-005 contract probe | 2026-08-28 |
 | Harness | AI Development Harness v1.1 Standard | 2026-08-18 |
 | Runtime | Static site with in-browser search | 2026-08-18 |
 | Data processing | GitHub Actions ETL and static JSON | 2026-08-18 |
@@ -80,8 +80,8 @@ See `memory/decisions.md` for details.
 - Do not assume a static-site base path; test GitHub Pages subpath deployment.
 - Do not deploy a pipeline that lacks a last-known-good data preservation strategy.
 - ADR-009 accepts the official zero-key Seoul all-category ZIP as the candidate default source.
-  TASK-004 must verify permission and attribution coverage for every selected category before
-  TASK-005 starts. The later probe must validate automation stability, the complete category
+  TASK-004 verified permission and attribution coverage for all 195 selected categories. The
+  TASK-005 probe must validate automation stability, the complete category
   manifest, schema, archive integrity, cross-entry timestamp consistency, and as-of inputs before
   production collection or publication is allowed.
 - Do not make the account- and API-key-dependent OpenAPI a required path without explicit approval

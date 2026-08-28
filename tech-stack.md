@@ -51,6 +51,6 @@ _Last updated: 2026-08-24_
 ## Open Decisions
 
 - [ ] Define static JSON partitioning and the search-index format.
-- [ ] Define the source-data download method and terms of use.
+- [x] Define the bounded source-data download candidate and terms through ADR-009 and TASK-004.
 - [ ] Define the Pages deployment method and last-known-good artifact preservation strategy.
 - [x] Define minimum coverage and complete test commands in TASK-003.
