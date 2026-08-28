@@ -7,11 +7,10 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-004 | Research local administrative licensing data download, schema, terms of use, and attribution | High | M1 | M | Section 12.1, Section 20 |
 | TASK-005 | Implement a change-detecting Seoul data collector | High | M1 | M | FR-13, Section 12.3 |
 | TASK-006 | Implement transformation schema and identifiers that separate original display values from normalized search values | High | M1 | L | FR-05 through FR-06, Section 12.2 |
 | TASK-007 | Implement fail-safe four-status mapping and unknown-code handling | High | M1 | M | FR-04, FR-07 |

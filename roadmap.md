@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # roadmap.md — open-store-searcher Roadmap
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 ## Goal
 
@@ -22,7 +22,9 @@ Deliver a zero-cost, open-source static dashboard that lets users search Seoul-l
 
 ## M1 — Verifiable Data Pipeline
 
-- [ ] Confirm source-data terms of use, schema, and attribution.
+- [ ] Confirm the source-data contract, including permission and attribution coverage for every
+      selected category. ADR-009 accepts a candidate only; TASK-004 must clear this gate before
+      TASK-005 collector implementation.
 - [ ] Implement collection, change detection, normalization, and status mapping for Seoul data.
 - [ ] Validate required columns, abrupt changes, duplicates, status codes, as-of dates, and output size.
 - [ ] Preserve the last known-good data when validation fails.

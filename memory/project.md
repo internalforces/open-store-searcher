@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 ## Summary
 
@@ -16,9 +16,10 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M0 complete — technology, repository, test foundation, and handbook gates passed
-- Next milestone: M1 — Verifiable data pipeline; TASK-004 is next
-- Overall health: 🟡 Caution — the technology stack is approved, but the source-data contract remains undecided
+- Phase: M1 — TASK-004 candidate source approved; all-category terms gate remains open
+- Next milestone: M1 — complete TASK-004 permission and attribution coverage before TASK-005
+- Overall health: 🟡 Caution — ADR-009 accepts the zero-key Seoul ZIP candidate, but all-category
+  permissions, cross-entry data-cut consistency, and the automation contract remain unverified
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -52,6 +53,8 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-08-28 | User approved ADR-009's bounded Seoul all-category ZIP candidate; PR review kept TASK-004 open until permission and attribution evidence covers every selected category |
+| 2026-08-28 | Completed TASK-004 official-source research and recommended the Seoul all-category ZIP as the bounded zero-key candidate; Architect and human approval remain required before collector implementation |
 | 2026-08-24 | Completed the M0 TASK-026 handbook gate after all eight documents were updated or reviewed and the user approved Korean clarity, safety terminology, and accuracy; M0 is closed and TASK-004 is next |
 | 2026-08-24 | Activated TASK-026 for the M0 handbook update-or-review and human Korean-language-review gate |
 | 2026-08-24 | Completed TASK-003 after independent Tester PASS and Reviewer APPROVED: the required clean install, 100% Vitest coverage, four-browser Pages-subpath smoke matrix, two zero-violation axe scans, and 302 dependency-license rows passed; TASK-026 is now the required M0 close gate |
