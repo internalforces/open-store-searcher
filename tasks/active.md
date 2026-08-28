@@ -7,12 +7,13 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 ## In Progress
 
-No active task. TASK-026 completed the M0 handbook and human-language-review gate. M0 is closed;
-TASK-004 is the next planned task and requires activation before work begins.
+No active task. TASK-004 completed its official-source research and the user approved ADR-009's
+bounded Seoul all-category ZIP contract. TASK-005 is next and requires activation before work
+begins.
 
 ## Task Detail Template
 

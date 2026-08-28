@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-28_
 
 ## Active Bugs
 
@@ -19,7 +19,7 @@ _Last updated: 2026-08-20_
 
 | ID | Description | Impact | Target resolution |
 |---|---|---|---|
-| DEBT-002 | Source-data download contract, fields, and terms of use are unverified | Collector and attribution design cannot be finalized | M1 / TASK-004 |
+| DEBT-002 | ADR-009 accepts the zero-key Seoul ZIP candidate, but its automation stability, complete 195-category schema and permissions, timestamp semantics, and as-of rule remain unverified | Production collection remains prohibited; failed assumptions could publish incomplete or misleading data | M1 / TASK-005 contract probe and later owning tasks |
 | DEBT-003 | Atomic preservation method for the last known-good data is undecided | A failed refresh could regress the service | M1 / TASK-009 |
 | DEBT-004 | Location of the Seoul search-quality test set is undecided | Top-3 recall cannot be verified | M2 / TASK-013 |
 

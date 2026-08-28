@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Open Questions — open-store-searcher
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 Values that cannot be confirmed from the PRD and empty repository are not assumed. When an item below is decided, update the related placeholders across all linked documents.
 
@@ -15,7 +15,6 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 |---|---|---|---|
 | What are the data-pipeline, deployment, performance, recall, freshness, and publication commands? | Remaining `[*_COMMAND]` values in `commands.md` | Later assigned tasks | commands |
 | What are the Preview and Production URLs? | [STAGING_URL], [PROD_URL] | Deployment design | tech-stack |
-| What are the source data's official download contract and authentication method? | Research required | TASK-004 | dependencies, architecture |
 
 ## Confirmed Answers
 
@@ -37,3 +36,6 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 - Active roles: six core roles plus Tester, Documenter, Security Reviewer, Performance Engineer, and Release Manager
 - Absolute constraints: zero-cost operation, static hosting, no collection of personal or usage data, no paid APIs/scraping/AI determination, and fail-safe status determination
 - Harness documentation language: English only, except exact quoted product/source literals
+- Source delivery: ADR-009 accepts the official zero-key Seoul all-category ZIP as the candidate
+  default, subject to TASK-005 validating the delivery contract, complete category manifest,
+  permissions, schema, integrity, and as-of inputs before production use

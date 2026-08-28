@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-08-28_
 
 ## ADR Template
 
@@ -147,3 +147,39 @@ layered configurations and current-app smoke tests, and defines fixture rules wi
 source data. Later feature tasks must add tests to their owning project, and TASK-007 must add the
 100% status-mapping threshold. See
 `docs/superpowers/specs/2026-08-20-test-harness-design.md`.
+
+## ADR-009: Bounded Seoul All-Category ZIP Source Contract
+
+- Date: 2026-08-28
+- Status: Accepted
+- Decision maker: User
+
+**Context**: TASK-004 verified that the Public Data Portal currently exposes 195 local
+administrative licensing categories through file data and OpenAPI. The representative OpenAPI
+requires account application, an external service key, pagination, and quota handling. The current
+Seoul all-category ZIP path requires no API key and supplies one regional snapshot, but its
+browser-like request requirements, complete schema, permissions, timestamp semantics, and archive
+contract are not documented as stable automation guarantees.
+
+**Decision**: Adopt the official Seoul all-category ZIP snapshot as the sole candidate default
+source for the build-time pipeline. Before any production collection, TASK-005 must implement and
+pass the bounded contract probe defined in
+`reports/research-2026-08-28-source-data-contract.md`. OpenAPI remains a manual diagnostic reference
+and must not become a required pipeline dependency without separate human approval for account,
+key, quota, and zero-key-scope changes.
+
+**Rationale**: The ZIP candidate matches the static, zero-cost, no-runtime-service architecture and
+avoids required sign-up, secret storage, and API-key lifecycle risks while providing an atomic
+Seoul-wide snapshot.
+
+**Trade-offs**: The current archive is large, lacks usable `ETag` and `Last-Modified` headers, and
+depends on observed request behavior that may change. A full staged download and content hash are
+needed for change detection. Every category's entries, schema, permission, identity, raw statuses,
+and time fields still require validation.
+
+**Consequences**: TASK-005 may implement only a non-production, fail-safe contract probe and staged
+collector for this source. Publication remains prohibited until archive integrity, the approved
+195-category manifest, required schema, source permissions, conservative as-of derivation, bounded
+change checks, and last-known-good preservation are designed and verified by their owning tasks.
+Unknown statuses remain `확인되지 않음`; TASK-004 does not authorize status mappings, production
+data, workflows, or deployment.

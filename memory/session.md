@@ -7,64 +7,68 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 > After a session, add a snapshot to `memory/sessions/YYYY-MM-DD-ROLE.md` when useful.
 
 ## Session Information
 
-- Date: 2026-08-24
-- Agent role: Documenter / Planner
-- Session goal: Complete the TASK-026 M0 handbook gate and close M0 after human language review
+- Date: 2026-08-28
+- Agent role: Researcher / Planner
+- Session goal: Complete TASK-004 source-data contract research for M1
 
 ## Previous Session Summary
 
-TASK-003 was merged to `main` through pull request #3 at `02c4054` after independent Tester PASS
-and Reviewer APPROVED. M0 remained open solely for the recurring TASK-026 handbook gate.
+TASK-026 completed the handbook gate and closed M0 through pull request #4 at `798d9a1` after the
+required human Korean-language review. No source-data contract or M1 implementation was complete.
 
 ## Current Work
 
-- [x] Confirm the TASK-003 merge and fast-forward local `main`.
-- [x] Obtain user approval for the bounded TASK-026 documentation design.
-- [x] Create `codex/task-026-m0-handbook` and activate TASK-026.
-- [x] Update or review every Korean handbook document against verified M0 outcomes.
-- [x] Run documentation and repository-scope verification.
-- [x] Obtain human Korean-language review.
-- [x] Close TASK-026 and M0 after the human review passed.
+- [x] Fast-forward local `main` to the merged TASK-026 result.
+- [x] Obtain user approval to perform TASK-004.
+- [x] Create `codex/task-004-source-contract` and activate TASK-004.
+- [x] Research official delivery methods, schema, terms, and attribution requirements.
+- [x] Compare official alternatives and document a bounded recommendation and unknowns.
+- [x] Verify the report and update task, project, decision-gate, issue, and traceability records.
+- [x] Receive human approval for the bounded source contract and accept ADR-009.
+- [x] Close TASK-004 without starting TASK-005 or production collection.
 
 ## Completed This Session
 
-- [x] Confirmed remote and local `main` at TASK-003 merge commit `02c4054`.
-- [x] Limited the authorized handbook pass to completed M0 evidence from TASK-001 through TASK-003.
-- [x] Updated six handbook documents and reviewed two without content changes, while refreshing the
-      visible baseline and review metadata in all eight files.
-- [x] Corrected the superseded Apache-2.0 handbook statement to the approved MIT project-source
-      license and preserved separate dependency-license treatment.
-- [x] Added the M0 history entry, authoritative evidence paths, incomplete-work boundary, per-file
-      review table, and pending human-review state.
-- [x] Passed format, changed-line whitespace, handbook inventory, date, implementation-boundary,
-      relative-link, safety-term, review-record, superseded-license, and changed-scope checks.
-- [x] Received user approval for Korean clarity, safety terminology, implementation-versus-plan
-      distinctions, and factual accuracy.
-- [x] Closed TASK-026 and M0 in the handbook, roadmap, task, project, and traceability records.
+- [x] Confirmed TASK-026 pull request #4 was merged and fast-forwarded local `main` to `798d9a1`.
+- [x] Promoted TASK-004 from the backlog with traceable acceptance criteria and verification.
+- [x] Verified current official file, OpenAPI, migration, schema, identity, freshness, permission,
+      and attribution evidence without downloading a complete production dataset.
+- [x] Published `reports/research-2026-08-28-source-data-contract.md` with an alternatives analysis,
+      a bounded zero-key ZIP recommendation, explicit unknowns, and implementation prohibitions.
+- [x] Updated the project, architecture, open-question, issue, and traceability records without
+      recording the unapproved recommendation as an accepted decision.
+- [x] Passed format, changed-line whitespace, report-section, official-host, approval-boundary,
+      handbook-scope, and temporary-artifact checks. Current Public Data Portal links returned HTTP
+      200; legacy LOCALDATA links timed out and are explicitly non-dependencies.
+- [x] Received the user's approval, accepted ADR-009, and closed TASK-004 in the authoritative
+      project, architecture, dependency, roadmap, task, decision, issue, and traceability records.
+- [x] Passed the final `npm run verify:full` gate: lint, format, typecheck, one coverage test at 100%,
+      build, four-browser Pages-subpath smoke tests, and two zero-violation automated WCAG scans.
 
 ## Issues and Decisions Found
 
-- Resolved during this session: the handbook's stale Pre-M0 baseline and superseded Apache-2.0
-  project-license statement were updated to the verified M0 baseline and ADR-007's MIT license.
-- M0 established an automated accessibility-test foundation, not product-level accessibility.
-- The source-data contract, data pipeline, search, dashboard, deployment workflow, and operating URL
-  remain unimplemented and must not be described as complete.
+- ADR-009 accepts the current official Seoul all-category ZIP as the zero-key candidate. Its
+  automation stability, full schema and permissions, timestamp semantics, and as-of rule require a
+  TASK-005 contract probe before production use.
+- OpenAPI requires account application and an external service key, so it is not recommended as the
+  mandatory default under the current zero-key constraint.
+- TASK-004 is research only. It does not authorize collector implementation, status mapping,
+  production-data publication, an external dependency, or a deployment change.
 
 ## Next Session
 
-1. Activate TASK-004 after approval.
-2. Research the official source-data download contract, schema, terms of use, and attribution
-   requirements before creating administrative-data fixtures or implementation assumptions.
+1. Activate TASK-005 after approval of its bounded implementation design.
+2. Implement only the non-production contract probe and staged collector allowed by ADR-009.
 
 ## Important Context
 
-TASK-026 and M0 are complete after the required user Korean-language approval. No task is active;
-TASK-004 is next. The handbook remains human-facing output rather than implementation evidence. No
-deployment, production-data operation, source-data contract decision, or product-feature
-implementation occurred.
+TASK-004 and ADR-009 are complete after explicit user approval. No task is active; TASK-005 is next.
+The handbook remains human-facing output rather than implementation evidence and was not read. No
+collector, fixture schema, status mapping, production-data operation, dependency, workflow, or
+deployment change occurred.

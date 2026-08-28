@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
@@ -18,6 +18,23 @@ _Last updated: 2026-08-24_
 | TASK-002 | Configure the MIT-licensed single-package repository foundation, static build, lint, format, and typecheck | 2026-08-20 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; pinned clean install, command suite, subpath build, license audit, and scope audit passed |
 | TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | 2026-08-24 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; clean install, 100% Vitest coverage, four-browser Pages-subpath smoke, two zero-violation axe scans, and 302 dependency-license rows passed |
 | TASK-026 (M0) | Review the Korean handbook and pass the M0 human-language gate | 2026-08-24 | Documenter / Planner | All eight handbook files recorded as Updated or Reviewed without content change; user approved Korean clarity, safety terminology, and accuracy; M0 closed |
+| TASK-004 | Research and approve the local administrative licensing source-data contract | 2026-08-28 | Researcher / Architect | User approved ADR-009's bounded zero-key Seoul all-category ZIP candidate after official evidence, alternatives, schema, terms, attribution, risk, and link audits |
+
+## TASK-004 Verification Evidence
+
+- `reports/research-2026-08-28-source-data-contract.md` records official file and OpenAPI delivery,
+  representative PRD-field evidence, licensing, attribution, alternatives, unknowns, and the
+  bounded source contract.
+- The user approved ADR-009 on 2026-08-28. The approval selects the zero-key Seoul all-category ZIP
+  candidate and requires TASK-005 contract validation before production use.
+- Format, changed-line whitespace, required-section, official-host, approval-boundary,
+  handbook-scope, and temporary-artifact checks passed. Current Public Data Portal evidence links
+  returned HTTP 200; legacy LOCALDATA evidence paths timed out and are prohibited dependencies.
+- The final `npm run verify:full` gate passed lint, format, typecheck, one coverage test at 100%,
+  the production build, four GitHub Pages subpath browser tests, and two zero-violation automated
+  WCAG scans.
+- No complete production dataset, source fixture, status mapping, collector, external dependency,
+  workflow, deployment, or production-data change was created.
 
 ## TASK-026 M0 Verification Evidence
 
