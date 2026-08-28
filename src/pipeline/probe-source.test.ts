@@ -15,11 +15,17 @@ function acceptedResponses(total = 2 * 1024 * 1024): Response[] {
   ];
 }
 
+function nextResponse(responses: Response[]): Response {
+  const response = responses.shift();
+  if (!response) throw new Error('test response queue exhausted');
+  return response;
+}
+
 describe('probeSourceContract', () => {
   test('accepts the limit check and one-byte range contract', async () => {
     const responses = acceptedResponses(215_968_197);
     const result = await probeSourceContract({
-      fetchImpl: async () => responses.shift()!,
+      fetchImpl: async () => nextResponse(responses),
       limits: DEFAULT_COLLECTOR_LIMITS,
     });
     expect(result).toMatchObject({
@@ -68,7 +74,7 @@ describe('probeSourceContract', () => {
     const responses = [new Response(null, { status: 204 }), rangeResponse];
     await expect(
       probeSourceContract({
-        fetchImpl: async () => responses.shift()!,
+        fetchImpl: async () => nextResponse(responses),
         limits: DEFAULT_COLLECTOR_LIMITS,
       }),
     ).resolves.toMatchObject({ kind: 'rejected', code });
@@ -102,7 +108,7 @@ describe('probeSourceContract', () => {
       const responses = acceptedResponses(total);
       await expect(
         probeSourceContract({
-          fetchImpl: async () => responses.shift()!,
+          fetchImpl: async () => nextResponse(responses),
           limits: DEFAULT_COLLECTOR_LIMITS,
         }),
       ).resolves.toMatchObject({ kind: 'rejected', code: 'archive_size_out_of_bounds' });

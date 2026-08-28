@@ -159,9 +159,10 @@ export class UnzipArchiveAdapter implements ArchiveAdapter {
     const dates = new Map<string, string>();
     for (const line of decode(metadataResult.stdout).split(/\r?\n/)) {
       const match = /\s(\d{8})\.\d{6}\s+(.+)$/.exec(line);
-      if (match) {
-        const value = match[1]!;
-        dates.set(match[2]!, `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`);
+      const value = match?.[1];
+      const name = match?.[2];
+      if (value && name) {
+        dates.set(name, `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`);
       }
     }
     return names.map((name) => {

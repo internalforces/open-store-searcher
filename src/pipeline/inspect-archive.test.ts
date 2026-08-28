@@ -66,7 +66,7 @@ class MemoryAdapter implements ArchiveAdapter {
 const entries = (dates = ['2026-08-25', '2026-08-25']): ArchiveEntry[] =>
   contract.entries.map((entry, index) => ({
     name: entry.entryName,
-    modifiedDate: dates[index]!,
+    modifiedDate: dates[index] ?? '',
   }));
 
 function inspect(adapter: ArchiveAdapter, selectedContract: ArchiveContract = contract) {

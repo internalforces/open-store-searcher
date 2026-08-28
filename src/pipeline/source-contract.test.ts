@@ -29,7 +29,10 @@ describe('parsePermissionManifest', () => {
 
   test('rejects duplicate file identifiers and mismatched titles', () => {
     const duplicate = categories();
-    duplicate[1] = { ...duplicate[1]!, fileDataId: duplicate[0]!.fileDataId };
+    const first = duplicate[0];
+    const second = duplicate[1];
+    if (!first || !second) throw new Error('test fixture is incomplete');
+    duplicate[1] = { ...second, fileDataId: first.fileDataId };
     expect(() =>
       parsePermissionManifest({
         provider: '행정안전부',
@@ -41,7 +44,9 @@ describe('parsePermissionManifest', () => {
     ).toThrow('duplicate file-data identifier');
 
     const mismatch = categories();
-    mismatch[0] = { ...mismatch[0]!, fileDataTitle: '행정안전부_다른분류' };
+    const initial = mismatch[0];
+    if (!initial) throw new Error('test fixture is incomplete');
+    mismatch[0] = { ...initial, fileDataTitle: '행정안전부_다른분류' };
     expect(() =>
       parsePermissionManifest({
         provider: '행정안전부',
