@@ -31,7 +31,8 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Compare official alternatives and document a bounded recommendation and unknowns.
 - [x] Verify the report and update task, project, decision-gate, issue, and traceability records.
 - [x] Receive human approval for the bounded source contract and accept ADR-009.
-- [x] Close TASK-004 without starting TASK-005 or production collection.
+- [x] Evaluate all PR #5 review findings against the repository constraints.
+- [ ] Complete the all-category permission and attribution evidence gate before closing TASK-004.
 
 ## Completed This Session
 
@@ -46,16 +47,20 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Passed format, changed-line whitespace, report-section, official-host, approval-boundary,
       handbook-scope, and temporary-artifact checks. Current Public Data Portal links returned HTTP
       200; legacy LOCALDATA links timed out and are explicitly non-dependencies.
-- [x] Received the user's approval, accepted ADR-009, and closed TASK-004 in the authoritative
-      project, architecture, dependency, roadmap, task, decision, issue, and traceability records.
+- [x] Received the user's approval and accepted ADR-009's candidate source contract.
 - [x] Passed the final `npm run verify:full` gate: lint, format, typecheck, one coverage test at 100%,
       build, four-browser Pages-subpath smoke tests, and two zero-violation automated WCAG scans.
+- [x] Reopened TASK-004 after PR review showed that representative permission evidence cannot clear
+      the all-category source-terms gate or authorize TASK-005 collector implementation.
+- [x] Restored the traceable TASK-004 detail and corrected the ZIP description from an atomic data
+      snapshot to a single transfer artifact whose cross-entry timestamps must be validated.
 
 ## Issues and Decisions Found
 
 - ADR-009 accepts the current official Seoul all-category ZIP as the zero-key candidate. Its
-  automation stability, full schema and permissions, timestamp semantics, and as-of rule require a
-  TASK-005 contract probe before production use.
+  permission and attribution coverage across all selected categories must be verified in TASK-004.
+  Its automation stability, full schema, cross-entry timestamp consistency, and as-of rule then
+  require a TASK-005 contract probe before production use.
 - OpenAPI requires account application and an external service key, so it is not recommended as the
   mandatory default under the current zero-key constraint.
 - TASK-004 is research only. It does not authorize collector implementation, status mapping,
@@ -63,12 +68,13 @@ required human Korean-language review. No source-data contract or M1 implementat
 
 ## Next Session
 
-1. Activate TASK-005 after approval of its bounded implementation design.
-2. Implement only the non-production contract probe and staged collector allowed by ADR-009.
+1. Complete TASK-004's official permission and attribution manifest for every selected category.
+2. Only after that gate passes, close TASK-004 and design TASK-005's bounded contract probe.
 
 ## Important Context
 
-TASK-004 and ADR-009 are complete after explicit user approval. No task is active; TASK-005 is next.
-The handbook remains human-facing output rather than implementation evidence and was not read. No
-collector, fixture schema, status mapping, production-data operation, dependency, workflow, or
-deployment change occurred.
+TASK-004 is active at the all-category permission and attribution gate. ADR-009 accepts only the
+candidate source choice; it does not authorize TASK-005 or collector implementation. The handbook
+remains human-facing output rather than implementation evidence and was not read. No collector,
+fixture schema, status mapping, production-data operation, dependency, workflow, or deployment
+change occurred.

@@ -16,10 +16,10 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-004 source contract approved; data pipeline not yet implemented
-- Next milestone: M1 — TASK-005 bounded source contract probe and staged collector
-- Overall health: 🟡 Caution — ADR-009 accepts the zero-key Seoul ZIP candidate, but its automation
-  contract and complete schema remain unverified and production use is prohibited
+- Phase: M1 — TASK-004 candidate source approved; all-category terms gate remains open
+- Next milestone: M1 — complete TASK-004 permission and attribution coverage before TASK-005
+- Overall health: 🟡 Caution — ADR-009 accepts the zero-key Seoul ZIP candidate, but all-category
+  permissions, cross-entry data-cut consistency, and the automation contract remain unverified
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -53,7 +53,7 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
-| 2026-08-28 | User approved ADR-009's bounded Seoul all-category ZIP source contract; TASK-004 closed and TASK-005 is next |
+| 2026-08-28 | User approved ADR-009's bounded Seoul all-category ZIP candidate; PR review kept TASK-004 open until permission and attribution evidence covers every selected category |
 | 2026-08-28 | Completed TASK-004 official-source research and recommended the Seoul all-category ZIP as the bounded zero-key candidate; Architect and human approval remain required before collector implementation |
 | 2026-08-24 | Completed the M0 TASK-026 handbook gate after all eight documents were updated or reviewed and the user approved Korean clarity, safety terminology, and accuracy; M0 is closed and TASK-004 is next |
 | 2026-08-24 | Activated TASK-026 for the M0 handbook update-or-review and human Korean-language-review gate |

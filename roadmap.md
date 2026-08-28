@@ -22,8 +22,9 @@ Deliver a zero-cost, open-source static dashboard that lets users search Seoul-l
 
 ## M1 — Verifiable Data Pipeline
 
-- [x] Confirm source-data delivery alternatives, representative schema, terms, and attribution;
-      ADR-009 accepts the bounded ZIP candidate and leaves complete contract validation to TASK-005.
+- [ ] Confirm the source-data contract, including permission and attribution coverage for every
+      selected category. ADR-009 accepts a candidate only; TASK-004 must clear this gate before
+      TASK-005 collector implementation.
 - [ ] Implement collection, change detection, normalization, and status mapping for Seoul data.
 - [ ] Validate required columns, abrupt changes, duplicates, status codes, as-of dates, and output size.
 - [ ] Preserve the last known-good data when validation fails.

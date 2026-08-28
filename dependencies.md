@@ -40,7 +40,7 @@ impact, alternatives, and human approval.
 
 | Service or source | Purpose | Authentication | Runtime call | Notes |
 |---|---|---|---|---|
-| Ministry of the Interior and Safety local administrative licensing all-category ZIP | Candidate build-time source for Seoul-licensed businesses | No API key in the approved candidate contract | None | ADR-009 approved the bounded candidate; TASK-005 must validate delivery, all 195 category schemas and permissions, integrity, and as-of inputs before production use |
+| Ministry of the Interior and Safety local administrative licensing all-category ZIP | Candidate build-time source for Seoul-licensed businesses | No API key in the approved candidate contract | None | ADR-009 approved the candidate; TASK-004 must verify permission and attribution coverage for every selected category before TASK-005 validates delivery, schema, integrity, cross-entry timestamps, and as-of inputs |
 | GitHub Actions | Daily collection, transformation, validation, and deployment | GitHub permissions | None during user searches | Use minimal permissions and public-repository free limits |
 | GitHub Pages | Host the static site and JSON | None | Static asset requests only | Default deployment target |
 | Naver Map search URL | User-initiated additional verification | None | Navigation after a user click | Automated collection prohibited |

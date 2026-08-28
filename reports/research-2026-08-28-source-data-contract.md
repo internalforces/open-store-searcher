@@ -9,8 +9,8 @@ Harness Version: 1.1
 
 _Research date: 2026-08-28_
 
-_Decision: Approved by the user on 2026-08-28 through ADR-009, subject to the bounded TASK-005
-contract probe described below._
+_Decision: Approved by the user on 2026-08-28 through ADR-009 as a candidate source. TASK-004
+remains open until permission and attribution evidence covers every selected category._
 
 ## Question
 
@@ -25,10 +25,10 @@ LOCALDATA delivery surface in the Public Data Portal. It evaluates current file 
 delivery, authentication, usage limits, update behavior, representative schema fields, identity,
 licensing, redistribution, attribution, change detection, and failure behavior.
 
-The work is evidence-only. It does not approve a delivery method, implement a collector, download a
-complete production dataset, define processed-status mappings, or treat a representative category
-schema as universal. The Architect must accept the contract and the human approval gate for a
-source-data delivery choice must pass before implementation.
+The research work is evidence-only. It does not implement a collector, download a complete
+production dataset, define processed-status mappings, or treat a representative category schema or
+permission as universal. ADR-009 approves a candidate source, but collector implementation remains
+blocked until TASK-004 verifies permission and attribution coverage for every selected category.
 
 ## Verified Facts
 
@@ -143,7 +143,7 @@ legally requires attribution.
 
 | Alternative | Cost and access | Automation and maintenance | Privacy | Schema and change detection | Principal failure modes |
 |---|---|---|---|---|---|
-| Seoul all-category ZIP snapshot | Free; no API key observed; one Seoul request | Lowest request count, but about 206 MiB at the probe date and current browser-like headers/referrer are brittle | No user data and no runtime request | One atomic snapshot; no `ETag` or `Last-Modified`, so staged content hashing and entry/schema manifests are required | Redirect/WAF change, undocumented rate limit, partial/corrupt ZIP, category entry or header change |
+| Seoul all-category ZIP candidate | Free; no API key observed; one Seoul request | Lowest request count, but about 206 MiB at the probe date and current browser-like headers/referrer are brittle | No user data and no runtime request | One transfer artifact, not a proven single-vintage snapshot; no `ETag` or `Last-Modified`, so staged content hashing, entry/schema manifests, and cross-entry timestamp checks are required | Redirect/WAF change, undocumented rate limit, partial/corrupt ZIP, mixed-vintage entries, category entry or header change |
 | 195 category-specific Seoul CSV snapshots | Free; no API key observed | Easier category isolation, but 195 requests increase time, throttling, and manifest maintenance | No user data and no runtime request | Per-category hashes make change localization clearer | Partial category set, rate limiting, endpoint drift, inconsistent headers, accidental mixed vintages |
 | 195 category OpenAPIs | Free, but account, application, and external API key are required | Incremental filters and history exist, but 100-record pages, per-category services, key lifecycle, quotas, and retries add substantial complexity | Build-only if correctly isolated; still requires secret handling | Documented fields and deltas help, but `LAST_MDFCN_PNT` versus `DAT_UPDT_PNT` is currently inconsistent | Key expiry or permission error, quota exhaustion, pagination gaps, late history, per-category schema drift |
 | Bulk baseline plus OpenAPI deltas | Free monetary price, but API signup/key remain required | Potentially reduces transfer after baseline; has the highest reconciliation and recovery complexity | Build-only if correctly isolated; requires secret handling | Can compare baseline and deltas, but needs an authoritative reconciliation rule | Inherits all bulk and API failures, missed deltas, ordering conflicts, unrecoverable mixed snapshots |
@@ -154,35 +154,40 @@ mandatory infrastructure.
 
 ## Recommendation
 
-The user approved the Seoul all-category ZIP snapshot as the sole candidate default delivery
+The user approved the Seoul all-category ZIP as the sole candidate default delivery
 contract on 2026-08-28. It best matches the static, zero-cost, no-runtime-service design and avoids
 account, secret, and API-key dependencies. ADR-009 accepts only the bounded contract below; it does
 not assert that the currently observed endpoint behavior is a stable production interface.
 
 Approval should be bounded by the following contract:
 
-1. The collector may run only at build time and may request only the official Seoul all-category
-   file endpoint after a lightweight download-limit check.
-2. TASK-005 must first implement a non-production contract probe for redirect behavior, required
+1. TASK-004 must first verify official permission and attribution coverage for every selected
+   category, or find an authoritative global statement covering all selected categories. No
+   collector implementation is authorized until this criterion passes.
+2. After TASK-004 closes, the collector may run only at build time and may request only the official
+   Seoul all-category file endpoint after a lightweight download-limit check.
+3. TASK-005 must first implement a non-production contract probe for redirect behavior, required
    headers, range/full-download support, archive integrity, category-entry completeness, CSV
    encoding, required headers, and per-category permission metadata. It must not silently work
    around a provider denial.
-3. A complete archive must be downloaded into temporary staging. Because the tested endpoint has
+4. A complete archive must be downloaded into temporary staging. Because the tested endpoint has
    no usable `ETag` or `Last-Modified`, change detection must use a cryptographic content hash plus
    a normalized entry/schema manifest. Publication must never read an incomplete staging file.
-4. Validation must require the approved 195-category manifest, expected identity fields, raw status
+5. Validation must require the approved 195-category manifest, expected identity fields, raw status
    code-and-name pairs, addresses, dates, licensing metadata, permission scope, and bounded record
-   and size changes. Unknown fields or status values must stop publication until reviewed.
-5. The pipeline must keep `fetchedAt`, provider-stated freshness, and the derived `dataAsOf`
+   and size changes. It must also test cross-entry timestamp consistency. A single archive transfer
+   must not receive one source as-of date unless the entry evidence supports a common data cut.
+   Unknown fields or status values must stop publication until reviewed.
+6. The pipeline must keep `fetchedAt`, provider-stated freshness, and the derived `dataAsOf`
    separate. Retrieval time must never be presented as data as-of. TASK-005 and TASK-008 must define
    and test a conservative deterministic as-of derivation using validated archive contents and the
    provider's D-2 statement.
-6. The previous known-good archive and published static data remain untouched until collection,
+7. The previous known-good archive and published static data remain untouched until collection,
    transformation, and all validation gates pass.
-7. Built artifacts must include the provider, applicable Public Data Portal dataset URL, retrieval
+8. Built artifacts must include the provider, applicable Public Data Portal dataset URL, retrieval
    time, data as-of date, source permission, transformation notice, and raw status evidence needed
    by FR-09.
-8. OpenAPI may be used only as a manual diagnostic reference under the current scope. It must not
+9. OpenAPI may be used only as a manual diagnostic reference under the current scope. It must not
    become a required pipeline dependency without separate approval for sign-up, API-key handling,
    quotas, and a changed zero-key product constraint.
 

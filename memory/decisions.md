@@ -161,25 +161,28 @@ Seoul all-category ZIP path requires no API key and supplies one regional snapsh
 browser-like request requirements, complete schema, permissions, timestamp semantics, and archive
 contract are not documented as stable automation guarantees.
 
-**Decision**: Adopt the official Seoul all-category ZIP snapshot as the sole candidate default
-source for the build-time pipeline. Before any production collection, TASK-005 must implement and
-pass the bounded contract probe defined in
+**Decision**: Adopt the official Seoul all-category ZIP as the sole candidate default source for
+the build-time pipeline. TASK-004 must verify permission and attribution coverage for every
+selected category before TASK-005 or any collector implementation starts. After that gate passes,
+TASK-005 must implement and pass the bounded contract probe defined in
 `reports/research-2026-08-28-source-data-contract.md`. OpenAPI remains a manual diagnostic reference
 and must not become a required pipeline dependency without separate human approval for account,
 key, quota, and zero-key-scope changes.
 
 **Rationale**: The ZIP candidate matches the static, zero-cost, no-runtime-service architecture and
-avoids required sign-up, secret storage, and API-key lifecycle risks while providing an atomic
-Seoul-wide snapshot.
+avoids required sign-up, secret storage, and API-key lifecycle risks while providing a single
+Seoul-wide transfer artifact. It does not prove that category entries share one source data cut.
 
 **Trade-offs**: The current archive is large, lacks usable `ETag` and `Last-Modified` headers, and
 depends on observed request behavior that may change. A full staged download and content hash are
 needed for change detection. Every category's entries, schema, permission, identity, raw statuses,
 and time fields still require validation.
 
-**Consequences**: TASK-005 may implement only a non-production, fail-safe contract probe and staged
-collector for this source. Publication remains prohibited until archive integrity, the approved
-195-category manifest, required schema, source permissions, conservative as-of derivation, bounded
-change checks, and last-known-good preservation are designed and verified by their owning tasks.
-Unknown statuses remain `확인되지 않음`; TASK-004 does not authorize status mappings, production
-data, workflows, or deployment.
+**Consequences**: TASK-004 remains open until official permission and attribution evidence covers
+every selected category. Only after that gate passes may TASK-005 implement a non-production,
+fail-safe contract probe and staged collector. The probe must validate cross-entry timestamp
+consistency before treating the archive as a single data cut or deriving an archive-wide as-of
+date. Publication remains prohibited until archive integrity, the approved 195-category manifest,
+required schema, conservative as-of derivation, bounded change checks, and last-known-good
+preservation are designed and verified by their owning tasks. Unknown statuses remain
+`확인되지 않음`; ADR-009 does not authorize production data, workflows, or deployment.
