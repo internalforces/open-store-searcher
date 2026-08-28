@@ -31,7 +31,7 @@ _Last updated: 2026-08-28_
   - Treating retrieval time or one transfer as a common source as-of date could mislead users.
   - Silently bypassing a provider denial could violate the bounded contract.
 - Acceptance criteria:
-  - [ ] Write and obtain approval for an English collector design before implementation.
+  - [x] Write and obtain approval for an English collector design before implementation.
   - [ ] Probe redirect behavior, required request headers, the lightweight download-limit check,
         range behavior, and provider denials without silently bypassing an access refusal.
   - [ ] Download only to temporary staging, require a complete successful transfer, and keep
@@ -50,7 +50,8 @@ _Last updated: 2026-08-28_
   - `npm run test:pipeline`
   - `npm run verify:full`
   - `git diff --check`
-- Results and evidence: Pending design approval and implementation.
+- Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28;
+  implementation is in progress.
 
 ## Task Detail Template
 
