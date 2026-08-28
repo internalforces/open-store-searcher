@@ -157,9 +157,9 @@ source data. Later feature tasks must add tests to their owning project, and TAS
 **Context**: TASK-004 verified that the Public Data Portal currently exposes 195 local
 administrative licensing categories through file data and OpenAPI. The representative OpenAPI
 requires account application, an external service key, pagination, and quota handling. The current
-Seoul all-category ZIP path requires no API key and supplies one regional snapshot, but its
-browser-like request requirements, complete schema, permissions, timestamp semantics, and archive
-contract are not documented as stable automation guarantees.
+Seoul all-category ZIP path requires no API key and supplies one Seoul-wide transfer artifact, but
+its browser-like request requirements, complete schema, permissions, timestamp semantics, and
+archive contract are not documented as stable automation guarantees.
 
 **Decision**: Adopt the official Seoul all-category ZIP as the sole candidate default source for
 the build-time pipeline. TASK-004 must verify permission and attribution coverage for every
