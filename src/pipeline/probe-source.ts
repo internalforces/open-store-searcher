@@ -15,7 +15,7 @@ export type SourceProbeResult =
   | { kind: 'accepted'; evidence: SourceEvidence }
   | { kind: 'rejected'; code: CollectorRejectionCode; message: string };
 
-interface ProbeOptions {
+export interface ProbeOptions {
   fetchImpl: FetchLike;
   limits: CollectorLimits;
   signal?: AbortSignal;

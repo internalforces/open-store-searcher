@@ -14,7 +14,7 @@ export type StagedDownloadResult =
   | { kind: 'accepted'; archivePath: string; sha256: string; byteLength: number }
   | { kind: 'rejected'; code: CollectorRejectionCode; message: string };
 
-interface DownloadOptions {
+export interface DownloadOptions {
   fetchImpl: FetchLike;
   stagingRoot: string;
   sourceEvidence: SourceEvidence;

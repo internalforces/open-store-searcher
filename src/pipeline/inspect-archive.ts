@@ -13,7 +13,7 @@ export type ArchiveInspectionResult =
   | { kind: 'accepted'; evidence: ArchiveEvidence }
   | { kind: 'rejected'; code: CollectorRejectionCode; message: string };
 
-interface InspectionOptions {
+export interface InspectionOptions {
   adapter: ArchiveAdapter;
   archivePath: string;
   permissionManifest: PermissionManifest;
