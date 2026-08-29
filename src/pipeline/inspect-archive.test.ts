@@ -119,6 +119,16 @@ describe('inspectArchive', () => {
     ).resolves.toMatchObject({ kind: 'rejected', code: 'timestamp_evidence_inconsistent' });
   });
 
+  test.each(['2026-00-00', '2026-02-30', '2026-13-01'])(
+    'rejects impossible archive modification date %s',
+    async (date) => {
+      await expect(inspect(new MemoryAdapter(entries([date, date])))).resolves.toMatchObject({
+        kind: 'rejected',
+        code: 'timestamp_evidence_inconsistent',
+      });
+    },
+  );
+
   test('rejects permission and CSV schema drift', async () => {
     await expect(
       inspect(new MemoryAdapter(entries()), { ...contract, permissionLabel: 'changed' }),

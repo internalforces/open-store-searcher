@@ -1,6 +1,9 @@
 import { readFile, rm, writeFile } from 'node:fs/promises';
 import { isAbsolute, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { createServer } from 'vite';
+
+const repositoryRoot = fileURLToPath(new URL('../', import.meta.url));
 
 function argument(name) {
   const prefix = `--${name}=`;
@@ -50,6 +53,7 @@ try {
   if (probe.kind === 'rejected') throw new Error(`${probe.code}: ${probe.message}`);
   const download = await downloadArchiveToStaging({
     fetchImpl: fetch,
+    repositoryRoot,
     stagingRoot,
     sourceEvidence: probe.evidence,
     fetchedAt: new Date().toISOString(),

@@ -49,4 +49,19 @@ describe('UnzipArchiveAdapter', () => {
       }),
     ).rejects.toThrow('aborted');
   });
+
+  test('rejects a process request whose signal is already aborted', async () => {
+    const controller = new AbortController();
+    controller.abort();
+
+    await expect(
+      runProcess({
+        executable: process.execPath,
+        args: ['-e', 'process.exit(0)'],
+        maxOutputBytes: 16,
+        timeoutMs: 1_000,
+        signal: controller.signal,
+      }),
+    ).rejects.toThrow('aborted');
+  });
 });

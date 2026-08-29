@@ -179,10 +179,12 @@ is allowed. A provider contract change is a rejected result requiring review.
 
 ## Staging and Change Detection
 
-The caller supplies a new temporary directory outside the repository. The download writes to a
-unique `.part` file with exclusive creation. SHA-256 and the byte count are updated while streaming.
-Only a complete, contract-conforming transfer is renamed to a `.zip` file within the same staging
-directory. Every rejection removes both paths.
+The caller supplies a new temporary directory outside the repository and passes the repository root
+explicitly. The downloader resolves both paths independently of the process working directory and
+rejects staging inside the repository. It writes to a unique `.part` file with exclusive creation.
+SHA-256 and the byte count are updated while streaming. Only a complete, contract-conforming
+transfer is renamed to a `.zip` file within the same staging directory. Every rejection removes
+both paths.
 
 The accepted SHA-256 is compared with `previousAcceptedSha256` only after archive inspection passes.
 An equal digest returns `unchanged`; a different digest returns `changed`. Both outcomes retain the
@@ -234,7 +236,8 @@ contracts. TASK-006 through TASK-008 decide transformation semantics and validat
 The collector keeps four concepts separate:
 
 - `fetchedAt`: caller-supplied UTC retrieval time;
-- provider freshness statement: the portal's current daily/D-2 statement;
+- provider freshness statement: structured evidence containing the portal's current daily cadence,
+  two-day coverage lag, and official dataset URL;
 - archive entry timestamps: ZIP metadata reported by the archive adapter;
 - CSV timestamp-field evidence: field presence and observed format metadata from the probe.
 
@@ -248,7 +251,10 @@ The default compressed archive bound is 512 MiB. Process output used for invento
 is capped at 8 MiB, each header probe is capped at 256 KiB before a complete first record must be
 found, HTTP probe calls time out after 30 seconds, full download inactivity times out after 2
 minutes, and the total full-download deadline is 20 minutes. Abort signals terminate the HTTP
-request and child process.
+request and child process. The inactivity timer starts before body iteration and resets for each
+received chunk. A child-process request whose signal is already aborted is rejected before spawn.
+
+Archive entry dates must be one common real calendar date, not merely a `YYYY-MM-DD`-shaped string.
 
 Because no entry is extracted, archive contents cannot overwrite repository files. Any change to a
 limit is a reviewed contract change and must be justified with recorded probe evidence.

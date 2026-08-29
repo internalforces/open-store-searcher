@@ -10,6 +10,11 @@ import type { StagedDownloadResult } from './staged-download.js';
 const sourceEvidence: SourceEvidence = {
   expectedBytes: 4,
   finalUrl: 'https://file.localdata.go.kr/file/source.zip',
+  providerFreshness: {
+    updateCadence: 'daily',
+    coverageLagDays: 2,
+    sourceUrl: 'https://www.data.go.kr/data/15045016/fileData.do',
+  },
 };
 const archiveEvidence: ArchiveEvidence = {
   entryCount: 195,

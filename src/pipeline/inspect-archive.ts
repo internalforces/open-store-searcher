@@ -38,6 +38,12 @@ function sameArray(left: string[], right: string[]): boolean {
   return left.length === right.length && left.every((value, index) => value === right[index]);
 }
 
+function isCalendarDate(value: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+}
+
 function normalizeEntries(entries: ArchiveEntry[]): ArchiveEntry[] | undefined {
   const normalized = entries.map((entry) => ({
     name: entry.name.normalize('NFC'),
@@ -98,7 +104,7 @@ export async function inspectArchive(options: InspectionOptions): Promise<Archiv
 
   const dates = new Set(files.map((entry) => entry.modifiedDate));
   const providerModifiedDate = dates.size === 1 ? [...dates][0] : undefined;
-  if (!providerModifiedDate || !/^\d{4}-\d{2}-\d{2}$/.test(providerModifiedDate)) {
+  if (!providerModifiedDate || !isCalendarDate(providerModifiedDate)) {
     return reject('timestamp_evidence_inconsistent', 'Archive entry timestamps are inconsistent.');
   }
 

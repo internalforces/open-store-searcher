@@ -1,9 +1,18 @@
-import type { PermissionCategory, PermissionManifest } from './collector-types.js';
+import type {
+  PermissionCategory,
+  PermissionManifest,
+  ProviderFreshnessEvidence,
+} from './collector-types.js';
 
 export const SOURCE_INFO_URL = 'https://file.localdata.go.kr/file/general_restaurants/info';
 export const SOURCE_LIMIT_URL = 'https://file.localdata.go.kr/file/validate/download-count';
 export const SOURCE_ARCHIVE_URL =
   'https://file.localdata.go.kr/file/download-all?orgCode=6110000_ALL';
+export const SOURCE_PROVIDER_FRESHNESS: ProviderFreshnessEvidence = Object.freeze({
+  updateCadence: 'daily',
+  coverageLagDays: 2,
+  sourceUrl: 'https://www.data.go.kr/data/15045016/fileData.do',
+});
 export const APPROVED_ARCHIVE_ENTRY_ALIASES: Readonly<Record<string, string>> = Object.freeze({
   '자원환경_단독정화조-오수처리시설설계시공업.csv': '15045011',
 });

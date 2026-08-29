@@ -56,6 +56,7 @@ export function createSeoulCollector(dependencies: CollectorDependencies) {
     if (probe.kind === 'rejected') return rejection(probe, options.fetchedAt);
     const download = await dependencies.downloadArchive({
       fetchImpl: fetch,
+      repositoryRoot,
       stagingRoot: options.stagingRoot,
       sourceEvidence: probe.evidence,
       fetchedAt: options.fetchedAt,

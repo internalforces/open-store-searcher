@@ -36,7 +36,9 @@ GitHub Actions collects, normalizes, and validates public administrative data in
    Playwright projects cover Chromium, Firefox, WebKit, and mobile Chromium.
 9. Staged Seoul collector: native Node HTTP streams and SHA-256 feed isolated temporary storage;
    a shell-free injected Info-ZIP adapter inspects integrity and schema without extraction or any
-   publication capability.
+   publication capability. The repository root is passed explicitly to the downloader so staging
+   isolation does not depend on the process working directory. Download inactivity aborts reset per
+   received chunk, and already-aborted process requests are rejected before spawn.
 
 ## Data Flow
 
@@ -95,6 +97,8 @@ See `memory/decisions.md` for details.
 - Use the committed Node.js, npm, package-lock, TypeScript, Biome, and Vite configuration as the reproducible foundation.
 - Implement TASK-005 with native Node.js streaming and hashing plus an injected, shell-free
   Info-ZIP adapter. Collector output is temporary evidence only and cannot publish artifacts.
+- Carry the provider's reviewed daily cadence, two-day coverage lag, and official source URL as
+  structured source evidence separate from retrieval time and any later `dataAsOf` derivation.
 - Treat compatible UTF-8 filename handling as part of the Info-ZIP environment gate. The current
   macOS builds fail that gate, while Ubuntu 24.04 Info-ZIP 6.0-28ubuntu4.1 passes it. Never guess or
   normalize transformed provider entry names into an accepted archive contract.

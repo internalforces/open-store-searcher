@@ -35,11 +35,18 @@ export const DEFAULT_COLLECTOR_LIMITS: CollectorLimits = {
   maxRedirects: 3,
 };
 
+export interface ProviderFreshnessEvidence {
+  updateCadence: 'daily';
+  coverageLagDays: 2;
+  sourceUrl: string;
+}
+
 export interface SourceEvidence {
   expectedBytes: number;
   finalUrl: string;
   limitStatus?: number;
   rangeStatus?: number;
+  providerFreshness: ProviderFreshnessEvidence;
 }
 
 export interface ArchiveEvidence {

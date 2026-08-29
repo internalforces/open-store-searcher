@@ -9,6 +9,7 @@ import {
   isAllowedProviderUrl,
   SOURCE_ARCHIVE_URL,
   SOURCE_LIMIT_URL,
+  SOURCE_PROVIDER_FRESHNESS,
 } from './source-contract.js';
 
 export type SourceProbeResult =
@@ -117,6 +118,7 @@ export async function probeSourceContract(options: ProbeOptions): Promise<Source
       finalUrl: range.finalUrl,
       limitStatus: limit.response.status,
       rangeStatus: range.response.status,
+      providerFreshness: SOURCE_PROVIDER_FRESHNESS,
     },
   };
 }

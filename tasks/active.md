@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-29_
 
 ## In Progress
 
@@ -52,12 +52,13 @@ _Last updated: 2026-08-28_
   - `git diff --check`
 - Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
   The native streaming collector, shell-free archive adapter, schema inspection, deterministic
-  discovery, 55 pipeline tests, and manual probe are implemented. The user approved the one literal
+  discovery, 62 pipeline tests, and manual probe are implemented. The user approved the one literal
   archive-name alias to audited file-data ID `15045011` on 2026-08-29. The latest 216,022,556-byte
   archive, its 195-entry EUC-KR schema contract, and the committed contract all passed exact Ubuntu
   inspection. `reports/probe-2026-08-29-seoul-archive-contract.md` records the hashes and structural
-  audit, and `reports/test-2026-08-29-task-005.md` records the pinned full verification. TASK-005
-  stays active only for the independent final Reviewer gate.
+  audit. All five PR #6 review findings were reproduced, fixed through TDD, and recorded in
+  `reports/review-2026-08-29-task-005-pr-6-feedback.md`; the pinned verification is in
+  `reports/test-2026-08-29-task-005.md`. TASK-005 stays active for independent re-review.
 
 ## Task Detail Template
 

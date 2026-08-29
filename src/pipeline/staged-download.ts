@@ -16,6 +16,7 @@ export type StagedDownloadResult =
 
 export interface DownloadOptions {
   fetchImpl: FetchLike;
+  repositoryRoot: string;
   stagingRoot: string;
   sourceEvidence: SourceEvidence;
   fetchedAt: string;
@@ -36,11 +37,19 @@ function isCanonicalUtc(value: string): boolean {
   );
 }
 
-async function validateStagingRoot(stagingRoot: string): Promise<string | undefined> {
-  if (!isAbsolute(stagingRoot) || resolve(stagingRoot) !== stagingRoot) return undefined;
+async function validateStagingRoot(
+  stagingRoot: string,
+  repositoryRoot: string,
+): Promise<string | undefined> {
+  if (
+    !isAbsolute(stagingRoot) ||
+    resolve(stagingRoot) !== stagingRoot ||
+    !isAbsolute(repositoryRoot)
+  )
+    return undefined;
   const root = await realpath(stagingRoot).catch(() => undefined);
-  if (!root) return undefined;
-  const repository = await realpath(process.cwd());
+  const repository = await realpath(repositoryRoot).catch(() => undefined);
+  if (!root || !repository) return undefined;
   const fromRepository = relative(repository, root);
   if (fromRepository === '' || (!fromRepository.startsWith('..') && !isAbsolute(fromRepository))) {
     return undefined;
@@ -51,7 +60,7 @@ async function validateStagingRoot(stagingRoot: string): Promise<string | undefi
 export async function downloadArchiveToStaging(
   options: DownloadOptions,
 ): Promise<StagedDownloadResult> {
-  const root = await validateStagingRoot(options.stagingRoot);
+  const root = await validateStagingRoot(options.stagingRoot, options.repositoryRoot);
   if (
     !root ||
     !isCanonicalUtc(options.fetchedAt) ||
@@ -63,11 +72,13 @@ export async function downloadArchiveToStaging(
   const partPath = resolve(root, `${token}.part`);
   const archivePath = resolve(root, `${token}.zip`);
   let handle: FileHandle | undefined;
+  let inactivityTimer: ReturnType<typeof setTimeout> | undefined;
   try {
     const deadlineSignal = AbortSignal.timeout(options.limits.downloadDeadlineMs);
+    const inactivityController = new AbortController();
     const signal = options.signal
-      ? AbortSignal.any([options.signal, deadlineSignal])
-      : deadlineSignal;
+      ? AbortSignal.any([options.signal, deadlineSignal, inactivityController.signal])
+      : AbortSignal.any([deadlineSignal, inactivityController.signal]);
     const response = await options.fetchImpl(options.sourceEvidence.finalUrl, {
       method: 'GET',
       headers: createProviderHeaders('archive'),
@@ -91,7 +102,16 @@ export async function downloadArchiveToStaging(
     const hash = createHash('sha256');
     let byteLength = 0;
     let signature = new Uint8Array();
+    const resetInactivityTimer = () => {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(
+        () => inactivityController.abort(),
+        options.limits.downloadInactivityTimeoutMs,
+      );
+    };
+    resetInactivityTimer();
     for await (const chunk of response.body) {
+      resetInactivityTimer();
       const bytes = chunk instanceof Uint8Array ? chunk : new Uint8Array(chunk);
       if (signature.length < 2) {
         const combined = new Uint8Array(Math.min(2, signature.length + bytes.length));
@@ -130,6 +150,7 @@ export async function downloadArchiveToStaging(
   } catch {
     return reject('transfer_incomplete', 'Archive transfer or staging failed.');
   } finally {
+    clearTimeout(inactivityTimer);
     await handle?.close().catch(() => undefined);
     await rm(partPath, { force: true }).catch(() => undefined);
   }

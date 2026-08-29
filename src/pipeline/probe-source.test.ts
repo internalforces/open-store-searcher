@@ -30,7 +30,16 @@ describe('probeSourceContract', () => {
     });
     expect(result).toMatchObject({
       kind: 'accepted',
-      evidence: { expectedBytes: 215_968_197, limitStatus: 204, rangeStatus: 206 },
+      evidence: {
+        expectedBytes: 215_968_197,
+        limitStatus: 204,
+        rangeStatus: 206,
+        providerFreshness: {
+          updateCadence: 'daily',
+          coverageLagDays: 2,
+          sourceUrl: 'https://www.data.go.kr/data/15045016/fileData.do',
+        },
+      },
     });
   });
 

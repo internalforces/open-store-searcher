@@ -20,6 +20,10 @@ function concat(chunks: Uint8Array[], length: number): Uint8Array {
 
 export const runProcess: ProcessRunner = (request: ProcessRequest) =>
   new Promise<ProcessResult>((resolve, reject) => {
+    if (request.signal?.aborted) {
+      reject(new Error('archive process aborted'));
+      return;
+    }
     const child = spawn(request.executable, request.args, {
       shell: false,
       stdio: ['ignore', 'pipe', 'pipe'],
