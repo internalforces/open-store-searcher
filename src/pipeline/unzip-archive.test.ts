@@ -9,7 +9,6 @@ const fixture = (name: string) =>
 describe('UnzipArchiveAdapter', () => {
   test('lists and streams entries from a valid local archive', async () => {
     const adapter = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_COLLECTOR_LIMITS);
-    await expect(adapter.checkEnvironment()).resolves.toMatchObject({ ok: true });
     await expect(adapter.testIntegrity(fixture('valid-two-category.zip'))).resolves.toEqual({
       ok: true,
     });
@@ -23,6 +22,38 @@ describe('UnzipArchiveAdapter', () => {
       256,
     );
     expect(new TextDecoder().decode(prefix)).toContain('사업장명');
+  });
+
+  test('accepts only the approved Linux Unicode Info-ZIP capability signature', async () => {
+    const result = (stdout: string) => async () => ({
+      exitCode: 0,
+      stdout: new TextEncoder().encode(stdout),
+      stderr: new Uint8Array(),
+      truncated: false,
+    });
+    const compatible = new UnzipArchiveAdapter(
+      'unzip',
+      DEFAULT_COLLECTOR_LIMITS,
+      result(`UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
+Compiled with gcc 13.2.0 for Unix (Linux ELF).
+        UNICODE_SUPPORT [wide-chars, char coding: UTF-8]
+        LARGE_FILE_SUPPORT
+        ZIP64_SUPPORT`),
+    );
+    const apple = new UnzipArchiveAdapter(
+      'unzip',
+      DEFAULT_COLLECTOR_LIMITS,
+      result(`UnZip 6.00 of 20 April 2009, by Info-ZIP, with modifications by Apple Inc.
+Compiled with gcc Apple LLVM for Unix Mac OS X.
+        LARGE_FILE_SUPPORT
+        ZIP64_SUPPORT`),
+    );
+
+    await expect(compatible.checkEnvironment()).resolves.toMatchObject({
+      ok: true,
+      version: 'UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.',
+    });
+    await expect(apple.checkEnvironment()).resolves.toEqual({ ok: false });
   });
 
   test('reports a corrupt archive without extracting it', async () => {

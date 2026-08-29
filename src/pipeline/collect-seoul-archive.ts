@@ -17,7 +17,13 @@ interface Contracts {
   archiveContract: ArchiveContract;
 }
 
+interface ArchiveEnvironmentOptions {
+  limits: CollectorOptions['limits'];
+  signal?: AbortSignal;
+}
+
 export interface CollectorDependencies {
+  checkArchiveEnvironment(options: ArchiveEnvironmentOptions): Promise<{ ok: boolean }>;
   probeSource(options: ProbeOptions): Promise<SourceProbeResult>;
   downloadArchive(options: DownloadOptions): Promise<StagedDownloadResult>;
   inspectArchive(options: InspectionOptions): Promise<ArchiveInspectionResult>;
@@ -45,6 +51,23 @@ export function createSeoulCollector(dependencies: CollectorDependencies) {
         kind: 'rejected',
         code: 'permission_manifest_changed',
         message: 'Committed collector contracts could not be loaded.',
+        fetchedAt: options.fetchedAt,
+      };
+    }
+    let environment: { ok: boolean };
+    try {
+      environment = await dependencies.checkArchiveEnvironment({
+        limits: options.limits,
+        ...(options.signal ? { signal: options.signal } : {}),
+      });
+    } catch {
+      environment = { ok: false };
+    }
+    if (!environment.ok) {
+      return {
+        kind: 'rejected',
+        code: 'environment_unavailable',
+        message: 'Approved Info-ZIP environment is unavailable.',
         fetchedAt: options.fetchedAt,
       };
     }
@@ -101,19 +124,11 @@ export function createSeoulCollector(dependencies: CollectorDependencies) {
 const repositoryRoot = fileURLToPath(new URL('../../', import.meta.url));
 
 const defaultDependencies: CollectorDependencies = {
+  checkArchiveEnvironment: async (options) =>
+    new UnzipArchiveAdapter('unzip', options.limits).checkEnvironment(options.signal),
   probeSource: probeSourceContract,
   downloadArchive: downloadArchiveToStaging,
-  inspectArchive: async (options) => {
-    const environment = await options.adapter.checkEnvironment(options.signal);
-    if (!environment.ok) {
-      return {
-        kind: 'rejected',
-        code: 'environment_unavailable',
-        message: 'Info-ZIP is unavailable.',
-      };
-    }
-    return inspectArchive(options);
-  },
+  inspectArchive,
   cleanupRejectedDownload: async (archivePath) => rm(archivePath, { force: true }),
   loadContracts: async () => {
     const permissionValue: unknown = JSON.parse(

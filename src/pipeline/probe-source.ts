@@ -26,6 +26,27 @@ function rejected(code: CollectorRejectionCode, message: string): SourceProbeRes
   return { kind: 'rejected', code, message };
 }
 
+async function hasExactlyOneByte(response: Response): Promise<boolean> {
+  const reader = response.body?.getReader();
+  if (!reader) return false;
+  let byteLength = 0;
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) return byteLength === 1;
+      byteLength += value.byteLength;
+      if (byteLength > 1) {
+        await reader.cancel('range response exceeded one byte');
+        return false;
+      }
+    }
+  } catch {
+    return false;
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 async function requestWithRedirects(
   url: string,
   init: RequestInit,
@@ -51,7 +72,12 @@ async function requestWithRedirects(
     if (!location || redirects >= options.limits.maxRedirects) {
       return rejected('redirect_not_allowed', 'Provider redirect limit or contract changed.');
     }
-    const target = new URL(location, currentUrl);
+    let target: URL;
+    try {
+      target = new URL(location, currentUrl);
+    } catch {
+      return rejected('redirect_not_allowed', 'Provider redirect location is malformed.');
+    }
     if (!isAllowedProviderUrl(target)) {
       return rejected('redirect_not_allowed', 'Provider redirected outside the approved host.');
     }
@@ -102,13 +128,7 @@ export async function probeSourceContract(options: ProbeOptions): Promise<Source
   ) {
     return rejected('archive_size_out_of_bounds', 'Archive size is outside approved bounds.');
   }
-  let bytes: ArrayBuffer;
-  try {
-    bytes = await range.response.arrayBuffer();
-  } catch {
-    return rejected('range_contract_changed', 'Range body could not be read.');
-  }
-  if (bytes.byteLength !== 1) {
+  if (!(await hasExactlyOneByte(range.response))) {
     return rejected('range_contract_changed', 'Range body was not exactly one byte.');
   }
   return {

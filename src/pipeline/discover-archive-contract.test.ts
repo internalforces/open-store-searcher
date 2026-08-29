@@ -123,3 +123,21 @@ test('identifies the entry whose header cannot be decoded without exposing recor
     }),
   ).rejects.toThrow('문화_음반업.csv');
 });
+
+test('rejects impossible archive dates before emitting a candidate contract', async () => {
+  const invalid = adapter(['문화_음반업.csv', '식품_일반음식점.csv']);
+  invalid.listEntries = async () =>
+    ['문화_음반업.csv', '식품_일반음식점.csv'].map((name) => ({
+      name,
+      modifiedDate: '2026-02-30',
+    }));
+
+  await expect(
+    discoverArchiveContract({
+      adapter: invalid,
+      archivePath: '/tmp/source.zip',
+      permissionManifest: manifest,
+      limits: DEFAULT_COLLECTOR_LIMITS,
+    }),
+  ).rejects.toThrow('timestamp evidence');
+});

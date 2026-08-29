@@ -163,15 +163,20 @@ Requests use HTTPS only and send:
 
 The collector performs these checks in order:
 
-1. The download-limit endpoint must return 2xx. HTTP 429 becomes `download_limit_denied`. Other
+1. The approved Info-ZIP 6.00 Linux ELF build must advertise Unicode UTF-8, large-file, and ZIP64
+   capabilities. An incompatible environment returns `environment_unavailable` before any provider
+   request.
+2. The download-limit endpoint must return 2xx. HTTP 429 becomes `download_limit_denied`. Other
    non-2xx results become `http_contract_changed`; the collector does not retry around a denial.
-2. A one-byte range request uses `Range: bytes=0-0`. It must return HTTP 206 with a valid
-   `Content-Range` containing a positive total length and exactly one response byte.
-3. Every redirect is processed manually. At most three redirects are allowed, every target must be
-   HTTPS on `file.localdata.go.kr`, and the final response must not be an HTML error page.
-4. The total compressed length must be between 1 MiB and 512 MiB. A bound change requires review,
+3. A one-byte range request uses `Range: bytes=0-0`. It must return HTTP 206 with a valid
+   `Content-Range` containing a positive total length and exactly one response byte. The body is read
+   incrementally and cancelled immediately if it exceeds one byte.
+4. Every redirect is processed manually. At most three redirects are allowed, every target must be
+   syntactically valid HTTPS on `file.localdata.go.kr`, and the final response must not be an HTML
+   error page.
+5. The total compressed length must be between 1 MiB and 512 MiB. A bound change requires review,
    rather than silent widening.
-5. The full request must return HTTP 200. If present, `Content-Length` must equal the received byte
+6. The full request must return HTTP 200. If present, `Content-Length` must equal the received byte
    count and the range-probed total. The complete response must have the ZIP `PK` signature.
 
 No fallback user agent, alternate host, cookie acquisition, browser automation, or repeated retry
@@ -196,7 +201,8 @@ artifact.
 The Info-ZIP adapter invokes executable paths and argument arrays through `spawn` with `shell: false`.
 It never interpolates an archive path or entry name into a command string.
 
-- `unzip -v` establishes environment availability.
+- `unzip -v` must identify Info-ZIP 6.00 compiled for Unix Linux ELF with Unicode UTF-8,
+  large-file, and ZIP64 capabilities. Apple and other unapproved signatures are unavailable.
 - `unzip -tqq <archive>` must complete successfully.
 - `unzip -Z1 <archive>` provides the entry inventory.
 - `unzip -p <archive> <entry>` streams bytes for schema-only inspection.
@@ -207,10 +213,11 @@ Directory entries may be listed but are not counted as categories. The reviewed 
 contain exactly 195 distinct CSV category entries, each mapped one-to-one to the TASK-004
 permission manifest.
 
-The first non-production live probe may emit a candidate schema-only contract, containing entry
-names, the mapped file-data identifier, detected encoding, delimiter, normalized header list, and
-timestamp-field presence. It may not emit record values. The candidate receives Architect and
-Reviewer inspection before it becomes `src/pipeline/contracts/seoul-archive-contract.json`.
+The first non-production live probe may emit a candidate schema-only contract only after every ZIP
+entry reports one common real calendar date. The candidate contains entry names, the mapped
+file-data identifier, detected encoding, delimiter, normalized header list, and timestamp-field
+presence. It may not emit record values. The candidate receives Architect and Reviewer inspection
+before it becomes `src/pipeline/contracts/seoul-archive-contract.json`.
 
 The user approved one literal source exception on 2026-08-29:
 `자원환경_단독정화조-오수처리시설설계시공업.csv` maps to audited file-data ID `15045011`, whose

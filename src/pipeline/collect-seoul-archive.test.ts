@@ -34,6 +34,7 @@ const options = {
 
 function dependencies() {
   return {
+    checkArchiveEnvironment: vi.fn(async () => ({ ok: true })),
     probeSource: vi.fn(
       async (): Promise<SourceProbeResult> => ({ kind: 'accepted', evidence: sourceEvidence }),
     ),
@@ -87,6 +88,18 @@ test('short-circuits a probe rejection', async () => {
     code: 'download_limit_denied',
     fetchedAt: options.fetchedAt,
   });
+  expect(injected.downloadArchive).not.toHaveBeenCalled();
+});
+
+test('rejects an incompatible archive environment before probing the provider', async () => {
+  const injected = dependencies();
+  injected.checkArchiveEnvironment.mockResolvedValueOnce({ ok: false });
+
+  await expect(createSeoulCollector(injected)(options)).resolves.toMatchObject({
+    kind: 'rejected',
+    code: 'environment_unavailable',
+  });
+  expect(injected.probeSource).not.toHaveBeenCalled();
   expect(injected.downloadArchive).not.toHaveBeenCalled();
 });
 

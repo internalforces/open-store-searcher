@@ -96,6 +96,16 @@ function decode(bytes: Uint8Array): string {
   }
 }
 
+function hasApprovedInfoZipCapabilities(versionOutput: string): boolean {
+  return (
+    /^UnZip 6\.00 .*by Info-ZIP[,.]?/m.test(versionOutput) &&
+    /for Unix \(Linux ELF\)/.test(versionOutput) &&
+    /^\s*UNICODE_SUPPORT .*UTF-8/m.test(versionOutput) &&
+    /^\s*LARGE_FILE_SUPPORT/m.test(versionOutput) &&
+    /^\s*ZIP64_SUPPORT/m.test(versionOutput)
+  );
+}
+
 function assertSafeArguments(archivePath: string, entryName?: string): void {
   if (!archivePath.startsWith('/') || archivePath.includes('\0'))
     throw new Error('unsafe archive path');
@@ -134,7 +144,9 @@ export class UnzipArchiveAdapter implements ArchiveAdapter {
     try {
       const result = await this.#run(['-v'], signal);
       if (result.exitCode !== 0) return { ok: false };
-      return { ok: true, version: decode(result.stdout).split(/\r?\n/, 1)[0] ?? '' };
+      const output = decode(result.stdout);
+      if (!hasApprovedInfoZipCapabilities(output)) return { ok: false };
+      return { ok: true, version: output.split(/\r?\n/, 1)[0] ?? '' };
     } catch {
       return { ok: false };
     }

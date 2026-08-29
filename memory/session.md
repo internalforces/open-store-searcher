@@ -45,6 +45,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Obtain approval for the one non-exact filename-to-title mapping.
 - [x] Generate and revalidate the accepted 195-entry schema contract after that decision.
 - [x] Open PR #6, evaluate all five inline findings, and remediate each valid issue through TDD.
+- [x] Evaluate and remediate all four findings from the `cfc5269` PR #6 re-review through TDD.
 - [ ] Obtain independent Reviewer approval after the schema contract is accepted.
 
 ## Completed This Session
@@ -78,7 +79,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Wrote the TASK-005 collector design and recorded ADR-010; written-spec confirmation remains.
 - [x] Installed the approved `@types/node` 24.13.3 declaration package and regenerated all 304
       dependency-license rows.
-- [x] Added 62 offline pipeline tests; the full 63-test coverage run exceeds every threshold.
+- [x] Added 67 offline pipeline tests; the full 68-test coverage run exceeds every threshold.
 - [x] Passed fixed Node 24.19.0 / npm 11.17.0 `verify:full`, including all browsers and accessibility.
 - [x] Recorded the official 215,968,197-byte archive SHA-256 and removed the temporary archive.
 - [x] Recorded the updated 216,022,556-byte 2026-08-29 archive, approved alias, 195-entry contract,
@@ -86,6 +87,9 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Reproduced all five PR #6 findings and added tested fixes for download inactivity, pre-aborted
       child processes, repository-root staging isolation, impossible ZIP dates, and structured
       provider freshness evidence.
+- [x] Reproduced all four `cfc5269` re-review findings and added tested fixes for discovery-date
+      validation, approved Info-ZIP capability gating before network access, malformed redirects,
+      and bounded one-byte range streaming.
 
 ## Issues and Decisions Found
 
@@ -95,7 +99,8 @@ required human Korean-language review. No source-data contract or M1 implementat
   TASK-005 contract probe before production use.
 - Both available macOS Info-ZIP builds transform the archive's UTF-8 Korean entry names. Ubuntu
   24.04 preserves them. The user approved the one literal hyphen-versus-`및` alias; all 195 mappings
-  and schemas now pass exact validation.
+  and schemas now pass exact validation. The collector now rejects non-Linux or non-Unicode
+  Info-ZIP builds before contacting the provider.
 - No production dataset, workflow, publication, status mapping, deployment, or browser runtime
   dependency was added.
 
@@ -107,7 +112,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 
 ## Important Context
 
-TASK-005 implementation, live probing, the schema-only contract, PR #6 feedback remediation, and
-local verification are complete. Independent re-review is the only remaining gate. The handbook
-remains human-facing output rather than implementation evidence and was not read. No production
-archive remains in Git.
+TASK-005 implementation, live probing, the schema-only contract, both PR #6 feedback remediation
+cycles, and local verification are complete. Independent re-review is the only remaining gate. The
+handbook remains human-facing output rather than implementation evidence and was not read. No
+production archive remains in Git.

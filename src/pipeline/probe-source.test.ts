@@ -89,6 +89,47 @@ describe('probeSourceContract', () => {
     ).resolves.toMatchObject({ kind: 'rejected', code });
   });
 
+  test('cancels the range body as soon as it exceeds one byte', async () => {
+    let cancelled = false;
+    let pulls = 0;
+    const body = new ReadableStream<Uint8Array>(
+      {
+        pull(controller) {
+          pulls += 1;
+          if (pulls === 1) {
+            controller.enqueue(new Uint8Array([0x50, 0x4b]));
+            return;
+          }
+          controller.enqueue(new Uint8Array(1024));
+          controller.close();
+        },
+        cancel() {
+          cancelled = true;
+        },
+      },
+      { highWaterMark: 0 },
+    );
+    const responses = [
+      new Response(null, { status: 204 }),
+      new Response(body, {
+        status: 206,
+        headers: {
+          'content-range': 'bytes 0-0/2097152',
+          'content-type': 'application/zip',
+        },
+      }),
+    ];
+
+    await expect(
+      probeSourceContract({
+        fetchImpl: async () => nextResponse(responses),
+        limits: DEFAULT_COLLECTOR_LIMITS,
+      }),
+    ).resolves.toMatchObject({ kind: 'rejected', code: 'range_contract_changed' });
+    expect(cancelled).toBe(true);
+    expect(pulls).toBe(1);
+  });
+
   test('rejects foreign and excessive redirects', async () => {
     const foreign = await probeSourceContract({
       fetchImpl: async () =>
@@ -110,6 +151,15 @@ describe('probeSourceContract', () => {
     });
     expect(excessive).toMatchObject({ kind: 'rejected', code: 'redirect_not_allowed' });
     expect(calls).toBe(4);
+  });
+
+  test('rejects a malformed redirect location without throwing', async () => {
+    await expect(
+      probeSourceContract({
+        fetchImpl: async () => new Response('', { status: 302, headers: { location: 'http://[' } }),
+        limits: DEFAULT_COLLECTOR_LIMITS,
+      }),
+    ).resolves.toMatchObject({ kind: 'rejected', code: 'redirect_not_allowed' });
   });
 
   test('rejects archive totals outside fixed bounds', async () => {

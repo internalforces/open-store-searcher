@@ -7,6 +7,7 @@ import type {
   CollectorRejectionCode,
   PermissionManifest,
 } from './collector-types.js';
+import { isCalendarDate } from './calendar-date.js';
 import { inspectCsvHeader } from './csv-header.js';
 
 export type ArchiveInspectionResult =
@@ -36,12 +37,6 @@ function safeName(name: string): boolean {
 
 function sameArray(left: string[], right: string[]): boolean {
   return left.length === right.length && left.every((value, index) => value === right[index]);
-}
-
-function isCalendarDate(value: string): boolean {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
-  const parsed = new Date(`${value}T00:00:00.000Z`);
-  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
 }
 
 function normalizeEntries(entries: ArchiveEntry[]): ArchiveEntry[] | undefined {

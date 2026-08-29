@@ -1,5 +1,6 @@
 import type { ArchiveAdapter } from './archive-adapter.js';
 import type { ArchiveContract, ArchiveContractEntry } from './archive-contract.js';
+import { isCalendarDate } from './calendar-date.js';
 import type { CollectorLimits, PermissionManifest } from './collector-types.js';
 import { inspectCsvHeader } from './csv-header.js';
 
@@ -22,7 +23,8 @@ export async function discoverArchiveContract(options: DiscoveryOptions): Promis
     throw new Error('archive category count does not match permission evidence');
   }
   const modifiedDates = new Set(files.map((entry) => entry.modifiedDate));
-  if (modifiedDates.size !== 1) {
+  const providerModifiedDate = modifiedDates.size === 1 ? [...modifiedDates][0] : undefined;
+  if (!providerModifiedDate || !isCalendarDate(providerModifiedDate)) {
     throw new Error('archive timestamp evidence is inconsistent');
   }
 
