@@ -36,9 +36,9 @@ _Last updated: 2026-08-28_
         range behavior, and provider denials without silently bypassing an access refusal.
   - [x] Download only to temporary staging, require a complete successful transfer, and keep
         incomplete data outside every publication path.
-  - [ ] Validate ZIP integrity, the approved 195-category entry manifest, encodings, delimiters,
+  - [x] Validate ZIP integrity, the approved 195-category entry manifest, encodings, delimiters,
         required headers, and permission metadata before accepting a staged archive.
-  - [ ] Detect changes with a SHA-256 content digest plus normalized entry and schema manifests;
+  - [x] Detect changes with a SHA-256 content digest plus normalized entry and schema manifests;
         report unchanged inputs without rewriting downstream artifacts.
   - [x] Keep retrieval time, provider-stated freshness, per-entry timestamps, and future `dataAsOf`
         derivation inputs separate; never present retrieval time as data as-of.
@@ -52,12 +52,12 @@ _Last updated: 2026-08-28_
   - `git diff --check`
 - Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
   The native streaming collector, shell-free archive adapter, schema inspection, deterministic
-  discovery, 53 pipeline tests, and manual probe are implemented. The fixed Node 24.19.0 / npm
-  11.17.0 `verify:full` gate passes. `reports/probe-2026-08-28-seoul-archive-contract.md` records
-  HTTP 200/206, a complete 215,968,197-byte ZIP, SHA-256, integrity, and 195 entries. Ubuntu 24.04
-  Info-ZIP preserves all filenames, but one official archive filename differs from its audited
-  portal title while the other 194 match exactly. TASK-005 stays active until the user approves or
-  rejects that explicit alias; the schema-only contract and independent final review follow.
+  discovery, 55 pipeline tests, and manual probe are implemented. The user approved the one literal
+  archive-name alias to audited file-data ID `15045011` on 2026-08-29. The latest 216,022,556-byte
+  archive, its 195-entry EUC-KR schema contract, and the committed contract all passed exact Ubuntu
+  inspection. `reports/probe-2026-08-29-seoul-archive-contract.md` records the hashes and structural
+  audit, and `reports/test-2026-08-29-task-005.md` records the pinned full verification. TASK-005
+  stays active only for the independent final Reviewer gate.
 
 ## Task Detail Template
 

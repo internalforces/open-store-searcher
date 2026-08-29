@@ -213,3 +213,29 @@ Changing to a JavaScript ZIP package requires a separate dependency decision.
 **Consequences**: TASK-005 adds no workflow, deployment, production data, or publication path. It
 must follow `docs/superpowers/specs/2026-08-28-seoul-collector-design.md`, use offline pipeline
 tests, and record only schema-level evidence from its one manually initiated live probe.
+
+## ADR-011: One Literal Archive Filename Alias
+
+- Date: 2026-08-29
+- Status: Accepted
+- Decision maker: User
+
+**Context**: Ubuntu 24.04 preserved all 195 official ZIP filenames. Exactly 194 matched the audited
+Public Data Portal titles after removing only the fixed provider prefix and `.csv` suffix. The ZIP
+entry `자원환경_단독정화조-오수처리시설설계시공업.csv` corresponds to portal file-data ID
+`15045011`, whose title uses `단독정화조 및 오수처리시설설계시공업`.
+
+**Decision**: Keep the category and record one literal filename-to-file-data-ID alias for that entry.
+Do not introduce generalized hyphen, punctuation, or word normalization. Require the alias ID to
+exist in the audited permission manifest and remain unique across the archive.
+
+**Rationale**: Retaining all 195 approved categories preserves the all-category source contract.
+The literal mapping is narrow, auditable, and supported by the unique official provider title and
+file-data identifier without weakening fail-closed matching for other entries.
+
+**Trade-offs**: A provider rename of either side requires an explicit contract review. The alias is
+source-specific and cannot be reused as a general filename normalization rule.
+
+**Consequences**: TASK-005 may generate and commit the schema-only 195-entry contract. Discovery
+tests must reject aliases to unaudited IDs and all duplicate mappings. Publication, status mapping,
+and data as-of derivation remain outside TASK-005.

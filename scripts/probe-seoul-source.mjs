@@ -35,7 +35,7 @@ try {
       server.ssrLoadModule('/src/pipeline/staged-download.ts'),
     ]);
   const [
-    { parsePermissionManifest },
+    { APPROVED_ARCHIVE_ENTRY_ALIASES, parsePermissionManifest },
     { runProcess, UnzipArchiveAdapter },
     { discoverArchiveContract },
   ] = await Promise.all([
@@ -72,6 +72,7 @@ try {
     archivePath,
     permissionManifest: manifest,
     limits: DEFAULT_COLLECTOR_LIMITS,
+    entryAliases: APPROVED_ARCHIVE_ENTRY_ALIASES,
   });
   await writeFile(outputPath, `${JSON.stringify(contract, null, 2)}\n`, { flag: 'wx' });
   console.log(

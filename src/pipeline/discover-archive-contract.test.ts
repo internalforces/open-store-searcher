@@ -54,6 +54,49 @@ test('discovers a deterministic schema-only contract', async () => {
   expect(JSON.stringify(result)).not.toContain('record values');
 });
 
+test('maps the single user-approved archive filename alias to its audited file-data ID', async () => {
+  const entryName = '자원환경_단독정화조-오수처리시설설계시공업.csv';
+  const permissionManifest: PermissionManifest = {
+    provider: '행정안전부',
+    expectedCategoryCount: 195,
+    verifiedCategoryCount: 195,
+    permissionLabel: '이용허락범위 제한 없음',
+    categories: [
+      {
+        apiId: '15154968',
+        apiTitle: '행정안전부_자원환경_단독정화조 및 오수처리시설설계시공업 조회서비스',
+        fileDataId: '15045011',
+        fileDataTitle: '행정안전부_자원환경_단독정화조 및 오수처리시설설계시공업',
+        fileDataUrl: 'https://www.data.go.kr/data/15045011/fileData.do',
+      },
+    ],
+  };
+
+  await expect(
+    discoverArchiveContract({
+      adapter: adapter([entryName]),
+      archivePath: '/tmp/source.zip',
+      permissionManifest,
+      limits: DEFAULT_COLLECTOR_LIMITS,
+      entryAliases: { [entryName]: '15045011' },
+    }),
+  ).resolves.toMatchObject({
+    entries: [{ entryName, fileDataId: '15045011' }],
+  });
+});
+
+test('rejects an alias whose file-data ID is absent from audited permission evidence', async () => {
+  await expect(
+    discoverArchiveContract({
+      adapter: adapter(['unknown.csv', '문화_음반업.csv']),
+      archivePath: '/tmp/source.zip',
+      permissionManifest: manifest,
+      limits: DEFAULT_COLLECTOR_LIMITS,
+      entryAliases: { 'unknown.csv': 'not-a-permitted-id' },
+    }),
+  ).rejects.toThrow('unique permission mapping');
+});
+
 test('rejects a filename that cannot map uniquely to approved permission evidence', async () => {
   await expect(
     discoverArchiveContract({

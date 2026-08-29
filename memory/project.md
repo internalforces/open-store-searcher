@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-29_
 
 ## Summary
 
@@ -16,10 +16,10 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-005 implementation verified; one source-alias approval gate pending
-- Next milestone: M1 — approve or reject one literal filename alias, then review the schema contract
-- Overall health: 🟡 Caution — Ubuntu handles all filenames, but one of 195 names differs from its
-  portal title and the fail-closed collector requires an explicit mapping decision
+- Phase: M1 — TASK-005 implementation and schema contract verified; independent review pending
+- Next milestone: M1 — obtain independent TASK-005 review before activating TASK-006
+- Overall health: 🟡 Caution — all implementation and live contract gates pass, while role-separated
+  final review remains open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -53,6 +53,7 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-08-29 | User approved one literal source filename alias; generated and revalidated the schema-only 195-entry contract against the latest official archive on Ubuntu 24.04 |
 | 2026-08-28 | Implemented and fully tested the TASK-005 fail-closed staged collector; Ubuntu verified 195 preserved filenames, with 194 exact permission-title matches and one explicit alias awaiting approval before schema-contract review |
 | 2026-08-28 | Completed TASK-004 after the 195-category live permission audit and Reviewer APPROVED; activated TASK-005 design |
 | 2026-08-28 | Audited 195 distinct official file-data pages and verified that every selected category names the Ministry as provider and displays unrestricted permission; TASK-004 review remains before TASK-005 activation |

@@ -7,20 +7,19 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-29_
 
 ## Active Bugs
 
 | ID | Severity | Description | Found | Owner |
 |---|---|---|---|---|
 | ISS-001 | High | macOS bundled Info-ZIP and Homebrew Info-ZIP 6.00_8 transform UTF-8 Korean filenames in the official Seoul ZIP inventory, so the exact schema contract cannot be accepted locally | 2026-08-28 | Architect / Implementer |
-| ISS-002 | High | One official ZIP filename uses a hyphen where the audited portal category title uses `및`; mapping it requires explicit approval | 2026-08-28 | Architect / Implementer |
 
 ## Technical Debt and Unresolved Risks
 
 | ID | Description | Impact | Target resolution |
 |---|---|---|---|
-| DEBT-002 | ADR-009 accepts the zero-key Seoul ZIP candidate and TASK-004 verifies all-category permission coverage, but automation stability, complete schema, cross-entry timestamp consistency, and the as-of rule remain unverified | Production collection remains prohibited; failed assumptions could publish incomplete or misleading data | M1 / TASK-005 and later owning tasks |
+| DEBT-002 | ADR-009 permission coverage and TASK-005 delivery, schema, integrity, and entry-date contracts are verified, but conservative data as-of derivation remains undecided | Production publication remains prohibited until freshness semantics and later validation gates pass | M1 / TASK-008 |
 | DEBT-003 | Atomic preservation method for the last known-good data is undecided | A failed refresh could regress the service | M1 / TASK-009 |
 | DEBT-004 | Location of the Seoul search-quality test set is undecided | Top-3 recall cannot be verified | M2 / TASK-013 |
 
@@ -42,26 +41,12 @@ _Last updated: 2026-08-28_
   `src/pipeline/discover-archive-contract.test.ts`, and
   `reports/probe-2026-08-28-seoul-archive-contract.md`.
 
-### ISS-002: One archive filename differs from its portal title
-
-- Severity: High
-- Found: 2026-08-28
-- Reproduction: Compare the Ubuntu-preserved 195 archive filenames with the audited TASK-004
-  permission titles after removing only the exact `행정안전부_` prefix and `.csv` suffix.
-- Root cause: The archive uses `자원환경_단독정화조-오수처리시설설계시공업.csv`; the matching
-  portal title is `행정안전부_자원환경_단독정화조 및 오수처리시설설계시공업`.
-- Impact: 194 mappings are exact; the remaining mapping cannot be accepted under the approved exact
-  contract without a reviewed alias.
-- Temporary workaround: None. The collector rejects the candidate.
-- Permanent fix direction: With user approval, record one literal entry-name-to-file-data-ID alias,
-  test uniqueness, and rerun schema discovery and exact inspection.
-- Related FR and tests: FR-13 and `src/pipeline/discover-archive-contract.test.ts`.
-
 ## Resolved
 
 | ID | Description | Resolved | Resolution |
 |---|---|---|---|
 | DEBT-001 | Language, framework, package manager, and test tools were undecided | 2026-08-20 | ADR-004 approved TypeScript, Node.js, Preact, Vite, npm, and the test stack. |
+| ISS-002 | One official ZIP filename used a hyphen where the audited portal title used `및` | 2026-08-29 | The user approved one literal alias to audited file-data ID `15045011`; tests reject unapproved or duplicate IDs, and the 195-entry contract passed exact reinspection. |
 
 ## Issue Template
 

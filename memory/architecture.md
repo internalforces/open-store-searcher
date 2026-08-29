@@ -98,6 +98,9 @@ See `memory/decisions.md` for details.
 - Treat compatible UTF-8 filename handling as part of the Info-ZIP environment gate. The current
   macOS builds fail that gate, while Ubuntu 24.04 Info-ZIP 6.0-28ubuntu4.1 passes it. Never guess or
   normalize transformed provider entry names into an accepted archive contract.
+- The only approved archive-name exception is the literal
+  `자원환경_단독정화조-오수처리시설설계시공업.csv` mapping to audited file-data ID `15045011`.
+  Do not generalize this decision into punctuation or word substitution.
 - Build and preview browser tests locally at `/open-store-searcher/` without changing the
   production Vite base or contacting a deployed environment.
 - Use `npm run verify` for the fast lint, format, typecheck, coverage, and build loop. Use

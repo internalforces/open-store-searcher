@@ -210,6 +210,11 @@ names, the mapped file-data identifier, detected encoding, delimiter, normalized
 timestamp-field presence. It may not emit record values. The candidate receives Architect and
 Reviewer inspection before it becomes `src/pipeline/contracts/seoul-archive-contract.json`.
 
+The user approved one literal source exception on 2026-08-29:
+`자원환경_단독정화조-오수처리시설설계시공업.csv` maps to audited file-data ID `15045011`, whose
+portal title uses `단독정화조 및 오수처리시설설계시공업`. No generalized punctuation or word
+normalization is allowed; every other entry must retain exact title matching.
+
 Subsequent collection accepts only an exact match to that committed contract. Missing, extra,
 renamed, duplicated, or remapped entries reject the archive.
 

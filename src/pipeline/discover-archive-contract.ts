@@ -8,6 +8,7 @@ interface DiscoveryOptions {
   archivePath: string;
   permissionManifest: PermissionManifest;
   limits: CollectorLimits;
+  entryAliases?: Readonly<Record<string, string>>;
   signal?: AbortSignal;
 }
 
@@ -33,6 +34,9 @@ export async function discoverArchiveContract(options: DiscoveryOptions): Promis
     byTitle.set(title, ids);
   }
   const discovered: ArchiveContractEntry[] = [];
+  const permittedIds = new Set(
+    options.permissionManifest.categories.map((category) => category.fileDataId),
+  );
   const usedIds = new Set<string>();
   for (const listed of files) {
     const entryName = listed.name.normalize('NFC');
@@ -41,8 +45,13 @@ export async function discoverArchiveContract(options: DiscoveryOptions): Promis
     }
     const title = entryName.slice(0, -'.csv'.length);
     const candidates = byTitle.get(title) ?? [];
-    const fileDataId = candidates[0];
-    if (candidates.length !== 1 || !fileDataId || usedIds.has(fileDataId)) {
+    const fileDataId = candidates.length === 1 ? candidates[0] : options.entryAliases?.[entryName];
+    if (
+      candidates.length > 1 ||
+      !fileDataId ||
+      !permittedIds.has(fileDataId) ||
+      usedIds.has(fileDataId)
+    ) {
       throw new Error(`archive entry lacks a unique permission mapping: ${entryName}`);
     }
     usedIds.add(fileDataId);
