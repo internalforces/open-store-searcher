@@ -1,6 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { open, realpath, rename, rm } from 'node:fs/promises';
-import { isAbsolute, relative, resolve } from 'node:path';
+import { isAbsolute, relative, resolve, sep } from 'node:path';
 import type { FileHandle } from 'node:fs/promises';
 import type {
   CollectorLimits,
@@ -37,6 +37,20 @@ function isCanonicalUtc(value: string): boolean {
   );
 }
 
+export type ChunkWriter = (bytes: Uint8Array, offset: number, length: number) => Promise<number>;
+
+export async function writeAll(writeChunk: ChunkWriter, bytes: Uint8Array): Promise<void> {
+  let offset = 0;
+  while (offset < bytes.length) {
+    const remaining = bytes.length - offset;
+    const bytesWritten = await writeChunk(bytes, offset, remaining);
+    if (!Number.isSafeInteger(bytesWritten) || bytesWritten <= 0 || bytesWritten > remaining) {
+      throw new Error('filesystem write made no progress');
+    }
+    offset += bytesWritten;
+  }
+}
+
 async function validateStagingRoot(
   stagingRoot: string,
   repositoryRoot: string,
@@ -51,7 +65,9 @@ async function validateStagingRoot(
   const repository = await realpath(repositoryRoot).catch(() => undefined);
   if (!root || !repository) return undefined;
   const fromRepository = relative(repository, root);
-  if (fromRepository === '' || (!fromRepository.startsWith('..') && !isAbsolute(fromRepository))) {
+  const isOutsideRepository =
+    fromRepository === '..' || fromRepository.startsWith(`..${sep}`) || isAbsolute(fromRepository);
+  if (!isOutsideRepository) {
     return undefined;
   }
   return root;
@@ -79,6 +95,14 @@ export async function downloadArchiveToStaging(
     const signal = options.signal
       ? AbortSignal.any([options.signal, deadlineSignal, inactivityController.signal])
       : AbortSignal.any([deadlineSignal, inactivityController.signal]);
+    const resetInactivityTimer = () => {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(
+        () => inactivityController.abort(),
+        options.limits.downloadInactivityTimeoutMs,
+      );
+    };
+    resetInactivityTimer();
     const response = await options.fetchImpl(options.sourceEvidence.finalUrl, {
       method: 'GET',
       headers: createProviderHeaders('archive'),
@@ -99,16 +123,10 @@ export async function downloadArchiveToStaging(
       return reject('transfer_incomplete', 'Declared archive size disagrees with range evidence.');
     }
     handle = await open(partPath, 'wx');
+    const writeHandle = handle;
     const hash = createHash('sha256');
     let byteLength = 0;
     let signature = new Uint8Array();
-    const resetInactivityTimer = () => {
-      clearTimeout(inactivityTimer);
-      inactivityTimer = setTimeout(
-        () => inactivityController.abort(),
-        options.limits.downloadInactivityTimeoutMs,
-      );
-    };
     resetInactivityTimer();
     for await (const chunk of response.body) {
       resetInactivityTimer();
@@ -127,7 +145,11 @@ export async function downloadArchiveToStaging(
         return reject('archive_size_out_of_bounds', 'Archive exceeded the approved byte count.');
       }
       hash.update(bytes);
-      await handle.write(bytes);
+      await writeAll(
+        async (buffer, offset, length) =>
+          (await writeHandle.write(buffer, offset, length)).bytesWritten,
+        bytes,
+      );
     }
     if (
       byteLength !== options.sourceEvidence.expectedBytes ||

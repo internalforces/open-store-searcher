@@ -7,12 +7,12 @@ Harness Version: 1.1
 
 # TASK-005 PR #6 Feedback Review
 
-_Date: 2026-08-29_
+_Date: 2026-08-30_
 
 ## Scope
 
 This report evaluates the inline findings produced by the automated Codex reviews of commits
-`412b271` and `cfc5269` on pull request #6. It records implementation evidence, not the
+`412b271`, `cfc5269`, and `3eec332` on pull request #6. It records implementation evidence, not the
 role-separated final Reviewer decision required to close TASK-005.
 
 ## Disposition
@@ -34,18 +34,28 @@ role-separated final Reviewer decision required to close TASK-005.
 | [Malformed redirect locations](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886135511) | Valid | Redirect parsing is now guarded. A syntactically invalid `Location` returns `redirect_not_allowed` instead of throwing outside the typed collector result. |
 | [Bounded one-byte range body](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886135512) | Valid | The range probe now reads the body incrementally, cancels immediately after more than one byte, and never calls `arrayBuffer()`. The regression stream proves that a two-byte first chunk is cancelled before a second pull. |
 
+## Third Review Cycle
+
+| Review comment | Evaluation | Remediation and regression evidence |
+|---|---|---|
+| [Dotted child staging directory](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886210184) | Valid | Repository ancestry now accepts only an actual `..` parent segment, not any relative path whose name begins with two dots. A real temporary directory named `..staging-*` previously accepted and stored a ZIP inside the repository; it now rejects before transfer. |
+| [Pre-header download inactivity](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886210188) | Valid | The inactivity timer now starts before `fetch` and continues to reset for every body chunk. A fake provider that never resolves response headers previously remained pending after the inactivity limit and now aborts with cleanup at that limit. |
+| [Fail-early manual environment gate](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886210190) | Valid | The manual command now uses a tested coordinator whose first operation is the approved archive-environment check. An unavailable environment returns `environment_unavailable` without invoking the provider probe or download. |
+| [Broken Docker archive path](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886210193) | Valid | No container execution contract was approved. The nonfunctional `--docker-container` option was removed rather than preserving an implicit host-path assumption. Argument validation now rejects that and every other unsupported option before provider work; `commands.md` documents only the optional host `--unzip` executable. |
+| [Short filesystem writes](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886210196) | Valid | Staging now advances by the actual `bytesWritten`, retries every unwritten suffix, and rejects a zero-progress or invalid write. Regression tests demonstrate multiple short writes reconstruct the exact input and a zero-byte write fails closed. |
+
 ## Verification
 
 - Each behavioral change was introduced by a focused failing test and observed failing for the
   reviewed reason before production code changed.
-- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 67 tests across
-  nine files.
-- `npm run test:coverage` passes 68 tests across ten files at 87.11% statements, 85.27% branches,
-  88.46% functions, and 90.19% lines.
+- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 74 tests across
+  ten files.
+- `npm run test:coverage` passes 75 tests across eleven files at 85.94% statements, 84.22% branches,
+  89.53% functions, and 89.10% lines.
 - `npm run verify:full` passed formatting, lint, type, coverage, build, four-browser smoke, and two
   accessibility projects. `git diff --check` also passed.
 
 ## Remaining Gate
 
-The updated PR must receive another independent review after the second remediation commit is
+The updated PR must receive another independent review after the third remediation commit is
 pushed. This report does not mark TASK-005 complete and does not authorize TASK-006.

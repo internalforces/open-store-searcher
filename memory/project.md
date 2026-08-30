@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-08-29_
+_Last updated: 2026-08-30_
 
 ## Summary
 
@@ -53,6 +53,7 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-08-30 | Remediated the third PR #6 review cycle: exact staging ancestry, pre-header inactivity cancellation, fail-early manual probing, removal of the broken Docker option, and complete short-write handling |
 | 2026-08-29 | Remediated the second PR #6 review cycle: shared discovery-date validation, fail-early approved Info-ZIP environment gating, malformed redirect rejection, and bounded one-byte range streaming |
 | 2026-08-29 | Reproduced and fixed all five PR #6 findings: inactivity cancellation, pre-aborted processes, repository-root staging isolation, calendar-valid ZIP dates, and structured provider freshness evidence |
 | 2026-08-29 | User approved one literal source filename alias; generated and revalidated the schema-only 195-entry contract against the latest official archive on Ubuntu 24.04 |

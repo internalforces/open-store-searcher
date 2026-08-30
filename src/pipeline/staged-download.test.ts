@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { DEFAULT_COLLECTOR_LIMITS } from './collector-types.js';
 import { SOURCE_ARCHIVE_URL } from './source-contract.js';
-import { downloadArchiveToStaging } from './staged-download.js';
+import { downloadArchiveToStaging, writeAll } from './staged-download.js';
 
 const roots: string[] = [];
 async function stagingRoot() {
@@ -35,6 +35,27 @@ function options(root: string, response: Response, expectedBytes = 4) {
     limits: { ...DEFAULT_COLLECTOR_LIMITS, minArchiveBytes: 4 },
   };
 }
+
+test('retries short filesystem writes until the complete chunk is stored', async () => {
+  const stored: number[] = [];
+
+  await writeAll(
+    async (bytes, offset, length) => {
+      const bytesWritten = Math.min(2, length);
+      stored.push(...bytes.subarray(offset, offset + bytesWritten));
+      return bytesWritten;
+    },
+    new Uint8Array([0x50, 0x4b, 0x03, 0x04, 0x05]),
+  );
+
+  expect(stored).toEqual([0x50, 0x4b, 0x03, 0x04, 0x05]);
+});
+
+test('rejects a filesystem write that makes no progress', async () => {
+  await expect(writeAll(async () => 0, new Uint8Array([0x50, 0x4b]))).rejects.toThrow(
+    'filesystem write made no progress',
+  );
+});
 
 describe('downloadArchiveToStaging', () => {
   test('publishes a complete staged ZIP only after streamed hashing', async () => {
@@ -101,6 +122,46 @@ describe('downloadArchiveToStaging', () => {
       },
     });
     const result = await downloadArchiveToStaging(options(root, new Response(body), 4));
+    expect(result).toMatchObject({ kind: 'rejected', code: 'transfer_incomplete' });
+    expect(await readdir(root)).toEqual([]);
+  });
+
+  test('aborts a full download when response headers remain inactive', async () => {
+    vi.useFakeTimers();
+    const root = await stagingRoot();
+    const caller = new AbortController();
+    let requestSignal: AbortSignal | undefined;
+    let markFetchStarted: (() => void) | undefined;
+    const fetchStarted = new Promise<void>((resolve) => {
+      markFetchStarted = resolve;
+    });
+    const resultPromise = downloadArchiveToStaging({
+      ...options(root, new Response(null), 4),
+      fetchImpl: async (_input, init) => {
+        requestSignal = init?.signal ?? undefined;
+        markFetchStarted?.();
+        return new Promise<Response>((_resolve, reject) => {
+          requestSignal?.addEventListener('abort', () => reject(new Error('aborted')), {
+            once: true,
+          });
+        });
+      },
+      limits: {
+        ...DEFAULT_COLLECTOR_LIMITS,
+        minArchiveBytes: 4,
+        downloadInactivityTimeoutMs: 10,
+        downloadDeadlineMs: 1_000,
+      },
+      signal: caller.signal,
+    });
+
+    await fetchStarted;
+    await vi.advanceTimersByTimeAsync(11);
+    const inactivityTriggered = requestSignal?.aborted ?? false;
+    if (!inactivityTriggered) caller.abort();
+    const result = await resultPromise;
+
+    expect(inactivityTriggered).toBe(true);
     expect(result).toMatchObject({ kind: 'rejected', code: 'transfer_incomplete' });
     expect(await readdir(root)).toEqual([]);
   });
@@ -180,6 +241,21 @@ describe('downloadArchiveToStaging', () => {
     const repositoryRoot = await mkdtemp(join(tmpdir(), 'open-store-repository-'));
     roots.push(repositoryRoot);
     const root = await mkdtemp(join(repositoryRoot, 'staging-'));
+    const bytes = new Uint8Array([0x50, 0x4b, 0x03, 0x04]);
+
+    await expect(
+      downloadArchiveToStaging({
+        ...options(root, new Response(bytes, { status: 200 })),
+        repositoryRoot,
+      }),
+    ).resolves.toMatchObject({ kind: 'rejected', code: 'transfer_incomplete' });
+    expect(await readdir(root)).toEqual([]);
+  });
+
+  test('rejects a dotted child staging directory inside the repository', async () => {
+    const repositoryRoot = await mkdtemp(join(tmpdir(), 'open-store-repository-'));
+    roots.push(repositoryRoot);
+    const root = await mkdtemp(join(repositoryRoot, '..staging-'));
     const bytes = new Uint8Array([0x50, 0x4b, 0x03, 0x04]);
 
     await expect(

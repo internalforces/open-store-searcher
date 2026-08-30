@@ -76,12 +76,14 @@ filesystem; CSV header inspection streams entry bytes through `unzip -p`.
 ```text
 src/pipeline/
 ├── collector-types.ts          # Public results, evidence, limits, and rejection codes
+├── calendar-date.ts            # Shared real-calendar validation
 ├── source-contract.ts          # Approved URLs, headers, manifest parsing, and invariants
 ├── probe-source.ts             # Limit check, redirect/range probe, and HTTP evidence
 ├── staged-download.ts          # Complete streamed transfer, byte count, and SHA-256
 ├── unzip-archive.ts            # Info-ZIP process adapter with no shell invocation
 ├── csv-header.ts               # Strict encoding, delimiter, and first-record parsing
 ├── inspect-archive.ts          # Integrity, entry, schema, timestamp, and manifest checks
+├── manual-probe.ts             # Manual-probe argument and fail-early orchestration boundary
 └── collect-seoul-archive.ts    # Orchestrator returning accepted or rejected outcomes
 
 src/pipeline/contracts/
@@ -186,10 +188,11 @@ is allowed. A provider contract change is a rejected result requiring review.
 
 The caller supplies a new temporary directory outside the repository and passes the repository root
 explicitly. The downloader resolves both paths independently of the process working directory and
-rejects staging inside the repository. It writes to a unique `.part` file with exclusive creation.
-SHA-256 and the byte count are updated while streaming. Only a complete, contract-conforming
-transfer is renamed to a `.zip` file within the same staging directory. Every rejection removes
-both paths.
+rejects staging inside the repository by checking actual parent path segments rather than string
+prefixes. It writes to a unique `.part` file with exclusive creation. SHA-256 and the byte count
+are updated while streaming, and every chunk is written completely even if the filesystem reports
+a short write. Only a complete, contract-conforming transfer is renamed to a `.zip` file within
+the same staging directory. Every rejection removes both paths.
 
 The accepted SHA-256 is compared with `previousAcceptedSha256` only after archive inspection passes.
 An equal digest returns `unchanged`; a different digest returns `changed`. Both outcomes retain the
@@ -258,8 +261,9 @@ The default compressed archive bound is 512 MiB. Process output used for invento
 is capped at 8 MiB, each header probe is capped at 256 KiB before a complete first record must be
 found, HTTP probe calls time out after 30 seconds, full download inactivity times out after 2
 minutes, and the total full-download deadline is 20 minutes. Abort signals terminate the HTTP
-request and child process. The inactivity timer starts before body iteration and resets for each
-received chunk. A child-process request whose signal is already aborted is rejected before spawn.
+request and child process. The inactivity timer starts before the full-download request so it
+covers response-header stalls, then resets for each received chunk. A child-process request whose
+signal is already aborted is rejected before spawn.
 
 Archive entry dates must be one common real calendar date, not merely a `YYYY-MM-DD`-shaped string.
 
@@ -279,7 +283,9 @@ Implementation follows red-green-refactor cycles in the pipeline Vitest project.
 - Adapter integration tests run only against local synthetic archives and the installed `unzip`
   executable. They make no network request.
 - One manual contract-probe command may access the official source. It writes only temporary ZIP
-  bytes and schema-only evidence, then deletes source bytes after review.
+  bytes and schema-only evidence, then deletes source bytes after review. It checks the approved
+  host Info-ZIP environment before any provider request. The command accepts an explicit local
+  `--unzip` executable but exposes no container mode or implicit host-to-container path mapping.
 
 TASK-005 completes only after `npm run test:pipeline`, `npm run verify:full`, changed-scope checks,
 dependency-license regeneration, and Reviewer approval pass under Node.js 24.19.0 and npm 11.17.0.

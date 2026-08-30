@@ -7,15 +7,15 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-08-29_
+_Last updated: 2026-08-30_
 
 > After a session, add a snapshot to `memory/sessions/YYYY-MM-DD-ROLE.md` when useful.
 
 ## Session Information
 
-- Date: 2026-08-29
+- Date: 2026-08-30
 - Agent role: Architect / Implementer / Tester
-- Session goal: Implement and verify TASK-005 sequentially without publication
+- Session goal: Remediate the third TASK-005 PR review cycle without publication
 
 ## Previous Session Summary
 
@@ -46,6 +46,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Generate and revalidate the accepted 195-entry schema contract after that decision.
 - [x] Open PR #6, evaluate all five inline findings, and remediate each valid issue through TDD.
 - [x] Evaluate and remediate all four findings from the `cfc5269` PR #6 re-review through TDD.
+- [x] Evaluate and remediate all five findings from the `3eec332` PR #6 re-review through TDD.
 - [ ] Obtain independent Reviewer approval after the schema contract is accepted.
 
 ## Completed This Session
@@ -90,6 +91,9 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Reproduced all four `cfc5269` re-review findings and added tested fixes for discovery-date
       validation, approved Info-ZIP capability gating before network access, malformed redirects,
       and bounded one-byte range streaming.
+- [x] Reproduced all five `3eec332` re-review findings and added tested fixes for exact staging
+      ancestry, pre-header inactivity cancellation, fail-early manual probing, unsupported Docker
+      option rejection, and complete short-write handling.
 
 ## Issues and Decisions Found
 
@@ -103,6 +107,8 @@ required human Korean-language review. No source-data contract or M1 implementat
   Info-ZIP builds before contacting the provider.
 - No production dataset, workflow, publication, status mapping, deployment, or browser runtime
   dependency was added.
+- The manual probe now requires a compatible host Info-ZIP executable. The unapproved and broken
+  Docker-container option was removed instead of introducing a container file-transfer contract.
 
 ## Next Session
 
@@ -112,7 +118,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 
 ## Important Context
 
-TASK-005 implementation, live probing, the schema-only contract, both PR #6 feedback remediation
-cycles, and local verification are complete. Independent re-review is the only remaining gate. The
-handbook remains human-facing output rather than implementation evidence and was not read. No
-production archive remains in Git.
+TASK-005 implementation, live probing, the schema-only contract, all three PR #6 feedback
+remediation cycles, and local verification are complete. Independent re-review is the only
+remaining gate. The handbook remains human-facing output rather than implementation evidence and
+was not read. No production archive remains in Git.

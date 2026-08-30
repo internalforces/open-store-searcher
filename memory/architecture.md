@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-30_
 
 ## System Overview
 
@@ -37,10 +37,11 @@ GitHub Actions collects, normalizes, and validates public administrative data in
 9. Staged Seoul collector: native Node HTTP streams and SHA-256 feed isolated temporary storage;
    a shell-free injected Info-ZIP adapter inspects integrity and schema without extraction or any
    publication capability. The repository root is passed explicitly to the downloader so staging
-   isolation does not depend on the process working directory. Download inactivity aborts reset per
-   received chunk, and already-aborted process requests are rejected before spawn. Before contacting
-   the provider, the collector requires the approved Info-ZIP 6.00 Linux ELF Unicode capability
-   signature; Apple builds fail with `environment_unavailable`.
+   isolation does not depend on the process working directory or a dotted child name. Download
+   inactivity covers response headers and resets per received chunk; short filesystem writes are
+   completed before the next chunk. Already-aborted process requests are rejected before spawn.
+   Before contacting the provider, both normal and manual collection require the approved Info-ZIP
+   6.00 Linux ELF Unicode capability signature; Apple builds fail with `environment_unavailable`.
 
 ## Data Flow
 
@@ -108,6 +109,8 @@ See `memory/decisions.md` for details.
 - Parse redirect locations defensively and bound the range-probe body to one byte without buffering
   a drifting response. Apply the same real-calendar-date validator to contract discovery and normal
   archive inspection.
+- Run the manual probe only with a compatible host Info-ZIP executable. It has no Docker-container
+  option because an implicit host archive path is not a valid container path contract.
 - The only approved archive-name exception is the literal
   `자원환경_단독정화조-오수처리시설설계시공업.csv` mapping to audited file-data ID `15045011`.
   Do not generalize this decision into punctuation or word substitution.
