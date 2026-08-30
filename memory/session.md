@@ -47,6 +47,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Open PR #6, evaluate all five inline findings, and remediate each valid issue through TDD.
 - [x] Evaluate and remediate all four findings from the `cfc5269` PR #6 re-review through TDD.
 - [x] Evaluate and remediate all five findings from the `3eec332` PR #6 re-review through TDD.
+- [x] Evaluate and remediate the one finding from the `fd009ef` PR #6 re-review through TDD.
 - [ ] Obtain independent Reviewer approval after the schema contract is accepted.
 
 ## Completed This Session
@@ -94,6 +95,8 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Reproduced all five `3eec332` re-review findings and added tested fixes for exact staging
       ancestry, pre-header inactivity cancellation, fail-early manual probing, unsupported Docker
       option rejection, and complete short-write handling.
+- [x] Reproduced the `fd009ef` re-review finding and added tested cancellation for unconsumed
+      non-success, HTML, and mismatched-length full-download response bodies.
 
 ## Issues and Decisions Found
 
@@ -118,7 +121,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 
 ## Important Context
 
-TASK-005 implementation, live probing, the schema-only contract, all three PR #6 feedback
+TASK-005 implementation, live probing, the schema-only contract, all four PR #6 feedback
 remediation cycles, and local verification are complete. Independent re-review is the only
 remaining gate. The handbook remains human-facing output rather than implementation evidence and
 was not read. No production archive remains in Git.

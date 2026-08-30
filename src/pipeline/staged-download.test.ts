@@ -113,6 +113,54 @@ describe('downloadArchiveToStaging', () => {
     expect(await readdir(root)).toEqual([]);
   });
 
+  test.each([
+    ['non-success status', { status: 503 }, 'transfer_incomplete'],
+    [
+      'HTML response',
+      { status: 200, headers: { 'content-type': 'text/html' } },
+      'http_contract_changed',
+    ],
+    [
+      'mismatched declared length',
+      { status: 200, headers: { 'content-length': '5' } },
+      'transfer_incomplete',
+    ],
+  ])('cancels a rejected %s body before returning', async (_label, responseInit, code) => {
+    const root = await stagingRoot();
+    let cancelled = false;
+    let markCancelStarted: (() => void) | undefined;
+    const cancelStarted = new Promise<void>((resolve) => {
+      markCancelStarted = resolve;
+    });
+    let finishCancellation: (() => void) | undefined;
+    const cancellationFinished = new Promise<void>((resolve) => {
+      finishCancellation = resolve;
+    });
+    const body = new ReadableStream<Uint8Array>({
+      cancel() {
+        cancelled = true;
+        markCancelStarted?.();
+        return cancellationFinished;
+      },
+    });
+
+    const resultPromise = downloadArchiveToStaging(
+      options(root, new Response(body, responseInit), 4),
+    );
+    let resultSettled = false;
+    void resultPromise.then(() => {
+      resultSettled = true;
+    });
+    await cancelStarted;
+    await new Promise<void>((resolve) => setTimeout(resolve, 20));
+
+    expect(cancelled).toBe(true);
+    expect(resultSettled).toBe(false);
+    finishCancellation?.();
+    await expect(resultPromise).resolves.toMatchObject({ kind: 'rejected', code });
+    expect(await readdir(root)).toEqual([]);
+  });
+
   test('cleans up when the response body fails', async () => {
     const root = await stagingRoot();
     const body = new ReadableStream<Uint8Array>({

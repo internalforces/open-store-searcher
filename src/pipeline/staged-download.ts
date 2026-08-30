@@ -28,6 +28,15 @@ function reject(code: CollectorRejectionCode, message: string): StagedDownloadRe
   return { kind: 'rejected', code, message };
 }
 
+async function cancelAndReject(
+  response: Response,
+  code: CollectorRejectionCode,
+  message: string,
+): Promise<StagedDownloadResult> {
+  await response.body?.cancel().catch(() => undefined);
+  return reject(code, message);
+}
+
 function isCanonicalUtc(value: string): boolean {
   const parsed = new Date(value);
   return (
@@ -110,17 +119,29 @@ export async function downloadArchiveToStaging(
       signal,
     });
     if (response.status !== 200 || !response.body) {
-      return reject('transfer_incomplete', 'Full archive response was not HTTP 200 with a body.');
+      return cancelAndReject(
+        response,
+        'transfer_incomplete',
+        'Full archive response was not HTTP 200 with a body.',
+      );
     }
     if ((response.headers.get('content-type') ?? '').toLowerCase().includes('text/html')) {
-      return reject('http_contract_changed', 'Provider returned HTML instead of archive bytes.');
+      return cancelAndReject(
+        response,
+        'http_contract_changed',
+        'Provider returned HTML instead of archive bytes.',
+      );
     }
     const declaredLength = response.headers.get('content-length');
     if (
       declaredLength !== null &&
       Number(declaredLength) !== options.sourceEvidence.expectedBytes
     ) {
-      return reject('transfer_incomplete', 'Declared archive size disagrees with range evidence.');
+      return cancelAndReject(
+        response,
+        'transfer_incomplete',
+        'Declared archive size disagrees with range evidence.',
+      );
     }
     handle = await open(partPath, 'wx');
     const writeHandle = handle;

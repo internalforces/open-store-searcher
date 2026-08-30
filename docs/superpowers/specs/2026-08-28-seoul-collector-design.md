@@ -192,7 +192,8 @@ rejects staging inside the repository by checking actual parent path segments ra
 prefixes. It writes to a unique `.part` file with exclusive creation. SHA-256 and the byte count
 are updated while streaming, and every chunk is written completely even if the filesystem reports
 a short write. Only a complete, contract-conforming transfer is renamed to a `.zip` file within
-the same staging directory. Every rejection removes both paths.
+the same staging directory. A response rejected before body consumption is explicitly cancelled so
+the provider transfer cannot continue in the background. Every rejection removes both paths.
 
 The accepted SHA-256 is compared with `previousAcceptedSha256` only after archive inspection passes.
 An equal digest returns `unchanged`; a different digest returns `changed`. Both outcomes retain the

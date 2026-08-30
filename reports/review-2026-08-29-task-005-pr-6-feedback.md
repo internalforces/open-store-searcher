@@ -12,8 +12,8 @@ _Date: 2026-08-30_
 ## Scope
 
 This report evaluates the inline findings produced by the automated Codex reviews of commits
-`412b271`, `cfc5269`, and `3eec332` on pull request #6. It records implementation evidence, not the
-role-separated final Reviewer decision required to close TASK-005.
+`412b271`, `cfc5269`, `3eec332`, and `fd009ef` on pull request #6. It records implementation
+evidence, not the role-separated final Reviewer decision required to close TASK-005.
 
 ## Disposition
 
@@ -44,18 +44,24 @@ role-separated final Reviewer decision required to close TASK-005.
 | [Broken Docker archive path](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886210193) | Valid | No container execution contract was approved. The nonfunctional `--docker-container` option was removed rather than preserving an implicit host-path assumption. Argument validation now rejects that and every other unsupported option before provider work; `commands.md` documents only the optional host `--unzip` executable. |
 | [Short filesystem writes](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3886210196) | Valid | Staging now advances by the actual `bytesWritten`, retries every unwritten suffix, and rejects a zero-progress or invalid write. Regression tests demonstrate multiple short writes reconstruct the exact input and a zero-byte write fails closed. |
 
+## Fourth Review Cycle
+
+| Review comment | Evaluation | Remediation and regression evidence |
+|---|---|---|
+| [Unconsumed rejected response](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3889254253) | Valid | Every full-download response rejected before body iteration is now explicitly cancelled. Three real `ReadableStream` regressions previously remained uncancelled for non-success status, HTML content, and a declared-length mismatch; all now cancel before the typed rejection returns. |
+
 ## Verification
 
 - Each behavioral change was introduced by a focused failing test and observed failing for the
   reviewed reason before production code changed.
-- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 74 tests across
+- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 77 tests across
   ten files.
-- `npm run test:coverage` passes 75 tests across eleven files at 85.94% statements, 84.22% branches,
-  89.53% functions, and 89.10% lines.
+- `npm run test:coverage` passes 78 tests across eleven files at 86.19% statements, 84.70% branches,
+  88.63% functions, and 89.54% lines.
 - `npm run verify:full` passed formatting, lint, type, coverage, build, four-browser smoke, and two
   accessibility projects. `git diff --check` also passed.
 
 ## Remaining Gate
 
-The updated PR must receive another independent review after the third remediation commit is
+The updated PR must receive another independent review after the fourth remediation commit is
 pushed. This report does not mark TASK-005 complete and does not authorize TASK-006.

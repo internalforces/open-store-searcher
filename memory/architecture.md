@@ -39,9 +39,10 @@ GitHub Actions collects, normalizes, and validates public administrative data in
    publication capability. The repository root is passed explicitly to the downloader so staging
    isolation does not depend on the process working directory or a dotted child name. Download
    inactivity covers response headers and resets per received chunk; short filesystem writes are
-   completed before the next chunk. Already-aborted process requests are rejected before spawn.
-   Before contacting the provider, both normal and manual collection require the approved Info-ZIP
-   6.00 Linux ELF Unicode capability signature; Apple builds fail with `environment_unavailable`.
+   completed before the next chunk, and early response-contract rejections cancel the unconsumed
+   response body. Already-aborted process requests are rejected before spawn. Before contacting the
+   provider, both normal and manual collection require the approved Info-ZIP 6.00 Linux ELF Unicode
+   capability signature; Apple builds fail with `environment_unavailable`.
 
 ## Data Flow
 
