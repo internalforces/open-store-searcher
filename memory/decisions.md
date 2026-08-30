@@ -178,11 +178,64 @@ depends on observed request behavior that may change. A full staged download and
 needed for change detection. Every category's entries, schema, permission, identity, raw statuses,
 and time fields still require validation.
 
-**Consequences**: TASK-004 remains open until official permission and attribution evidence covers
-every selected category. Only after that gate passes may TASK-005 implement a non-production,
-fail-safe contract probe and staged collector. The probe must validate cross-entry timestamp
+**Consequences**: TASK-004 subsequently verified official permission and attribution evidence for
+all 195 selected categories in `reports/source-permission-manifest-2026-08-28.json`. TASK-005 may
+therefore design and implement a non-production, fail-safe contract probe and staged collector. The
+probe must validate cross-entry timestamp
 consistency before treating the archive as a single data cut or deriving an archive-wide as-of
 date. Publication remains prohibited until archive integrity, the approved 195-category manifest,
 required schema, conservative as-of derivation, bounded change checks, and last-known-good
 preservation are designed and verified by their owning tasks. Unknown statuses remain
 `확인되지 않음`; ADR-009 does not authorize production data, workflows, or deployment.
+
+## ADR-010: Native Node Collector with an Info-ZIP Adapter
+
+- Date: 2026-08-28
+- Status: Accepted
+- Decision maker: User
+
+**Context**: TASK-005 needs to stream and inspect an approximately 206 MiB ZIP without adding a ZIP
+runtime package or implementing a security-sensitive archive parser. Strict TypeScript also needs
+Node API declarations, which the existing dependency set does not include.
+
+**Decision**: Implement the collector with Node.js 24.19.0 native HTTP, stream, filesystem,
+child-process, and SHA-256 APIs. Put the system `unzip` executable behind an injected adapter and
+invoke it without a shell. Add `@types/node` 24.13.3 as the sole new direct development dependency.
+
+**Rationale**: GitHub-hosted Ubuntu 24.04 and the current macOS development environment provide
+Info-ZIP. This approach streams large inputs, avoids a browser bundle effect, keeps the npm
+supply-chain addition to type declarations, and makes the archive boundary replaceable.
+
+**Trade-offs**: Local execution requires a compatible `unzip` executable and is not guaranteed on
+Windows. A missing or incompatible executable fails closed with a typed environment rejection.
+Changing to a JavaScript ZIP package requires a separate dependency decision.
+
+**Consequences**: TASK-005 adds no workflow, deployment, production data, or publication path. It
+must follow `docs/superpowers/specs/2026-08-28-seoul-collector-design.md`, use offline pipeline
+tests, and record only schema-level evidence from its one manually initiated live probe.
+
+## ADR-011: One Literal Archive Filename Alias
+
+- Date: 2026-08-29
+- Status: Accepted
+- Decision maker: User
+
+**Context**: Ubuntu 24.04 preserved all 195 official ZIP filenames. Exactly 194 matched the audited
+Public Data Portal titles after removing only the fixed provider prefix and `.csv` suffix. The ZIP
+entry `자원환경_단독정화조-오수처리시설설계시공업.csv` corresponds to portal file-data ID
+`15045011`, whose title uses `단독정화조 및 오수처리시설설계시공업`.
+
+**Decision**: Keep the category and record one literal filename-to-file-data-ID alias for that entry.
+Do not introduce generalized hyphen, punctuation, or word normalization. Require the alias ID to
+exist in the audited permission manifest and remain unique across the archive.
+
+**Rationale**: Retaining all 195 approved categories preserves the all-category source contract.
+The literal mapping is narrow, auditable, and supported by the unique official provider title and
+file-data identifier without weakening fail-closed matching for other entries.
+
+**Trade-offs**: A provider rename of either side requires an explicit contract review. The alias is
+source-specific and cannot be reused as a general filename normalization rule.
+
+**Consequences**: TASK-005 may generate and commit the schema-only 195-entry contract. Discovery
+tests must reject aliases to unaudited IDs and all duplicate mappings. Publication, status mapping,
+and data as-of derivation remain outside TASK-005.

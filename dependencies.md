@@ -35,12 +35,13 @@ impact, alternatives, and human approval.
 | jsdom | 30.0.1 | DOM environment for component tests | MIT | User approved 2026-08-20 |
 | @playwright/test | 1.62.1 | Chromium, Firefox, WebKit, and viewport E2E tests | Apache-2.0 | User approved 2026-08-20 |
 | @axe-core/playwright | 4.13.0 | Automated WCAG checks in Playwright | MPL-2.0 | User approved 2026-08-20 |
+| @types/node | 24.13.3 | Strict type declarations for approved Node.js 24 pipeline APIs | MIT | User approved 2026-08-28 |
 
 ## External Services and Data
 
 | Service or source | Purpose | Authentication | Runtime call | Notes |
 |---|---|---|---|---|
-| Ministry of the Interior and Safety local administrative licensing all-category ZIP | Candidate build-time source for Seoul-licensed businesses | No API key in the approved candidate contract | None | ADR-009 approved the candidate; TASK-004 must verify permission and attribution coverage for every selected category before TASK-005 validates delivery, schema, integrity, cross-entry timestamps, and as-of inputs |
+| Ministry of the Interior and Safety local administrative licensing all-category ZIP | Candidate build-time source for Seoul-licensed businesses | No API key in the approved candidate contract | None | ADR-009 approved the candidate and TASK-004 verified unrestricted permission across 195 categories; TASK-005 must still validate delivery, schema, integrity, cross-entry timestamps, and as-of inputs |
 | GitHub Actions | Daily collection, transformation, validation, and deployment | GitHub permissions | None during user searches | Use minimal permissions and public-repository free limits |
 | GitHub Pages | Host the static site and JSON | None | Static asset requests only | Default deployment target |
 | Naver Map search URL | User-initiated additional verification | None | Navigation after a user click | Automated collection prohibited |
@@ -77,6 +78,16 @@ impact, alternatives, and human approval.
 
 `reports/dependency-licenses-2026-08-24.md` records the exact direct and transitive package
 versions and declared licenses from the TASK-003 lockfile.
+
+## TASK-005 Installation Audit
+
+- The data collector adds exactly one direct development dependency: `@types/node` 24.13.3.
+- The package supplies type declarations only and does not enter the browser runtime bundle.
+- No runtime ZIP package was added; archive inspection uses the approved system Info-ZIP adapter.
+- Every locked package version has a declared license.
+
+`reports/dependency-licenses-2026-08-28.md` records the exact direct and transitive package versions
+and declared licenses from the TASK-005 lockfile.
 
 ## Version Policy
 

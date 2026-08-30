@@ -9,8 +9,9 @@ Harness Version: 1.1
 
 _Research date: 2026-08-28_
 
-_Decision: Approved by the user on 2026-08-28 through ADR-009 as a candidate source. TASK-004
-remains open until permission and attribution evidence covers every selected category._
+_Decision: Approved by the user on 2026-08-28 through ADR-009 as a candidate source. The
+all-category permission and attribution gate was verified on 2026-08-28 against 195 distinct
+official file-data pages._
 
 ## Question
 
@@ -26,9 +27,9 @@ delivery, authentication, usage limits, update behavior, representative schema f
 licensing, redistribution, attribution, change detection, and failure behavior.
 
 The research work is evidence-only. It does not implement a collector, download a complete
-production dataset, define processed-status mappings, or treat a representative category schema or
-permission as universal. ADR-009 approves a candidate source, but collector implementation remains
-blocked until TASK-004 verifies permission and attribution coverage for every selected category.
+production dataset, define processed-status mappings, or treat a representative category schema as
+universal. ADR-009 approves a candidate source, and the audited permission manifest clears the
+permission prerequisite for a separately designed TASK-005 contract probe.
 
 ## Verified Facts
 
@@ -127,8 +128,12 @@ as universal until all 195 category schemas or delivered file headers are valida
   noncommercial use and modification without an attribution requirement. Other Korea Open
   Government License types have attribution or additional conditions.
 - No single current official statement was found proving that all 195 category datasets have the
-  same permission type. A category manifest must capture the permission shown for every selected
-  dataset and fail closed if it differs from the approved contract.
+  same permission type. The project therefore audited every selected category and recorded 195
+  distinct official file-data pages in
+  `reports/source-permission-manifest-2026-08-28.json`. Every page named the Ministry of the
+  Interior and Safety as provider and displayed `이용허락범위 제한 없음` (unrestricted
+  permission). Future probes must fail closed if any category is missing or its permission differs
+  from this approved manifest.
 - Regardless of whether attribution is legally required for a Type 0 dataset, PRD FR-09 requires
   the product to show its source and data as-of date. Built artifacts therefore need explicit
   provenance.
@@ -161,9 +166,9 @@ not assert that the currently observed endpoint behavior is a stable production 
 
 Approval should be bounded by the following contract:
 
-1. TASK-004 must first verify official permission and attribution coverage for every selected
-   category, or find an authoritative global statement covering all selected categories. No
-   collector implementation is authorized until this criterion passes.
+1. TASK-004 verified official permission coverage for all 195 selected categories and recorded the
+   product attribution contract. This clears only the permission prerequisite for TASK-005; it does
+   not authorize production collection or publication.
 2. After TASK-004 closes, the collector may run only at build time and may request only the official
    Seoul all-category file endpoint after a lightweight download-limit check.
 3. TASK-005 must first implement a non-production contract probe for redirect behavior, required
@@ -194,6 +199,27 @@ Approval should be bounded by the following contract:
 No speculative source fixture, status mapping, processed status, production collection, workflow,
 or deployment change is authorized by this report.
 
+## Permission and Attribution Manifest
+
+The manifest audit used the official 2026 service notice as the complete 195-category inventory.
+For each listed API category, it resolved the same-title Ministry file dataset through the official
+portal and then required a distinct file-data identifier, an exact page-title prefix, the Ministry
+as provider, and the unrestricted permission label. The final manifest contains 195 API identifiers
+and 195 distinct file-data identifiers with no provider, title, or permission mismatch.
+
+The portal recommendation surface contained two mapping defects that the audit did not accept:
+
+- The general-game-provider recommendation title linked to the youth-game-provider page. The audit
+  used the exact official general-game-provider page, file-data identifier `15045071`.
+- One measuring-instrument-manufacturer recommendation response omitted its exact file result. The
+  audit used the exact official manufacturer page, file-data identifier `15045077`.
+
+The portal policy defines unrestricted Type 0 use as permitting commercial and noncommercial use
+and modification without a source-display condition. Independently of that legal permission, FR-09
+requires every built artifact and the product UI to retain provider, source URL, retrieval time,
+data as-of date, transformation notice, and raw status evidence. The later collector must validate
+the committed category and permission manifest before processing an archive.
+
 ## Unknowns
 
 - Whether the all-category ZIP endpoint, referrer requirement, and pre-download limit check are an
@@ -201,8 +227,6 @@ or deployment change is authorized by this report.
 - The numeric file-download limit and the provider's expected retry interval after HTTP 429.
 - The exact ZIP entry set, filenames, encodings, delimiters, and required field headers across all
   195 categories at implementation time.
-- Whether every category has unrestricted Type 0 permission; this must be captured in a validated
-  category manifest.
 - The precise distinction between `DAT_UPDT_PNT` and `LAST_MDFCN_PNT`, and which timestamp is
   authoritative for file change tracking and data as-of derivation.
 - Category-specific availability and meaning of suspension, reopening, closure, business-type,
@@ -217,8 +241,9 @@ or deployment change is authorized by this report.
 ## Sources
 
 All sources are official Ministry of the Interior and Safety or Public Data Portal pages and were
-retrieved or inspected through the official domains on 2026-08-28. The three current Public Data
-Portal pages and the 2026 notice returned HTTP 200 during the final link audit. The legacy
+retrieved or inspected through the official domains on 2026-08-28. The 195 current file-data pages,
+the policy page, and the 2026 notice returned successful responses during the permission-manifest
+audit. The legacy
 LOCALDATA manual and Q&A URLs timed out during that audit; their official indexed evidence is
 retained here, but TASK-005 must not depend on those legacy URLs being available.
 

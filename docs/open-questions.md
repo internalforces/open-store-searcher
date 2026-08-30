@@ -15,7 +15,6 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 |---|---|---|---|
 | What are the data-pipeline, deployment, performance, recall, freshness, and publication commands? | Remaining `[*_COMMAND]` values in `commands.md` | Later assigned tasks | commands |
 | What are the Preview and Production URLs? | [STAGING_URL], [PROD_URL] | Deployment design | tech-stack |
-| What official permission and attribution evidence covers every category selected for the Seoul pipeline? | Representative evidence only; collector implementation remains blocked | TASK-004 | dependencies, architecture, TASK-005 |
 
 ## Confirmed Answers
 
@@ -38,4 +37,5 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 - Absolute constraints: zero-cost operation, static hosting, no collection of personal or usage data, no paid APIs/scraping/AI determination, and fail-safe status determination
 - Harness documentation language: English only, except exact quoted product/source literals
 - Source delivery: ADR-009 accepts the official zero-key Seoul all-category ZIP as the candidate
-  default; this does not clear TASK-004's open all-category permission and attribution gate
+  default; TASK-004 verified permission and provenance across 195 categories, while TASK-005 still
+  must validate the automation, archive, schema, and timestamp contract

@@ -7,54 +7,59 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-30_
 
 ## In Progress
 
-### TASK-004: Research the local administrative licensing source-data contract
+### TASK-005: Implement a change-detecting Seoul data collector
 
-- Owner: Researcher / Architect
+- Owner: Architect / Implementer
 - Priority: High
 - Milestone: M1
-- Related requirements: FR-09, Section 12.1, Section 20
-- Description: Verify the official delivery methods, authentication requirements, schema, field
-  semantics, terms of use, licensing, and attribution requirements for the local administrative
-  licensing data needed by the Seoul static-data pipeline. Compare viable official delivery
-  alternatives and establish a bounded contract without implementing a collector or inventing
-  status mappings.
-- Dependencies: TASK-001, TASK-002, TASK-003, and the TASK-026 M0 gate are complete.
+- Related requirements: FR-13, Section 12.3
+- Description: Design and implement a build-time, change-detecting collector for the approved Seoul
+  all-category ZIP candidate. Begin with a non-production contract probe, stage complete transfers,
+  fail closed on provider or archive drift, and expose validated evidence to later transformation
+  and publication tasks without collecting or publishing production data in this task.
+- Dependencies: TASK-004 is complete; ADR-009 and the audited 195-category permission manifest
+  define the bounded source contract.
 - Risks:
-  - The portal may expose different contracts for bulk files and OpenAPI access.
-  - Field names, permission scopes, or status vocabularies may vary by licensing category.
-  - One ZIP transfer does not prove that every category entry has the same source as-of date.
-  - Selecting a delivery method or status interpretation without complete evidence could violate
-    an approval gate or product safety invariant.
+  - The current redirect, referrer, range, or pre-download behavior may not be a supported automation
+    contract and may change without notice.
+  - A complete archive is large, may be corrupt or partial, and may contain mixed encodings, schemas,
+    permissions, or data vintages.
+  - Treating retrieval time or one transfer as a common source as-of date could mislead users.
+  - Silently bypassing a provider denial could violate the bounded contract.
 - Acceptance criteria:
-  - [x] Record dated, official evidence for available download methods, authentication, rate or
-        usage limits, update behavior, and zero-cost suitability.
-  - [x] Record the official representative schema evidence for the PRD-required fields and identify
-        every field or semantic that remains category-specific, undocumented, or unverified.
-  - [x] Record the official general terms of use, licensing, redistribution, and attribution
-        framework, including source URL and data as-of implications for built artifacts.
-  - [ ] Verify an official permission and attribution manifest for every selected category, or an
-        authoritative global permission statement covering all selected categories, before any
-        collector implementation is authorized.
-  - [x] Compare viable official delivery alternatives across cost, automation, privacy,
-        maintainability, schema-change detection, and failure modes.
-  - [x] Record the user-approved candidate contract in ADR-009, explicitly listing unresolved
-        questions and prohibiting speculative fixtures, status mappings, or production collection.
-  - [x] Publish an English report at `reports/research-2026-08-28-source-data-contract.md` with the
-        required question, scope, verified facts, alternatives, recommendation, unknowns, and
-        sources sections.
+  - [x] Write and obtain approval for an English collector design before implementation.
+  - [x] Probe redirect behavior, required request headers, the lightweight download-limit check,
+        range behavior, and provider denials without silently bypassing an access refusal.
+  - [x] Download only to temporary staging, require a complete successful transfer, and keep
+        incomplete data outside every publication path.
+  - [x] Validate ZIP integrity, the approved 195-category entry manifest, encodings, delimiters,
+        required headers, and permission metadata before accepting a staged archive.
+  - [x] Detect changes with a SHA-256 content digest plus normalized entry and schema manifests;
+        report unchanged inputs without rewriting downstream artifacts.
+  - [x] Keep retrieval time, provider-stated freshness, per-entry timestamps, and future `dataAsOf`
+        derivation inputs separate; never present retrieval time as data as-of.
+  - [x] Cover success, unchanged, denial, redirect drift, partial transfer, corrupt archive, missing
+        category, schema drift, permission drift, and mixed-vintage evidence with pipeline tests.
+  - [x] Add no external dependency, production dataset, workflow, publication, or deployment change
+        without its separate approval and owning task.
 - Verification commands:
-  - `npm run format:check`
+  - `npm run test:pipeline`
+  - `npm run verify:full`
   - `git diff --check`
-  - Documentation evidence and link audit against official primary sources
-- Results and evidence: The report and ADR-009 approve the zero-key Seoul all-category ZIP only as
-  a candidate contract. PR review reopened TASK-004 because representative permission evidence
-  does not clear all 195 selected categories. TASK-005 must remain inactive until the unchecked
-  permission-manifest criterion passes. The future contract probe must also validate cross-entry
-  timestamp consistency before treating the archive as a single data cut or deriving one as-of date.
+- Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
+  The native streaming collector, shell-free archive adapter, schema inspection, deterministic
+  discovery, 77 pipeline tests, and manual probe are implemented. The user approved the one literal
+  archive-name alias to audited file-data ID `15045011` on 2026-08-29. The latest 216,022,556-byte
+  archive, its 195-entry EUC-KR schema contract, and the committed contract all passed exact Ubuntu
+  inspection. `reports/probe-2026-08-29-seoul-archive-contract.md` records the hashes and structural
+  audit. Four PR #6 review cycles produced fifteen valid findings; all were reproduced, fixed
+  through TDD, and recorded in `reports/review-2026-08-29-task-005-pr-6-feedback.md`. The pinned
+  verification is in `reports/test-2026-08-29-task-005.md`. TASK-005 stays active for independent
+  re-review.
 
 ## Task Detail Template
 

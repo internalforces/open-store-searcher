@@ -134,8 +134,14 @@ const rows = [...records.values()]
       `| ${name} | ${version} | ${relationship} | ${license} |`,
   );
 
-const reportDate = '2026-08-24';
-const reportTask = 'TASK-003';
+const taskArg = process.argv.find((value) => value.startsWith('--task='));
+const dateArg = process.argv.find((value) => value.startsWith('--date='));
+const reportTask = taskArg?.slice('--task='.length) ?? 'TASK-003';
+const reportDate = dateArg?.slice('--date='.length) ?? '2026-08-24';
+
+if (!/^TASK-\d{3}$/.test(reportTask) || !/^\d{4}-\d{2}-\d{2}$/.test(reportDate)) {
+  throw new Error('License report task or date is invalid.');
+}
 
 const report = [
   '<!--',

@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # commands.md — open-store-searcher Command Reference
 
-_Last updated: 2026-08-24_
+_Last updated: 2026-08-28_
 
 > TASK-001 approved Node.js 24.19.0, npm 11.17.0, TypeScript, Preact, Vite, and the test stack. TASK-002 foundation commands and TASK-003 test commands are implemented.
 
@@ -45,11 +45,19 @@ npm run verify:full
 ## Data Pipeline
 
 ```bash
-[DATA_FETCH_COMMAND]
+node scripts/probe-seoul-source.mjs \
+  --staging=<absolute-temporary-directory-outside-the-repository> \
+  --output=<absolute-schema-candidate-json> \
+  [--unzip=<compatible-host-info-zip-executable>]
 [DATA_TRANSFORM_COMMAND]
 [DATA_VALIDATE_COMMAND]
 [DATA_BUILD_COMMAND]
 ```
+
+The TASK-005 probe is manual and non-production. It deletes its staged source archive after success
+or failure, writes only schema metadata to a new candidate path, and never publishes data. It uses
+the host `unzip` executable by default and has no container wrapper. Review a candidate before
+copying it into the committed archive contract.
 
 Do not run the publication command when data validation fails. Production data refreshes and manual workflow dispatches require human approval.
 

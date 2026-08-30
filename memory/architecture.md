@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-30_
 
 ## System Overview
 
@@ -34,6 +34,15 @@ GitHub Actions collects, normalizes, and validates public administrative data in
 7. Dashboard: displays status, evidence, uncertainty, dates, external-verification links, and error states.
 8. Test harness: Vitest projects separate Node unit, Node pipeline, and jsdom component ownership;
    Playwright projects cover Chromium, Firefox, WebKit, and mobile Chromium.
+9. Staged Seoul collector: native Node HTTP streams and SHA-256 feed isolated temporary storage;
+   a shell-free injected Info-ZIP adapter inspects integrity and schema without extraction or any
+   publication capability. The repository root is passed explicitly to the downloader so staging
+   isolation does not depend on the process working directory or a dotted child name. Download
+   inactivity covers response headers and resets per received chunk; short filesystem writes are
+   completed before the next chunk, and early response-contract rejections cancel the unconsumed
+   response body. Already-aborted process requests are rejected before spawn. Before contacting the
+   provider, both normal and manual collection require the approved Info-ZIP 6.00 Linux ELF Unicode
+   capability signature; Apple builds fail with `environment_unavailable`.
 
 ## Data Flow
 
@@ -64,7 +73,7 @@ The output schema must at minimum represent an identifier; original and normaliz
 | Repository | Single repository and single npm package with module directories | 2026-08-20 |
 | Repository foundation | MIT-licensed single npm package; strict TypeScript; Biome; relative Vite base | 2026-08-20 |
 | Test stack | Vitest, Testing Library, Playwright, and axe | 2026-08-20 |
-| Candidate source contract | Official Seoul all-category ZIP, gated by TASK-004 permission coverage and a fail-safe TASK-005 contract probe | 2026-08-28 |
+| Candidate source contract | Official Seoul all-category ZIP with TASK-004 permission coverage, gated by a fail-safe TASK-005 contract probe | 2026-08-28 |
 | Harness | AI Development Harness v1.1 Standard | 2026-08-18 |
 | Runtime | Static site with in-browser search | 2026-08-18 |
 | Data processing | GitHub Actions ETL and static JSON | 2026-08-18 |
@@ -80,8 +89,8 @@ See `memory/decisions.md` for details.
 - Do not assume a static-site base path; test GitHub Pages subpath deployment.
 - Do not deploy a pipeline that lacks a last-known-good data preservation strategy.
 - ADR-009 accepts the official zero-key Seoul all-category ZIP as the candidate default source.
-  TASK-004 must verify permission and attribution coverage for every selected category before
-  TASK-005 starts. The later probe must validate automation stability, the complete category
+  TASK-004 verified permission and attribution coverage for all 195 selected categories. The
+  TASK-005 probe must validate automation stability, the complete category
   manifest, schema, archive integrity, cross-entry timestamp consistency, and as-of inputs before
   production collection or publication is allowed.
 - Do not make the account- and API-key-dependent OpenAPI a required path without explicit approval
@@ -90,6 +99,22 @@ See `memory/decisions.md` for details.
 - Use Preact-local state only; no router or external state-management dependency is approved.
 - Keep Node-executed pipeline and shared code compatible with native erasable TypeScript syntax.
 - Use the committed Node.js, npm, package-lock, TypeScript, Biome, and Vite configuration as the reproducible foundation.
+- Implement TASK-005 with native Node.js streaming and hashing plus an injected, shell-free
+  Info-ZIP adapter. Collector output is temporary evidence only and cannot publish artifacts.
+- Carry the provider's reviewed daily cadence, two-day coverage lag, and official source URL as
+  structured source evidence separate from retrieval time and any later `dataAsOf` derivation.
+- Treat compatible UTF-8 filename handling as part of the Info-ZIP environment gate. The current
+  macOS builds fail that gate, while Ubuntu 24.04 Info-ZIP 6.0-28ubuntu4.1 passes it. Run this gate
+  before any provider request. Never guess or normalize transformed provider entry names into an
+  accepted archive contract.
+- Parse redirect locations defensively and bound the range-probe body to one byte without buffering
+  a drifting response. Apply the same real-calendar-date validator to contract discovery and normal
+  archive inspection.
+- Run the manual probe only with a compatible host Info-ZIP executable. It has no Docker-container
+  option because an implicit host archive path is not a valid container path contract.
+- The only approved archive-name exception is the literal
+  `자원환경_단독정화조-오수처리시설설계시공업.csv` mapping to audited file-data ID `15045011`.
+  Do not generalize this decision into punctuation or word substitution.
 - Build and preview browser tests locally at `/open-store-searcher/` without changing the
   production Vite base or contacting a deployed environment.
 - Use `npm run verify` for the fast lint, format, typecheck, coverage, and build loop. Use
