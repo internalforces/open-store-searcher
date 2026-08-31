@@ -52,14 +52,15 @@ _Last updated: 2026-08-31_
   - `git diff --check`
 - Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
   The native streaming collector, shell-free archive adapter, schema inspection, deterministic
-  discovery, 82 pipeline tests, and manual probe are implemented. The user approved the one literal
+  discovery, 87 pipeline tests, and manual probe are implemented. The user approved the one literal
   archive-name alias to audited file-data ID `15045011` on 2026-08-29. The latest 216,022,556-byte
   archive, its 195-entry EUC-KR schema contract, and the committed contract all passed exact Ubuntu
   inspection. `reports/probe-2026-08-29-seoul-archive-contract.md` records the hashes and structural
   audit. Five PR #6 review cycles produced seventeen valid findings; all were reproduced, fixed
-  through TDD, and recorded in `reports/review-2026-08-29-task-005-pr-6-feedback.md`. The pinned
-  verification is in `reports/test-2026-08-29-task-005.md`. TASK-005 stays active for independent
-  re-review.
+  through TDD, and recorded in `reports/review-2026-08-29-task-005-pr-6-feedback.md`. The first
+  independent follow-up review found one additional response-cleanup gap, which was also reproduced
+  and remediated through TDD. The pinned verification is in
+  `reports/test-2026-08-29-task-005.md`. TASK-005 stays active for independent re-review.
 
 ## Task Detail Template
 

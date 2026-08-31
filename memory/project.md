@@ -53,7 +53,7 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
-| 2026-08-31 | Remediated the fifth PR #6 review cycle on a follow-up branch: awaited every pre-read range-body rejection cancellation and moved `fetchedAt` validation before all collector work |
+| 2026-08-31 | Remediated the fifth PR #6 review cycle and first follow-up review: awaited all unconsumed probe-body cancellations and moved `fetchedAt` validation before all collector work |
 | 2026-08-30 | Remediated the fourth PR #6 review cycle by cancelling every unconsumed full-download response rejected before streaming |
 | 2026-08-30 | Remediated the third PR #6 review cycle: exact staging ancestry, pre-header inactivity cancellation, fail-early manual probing, removal of the broken Docker option, and complete short-write handling |
 | 2026-08-29 | Remediated the second PR #6 review cycle: shared discovery-date validation, fail-early approved Info-ZIP environment gating, malformed redirect rejection, and bounded one-byte range streaming |

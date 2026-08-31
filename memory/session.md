@@ -50,6 +50,8 @@ TASK-005 remained active and TASK-006 remained unauthorized.
 - [x] Evaluate and remediate all five findings from the `3eec332` PR #6 re-review through TDD.
 - [x] Evaluate and remediate the one finding from the `fd009ef` PR #6 re-review through TDD.
 - [x] Evaluate and remediate both findings from the `f4941cd` PR #6 re-review through TDD.
+- [x] Receive `With fixes` from the first independent follow-up review and remediate its response
+      cleanup finding through TDD.
 - [x] Pass the focused, pipeline, full browser, and accessibility verification suites.
 - [ ] Obtain independent Reviewer approval after the schema contract is accepted.
 
@@ -104,7 +106,9 @@ TASK-005 remained active and TASK-006 remained unauthorized.
       cancellation before returning.
 - [x] Reproduced the late-`fetchedAt` validation finding and moved shared canonical UTC validation
       before contract loading, environment checks, and provider work.
-- [x] Passed 82 pipeline tests, 83 coverage tests, the four-browser smoke matrix, two zero-violation
+- [x] Reproduced the follow-up review finding and made followed/rejected redirects plus
+      accepted/denied/failed limit responses await body cancellation.
+- [x] Passed 87 pipeline tests, 88 coverage tests, the four-browser smoke matrix, two zero-violation
       accessibility scans, typecheck, lint, format, build, and changed-line whitespace checks.
 
 ## Issues and Decisions Found

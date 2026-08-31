@@ -26,12 +26,16 @@ function rejected(code: CollectorRejectionCode, message: string): SourceProbeRes
   return { kind: 'rejected', code, message };
 }
 
+async function cancelResponseBody(response: Response): Promise<void> {
+  await response.body?.cancel().catch(() => undefined);
+}
+
 async function cancelAndReject(
   response: Response,
   code: CollectorRejectionCode,
   message: string,
 ): Promise<SourceProbeResult> {
-  await response.body?.cancel().catch(() => undefined);
+  await cancelResponseBody(response);
   return rejected(code, message);
 }
 
@@ -77,6 +81,7 @@ async function requestWithRedirects(
       return rejected('http_contract_changed', 'Provider probe request failed.');
     }
     if (response.status < 300 || response.status >= 400) return { response, finalUrl: currentUrl };
+    await cancelResponseBody(response);
     const location = response.headers.get('location');
     if (!location || redirects >= options.limits.maxRedirects) {
       return rejected('redirect_not_allowed', 'Provider redirect limit or contract changed.');
@@ -101,6 +106,7 @@ export async function probeSourceContract(options: ProbeOptions): Promise<Source
     options,
   );
   if ('kind' in limit) return limit;
+  await cancelResponseBody(limit.response);
   if (limit.response.status === 429) {
     return rejected('download_limit_denied', 'Provider denied the download limit check.');
   }

@@ -58,19 +58,26 @@ TASK-005.
 | [Unconsumed non-206 range response](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3889296061) | Valid | A non-206 range response previously returned before its body was cancelled. The probe now awaits body cancellation before every rejection that occurs before bounded body reading: non-206 status, HTML, malformed `Content-Range`, and an out-of-bounds archive total. Four gated `ReadableStream` regressions fail if a result settles before cancellation completes. |
 | [Late `fetchedAt` validation](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3889296063) | Valid | The public collector previously loaded contracts, checked the archive environment, and could probe the provider before the downloader validated `fetchedAt`. It now applies the shared canonical UTC validator at entry and returns `transfer_incomplete` before contract loading or external work. |
 
+## Follow-up Independent Review
+
+| Review finding | Evaluation | Remediation and regression evidence |
+|---|---|---|
+| Unconsumed redirect and limit-check bodies | Valid | The first follow-up review found that manual redirect responses and download-limit responses were still followed, rejected, or abandoned without awaiting body cancellation. Probe cleanup is now centralized. Followed and rejected redirects cancel before the next request or typed rejection, while accepted, denied, and failed limit responses cancel before the range request or typed rejection. Five gated-stream regressions reproduce the prior ordering and now pass. |
+
 ## Verification
 
 - Each behavioral change was introduced by a focused failing test and observed failing for the
   reviewed reason before production code changed.
-- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 82 tests across
+- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 87 tests across
   ten files.
-- `npm run test:coverage` passes 83 tests across eleven files at 86.14% statements, 84.78% branches,
-  87.77% functions, and 89.64% lines.
+- `npm run test:coverage` passes 88 tests across eleven files at 86.38% statements, 85.02% branches,
+  87.91% functions, and 89.90% lines.
 - `npm run verify:full` passed formatting, lint, type, coverage, build, four-browser smoke, and two
   accessibility projects. `git diff --check` also passed.
 
 ## Remaining Gate
 
-The merged PR #6 head did not contain the fifth-cycle remediations. The follow-up branch must
-receive an independent review after these fixes are pushed. This report does not mark TASK-005
-complete and does not authorize TASK-006.
+The merged PR #6 head did not contain the fifth-cycle remediations. The first independent review of
+the follow-up branch requested the additional probe cleanup recorded above. The updated follow-up
+branch must receive another independent review. This report does not mark TASK-005 complete and
+does not authorize TASK-006.
