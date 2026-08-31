@@ -9,6 +9,13 @@ Harness Version: 1.1
 
 _Date: 2026-08-31_
 
+## Current Status
+
+This approval covered `e62bcb9..29e9fe6`. A later automated review of PR #7 at `a1a018d` found one
+valid P2 cancellation-error issue in the approved code. TASK-005 is therefore reopened, and this
+report is historical approval evidence rather than the current final gate. The finding and its TDD
+remediation are recorded in `reports/review-2026-08-31-task-005-pr-7-feedback.md`.
+
 ## Verdict
 
 **APPROVED.** An independent Reviewer who did not author the implementation reviewed the complete

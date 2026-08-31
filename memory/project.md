@@ -16,10 +16,10 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-005 complete; TASK-006 transformation and identifier design active
-- Next milestone: M1 — approve and implement TASK-006 before status mapping or validation
-- Overall health: 🟡 Caution — collector gates pass and independent review is complete, while no
-  transformed data contract or production publication path exists yet
+- Phase: M1 — TASK-005 reopened for PR #7 cancellation-error remediation and re-review
+- Next milestone: M1 — restore TASK-005 approval before reactivating TASK-006
+- Overall health: 🟡 Caution — local collector gates pass, while the updated cleanup behavior still
+  requires independent re-review and no production publication path exists
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -53,6 +53,7 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-08-31 | Reopened TASK-005 after PR #7 found swallowed response-cancellation failures; added typed fail-closed handling and three TDD regressions |
 | 2026-08-31 | Completed TASK-005 after pinned verification and independent Reviewer APPROVED; activated TASK-006 design sequentially |
 | 2026-08-31 | Remediated the fifth PR #6 review cycle and first follow-up review: awaited all unconsumed probe-body cancellations and moved `fetchedAt` validation before all collector work |
 | 2026-08-30 | Remediated the fourth PR #6 review cycle by cancelling every unconsumed full-download response rejected before streaming |

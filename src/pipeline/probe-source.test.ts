@@ -46,6 +46,17 @@ function cancellationGate() {
   };
 }
 
+function bodyWhoseCancellationRejects(): ReadableStream<Uint8Array> {
+  return new ReadableStream<Uint8Array>(
+    {
+      cancel() {
+        return Promise.reject(new Error('cancellation failed'));
+      },
+    },
+    { highWaterMark: 0 },
+  );
+}
+
 describe('probeSourceContract', () => {
   test('accepts the limit check and one-byte range contract', async () => {
     const responses = acceptedResponses(215_968_197);
@@ -102,6 +113,25 @@ describe('probeSourceContract', () => {
       await expect(result).resolves.toMatchObject(expected);
     },
   );
+
+  test('fails closed when limit-response cancellation fails', async () => {
+    let calls = 0;
+    const responses = [
+      new Response(bodyWhoseCancellationRejects(), { status: 200 }),
+      acceptedRangeResponse(),
+    ];
+
+    await expect(
+      probeSourceContract({
+        fetchImpl: async () => {
+          calls += 1;
+          return nextResponse(responses);
+        },
+        limits: DEFAULT_COLLECTOR_LIMITS,
+      }),
+    ).resolves.toMatchObject({ kind: 'rejected', code: 'http_contract_changed' });
+    expect(calls).toBe(1);
+  });
 
   test.each([
     [new Response('', { status: 200 }), 'range_contract_changed'],
@@ -329,6 +359,51 @@ describe('probeSourceContract', () => {
       kind: 'rejected',
       code: 'redirect_not_allowed',
     });
+  });
+
+  test('fails closed when redirect-body cancellation fails', async () => {
+    let calls = 0;
+    const responses = [
+      new Response(bodyWhoseCancellationRejects(), {
+        status: 302,
+        headers: { location: '/redirected-limit' },
+      }),
+      new Response(null, { status: 204 }),
+      acceptedRangeResponse(),
+    ];
+
+    await expect(
+      probeSourceContract({
+        fetchImpl: async () => {
+          calls += 1;
+          return nextResponse(responses);
+        },
+        limits: DEFAULT_COLLECTOR_LIMITS,
+      }),
+    ).resolves.toMatchObject({ kind: 'rejected', code: 'http_contract_changed' });
+    expect(calls).toBe(1);
+  });
+
+  test('fails closed when rejected range-body cancellation fails', async () => {
+    let calls = 0;
+    const responses = [
+      new Response(null, { status: 204 }),
+      new Response(bodyWhoseCancellationRejects(), {
+        status: 200,
+        headers: { 'content-type': 'application/zip' },
+      }),
+    ];
+
+    await expect(
+      probeSourceContract({
+        fetchImpl: async () => {
+          calls += 1;
+          return nextResponse(responses);
+        },
+        limits: DEFAULT_COLLECTOR_LIMITS,
+      }),
+    ).resolves.toMatchObject({ kind: 'rejected', code: 'http_contract_changed' });
+    expect(calls).toBe(2);
   });
 
   test('rejects a malformed redirect location without throwing', async () => {

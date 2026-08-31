@@ -80,4 +80,6 @@ TASK-005.
 The merged PR #6 head did not contain the fifth-cycle remediations. The first independent review of
 the follow-up branch requested the additional probe cleanup recorded above. The final independent
 review of `e62bcb9..29e9fe6` found no Critical, Important, or Minor issues and issued **APPROVED**.
-`reports/review-2026-08-31-task-005-follow-up.md` records the role-separated decision.
+`reports/review-2026-08-31-task-005-follow-up.md` records that role-separated decision. A subsequent
+valid PR #7 finding reopened TASK-005 as recorded in
+`reports/review-2026-08-31-task-005-pr-7-feedback.md`.

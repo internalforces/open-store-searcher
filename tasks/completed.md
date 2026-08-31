@@ -19,24 +19,6 @@ _Last updated: 2026-08-31_
 | TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | 2026-08-24 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; clean install, 100% Vitest coverage, four-browser Pages-subpath smoke, two zero-violation axe scans, and 302 dependency-license rows passed |
 | TASK-026 (M0) | Review the Korean handbook and pass the M0 human-language gate | 2026-08-24 | Documenter / Planner | All eight handbook files recorded as Updated or Reviewed without content change; user approved Korean clarity, safety terminology, and accuracy; M0 closed |
 | TASK-004 | Research the local administrative licensing source-data contract | 2026-08-28 | Researcher / Architect | ADR-009 approved the bounded zero-key candidate; 195 distinct official Ministry file-data pages passed the permission and attribution audit; Reviewer APPROVED |
-| TASK-005 | Implement a change-detecting Seoul data collector | 2026-08-31 | Architect / Implementer | Pinned verification passed 87 pipeline and 88 coverage tests plus browser and accessibility gates; independent Reviewer APPROVED the fail-closed collector and all follow-up remediations |
-
-## TASK-005 Verification Evidence
-
-- The user approved the English collector design, ADR-010, `@types/node` 24.13.3, the literal
-  source-name alias, and the accepted 195-entry schema contract.
-- The official 216,022,556-byte archive passed HTTP, digest, ZIP integrity, 195-entry, timestamp,
-  encoding, delimiter, header, permission, and exact committed-contract gates on Ubuntu 24.04.
-- Five PR #6 review cycles and one follow-up review finding produced regression-tested fixes for
-  cancellation, environment, staging, timestamp, redirect, schema-evidence, and filesystem edge
-  cases without adding a publication path.
-- `reports/test-2026-08-29-task-005.md` records the pinned Node.js 24.19.0 and npm 11.17.0 PASS with
-  87 pipeline tests, 88 coverage tests, four browser smoke tests, and two zero-violation automated
-  accessibility scans.
-- `reports/review-2026-08-31-task-005-follow-up.md` records independent Reviewer APPROVED with no
-  Critical, Important, or Minor findings.
-- No production archive, transformed record, status mapping, workflow, deployment, publication,
-  secret, environment file, or handbook change was committed.
 
 ## TASK-004 Verification Evidence
 

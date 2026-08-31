@@ -11,47 +11,36 @@ _Last updated: 2026-08-31_
 
 ## In Progress
 
-### TASK-006: Implement transformation schema and identifiers
+### TASK-005: Implement a change-detecting Seoul data collector
 
-- Owner: Architect / Implementer
+- Owner: Implementer / Reviewer
 - Priority: High
 - Milestone: M1
-- Related requirements: FR-05 through FR-06, Section 12.2
-- Description: Design and implement a deterministic build-time transformation contract that
-  separates exact source display values from normalized search values and defines stable business
-  identifiers. Consume only TASK-005-accepted inputs and produce test artifacts for later status,
-  validation, and publication tasks without publishing production records in this task.
-- Dependencies: TASK-005 is complete and provides the accepted 195-entry source and schema
-  contracts plus structured source and archive evidence.
+- Related requirements: FR-13, Section 12.3
+- Description: Reopened after PR #7 found that probe response cancellation errors were swallowed.
+  Fail closed with a typed rejection before any subsequent provider request or result, then obtain
+  independent re-review before restoring TASK-005 completion.
+- Dependencies: The merged PR #6 collector, follow-up PR #7, and the accepted 195-entry source and
+  schema contracts.
 - Risks:
-  - Category-specific source columns may encode names, addresses, dates, or identifiers differently.
-  - Normalization can destroy display evidence or collapse distinct businesses if it is applied to
-    original values or identifier inputs.
-  - A public identifier format becomes a compatibility boundary for later share URLs.
-  - Status mapping and conservative `dataAsOf` derivation remain owned by TASK-007 and TASK-008.
+  - Continuing after cancellation failure can overlap provider transfers or issue another request
+    without confirming that the previous response stopped.
+  - Treating cleanup failure as the original response result hides a broken resource boundary.
 - Acceptance criteria:
-  - [ ] Write and obtain approval for an English transformation and identifier design before
-        implementation, including an ADR for the exact record and public identifier contract.
-  - [ ] Preserve source business name, street and parcel addresses, category, business type, raw
-        operating and detailed status values, available lifecycle dates, and source provenance as
-        separate display or evidence fields.
-  - [ ] Define deterministic search-only normalization for names and addresses without modifying or
-        executing original source strings as HTML.
-  - [ ] Prefer the source management number for stable identity only after confirming its public-use
-        contract; otherwise use an approved deterministic hash input and collision policy.
-  - [ ] Detect missing identity inputs, duplicate identifiers, normalization collisions, and
-        non-deterministic output ordering without inferring that any business is closed.
-  - [ ] Cover representative category schemas, Unicode and whitespace boundaries, missing optional
-        values, exact display preservation, normalized search values, and identifier stability with
-        synthetic pipeline fixtures.
-  - [ ] Do not map display statuses, derive `dataAsOf`, publish production records, add a workflow or
-        deployment change, or add a dependency without its separate approval and owning task.
+  - [x] Evaluate the PR #7 P2 finding against the current cancellation and request flow.
+  - [x] Reproduce rejected cancellation promises at limit, redirect, and rejected-range boundaries
+        with focused tests before changing production code.
+  - [x] Return typed `http_contract_changed` and issue no subsequent request or normal result when
+        cancellation fails.
+  - [x] Pass pinned pipeline, full browser, accessibility, formatting, type, and whitespace gates.
+  - [ ] Obtain independent re-review of the updated PR with no blocking findings.
 - Verification commands:
   - `npm run test:pipeline`
   - `npm run verify:full`
   - `git diff --check`
-- Results and evidence: Activated after TASK-005 received independent Reviewer APPROVED on
-  2026-08-31. Design and implementation have not started.
+- Results and evidence: The finding is valid and remediated through TDD. The pinned suite passes 90
+  pipeline and 91 coverage tests. `reports/review-2026-08-31-task-005-pr-7-feedback.md` records the
+  disposition. TASK-006 remains unauthorized until re-review restores TASK-005 completion.
 
 ## Task Detail Template
 

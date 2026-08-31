@@ -55,6 +55,9 @@ TASK-005 remained active and TASK-006 remained unauthorized.
 - [x] Pass the focused, pipeline, full browser, and accessibility verification suites.
 - [x] Obtain independent Reviewer APPROVED with no Critical, Important, or Minor findings.
 - [x] Close TASK-005 and activate TASK-006 sequentially without starting implementation.
+- [x] Evaluate and remediate the valid PR #7 cancellation-error finding through TDD.
+- [x] Reopen TASK-005 and return TASK-006 to the backlog pending independent re-review.
+- [ ] Obtain independent re-review of the updated PR #7 head.
 
 ## Completed This Session
 
@@ -111,6 +114,10 @@ TASK-005 remained active and TASK-006 remained unauthorized.
       accepted/denied/failed limit responses await body cancellation.
 - [x] Passed 87 pipeline tests, 88 coverage tests, the four-browser smoke matrix, two zero-violation
       accessibility scans, typecheck, lint, format, build, and changed-line whitespace checks.
+- [x] Reproduced rejected cancellation promises at limit, redirect, and rejected-range boundaries;
+      all now return typed `http_contract_changed` before another request or result.
+- [x] Passed the updated 90-test pipeline and 91-test coverage suites plus all full verification
+      gates on Node.js 24.19.0 and npm 11.17.0.
 
 ## Issues and Decisions Found
 
@@ -129,13 +136,12 @@ TASK-005 remained active and TASK-006 remained unauthorized.
 
 ## Next Session
 
-1. Draft the English TASK-006 transformation and identifier design against the accepted 195-entry
-   source contract and PRD Section 12.2.
-2. Obtain human approval for the exact record and public identifier contract before implementation.
+1. Obtain independent re-review of the updated PR #7 head.
+2. If approved, close TASK-005 again and reactivate TASK-006 at its design gate.
 
 ## Important Context
 
-TASK-005 implementation, live probing, the schema-only contract, all review remediations, pinned
-verification, and independent approval are complete on the follow-up branch. TASK-006 is active at
-the design gate only. The handbook remains human-facing output rather than implementation evidence
-and was not read. No production archive remains in Git.
+TASK-005's PR #7 cancellation-error remediation and pinned local verification are complete, but a
+new independent review is required. TASK-006 is back in the backlog. The handbook remains
+human-facing output rather than implementation evidence and was not read. No production archive
+remains in Git.
