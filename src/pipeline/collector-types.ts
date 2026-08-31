@@ -100,3 +100,12 @@ export type CollectionResult =
   | RejectedResult;
 
 export type FetchLike = (input: string | URL, init?: RequestInit) => Promise<Response>;
+
+export function isCanonicalUtc(value: string): boolean {
+  const parsed = new Date(value);
+  return (
+    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value) &&
+    !Number.isNaN(parsed.valueOf()) &&
+    parsed.toISOString() === value
+  );
+}

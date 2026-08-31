@@ -26,6 +26,25 @@ function rejected(code: CollectorRejectionCode, message: string): SourceProbeRes
   return { kind: 'rejected', code, message };
 }
 
+async function cancelResponseBody(response: Response): Promise<SourceProbeResult | undefined> {
+  try {
+    await response.body?.cancel();
+    return undefined;
+  } catch {
+    return rejected('http_contract_changed', 'Provider response body cancellation failed.');
+  }
+}
+
+async function cancelAndReject(
+  response: Response,
+  code: CollectorRejectionCode,
+  message: string,
+): Promise<SourceProbeResult> {
+  const cancellationFailure = await cancelResponseBody(response);
+  if (cancellationFailure) return cancellationFailure;
+  return rejected(code, message);
+}
+
 async function hasExactlyOneByte(response: Response): Promise<boolean> {
   const reader = response.body?.getReader();
   if (!reader) return false;
@@ -68,6 +87,8 @@ async function requestWithRedirects(
       return rejected('http_contract_changed', 'Provider probe request failed.');
     }
     if (response.status < 300 || response.status >= 400) return { response, finalUrl: currentUrl };
+    const cancellationFailure = await cancelResponseBody(response);
+    if (cancellationFailure) return cancellationFailure;
     const location = response.headers.get('location');
     if (!location || redirects >= options.limits.maxRedirects) {
       return rejected('redirect_not_allowed', 'Provider redirect limit or contract changed.');
@@ -92,6 +113,8 @@ export async function probeSourceContract(options: ProbeOptions): Promise<Source
     options,
   );
   if ('kind' in limit) return limit;
+  const cancellationFailure = await cancelResponseBody(limit.response);
+  if (cancellationFailure) return cancellationFailure;
   if (limit.response.status === 429) {
     return rejected('download_limit_denied', 'Provider denied the download limit check.');
   }
@@ -113,20 +136,34 @@ export async function probeSourceContract(options: ProbeOptions): Promise<Source
   if ('kind' in range) return range;
   const contentType = range.response.headers.get('content-type')?.toLowerCase() ?? '';
   if (contentType.includes('text/html')) {
-    return rejected('http_contract_changed', 'Provider returned HTML instead of archive bytes.');
+    return cancelAndReject(
+      range.response,
+      'http_contract_changed',
+      'Provider returned HTML instead of archive bytes.',
+    );
   }
   if (range.response.status !== 206) {
-    return rejected('range_contract_changed', 'Provider did not honor the one-byte range request.');
+    return cancelAndReject(
+      range.response,
+      'range_contract_changed',
+      'Provider did not honor the one-byte range request.',
+    );
   }
   const match = /^bytes 0-0\/(\d+)$/.exec(range.response.headers.get('content-range') ?? '');
-  if (!match) return rejected('range_contract_changed', 'Content-Range is malformed.');
+  if (!match) {
+    return cancelAndReject(range.response, 'range_contract_changed', 'Content-Range is malformed.');
+  }
   const expectedBytes = Number(match[1]);
   if (
     !Number.isSafeInteger(expectedBytes) ||
     expectedBytes < options.limits.minArchiveBytes ||
     expectedBytes > options.limits.maxArchiveBytes
   ) {
-    return rejected('archive_size_out_of_bounds', 'Archive size is outside approved bounds.');
+    return cancelAndReject(
+      range.response,
+      'archive_size_out_of_bounds',
+      'Archive size is outside approved bounds.',
+    );
   }
   if (!(await hasExactlyOneByte(range.response))) {
     return rejected('range_contract_changed', 'Range body was not exactly one byte.');

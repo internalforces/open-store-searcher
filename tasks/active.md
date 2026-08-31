@@ -7,59 +7,40 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-08-30_
+_Last updated: 2026-08-31_
 
 ## In Progress
 
 ### TASK-005: Implement a change-detecting Seoul data collector
 
-- Owner: Architect / Implementer
+- Owner: Implementer / Reviewer
 - Priority: High
 - Milestone: M1
 - Related requirements: FR-13, Section 12.3
-- Description: Design and implement a build-time, change-detecting collector for the approved Seoul
-  all-category ZIP candidate. Begin with a non-production contract probe, stage complete transfers,
-  fail closed on provider or archive drift, and expose validated evidence to later transformation
-  and publication tasks without collecting or publishing production data in this task.
-- Dependencies: TASK-004 is complete; ADR-009 and the audited 195-category permission manifest
-  define the bounded source contract.
+- Description: Reopened after PR #7 found that probe response cancellation errors were swallowed.
+  Fail closed with a typed rejection before any subsequent provider request or result, then obtain
+  independent re-review before restoring TASK-005 completion.
+- Dependencies: The merged PR #6 collector, follow-up PR #7, and the accepted 195-entry source and
+  schema contracts.
 - Risks:
-  - The current redirect, referrer, range, or pre-download behavior may not be a supported automation
-    contract and may change without notice.
-  - A complete archive is large, may be corrupt or partial, and may contain mixed encodings, schemas,
-    permissions, or data vintages.
-  - Treating retrieval time or one transfer as a common source as-of date could mislead users.
-  - Silently bypassing a provider denial could violate the bounded contract.
+  - Continuing after cancellation failure can overlap provider transfers or issue another request
+    without confirming that the previous response stopped.
+  - Treating cleanup failure as the original response result hides a broken resource boundary.
 - Acceptance criteria:
-  - [x] Write and obtain approval for an English collector design before implementation.
-  - [x] Probe redirect behavior, required request headers, the lightweight download-limit check,
-        range behavior, and provider denials without silently bypassing an access refusal.
-  - [x] Download only to temporary staging, require a complete successful transfer, and keep
-        incomplete data outside every publication path.
-  - [x] Validate ZIP integrity, the approved 195-category entry manifest, encodings, delimiters,
-        required headers, and permission metadata before accepting a staged archive.
-  - [x] Detect changes with a SHA-256 content digest plus normalized entry and schema manifests;
-        report unchanged inputs without rewriting downstream artifacts.
-  - [x] Keep retrieval time, provider-stated freshness, per-entry timestamps, and future `dataAsOf`
-        derivation inputs separate; never present retrieval time as data as-of.
-  - [x] Cover success, unchanged, denial, redirect drift, partial transfer, corrupt archive, missing
-        category, schema drift, permission drift, and mixed-vintage evidence with pipeline tests.
-  - [x] Add no external dependency, production dataset, workflow, publication, or deployment change
-        without its separate approval and owning task.
+  - [x] Evaluate the PR #7 P2 finding against the current cancellation and request flow.
+  - [x] Reproduce rejected cancellation promises at limit, redirect, and rejected-range boundaries
+        with focused tests before changing production code.
+  - [x] Return typed `http_contract_changed` and issue no subsequent request or normal result when
+        cancellation fails.
+  - [x] Pass pinned pipeline, full browser, accessibility, formatting, type, and whitespace gates.
+  - [ ] Obtain independent re-review of the updated PR with no blocking findings.
 - Verification commands:
   - `npm run test:pipeline`
   - `npm run verify:full`
   - `git diff --check`
-- Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
-  The native streaming collector, shell-free archive adapter, schema inspection, deterministic
-  discovery, 77 pipeline tests, and manual probe are implemented. The user approved the one literal
-  archive-name alias to audited file-data ID `15045011` on 2026-08-29. The latest 216,022,556-byte
-  archive, its 195-entry EUC-KR schema contract, and the committed contract all passed exact Ubuntu
-  inspection. `reports/probe-2026-08-29-seoul-archive-contract.md` records the hashes and structural
-  audit. Four PR #6 review cycles produced fifteen valid findings; all were reproduced, fixed
-  through TDD, and recorded in `reports/review-2026-08-29-task-005-pr-6-feedback.md`. The pinned
-  verification is in `reports/test-2026-08-29-task-005.md`. TASK-005 stays active for independent
-  re-review.
+- Results and evidence: The finding is valid and remediated through TDD. The pinned suite passes 90
+  pipeline and 91 coverage tests. `reports/review-2026-08-31-task-005-pr-7-feedback.md` records the
+  disposition. TASK-006 remains unauthorized until re-review restores TASK-005 completion.
 
 ## Task Detail Template
 

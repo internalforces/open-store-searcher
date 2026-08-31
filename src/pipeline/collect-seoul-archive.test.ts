@@ -103,6 +103,26 @@ test('rejects an incompatible archive environment before probing the provider', 
   expect(injected.downloadArchive).not.toHaveBeenCalled();
 });
 
+test('rejects a non-canonical fetchedAt before loading contracts or external work', async () => {
+  const injected = dependencies();
+
+  await expect(
+    createSeoulCollector(injected)({
+      ...options,
+      fetchedAt: '2026-08-28 00:00:00',
+    }),
+  ).resolves.toMatchObject({
+    kind: 'rejected',
+    code: 'transfer_incomplete',
+    fetchedAt: '2026-08-28 00:00:00',
+  });
+  expect(injected.loadContracts).not.toHaveBeenCalled();
+  expect(injected.checkArchiveEnvironment).not.toHaveBeenCalled();
+  expect(injected.probeSource).not.toHaveBeenCalled();
+  expect(injected.downloadArchive).not.toHaveBeenCalled();
+  expect(injected.inspectArchive).not.toHaveBeenCalled();
+});
+
 test('removes the staged archive after inspection rejection', async () => {
   const injected = dependencies();
   injected.inspectArchive.mockResolvedValueOnce({

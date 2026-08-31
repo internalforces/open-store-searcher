@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-31_
 
 ## Usage Rules
 
@@ -24,15 +24,15 @@ _Last updated: 2026-08-28_
 | FR-02 | In-browser search | TASK-011, 012 | Zero external API requests during search | Planned |
 | FR-03 | Name and address candidate ranking | TASK-012, 013 | Ranking fixtures and Top-3 recall | Planned |
 | FR-04 | Four display statuses | TASK-007, 014 | Exhaustive status-mapping tests | Planned |
-| FR-05 | Raw status evidence | TASK-006, 014 | Result-card UI tests | Planned |
-| FR-06 | Basic information and dates | TASK-006, 014 | Missing-value display tests | Planned |
+| FR-05 | Raw status evidence | TASK-006, 014 | Transformation schema and result-card UI tests pending | Planned |
+| FR-06 | Basic information and dates | TASK-006, 014 | Display-preservation and missing-value tests pending | Planned |
 | FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | Regression tests for missing results, conflicts, and new codes | Planned |
 | FR-08 | Data as-of date | TASK-008, 014 | Page and card as-of-date tests | Planned |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; UI and public documentation remain pending | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | URL encoding and new-window security tests | Planned |
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | E2E tests at primary viewports | Planned |
 | FR-12 | No collection of personal or usage data | TASK-019 | Network, storage, and script audit | Planned |
-| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, and rejection tests establish the non-publication boundary; last-known-good replacement and workflow failure injection remain pending | In progress |
+| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation, early retrieval-evidence validation, and non-publication boundary pass local verification; PR #7 cancellation-error remediation awaits independent re-review, while last-known-good replacement and workflow failure injection remain pending | In progress |
 | FR-14 | Warning for data older than seven days | TASK-008, 015 | Boundary-date fixtures and UI tests | Planned |
 
 ## P1 Functional Requirements

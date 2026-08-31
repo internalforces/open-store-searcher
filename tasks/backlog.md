@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-31_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
@@ -34,7 +34,7 @@ _Last updated: 2026-08-28_
 
 ## Recommended Start Order
 
-1. Continue M1 with active TASK-005's bounded contract probe and staged collector.
+1. Complete active TASK-005's PR #7 re-review before reactivating TASK-006.
 2. Keep TASK-006 through TASK-010 sequential so each data contract is tested before its consumer.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 

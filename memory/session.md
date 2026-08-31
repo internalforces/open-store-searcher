@@ -7,20 +7,21 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-08-30_
+_Last updated: 2026-08-31_
 
 > After a session, add a snapshot to `memory/sessions/YYYY-MM-DD-ROLE.md` when useful.
 
 ## Session Information
 
-- Date: 2026-08-30
-- Agent role: Architect / Implementer / Tester
-- Session goal: Remediate the third TASK-005 PR review cycle without publication
+- Date: 2026-08-31
+- Agent role: Implementer / Tester
+- Session goal: Remediate the fifth TASK-005 PR #6 review cycle without publication
 
 ## Previous Session Summary
 
-TASK-026 completed the handbook gate and closed M0 through pull request #4 at `798d9a1` after the
-required human Korean-language review. No source-data contract or M1 implementation was complete.
+Pull request #6 merged TASK-005 commit `f4941cd` into `main` as `e62bcb9`. The automated review of
+that head then exposed two additional P2 findings that were not included in the merged code, so
+TASK-005 remained active and TASK-006 remained unauthorized.
 
 ## Current Work
 
@@ -48,7 +49,15 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Evaluate and remediate all four findings from the `cfc5269` PR #6 re-review through TDD.
 - [x] Evaluate and remediate all five findings from the `3eec332` PR #6 re-review through TDD.
 - [x] Evaluate and remediate the one finding from the `fd009ef` PR #6 re-review through TDD.
-- [ ] Obtain independent Reviewer approval after the schema contract is accepted.
+- [x] Evaluate and remediate both findings from the `f4941cd` PR #6 re-review through TDD.
+- [x] Receive `With fixes` from the first independent follow-up review and remediate its response
+      cleanup finding through TDD.
+- [x] Pass the focused, pipeline, full browser, and accessibility verification suites.
+- [x] Obtain independent Reviewer APPROVED with no Critical, Important, or Minor findings.
+- [x] Close TASK-005 and activate TASK-006 sequentially without starting implementation.
+- [x] Evaluate and remediate the valid PR #7 cancellation-error finding through TDD.
+- [x] Reopen TASK-005 and return TASK-006 to the backlog pending independent re-review.
+- [ ] Obtain independent re-review of the updated PR #7 head.
 
 ## Completed This Session
 
@@ -97,6 +106,18 @@ required human Korean-language review. No source-data contract or M1 implementat
       option rejection, and complete short-write handling.
 - [x] Reproduced the `fd009ef` re-review finding and added tested cancellation for unconsumed
       non-success, HTML, and mismatched-length full-download response bodies.
+- [x] Reproduced the `f4941cd` range-response finding and made the typed rejection await body
+      cancellation before returning.
+- [x] Reproduced the late-`fetchedAt` validation finding and moved shared canonical UTC validation
+      before contract loading, environment checks, and provider work.
+- [x] Reproduced the follow-up review finding and made followed/rejected redirects plus
+      accepted/denied/failed limit responses await body cancellation.
+- [x] Passed 87 pipeline tests, 88 coverage tests, the four-browser smoke matrix, two zero-violation
+      accessibility scans, typecheck, lint, format, build, and changed-line whitespace checks.
+- [x] Reproduced rejected cancellation promises at limit, redirect, and rejected-range boundaries;
+      all now return typed `http_contract_changed` before another request or result.
+- [x] Passed the updated 90-test pipeline and 91-test coverage suites plus all full verification
+      gates on Node.js 24.19.0 and npm 11.17.0.
 
 ## Issues and Decisions Found
 
@@ -115,13 +136,12 @@ required human Korean-language review. No source-data contract or M1 implementat
 
 ## Next Session
 
-1. Obtain an independent Reviewer decision on the updated PR before closing TASK-005 or activating
-   TASK-006.
-2. If approved, move TASK-005 to completed and activate TASK-006 sequentially.
+1. Obtain independent re-review of the updated PR #7 head.
+2. If approved, close TASK-005 again and reactivate TASK-006 at its design gate.
 
 ## Important Context
 
-TASK-005 implementation, live probing, the schema-only contract, all four PR #6 feedback
-remediation cycles, and local verification are complete. Independent re-review is the only
-remaining gate. The handbook remains human-facing output rather than implementation evidence and
-was not read. No production archive remains in Git.
+TASK-005's PR #7 cancellation-error remediation and pinned local verification are complete, but a
+new independent review is required. TASK-006 is back in the backlog. The handbook remains
+human-facing output rather than implementation evidence and was not read. No production archive
+remains in Git.
