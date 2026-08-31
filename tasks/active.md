@@ -11,56 +11,47 @@ _Last updated: 2026-08-31_
 
 ## In Progress
 
-### TASK-005: Implement a change-detecting Seoul data collector
+### TASK-006: Implement transformation schema and identifiers
 
 - Owner: Architect / Implementer
 - Priority: High
 - Milestone: M1
-- Related requirements: FR-13, Section 12.3
-- Description: Design and implement a build-time, change-detecting collector for the approved Seoul
-  all-category ZIP candidate. Begin with a non-production contract probe, stage complete transfers,
-  fail closed on provider or archive drift, and expose validated evidence to later transformation
-  and publication tasks without collecting or publishing production data in this task.
-- Dependencies: TASK-004 is complete; ADR-009 and the audited 195-category permission manifest
-  define the bounded source contract.
+- Related requirements: FR-05 through FR-06, Section 12.2
+- Description: Design and implement a deterministic build-time transformation contract that
+  separates exact source display values from normalized search values and defines stable business
+  identifiers. Consume only TASK-005-accepted inputs and produce test artifacts for later status,
+  validation, and publication tasks without publishing production records in this task.
+- Dependencies: TASK-005 is complete and provides the accepted 195-entry source and schema
+  contracts plus structured source and archive evidence.
 - Risks:
-  - The current redirect, referrer, range, or pre-download behavior may not be a supported automation
-    contract and may change without notice.
-  - A complete archive is large, may be corrupt or partial, and may contain mixed encodings, schemas,
-    permissions, or data vintages.
-  - Treating retrieval time or one transfer as a common source as-of date could mislead users.
-  - Silently bypassing a provider denial could violate the bounded contract.
+  - Category-specific source columns may encode names, addresses, dates, or identifiers differently.
+  - Normalization can destroy display evidence or collapse distinct businesses if it is applied to
+    original values or identifier inputs.
+  - A public identifier format becomes a compatibility boundary for later share URLs.
+  - Status mapping and conservative `dataAsOf` derivation remain owned by TASK-007 and TASK-008.
 - Acceptance criteria:
-  - [x] Write and obtain approval for an English collector design before implementation.
-  - [x] Probe redirect behavior, required request headers, the lightweight download-limit check,
-        range behavior, and provider denials without silently bypassing an access refusal.
-  - [x] Download only to temporary staging, require a complete successful transfer, and keep
-        incomplete data outside every publication path.
-  - [x] Validate ZIP integrity, the approved 195-category entry manifest, encodings, delimiters,
-        required headers, and permission metadata before accepting a staged archive.
-  - [x] Detect changes with a SHA-256 content digest plus normalized entry and schema manifests;
-        report unchanged inputs without rewriting downstream artifacts.
-  - [x] Keep retrieval time, provider-stated freshness, per-entry timestamps, and future `dataAsOf`
-        derivation inputs separate; never present retrieval time as data as-of.
-  - [x] Cover success, unchanged, denial, redirect drift, partial transfer, corrupt archive, missing
-        category, schema drift, permission drift, and mixed-vintage evidence with pipeline tests.
-  - [x] Add no external dependency, production dataset, workflow, publication, or deployment change
-        without its separate approval and owning task.
+  - [ ] Write and obtain approval for an English transformation and identifier design before
+        implementation, including an ADR for the exact record and public identifier contract.
+  - [ ] Preserve source business name, street and parcel addresses, category, business type, raw
+        operating and detailed status values, available lifecycle dates, and source provenance as
+        separate display or evidence fields.
+  - [ ] Define deterministic search-only normalization for names and addresses without modifying or
+        executing original source strings as HTML.
+  - [ ] Prefer the source management number for stable identity only after confirming its public-use
+        contract; otherwise use an approved deterministic hash input and collision policy.
+  - [ ] Detect missing identity inputs, duplicate identifiers, normalization collisions, and
+        non-deterministic output ordering without inferring that any business is closed.
+  - [ ] Cover representative category schemas, Unicode and whitespace boundaries, missing optional
+        values, exact display preservation, normalized search values, and identifier stability with
+        synthetic pipeline fixtures.
+  - [ ] Do not map display statuses, derive `dataAsOf`, publish production records, add a workflow or
+        deployment change, or add a dependency without its separate approval and owning task.
 - Verification commands:
   - `npm run test:pipeline`
   - `npm run verify:full`
   - `git diff --check`
-- Results and evidence: The user approved the English collector design and ADR-010 on 2026-08-28.
-  The native streaming collector, shell-free archive adapter, schema inspection, deterministic
-  discovery, 87 pipeline tests, and manual probe are implemented. The user approved the one literal
-  archive-name alias to audited file-data ID `15045011` on 2026-08-29. The latest 216,022,556-byte
-  archive, its 195-entry EUC-KR schema contract, and the committed contract all passed exact Ubuntu
-  inspection. `reports/probe-2026-08-29-seoul-archive-contract.md` records the hashes and structural
-  audit. Five PR #6 review cycles produced seventeen valid findings; all were reproduced, fixed
-  through TDD, and recorded in `reports/review-2026-08-29-task-005-pr-6-feedback.md`. The first
-  independent follow-up review found one additional response-cleanup gap, which was also reproduced
-  and remediated through TDD. The pinned verification is in
-  `reports/test-2026-08-29-task-005.md`. TASK-005 stays active for independent re-review.
+- Results and evidence: Activated after TASK-005 received independent Reviewer APPROVED on
+  2026-08-31. Design and implementation have not started.
 
 ## Task Detail Template
 

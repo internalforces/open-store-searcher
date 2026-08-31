@@ -53,7 +53,8 @@ TASK-005 remained active and TASK-006 remained unauthorized.
 - [x] Receive `With fixes` from the first independent follow-up review and remediate its response
       cleanup finding through TDD.
 - [x] Pass the focused, pipeline, full browser, and accessibility verification suites.
-- [ ] Obtain independent Reviewer approval after the schema contract is accepted.
+- [x] Obtain independent Reviewer APPROVED with no Critical, Important, or Minor findings.
+- [x] Close TASK-005 and activate TASK-006 sequentially without starting implementation.
 
 ## Completed This Session
 
@@ -128,13 +129,13 @@ TASK-005 remained active and TASK-006 remained unauthorized.
 
 ## Next Session
 
-1. Obtain an independent Reviewer decision on the updated PR before closing TASK-005 or activating
-   TASK-006.
-2. If approved, move TASK-005 to completed and activate TASK-006 sequentially.
+1. Draft the English TASK-006 transformation and identifier design against the accepted 195-entry
+   source contract and PRD Section 12.2.
+2. Obtain human approval for the exact record and public identifier contract before implementation.
 
 ## Important Context
 
-TASK-005 implementation, live probing, the schema-only contract, all five PR #6 feedback
-remediation cycles, and local verification are complete on the follow-up branch. Independent
-re-review is the only remaining gate. The handbook remains human-facing output rather than
-implementation evidence and was not read. No production archive remains in Git.
+TASK-005 implementation, live probing, the schema-only contract, all review remediations, pinned
+verification, and independent approval are complete on the follow-up branch. TASK-006 is active at
+the design gate only. The handbook remains human-facing output rather than implementation evidence
+and was not read. No production archive remains in Git.

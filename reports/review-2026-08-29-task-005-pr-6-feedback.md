@@ -75,9 +75,9 @@ TASK-005.
 - `npm run verify:full` passed formatting, lint, type, coverage, build, four-browser smoke, and two
   accessibility projects. `git diff --check` also passed.
 
-## Remaining Gate
+## Final Review
 
 The merged PR #6 head did not contain the fifth-cycle remediations. The first independent review of
-the follow-up branch requested the additional probe cleanup recorded above. The updated follow-up
-branch must receive another independent review. This report does not mark TASK-005 complete and
-does not authorize TASK-006.
+the follow-up branch requested the additional probe cleanup recorded above. The final independent
+review of `e62bcb9..29e9fe6` found no Critical, Important, or Minor issues and issued **APPROVED**.
+`reports/review-2026-08-31-task-005-follow-up.md` records the role-separated decision.
