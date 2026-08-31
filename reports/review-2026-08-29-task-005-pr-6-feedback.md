@@ -7,13 +7,14 @@ Harness Version: 1.1
 
 # TASK-005 PR #6 Feedback Review
 
-_Date: 2026-08-30_
+_Date: 2026-08-31_
 
 ## Scope
 
 This report evaluates the inline findings produced by the automated Codex reviews of commits
-`412b271`, `cfc5269`, `3eec332`, and `fd009ef` on pull request #6. It records implementation
-evidence, not the role-separated final Reviewer decision required to close TASK-005.
+`412b271`, `cfc5269`, `3eec332`, `fd009ef`, and `f4941cd` on pull request #6. It records
+implementation evidence, not the role-separated final Reviewer decision required to close
+TASK-005.
 
 ## Disposition
 
@@ -50,18 +51,26 @@ evidence, not the role-separated final Reviewer decision required to close TASK-
 |---|---|---|
 | [Unconsumed rejected response](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3889254253) | Valid | Every full-download response rejected before body iteration is now explicitly cancelled. Three real `ReadableStream` regressions previously remained uncancelled for non-success status, HTML content, and a declared-length mismatch; all now cancel before the typed rejection returns. |
 
+## Fifth Review Cycle
+
+| Review comment | Evaluation | Remediation and regression evidence |
+|---|---|---|
+| [Unconsumed non-206 range response](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3889296061) | Valid | A non-206 range response previously returned before its body was cancelled. The probe now awaits body cancellation before every rejection that occurs before bounded body reading: non-206 status, HTML, malformed `Content-Range`, and an out-of-bounds archive total. Four gated `ReadableStream` regressions fail if a result settles before cancellation completes. |
+| [Late `fetchedAt` validation](https://github.com/internalforces/open-store-searcher/pull/6#discussion_r3889296063) | Valid | The public collector previously loaded contracts, checked the archive environment, and could probe the provider before the downloader validated `fetchedAt`. It now applies the shared canonical UTC validator at entry and returns `transfer_incomplete` before contract loading or external work. |
+
 ## Verification
 
 - Each behavioral change was introduced by a focused failing test and observed failing for the
   reviewed reason before production code changed.
-- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 77 tests across
+- Node 24.19.0 and npm 11.17.0 execute `npm run test:pipeline` successfully with 82 tests across
   ten files.
-- `npm run test:coverage` passes 78 tests across eleven files at 86.19% statements, 84.70% branches,
-  88.63% functions, and 89.54% lines.
+- `npm run test:coverage` passes 83 tests across eleven files at 86.14% statements, 84.78% branches,
+  87.77% functions, and 89.64% lines.
 - `npm run verify:full` passed formatting, lint, type, coverage, build, four-browser smoke, and two
   accessibility projects. `git diff --check` also passed.
 
 ## Remaining Gate
 
-The updated PR must receive another independent review after the fourth remediation commit is
-pushed. This report does not mark TASK-005 complete and does not authorize TASK-006.
+The merged PR #6 head did not contain the fifth-cycle remediations. The follow-up branch must
+receive an independent review after these fixes are pushed. This report does not mark TASK-005
+complete and does not authorize TASK-006.

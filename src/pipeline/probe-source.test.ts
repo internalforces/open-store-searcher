@@ -130,6 +130,83 @@ describe('probeSourceContract', () => {
     expect(pulls).toBe(1);
   });
 
+  test.each([
+    [
+      'non-206',
+      { status: 200, headers: { 'content-type': 'application/zip' } },
+      'range_contract_changed',
+    ],
+    [
+      'HTML',
+      {
+        status: 206,
+        headers: {
+          'content-range': 'bytes 0-0/2097152',
+          'content-type': 'text/html',
+        },
+      },
+      'http_contract_changed',
+    ],
+    [
+      'malformed Content-Range',
+      {
+        status: 206,
+        headers: { 'content-range': 'invalid', 'content-type': 'application/zip' },
+      },
+      'range_contract_changed',
+    ],
+    [
+      'out-of-bounds archive',
+      {
+        status: 206,
+        headers: { 'content-range': 'bytes 0-0/1024', 'content-type': 'application/zip' },
+      },
+      'archive_size_out_of_bounds',
+    ],
+  ] as const)(
+    'awaits cancellation of a rejected %s range body before returning',
+    async (_label, responseInit, code) => {
+      let resolveCancelStarted: (() => void) | undefined;
+      const cancelStarted = new Promise<void>((resolve) => {
+        resolveCancelStarted = resolve;
+      });
+      let resolveCancellation: (() => void) | undefined;
+      const cancellationFinished = new Promise<void>((resolve) => {
+        resolveCancellation = resolve;
+      });
+      const body = new ReadableStream<Uint8Array>(
+        {
+          cancel() {
+            resolveCancelStarted?.();
+            return cancellationFinished;
+          },
+        },
+        { highWaterMark: 0 },
+      );
+      const responses = [new Response(null, { status: 204 }), new Response(body, responseInit)];
+
+      const result = probeSourceContract({
+        fetchImpl: async () => nextResponse(responses),
+        limits: DEFAULT_COLLECTOR_LIMITS,
+      });
+
+      await expect(
+        Promise.race([cancelStarted.then(() => 'cancel-started'), result.then(() => 'result')]),
+      ).resolves.toBe('cancel-started');
+      let settled = false;
+      void result.then(() => {
+        settled = true;
+      });
+      await Promise.resolve();
+      expect(settled).toBe(false);
+      resolveCancellation?.();
+      await expect(result).resolves.toMatchObject({
+        kind: 'rejected',
+        code,
+      });
+    },
+  );
+
   test('rejects foreign and excessive redirects', async () => {
     const foreign = await probeSourceContract({
       fetchImpl: async () =>

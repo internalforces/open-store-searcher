@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import type { ArchiveContract } from './archive-contract.js';
 import { parseArchiveContract } from './archive-contract.js';
 import type { CollectionResult, CollectorOptions, PermissionManifest } from './collector-types.js';
+import { isCanonicalUtc } from './collector-types.js';
 import type { ArchiveInspectionResult, InspectionOptions } from './inspect-archive.js';
 import { inspectArchive } from './inspect-archive.js';
 import type { ProbeOptions, SourceProbeResult } from './probe-source.js';
@@ -43,6 +44,14 @@ function rejection(
 
 export function createSeoulCollector(dependencies: CollectorDependencies) {
   return async (options: CollectorOptions): Promise<CollectionResult> => {
+    if (!isCanonicalUtc(options.fetchedAt)) {
+      return {
+        kind: 'rejected',
+        code: 'transfer_incomplete',
+        message: 'Retrieval evidence is invalid.',
+        fetchedAt: options.fetchedAt,
+      };
+    }
     let contracts: Contracts;
     try {
       contracts = await dependencies.loadContracts();

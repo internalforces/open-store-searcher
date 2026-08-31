@@ -8,6 +8,7 @@ import type {
   FetchLike,
   SourceEvidence,
 } from './collector-types.js';
+import { isCanonicalUtc } from './collector-types.js';
 import { createProviderHeaders, isAllowedProviderUrl } from './source-contract.js';
 
 export type StagedDownloadResult =
@@ -35,15 +36,6 @@ async function cancelAndReject(
 ): Promise<StagedDownloadResult> {
   await response.body?.cancel().catch(() => undefined);
   return reject(code, message);
-}
-
-function isCanonicalUtc(value: string): boolean {
-  const parsed = new Date(value);
-  return (
-    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value) &&
-    !Number.isNaN(parsed.valueOf()) &&
-    parsed.toISOString() === value
-  );
 }
 
 export type ChunkWriter = (bytes: Uint8Array, offset: number, length: number) => Promise<number>;

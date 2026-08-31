@@ -26,6 +26,15 @@ function rejected(code: CollectorRejectionCode, message: string): SourceProbeRes
   return { kind: 'rejected', code, message };
 }
 
+async function cancelAndReject(
+  response: Response,
+  code: CollectorRejectionCode,
+  message: string,
+): Promise<SourceProbeResult> {
+  await response.body?.cancel().catch(() => undefined);
+  return rejected(code, message);
+}
+
 async function hasExactlyOneByte(response: Response): Promise<boolean> {
   const reader = response.body?.getReader();
   if (!reader) return false;
@@ -113,20 +122,34 @@ export async function probeSourceContract(options: ProbeOptions): Promise<Source
   if ('kind' in range) return range;
   const contentType = range.response.headers.get('content-type')?.toLowerCase() ?? '';
   if (contentType.includes('text/html')) {
-    return rejected('http_contract_changed', 'Provider returned HTML instead of archive bytes.');
+    return cancelAndReject(
+      range.response,
+      'http_contract_changed',
+      'Provider returned HTML instead of archive bytes.',
+    );
   }
   if (range.response.status !== 206) {
-    return rejected('range_contract_changed', 'Provider did not honor the one-byte range request.');
+    return cancelAndReject(
+      range.response,
+      'range_contract_changed',
+      'Provider did not honor the one-byte range request.',
+    );
   }
   const match = /^bytes 0-0\/(\d+)$/.exec(range.response.headers.get('content-range') ?? '');
-  if (!match) return rejected('range_contract_changed', 'Content-Range is malformed.');
+  if (!match) {
+    return cancelAndReject(range.response, 'range_contract_changed', 'Content-Range is malformed.');
+  }
   const expectedBytes = Number(match[1]);
   if (
     !Number.isSafeInteger(expectedBytes) ||
     expectedBytes < options.limits.minArchiveBytes ||
     expectedBytes > options.limits.maxArchiveBytes
   ) {
-    return rejected('archive_size_out_of_bounds', 'Archive size is outside approved bounds.');
+    return cancelAndReject(
+      range.response,
+      'archive_size_out_of_bounds',
+      'Archive size is outside approved bounds.',
+    );
   }
   if (!(await hasExactlyOneByte(range.response))) {
     return rejected('range_contract_changed', 'Range body was not exactly one byte.');

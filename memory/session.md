@@ -7,20 +7,21 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-08-30_
+_Last updated: 2026-08-31_
 
 > After a session, add a snapshot to `memory/sessions/YYYY-MM-DD-ROLE.md` when useful.
 
 ## Session Information
 
-- Date: 2026-08-30
-- Agent role: Architect / Implementer / Tester
-- Session goal: Remediate the third TASK-005 PR review cycle without publication
+- Date: 2026-08-31
+- Agent role: Implementer / Tester
+- Session goal: Remediate the fifth TASK-005 PR #6 review cycle without publication
 
 ## Previous Session Summary
 
-TASK-026 completed the handbook gate and closed M0 through pull request #4 at `798d9a1` after the
-required human Korean-language review. No source-data contract or M1 implementation was complete.
+Pull request #6 merged TASK-005 commit `f4941cd` into `main` as `e62bcb9`. The automated review of
+that head then exposed two additional P2 findings that were not included in the merged code, so
+TASK-005 remained active and TASK-006 remained unauthorized.
 
 ## Current Work
 
@@ -48,6 +49,8 @@ required human Korean-language review. No source-data contract or M1 implementat
 - [x] Evaluate and remediate all four findings from the `cfc5269` PR #6 re-review through TDD.
 - [x] Evaluate and remediate all five findings from the `3eec332` PR #6 re-review through TDD.
 - [x] Evaluate and remediate the one finding from the `fd009ef` PR #6 re-review through TDD.
+- [x] Evaluate and remediate both findings from the `f4941cd` PR #6 re-review through TDD.
+- [x] Pass the focused, pipeline, full browser, and accessibility verification suites.
 - [ ] Obtain independent Reviewer approval after the schema contract is accepted.
 
 ## Completed This Session
@@ -97,6 +100,12 @@ required human Korean-language review. No source-data contract or M1 implementat
       option rejection, and complete short-write handling.
 - [x] Reproduced the `fd009ef` re-review finding and added tested cancellation for unconsumed
       non-success, HTML, and mismatched-length full-download response bodies.
+- [x] Reproduced the `f4941cd` range-response finding and made the typed rejection await body
+      cancellation before returning.
+- [x] Reproduced the late-`fetchedAt` validation finding and moved shared canonical UTC validation
+      before contract loading, environment checks, and provider work.
+- [x] Passed 82 pipeline tests, 83 coverage tests, the four-browser smoke matrix, two zero-violation
+      accessibility scans, typecheck, lint, format, build, and changed-line whitespace checks.
 
 ## Issues and Decisions Found
 
@@ -121,7 +130,7 @@ required human Korean-language review. No source-data contract or M1 implementat
 
 ## Important Context
 
-TASK-005 implementation, live probing, the schema-only contract, all four PR #6 feedback
-remediation cycles, and local verification are complete. Independent re-review is the only
-remaining gate. The handbook remains human-facing output rather than implementation evidence and
-was not read. No production archive remains in Git.
+TASK-005 implementation, live probing, the schema-only contract, all five PR #6 feedback
+remediation cycles, and local verification are complete on the follow-up branch. Independent
+re-review is the only remaining gate. The handbook remains human-facing output rather than
+implementation evidence and was not read. No production archive remains in Git.
