@@ -36,6 +36,9 @@ publication, deployment, and production-data work remain assigned to later tasks
       two accessibility scans, formatting, and whitespace checks on pinned Node.js 24.19.0.
 - [x] Remediate three independent review findings and obtain an Approved re-review with no remaining
       material findings.
+- [x] Commit and push implementation commit `a9ae5a1`, then open stacked implementation
+      [PR #10](https://github.com/internalforces/open-store-searcher/pull/10) against
+      `codex/task-006-design` without merging either PR.
 
 - [x] Confirm clean `main`, fetch `origin`, fast-forward with `--ff-only`, and create
       `codex/task-006-design` before changing files.
@@ -89,9 +92,9 @@ publication, deployment, and production-data work remain assigned to later tasks
 
 ## Next Session
 
-1. Commit and push the reviewed implementation branch.
-2. Open a stacked implementation PR against `codex/task-006-design` without merging either PR.
-3. Request user review; keep TASK-006 active until the stacked change is accepted.
+1. Request user review of design [PR #9](https://github.com/internalforces/open-store-searcher/pull/9)
+   and stacked implementation [PR #10](https://github.com/internalforces/open-store-searcher/pull/10).
+2. Keep TASK-006 active until the stacked change is accepted; do not merge or deploy from this session.
 
 ## Important Context
 

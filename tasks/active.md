@@ -62,8 +62,9 @@ _Last updated: 2026-09-02_
   schema matrix and required Unicode, identity, safety, collision, and ordering boundaries. Pinned
   verification passes with the two previously approved Windows skips for Linux-only Info-ZIP
   integration tests. Independent review is Approved with no remaining findings; the stacked
-  implementation PR and user review remain pending, so the task stays active and is not moved to
-  the completed ledger.
+  implementation is available in [PR #10](https://github.com/internalforces/open-store-searcher/pull/10)
+  against the still-open design PR branch. User review remains pending, so the task stays active
+  and is not moved to the completed ledger.
 
 ## Task Detail Template
 
