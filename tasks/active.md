@@ -32,19 +32,19 @@ _Last updated: 2026-09-02_
 - Acceptance criteria:
   - [x] Write and obtain approval for an English transformation and identifier design before
         implementation, including an ADR for the exact record and internal identifier contract.
-  - [ ] Preserve source business name, street and parcel addresses, category, business type, raw
+  - [x] Preserve source business name, street and parcel addresses, category, business type, raw
         operating and detailed status values, available lifecycle dates, and source provenance as
         separate display or evidence fields.
-  - [ ] Define deterministic search-only normalization for names and addresses without modifying or
+  - [x] Define deterministic search-only normalization for names and addresses without modifying or
         executing original source strings as HTML.
-  - [ ] Prefer the source management number for stable identity only after confirming its public-use
+  - [x] Prefer the source management number for stable identity only after confirming its public-use
         contract; otherwise use an approved deterministic hash input and collision policy.
-  - [ ] Detect missing identity inputs, duplicate identifiers, normalization collisions, and
+  - [x] Detect missing identity inputs, duplicate identifiers, normalization collisions, and
         non-deterministic output ordering without inferring that any business is closed.
-  - [ ] Cover representative category schemas, Unicode and whitespace boundaries, missing optional
+  - [x] Cover representative category schemas, Unicode and whitespace boundaries, missing optional
         values, exact display preservation, normalized search values, and identifier stability with
         synthetic pipeline fixtures.
-  - [ ] Do not map display statuses, derive `dataAsOf`, publish production records, add a workflow or
+  - [x] Do not map display statuses, derive `dataAsOf`, publish production records, add a workflow or
         deployment change, or add a dependency without its separate approval and owning task.
 - Verification commands:
   - `npm run test:pipeline`
@@ -55,8 +55,15 @@ _Last updated: 2026-09-02_
   treats `fileDataId` only as a versioned project namespace and authorizes the exact
   length-prefixed UTF-8 SHA-256 tuple with its full digest retained internally. Management number
   alone and name/address-derived identifiers remain prohibited. Public encoding, prefix,
-  truncation, share-URL placement, and prior-URL compatibility remain deferred to TASK-022. Only
-  the design-approval criterion is complete; implementation and verification criteria remain open.
+  truncation, share-URL placement, and prior-URL compatibility remain deferred to TASK-022.
+  `src/pipeline/transform-license-records.ts` implements the approved schema, normalization,
+  full-digest identifier, deterministic ordering and diagnostics, fail-closed validation, and the
+  reviewed business-type registry. Its synthetic test suite covers the computed representative
+  schema matrix and required Unicode, identity, safety, collision, and ordering boundaries. Pinned
+  verification passes with the two previously approved Windows skips for Linux-only Info-ZIP
+  integration tests. Independent review is Approved with no remaining findings; the stacked
+  implementation PR and user review remain pending, so the task stays active and is not moved to
+  the completed ledger.
 
 ## Task Detail Template
 

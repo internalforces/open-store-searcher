@@ -29,6 +29,13 @@ publication, deployment, and production-data work remain assigned to later tasks
 - [x] Reconfirm a clean synchronized design branch and open design-only PR #9 against `main`.
 - [x] Record the user's 2026-09-02 approval of ADR-012 option B without approving a public
       identifier text or share-URL format.
+- [x] Create `codex/task-006-implementation` from approval commit `04a6e7d` while PR #9 remains open.
+- [x] Add the failing synthetic TASK-006 tests first, then implement the minimum transformer needed
+      to pass them.
+- [x] Pass focused tests, the complete pipeline suite, coverage, build, four-browser smoke tests,
+      two accessibility scans, formatting, and whitespace checks on pinned Node.js 24.19.0.
+- [x] Remediate three independent review findings and obtain an Approved re-review with no remaining
+      material findings.
 
 - [x] Confirm clean `main`, fetch `origin`, fast-forward with `--ff-only`, and create
       `codex/task-006-design` before changing files.
@@ -68,23 +75,28 @@ publication, deployment, and production-data work remain assigned to later tasks
 
 ## Issues and Decisions Found
 
-- ADR-012 is Accepted; only the design-approval acceptance criterion is complete.
+- ADR-012 is Accepted, and every TASK-006 implementation acceptance criterion has verification
+  evidence; stacked PR acceptance remains pending.
 - Approved option B treats `fileDataId` only as a versioned project category namespace. It does not
   claim provider-primary-key equivalence.
 - The public prefix, encoding, truncation, and share-URL placement remain TASK-022 decisions.
-- The business-type header registry, optional-cell policy, invalid-control policy, and production
-  normalization-collision thresholds remain open.
+- Additional business-type mappings, upstream optional-cell parsing, production malformed-input
+  policy, and production normalization-collision thresholds remain open.
+- The implemented reviewed registry is intentionally narrow: common `업태구분명`, four medical
+  category IDs using `의료기관종별명`, and ADR-011 category `15045011` using `업종구분명`.
+- Windows skips exactly two existing tests that execute the approved Linux Info-ZIP binary; the
+  TASK-006 synthetic suite has no skips.
 
 ## Next Session
 
-1. Commit and push the approval record to the design-only PR without merging it.
-2. Create the implementation branch from the approval commit and open a stacked PR if PR #9
-   remains open.
-3. Implement only the approved TASK-006 contract with synthetic fixtures and required verification.
+1. Commit and push the reviewed implementation branch.
+2. Open a stacked implementation PR against `codex/task-006-design` without merging either PR.
+3. Request user review; keep TASK-006 active until the stacked change is accepted.
 
 ## Important Context
 
-TASK-006 design and ADR-012 option B are approved but not implemented. Official evidence does not
+TASK-006 design and ADR-012 option B are approved, implemented, fully verified, and independently
+reviewed on the stacked branch; user PR acceptance remains pending. Official evidence does not
 support management number alone as identity and does not establish `fileDataId` as provider service
 ID. The approved use is limited to a versioned project namespace and a full internal digest.
 Status mapping remains TASK-007, conservative `dataAsOf` derivation remains TASK-008, publication
