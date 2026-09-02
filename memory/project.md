@@ -16,10 +16,10 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-005 complete; TASK-006 transformation and identifier design active
-- Next milestone: M1 — approve and implement TASK-006 before status mapping or validation
-- Overall health: 🟡 Caution — collector gates and independent final review pass, while no
-  transformed data contract or production publication path exists
+- Phase: M1 — TASK-006 implementation and independent review complete; stacked PR review pending
+- Next milestone: M1 — accept TASK-006 before status mapping or validation
+- Overall health: 🟡 Caution — collector and synthetic transformation gates pass, while no
+  production transformation or publication path exists
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary

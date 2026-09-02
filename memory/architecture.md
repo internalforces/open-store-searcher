@@ -43,6 +43,10 @@ GitHub Actions collects, normalizes, and validates public administrative data in
    response body. Already-aborted process requests are rejected before spawn. Before contacting the
    provider, both normal and manual collection require the approved Info-ZIP 6.00 Linux ELF Unicode
    capability signature; Apple builds fail with `environment_unavailable`.
+10. TASK-006 transformer: a pure Node pipeline module consumes staged synthetic row-shaped input
+    against the accepted archive schema contract, preserves exact display/evidence strings, derives
+    versioned search-only values, creates full 256-bit internal identifiers, rejects invalid whole
+    stages, and emits canonically ordered records and normalization-collision diagnostics.
 
 ## Data Flow
 
@@ -75,6 +79,12 @@ management number and warns that management number alone may repeat. The accepte
 schemas omit service ID. Approved option B treats `fileDataId` only as a versioned project category
 namespace, not as the provider's primary key, for the exact length-prefixed UTF-8 SHA-256 tuple.
 The full 256-bit digest remains internal; no public identifier text or share-URL format is authorized.
+
+The v1 implementation uses the exact `fileDataId`, authority code, and management number bytes with
+length-prefix framing and native SHA-256. Record order uses the length-prefixed exact identity tuple.
+The common business-type registry accepts exact `업태구분명`; the reviewed category-specific subset
+accepts exact `의료기관종별명` for four medical category IDs and exact `업종구분명` for the
+ADR-011 alias category. Other semantically unconfirmed headers remain unmapped and open for review.
 
 ## Decision Summary
 

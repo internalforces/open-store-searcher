@@ -24,8 +24,8 @@ _Last updated: 2026-09-02_
 | FR-02 | In-browser search | TASK-011, 012 | Zero external API requests during search | Planned |
 | FR-03 | Name and address candidate ranking | TASK-012, 013 | Ranking fixtures and Top-3 recall | Planned |
 | FR-04 | Four display statuses | TASK-007, 014 | Exhaustive status-mapping tests | Planned |
-| FR-05 | Raw status evidence | TASK-006, 014 | Approved TASK-006 design preserves raw status code/name pairs without mapping; implementation, tests, independent review, and result-card UI remain pending | In progress |
-| FR-06 | Basic information and dates | TASK-006, 014 | Approved TASK-006 design and ADR-012 define lossless display/lifecycle fields, search-only normalization, and the full-digest internal identifier; implementation, missing-value tests, independent review, and UI remain pending | In progress |
+| FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review pass, while stacked PR acceptance and result-card UI remain pending | In progress |
+| FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 implements lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schema fixtures, and missing-value tests; pinned verification and independent review pass, while stacked PR acceptance and UI remain pending | In progress |
 | FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | Regression tests for missing results, conflicts, and new codes | Planned |
 | FR-08 | Data as-of date | TASK-008, 014 | Page and card as-of-date tests | Planned |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; UI and public documentation remain pending | In progress |
