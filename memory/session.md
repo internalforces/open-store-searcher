@@ -36,7 +36,7 @@ publication, deployment, and production-data work remain assigned to later tasks
 - [x] Draft the English TASK-006 transformation and identifier design and Proposed ADR-012.
 - [x] Record identity, business-type, collision-threshold, and public-format open questions.
 - [x] Complete formatting, whitespace, language, forbidden-scope, and repository-state audits.
-- [ ] Commit, push, and open the design-only PR without merging it.
+- [x] Commit, push, and open design-only PR #9 without merging it.
 
 ## Completed This Session
 
@@ -59,6 +59,8 @@ publication, deployment, and production-data work remain assigned to later tasks
       Proposed with no TASK-006 acceptance checkbox completed.
 - [x] Confirmed the staged scope has no handbook, production data, environment/secret, workflow,
       deployment, dependency, application implementation, or test implementation change.
+- [x] Committed the reviewable design on `codex/task-006-design`, pushed the branch, and opened
+      [PR #9](https://github.com/internalforces/open-store-searcher/pull/9) against `main`.
 
 ## Issues and Decisions Found
 
