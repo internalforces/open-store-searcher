@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Open Questions — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-09-02_
 
 Values that cannot be confirmed from the PRD and empty repository are not assumed. When an item below is decided, update the related placeholders across all linked documents.
 
@@ -15,6 +15,11 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 |---|---|---|---|
 | What are the data-pipeline, deployment, performance, recall, freshness, and publication commands? | Remaining `[*_COMMAND]` values in `commands.md` | Later assigned tasks | commands |
 | What are the Preview and Production URLs? | [STAGING_URL], [PROD_URL] | Deployment design | tech-stack |
+| Can the provider's service ID be obtained or authoritatively mapped for every TASK-005 category? | TASK-005 exposes file-data ID, authority code, and management number, but not the documented provider service ID | TASK-006 identity approval / ADR-012 | TASK-006 design, memory/decisions, tasks/active |
+| May `fileDataId` serve as a versioned project namespace for an opaque identifier without claiming provider-key equivalence? | Conditional SHA-256 alternative recommended; not approved | Human approval of ADR-012 | TASK-006 design, future transformer, TASK-022 |
+| Which exact category-specific headers are approved as business-type evidence? | Only exact `업태구분명` is identified as a common candidate in 54 schema contracts; no cross-category registry is approved | TASK-006 design review | TASK-006 design and future synthetic fixtures |
+| What public identifier text and share-URL format should be stable? | No prefix, encoding, truncation, or URL placement is approved | TASK-022 public-interface design | Static schema, routes, bookmarks, migration policy |
+| Which normalization-collision metrics permit publication? | TASK-006 must preserve and report every collision; thresholds remain unapproved | TASK-009 validation design | Validator, publication gate, search quality |
 
 ## Confirmed Answers
 
@@ -37,5 +42,5 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 - Absolute constraints: zero-cost operation, static hosting, no collection of personal or usage data, no paid APIs/scraping/AI determination, and fail-safe status determination
 - Harness documentation language: English only, except exact quoted product/source literals
 - Source delivery: ADR-009 accepts the official zero-key Seoul all-category ZIP as the candidate
-  default; TASK-004 verified permission and provenance across 195 categories, while TASK-005 still
-  must validate the automation, archive, schema, and timestamp contract
+  default; TASK-004 verified permission and provenance across 195 categories, and TASK-005
+  completed the fail-closed collector plus accepted schema-level contract

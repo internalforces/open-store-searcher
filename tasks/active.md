@@ -51,7 +51,12 @@ _Last updated: 2026-09-02_
   - `npm run verify:full`
   - `git diff --check`
 - Results and evidence: Activated after TASK-005 received independent final re-review approval on
-  2026-09-02. Design and implementation have not started.
+  2026-09-02. The Proposed pre-implementation design is now recorded in
+  `docs/superpowers/specs/2026-09-02-task-006-transformation-identifier-design.md`, with ADR-012
+  remaining Proposed. Official identity evidence confirms that management number alone is
+  insufficient; provider service ID is absent from the accepted CSV schemas, so the identity
+  namespace and public format require human approval. No implementation or acceptance criterion is
+  complete.
 
 ## Task Detail Template
 

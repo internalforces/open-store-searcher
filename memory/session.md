@@ -14,67 +14,73 @@ _Last updated: 2026-09-02_
 ## Session Information
 
 - Date: 2026-09-02
-- Agent role: Reviewer / Tester / Planner
-- Session goal: Complete the independent TASK-005 final re-review gate and activate TASK-006
-  without beginning implementation
+- Agent role: Architect / Researcher / Planner
+- Session goal: Complete TASK-006 pre-implementation design and approval preparation without
+  transforming production records or writing implementation code
 
 ## Previous Session Summary
 
-PR #7 merged final cancellation-error remediation at `19a6522`, but its recorded automated review
-covered only `a1a018d`. TASK-005 therefore remained reopened pending independent review of
-`a1a018d..19a6522`, and TASK-006 remained unauthorized.
+TASK-005 received independent final re-review approval and was completed. TASK-006 became the only
+active task, with design and implementation not started. Status mapping, `dataAsOf`, validation,
+publication, deployment, and production-data work remain assigned to later tasks.
 
 ## Current Work
 
-- [x] Fast-forward local `main` to merge commit `7cd2794`.
-- [x] Create `codex/task-005-final-rereview` without committing directly to `main`.
-- [x] Independently review `a1a018d..19a6522` and find no blocking or non-blocking issues.
-- [x] Make existing pipeline tests portable across the Windows review host without changing the
-      approved Ubuntu Info-ZIP production contract.
-- [x] Synchronize the pinned Node.js 24.19.0 and npm 11.17.0 dependency environment.
-- [x] Pass pipeline, full verification, browser, accessibility, coverage, and whitespace gates.
-- [x] Record Reviewer APPROVED, complete TASK-005, and activate TASK-006 sequentially.
-- [x] Stop before TASK-006 design or implementation.
+- [x] Confirm clean `main`, fetch `origin`, fast-forward with `--ff-only`, and create
+      `codex/task-006-design` before changing files.
+- [x] Read the mandated Architect, Researcher, and Planner context and the accepted TASK-004/005
+      source, schema, collector, test, and review evidence without accessing `handbook/ko/**`.
+- [x] Audit the accepted 195-category schema contract without downloading production data.
+- [x] Research current official identity, permission, Unicode, canonical-encoding, and SHA-256
+      sources; record URLs and the 2026-09-02 check date.
+- [x] Draft the English TASK-006 transformation and identifier design and Proposed ADR-012.
+- [x] Record identity, business-type, collision-threshold, and public-format open questions.
+- [x] Complete formatting, whitespace, language, forbidden-scope, and repository-state audits.
+- [ ] Commit, push, and open the design-only PR without merging it.
 
 ## Completed This Session
 
-- [x] Verified that limit, redirect, and rejected-range cancellation failures return typed
-      `http_contract_changed` and cannot issue a subsequent provider request or normal result.
-- [x] Confirmed the three focused regressions cover rejected cancellation promises and exact
-      provider request counts.
-- [x] Replaced POSIX literals in the manual-probe parser test with canonical platform paths.
-- [x] Kept actual Info-ZIP binary integration tests on their approved non-Windows environment while
-      retaining platform-neutral unsafe-argument verification through an injected runner.
-- [x] Passed `npm run test:pipeline`: 88 passed and two approved Linux-only binary integration tests
-      skipped on Windows; all 90 remain enabled on Linux.
-- [x] Passed `npm run verify:full`: 89 tests passed and two Linux-only tests skipped, project
-      coverage thresholds passed, the build succeeded, all four browser smoke projects passed, and
-      both accessibility projects reported zero automated violations.
-- [x] Passed `git diff --check`.
-- [x] Added `reports/review-2026-09-02-task-005-final-rereview.md` and synchronized task, project,
-      session, backlog, and traceability state.
+- [x] Defined separate exact display/evidence and versioned search-only fields.
+- [x] Defined NFKC, lowercase, and explicit Unicode-whitespace normalization plus rules that are not
+      applied.
+- [x] Defined inert-text and JSON/render safety boundaries without overwriting source evidence.
+- [x] Confirmed from provider guidance that source identity uses service ID, authority code, and
+      management number and that management number alone can repeat across industries.
+- [x] Confirmed the accepted TASK-005 schemas omit provider service ID; file-data ID equivalence and
+      public stability remain unverified.
+- [x] Compared raw source, opaque hash, surrogate registry, and prohibited descriptive alternatives.
+- [x] Proposed a conditional length-prefixed UTF-8 SHA-256 contract, collision rejection,
+      reproducibility vectors, versioning, and migration policy without approving a public format.
+- [x] Defined fail-closed missing/duplicate/collision/order rules and a schema-only synthetic test
+      matrix.
+- [x] Passed `npm run format:check` and `git diff --check`.
+- [x] Confirmed every changed harness document is English except exact quoted source/product
+      literals, all required design sections and open questions are present, and ADR-012 remains
+      Proposed with no TASK-006 acceptance checkbox completed.
+- [x] Confirmed the staged scope has no handbook, production data, environment/secret, workflow,
+      deployment, dependency, application implementation, or test implementation change.
 
 ## Issues and Decisions Found
 
-- No Critical, Important, or Minor issue was found in `a1a018d..19a6522`.
-- The Windows host initially used stale dependencies and a non-pinned Node/npm pair; verification
-  now uses the approved project-local Node.js 24.19.0 and npm 11.17.0 runtime.
-- The Playwright Firefox cache on Windows build 26200 had a broken `mozglue` private-assembly
-  activation context. A local cache-only manifest repair restored Firefox smoke testing. This is
-  not a repository, dependency, workflow, or production change and may need repetition after a
-  forced Firefox cache reinstall on this host.
+- ADR-012 remains Proposed and every TASK-006 acceptance checkbox remains incomplete.
+- The recommended progress option is an opaque hash that treats `fileDataId` only as a versioned
+  project category namespace. It must not claim provider-primary-key equivalence.
+- The safer identity-claim option is to obtain a current official service-ID mapping first.
+- The public prefix, encoding, truncation, and share-URL placement remain TASK-022 decisions.
+- The business-type header registry, optional-cell policy, invalid-control policy, and production
+  normalization-collision thresholds remain open.
 
 ## Next Session
 
-1. Read TASK-006 and the architecture, implementation, and research prompts.
-2. Research representative accepted category schemas and the public-use contract of the source
-   management number without downloading or publishing production records.
-3. Write the English transformation and identifier design plus the proposed ADR.
-4. Obtain human approval for the exact record and public identifier contract before implementation.
+1. Review the design-only PR and choose identity direction A, B, or C from the design.
+2. Approve or revise ADR-012 and resolve the exact business-type registry before implementation.
+3. Keep ADR-012 Proposed and do not start TASK-006 implementation until approval is explicit.
+4. After approval, implement only TASK-006 with synthetic fixtures and its required verification.
 
 ## Important Context
 
-TASK-005 is complete after independent final re-review. TASK-006 is the only active task, but its
-design and implementation have not started. Status mapping remains TASK-007, conservative
-`dataAsOf` derivation remains TASK-008, publication remains prohibited, and no deployment,
-production-data operation, workflow, external service, dependency, or handbook change occurred.
+TASK-006 design is reviewable but not approved or implemented. Official evidence does not support
+management number alone as identity and does not establish `fileDataId` as provider service ID.
+Status mapping remains TASK-007, conservative `dataAsOf` derivation remains TASK-008, publication
+remains prohibited, and no deployment, production-data operation, workflow, external service,
+dependency, application implementation, or handbook change occurred.
