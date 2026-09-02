@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { expect, test } from 'vitest';
 import type { StagedDownloadResult } from './staged-download.js';
 import { parseManualProbeArguments, runManualProbe } from './manual-probe.js';
@@ -43,15 +44,17 @@ test('rejects the unsupported Docker option before starting the manual probe', (
 });
 
 test('parses the supported manual probe arguments', () => {
+  const stagingRoot = resolve('tmp/manual-probe-staging');
+  const outputPath = resolve('tmp/manual-probe-candidate.json');
   expect(
     parseManualProbeArguments([
-      '--staging=/tmp/staging',
-      '--output=/tmp/candidate.json',
-      '--unzip=/usr/bin/unzip',
+      `--staging=${stagingRoot}`,
+      `--output=${outputPath}`,
+      '--unzip=unzip',
     ]),
   ).toEqual({
-    stagingRoot: '/tmp/staging',
-    outputPath: '/tmp/candidate.json',
-    unzipExecutable: '/usr/bin/unzip',
+    stagingRoot,
+    outputPath,
+    unzipExecutable: 'unzip',
   });
 });

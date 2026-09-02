@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
-_Last updated: 2026-08-31_
+_Last updated: 2026-09-02_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
@@ -19,6 +19,24 @@ _Last updated: 2026-08-31_
 | TASK-003 | Configure unit, pipeline, E2E, and accessibility test harnesses and fixture rules | 2026-08-24 | Architect / Implementer | Independent Tester PASS and Reviewer APPROVED; clean install, 100% Vitest coverage, four-browser Pages-subpath smoke, two zero-violation axe scans, and 302 dependency-license rows passed |
 | TASK-026 (M0) | Review the Korean handbook and pass the M0 human-language gate | 2026-08-24 | Documenter / Planner | All eight handbook files recorded as Updated or Reviewed without content change; user approved Korean clarity, safety terminology, and accuracy; M0 closed |
 | TASK-004 | Research the local administrative licensing source-data contract | 2026-08-28 | Researcher / Architect | ADR-009 approved the bounded zero-key candidate; 195 distinct official Ministry file-data pages passed the permission and attribution audit; Reviewer APPROVED |
+| TASK-005 | Implement a change-detecting Seoul data collector | 2026-09-02 | Architect / Implementer | Final cancellation-error remediation independently re-reviewed with no findings; pinned pipeline, coverage, browser, accessibility, and whitespace gates passed |
+
+## TASK-005 Verification Evidence
+
+- The user approved the English collector design, ADR-010, `@types/node` 24.13.3, the literal
+  source-name alias, and the accepted 195-entry schema contract.
+- The official archive passed HTTP, digest, ZIP integrity, 195-entry, timestamp, encoding,
+  delimiter, header, permission, and exact committed-contract gates on Ubuntu 24.04.
+- PR #7's final cancellation remediation returns typed `http_contract_changed` when limit,
+  redirect, or rejected-range response cleanup fails and prevents any subsequent provider request
+  or normal result.
+- `reports/review-2026-09-02-task-005-final-rereview.md` records independent Reviewer APPROVED for
+  `a1a018d..19a6522` with no Critical, Important, or Minor findings.
+- Pinned Node.js 24.19.0 and npm 11.17.0 verification passed 90 pipeline tests on the supported
+  suite, project coverage thresholds, four browser smoke projects, two zero-violation automated
+  accessibility projects, and `git diff --check`.
+- No production archive, transformed record, status mapping, workflow, deployment, publication,
+  secret, environment file, or handbook change was committed.
 
 ## TASK-004 Verification Evidence
 

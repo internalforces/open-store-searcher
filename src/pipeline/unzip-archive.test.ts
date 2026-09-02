@@ -5,9 +5,10 @@ import { runProcess, UnzipArchiveAdapter } from './unzip-archive.js';
 
 const fixture = (name: string) =>
   fileURLToPath(new URL(`../../tests/fixtures/pipeline/collector/${name}`, import.meta.url));
+const infoZipTest = process.platform === 'win32' ? test.skip : test;
 
 describe('UnzipArchiveAdapter', () => {
-  test('lists and streams entries from a valid local archive', async () => {
+  infoZipTest('lists and streams entries from a valid local archive', async () => {
     const adapter = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_COLLECTOR_LIMITS);
     await expect(adapter.testIntegrity(fixture('valid-two-category.zip'))).resolves.toEqual({
       ok: true,
@@ -56,7 +57,7 @@ Compiled with gcc Apple LLVM for Unix Mac OS X.
     await expect(apple.checkEnvironment()).resolves.toEqual({ ok: false });
   });
 
-  test('reports a corrupt archive without extracting it', async () => {
+  infoZipTest('reports a corrupt archive without extracting it', async () => {
     const adapter = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_COLLECTOR_LIMITS);
     await expect(adapter.testIntegrity(fixture('corrupt.zip'))).resolves.toEqual({ ok: false });
   });
@@ -64,10 +65,12 @@ Compiled with gcc Apple LLVM for Unix Mac OS X.
   test('reports an unavailable executable and refuses option-like entry names', async () => {
     const adapter = new UnzipArchiveAdapter('/definitely/missing/unzip', DEFAULT_COLLECTOR_LIMITS);
     await expect(adapter.checkEnvironment()).resolves.toEqual({ ok: false });
-    const valid = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_COLLECTOR_LIMITS);
-    await expect(
-      valid.readEntryPrefix(fixture('valid-two-category.zip'), '-unsafe', 256),
-    ).rejects.toThrow('unsafe archive entry');
+    const valid = new UnzipArchiveAdapter('unzip', DEFAULT_COLLECTOR_LIMITS, async () => {
+      throw new Error('unsafe arguments must be rejected before process execution');
+    });
+    await expect(valid.readEntryPrefix('/safe/archive.zip', '-unsafe', 256)).rejects.toThrow(
+      'unsafe archive entry',
+    );
   });
 
   test('terminates process output that exceeds the configured cap', async () => {
