@@ -30,8 +30,8 @@ _Last updated: 2026-09-02_
   - A public identifier format becomes a compatibility boundary for later share URLs.
   - Status mapping and conservative `dataAsOf` derivation remain owned by TASK-007 and TASK-008.
 - Acceptance criteria:
-  - [ ] Write and obtain approval for an English transformation and identifier design before
-        implementation, including an ADR for the exact record and public identifier contract.
+  - [x] Write and obtain approval for an English transformation and identifier design before
+        implementation, including an ADR for the exact record and internal identifier contract.
   - [ ] Preserve source business name, street and parcel addresses, category, business type, raw
         operating and detailed status values, available lifecycle dates, and source provenance as
         separate display or evidence fields.
@@ -51,7 +51,12 @@ _Last updated: 2026-09-02_
   - `npm run verify:full`
   - `git diff --check`
 - Results and evidence: Activated after TASK-005 received independent final re-review approval on
-  2026-09-02. Design and implementation have not started.
+  2026-09-02. The user approved design option B and ADR-012 on 2026-09-02. The accepted contract
+  treats `fileDataId` only as a versioned project namespace and authorizes the exact
+  length-prefixed UTF-8 SHA-256 tuple with its full digest retained internally. Management number
+  alone and name/address-derived identifiers remain prohibited. Public encoding, prefix,
+  truncation, share-URL placement, and prior-URL compatibility remain deferred to TASK-022. Only
+  the design-approval criterion is complete; implementation and verification criteria remain open.
 
 ## Task Detail Template
 

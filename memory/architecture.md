@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-08-30_
+_Last updated: 2026-09-02_
 
 ## System Overview
 
@@ -63,7 +63,18 @@ No external API or database request occurs during real-time search.
 
 ## Data Record Boundary
 
-The output schema must at minimum represent an identifier; original and normalized business names; original and tokenized street and parcel addresses; category and business type; raw operating and detailed statuses; display status; licensing, suspension, reopening, closure, and last-modified dates; source URL; and data as-of date. Define the exact format through an ADR after the stack decision.
+The approved TASK-006 boundary separates exact decoded display/evidence values from versioned
+search-only normalization and preserves source identity inputs without normalization. It covers
+business name, street and parcel addresses, category and category-specific business types, raw
+operating and detailed status code/name pairs, available lifecycle dates, source timestamps, and
+provenance. ADR-012 and the design were approved by the user on 2026-09-02. They do not add
+processed display status or `dataAsOf`, which remain TASK-007 and TASK-008.
+
+Official provider guidance defines source identity as service ID plus licensing-authority code plus
+management number and warns that management number alone may repeat. The accepted TASK-005 CSV
+schemas omit service ID. Approved option B treats `fileDataId` only as a versioned project category
+namespace, not as the provider's primary key, for the exact length-prefixed UTF-8 SHA-256 tuple.
+The full 256-bit digest remains internal; no public identifier text or share-URL format is authorized.
 
 ## Decision Summary
 
@@ -74,6 +85,7 @@ The output schema must at minimum represent an identifier; original and normaliz
 | Repository foundation | MIT-licensed single npm package; strict TypeScript; Biome; relative Vite base | 2026-08-20 |
 | Test stack | Vitest, Testing Library, Playwright, and axe | 2026-08-20 |
 | Candidate source contract | Official Seoul all-category ZIP with TASK-004 permission coverage, gated by a fail-safe TASK-005 contract probe | 2026-08-28 |
+| Transformation and identifier | Approved lossless record plus versioned full-digest internal project identifier; public text and URL format deferred | 2026-09-02 |
 | Harness | AI Development Harness v1.1 Standard | 2026-08-18 |
 | Runtime | Static site with in-browser search | 2026-08-18 |
 | Data processing | GitHub Actions ETL and static JSON | 2026-08-18 |

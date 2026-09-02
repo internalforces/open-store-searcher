@@ -239,3 +239,47 @@ source-specific and cannot be reused as a general filename normalization rule.
 **Consequences**: TASK-005 may generate and commit the schema-only 195-entry contract. Discovery
 tests must reject aliases to unaudited IDs and all duplicate mappings. Publication, status mapping,
 and data as-of derivation remain outside TASK-005.
+
+## ADR-012: Lossless Transformation and Versioned Project Identifier
+
+- Date: 2026-09-02
+- Status: Accepted
+- Decision maker: User
+
+**Context**: TASK-006 needs a deterministic record contract that preserves exact source evidence
+and derives separate search values. Official provider guidance uses service ID, licensing-authority
+code, and management number as a composite key and warns that management number alone may repeat.
+The TASK-005 schema contract contains authority code and management number in all 195 categories,
+but it does not contain the provider service ID. No official evidence currently proves that the
+Public Data Portal file-data ID is equivalent to that service ID or guarantees a public URL-key
+contract.
+
+**Decision**: The user approved option B on 2026-09-02. Preserve exact decoded display, raw status,
+lifecycle, source identity, and provenance values separately from versioned search-only
+NFKC/lowercase/Unicode-whitespace values. Never normalize identity inputs or use descriptive
+fields for identity. Treat the accepted category `fileDataId` only as a versioned project
+namespace, not as the provider's primary key, and hash the exact
+`fileDataId`, licensing-authority code, and management number using the versioned, length-prefixed
+UTF-8 SHA-256 contract in
+`docs/superpowers/specs/2026-09-02-task-006-transformation-identifier-design.md`. Retain the full
+digest internally, reject missing/duplicate/colliding identity evidence, and defer the public text
+and share-URL format to TASK-022.
+
+**Rationale**: Exact source values remain auditable and safe from lossy normalization. The proposed
+opaque identifier is deterministic with currently accepted schema inputs and avoids publishing a
+raw management number alone, while clearly distinguishing a project namespace from the provider's
+documented primary key.
+
+**Trade-offs**: File-data ID stability and its relationship to provider service ID are not
+officially confirmed. A digest hides source-key text but does not create stronger identity evidence
+or anonymize the record. Once exposed, identifier bytes become a compatibility boundary. Waiting
+for provider service-ID evidence is safer but blocks implementation; a surrogate registry would
+add state and migration complexity.
+
+**Consequences**: TASK-006 may implement only the approved lossless record,
+normalization, deterministic identity, diagnostics, and synthetic fixtures. TASK-007 still owns
+status mapping, TASK-008 owns `dataAsOf`, TASK-009 and later tasks own validation/publication, and
+TASK-022 owns the public URL format and migrations. Changing identity inputs, framing, hashing,
+encoding, or public representation requires a new ADR and human approval. Management-number-only
+and name/address-derived identifiers remain prohibited. No public textual encoding, prefix,
+truncation, share-URL placement, or prior-URL compatibility policy is authorized by this ADR.
