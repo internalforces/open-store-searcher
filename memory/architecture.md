@@ -63,18 +63,18 @@ No external API or database request occurs during real-time search.
 
 ## Data Record Boundary
 
-The Proposed TASK-006 boundary separates exact decoded display/evidence values from versioned
+The approved TASK-006 boundary separates exact decoded display/evidence values from versioned
 search-only normalization and preserves source identity inputs without normalization. It covers
 business name, street and parcel addresses, category and category-specific business types, raw
 operating and detailed status code/name pairs, available lifecycle dates, source timestamps, and
-provenance. ADR-012 and
-`docs/superpowers/specs/2026-09-02-task-006-transformation-identifier-design.md` are not approved.
-They do not add processed display status or `dataAsOf`, which remain TASK-007 and TASK-008.
+provenance. ADR-012 and the design were approved by the user on 2026-09-02. They do not add
+processed display status or `dataAsOf`, which remain TASK-007 and TASK-008.
 
 Official provider guidance defines source identity as service ID plus licensing-authority code plus
 management number and warns that management number alone may repeat. The accepted TASK-005 CSV
-schemas omit service ID. Until the user chooses an identity alternative, `fileDataId` is only a
-candidate project namespace and no public identifier or share-URL format is authorized.
+schemas omit service ID. Approved option B treats `fileDataId` only as a versioned project category
+namespace, not as the provider's primary key, for the exact length-prefixed UTF-8 SHA-256 tuple.
+The full 256-bit digest remains internal; no public identifier text or share-URL format is authorized.
 
 ## Decision Summary
 
@@ -85,7 +85,7 @@ candidate project namespace and no public identifier or share-URL format is auth
 | Repository foundation | MIT-licensed single npm package; strict TypeScript; Biome; relative Vite base | 2026-08-20 |
 | Test stack | Vitest, Testing Library, Playwright, and axe | 2026-08-20 |
 | Candidate source contract | Official Seoul all-category ZIP with TASK-004 permission coverage, gated by a fail-safe TASK-005 contract probe | 2026-08-28 |
-| Transformation and identifier | Proposed lossless record plus conditional versioned project identifier; approval pending | 2026-09-02 |
+| Transformation and identifier | Approved lossless record plus versioned full-digest internal project identifier; public text and URL format deferred | 2026-09-02 |
 | Harness | AI Development Harness v1.1 Standard | 2026-08-18 |
 | Runtime | Static site with in-browser search | 2026-08-18 |
 | Data processing | GitHub Actions ETL and static JSON | 2026-08-18 |

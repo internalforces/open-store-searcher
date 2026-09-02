@@ -9,7 +9,7 @@ Harness Version: 1.1
 
 _Date: 2026-09-02_
 
-_Status: Proposed — implementation and public-interface approval are pending_
+_Status: Approved — option B was approved by the user on 2026-09-02; implementation is pending_
 
 ## 1. Objective and approval boundary
 
@@ -17,9 +17,10 @@ This design prepares TASK-006 for review. It uses only the schema-level contract
 accepted by TASK-005. It does not transform production records, implement a transformer or tests,
 map statuses, derive `dataAsOf`, publish JSON, change a workflow, or settle a public URL format.
 
-Human approval is required before implementation because the record contract is a data-contract
-decision and any public identifier becomes a compatibility boundary for TASK-022 share URLs.
-ADR-012 remains Proposed until that approval is explicit.
+The user approved option B and ADR-012 on 2026-09-02. This approval treats `fileDataId` only as a
+versioned project category namespace, not as the provider's primary key, and authorizes the exact
+internal identifier contract in section 8. It does not approve a public textual encoding, prefix,
+truncation, share-URL placement, or prior-URL compatibility policy; TASK-022 owns those decisions.
 
 ## 2. Accepted evidence and observed schema envelope
 
@@ -45,7 +46,7 @@ structured archive/source retrieval evidence. No production row values were insp
 design. Header presence does not prove value syntax, semantics, uniqueness, stability, or
 non-emptiness.
 
-## 3. Proposed transformed record contract
+## 3. Approved transformed record contract
 
 The contract separates exact decoded source values from derived search values. `null` means the
 source column is not present for that category or the source cell is empty, as distinguished by
@@ -55,7 +56,8 @@ the parser evidence described below. No display field is reconstructed from a se
 interface TransformedLicenseRecordV1 {
   schemaVersion: 1;
   identity: {
-    publicId: string; // exact format is unresolved and requires approval
+    contractVersion: 1;
+    digest: Uint8Array; // full internal 256-bit digest; no public text format is approved
     source: {
       categoryFileDataId: string;
       categoryEntryName: string;
@@ -219,10 +221,11 @@ project category namespace rather than a claim of provider primary-key equivalen
 decision, seek a current official mapping or statement for the service ID. Do not expose the raw
 management number alone and do not derive identity from name, address, status, or dates.
 
-This recommendation is deliberately conditional. The public prefix, textual encoding, digest
-length, and share-URL placement remain unapproved public-interface choices.
+The user approved this option B recommendation on 2026-09-02. The public prefix, textual encoding,
+truncation, share-URL placement, and prior-URL compatibility policy remain unapproved
+public-interface choices owned by TASK-022.
 
-## 8. Deterministic hash contract if the conditional option is approved
+## 8. Approved deterministic internal identifier contract
 
 ### 8.1 Input and encoding
 
@@ -364,16 +367,14 @@ approved.
 
 1. Can the current Public Data Portal or Ministry provide an official mapping from each accepted
    file-data category to the provider service ID used in the documented composite key?
-2. If not, does the user approve treating `fileDataId` as a project category namespace for an
-   opaque hash while explicitly avoiding a provider-primary-key claim?
-3. Should the first public identifier expose a full SHA-256 encoding, and which prefix/encoding
+2. Should the first public identifier expose a full SHA-256 encoding, and which prefix/encoding
    should TASK-022 adopt? No format is approved here.
-4. Which category-specific headers qualify as business type or industry evidence, and what exact
+3. Which category-specific headers qualify as business type or industry evidence, and what exact
    per-category registry is approved?
-5. How should empty versus whitespace-only optional cells be represented after exact ingestion
+4. How should empty versus whitespace-only optional cells be represented after exact ingestion
    evidence is retained?
-6. Which control characters and malformed decoder results reject an entire archive versus a row?
-7. What production normalization-collision metrics are acceptable? TASK-009 must own the threshold.
+5. Which control characters and malformed decoder results reject an entire archive versus a row?
+6. What production normalization-collision metrics are acceptable? TASK-009 must own the threshold.
 
 ## 15. Primary sources checked
 
@@ -409,11 +410,11 @@ availability limitation is one reason the service-ID mapping remains an open que
 
 ## 16. Approval choices
 
-The reviewer and user should choose one identity direction before implementation:
+The user chose option B on 2026-09-02:
 
 - **A — seek provider service-ID evidence first (safest identity claim):** keep TASK-006 design
   open until the three-part provider key can be constructed.
-- **B — approve the conditional opaque project identifier (recommended for progress):** accept
+- **B — approved opaque project identifier:** accept
   `fileDataId` as a versioned project namespace, approve the full binary SHA-256 input contract,
   and defer its public text/URL form to TASK-022.
 - **C — approve a repository surrogate registry:** accept state and migration complexity because

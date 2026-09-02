@@ -243,8 +243,8 @@ and data as-of derivation remain outside TASK-005.
 ## ADR-012: Lossless Transformation and Versioned Project Identifier
 
 - Date: 2026-09-02
-- Status: Proposed
-- Decision maker: User (pending)
+- Status: Accepted
+- Decision maker: User
 
 **Context**: TASK-006 needs a deterministic record contract that preserves exact source evidence
 and derives separate search values. Official provider guidance uses service ID, licensing-authority
@@ -254,10 +254,11 @@ but it does not contain the provider service ID. No official evidence currently 
 Public Data Portal file-data ID is equivalent to that service ID or guarantees a public URL-key
 contract.
 
-**Proposed decision**: Preserve exact decoded display, raw status, lifecycle, source identity, and
-provenance values separately from versioned search-only NFKC/lowercase/Unicode-whitespace values.
-Never normalize identity inputs or use descriptive fields for identity. Subject to explicit user
-approval, treat the accepted category `fileDataId` as a project namespace and hash the exact
+**Decision**: The user approved option B on 2026-09-02. Preserve exact decoded display, raw status,
+lifecycle, source identity, and provenance values separately from versioned search-only
+NFKC/lowercase/Unicode-whitespace values. Never normalize identity inputs or use descriptive
+fields for identity. Treat the accepted category `fileDataId` only as a versioned project
+namespace, not as the provider's primary key, and hash the exact
 `fileDataId`, licensing-authority code, and management number using the versioned, length-prefixed
 UTF-8 SHA-256 contract in
 `docs/superpowers/specs/2026-09-02-task-006-transformation-identifier-design.md`. Retain the full
@@ -275,9 +276,10 @@ or anonymize the record. Once exposed, identifier bytes become a compatibility b
 for provider service-ID evidence is safer but blocks implementation; a surrogate registry would
 add state and migration complexity.
 
-**Consequences if accepted**: TASK-006 may implement only the approved lossless record,
+**Consequences**: TASK-006 may implement only the approved lossless record,
 normalization, deterministic identity, diagnostics, and synthetic fixtures. TASK-007 still owns
 status mapping, TASK-008 owns `dataAsOf`, TASK-009 and later tasks own validation/publication, and
 TASK-022 owns the public URL format and migrations. Changing identity inputs, framing, hashing,
-encoding, or public representation requires a new ADR and human approval. Until acceptance, no
-TASK-006 implementation or public identifier is authorized.
+encoding, or public representation requires a new ADR and human approval. Management-number-only
+and name/address-derived identifiers remain prohibited. No public textual encoding, prefix,
+truncation, share-URL placement, or prior-URL compatibility policy is authorized by this ADR.
