@@ -18,6 +18,9 @@ requested committing, pushing, and opening a PR for continuation there. Deliver 
 verified implementation and investigation on `codex/task-008-planning`, with `main` as the PR
 base. Keep the PR in draft while TASK-008 production evidence and PRD gates remain open.
 
+Implementation commit `d3e1825` was pushed to origin. Draft
+[PR #12](https://github.com/internalforces/open-store-searcher/pull/12) is the continuation PR.
+
 On the Mac, fetch this branch and preserve any existing local edits before switching. Read the
 normal context-loading sequence, then inspect the existing Docker context, containers, images,
 and mounts to identify the Ubuntu 24.04 environment. Container identity and current health are
