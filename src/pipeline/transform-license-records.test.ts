@@ -9,7 +9,7 @@ import {
   frameExactIdentityV1,
   normalizeSearchValueV1,
   serializeTransformationForInternalTest,
-  transformLicenseRecordsV1,
+  transformLicenseRecordsV2,
   type ExactSourceIdentityV1,
   type StagedLicenseRowV1,
 } from './transform-license-records.js';
@@ -68,7 +68,7 @@ const archive = {
 };
 
 function transform(rows: StagedLicenseRowV1[]) {
-  return transformLicenseRecordsV1({ archiveContract, archive, rows });
+  return transformLicenseRecordsV2({ archiveContract, archive, rows });
 }
 
 describe('representative TASK-005 schema selection', () => {
@@ -239,7 +239,7 @@ describe('lossless deterministic transformation', () => {
       fetchedAt: archive.fetchedAt,
       archiveSha256: archive.sha256,
     });
-    expect(record).not.toHaveProperty('processedStatus');
+    expect(record?.processedStatus).toBe('확인되지 않음');
     expect(record).not.toHaveProperty('dataAsOf');
     expect(serializeTransformationForInternalTest(result)).toContain('<script');
   });
@@ -314,7 +314,7 @@ describe('fail-closed validation', () => {
   test('rejects an injected digest collision and map overwrite', () => {
     const collisionHash = (_bytes: Uint8Array) => new Uint8Array(32).fill(7);
     expect(() =>
-      transformLicenseRecordsV1(
+      transformLicenseRecordsV2(
         {
           archiveContract,
           archive,
@@ -346,7 +346,7 @@ describe('fail-closed validation', () => {
 
   test('rejects unsafe or overwriting archive-contract evidence', () => {
     expect(() =>
-      transformLicenseRecordsV1({
+      transformLicenseRecordsV2({
         archiveContract: { ...archiveContract, provider: 'unsafe\0provider' },
         archive,
         rows: [row(representativeIds.rich)],
@@ -355,7 +355,7 @@ describe('fail-closed validation', () => {
 
     const first = category(representativeIds.rich);
     expect(() =>
-      transformLicenseRecordsV1({
+      transformLicenseRecordsV2({
         archiveContract: {
           ...archiveContract,
           expectedEntryCount: 2,
@@ -374,16 +374,111 @@ describe('fail-closed validation', () => {
       return createHash('sha256').update(bytes).update(String(calls)).digest();
     };
     expect(() =>
-      transformLicenseRecordsV1(
+      transformLicenseRecordsV2(
         { archiveContract, archive, rows: [row(representativeIds.rich)] },
         { hash: driftingHash },
       ),
     ).toThrow('non_deterministic_identifier');
     expect(() =>
-      transformLicenseRecordsV1(
+      transformLicenseRecordsV2(
         { archiveContract, archive, rows: [row(representativeIds.rich)] },
         { hash: () => new Uint8Array(31) },
       ),
     ).toThrow('invalid_identifier_digest');
+  });
+});
+
+// Synthetic TASK-007 integration fixtures; update exact mappings only after a new approved ADR.
+describe('ADR-013 transformed status evidence (FR-04, FR-07)', () => {
+  test.each([
+    ['01', '영업/정상', '행정상 영업'],
+    ['02', '휴업', '휴업'],
+    ['03', '폐업', '폐업'],
+    ['04', '취소/말소/만료/정지/중지', '확인되지 않음'],
+    [null, null, '확인되지 않음'],
+    ['01', null, '확인되지 않음'],
+    [null, '폐업', '확인되지 않음'],
+    ['99', '폐업', '확인되지 않음'],
+    ['01', '폐업', '확인되지 않음'],
+    [' 01', '영업/정상', '확인되지 않음'],
+    ['03', '폐업 ', '확인되지 않음'],
+    ['０１', '영업/정상', '확인되지 않음'],
+    ['03', '폐업'.normalize('NFD'), '확인되지 않음'],
+  ])('preserves raw evidence while mapping %s / %s', (operatingCode, operatingName, expected) => {
+    for (const [detailedCode, detailedName] of [
+      [null, null],
+      ['01', '영업'],
+      ['03', '폐업'],
+      [' 99 ', ' unknown\t'],
+    ]) {
+      const input = row(representativeIds.rich, {
+        영업상태코드: operatingCode,
+        영업상태명: operatingName,
+        상세영업상태코드: detailedCode ?? null,
+        상세영업상태명: detailedName ?? null,
+      });
+      const before = structuredClone(input);
+      const result = transform([input]);
+      const record = result.records[0];
+      expect(record?.processedStatus).toBe(expected);
+      expect(record?.rawStatus).toEqual({
+        operatingCode,
+        operatingName,
+        detailedCode,
+        detailedName,
+      });
+      expect(input).toEqual(before);
+      expect(JSON.parse(serializeTransformationForInternalTest(result)).records[0]).toMatchObject({
+        processedStatus: expected,
+        rawStatus: { operatingCode, operatingName, detailedCode, detailedName },
+      });
+    }
+  });
+
+  test('versions processed output without changing identity, normalization, or ordering', () => {
+    const inputs = ['b', 'a'].map((managementNumber) =>
+      row(representativeIds.rich, {
+        관리번호: managementNumber,
+        영업상태명: '영업/정상',
+      }),
+    );
+    const operating = transform(inputs);
+    const closed = transform(
+      inputs.map((input) => ({
+        ...input,
+        values: { ...input.values, 영업상태코드: '03', 영업상태명: '폐업' },
+      })),
+    );
+    expect(operating.schemaVersion).toBe(2);
+    expect(operating.identifierContractVersion).toBe(1);
+    expect(operating.normalizationContractVersion).toBe(1);
+    expect(operating.records.map((record) => record.identity.source.managementNumber)).toEqual([
+      'a',
+      'b',
+    ]);
+    for (const [index, record] of operating.records.entries()) {
+      expect(record.schemaVersion).toBe(2);
+      expect(record.processedStatus).toBe('행정상 영업');
+      expect(closed.records[index]?.processedStatus).toBe('폐업');
+      expect(closed.records[index]?.identity).toEqual(record.identity);
+      expect(closed.records[index]?.search).toEqual(record.search);
+      expect(closed.records[index]?.display).toEqual(record.display);
+      expect(closed.records[index]?.provenance).toEqual(record.provenance);
+      expect(record).not.toHaveProperty('dataAsOf');
+    }
+    expect(closed.diagnostics).toEqual(operating.diagnostics);
+    expect(serializeTransformationForInternalTest(transform([...inputs].reverse()))).toBe(
+      serializeTransformationForInternalTest(operating),
+    );
+  });
+
+  test('does not infer a status for an empty stage', () => {
+    expect(transform([])).toEqual({
+      schemaVersion: 2,
+      identifierContractVersion: 1,
+      normalizationContractVersion: 1,
+      records: [],
+      diagnostics: [],
+    });
   });
 });

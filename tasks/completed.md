@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
-_Last updated: 2026-09-02_
+_Last updated: 2026-09-04_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
@@ -20,6 +20,38 @@ _Last updated: 2026-09-02_
 | TASK-026 (M0) | Review the Korean handbook and pass the M0 human-language gate | 2026-08-24 | Documenter / Planner | All eight handbook files recorded as Updated or Reviewed without content change; user approved Korean clarity, safety terminology, and accuracy; M0 closed |
 | TASK-004 | Research the local administrative licensing source-data contract | 2026-08-28 | Researcher / Architect | ADR-009 approved the bounded zero-key candidate; 195 distinct official Ministry file-data pages passed the permission and attribution audit; Reviewer APPROVED |
 | TASK-005 | Implement a change-detecting Seoul data collector | 2026-09-02 | Architect / Implementer | Final cancellation-error remediation independently re-reviewed with no findings; pinned pipeline, coverage, browser, accessibility, and whitespace gates passed |
+| TASK-006 | Implement transformation schema and identifiers | 2026-09-02 | Architect / Implementer | User accepted the approved, implemented, fully verified, and independently reviewed lossless transformation and internal identifier contract; PR #9 and stacked PR #10 contain the reviewable changes |
+| TASK-007 | Implement fail-safe four-status mapping and unknown-code handling | 2026-09-04 | Implementer / Tester | ADR-013 accepted; test-first implementation, 100% mapper coverage, full verification and independent Approved review passed |
+
+## TASK-007 Verification Evidence
+
+- Completed 2026-09-04 by Implementer / Tester after independent Reviewer Approved.
+- The user explicitly accepted ADR-013 before implementation. Research evidence is in
+  `reports/research-2026-09-02-status-mapping.md`.
+- All eight acceptance criteria passed: official exact-pair evidence; human approval; four allowed
+  output statuses and preserved raw fields; independent pure domain module with transformer use;
+  safe missing/partial/unknown/contradictory fallback without detail inference; exhaustive synthetic
+  boundary tests; 100% file coverage in all four dimensions; no deferred-scope changes.
+- `reports/test-2026-09-04-task-007.md` records failing pre-implementation tests and passing unit,
+  pipeline, full verification, browser, accessibility, and coverage evidence on pinned Node/npm.
+- `reports/review-2026-09-04-task-007.md` records independent Approved review with no findings.
+- Windows retains two existing Linux Info-ZIP skips; no TASK-007 tests are skipped.
+- Implementation branch: `codex/task-007-status-mapping`; no TASK-007 merge or deployment occurred.
+- TASK-008 stays in the backlog. This completion does not close M1 or its handbook review gate.
+
+## TASK-006 Verification Evidence
+
+- The user approved ADR-012 option B and then explicitly requested TASK-006 completion on 2026-09-02.
+- The transformer preserves exact display, evidence, lifecycle, source identity, and provenance
+  fields separately from versioned search-only normalization.
+- The implementation retains a full SHA-256 internal digest over the approved length-prefixed exact
+  identity tuple and rejects missing, duplicate, colliding, or non-deterministically ordered input.
+- Synthetic tests cover representative schemas, Unicode and whitespace boundaries, missing optional
+  values, exact preservation, normalization collisions, identifier stability, and inert text.
+- Pinned verification, the browser and accessibility matrices, formatting, and whitespace checks
+  passed; `reports/review-2026-09-02-task-006.md` records independent approval after remediation.
+- TASK-006 added no status mapping, `dataAsOf`, production records, dependency, workflow,
+  deployment, publication path, or public identifier format.
 
 ## TASK-005 Verification Evidence
 

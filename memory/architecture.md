@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-09-02_
+_Last updated: 2026-09-04_
 
 ## System Overview
 
@@ -47,6 +47,9 @@ GitHub Actions collects, normalizes, and validates public administrative data in
     against the accepted archive schema contract, preserves exact display/evidence strings, derives
     versioned search-only values, creates full 256-bit internal identifiers, rejects invalid whole
     stages, and emits canonically ordered records and normalization-collision diagnostics.
+11. TASK-007 domain mapper: a pure, exact aggregate-pair function returns only the four approved
+    statuses. Transformation schema V2 adds `processedStatus` while retaining lossless raw evidence
+    and identifier/normalization V1. Detailed statuses do not influence classification.
 
 ## Data Flow
 
@@ -71,8 +74,10 @@ The approved TASK-006 boundary separates exact decoded display/evidence values f
 search-only normalization and preserves source identity inputs without normalization. It covers
 business name, street and parcel addresses, category and category-specific business types, raw
 operating and detailed status code/name pairs, available lifecycle dates, source timestamps, and
-provenance. ADR-012 and the design were approved by the user on 2026-09-02. They do not add
-processed display status or `dataAsOf`, which remain TASK-007 and TASK-008.
+provenance. ADR-012 and the design were approved by the user on 2026-09-02. ADR-013 was accepted
+on 2026-09-04 and adds processed display status through `mapLicenseStatusV1` and
+`transformLicenseRecordsV2`. The result and record types are V2; staged inputs, identifiers,
+normalization, and diagnostics retain their V1 contracts. `dataAsOf` remains TASK-008.
 
 Official provider guidance defines source identity as service ID plus licensing-authority code plus
 management number and warns that management number alone may repeat. The accepted TASK-005 CSV

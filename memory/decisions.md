@@ -283,3 +283,34 @@ TASK-022 owns the public URL format and migrations. Changing identity inputs, fr
 encoding, or public representation requires a new ADR and human approval. Management-number-only
 and name/address-derived identifiers remain prohibited. No public textual encoding, prefix,
 truncation, share-URL placement, or prior-URL compatibility policy is authorized by this ADR.
+
+## ADR-013: Exact Aggregate Status Mapping with Fail-Safe Fallback
+
+- Date: 2026-09-02
+- Status: Accepted (2026-09-04)
+- Decision maker: User (explicit `accept` in this session)
+
+**Context**: The product must expose exactly four display statuses without interpreting missing,
+new, or conflicting evidence as operating, suspended, or closed. The provider defines four
+aggregate code/name pairs but states that detailed terminology varies by category. Aggregate `04`
+combines cancellation, deletion, expiry, administrative suspension, and stoppage, which cannot be
+represented safely as one of the product's three verified states.
+
+**Decision**: Match exact aggregate code/name pairs only. Map `01` plus `영업/정상` to
+`행정상 영업`, `02` plus `휴업` to `휴업`, and `03` plus `폐업` to `폐업`. Map the exact `04`
+pair and every missing, partial, unknown, contradictory, whitespace-modified, normalized, or
+lookalike pair to `확인되지 않음`. Preserve detailed fields but do not interpret them in V1. Add a
+pure domain mapper, include `processedStatus` in transformation schema V2, keep identifier and
+normalization versions unchanged, and enforce 100% file-level coverage for the mapper.
+
+**Rationale**: Exact paired evidence detects drift and avoids guessing. Routing the mixed `04`
+bucket to unverified respects the distinction between voluntary suspension, administrative stop,
+cancellation, and expiry while maintaining the restricted product vocabulary.
+
+**Trade-offs**: Some records that a category expert could classify more narrowly remain unverified.
+The mapping is intentionally conservative until complete category-specific official evidence is
+available.
+
+**Consequences**: The user authorized implementation on 2026-09-04. Later mappings of
+detailed values or changes to exact pairs require official evidence, versioning, tests, and new
+human approval. TASK-008 retains production distribution and new-code validation ownership.

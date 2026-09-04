@@ -14,6 +14,12 @@ export default defineConfig({
         lines: 80,
         functions: 80,
         branches: 75,
+        'src/domain/map-license-status.ts': {
+          statements: 100,
+          branches: 100,
+          functions: 100,
+          lines: 100,
+        },
       },
     },
     projects: [

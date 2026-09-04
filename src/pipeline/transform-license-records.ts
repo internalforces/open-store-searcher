@@ -1,7 +1,8 @@
 import { createHash } from 'node:crypto';
+import { mapLicenseStatusV1, type ProcessedStatusV1 } from '../domain/map-license-status.js';
 import type { ArchiveContract, ArchiveContractEntry } from './archive-contract.js';
 
-export const TRANSFORMATION_SCHEMA_VERSION = 1 as const;
+export const TRANSFORMATION_SCHEMA_VERSION = 2 as const;
 export const IDENTIFIER_CONTRACT_VERSION = 1 as const;
 export const NORMALIZATION_CONTRACT_VERSION = 1 as const;
 
@@ -41,8 +42,8 @@ export interface TransformLicenseInputV1 {
   rows: StagedLicenseRowV1[];
 }
 
-export interface TransformedLicenseRecordV1 {
-  schemaVersion: 1;
+export interface TransformedLicenseRecordV2 {
+  schemaVersion: 2;
   identity: {
     contractVersion: 1;
     digest: Uint8Array;
@@ -70,6 +71,7 @@ export interface TransformedLicenseRecordV1 {
     detailedCode: string | null;
     detailedName: string | null;
   };
+  processedStatus: ProcessedStatusV1;
   lifecycle: {
     licensedOn: string | null;
     licenseCancelledOn: string | null;
@@ -99,11 +101,11 @@ export interface NormalizationCollisionDiagnosticV1 {
   identities: ExactSourceIdentityV1[];
 }
 
-export interface TransformationResultV1 {
-  schemaVersion: 1;
+export interface TransformationResultV2 {
+  schemaVersion: 2;
   identifierContractVersion: 1;
   normalizationContractVersion: 1;
-  records: TransformedLicenseRecordV1[];
+  records: TransformedLicenseRecordV2[];
   diagnostics: NormalizationCollisionDiagnosticV1[];
 }
 
@@ -339,10 +341,16 @@ function transformOne(
   row: StagedLicenseRowV1,
   identity: ExactSourceIdentityV1,
   digest: Uint8Array,
-): TransformedLicenseRecordV1 {
+): TransformedLicenseRecordV2 {
   const businessName = cell(row, '사업장명');
   const roadAddress = cell(row, '도로명주소');
   const parcelAddress = cell(row, '지번주소');
+  const rawStatus = {
+    operatingCode: cell(row, '영업상태코드'),
+    operatingName: cell(row, '영업상태명'),
+    detailedCode: cell(row, '상세영업상태코드'),
+    detailedName: cell(row, '상세영업상태명'),
+  };
   return {
     schemaVersion: TRANSFORMATION_SCHEMA_VERSION,
     identity: {
@@ -369,12 +377,8 @@ function transformOne(
       roadAddress: normalizeSearchValueV1(roadAddress),
       parcelAddress: normalizeSearchValueV1(parcelAddress),
     },
-    rawStatus: {
-      operatingCode: cell(row, '영업상태코드'),
-      operatingName: cell(row, '영업상태명'),
-      detailedCode: cell(row, '상세영업상태코드'),
-      detailedName: cell(row, '상세영업상태명'),
-    },
+    rawStatus,
+    processedStatus: mapLicenseStatusV1(rawStatus),
     lifecycle: {
       licensedOn: cell(row, '인허가일자'),
       licenseCancelledOn: cell(row, '인허가취소일자'),
@@ -403,20 +407,20 @@ function bytesKey(bytes: Uint8Array): string {
 }
 
 function collisionDiagnostics(
-  records: readonly TransformedLicenseRecordV1[],
+  records: readonly TransformedLicenseRecordV2[],
 ): NormalizationCollisionDiagnosticV1[] {
   const groups = new Map<
     string,
     {
       field: NormalizationCollisionDiagnosticV1['field'];
       value: string;
-      records: TransformedLicenseRecordV1[];
+      records: TransformedLicenseRecordV2[];
     }
   >();
   const add = (
     field: NormalizationCollisionDiagnosticV1['field'],
     value: string | null,
-    record: TransformedLicenseRecordV1,
+    record: TransformedLicenseRecordV2,
   ) => {
     if (value === null) return;
     const key = `${field}\0${value}`;
@@ -476,10 +480,10 @@ function collisionDiagnostics(
     });
 }
 
-export function transformLicenseRecordsV1(
+export function transformLicenseRecordsV2(
   input: TransformLicenseInputV1,
   options: TransformOptionsV1 = {},
-): TransformationResultV1 {
+): TransformationResultV2 {
   if (typeof input.archive.fetchedAt !== 'string' || typeof input.archive.sha256 !== 'string') {
     reject('malformed_archive_provenance');
   }
@@ -488,7 +492,7 @@ export function transformLicenseRecordsV1(
   const entries = validateArchiveContractForTransformation(input.archiveContract);
   const exactTuples = new Set<string>();
   const digestToTuple = new Map<string, string>();
-  const records: TransformedLicenseRecordV1[] = [];
+  const records: TransformedLicenseRecordV2[] = [];
 
   for (const row of input.rows) {
     if (
@@ -534,7 +538,7 @@ export function transformLicenseRecordsV1(
   };
 }
 
-export function serializeTransformationForInternalTest(result: TransformationResultV1): string {
+export function serializeTransformationForInternalTest(result: TransformationResultV2): string {
   const internal = {
     schemaVersion: result.schemaVersion,
     identifierContractVersion: result.identifierContractVersion,

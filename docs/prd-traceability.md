@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-09-02_
+_Last updated: 2026-09-04_
 
 ## Usage Rules
 
@@ -23,10 +23,10 @@ _Last updated: 2026-09-02_
 | FR-01 | Business-name or address input | TASK-011, 014 | Input combinations, empty input, and one-character tests | Planned |
 | FR-02 | In-browser search | TASK-011, 012 | Zero external API requests during search | Planned |
 | FR-03 | Name and address candidate ranking | TASK-012, 013 | Ranking fixtures and Top-3 recall | Planned |
-| FR-04 | Four display statuses | TASK-007, 014 | Exhaustive status-mapping tests | Planned |
-| FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review pass, while stacked PR acceptance and result-card UI remain pending | In progress |
-| FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 implements lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schema fixtures, and missing-value tests; pinned verification and independent review pass, while stacked PR acceptance and UI remain pending | In progress |
-| FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | Regression tests for missing results, conflicts, and new codes | Planned |
+| FR-04 | Four display statuses | TASK-007, 014 | Accepted ADR-013 and `reports/test-2026-09-04-task-007.md`: exact mapper, schema V2 integration, 86 unit tests and 100% mapper coverage; result-card UI remains pending | In progress |
+| FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 accepted: implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review passed; result-card UI remains pending | In progress |
+| FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 accepted: lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schemas, and missing-value tests passed; UI remains pending | In progress |
+| FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | `reports/test-2026-09-04-task-007.md`: unknown, partial, contradictory, whitespace, Unicode and empty-stage regressions pass; later search/UX conflicts remain pending | In progress |
 | FR-08 | Data as-of date | TASK-008, 014 | Page and card as-of-date tests | Planned |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; UI and public documentation remain pending | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | URL encoding and new-window security tests | Planned |
@@ -54,7 +54,7 @@ _Last updated: 2026-09-02_
 | Performance | LCP target 2.5 s, search 500 ms, code 300 KB | TASK-018 | Performance report | Planned |
 | Accessibility | Baseline WCAG 2.1 AA, zero critical automated errors | TASK-003, 017, 021 | TASK-003 Vitest/Playwright configuration, `reports/test-2026-08-24-task-003.md` PASS, and `reports/review-2026-08-24-task-003.md` APPROVED establish the automated foundation; product-level automated and manual audit remains pending | In progress |
 | Privacy | Zero collection of search terms or behavior | TASK-019, 021 | Network and code audit | Planned |
-| Safety | Zero missing-result-to-closed or new-code auto-mappings | TASK-007, 013, 021 | Regression tests | Planned |
+| Safety | Zero missing-result-to-closed or new-code auto-mappings | TASK-007, 013, 021 | TASK-007 exact-pair and empty-stage regressions pass; search and release gates remain pending | In progress |
 | Recovery | Preserve last known-good data after validation failure | TASK-009, 010, 021 | Failure-injection tests | Planned |
 | Documentation | Public setup, deployment, source, disclaimer, and milestone handbook review | TASK-020, 021, 025, 026 | M0 TASK-026 handbook review record and human approval complete; public-documentation checklist remains pending TASK-020 and TASK-021 | In progress |
 
