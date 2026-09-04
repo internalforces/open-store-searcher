@@ -3,7 +3,10 @@ import { evaluateDataFreshnessV1, seoulCalendarDate } from './data-freshness.js'
 
 describe('TASK-008 V09/V10 FR-08/FR-14 freshness', () => {
   test.each([
-    ['2026-09-04T14:59:59.999Z', 'fresh', 7],
+    ['2026-09-03T14:59:59.999Z', 'fresh', 6],
+    ['2026-09-03T15:00:00.000Z', 'stale', 7],
+    ['2026-09-03T15:00:00.001Z', 'stale', 7],
+    ['2026-09-04T14:59:59.999Z', 'stale', 7],
     ['2026-09-04T15:00:00.000Z', 'stale', 8],
     ['2026-09-04T15:00:00.001Z', 'stale', 8],
   ])('evaluates the seven-day Seoul boundary at %s', (now, kind, ageDays) => {

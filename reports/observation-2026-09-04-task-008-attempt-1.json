@@ -1,0 +1,23 @@
+{
+  "observationVersion": 1,
+  "kind": "rejected",
+  "complete": false,
+  "archiveSha256": "9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c",
+  "dataAsOf": null,
+  "metrics": null,
+  "ingestion": [],
+  "diagnostics": [
+    {
+      "code": "observation_read_failed",
+      "severity": "rejection"
+    }
+  ],
+  "bytesRead": 737444,
+  "limits": {
+    "maxTotalBytes": 268435456,
+    "maxRows": 100000,
+    "maxRecordChars": 65536,
+    "timeoutMs": 600000,
+    "maxRssBytes": 3221225472
+  }
+}

@@ -56,7 +56,7 @@ GitHub Actions collects, normalizes, and validates public administrative data in
     review_required; missing evidence never becomes acceptance. Supporting metrics/types modules
     measure completeness, counts, aggregate status distributions, and collision participation.
     `shared/data-freshness.ts` evaluates date-only coverage against an injected Seoul calendar date;
-    more than seven days is stale. `validate-json-bytes.ts` validates UTF-8, syntax, and an explicit
+    at least seven days is stale (ADR-015 amendment). `validate-json-bytes.ts` validates UTF-8, syntax, and an explicit
     byte bound independently of the future public artifact schema. These modules perform no I/O.
 
 ## Data Flow
@@ -163,3 +163,13 @@ See `memory/decisions.md` for details.
   `npm run verify:full` for task completion and release-oriented verification by adding the full
   browser matrix and desktop/mobile Chromium accessibility scans.
 - Keep `handbook/ko/**` outside linting, formatting, and all implementation context.
+
+## ADR-015 Research Observation Prerequisite
+
+The shared freshness boundary is age >= 7 Seoul calendar days. TASK-008 adds `stream-csv.ts`
+for strict bounded CSV rows, `stream-process.ts` for checked child EOF/cancellation, and
+`observe-license-archive.ts` for hash-bound complete ingestion and aggregate-only validator
+reports. `scripts/observe-seoul-source.mjs` is a research CLI with explicit resource limits,
+external staging/output, cleanup, and non-success exit codes. It does not publish or promote
+a baseline. A separate Ubuntu 24.04 container with the approved runtime/Info-ZIP passes the
+existing environment gate. TASK-009 retains production publication and recovery ownership.

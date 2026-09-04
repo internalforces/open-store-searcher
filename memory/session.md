@@ -11,7 +11,105 @@ _Last updated: 2026-09-04_
 
 ## Current TASK-008 Session
 
-### macOS continuation delivery
+### Commit/push handoff and next-work assessment
+
+The user requested committing and pushing the verified ADR-015 changes and identifying the
+next work. Delivery target: `origin/codex/task-008-continuation`, based on `095683a`; this is a
+development-branch handoff, with no release or deployment. The next implementation remains
+within TASK-008, in this order:
+
+1. Investigate DEBT-010 with a reviewed, bounded diagnostic for category 15045028. Bind evidence
+   to the archive hash and report encoding validity, counts, and byte offsets only. Distinguish
+   source-byte failure from a decoder/streaming defect before proposing any contract change.
+2. Once the cause and an acceptable remedy are established, add a synthetic regression and obtain
+   required approval for any source-contract amendment before rerunning complete observations.
+   Preserve strict rejection; do not replace invalid characters or omit rows.
+3. Resolve DEBT-002 with authoritative evidence for the archive's shared source cut and timezone.
+   Download dates, ZIP dates, and the newest row timestamp cannot substitute for that evidence.
+4. Resolve DEBT-005 through comparable complete observations, measured JSON size, and reviewed
+   count/missing-value/status-drift limits and bootstrap baseline. Two downloads of one archive
+   are not independent calibration observations.
+5. Close TASK-008 only after its remaining evidence and review gates pass, then activate TASK-009
+   for production ingestion, validated-artifact publication, and last-known-good preservation.
+
+No TASK-008 completion entry or TASK-009 activation is warranted by this delivery.
+Precommit verification reran the pinned `npm run verify:full` successfully: 425 Vitest tests,
+four browser smoke tests, and two accessibility scans. Implementation hashes still match the
+reviewed Linux retry; rejected evidence invariants and `git diff --check` also pass.
+
+### Approved ADR-015 implementation and live observation (current)
+
+The user explicitly approved all three proposed actions: Ubuntu recreation, TASK-008 research
+observation, and FR-14 warning at age >= 7. This authorization is recorded in ADR-015 and must
+not be requested again. Work remains on `codex/task-008-continuation` from `095683a`; previous
+local documentation edits were preserved.
+
+- Implemented strict streamed CSV/process reading, complete hash-bound observation, sanitized
+  diagnostics, and a CLI enforcing reviewed experiment ceilings. No new npm dependency.
+- Updated AGENTS.md, helper, calendar-boundary tests, and current design to warn at age >= 7.
+- Recreated `open-store-searcher-task008-research`: Ubuntu 24.04 ARM64, Node 24.19.0/npm 11.17.0,
+  Info-ZIP 6.0-28ubuntu4.1. Actual adapter returns ok:true; Linux lockfile install and focused tests pass.
+- Final pinned Mac `npm run verify:full`: 425 tests, four browser smoke tests, two zero-violation
+  accessibility scans; global coverage 91.52/89.75/94.77/94.16. No skipped tests.
+- Independent Reviewer Approved the initial bounded live run and same-budget diagnostic retry;
+  runtime ceiling bypass and forged error-code leakage were reproduced and fixed before use.
+- Both runs collected the same official archive hash
+  `9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c`. The retry identified
+  `csv_invalid_encoding` in category 15045028 (`건강_안경업.csv`, committed `euc-kr` encoding),
+  after 737,444 source bytes. Both exited 1 with complete:false, metrics:null and ingestion:[].
+- Verified `/work/staging` has no files after each run. No archive or provider rows copied into
+  the repository. Aggregate-only JSON evidence and implementation hashes are in `reports/`.
+- Reports: `reports/test-2026-09-04-task-008-observation.md`,
+  `reports/review-2026-09-04-task-008-observation.md`, and
+  `docs/superpowers/specs/2026-09-04-task-008-observation-design.md`.
+
+Next: investigate DEBT-010 with a reviewed bounded encoding diagnostic that reports only
+category/hash provenance and validity/counts/offsets, then propose a source-contract amendment
+only if evidence justifies it. Do not enable lossy replacement, skip malformed rows, or guess an
+encoding. The exact cause (different/mixed encoding versus isolated invalid bytes) remains unknown.
+Source-cut evidence, comparable calibration, JSON budget, and reviewed bootstrap/policy remain open.
+TASK-008 stays active; TASK-009 is inactive. No milestone closure or handbook pass is due.
+
+The new research container and Docker Desktop are left running for continuation. The old broken
+container and unrelated Docker state are preserved. Source/runtime snapshot files remain under
+`/tmp/oss-task008-runtime`; the container retains only code/dependencies and aggregate evidence,
+not downloaded source archives. The user has authorized this changeset for commit and push to
+the delivery branch above; no PR, release, or deployment is part of this handoff.
+
+### macOS continuation investigation (historical; proposals subsequently approved)
+
+The 2026-09-04 user request was to synchronize Git, read this session, and continue. Fetched
+origin and created `codex/task-008-continuation` from merged `origin/main` at `095683a` (PR #12).
+The initial worktree was clean; no prior local edits were lost.
+
+- Recovered and read the original PRD at the path in `memory/project.md`; its SHA-256 is
+  `33f3bcb2f0c9f7e03b7edb5acdffe8cad054b0716fa578ed3be5eef8495b91b7`. PRD-access gate is resolved.
+- Found a requirements discrepancy: original FR-14 requires age >= 7, while accepted ADR-014,
+  AGENTS.md, and current code use age > 7. Recorded a concrete amendment proposal; no policy
+  or implementation changed and no exact FR-14 compliance is claimed.
+- Started existing Docker Desktop with tool approval. Found `open-store-searcher-task005-unzip`
+  with `/tmp:/tmp` and `sleep infinity`. Starting it failed because its snapshot is missing;
+  inspecting the referenced image returned `No such image`. No Ubuntu process or adapter gate ran.
+- Docker Desktop remains running. The broken container and unrelated containers/images were
+  preserved. No package, runtime, replacement container, or provider archive was installed/downloaded.
+- Prepared a separate Ubuntu 24.04 recreation proposal and research-only row-observation scope
+  to resolve the TASK-008/TASK-009 prerequisite cycle. Both remain proposed.
+- Evidence and concrete decisions: `reports/research-2026-09-04-task-008-macos-continuation.md`.
+  The prior completion-gate report is historical Windows evidence, not the current Mac state.
+- Documentation-only pass; no new full-suite claim. Shell defaults are Node 22.22.3/npm 10.9.8;
+  use the accepted pins before subsequent implementation verification. Final whitespace and
+  changed-document reference checks passed.
+
+Next: obtain decisions on the FR-14 boundary amendment, separate Ubuntu environment recreation,
+and TASK-008 research-only ingestion scope. Then prepare/review executable ingestion and bounded
+resource limits before live row observation. Source-cut evidence, comparable calibration, and
+bootstrap approval remain unresolved. TASK-008 stays active; TASK-009 is inactive.
+
+No new accepted decision, structure change, completion-ledger entry, deployment, or milestone
+closure occurred. No handbook was read or changed. These documentation edits are local and
+uncommitted; no follow-up push or PR was made.
+
+### macOS continuation delivery (historical; PR #12 now merged)
 
 The user confirmed that the previous Ubuntu Docker environment was on their Mac and explicitly
 requested committing, pushing, and opening a PR for continuation there. Deliver the current

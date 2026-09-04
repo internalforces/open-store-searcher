@@ -12,6 +12,10 @@ bounded implementation and independent review passed.
 
 ## Result
 
+Historical Windows investigation. The subsequent Mac pass recovered the original PRD and found
+the prior Docker container, but its snapshot/image is missing. Current findings and concrete
+next decisions are in `reports/research-2026-09-04-task-008-macos-continuation.md`.
+
 The investigation did not supply the missing production evidence. TASK-008 remains active;
 no evidence assertion, production policy, bootstrap baseline, or task completion was invented.
 The earlier 362-test full-verification result remains the implementation evidence. This pass

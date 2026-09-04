@@ -1,11 +1,12 @@
-# TASK-008 Test Plan
+# TASK-008 Continuation Test Plan
 
-1. Record acceptance and create research/plan before production edits.
-2. Helpers: tests first for V09 Seoul boundaries/calendar errors and V12 byte/UTF-8/JSON errors,
-   capture red run, implement, and run narrow helper tests.
-3. Validator: synthetic 195-category evidence fixture; tests first for V01-V08/V10-V11/V13,
-   capture red run, implement typed boundary, metrics/policy, and result handling.
-4. Add any uncovered concrete acceptance cases; use focused runs while resolving errors.
-5. Run pinned full verification once implementation is stable, preserve existing thresholds.
-6. Independently review behavior and assertions; fix findings, rerun affected gates, record
-   exact names in reports and .testagent/status.md. Keep TASK-008 open for production evidence.
+1. Capture failing day-7 tests before changing the freshness comparison and approval documents.
+2. Add missing-module red tests for streamed CSV: delimiters, quoting/newlines, empty values,
+   split encoded characters, invalid bytes/quoting/width, EOF, and explicit resource bounds.
+3. Implement parser and narrow-run it. Then test/implement observation using exact accepted
+   collector evidence and real validator/transformer with injected bounded entry/hash seams.
+4. Test the actual streaming child boundary for EOF, error, timeout, byte limits, and cleanup.
+5. Review exact design and operational research limits before any live row ingestion.
+6. Run pinned full verification and independent review; only then perform bounded live observation
+   in the approved reconstructed Ubuntu environment. Never turn missing evidence into acceptance.
+7. Record exact test names, commands, live outcome, and unresolved external evidence in reports.

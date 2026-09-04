@@ -33,12 +33,21 @@ _Last updated: 2026-09-04_
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | E2E tests at primary viewports | Planned |
 | FR-12 | No collection of personal or usage data | TASK-019 | Network, storage, and script audit | Planned |
 | FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending | In progress |
-| FR-14 | Warning for data older than seven days | TASK-008, 015 | Accepted ADR-014; V09–V10 tests pass for Seoul calendar boundaries, unknown coverage and unchanged-archive aging; shared helper 100% coverage, UI pending | In progress |
+| FR-14 | Warning when data age reaches seven Seoul calendar days | TASK-008, 015 | ADR-015 supersedes the ADR-014 age boundary; V09–V10 and observation-report tests verify age >= 7, unknown coverage and unchanged-archive aging; shared helper 100% coverage, UI pending | In progress |
 
 TASK-008's FR-13 validation contract is recorded in
 `docs/superpowers/specs/2026-09-04-task-008-validation-design.md` and
 `reports/test-2026-09-04-task-008.md`. Synthetic V01–V13 verification and full gates passed;
 production source-cut/policy evidence and TASK-009 last-known-good publication/recovery remain open.
+
+The original PRD was recovered on the Mac on 2026-09-04; its hash and requirement comparison
+are recorded in `reports/research-2026-09-04-task-008-macos-continuation.md`. The user accepted
+ADR-015 to reconcile FR-14 with the original age >= 7 requirement. Constitution, helper, and
+Seoul-midnight integration tests now use that boundary. Research observation is implemented
+under `docs/superpowers/specs/2026-09-04-task-008-observation-design.md`; it cannot publish or
+supply missing source-cut/policy evidence. Its same-budget live retry rejected strict body decoding
+for category 15045028 (DEBT-010); no production baseline exists. See
+`reports/test-2026-09-04-task-008-observation.md`.
 
 ## P1 Functional Requirements
 

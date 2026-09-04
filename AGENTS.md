@@ -9,7 +9,7 @@ Harness Version: 1.1
 
 > Every agent must read this document before starting work. If instructions conflict, the user's current request and this document take precedence over other project documents.
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-09-04_
 
 ## Project Overview
 
@@ -91,7 +91,7 @@ Do not take any of the following actions. If the user requests a change, identif
 2. Show the raw status, processed status, source, and data as-of date together.
 3. Do not auto-confirm a match when names are identical but addresses conflict.
 4. Process input only in the browser and never execute it as HTML.
-5. Show a delay warning when data freshness exceeds seven days.
+5. Show a delay warning when data age reaches seven Seoul calendar days (age >= 7; ADR-015).
 6. If refresh validation fails, continue serving the previous known-good data.
 
 ## Context Loading Order

@@ -423,13 +423,24 @@ describe('TASK-008 staged validation', () => {
     });
     expect(codes(validateLicenseRefreshV1(input))).toContain('same_archive_coverage_changed');
   });
+  test('warns at exactly seven Seoul calendar days without rejecting a valid refresh', () => {
+    const input = acceptedFixture();
+    input.now = '2026-09-08T14:59:59.999Z';
+    expect(codes(validateLicenseRefreshV1(input))).not.toContain('data_stale');
+    input.now = '2026-09-08T15:00:00.000Z';
+    const result = validateLicenseRefreshV1(input);
+    expect(result.kind).toBe('accepted');
+    expect(result.dataAsOf).toBe('2026-09-02');
+    expect(codes(result)).toContain('data_stale');
+  });
+
   test('unchanged archive retains its coverage and becomes stale as the clock advances', () => {
     const input = acceptedFixture();
     if (input.collection.kind !== 'accepted') throw new Error('fixture');
     input.collection.change = 'unchanged';
-    input.now = '2026-09-09T14:59:59.999Z';
+    input.now = '2026-09-08T14:59:59.999Z';
     expect(codes(validateLicenseRefreshV1(input))).not.toContain('data_stale');
-    input.now = '2026-09-09T15:00:00.000Z';
+    input.now = '2026-09-08T15:00:00.000Z';
     const result = validateLicenseRefreshV1(input);
     expect(result.kind).toBe('accepted');
     expect(result.dataAsOf).toBe('2026-09-02');

@@ -33,7 +33,7 @@ export function seoulCalendarDate(utc: string): string | null {
   return dateOrdinal(result) === null ? null : result;
 }
 
-/** ADR-014: unknown is distinct; only more than seven Seoul calendar days is stale. */
+/** ADR-014: unknown is distinct; ADR-015 amendment: at least seven Seoul calendar days is stale. */
 export function evaluateDataFreshnessV1(dataAsOf: string | null, now: string): DataFreshnessV1 {
   const today = seoulCalendarDate(now);
   if (today === null) return { kind: 'rejected', code: 'invalid_now' };
@@ -43,5 +43,5 @@ export function evaluateDataFreshnessV1(dataAsOf: string | null, now: string): D
   // seoulCalendarDate returns only a validated date.
   const ageDays = (dateOrdinal(today) as number) - coverageOrdinal;
   if (ageDays < 0) return { kind: 'rejected', code: 'data_as_of_in_future' };
-  return { kind: ageDays > 7 ? 'stale' : 'fresh', ageDays };
+  return { kind: ageDays >= 7 ? 'stale' : 'fresh', ageDays };
 }

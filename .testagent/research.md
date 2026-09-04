@@ -1,19 +1,13 @@
-# TASK-008 Test Research
+# TASK-008 Continuation Test Research
 
-Broad scope: staged refresh validation, shared freshness, and JSON-byte validation.
-ADR-014 explicitly approved on 2026-09-04. Only synthetic inputs and reviewed policy-shaped
-fixtures are authorized; no production defaults or publication path.
-
-Targets: new src/pipeline/validate-license-refresh.ts, validation metrics/contracts if needed,
-src/shared/data-freshness.ts, src/pipeline/validate-json-bytes.ts. Existing collector, transformer,
-and mapper stay authoritative. Vitest colocated unit/pipeline tests, exact assertions, Node
-24.19.0, global coverage 80/80/80/75 and mapper 100% apply.
-
-Checklist: approved design V01-V13: provenance/complete ingestion; duplicates and identity;
-count/missing/status distributions; date evidence and seven-day Seoul boundaries; baseline and
-policy gaps; UTF-8 JSON byte validation; deterministic non-mutating results. V14 publication,
-source-cut evidence, production calibration, and original PRD access remain explicit blockers.
-
-No callable source-pairing, test-gap-analysis, assertion-quality, or named testing-generator tool
-was found. Bounded inventory and quality review run inline, with delegated helper implementation
-and an independent final reviewer. Existing TASK-007 evidence remains in its reports.
+Broad scope: approved TASK-008 continuation, FR-13/14. User approved Ubuntu recreation,
+research-only CSV observation, and age >= 7 on 2026-09-04. Preserve existing local edits.
+Targets: shared freshness helper/tests; new streaming CSV parser/tests; research observation
+orchestrator/tests and bounded archive reader/tests. Existing transformer/mapper and validator
+remain authoritative. No new npm dependency, production policy, publication, or public schema.
+Existing colocated Vitest tests and pinned Node 24.19.0/npm 11.17.0 apply. Discovery tools
+find-untested-sources, test-gap-analysis, and assertion-quality are unavailable; bounded inventory
+and quality review run inline. An independent Reviewer is required before live observation.
+Checklist: day 6/7/8 and midnight; strict chunked CSV/encoding/EOF; complete 195-category
+archive-bound counts; child-process/hash/resource failures; aggregate-only output; unknown
+coverage/policy/baseline remains review_required; compatible Ubuntu environment; full verification.

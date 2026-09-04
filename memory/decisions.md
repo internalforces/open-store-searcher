@@ -329,7 +329,7 @@ missing-value distribution, or JSON byte budget is available.
 **Decision**: Implement a pure staged validator with accepted/rejected/review_required
 outcomes, reusing the existing transformer. Require explicit reviewed limits, compatible baseline,
 complete ingestion evidence, and archive-bound coverage evidence before acceptance. Use Seoul
-calendar-day age and warn only when age exceeds seven days. Keep unknown raw aggregate pairs
+calendar-day age. The original age > 7 warning boundary is superseded by accepted ADR-015: warn at age >= 7. Keep unknown raw aggregate pairs
 unverified and require review before accepting their refresh. Add a separate UTF-8 JSON syntax/size
 helper without selecting a public serialization or identifier format.
 
@@ -353,3 +353,24 @@ workflow, source delivery, status mapping, public URL, or deployment change is a
 362 passing full-suite tests, unchanged global/mapper coverage gates, four browser tests and two
 accessibility scans. The validator, shared freshness helper, and JSON-byte helper are implemented.
 Source-cut and production-calibration gates remain open; this evidence does not authorize release.
+
+## ADR-015: TASK-008 Research Observation and FR-14 Reconciliation
+
+- Date: 2026-09-04
+- Status: Accepted by explicit user approval
+- Decision maker: User
+
+**Decision**: Amend ADR-014 and AGENTS.md invariant 5 to warn at age >= 7 Seoul calendar
+days, matching the recovered original PRD FR-14. Recreate a separate Ubuntu 24.04 research
+environment using the approved runtime and compatible Info-ZIP. Add a research-only row
+observation prerequisite to TASK-008; TASK-009 retains production ingestion wiring, public
+serialization, baseline promotion, and atomic publication.
+
+**Scope**: The user approved the three proposals in
+`reports/research-2026-09-04-task-008-macos-continuation.md`. This authorizes implementation
+and verification without another approval of these same choices. Review operational bounds
+and the executable observation contract before live ingestion. It does not approve invented
+coverage dates, production thresholds, a bootstrap baseline, new dependencies, or deployment.
+
+**Consequences**: DEBT-009 is resolved by the explicit boundary amendment; DEBT-007/008 require
+verified implementation/environment evidence. Production source-cut and calibration gates remain.

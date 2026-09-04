@@ -9,7 +9,7 @@ Harness Version: 1.1
 
 _Date: 2026-09-04_
 
-_Status: Accepted by the user on 2026-09-04; bounded implementation authorized_
+_Status: Accepted by the user on 2026-09-04; freshness boundary amended by accepted ADR-015_
 
 ## 1. Scope and decision requested
 
@@ -120,8 +120,8 @@ Use calendar dates in `Asia/Seoul`, since the contract exposes a date rather tha
 instant. Compute `ageDays = ordinal(SeoulDate(now)) - ordinal(dataAsOf)` using calendar arithmetic.
 Both date parsing and `now` validation must reject invalid dates instead of accepting rollover.
 
-- Age 0 through 7: `fresh`.
-- Age greater than 7: `stale`; emit `data_stale` warning, not automatic structural rejection.
+- Age 0 through 6: `fresh`.
+- Age at least 7: `stale`; emit `data_stale` warning, not automatic structural rejection.
 - Future coverage date, retrieval after `now`, or coverage after the Seoul retrieval date:
   reject inconsistent evidence. A timezone-less ZIP date is not compared as an exact instant.
 - Unknown coverage: `unknown`, never `fresh` and never accepted by the refresh validator.
@@ -130,7 +130,7 @@ Both date parsing and `now` validation must reject invalid dates instead of acce
   date for the same hash is rejected. Recompute staleness using the current injected clock.
 
 Example: for `dataAsOf = 2026-08-28`, the warning starts at
-`2026-09-05T00:00:00+09:00` (`2026-09-04T15:00:00.000Z`). Exactly seven calendar days is not stale.
+`2026-09-04T00:00:00+09:00` (`2026-09-03T15:00:00.000Z`). Exactly seven calendar days is stale under ADR-015.
 This is an explicit product boundary proposal, not a claim about provider timestamp precision.
 The shared helper belongs in `src/shared/data-freshness.ts` for later TASK-015 UI reuse.
 

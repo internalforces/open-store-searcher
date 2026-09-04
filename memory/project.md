@@ -16,10 +16,10 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-008 staged validator implemented and fully verified
-- Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
+- Phase: M1 — TASK-008 validator and research observation implemented and verified
+- Next milestone: M1 — resolve TASK-008 source-body encoding, production coverage, and policy/baseline evidence
 - Overall health: 🟡 Caution — collector, synthetic transformation, and staged validation gates pass, while no
-  production transformation or publication path exists
+  production publication path exists and live research ingestion is blocked by source-body decoding
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -53,6 +53,8 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-09-04 | Accepted ADR-015; amended FR-14 to age >= 7, recreated verified Ubuntu research environment, and implemented reviewed bounded observation; 425 tests pass, live retry rejects category 15045028 body encoding without partial metrics |
+| 2026-09-04 | Synced Mac continuation to merged PR #12; recovered original PRD, identified FR-14 boundary discrepancy, and confirmed historical Docker container cannot start because its snapshot/image is missing; recorded recovery and observation proposals |
 | 2026-09-04 | User accepted ADR-014; implemented evidence-gated validation with 144 new offline tests and pinned full verification; production coverage/calibration and PRD gates remain open |
 | 2026-09-04 | Activated TASK-008 on user request; prepared proposed ADR-014 and validation/test matrix, retaining explicit source-cut, threshold, baseline, and PRD evidence gates |
 | 2026-09-04 | User accepted ADR-013; completed TASK-007 through test-first exact mapping, schema V2 integration, 100% mapper coverage, pinned full verification, and independent Approved review |
