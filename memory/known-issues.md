@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-08-29_
+_Last updated: 2026-09-04_
 
 ## Active Bugs
 
@@ -22,6 +22,11 @@ _Last updated: 2026-08-29_
 | DEBT-002 | ADR-009 permission coverage and TASK-005 delivery, schema, integrity, and entry-date contracts are verified, but conservative data as-of derivation remains undecided | Production publication remains prohibited until freshness semantics and later validation gates pass | M1 / TASK-008 |
 | DEBT-003 | Atomic preservation method for the last known-good data is undecided | A failed refresh could regress the service | M1 / TASK-009 |
 | DEBT-004 | Location of the Seoul search-quality test set is undecided | Top-3 recall cannot be verified | M2 / TASK-013 |
+
+TASK-007 verification introduced no new known bug. Windows retains two existing Info-ZIP
+integration skips; all status-mapping tests execute. Category-specific detailed vocabularies remain
+intentionally uninterpreted under ADR-013. Any later refinement requires official evidence and
+human approval; production status-distribution validation remains TASK-008.
 
 ### ISS-001: macOS Info-ZIP transforms official UTF-8 entry names
 

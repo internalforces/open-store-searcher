@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-09-02_
+_Last updated: 2026-09-04_
 
 ## Summary
 
@@ -16,8 +16,8 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-006 implementation and independent review complete; stacked PR review pending
-- Next milestone: M1 — accept TASK-006 before status mapping or validation
+- Phase: M1 — TASK-007 implemented, fully verified, and independently approved
+- Next milestone: M1 — TASK-008 validation design
 - Overall health: 🟡 Caution — collector and synthetic transformation gates pass, while no
   production transformation or publication path exists
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
@@ -53,6 +53,8 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-09-04 | User accepted ADR-013; completed TASK-007 through test-first exact mapping, schema V2 integration, 100% mapper coverage, pinned full verification, and independent Approved review |
+| 2026-09-02 | User accepted TASK-006 and requested completion; TASK-007 became the only active task, with exact status-mapping research and approval required before implementation |
 | 2026-09-02 | Completed TASK-005 after independent final re-review approved `a1a018d..19a6522`, pinned full verification passed, and TASK-006 design was activated sequentially |
 | 2026-08-31 | Reopened TASK-005 after PR #7 found swallowed response-cancellation failures; added typed fail-closed handling and three TDD regressions |
 | 2026-08-31 | Completed TASK-005 after pinned verification and independent Reviewer APPROVED; activated TASK-006 design sequentially |

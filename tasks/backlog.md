@@ -7,11 +7,10 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-09-02_
+_Last updated: 2026-09-04_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-007 | Implement fail-safe four-status mapping and unknown-code handling | High | M1 | M | FR-04, FR-07 |
 | TASK-008 | Implement validation for required columns, abrupt changes, duplicates, missing values, status changes, as-of dates, and JSON size | High | M1 | L | FR-08, FR-13 through FR-14 |
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
@@ -33,8 +32,8 @@ _Last updated: 2026-09-02_
 
 ## Recommended Start Order
 
-1. Complete active TASK-006 before activating TASK-007.
-2. Keep TASK-007 through TASK-010 sequential so each data contract is tested before its consumer.
+1. TASK-007 is complete; TASK-008 validation design is next and is not yet activated.
+2. Keep TASK-008 through TASK-010 sequential so each data contract is tested before its consumer.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 remains the separate M3 deliverable for public setup, deployment, contribution, policy, and release documentation.
