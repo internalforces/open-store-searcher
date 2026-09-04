@@ -16,9 +16,9 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-007 implemented, fully verified, and independently approved
-- Next milestone: M1 — TASK-008 validation design
-- Overall health: 🟡 Caution — collector and synthetic transformation gates pass, while no
+- Phase: M1 — TASK-008 staged validator implemented and fully verified
+- Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
+- Overall health: 🟡 Caution — collector, synthetic transformation, and staged validation gates pass, while no
   production transformation or publication path exists
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
@@ -53,6 +53,8 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 
 | Date | Change |
 |---|---|
+| 2026-09-04 | User accepted ADR-014; implemented evidence-gated validation with 144 new offline tests and pinned full verification; production coverage/calibration and PRD gates remain open |
+| 2026-09-04 | Activated TASK-008 on user request; prepared proposed ADR-014 and validation/test matrix, retaining explicit source-cut, threshold, baseline, and PRD evidence gates |
 | 2026-09-04 | User accepted ADR-013; completed TASK-007 through test-first exact mapping, schema V2 integration, 100% mapper coverage, pinned full verification, and independent Approved review |
 | 2026-09-02 | User accepted TASK-006 and requested completion; TASK-007 became the only active task, with exact status-mapping research and approval required before implementation |
 | 2026-09-02 | Completed TASK-005 after independent final re-review approved `a1a018d..19a6522`, pinned full verification passed, and TASK-006 design was activated sequentially |

@@ -50,6 +50,14 @@ GitHub Actions collects, normalizes, and validates public administrative data in
 11. TASK-007 domain mapper: a pure, exact aggregate-pair function returns only the four approved
     statuses. Transformation schema V2 adds `processedStatus` while retaining lossless raw evidence
     and identifier/normalization V1. Detailed statuses do not influence classification.
+12. TASK-008 staged validator: `validate-license-refresh.ts` binds collector/schema/permission and
+    completed per-category ingestion evidence, invokes the existing V2 transformer, and validates
+    metrics against explicit reviewed policy/baseline inputs. It returns accepted, rejected, or
+    review_required; missing evidence never becomes acceptance. Supporting metrics/types modules
+    measure completeness, counts, aggregate status distributions, and collision participation.
+    `shared/data-freshness.ts` evaluates date-only coverage against an injected Seoul calendar date;
+    more than seven days is stale. `validate-json-bytes.ts` validates UTF-8, syntax, and an explicit
+    byte bound independently of the future public artifact schema. These modules perform no I/O.
 
 ## Data Flow
 
@@ -79,6 +87,12 @@ on 2026-09-04 and adds processed display status through `mapLicenseStatusV1` and
 `transformLicenseRecordsV2`. The result and record types are V2; staged inputs, identifiers,
 normalization, and diagnostics retain their V1 contracts. `dataAsOf` remains TASK-008.
 
+Accepted ADR-014 adds validation V1 around the unchanged transformed V2 records. Verified coverage
+is metadata on the validation result and requires a reviewed, archive-bound assertion covering all
+195 categories with one date. No production assertion is available yet. Retrieval time and the
+ZIP modification date never become coverage automatically. Synthetic tests exercise the contract;
+production parser/publication integration and exact artifact-byte binding remain TASK-009.
+
 Official provider guidance defines source identity as service ID plus licensing-authority code plus
 management number and warns that management number alone may repeat. The accepted TASK-005 CSV
 schemas omit service ID. Approved option B treats `fileDataId` only as a versioned project category
@@ -101,6 +115,7 @@ ADR-011 alias category. Other semantically unconfirmed headers remain unmapped a
 | Test stack | Vitest, Testing Library, Playwright, and axe | 2026-08-20 |
 | Candidate source contract | Official Seoul all-category ZIP with TASK-004 permission coverage, gated by a fail-safe TASK-005 contract probe | 2026-08-28 |
 | Transformation and identifier | Approved lossless record plus versioned full-digest internal project identifier; public text and URL format deferred | 2026-09-02 |
+| Staged validation and freshness | ADR-014: explicit reviewed policy/baseline/coverage inputs; Seoul date-only seven-day boundary; internal JSON-byte helper; production evidence pending | 2026-09-04 |
 | Harness | AI Development Harness v1.1 Standard | 2026-08-18 |
 | Runtime | Static site with in-browser search | 2026-08-18 |
 | Data processing | GitHub Actions ETL and static JSON | 2026-08-18 |

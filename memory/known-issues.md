@@ -22,6 +22,19 @@ _Last updated: 2026-09-04_
 | DEBT-002 | ADR-009 permission coverage and TASK-005 delivery, schema, integrity, and entry-date contracts are verified, but conservative data as-of derivation remains undecided | Production publication remains prohibited until freshness semantics and later validation gates pass | M1 / TASK-008 |
 | DEBT-003 | Atomic preservation method for the last known-good data is undecided | A failed refresh could regress the service | M1 / TASK-009 |
 | DEBT-004 | Location of the Seoul search-quality test set is undecided | Top-3 recall cannot be verified | M2 / TASK-013 |
+| DEBT-005 | No reviewed Seoul count/missing-value baseline or JSON budget exists; ADR-014 proposes explicit policy with no defaults | TASK-008 production acceptance cannot pass before measured evidence and reviewed limits | M1 / TASK-008 |
+| DEBT-006 | Recorded source PRD path is absent on this Windows host; repository PRD-name search found only traceability | Exact source-PRD design acceptance cannot be claimed; user was asked for the current location | TASK-008 design |
+| DEBT-007 | Current Windows host fails the real collector environment gate; no WSL installation or retained Actions archive exists | Cannot collect accepted production calibration observations here until approved Linux access/setup is available | TASK-008 evidence collection |
+| DEBT-008 | TASK-008 calibration needs row observations, while accepted ADR-014 defers production row-parser integration to sequential TASK-009 | Requires an explicitly reviewed observation path or ingestion-prerequisite scope decision; schema-only probe cannot supply row metrics | TASK-008 completion |
+
+TASK-008 implementation confirms DEBT-002 remains unresolved: the two sampled official dataset pages
+still state daily D-2 coverage, but do not prove complete archive source-cut or timezone semantics.
+No production row parser exists. Proposed validation fixtures must remain synthetic; TASK-009
+must provide reviewed production ingestion and serialized-artifact binding before integration.
+
+TASK-008 independent review found sparse-array header/policy bypasses and impossible baseline
+collision participation during implementation. Both were reproduced and fixed before delivery;
+regressions and malformed-policy precedence cases pass. No new unresolved code bug was identified.
 
 TASK-007 verification introduced no new known bug. Windows retains two existing Info-ZIP
 integration skips; all status-mapping tests execute. Category-specific detailed vocabularies remain
