@@ -11,7 +11,6 @@ _Last updated: 2026-09-04_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-008 | Implement validation for required columns, abrupt changes, duplicates, missing values, status changes, as-of dates, and JSON size | High | M1 | L | FR-08, FR-13 through FR-14 |
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
 | TASK-011 | Implement business-name and address input validation and normalization | High | M2 | M | FR-01 through FR-02 |
@@ -32,7 +31,7 @@ _Last updated: 2026-09-04_
 
 ## Recommended Start Order
 
-1. TASK-007 is complete; TASK-008 validation design is next and is not yet activated.
+1. TASK-008 was activated on 2026-09-04 by the user's execution request; see tasks/active.md and proposed ADR-014.
 2. Keep TASK-008 through TASK-010 sequential so each data contract is tested before its consumer.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 

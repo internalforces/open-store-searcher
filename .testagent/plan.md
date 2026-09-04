@@ -1,13 +1,11 @@
-# TASK-007 Test Plan
+# TASK-008 Test Plan
 
-1. Add mapper tests before implementation: `maps the approved pair %s / %s`,
-   `fails safely for aggregate combination %j / %j`,
-   `rejects whitespace and Unicode variants of %s / %s`, and
-   `does not read or mutate detailed evidence`.
-2. Add transformer regressions: `preserves raw evidence while mapping %s / %s`,
-   `versions processed output without changing identity, normalization, or ordering`, and
-   `does not infer a status for an empty stage`.
-3. Capture failing focused runs; implement the pure mapper and schema V2 integration.
-4. Enforce exact file coverage thresholds and run focused unit and pipeline tests, then full verification.
-5. Review assertions against ADR-013, record concrete results in `.testagent/status.md`,
-   and update task, session, architecture, and traceability evidence.
+1. Record acceptance and create research/plan before production edits.
+2. Helpers: tests first for V09 Seoul boundaries/calendar errors and V12 byte/UTF-8/JSON errors,
+   capture red run, implement, and run narrow helper tests.
+3. Validator: synthetic 195-category evidence fixture; tests first for V01-V08/V10-V11/V13,
+   capture red run, implement typed boundary, metrics/policy, and result handling.
+4. Add any uncovered concrete acceptance cases; use focused runs while resolving errors.
+5. Run pinned full verification once implementation is stable, preserve existing thresholds.
+6. Independently review behavior and assertions; fix findings, rerun affected gates, record
+   exact names in reports and .testagent/status.md. Keep TASK-008 open for production evidence.

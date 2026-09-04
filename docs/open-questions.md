@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Open Questions — open-store-searcher
 
-_Last updated: 2026-09-02_
+_Last updated: 2026-09-04_
 
 Values that cannot be confirmed from the PRD and empty repository are not assumed. When an item below is decided, update the related placeholders across all linked documents.
 
@@ -21,6 +21,9 @@ Values that cannot be confirmed from the PRD and empty repository are not assume
 | How should upstream ingestion distinguish absent, empty, and whitespace-only optional cells? | TASK-006 preserves supplied `null`, empty strings, and whitespace-only strings exactly; the production CSV row parser contract remains unimplemented | Future row-ingestion design before production transformation | Row parser, transformer input, validator |
 | What public identifier text and share-URL format should be stable? | No prefix, encoding, truncation, or URL placement is approved | TASK-022 public-interface design | Static schema, routes, bookmarks, migration policy |
 | Which normalization-collision metrics permit publication? | TASK-006 must preserve and report every collision; thresholds remain unapproved | TASK-009 validation design | Validator, publication gate, search quality |
+| What proves a common coverage date for all 195 categories in a specific archive? | ADR-014 implements reviewed archive-bound date assertions but none is evidenced for production; ZIP date minus two is not approved | TASK-008 source-cut evidence | Validator coverage input, source research, freshness |
+| Which measured limits and baseline should production validation use? | Explicit policy/baseline interfaces are implemented with synthetic tests only; no production values or bootstrap approval are invented | TASK-008 calibration and reviewed baseline | Validator, later publication integration |
+| Where is the original PRD accessible on this Windows host? | Recorded macOS path is absent; current traceability supports implementation but not exact original-PRD acceptance | User-provided source or explicit authoritative-baseline direction | TASK-008 acceptance |
 
 ## Confirmed Answers
 

@@ -27,13 +27,18 @@ _Last updated: 2026-09-04_
 | FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 accepted: implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review passed; result-card UI remains pending | In progress |
 | FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 accepted: lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schemas, and missing-value tests passed; UI remains pending | In progress |
 | FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | `reports/test-2026-09-04-task-007.md`: unknown, partial, contradictory, whitespace, Unicode and empty-stage regressions pass; later search/UX conflicts remain pending | In progress |
-| FR-08 | Data as-of date | TASK-008, 014 | Page and card as-of-date tests | Planned |
+| FR-08 | Data as-of date | TASK-008, 014 | Accepted ADR-014; `reports/test-2026-09-04-task-008.md` V08–V09 verify archive-bound coverage and reject unsupported timestamps; production evidence and UI pending | In progress |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; UI and public documentation remain pending | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | URL encoding and new-window security tests | Planned |
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | E2E tests at primary viewports | Planned |
 | FR-12 | No collection of personal or usage data | TASK-019 | Network, storage, and script audit | Planned |
 | FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending | In progress |
-| FR-14 | Warning for data older than seven days | TASK-008, 015 | Boundary-date fixtures and UI tests | Planned |
+| FR-14 | Warning for data older than seven days | TASK-008, 015 | Accepted ADR-014; V09–V10 tests pass for Seoul calendar boundaries, unknown coverage and unchanged-archive aging; shared helper 100% coverage, UI pending | In progress |
+
+TASK-008's FR-13 validation contract is recorded in
+`docs/superpowers/specs/2026-09-04-task-008-validation-design.md` and
+`reports/test-2026-09-04-task-008.md`. Synthetic V01–V13 verification and full gates passed;
+production source-cut/policy evidence and TASK-009 last-known-good publication/recovery remain open.
 
 ## P1 Functional Requirements
 
@@ -50,7 +55,7 @@ _Last updated: 2026-09-04_
 | Cost | Zero mandatory monthly cost and no payment method | TASK-001, 002, 003, 010, 021 | Dependency, license, static-build, and deployment audit; TASK-002 reports plus TASK-003 dependency-license report and independent Tester PASS / Reviewer APPROVED reports | In progress |
 | Search quality | Exact name-and-address Top-3 recall >= 90% | TASK-013, 021 | Benchmark report | Planned |
 | Refresh reliability | Success rate >= 95% over the last 30 days | TASK-010, 021 | Actions run history | Planned |
-| Freshness | As-of date within seven days during normal operation | TASK-008, 015 | Stale-data check | Planned |
+| Freshness | As-of date within seven days during normal operation | TASK-008, 015 | TASK-008 helper and staged validator tests pass for reviewed coverage, unknown/stale distinction, and regression checks; production evidence remains unresolved | In progress |
 | Performance | LCP target 2.5 s, search 500 ms, code 300 KB | TASK-018 | Performance report | Planned |
 | Accessibility | Baseline WCAG 2.1 AA, zero critical automated errors | TASK-003, 017, 021 | TASK-003 Vitest/Playwright configuration, `reports/test-2026-08-24-task-003.md` PASS, and `reports/review-2026-08-24-task-003.md` APPROVED establish the automated foundation; product-level automated and manual audit remains pending | In progress |
 | Privacy | Zero collection of search terms or behavior | TASK-019, 021 | Network and code audit | Planned |

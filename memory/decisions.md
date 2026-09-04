@@ -314,3 +314,42 @@ available.
 **Consequences**: The user authorized implementation on 2026-09-04. Later mappings of
 detailed values or changes to exact pairs require official evidence, versioning, tests, and new
 human approval. TASK-008 retains production distribution and new-code validation ownership.
+
+## ADR-014: Evidence-Gated Staged Validation and Date-Only Freshness
+
+- Date: 2026-09-04
+- Status: Accepted (2026-09-04); implementation authorized
+- Decision maker: User (explicit approval in this session)
+
+**Context**: TASK-008 is active. The accepted collector proves archive/schema integrity and a
+common entry date; the V2 transformer proves identity and exact status mapping. No approved rule
+turns those timestamps into a complete source coverage date. No production row-count baseline,
+missing-value distribution, or JSON byte budget is available.
+
+**Decision**: Implement a pure staged validator with accepted/rejected/review_required
+outcomes, reusing the existing transformer. Require explicit reviewed limits, compatible baseline,
+complete ingestion evidence, and archive-bound coverage evidence before acceptance. Use Seoul
+calendar-day age and warn only when age exceeds seven days. Keep unknown raw aggregate pairs
+unverified and require review before accepting their refresh. Add a separate UTF-8 JSON syntax/size
+helper without selecting a public serialization or identifier format.
+
+**Rationale**: This makes failure behavior executable without inventing normal production
+distributions or overstating source precision. Missing evidence cannot become success. The
+provider's D-2 statement alone does not approve ZIP-date-minus-two as a coverage rule.
+
+**Trade-offs**: Synthetic implementation can proceed after approval, but production acceptance
+remains blocked until the coverage evidence and calibrated policies are available. Date-only
+freshness changes at Seoul midnight rather than an invented source time of day. Initial baseline
+approval is explicit and never automatic.
+
+**Consequences**: Approval authorizes only the staged validator, shared freshness helper, JSON
+helper, and offline tests described in
+`docs/superpowers/specs/2026-09-04-task-008-validation-design.md`. TASK-008 stays open until its
+production evidence and review gates pass. Parser/publication integration, normalization-collision
+publication policy, and atomic baseline/artifact promotion remain TASK-009. No dependency,
+workflow, source delivery, status mapping, public URL, or deployment change is approved here.
+
+**Implementation evidence**: `reports/test-2026-09-04-task-008.md` records 144 new offline tests,
+362 passing full-suite tests, unchanged global/mapper coverage gates, four browser tests and two
+accessibility scans. The validator, shared freshness helper, and JSON-byte helper are implemented.
+Source-cut and production-calibration gates remain open; this evidence does not authorize release.
