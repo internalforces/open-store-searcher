@@ -146,3 +146,19 @@ Korean handbook access is authorized by that delivery request.
 The approved V1 mapper deliberately ignores detailed status fields, even when they differ from
 aggregate evidence; later refinements require official evidence and new human approval.
 M1 remains open and its Korean handbook review gate has not been reached.
+
+## TASK-012 isolated PR delivery — 2026-09-05
+
+The user authorized commit, push and PR creation after TASK-012 approval. Created a dedicated
+worktree and branch codex/task-012-candidate-search from origin/main (095683a). Copied only the
+reviewed TASK-011 normalization prerequisite and TASK-012 engine/tests/design, with search-owned
+harness updates. Unrelated TASK-008 code, decoder dependency, reports and local state remain in
+the original checkout, untouched. Historical 557/581 test counts in the imported reports describe
+that original integration worktree, not this baseline. The delivery report records isolated checks.
+No implementation task is active; TASK-013 is next, TASK-008 stays deferred/incomplete. No deployment,
+merge, new dependency, public schema, production data or handbook changes are included.
+
+Isolated delivery verification passed on the actual PR contents: unchanged-lockfile clean install,
+399 tests, eight browser tests and two accessibility scans. Search implementation/test bytes match
+the independently approved original; see reports/delivery-2026-09-05-task-012.md. The user authorized
+pushing this branch and creating the PR against main. No merge or deployment is authorized here.

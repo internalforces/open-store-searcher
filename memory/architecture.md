@@ -163,3 +163,14 @@ See `memory/decisions.md` for details.
   `npm run verify:full` for task completion and release-oriented verification by adding the full
   browser matrix and desktop/mobile Chromium accessibility scans.
 - Keep `handbook/ko/**` outside linting, formatting, and all implementation context.
+
+## TASK-012 browser candidate engine — 2026-09-05
+
+The accepted search design is implemented in three pure modules under src/search: query
+interpretation, address parsing/comparison, and candidate index/ranking. TASK-011 projections
+remain shared unchanged. A transient generic index preserves exact typed original-record references,
+excludes malformed/duplicate-ID groups, and returns high/medium Top-3 separately from low matches.
+Address conflicts and ambiguity override scores; identifier tie order cannot create primary-match
+certainty. No Node, network, storage, logging or status-mapping dependency exists in the engine.
+Real-engine browser tests are now included in the existing e2e command sets. Public JSON/loading,
+UI, production-data recall and full-size performance remain their existing task boundaries.

@@ -11,6 +11,15 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
+No implementation task is active. TASK-011 and TASK-012 are complete with independent review.
+TASK-013 remains in backlog. See reports/delivery-2026-09-05-task-012.md for isolated PR checks.
+
+## Deferred — incomplete
+
+TASK-008 is deferred by the user’s M2 priority. Its baseline evidence below remains historical;
+separate local continuation work is not part of this search PR.
+
+
 ### TASK-008: Validate staged refreshes and freshness evidence
 
 - Owner: Planner / Researcher for remaining production evidence; staged implementation verified

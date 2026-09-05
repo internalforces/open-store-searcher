@@ -353,3 +353,37 @@ workflow, source delivery, status mapping, public URL, or deployment change is a
 362 passing full-suite tests, unchanged global/mapper coverage gates, four browser tests and two
 accessibility scans. The validator, shared freshness helper, and JSON-byte helper are implemented.
 Source-cut and production-calibration gates remain open; this evidence does not authorize release.
+
+## TASK-011 implementation choices — 2026-09-05
+
+The user requested TASK-011 execution after its scope assessment. Defer incomplete TASK-008
+and make TASK-011 the sole active implementation task; this does not close M1 or activate
+TASK-009/010. Use dependency-free browser pure functions and synthetic tests. Retain the source
+V1 contract and exact originals; common entity references are decoded once as text, punctuation
+is separated only in derived comparison keys, and address numbers/hyphens remain distinguishable.
+Count graphemes after normalization and punctuation cleanup for the two-character minimum.
+Keep combined input unclassified and expose both comparison views; do not infer a name/address
+split, aliases, a match, or status. No new public URL, source schema, service or deployment choice.
+
+Independent TASK-011 review refined the same implementation: candidate projection is exported
+separately from query rejection, Unicode dash punctuation becomes ASCII hyphen in address keys,
+and the bounded common-entity decoder handles case variants. These comparison-only changes
+preserve exact originals and the unchanged source V1 normalization baseline.
+
+## TASK-012 proposed search policy — 2026-09-05
+
+Status: Proposed, not accepted. The user selected TASK-012 for design and offline work.
+Recommend candidate-independent query interpretation, explicit address conflict vetoes, ordinal
+PRD ranking tiers, separate low-confidence results and stable identifier tie-breaking without
+false certainty. Details and synthetic acceptance matrix are in
+`docs/superpowers/specs/2026-09-05-task-012-search-design.md`. Human design review is pending;
+no runtime or source-status contract has changed.
+
+### TASK-012 acceptance and implementation
+
+The user explicitly approved the written proposal on 2026-09-05. Implemented and independently
+Approved after 581 tests, eight browser tests and two accessibility scans. Ordinal scores are
+not probabilities. The proposed tier 4 is subsumed by the bounded substring tier 3 and needs no
+unreachable code branch. Unclassified partial address text can retrieve low candidates by literal
+token substring, while any token containing digits must match in full. Generic references preserve
+status/source metadata for future typed UI consumers without altering their values or schema.
