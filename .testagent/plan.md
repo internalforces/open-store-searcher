@@ -1,11 +1,17 @@
-# TASK-008 Test Plan
+# TASK-013 quality test plan
 
-1. Record acceptance and create research/plan before production edits.
-2. Helpers: tests first for V09 Seoul boundaries/calendar errors and V12 byte/UTF-8/JSON errors,
-   capture red run, implement, and run narrow helper tests.
-3. Validator: synthetic 195-category evidence fixture; tests first for V01-V08/V10-V11/V13,
-   capture red run, implement typed boundary, metrics/policy, and result handling.
-4. Add any uncovered concrete acceptance cases; use focused runs while resolving errors.
-5. Run pinned full verification once implementation is stable, preserve existing thresholds.
-6. Independently review behavior and assertions; fix findings, rerun affected gates, record
-   exact names in reports and .testagent/status.md. Keep TASK-008 open for production evidence.
+1. Write consumed synthetic corpus and independent expected IDs, README and evaluator tests first.
+2. Q02/Q03/Q06: assert hand-calculated metric outcomes, rank 3 vs 4, low-only misses and empty set.
+3. Q05: reject duplicate cases/records, malformed data and labels referencing missing records.
+4. Q01/Q04: corpus safety assertions and status/reference preservation, no inferred closure.
+5. Q07: deterministic reversed-record rerun and actual CLI output/exit check.
+6. Implement evaluator and offline CLI, preserve every observed miss without changing scores.
+7. Run focused/full verification, independent review, report Q08 as open if no source sample arrives.
+
+## Completion execution
+
+1. Fix source selection before scoring; independently review policy and replay extraction.
+2. Observe synthetic and source failures, write P01/P02 regressions, implement targeted parser fixes.
+3. Preserve all targets/labels and monotonic competitor closure; verify unchanged source corpus.
+4. Add Q08 checked source path and Q03 preview regression; include both quality gates in verify:full.
+5. Final focused/full verification, independently reviewed source/code/report evidence, completion records.

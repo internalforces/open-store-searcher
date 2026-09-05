@@ -339,3 +339,18 @@ test('preserves source and status types on original record references', () => {
   expect(result.primaryMatch?.record.source).toBe('synthetic-source');
   expect(result.primaryMatch?.record.dataAsOf).toBe('2026-09-05');
 });
+
+test('keeps recovered address-like names eligible without automatic primary selection', () => {
+  const index = createSearchIndex([
+    record('target', '신사동', '서울특별시 강남구 테헤란로 12'),
+    record('conflict', '신사동', '서울특별시 서초구 테헤란로 12'),
+  ]);
+  const result = searchCandidates(index, '신사동 서울특별시 강남구 테헤란로 12');
+  expect(matchIds(result)).toEqual(['target']);
+  expect(result.topMatches[0]?.confidence).toBe('medium');
+  expect(result.primaryMatch).toBeNull();
+  expect(similarIds(result)).toContain('conflict');
+  expect(
+    result.similarCandidates.find((match) => match.record.id === 'conflict')?.reasons,
+  ).toContain('address_conflict:district');
+});

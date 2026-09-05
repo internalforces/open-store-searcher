@@ -38,7 +38,7 @@ export function addressWord(
 ): { kind: Component; value: string; number: string } | null {
   if (SEOUL.has(word)) return { kind: 'province', value: '서울특별시', number: '' };
   if (NUMBER.test(word)) return { kind: 'number', value: word, number: '' };
-  const match = /^(.+(?:대로|로|길|구|동|읍|면|리))(\d+(?:-\d+)?)?$/u.exec(word);
+  const match = /^(.+(?:대로|로|길|구|동|읍|면|리|\d+가))(\d+(?:-\d+)?)?$/u.exec(word);
   if (!match?.[1]) return null;
   const value = match[1];
   const kind = /(?:대로|로|길)$/u.test(value)
@@ -71,14 +71,47 @@ export function parseSearchAddress(value: string): AddressParts {
     if (parts[kind]) parts.ambiguous = true;
     else parts[kind] = text;
   };
-  for (const word of addressWords(projection)) {
-    const component = addressWord(word);
-    if (!component) {
+  // Floor/unit lists describe a location within a building, not additional street/lot numbers.
+  const componentsText = projection.normalized.replace(
+    /(?<![\p{L}\p{N}])(?:지상|지하)?\d+(?:-\d+)?(?:,\s*\d+(?:-\d+)?)*(?:층|호)+/gu,
+    ' ',
+  );
+  let depth = 0;
+  let mountain = false;
+  const componentWords: { word: string; annotation: boolean }[] = [];
+  for (const token of componentsText.match(/[()]|[^\s()]+/gu) ?? []) {
+    if (token === '(') {
+      depth++;
+      continue;
+    }
+    if (token === ')') {
+      depth = Math.max(0, depth - 1);
+      continue;
+    }
+    for (const word of addressWords(projectSearchText(token)))
+      componentWords.push({ word, annotation: depth > 0 });
+  }
+  for (const { word, annotation } of componentWords) {
+    if (parts.number && /^(?:\d+|[a-z]\d*-?|상가)동$/u.test(word)) {
       previous = null;
       continue;
     }
+    if (word === '산' && previous === 'locality') {
+      mountain = true;
+      continue;
+    }
+    const component = addressWord(word);
+    if (!component) {
+      previous = null;
+      mountain = false;
+      continue;
+    }
     if (component.kind === 'number') {
-      if (previous === 'road' || previous === 'locality') assign('number', component.value);
+      if (annotation && parts.road && parts.number && previous === 'locality') {
+        // Parenthesized parcel evidence cannot replace a road's primary building number.
+      } else if (previous === 'road' || previous === 'locality') {
+        assign('number', mountain ? `산 ${component.value}` : component.value);
+      }
       // Additional standalone numbers cannot overwrite the building/lot number.
       else parts.ambiguous = true;
     } else {
@@ -89,6 +122,7 @@ export function parseSearchAddress(value: string): AddressParts {
         else parts.ambiguous = true;
       }
     }
+    mountain = false;
     previous = component.kind;
   }
   parts.family = parts.road ? 'road' : parts.locality ? 'parcel' : 'unspecified';

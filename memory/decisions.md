@@ -387,3 +387,22 @@ not probabilities. The proposed tier 4 is subsumed by the bounded substring tier
 unreachable code branch. Unclassified partial address text can retrieve low candidates by literal
 token substring, while any token containing digits must match in full. Generic references preserve
 status/source metadata for future typed UI consumers without altering their values or schema.
+
+## TASK-013 implementation choices — 2026-09-05
+
+The user's activation/implementation request authorizes this bounded offline test harness.
+Measure the unchanged engine's first three topMatches against explicit exact-case target IDs;
+include low-only and omitted tie targets as misses, with null metrics for an empty denominator.
+Keep synthetic provenance, numerical threshold, safety failures and release approval separate.
+These are internal test/report decisions, not new public interfaces or source/status policies.
+Do not tune scores, remove failure cases or close the task from synthetic measurement alone.
+
+## TASK-013 completion continuation — 2026-09-05
+
+The user's explicit completion request authorizes the bounded FR-03/07 parser correction and
+source-backed benchmark. Preserve literal values and all original targets; keep scores, Top-3,
+status rules and infrastructure unchanged. The explicit Seoul boundary and detailed-address
+component rules are recorded in the completion specification. Recovered address-like names cap
+at medium so they cannot acquire primary status. Final source competitor closure is a monotonic
+predeclared-predicate replay and returned byte-identical records/labels. Both fixed corpora now
+meet >=90%; sample-specific success does not approve the entire release.

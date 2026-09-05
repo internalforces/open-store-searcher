@@ -162,3 +162,61 @@ Isolated delivery verification passed on the actual PR contents: unchanged-lockf
 399 tests, eight browser tests and two accessibility scans. Search implementation/test bytes match
 the independently approved original; see reports/delivery-2026-09-05-task-012.md. The user authorized
 pushing this branch and creating the PR against main. No merge or deployment is authorized here.
+
+## TASK-013 activation — 2026-09-05
+
+Activated on explicit user instruction in the isolated task013-quality worktree from merged main.
+Original dirty TASK-008/TASK-011/TASK-012 work is preserved. The offline fixture/evaluator design
+uses the accepted engine unchanged; provenance and realistic recall evidence remain explicit gates.
+
+## TASK-013 implementation checkpoint — 2026-09-05
+
+User requested activation and implementation. Worktree `.worktrees/task013-quality`, branch
+`codex/task-013-search-quality`, starts from merged PR #13 (`ea75673`) and preserves all original
+uncommitted integration changes. Added 24 synthetic records / 42 cases, strict offline evaluator,
+deterministic hash/runtime-bound CLI and 32 unit/CLI tests. Pinned verify:full exited 0: 431 tests,
+eight browser tests and two zero-violation accessibility scans. Independent Reviewer Approved
+for the bounded harness; reports/test-2026-09-05-task-013.md and review-2026-09-05-task-013.md
+in that worktree contain exact evidence.
+
+Exact Top-3 recall is 25/30 (83.3333%), safety failures zero; --check correctly exits 1. Misses:
+two address-like business-name suffix cases, two excluded identical licensing ties, one address-like
+name. Every miss remains labeled. The user was asked for the earlier source test list; none arrived.
+TASK-013 stays active for reviewed source-sample/annotation evidence and >=90% acceptance; it has
+not moved to completed.md. TASK-008 stays deferred/incomplete, TASK-014 is not activated, and no
+milestone closes. No production engine, source/status contract, dependency, public interface,
+workflow, deployment, commit, push or handbook change occurred.
+
+## TASK-013 completion verification — 2026-09-05
+
+The user explicitly requested completion. Preserved all synthetic labels and acquired a reviewed
+100-target, 25-district source restaurant sample with 2,803 candidates. Independent replay confirmed
+source identity/projection, targets/backgrounds, hashes and final comparator closure. Address
+interpretation fixes improve synthetic 25/30 -> 28/30 and source 39/100 -> 98/100, safety zero.
+Source parser diagnostics and before reports remain bound, not overwritten with favorable numbers.
+Pinned verify:full passed 443 tests, eight browser tests and two zero-violation a11y scans; both
+numeric quality checks are now included. Final Reviewer verdict/completion transition is in progress.
+TASK-008 remains deferred/incomplete; no milestone, deployment, status/public interface or dependency
+change occurred. Work remains isolated in `.worktrees/task013-quality`; original dirty work is preserved.
+
+## TASK-013 completed — 2026-09-05
+
+Final independent Reviewer Approved and all requirements for bounded TASK-013 are satisfied.
+Moved TASK-013 to tasks/completed.md; no implementation task remains active. Work is in
+`.worktrees/task013-quality` on `codex/task-013-search-quality`, preserving original dirty work.
+The reviewed fixed corpora score synthetic28/30 (93.3333%) and source98/100 (98%), safety zero.
+Pinned verify:full passed 443 tests, eight browser tests and two zero-violation a11y scans.
+The accepted 216,223,358-byte research ZIP and its owned staging root were removed after
+independent source replay; cleanup evidence is in reports/source-2026-09-05-task-013-collection.json.
+TASK-014 is next, not activated. TASK-008 and all production freshness/publication, UI, performance
+and release gates remain separate. No dependency, workflow permission, deployment, commit, push,
+status mapping/public identifier or Korean handbook changes occurred. No milestone closed.
+
+## TASK-013 PR delivery authorization — 2026-09-05
+
+The user authorized committing, pushing, and creating a PR for the completed TASK-013 work.
+Delivery uses the isolated `codex/task-013-search-quality` branch from `ea75673`, which still
+matches `origin/main` at delivery preparation. The final reviewed implementation and fixed
+quality evidence are unchanged since the successful pinned verify:full run. Original integration
+checkout changes remain outside this commit. The PR targets main; merge and deployment are
+separate actions.

@@ -1,19 +1,19 @@
-# TASK-008 Test Research
+# TASK-013 bounded quality harness research
 
-Broad scope: staged refresh validation, shared freshness, and JSON-byte validation.
-ADR-014 explicitly approved on 2026-09-04. Only synthetic inputs and reviewed policy-shaped
-fixtures are authorized; no production defaults or publication path.
+Target: new offline evaluator under tests/quality, consumed fixtures under tests/fixtures/search,
+unit tests in src/search, and one scripts CLI. Existing Vitest unit project and Vite SSR loader
+are available. No new dependency or browser entry import. Test discovery helper is unavailable;
+target pairing is src/search/search-quality.test.ts -> tests/quality/evaluate-search-quality.ts.
 
-Targets: new src/pipeline/validate-license-refresh.ts, validation metrics/contracts if needed,
-src/shared/data-freshness.ts, src/pipeline/validate-json-bytes.ts. Existing collector, transformer,
-and mapper stay authoritative. Vitest colocated unit/pipeline tests, exact assertions, Node
-24.19.0, global coverage 80/80/80/75 and mapper 100% apply.
+Checklist: Q01 provenance and explicit labels; Q02 exact Top-3 denominator and misses;
+Q03 family/low-only reporting; Q04 conflicts/ties/absence and original status preservation;
+Q05 malformed/duplicate labels and invalid records; Q06 empty denominator and 90% boundary;
+Q07 deterministic report and CLI; Q08 representative evidence remains unavailable.
 
-Checklist: approved design V01-V13: provenance/complete ingestion; duplicates and identity;
-count/missing/status distributions; date evidence and seven-day Seoul boundaries; baseline and
-policy gaps; UTF-8 JSON byte validation; deterministic non-mutating results. V14 publication,
-source-cut evidence, production calibration, and original PRD access remain explicit blockers.
+## Completion scope
 
-No callable source-pairing, test-gap-analysis, assertion-quality, or named testing-generator tool
-was found. Bounded inventory and quality review run inline, with delegated helper implementation
-and an independent final reviewer. Existing TASK-007 evidence remains in its reports.
+Add P01 explicit Seoul/name boundaries and no-primary confidence cap; P02 real detailed-address
+components with numeric/mountain/conflict safety. Add Q08 100-source-target provenance/threshold
+checks. Q03 report preview must preserve target membership beyond ten similar IDs. Independent
+source extraction and comparator-closure replay supply annotation/evidence checks unavailable to
+pure unit tests. Baseline engine remains isolated and hash-bound for before/after metrics.

@@ -151,3 +151,13 @@ Completed evidence: `reports/test-2026-09-05-task-012.md` and independent
 fields. The subsumed tier 4 has no dead implementation branch. Literal unclassified address
 fallback allows partial text tokens at low confidence; tokens containing digits require whole-token
 equality. These are implementation clarifications within the accepted conservative policy.
+
+## TASK-013 verified extension — 2026-09-05
+
+The TASK-013 completion request subsequently authorized targeted query/address interpretation
+corrections, documented in the TASK-013 completion specification. That later contract supersedes
+this document's blanket low-confidence treatment when an explicit province/known-district boundary
+recovers an address-shaped name: such results cap at medium and cannot select a primary. Detailed
+source addresses retain full keys while components distinguish units, numbered legal localities,
+mountain qualifiers and parenthesized parcel evidence. Actual contradictions remain low-confidence
+vetoes. Ordinal scores, Top-3 limit and status/source/public-identifier rules are unchanged.

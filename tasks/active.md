@@ -11,8 +11,9 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-011 and TASK-012 are complete with independent review.
-TASK-013 remains in backlog. See reports/delivery-2026-09-05-task-012.md for isolated PR checks.
+No implementation task is active. TASK-013 completed on 2026-09-05 after independent Approved
+review, source replay and pinned full verification (443 tests, 8 browser, 2 a11y). See
+`tasks/completed.md` and the evidence in `.worktrees/task013-quality`. TASK-014 is next in backlog.
 
 ## Deferred — incomplete
 
