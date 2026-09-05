@@ -174,3 +174,25 @@ Address conflicts and ambiguity override scores; identifier tie order cannot cre
 certainty. No Node, network, storage, logging or status-mapping dependency exists in the engine.
 Real-engine browser tests are now included in the existing e2e command sets. Public JSON/loading,
 UI, production-data recall and full-size performance remain their existing task boundaries.
+
+## TASK-013 offline search quality harness — 2026-09-05
+
+`tests/quality/evaluate-search-quality.ts` validates a small fixture envelope and calls the existing
+browser search engine. `tests/fixtures/search` holds consumed synthetic records, fixed target labels
+and provenance. `scripts/measure-search-quality.mjs` uses the installed Vite SSR loader without a
+listening server, emits deterministic hash/runtime-bound JSON, and offers an explicit failing
+quality check. None of these modules is imported by the browser entry or production pipeline.
+
+## TASK-013 completed search-quality extension — 2026-09-05
+
+Query interpretation uses explicit name-first province-plus-known-district boundaries to retain
+complete source address keys. Address components distinguish legal numbered localities, mountain
+lots, building/unit/floor detail and parenthesized parcel evidence without removing actual road
+or district contradictions. Inferred name boundaries cap confidence at medium. Scores, public
+artifact schema, original values and status mapping remain unchanged.
+
+The offline quality CLI selects one of two fixed fixture corpora with `--source`; the combined
+quality check is included in verify:full. Reports contain bounded similar-ID previews, full target
+membership/counts and separate numeric/safety/release outcomes. A research-only two-pass sampler
+uses the existing approved collector/decoder environment; production/browser code imports neither
+that sampler nor the fixtures. Source metadata records retrieval evidence without asserting cutoff.

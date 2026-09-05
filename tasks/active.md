@@ -11,8 +11,9 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-011 and TASK-012 are complete with independent review.
-TASK-013 remains in backlog. See reports/delivery-2026-09-05-task-012.md for isolated PR checks.
+No implementation task is active. TASK-013 PR #14 review remediation completed on 2026-09-05
+with independent Reviewer Approved and pinned full verification (455 tests, eight browser tests,
+two accessibility scans). Evidence: `reports/review-2026-09-05-pr14.md`. TASK-014 remains next.
 
 ## Deferred — incomplete
 

@@ -1,0 +1,630 @@
+{
+  "id": "seoul-synthetic-v1",
+  "provenance": {
+    "kind": "synthetic",
+    "description": "Authored TASK-013 regression corpus; all business/address combinations and statuses are fictional. No source sample or user behavior.",
+    "annotation": "Targets assigned before measurement from fixture identity; ties retain each licensing target independently."
+  },
+  "records": [
+    {
+      "id": "gangnam",
+      "name": "해솔커피",
+      "roadAddress": "서울특별시 강남구 테헤란로 12",
+      "parcelAddress": "서울특별시 강남구 역삼동 12-1",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "mapo",
+      "name": "해솔커피",
+      "roadAddress": "서울특별시 마포구 월드컵로 120",
+      "parcelAddress": "서울특별시 마포구 성산동 120",
+      "rawStatus": "02",
+      "processedStatus": "휴업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "jongno",
+      "name": "달빛서점",
+      "roadAddress": "서울특별시 종로구 자하문로 21",
+      "parcelAddress": "서울특별시 종로구 통인동 21",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "jung",
+      "name": "모아식당",
+      "roadAddress": "서울특별시 중구 퇴계로 101",
+      "parcelAddress": "서울특별시 중구 필동 101-2",
+      "rawStatus": "99",
+      "processedStatus": "확인되지 않음",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "songpa",
+      "name": "고운분식",
+      "roadAddress": "서울특별시 송파구 백제고분로 33",
+      "parcelAddress": "서울특별시 송파구 석촌동 33",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "seongdong",
+      "name": "느린공방",
+      "roadAddress": "서울특별시 성동구 왕십리로 42",
+      "parcelAddress": "서울특별시 성동구 성수동 42-1",
+      "rawStatus": "02",
+      "processedStatus": "휴업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "eunpyeong",
+      "name": "푸른세탁",
+      "roadAddress": "서울특별시 은평구 통일로 55",
+      "parcelAddress": "서울특별시 은평구 불광동 55",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "gwanak",
+      "name": "산들빵집",
+      "roadAddress": "서울특별시 관악구 관악로 76",
+      "parcelAddress": "서울특별시 관악구 봉천동 76",
+      "rawStatus": "99",
+      "processedStatus": "확인되지 않음",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "gangseo",
+      "name": "별담문구",
+      "roadAddress": "서울특별시 강서구 화곡로 87",
+      "parcelAddress": "서울특별시 강서구 화곡동 87-2",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "dobong",
+      "name": "온유미용",
+      "roadAddress": "서울특별시 도봉구 도봉로 98",
+      "parcelAddress": "서울특별시 도봉구 쌍문동 98",
+      "rawStatus": "02",
+      "processedStatus": "휴업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "yeongdeungpo",
+      "name": "라온약국",
+      "roadAddress": "서울특별시 영등포구 선유로 109",
+      "parcelAddress": "서울특별시 영등포구 양평동 109",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "guro",
+      "name": "한결상점",
+      "roadAddress": "서울특별시 구로구 경인로 111",
+      "parcelAddress": "서울특별시 구로구 오류동 111",
+      "rawStatus": "99",
+      "processedStatus": "확인되지 않음",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "num-120",
+      "name": "해솔커피",
+      "roadAddress": "서울특별시 강남구 테헤란로 120",
+      "parcelAddress": "",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "num-12-1",
+      "name": "해솔커피",
+      "roadAddress": "서울특별시 강남구 테헤란로 12-1",
+      "parcelAddress": "",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "num-121",
+      "name": "해솔커피",
+      "roadAddress": "서울특별시 강남구 테헤란로 121",
+      "parcelAddress": "",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "other-road",
+      "name": "해솔커피",
+      "roadAddress": "서울특별시 강남구 봉은사로 12",
+      "parcelAddress": "",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "missing-address",
+      "name": "해솔커피",
+      "roadAddress": "",
+      "parcelAddress": "",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "contradictory",
+      "name": "해솔커피",
+      "roadAddress": "서울특별시 강남구 테헤란로 12",
+      "parcelAddress": "서울특별시 마포구 성산동 120",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "tie-a",
+      "name": "겹꽃서점",
+      "roadAddress": "서울특별시 종로구 자하문로 21",
+      "parcelAddress": "서울특별시 종로구 통인동 21",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "tie-b",
+      "name": "겹꽃서점",
+      "roadAddress": "서울특별시 종로구 자하문로 21",
+      "parcelAddress": "서울특별시 종로구 통인동 21",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "tie-c",
+      "name": "겹꽃서점",
+      "roadAddress": "서울특별시 종로구 자하문로 21",
+      "parcelAddress": "서울특별시 종로구 통인동 21",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "tie-d",
+      "name": "겹꽃서점",
+      "roadAddress": "서울특별시 종로구 자하문로 21",
+      "parcelAddress": "서울특별시 종로구 통인동 21",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "tie-e",
+      "name": "겹꽃서점",
+      "roadAddress": "서울특별시 종로구 자하문로 21",
+      "parcelAddress": "서울특별시 종로구 통인동 21",
+      "rawStatus": "03",
+      "processedStatus": "폐업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    },
+    {
+      "id": "address-like-name",
+      "name": "신사동",
+      "roadAddress": "서울특별시 강남구 테헤란로 12",
+      "parcelAddress": "서울특별시 강남구 역삼동 12-1",
+      "rawStatus": "01",
+      "processedStatus": "행정상 영업",
+      "source": "synthetic TASK-013; not a real license",
+      "dataAsOf": "2026-09-05"
+    }
+  ],
+  "cases": [
+    {
+      "id": "gangnam-road",
+      "family": "exact-road",
+      "query": "해솔커피 서울특별시 강남구 테헤란로 12",
+      "targetId": "gangnam",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "gangnam-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 강남구 역삼동 12-1 해솔커피",
+      "targetId": "gangnam",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "mapo-road",
+      "family": "exact-road",
+      "query": "해솔커피 서울특별시 마포구 월드컵로 120",
+      "targetId": "mapo",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "mapo-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 마포구 성산동 120 해솔커피",
+      "targetId": "mapo",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "jongno-road",
+      "family": "exact-road",
+      "query": "달빛서점 서울특별시 종로구 자하문로 21",
+      "targetId": "jongno",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "jongno-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 종로구 통인동 21 달빛서점",
+      "targetId": "jongno",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "jung-road",
+      "family": "exact-road",
+      "query": "모아식당 서울특별시 중구 퇴계로 101",
+      "targetId": "jung",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "jung-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 중구 필동 101-2 모아식당",
+      "targetId": "jung",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "songpa-road",
+      "family": "exact-road",
+      "query": "고운분식 서울특별시 송파구 백제고분로 33",
+      "targetId": "songpa",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "songpa-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 송파구 석촌동 33 고운분식",
+      "targetId": "songpa",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "seongdong-road",
+      "family": "exact-road",
+      "query": "느린공방 서울특별시 성동구 왕십리로 42",
+      "targetId": "seongdong",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "seongdong-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 성동구 성수동 42-1 느린공방",
+      "targetId": "seongdong",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "eunpyeong-road",
+      "family": "exact-road",
+      "query": "푸른세탁 서울특별시 은평구 통일로 55",
+      "targetId": "eunpyeong",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "eunpyeong-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 은평구 불광동 55 푸른세탁",
+      "targetId": "eunpyeong",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "gwanak-road",
+      "family": "exact-road",
+      "query": "산들빵집 서울특별시 관악구 관악로 76",
+      "targetId": "gwanak",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "gwanak-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 관악구 봉천동 76 산들빵집",
+      "targetId": "gwanak",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "gangseo-road",
+      "family": "exact-road",
+      "query": "별담문구 서울특별시 강서구 화곡로 87",
+      "targetId": "gangseo",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "gangseo-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 강서구 화곡동 87-2 별담문구",
+      "targetId": "gangseo",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "dobong-road",
+      "family": "exact-road",
+      "query": "온유미용 서울특별시 도봉구 도봉로 98",
+      "targetId": "dobong",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "dobong-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 도봉구 쌍문동 98 온유미용",
+      "targetId": "dobong",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "yeongdeungpo-road",
+      "family": "exact-road",
+      "query": "라온약국 서울특별시 영등포구 선유로 109",
+      "targetId": "yeongdeungpo",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "yeongdeungpo-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 영등포구 양평동 109 라온약국",
+      "targetId": "yeongdeungpo",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "guro-road",
+      "family": "exact-road",
+      "query": "한결상점 서울특별시 구로구 경인로 111",
+      "targetId": "guro",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "guro-parcel",
+      "family": "exact-parcel",
+      "query": "서울특별시 구로구 오류동 111 한결상점",
+      "targetId": "guro",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "tie-a",
+      "family": "exact-tie",
+      "query": "겹꽃서점 서울특별시 종로구 자하문로 21",
+      "targetId": "tie-a",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "tie-b",
+      "family": "exact-tie",
+      "query": "겹꽃서점 서울특별시 종로구 자하문로 21",
+      "targetId": "tie-b",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "tie-c",
+      "family": "exact-tie",
+      "query": "겹꽃서점 서울특별시 종로구 자하문로 21",
+      "targetId": "tie-c",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "tie-d",
+      "family": "exact-tie",
+      "query": "겹꽃서점 서울특별시 종로구 자하문로 21",
+      "targetId": "tie-d",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "tie-e",
+      "family": "exact-tie",
+      "query": "겹꽃서점 서울특별시 종로구 자하문로 21",
+      "targetId": "tie-e",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "name-syntax",
+      "family": "exact-ambiguous-name",
+      "query": "신사동 서울특별시 강남구 테헤란로 12",
+      "targetId": "address-like-name",
+      "exact": true,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "alias",
+      "family": "normalization",
+      "query": "해솔커피 서울시 강남구 테헤란로 12",
+      "targetId": "gangnam",
+      "exact": false,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "notation",
+      "family": "normalization",
+      "query": "해솔커피　서울특별시 강남구 테헤란로 １２",
+      "targetId": "gangnam",
+      "exact": false,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "partial",
+      "family": "partial-name",
+      "query": "달빛 서울특별시 종로구 자하문로 21",
+      "targetId": "jongno",
+      "exact": false,
+      "forbiddenTopIds": [],
+      "primary": "any"
+    },
+    {
+      "id": "name-only",
+      "family": "same-name",
+      "query": "해솔커피",
+      "targetId": "gangnam",
+      "exact": false,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "conflict-district",
+      "family": "conflict",
+      "query": "해솔커피 서울특별시 서초구 테헤란로 12",
+      "targetId": null,
+      "exact": false,
+      "forbiddenTopIds": ["gangnam", "mapo", "contradictory"],
+      "primary": "none"
+    },
+    {
+      "id": "conflict-road",
+      "family": "conflict",
+      "query": "해솔커피 서울특별시 강남구 도산대로 12",
+      "targetId": null,
+      "exact": false,
+      "forbiddenTopIds": ["gangnam", "other-road"],
+      "primary": "none"
+    },
+    {
+      "id": "conflict-locality",
+      "family": "conflict",
+      "query": "해솔커피 서울특별시 강남구 삼성동 12-1",
+      "targetId": null,
+      "exact": false,
+      "forbiddenTopIds": ["gangnam"],
+      "primary": "none"
+    },
+    {
+      "id": "number-12",
+      "family": "numeric",
+      "query": "해솔커피 서울특별시 강남구 테헤란로 12",
+      "targetId": "gangnam",
+      "exact": false,
+      "forbiddenTopIds": ["num-120", "num-12-1", "num-121", "contradictory"],
+      "primary": "any"
+    },
+    {
+      "id": "number-hyphen",
+      "family": "numeric",
+      "query": "해솔커피 서울특별시 강남구 테헤란로 12-1",
+      "targetId": "num-12-1",
+      "exact": false,
+      "forbiddenTopIds": ["gangnam", "num-121"],
+      "primary": "any"
+    },
+    {
+      "id": "absent",
+      "family": "missing",
+      "query": "없는가상업소",
+      "targetId": null,
+      "exact": false,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "empty",
+      "family": "invalid",
+      "query": "",
+      "targetId": null,
+      "exact": false,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    },
+    {
+      "id": "absent-with-address",
+      "family": "missing",
+      "query": "없는가상업소 서울특별시 강남구 테헤란로 999",
+      "targetId": null,
+      "exact": false,
+      "forbiddenTopIds": [],
+      "primary": "none"
+    }
+  ]
+}

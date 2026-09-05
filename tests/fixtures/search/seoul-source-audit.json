@@ -1,0 +1,2580 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do",
+  "provider": "행정안전부",
+  "permission": "이용허락범위 제한 없음",
+  "permissionCheckedAt": "2026-09-05",
+  "fetchedAt": "2026-09-05T11:52:59.156Z",
+  "dataAsOf": null,
+  "archiveSha256": "fd95ab10c6b0cbb5e638b36b911da66880b0a42e429f4bea50b97292862ae4e5",
+  "memberName": "식품_일반음식점.csv",
+  "memberSha256": "3ad2508567be77202a13b95a3d1bb533dcb0056ec70937db114850ef3bd8e51a",
+  "memberBytes": 161702389,
+  "sourceRows": 538191,
+  "projectedRows": 538191,
+  "peakRssBytes": 362758144,
+  "exclusions": {
+    "missingIdentity": 0,
+    "missingName": 0,
+    "missingAddress": 0,
+    "noSingleDistrict": 13
+  },
+  "stratumCounts": {
+    "종로구": 20561,
+    "중구": 22678,
+    "용산구": 16629,
+    "성동구": 15220,
+    "광진구": 18316,
+    "동대문구": 21992,
+    "중랑구": 17652,
+    "성북구": 18335,
+    "강북구": 17269,
+    "도봉구": 11985,
+    "노원구": 16435,
+    "은평구": 17639,
+    "서대문구": 18306,
+    "마포구": 29974,
+    "양천구": 17973,
+    "강서구": 23958,
+    "구로구": 19725,
+    "금천구": 13910,
+    "영등포구": 28302,
+    "동작구": 14447,
+    "관악구": 23333,
+    "서초구": 27644,
+    "강남구": 51291,
+    "송파구": 31221,
+    "강동구": 23383
+  },
+  "targetCount": 100,
+  "backgroundCount": 400,
+  "collisionRows": 2402,
+  "partialCoreRows": 1,
+  "recordCount": 2803,
+  "corpusSha256": "3b5e235e52ad91c710c2f1e22d1d9a343a2cba895c079554f2434989f1063553",
+  "runtime": {
+    "node": "v24.19.0",
+    "icu": "78.3"
+  },
+  "targets": [
+    {
+      "id": "00023e143ff61145b5136aacd4054e5c84ffcddda6e9efe2365ff5dc1e199b97",
+      "sourceRow": 3893,
+      "district": "종로구"
+    },
+    {
+      "id": "0003c366c708fc8a94b510bf28b554865c448c65e943efb3fe1ef26e004168b6",
+      "sourceRow": 1965,
+      "district": "종로구"
+    },
+    {
+      "id": "0004f6d993d009e461838c124c6448ed3ba0ec8a287f8e8a3a3be812f3a9d2ce",
+      "sourceRow": 9196,
+      "district": "종로구"
+    },
+    {
+      "id": "0005ed599b020c5fbf6e8fee60e3868dd244770ad846a9e129e3b0c76bd81277",
+      "sourceRow": 9751,
+      "district": "종로구"
+    },
+    {
+      "id": "0001746fe801b0b6cc6eed1708bbb01c3067a8e2e6a591377bdfa1e078835ed9",
+      "sourceRow": 38566,
+      "district": "중구"
+    },
+    {
+      "id": "0003930a25a1e15ec033011b22322620251a45535cf2457c02cc7b0565e00d91",
+      "sourceRow": 21143,
+      "district": "중구"
+    },
+    {
+      "id": "000925e1df300bf21df227e7781d0f4b46c732ce5c298c1b8b84f7bcacd215ce",
+      "sourceRow": 41057,
+      "district": "중구"
+    },
+    {
+      "id": "000c518b751673515122af19196f2a1b062f84ce38d12d01146740eaf070bb31",
+      "sourceRow": 26863,
+      "district": "중구"
+    },
+    {
+      "id": "000270cb51d21accc1e3c1005ee20f5948b9931724a3484be5eabb250fe8d4c3",
+      "sourceRow": 55514,
+      "district": "용산구"
+    },
+    {
+      "id": "0004ec27d012d9e4b5805ef2decbdfbb06d42d2bc600bc5ad00ca769185aa5fc",
+      "sourceRow": 47325,
+      "district": "용산구"
+    },
+    {
+      "id": "00051aa0db310d3120317b6e3666cd19b26e735bd84874885dc7b56c4d2a52e8",
+      "sourceRow": 54026,
+      "district": "용산구"
+    },
+    {
+      "id": "0006a49355a9697091e1ed19ad4b0ece32bc631957b03f3317d95ce41dfac471",
+      "sourceRow": 57670,
+      "district": "용산구"
+    },
+    {
+      "id": "0007a3510d815057b522b99d172d077090948c556d8c0bcda5516db3b4e3d017",
+      "sourceRow": 61274,
+      "district": "성동구"
+    },
+    {
+      "id": "0007e60e964c680270ef544d8ae6abbeb28eb67dde3bbd4bcd9f0057fb2d94c9",
+      "sourceRow": 74074,
+      "district": "성동구"
+    },
+    {
+      "id": "00092c904675881e885874d10297670b83b1e370744b3c1de469480c155a6f58",
+      "sourceRow": 73986,
+      "district": "성동구"
+    },
+    {
+      "id": "0009c1d79946c534ff2febd7f2dab7404202507f5fc182705869947e702d0e19",
+      "sourceRow": 62365,
+      "district": "성동구"
+    },
+    {
+      "id": "00045c26325b7af9ac267145fd2255c3752c434c01f88aa303db87a09cd3f85c",
+      "sourceRow": 93395,
+      "district": "광진구"
+    },
+    {
+      "id": "0008ce50829cc5588cb6c4d2e1f71dbd8702d98b450a2be45f7b83f0bf3aab87",
+      "sourceRow": 82074,
+      "district": "광진구"
+    },
+    {
+      "id": "0008e0c6f7a9db5ae5456d10689be3c11322c5abbad695e606f991d8ea68639e",
+      "sourceRow": 88553,
+      "district": "광진구"
+    },
+    {
+      "id": "000d167af9ad11196430cb694e87e56162c928e11e18daa1939de14a3d3b0a45",
+      "sourceRow": 91831,
+      "district": "광진구"
+    },
+    {
+      "id": "000033203f53f8e6f92291541ac88469561aa82a8f92135bbb2cca6d60f50b49",
+      "sourceRow": 101681,
+      "district": "동대문구"
+    },
+    {
+      "id": "000364bcb49becd250ab3e1521d4981b9ab9e611756614386ddb96d34cd958ca",
+      "sourceRow": 96353,
+      "district": "동대문구"
+    },
+    {
+      "id": "00042664358c54223ad933fed4d617c033d1badcaac08e307b4118231fb7c02b",
+      "sourceRow": 111969,
+      "district": "동대문구"
+    },
+    {
+      "id": "000445bcfc4c167c922939b7558378be06c8886f41cace7392acc48a70415f8a",
+      "sourceRow": 113751,
+      "district": "동대문구"
+    },
+    {
+      "id": "0000f4a807b71124c0f67b7a4604777295f1eef0663e5ba2c76253124a665a63",
+      "sourceRow": 129154,
+      "district": "중랑구"
+    },
+    {
+      "id": "00023782d31357492d1bebe13a2abb3b8bcf61a30be8b24b1f9c3491c818d057",
+      "sourceRow": 122936,
+      "district": "중랑구"
+    },
+    {
+      "id": "0014ab8fe313f848100fe11c0c307c5ff21bc1fc2bd63615f78918948cdad918",
+      "sourceRow": 129234,
+      "district": "중랑구"
+    },
+    {
+      "id": "001731c11a1a3cd80d9207edf678255c050a4abe4fa21f74df5a667d322025ae",
+      "sourceRow": 121643,
+      "district": "중랑구"
+    },
+    {
+      "id": "000280e0046d452910693ffcf318499ba6766b4c63784d44dcc1695326992024",
+      "sourceRow": 143592,
+      "district": "성북구"
+    },
+    {
+      "id": "00106da98568f6e65a886851e651057edbdeb7b8df15b0035123a19158a7620d",
+      "sourceRow": 150546,
+      "district": "성북구"
+    },
+    {
+      "id": "0015f15662b23fee8002cbfe72457e233b67236dc0fd0e504139881c0a34aa45",
+      "sourceRow": 134203,
+      "district": "성북구"
+    },
+    {
+      "id": "00189d7feaa3cfbe4fd8cd2688b1034fba10314685e24bcf09492127751db6f3",
+      "sourceRow": 140859,
+      "district": "성북구"
+    },
+    {
+      "id": "0003e2171cf4f5e5a41ec812601d1293bb8f101dc8bdcb86a1ab609782695f6b",
+      "sourceRow": 159432,
+      "district": "강북구"
+    },
+    {
+      "id": "00071b1328f3728da7d10852fe07a32f54eb2f73a6d9f1080ca89bbf223b091c",
+      "sourceRow": 155327,
+      "district": "강북구"
+    },
+    {
+      "id": "0007eef7db46ba07766b79dc2edad50e5c5776ad94af1282e23d5141d0a9c048",
+      "sourceRow": 157164,
+      "district": "강북구"
+    },
+    {
+      "id": "0009bac965a9d01160f26e919f55b968569845c917029ad636ddeff4b8452023",
+      "sourceRow": 156629,
+      "district": "강북구"
+    },
+    {
+      "id": "0000cf4995269c8adde59fbba80d91f37ce2729ceeee4730f94683c7a858b6d3",
+      "sourceRow": 177903,
+      "district": "도봉구"
+    },
+    {
+      "id": "0003b782da77c1914983e8c07c2f8d6aa6995102f68dfc6fae0097d8bfdea88b",
+      "sourceRow": 172567,
+      "district": "도봉구"
+    },
+    {
+      "id": "000f8598064e0a006e612114dc2fe97fb4047840800b9b123d197644d4e25710",
+      "sourceRow": 174378,
+      "district": "도봉구"
+    },
+    {
+      "id": "0012d2223162ba10e00ea85a4631d6a132e789350827f4aec0914890545b8e3e",
+      "sourceRow": 172285,
+      "district": "도봉구"
+    },
+    {
+      "id": "00015c2c0f7da76722d46b6bc6192249ec39433e4f19388ea5f3c5aa125b2875",
+      "sourceRow": 185765,
+      "district": "노원구"
+    },
+    {
+      "id": "000ae5cc69e7d6dacabf2134fadcd35161bb161f4c8bfde49b81e862475b26af",
+      "sourceRow": 195084,
+      "district": "노원구"
+    },
+    {
+      "id": "000e8f4d42e2741539aa80f24b9ddc02639876e69b9bad5bbc49a220aa6e8140",
+      "sourceRow": 191002,
+      "district": "노원구"
+    },
+    {
+      "id": "000f450d490ea2180fad1c9fffeebfc5a3c5de7e150d8ab51c54851a30960b7d",
+      "sourceRow": 196767,
+      "district": "노원구"
+    },
+    {
+      "id": "00014c7fa3889f33e1a34931a3b981b758de41632dc70350552363a09c35844a",
+      "sourceRow": 202470,
+      "district": "은평구"
+    },
+    {
+      "id": "000403b8447f4faa4005ed1964d00f0903243461afe454eac084cf3da24c67bd",
+      "sourceRow": 199346,
+      "district": "은평구"
+    },
+    {
+      "id": "001654144ef1b4a388c034d5dc6f1203f125c797883972ffe91b3dc1a049f76b",
+      "sourceRow": 202079,
+      "district": "은평구"
+    },
+    {
+      "id": "001aeea50a339e7ec113eaa91e33799be253b5841f3dcabb774fdb0117c6228b",
+      "sourceRow": 209137,
+      "district": "은평구"
+    },
+    {
+      "id": "00048e2d663ea162ee85b31c73500f5af7222711865db359681b677034d0f041",
+      "sourceRow": 216753,
+      "district": "서대문구"
+    },
+    {
+      "id": "000599e36f6038e0c21955cadadd1a764af55d2d6b096c22f1d357272078f29b",
+      "sourceRow": 228960,
+      "district": "서대문구"
+    },
+    {
+      "id": "00067689bc24a225e569786db55d9be6bb6afb63b4e47ab7eb49f65e97b7a4ef",
+      "sourceRow": 220528,
+      "district": "서대문구"
+    },
+    {
+      "id": "00086c12229b70f91ace4f39c02b1e75d0975cc6b328763cf4560a1d79ac4f39",
+      "sourceRow": 217816,
+      "district": "서대문구"
+    },
+    {
+      "id": "0007ae9bf5c06f1975466cbacb6fd2a46d48264ec3b3fd42a74afb74823c90ff",
+      "sourceRow": 243810,
+      "district": "마포구"
+    },
+    {
+      "id": "000c606dd9e55d03ec2f3a2b6802915b17de54f990000db90bc31559a8b776ee",
+      "sourceRow": 249370,
+      "district": "마포구"
+    },
+    {
+      "id": "000f2129fab0935de2719a9fbd118cd5f8ef1bea3f4b1c4b4811647f44fadf5e",
+      "sourceRow": 260506,
+      "district": "마포구"
+    },
+    {
+      "id": "00113bc71d4209ef8d45c1e3d9334be02299ff713fd8a81e95525feb679c76d7",
+      "sourceRow": 240125,
+      "district": "마포구"
+    },
+    {
+      "id": "000036ba8bd75ad4ffaad695808ef05de5ff2e5454f8bde0e47ffc7fd74ab34a",
+      "sourceRow": 279352,
+      "district": "양천구"
+    },
+    {
+      "id": "000b9b0f83745c366c0e6fedd77df3dd89f794967838a4e581befc762cd206b3",
+      "sourceRow": 274215,
+      "district": "양천구"
+    },
+    {
+      "id": "000c05599314e18da58345533055ab8b0ba4e8fcc7c724d2a41c1b591feb0fe2",
+      "sourceRow": 271891,
+      "district": "양천구"
+    },
+    {
+      "id": "000d1c3ca7a0cdbfc40c1bf1ad65642595a95f4bcc7c9b9d0e707ddd3f4845ad",
+      "sourceRow": 263680,
+      "district": "양천구"
+    },
+    {
+      "id": "000e6db8367aa71e26edabc8d86bc48a3f066e0ae9411886244a9d066502954d",
+      "sourceRow": 303775,
+      "district": "강서구"
+    },
+    {
+      "id": "0011f9715a4229afb4e11b41110d7288779e762ee7c42dedad5e60151ae55924",
+      "sourceRow": 287737,
+      "district": "강서구"
+    },
+    {
+      "id": "001368c573103e6ed75b32274a577cda9818ed538ced5e1707870c471ce4022c",
+      "sourceRow": 295423,
+      "district": "강서구"
+    },
+    {
+      "id": "001588f5afa05513105997f569deba31c3fa3aa63e3ea934b80274354b70f2b4",
+      "sourceRow": 294315,
+      "district": "강서구"
+    },
+    {
+      "id": "000936116f9826d5dc8842ce34c8e3659b31096ae804fab0cac7068bbb51d4fa",
+      "sourceRow": 315309,
+      "district": "구로구"
+    },
+    {
+      "id": "000ca809018d71d3be79867d33a6ee64e4640de658c7a8f469046ce3c58b58ee",
+      "sourceRow": 319400,
+      "district": "구로구"
+    },
+    {
+      "id": "000dc522d1782aa183362a1d9935c944b6e99a9efc91d9cdf1035a3c1e3079cf",
+      "sourceRow": 311298,
+      "district": "구로구"
+    },
+    {
+      "id": "000dcd70c95886ba7397028c19267631634f7beae9eea5c6aa01153985f1066a",
+      "sourceRow": 320343,
+      "district": "구로구"
+    },
+    {
+      "id": "0000d1fcdde07967daa2a67b300655ea7dba9f1e002682ad20aa3abd25f47380",
+      "sourceRow": 337915,
+      "district": "금천구"
+    },
+    {
+      "id": "0000ff4304b6b3ddee9faa655863ce3e424c7dbc94b878ee8b00947b6fbf7216",
+      "sourceRow": 333683,
+      "district": "금천구"
+    },
+    {
+      "id": "0001d33a5e63f6c347b876a08c640ee7b7034a1205aac4bc4679b4b715f0aefd",
+      "sourceRow": 327767,
+      "district": "금천구"
+    },
+    {
+      "id": "00040fc03ca05e3f04960ad84b372f6b8ee0f8acfc0b0e212150d684b64f3ef1",
+      "sourceRow": 328174,
+      "district": "금천구"
+    },
+    {
+      "id": "0003e971868b2e900ff32be554afbd1df01fe2346a7fa47e37dd42d14faa206e",
+      "sourceRow": 350819,
+      "district": "영등포구"
+    },
+    {
+      "id": "00058b3149911c43184b721affdb8d286dc30e0ce160f0b95d0c8af04123831e",
+      "sourceRow": 339088,
+      "district": "영등포구"
+    },
+    {
+      "id": "0008a6c394f3044188a00732e510b32c500907b0f6d0912781238e9767593665",
+      "sourceRow": 359963,
+      "district": "영등포구"
+    },
+    {
+      "id": "000f1544344e8ac19f81a2fd25283597042795a5d23795da86a7f665b227fc71",
+      "sourceRow": 348675,
+      "district": "영등포구"
+    },
+    {
+      "id": "0001843399bf1d8e66ddb494d9d4ee00bf993842d224787422a45118431fa0e5",
+      "sourceRow": 369690,
+      "district": "동작구"
+    },
+    {
+      "id": "0003718b75f7aeac88b04cd11459376f65e54d3fa7eafddd946e92b647ea618d",
+      "sourceRow": 372274,
+      "district": "동작구"
+    },
+    {
+      "id": "0008b1296109aa17b2846c02a5bbb09100d4bd486e2ae079c75a7e0735bfccb8",
+      "sourceRow": 375050,
+      "district": "동작구"
+    },
+    {
+      "id": "0008f5f040ae76f135e9948d1fe2c99b03bd9ea8a17436fd28325e86bde002d0",
+      "sourceRow": 371352,
+      "district": "동작구"
+    },
+    {
+      "id": "00004c99fec19a388355df88f82022fcb52c1d760564c440f15ec55980bf644c",
+      "sourceRow": 402133,
+      "district": "관악구"
+    },
+    {
+      "id": "0000ec3b35307529b4bb5b3c18a249cb084afd8ecd70a4834e086ff6806a5ef0",
+      "sourceRow": 386304,
+      "district": "관악구"
+    },
+    {
+      "id": "000123683beff8aa53d0bcdbc4d4e69bb82e4aea76d6ba882077a7306cf09e0c",
+      "sourceRow": 393592,
+      "district": "관악구"
+    },
+    {
+      "id": "0004485a72515d519d6b2b00f0c8b57d75c3608de4e4b2f00fbed16803f2d965",
+      "sourceRow": 394459,
+      "district": "관악구"
+    },
+    {
+      "id": "00024fffacba14dca4e57146462036ca2373326de7c8acea778f31ae384084f1",
+      "sourceRow": 415603,
+      "district": "서초구"
+    },
+    {
+      "id": "00051629a22f2d528b74e8497ed8a42274726fb5de045a828ba598a3fc5f9080",
+      "sourceRow": 414816,
+      "district": "서초구"
+    },
+    {
+      "id": "000539545af1e38b7a2b872fa0a5c667ba355fb180d82792fd2556bae4faabe1",
+      "sourceRow": 432187,
+      "district": "서초구"
+    },
+    {
+      "id": "0005b41917b640c6df8d249ec4d990ad9545db11efe5d5f05fd5e8c40682187f",
+      "sourceRow": 412304,
+      "district": "서초구"
+    },
+    {
+      "id": "0001da91f6635b7aed0a9abc4bd24fcce2b1cf35168e64e5e36fb5ef8ff82259",
+      "sourceRow": 481217,
+      "district": "강남구"
+    },
+    {
+      "id": "0002b87b2ad6c2d33f2332f0dd78a47d8bd4de7555fbdf0f96e3c4d39df470d6",
+      "sourceRow": 469388,
+      "district": "강남구"
+    },
+    {
+      "id": "0002e0283e1688bbe4709196157848df1448cfa418177a5b997af29d36ac72e4",
+      "sourceRow": 432777,
+      "district": "강남구"
+    },
+    {
+      "id": "00043b96c76f34abd9e3242c13999b26a5f734db593acb409035f8be511da3b0",
+      "sourceRow": 461161,
+      "district": "강남구"
+    },
+    {
+      "id": "000009fc1541ad015fb22e5b4822c8528032b77a89512f9bc904a8d06900299f",
+      "sourceRow": 513285,
+      "district": "송파구"
+    },
+    {
+      "id": "0000f554c96f9480b20a98f390a8ff5ca50e32142b4e6a69249adb66910f6c88",
+      "sourceRow": 504322,
+      "district": "송파구"
+    },
+    {
+      "id": "0002e59a7430ad76c8b6c59a3fd0a1e0630ec01f30fbb99a115108145f047657",
+      "sourceRow": 506034,
+      "district": "송파구"
+    },
+    {
+      "id": "00057f251f095b23908ba70e6ac8b4ccb8e275afac48fc7b971afe0191f281ad",
+      "sourceRow": 493870,
+      "district": "송파구"
+    },
+    {
+      "id": "00054661f38fcd9372b57c232f60d1915d0f8bc5bb62561244be1f7781ab3c16",
+      "sourceRow": 526137,
+      "district": "강동구"
+    },
+    {
+      "id": "00058b77274a265018e02e66b73ea2ba05a66db5f3d115f6635fd1330d6b3338",
+      "sourceRow": 537358,
+      "district": "강동구"
+    },
+    {
+      "id": "00058e92a6be189a693607ce7032c0de88f5092f306441dcb8e46f250b8e84bf",
+      "sourceRow": 531066,
+      "district": "강동구"
+    },
+    {
+      "id": "000665a3bfd2ec42a383ae54016723b710ad8d97d051a26924f6dd4f64768604",
+      "sourceRow": 533425,
+      "district": "강동구"
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "00096e5a78378a392d50aa6fc9e97b9c7c206837c224abb2ddd525ebac30f1b5",
+      "sourceRow": 623,
+      "district": "종로구"
+    },
+    {
+      "id": "000ce109bd0913b58aefedde05db7f2107cc0d3387dd2396bee13a38c449c035",
+      "sourceRow": 2893,
+      "district": "종로구"
+    },
+    {
+      "id": "000ead43d39ec30af0d77fa4dd75ff3f87e87bbe7eb4b139cf439e0d0aa86051",
+      "sourceRow": 431,
+      "district": "종로구"
+    },
+    {
+      "id": "00115e013687dbc20c62eacbebb7e72fdd1cae79a42c3ebe5c9bd2821ccc0ada",
+      "sourceRow": 18110,
+      "district": "종로구"
+    },
+    {
+      "id": "00125e4b087b2e4478392efbf05d7f4adc9020121b85ab2c4541a0093a9cb5b5",
+      "sourceRow": 8137,
+      "district": "종로구"
+    },
+    {
+      "id": "0014c8190f683c16f5134fbaac2065f1273bdfa413a1ee694d3c5d0be5434cb4",
+      "sourceRow": 5588,
+      "district": "종로구"
+    },
+    {
+      "id": "001b368a393ea1f180317865f64b77ad3be69d9d95139851e07cdd9fbddfe287",
+      "sourceRow": 20168,
+      "district": "종로구"
+    },
+    {
+      "id": "001b5ac77856d05ca9e262fbf15983e4e5d1e9c6028e992c0de0e45f5c99b2a2",
+      "sourceRow": 11556,
+      "district": "종로구"
+    },
+    {
+      "id": "002101bac820f66bcab2f25a14f1f09edf0c4361230fcf160fab37a6ad6b304b",
+      "sourceRow": 13313,
+      "district": "종로구"
+    },
+    {
+      "id": "002ab745c433e184c6d61337d0bd45d2f4e8fdad39a007e94af7fe762a648900",
+      "sourceRow": 9658,
+      "district": "종로구"
+    },
+    {
+      "id": "002c2784b6428e458a4267c5ace0040bdf3490ee230e9a2130ed17a7c1fa7260",
+      "sourceRow": 13635,
+      "district": "종로구"
+    },
+    {
+      "id": "003228197350ef49d38fb3b0350b193d2a7b6d670d6a9d330368af378f444321",
+      "sourceRow": 10350,
+      "district": "종로구"
+    },
+    {
+      "id": "00328471dee99fd95e0474284b75d03d1b43008ce1edc3ca7c36592ead7561f7",
+      "sourceRow": 12122,
+      "district": "종로구"
+    },
+    {
+      "id": "0039ca9022f2fe14189316a9ce442a374a285a975a244fb7094af0774df952ce",
+      "sourceRow": 10782,
+      "district": "종로구"
+    },
+    {
+      "id": "0039ea04d5c4f0a761f329c0793a022b2dedbf80c18221b02b73b1469b79fecf",
+      "sourceRow": 5737,
+      "district": "종로구"
+    },
+    {
+      "id": "003ad7418124792c71f63ed1439524780eb7d15921fd97317cdc0ebe9b4ca56d",
+      "sourceRow": 10701,
+      "district": "종로구"
+    },
+    {
+      "id": "000ce87376a0a493afb0a9d4e9a8ceebce9667a2179bd5a217b781e162d5c320",
+      "sourceRow": 25124,
+      "district": "중구"
+    },
+    {
+      "id": "000d1f96bf2c86bd6026627075538725bb81496a1bf443f68b01295d0cfaea36",
+      "sourceRow": 23761,
+      "district": "중구"
+    },
+    {
+      "id": "000d9160daf18f7096a20b8d015a86e519baebc93d43995ef69df9dc1f550d86",
+      "sourceRow": 25772,
+      "district": "중구"
+    },
+    {
+      "id": "000ef380ada9d30d7c4aea6adf8028750f8d068745d66a371083e7d8af7ab826",
+      "sourceRow": 39361,
+      "district": "중구"
+    },
+    {
+      "id": "001009ac920720edb1d2e00ade7adf609aef8fa198669b2d852d6ba6a8b2c3ea",
+      "sourceRow": 36264,
+      "district": "중구"
+    },
+    {
+      "id": "0015b37ffccb1dc26c18d3c77256a7a0e159de4d8c290bfff887f3434eead5eb",
+      "sourceRow": 30418,
+      "district": "중구"
+    },
+    {
+      "id": "0016d3484d3c45052f25a9115485f679f420c7fd80f7b7e194f7cffab192665d",
+      "sourceRow": 36159,
+      "district": "중구"
+    },
+    {
+      "id": "0017b307337d04f9f5f65ad13bd3aae077989ab819c022fcfeda87cce627b60f",
+      "sourceRow": 25447,
+      "district": "중구"
+    },
+    {
+      "id": "001b5ab079f9857fe001785fd82987dfad3950ed1741cef27a76bf46ee314ca2",
+      "sourceRow": 42855,
+      "district": "중구"
+    },
+    {
+      "id": "001bdd7fea29a18d6e1d8367f7ad7559a2e08ffd7f77bcfedffb3bd960d39035",
+      "sourceRow": 29788,
+      "district": "중구"
+    },
+    {
+      "id": "001ff92c267136aea008fedb397003d3b298bc65410955a6eb150440c904329a",
+      "sourceRow": 34302,
+      "district": "중구"
+    },
+    {
+      "id": "002554a7c263fd2411a73b045e25c48a492a5ae33c317b34834ae529e30bd2ee",
+      "sourceRow": 35990,
+      "district": "중구"
+    },
+    {
+      "id": "00289b32e20f4c0bc8157d20209db2936ce8f8c02c437c548eb2882351368a37",
+      "sourceRow": 38411,
+      "district": "중구"
+    },
+    {
+      "id": "003072602a86f2bb47066eba553997147ae92dac1510d81dfb4f7cd47ce48014",
+      "sourceRow": 38197,
+      "district": "중구"
+    },
+    {
+      "id": "0032d7aadf173eb4b44e1439059f0282ce7864700666cfea56d5a5827800fde6",
+      "sourceRow": 29919,
+      "district": "중구"
+    },
+    {
+      "id": "00387d00a32875394a9423f0b3a122e426d07f5ef4424e5316f980409ae4f74e",
+      "sourceRow": 26699,
+      "district": "중구"
+    },
+    {
+      "id": "00085baf7a056b90c1d67aa4128d1f45f6d8a8a0cdb5be89745fcf373b3e04aa",
+      "sourceRow": 58553,
+      "district": "용산구"
+    },
+    {
+      "id": "000d2998a18e2b27cdb970caec0d260f8932690a409252285c036bf683390468",
+      "sourceRow": 56698,
+      "district": "용산구"
+    },
+    {
+      "id": "000ed1c121d7cb0773a459278a3327793820d6447a1dbdbe96a773843b0eecbf",
+      "sourceRow": 59238,
+      "district": "용산구"
+    },
+    {
+      "id": "00142e742b6db7c8d0817bbb2daa8f3fffd5594747f9d946512639db92d0a08a",
+      "sourceRow": 57736,
+      "district": "용산구"
+    },
+    {
+      "id": "001930242ab01a24f029495c1b4199d6a5bd8b4e866247d48086df4438f84e6e",
+      "sourceRow": 43962,
+      "district": "용산구"
+    },
+    {
+      "id": "001e9a04033e164a8bdb639eddd9bfdce458d0ad8a0cdeef8380e91a4153f653",
+      "sourceRow": 46386,
+      "district": "용산구"
+    },
+    {
+      "id": "0027a017f357ca7bd0af341606bcc3dfbc4b4a13b5542a83507d28daf7e611c5",
+      "sourceRow": 47883,
+      "district": "용산구"
+    },
+    {
+      "id": "0031a95944890d2487872d6a94317a12cd52012473aaa0ec2498645bc612f336",
+      "sourceRow": 59132,
+      "district": "용산구"
+    },
+    {
+      "id": "00338b6f6523abda06ebca94e3ea2a488e310b61ec911c8afcb2903e1c1a3806",
+      "sourceRow": 44216,
+      "district": "용산구"
+    },
+    {
+      "id": "0033c51514c3a4c15c708a15d1c5c2a8d1edf3f37eec3e73785400ac8ab4baba",
+      "sourceRow": 49221,
+      "district": "용산구"
+    },
+    {
+      "id": "0035a7a52073c6e2661222c9d385c9b348d76556b77eb5fa912fe8cd14cf4968",
+      "sourceRow": 58903,
+      "district": "용산구"
+    },
+    {
+      "id": "0040a1d1f7ab4bc66a343725fefcf64df580f936bbdb900e47e1527981963370",
+      "sourceRow": 45299,
+      "district": "용산구"
+    },
+    {
+      "id": "00421c879ddcf566761bc22efd4caeda07f1af221912c454c9315e0069b315de",
+      "sourceRow": 57834,
+      "district": "용산구"
+    },
+    {
+      "id": "0045e5a8df177463c721310bc07031ffc8e7dcf765409a47b8c2fe1101f43427",
+      "sourceRow": 49443,
+      "district": "용산구"
+    },
+    {
+      "id": "004d03f7f69bbf8ff0ce7e09e62c9099bc186df355ea95ebd71e95bf8d97522c",
+      "sourceRow": 50797,
+      "district": "용산구"
+    },
+    {
+      "id": "004e18e9bffa34a22712aa941da3449f6080c35a192509c8a15f5371766bf55c",
+      "sourceRow": 54726,
+      "district": "용산구"
+    },
+    {
+      "id": "00104fd73baf0789c9d6dd06d29977052ccbceeb72774541c23fab024273529d",
+      "sourceRow": 66871,
+      "district": "성동구"
+    },
+    {
+      "id": "001202de4a37b78109a9829ad6817e31ad5a1a3bcb4172bf13de354a9b8eac98",
+      "sourceRow": 63159,
+      "district": "성동구"
+    },
+    {
+      "id": "0017c6ed1d483c402bbffbac7e53277d78f6707e67e61735b5c3fb8907579a1f",
+      "sourceRow": 67978,
+      "district": "성동구"
+    },
+    {
+      "id": "001ae11d325fe05125d9298df68683fb858b78d7654f0f44b4ebd676230834f5",
+      "sourceRow": 60774,
+      "district": "성동구"
+    },
+    {
+      "id": "001bc9cb014cfa73f27ec98a6197a4f54a5ee175d571904b23f533c764430e0a",
+      "sourceRow": 70803,
+      "district": "성동구"
+    },
+    {
+      "id": "001c46b214ccd9a2581bcc0060ff7952508c10197cd5c8ac2f26badb570756aa",
+      "sourceRow": 68671,
+      "district": "성동구"
+    },
+    {
+      "id": "0021ed6b2e3aa595b8f0a5ce5da0eee4f69e0e6e076f61141b07384c38508944",
+      "sourceRow": 75043,
+      "district": "성동구"
+    },
+    {
+      "id": "00242de07cbc545aa326f86f7f3f783e9122ab3fc5037eeba47c624a2d08f656",
+      "sourceRow": 69356,
+      "district": "성동구"
+    },
+    {
+      "id": "0025eb99491407095a00ce422f6ad415174996383940b6e26602c7e972b5bfbc",
+      "sourceRow": 62461,
+      "district": "성동구"
+    },
+    {
+      "id": "002682a27fe12e60a8f4a8ef493600bbc8b554bee105890f669f5121b1208d65",
+      "sourceRow": 62445,
+      "district": "성동구"
+    },
+    {
+      "id": "0026f59d5533e742e6e6ab4ce41a2712f14cc7744e0255488891f508575bb6ad",
+      "sourceRow": 74608,
+      "district": "성동구"
+    },
+    {
+      "id": "002a1bae3af1d8599aacaf7ce6f984448c11bf42ef2e86786037c7f3a50786f6",
+      "sourceRow": 72430,
+      "district": "성동구"
+    },
+    {
+      "id": "002af5047f7bfee1f71a67a538231156c93c061ffa4630b32fe19556e8f7e345",
+      "sourceRow": 71703,
+      "district": "성동구"
+    },
+    {
+      "id": "002c5d874ca87585c47552bc6f9c8752134bbdf73c5489447c36439ba5513608",
+      "sourceRow": 69240,
+      "district": "성동구"
+    },
+    {
+      "id": "00321a7208dfe96a18b0105f0365da3a952d19d19b705e4762abc578fbf35d78",
+      "sourceRow": 64448,
+      "district": "성동구"
+    },
+    {
+      "id": "003551907e26cbb4911cd8fe66291f02b1db4a4ad912b7ffe140f32d38fd493e",
+      "sourceRow": 61549,
+      "district": "성동구"
+    },
+    {
+      "id": "00132d95c142648b9ddfad4d8657c88ed39a7674146f8e53ffb445738c3d433b",
+      "sourceRow": 85665,
+      "district": "광진구"
+    },
+    {
+      "id": "0013e65c5f52d9871ded4d792b12119a5807942454de2f4a82298df680a08768",
+      "sourceRow": 89759,
+      "district": "광진구"
+    },
+    {
+      "id": "0014fdd90c0b13cd1cbba3d212df13d316998af26d045e9ffb879ffbdb897a85",
+      "sourceRow": 89723,
+      "district": "광진구"
+    },
+    {
+      "id": "0016f25644a1bc8e414e949fdee914b4b77b6ae76d5250ddff2c3fb70418e35c",
+      "sourceRow": 76376,
+      "district": "광진구"
+    },
+    {
+      "id": "001c09148a81afa72a7b25a23cd680ff650d145784c59b99ce3128d807472365",
+      "sourceRow": 86265,
+      "district": "광진구"
+    },
+    {
+      "id": "00218ad950472262fe9aac3f53eed8905e2e081faa2d415b8abe802dec652cd2",
+      "sourceRow": 92783,
+      "district": "광진구"
+    },
+    {
+      "id": "00259f37e6be7195a32a2b757d6733af40d3e1b716f2502e81f09a903e57939d",
+      "sourceRow": 88878,
+      "district": "광진구"
+    },
+    {
+      "id": "0025c0df106cb6bc54bf1d511cc79388432f1cdc886eaf6045a41bfce3ba0575",
+      "sourceRow": 78964,
+      "district": "광진구"
+    },
+    {
+      "id": "00291c47e31123bf90677d6cd0d60161dc5e918bd44606394c021abff52914d1",
+      "sourceRow": 80160,
+      "district": "광진구"
+    },
+    {
+      "id": "002973fc6270761cc0593397a6998efe143e3f3aa943803e46c8c170d7cd5159",
+      "sourceRow": 85057,
+      "district": "광진구"
+    },
+    {
+      "id": "002adc2b8016febe152adc96ff757403be8a8bb3bcdf2d76e77b099abd9786cc",
+      "sourceRow": 90347,
+      "district": "광진구"
+    },
+    {
+      "id": "002c801804c61e4bac5035db1cd1ebfefaedb91d5eac7f48d38ea8be2fef2f35",
+      "sourceRow": 83899,
+      "district": "광진구"
+    },
+    {
+      "id": "002e79fe34a7cc739ff4722c2e45ee414c748cbdd97e3a5a6cbde7ac2b019a98",
+      "sourceRow": 85017,
+      "district": "광진구"
+    },
+    {
+      "id": "002e8825fbb08d7433ddb69588eefc89f85fc41d5d057b9d140c047401a3cc93",
+      "sourceRow": 81712,
+      "district": "광진구"
+    },
+    {
+      "id": "0030e9b2b0e9d307e9c85ffa94dbc0744fd513b9136761ede43abcfb48e54c6f",
+      "sourceRow": 85914,
+      "district": "광진구"
+    },
+    {
+      "id": "00345856003368f623861f3b07129a781412e38110170d0db83a38582914b1ad",
+      "sourceRow": 90207,
+      "district": "광진구"
+    },
+    {
+      "id": "0006569b73ef5d700d805bb6624d94a02d64fb18ea8b9277e87d106f0ea85923",
+      "sourceRow": 100598,
+      "district": "동대문구"
+    },
+    {
+      "id": "000854992b86b0d660179cb314a165bb5303407b1cf20ba1383fd8061a19a0e7",
+      "sourceRow": 109071,
+      "district": "동대문구"
+    },
+    {
+      "id": "00096865f859eaea3ac1cbec599c24a7430342577248d42f24183a4d378e5794",
+      "sourceRow": 111559,
+      "district": "동대문구"
+    },
+    {
+      "id": "0012aca6f06df193ae05db22e325ededcee4529d7ae1b38debc96c5a9ba9c9b3",
+      "sourceRow": 110404,
+      "district": "동대문구"
+    },
+    {
+      "id": "00166a16f5c65236add31823b6757a99230a9b100095646a7674a46f63e5c255",
+      "sourceRow": 106585,
+      "district": "동대문구"
+    },
+    {
+      "id": "00187c6f8f1c30bc46c20bb0a900ede6f3161c555bb4905fc6dafbf1c80693c6",
+      "sourceRow": 114097,
+      "district": "동대문구"
+    },
+    {
+      "id": "00213a0d43aab2946cb4fb21b3ded7da118558ca4b6ce0a0a817ec9857ec611f",
+      "sourceRow": 110839,
+      "district": "동대문구"
+    },
+    {
+      "id": "00243aaa4ac6d2ac2d5af1476e273c9cd4cf92c70165dce78b84c07d661f4cd4",
+      "sourceRow": 96099,
+      "district": "동대문구"
+    },
+    {
+      "id": "0029a31a74aa9c10b4a2a890154e7dab17da8a8b6fdd012586932a5939ce8e91",
+      "sourceRow": 101392,
+      "district": "동대문구"
+    },
+    {
+      "id": "002ac25bfa77637c3ad1c322c7fa56d5e75be665438a57360b6c2c3126d61c2a",
+      "sourceRow": 110948,
+      "district": "동대문구"
+    },
+    {
+      "id": "002be36f639d53d0a42c3232d7cef389d3869af6b0c8ee29acc36f47b3cf712a",
+      "sourceRow": 100687,
+      "district": "동대문구"
+    },
+    {
+      "id": "002cb8361b0b3c261958c4aad9b4d01c51b68d4c7bd7569a2318656fc7f46976",
+      "sourceRow": 94702,
+      "district": "동대문구"
+    },
+    {
+      "id": "002d3b04bcc9fb00520325fb470b28966388d8a21add01af2cee216ee4fe5089",
+      "sourceRow": 107666,
+      "district": "동대문구"
+    },
+    {
+      "id": "002e4ed698044504a1224b9b998bebf38e628cfa7e206859e895fd5016503989",
+      "sourceRow": 95561,
+      "district": "동대문구"
+    },
+    {
+      "id": "002f496d00e73280ca36f599bd43bf1f6656fe406c71e0df9b06e598de3939ec",
+      "sourceRow": 98260,
+      "district": "동대문구"
+    },
+    {
+      "id": "003bb85a1421bcfebcc7b7b455ac927323a2a241e3e181fc482fe4ad22f1bc5d",
+      "sourceRow": 94440,
+      "district": "동대문구"
+    },
+    {
+      "id": "0026b11858ef52b728455e37b73d68da03673ba6cc849c686f440d5c51dfc20a",
+      "sourceRow": 123516,
+      "district": "중랑구"
+    },
+    {
+      "id": "0028ae8dffe25a852e6af3f03d00631adf0f35ba65d086bf5f259db0242b6d4d",
+      "sourceRow": 131080,
+      "district": "중랑구"
+    },
+    {
+      "id": "00294e07cb6fe7c25d069b3b75df4c17af97744778a943191e8e7d3ab1bc7cac",
+      "sourceRow": 126873,
+      "district": "중랑구"
+    },
+    {
+      "id": "002a7fbfed9e4339a330a7c0257e0fdbd04e27ab2103a00cc6cbbfc65d1b7b2f",
+      "sourceRow": 124385,
+      "district": "중랑구"
+    },
+    {
+      "id": "002e97dddb47a33658f397b70b735403df7660f4fc323aebac2a78d5b082a020",
+      "sourceRow": 116982,
+      "district": "중랑구"
+    },
+    {
+      "id": "0030bff4b61b450d905990c4e9f9a0bfae74e5d99b118d63a75c774dbc41894b",
+      "sourceRow": 123823,
+      "district": "중랑구"
+    },
+    {
+      "id": "00353cbb5229e15bba7e15ddefc98fb48f2a10d8a47eb2c984d777f1104153fb",
+      "sourceRow": 132842,
+      "district": "중랑구"
+    },
+    {
+      "id": "00366df051499fdc94a23f61ae1d5fd5384af453c5354c06e8ceb6ab1c1f7cc5",
+      "sourceRow": 127098,
+      "district": "중랑구"
+    },
+    {
+      "id": "00445b2b57a4abf75e31aa0598c4550adad3994373e701cd283219c3b1106ccf",
+      "sourceRow": 125018,
+      "district": "중랑구"
+    },
+    {
+      "id": "004536e4502f07ed07b66dc5699c43d095229b6ca1d67bad070b486458da9d0e",
+      "sourceRow": 118808,
+      "district": "중랑구"
+    },
+    {
+      "id": "004679f93fa259af8984fc1650ba1408e2ec509436eee888acbba3b17c3601f2",
+      "sourceRow": 124155,
+      "district": "중랑구"
+    },
+    {
+      "id": "004af4a04127385f462eec678e25b91eed58094a0c385fb866e9672b7606317a",
+      "sourceRow": 119964,
+      "district": "중랑구"
+    },
+    {
+      "id": "00571abb6ea85efbcabc0f01b49cb4f77e1af6b140db4fc55d8c958fe3e581d8",
+      "sourceRow": 121114,
+      "district": "중랑구"
+    },
+    {
+      "id": "0059c7af4e8f262265d966375b2fe8fb9305bdcd9ce554200a543a41739c11bf",
+      "sourceRow": 119840,
+      "district": "중랑구"
+    },
+    {
+      "id": "005d0683734f5838fe17bd217ab03a19bd959b594b149dcf9430eab8ba865cf4",
+      "sourceRow": 117495,
+      "district": "중랑구"
+    },
+    {
+      "id": "0060af817ff678825e459bbc1e96b5cc8013d1e53e10d45e98e06a080fb4eb1b",
+      "sourceRow": 117336,
+      "district": "중랑구"
+    },
+    {
+      "id": "001cd7ff255fa5794b6edcd36b0690fb830bd74ce445f3e55a3d85c443bd2b0d",
+      "sourceRow": 135109,
+      "district": "성북구"
+    },
+    {
+      "id": "001e4f1bc2e364ebebb1e368176e692b9045fb260ec1ffd86503e1eee5d6f73a",
+      "sourceRow": 145713,
+      "district": "성북구"
+    },
+    {
+      "id": "00213ccba51c59eaba2834443abed539515353533b67a423709e93b49823ed7d",
+      "sourceRow": 149312,
+      "district": "성북구"
+    },
+    {
+      "id": "002330ec3e7ca1dd6c632cfafa2398e6ec2011e7309cf4dec1275129c842c11b",
+      "sourceRow": 143680,
+      "district": "성북구"
+    },
+    {
+      "id": "0025d6809b405f5b193b283d7eec860e625ad934f89b29ddb1c172cf3656bcbd",
+      "sourceRow": 135658,
+      "district": "성북구"
+    },
+    {
+      "id": "0027b7f3eb84bd34e70996f23fb12ddca4b4f1a693667b2ed5d8e84bb421f356",
+      "sourceRow": 133634,
+      "district": "성북구"
+    },
+    {
+      "id": "0027d56c877b4197a48f43d1c760fdc49a20aa9305706c123f3d4dedbad2a867",
+      "sourceRow": 148363,
+      "district": "성북구"
+    },
+    {
+      "id": "002aa96e98cc662f0e4705261ca936dde4bdf079bc56b832a653f27d6cc030d4",
+      "sourceRow": 141571,
+      "district": "성북구"
+    },
+    {
+      "id": "002ca5c1a4c25420632544c709f1bc9ecb3094e7e03a2e35381b7797a9a11e1f",
+      "sourceRow": 142070,
+      "district": "성북구"
+    },
+    {
+      "id": "002d9b31a860d2d2d7c17bf4796bb954e91535cb13618e395e1edcd296a69e7e",
+      "sourceRow": 138926,
+      "district": "성북구"
+    },
+    {
+      "id": "0030ba81c3e54e82293fa6f35d705354d6f631d2f363ae7f0eebbfee8e3d9094",
+      "sourceRow": 146873,
+      "district": "성북구"
+    },
+    {
+      "id": "00317f7e6427bda21af8d29d3536fa1a2718eec05a5f75131c52ee060bddad6d",
+      "sourceRow": 148475,
+      "district": "성북구"
+    },
+    {
+      "id": "00318d851e0fdbf453d1b2780647fe135ae55c5a64745cad04059e556e421894",
+      "sourceRow": 144121,
+      "district": "성북구"
+    },
+    {
+      "id": "003d32710c12e4c09a34069c6d90f87c3c1ae6586d1ffd0d6acca549459c493c",
+      "sourceRow": 138626,
+      "district": "성북구"
+    },
+    {
+      "id": "003fec6d78c1dd9cc127367c277696cc8e858cb3eecb6dfe60fe0b84905dc3b2",
+      "sourceRow": 134425,
+      "district": "성북구"
+    },
+    {
+      "id": "004c39bc4e252748c2615940928897e39a37f70c990ef2574430b675ad3c50d8",
+      "sourceRow": 144332,
+      "district": "성북구"
+    },
+    {
+      "id": "001090bfa65f2600d6393795a2fd838db55ea79dc2c3a80c39a2d67c099dabb5",
+      "sourceRow": 153345,
+      "district": "강북구"
+    },
+    {
+      "id": "0018c6cd24d4a20bf91414cb5b2fd787bac077c4cd44bf51474173bf4e4fdf9e",
+      "sourceRow": 166033,
+      "district": "강북구"
+    },
+    {
+      "id": "001d099b9987ed73f1c5b8e5898d5121c57c3b85583c2ca1f6047b9a75a90d54",
+      "sourceRow": 168553,
+      "district": "강북구"
+    },
+    {
+      "id": "001f9dbe6f6daa45b879c16bda8c0e251aea931d1abff1eded5df687a7f3e342",
+      "sourceRow": 157369,
+      "district": "강북구"
+    },
+    {
+      "id": "0028bd883fb0844c8811cf522a6b8d89006db0d5c8e8a6b136e018430134446c",
+      "sourceRow": 168175,
+      "district": "강북구"
+    },
+    {
+      "id": "002a165ecc7ce0517006cf3274f3554d7d1db5891c3c2543b0b6aef3b7498c0f",
+      "sourceRow": 157071,
+      "district": "강북구"
+    },
+    {
+      "id": "002be4c5e63cd069155f440acb0fee83d29ba535ce228f2ae8564a70c99773d8",
+      "sourceRow": 168180,
+      "district": "강북구"
+    },
+    {
+      "id": "002ed6629127ad61b415a2fa9a84a741b5d910bdcd01aa9093e3a1720f018e78",
+      "sourceRow": 164022,
+      "district": "강북구"
+    },
+    {
+      "id": "003088e20511c5f94a1e6f920e2ac57bf63b032b9298797d7df52fbf2d4c8307",
+      "sourceRow": 166414,
+      "district": "강북구"
+    },
+    {
+      "id": "003266b7566dea592d4782924f3879e5c22b0c457bcc644321f8544ed9762871",
+      "sourceRow": 162003,
+      "district": "강북구"
+    },
+    {
+      "id": "0035ff5b294594e200ccb9f9cd5d67dcedb2ef5242015a3a291121d5df1dd04b",
+      "sourceRow": 158389,
+      "district": "강북구"
+    },
+    {
+      "id": "0038614ad929ed95861ca0c2fefb8d6a35d67c895d2bedfe17ded134d0f7c2c2",
+      "sourceRow": 161932,
+      "district": "강북구"
+    },
+    {
+      "id": "003d950d5578284254f324a5ac07eba1e3241426b642f48bd6245ccd97e0305a",
+      "sourceRow": 161280,
+      "district": "강북구"
+    },
+    {
+      "id": "0046696c0a63c575f409fbc860945db6103eea42e437ad1763d5b4e49efee9dd",
+      "sourceRow": 166973,
+      "district": "강북구"
+    },
+    {
+      "id": "004d816406019a2f77b83ebcd0f478eba71a2383d382e6bc7433582d9a9517c4",
+      "sourceRow": 156694,
+      "district": "강북구"
+    },
+    {
+      "id": "004f94a03ef50b93a4c69dcfe4a83ca9ac5e85d4ba27060a9e0866aa23999578",
+      "sourceRow": 168094,
+      "district": "강북구"
+    },
+    {
+      "id": "001f0c1f94dd64eadffcf758e3a52f372a546ce3574380f78c1758f79f9a3dd6",
+      "sourceRow": 172542,
+      "district": "도봉구"
+    },
+    {
+      "id": "0021bf195083a940e7ef9ab6f6052d0edb7205f314a59430cc34ad7684dd5bf2",
+      "sourceRow": 180225,
+      "district": "도봉구"
+    },
+    {
+      "id": "002260ab22c2655c3dcab59c6ec76ccf2b9713a222c9c67e6447915de40e55db",
+      "sourceRow": 175988,
+      "district": "도봉구"
+    },
+    {
+      "id": "0027b3808849f5e356f609566f85cd482edfbcbbd9f1c1f3c8ef0ee038870034",
+      "sourceRow": 176827,
+      "district": "도봉구"
+    },
+    {
+      "id": "002d726061cb83b6c909f9cb9de2a872f580a25305b7ede322b43ddf43477b0d",
+      "sourceRow": 172563,
+      "district": "도봉구"
+    },
+    {
+      "id": "00334e5072caf6c4c776b2c079cb5cb56051d4a97d622dfda92a9b6d9ea14f0a",
+      "sourceRow": 177664,
+      "district": "도봉구"
+    },
+    {
+      "id": "0039454af6b329fe7a137438adb3f57270745d982899c14d640cbbc2e858d35c",
+      "sourceRow": 177833,
+      "district": "도봉구"
+    },
+    {
+      "id": "003c919f6c2c1c4c0a83bf7ac7bb34373bcff5a28b7c677dc327f0e7b2d8c14b",
+      "sourceRow": 170000,
+      "district": "도봉구"
+    },
+    {
+      "id": "003d905da0eae47eaf2319350b1288c6f7475341a106a960776c086606df6f4c",
+      "sourceRow": 172075,
+      "district": "도봉구"
+    },
+    {
+      "id": "004ca4b74e5690e6f55b8fb92dbfd4885eafa208e69e8f6f562f7ad89e87df47",
+      "sourceRow": 174944,
+      "district": "도봉구"
+    },
+    {
+      "id": "004df25b610bb2146ce36384b1eeba01409ba43d53b62cf1cebef02e32dcc005",
+      "sourceRow": 171135,
+      "district": "도봉구"
+    },
+    {
+      "id": "0059c3d2cd0f009f42b83977ca8fc6bb2aa6d1614ef47b6c618e1d356b2559b0",
+      "sourceRow": 168698,
+      "district": "도봉구"
+    },
+    {
+      "id": "005d20d3904cc8e6b677c796d24293325c3667f849745cc1a51b0b0efd457d9a",
+      "sourceRow": 169274,
+      "district": "도봉구"
+    },
+    {
+      "id": "005e1f0597377968d8aed559f5a22c9f8e55d3fcbeb01962c687f95a052c747b",
+      "sourceRow": 175714,
+      "district": "도봉구"
+    },
+    {
+      "id": "005e982d02163b9794e521bd29c465363874c0f6b3381c0c0e6aa5f744c3771a",
+      "sourceRow": 179008,
+      "district": "도봉구"
+    },
+    {
+      "id": "006426eec09e2e0c6002bbbb51716a2bf33a9cdf9d4e827441cf0dee65ebde14",
+      "sourceRow": 172570,
+      "district": "도봉구"
+    },
+    {
+      "id": "0012237a30abff49d05d1160bee0abf196a0af649efa4738e76f2d6794456111",
+      "sourceRow": 193993,
+      "district": "노원구"
+    },
+    {
+      "id": "0019117c367c17237dea6a4ae14e84ab7f42ee42826360cb470683ffb6af5164",
+      "sourceRow": 184706,
+      "district": "노원구"
+    },
+    {
+      "id": "001921ffe64d9405f0b1dbf8f55cd425f4c5457a4d42277b7bc1c21bc42f168f",
+      "sourceRow": 187901,
+      "district": "노원구"
+    },
+    {
+      "id": "0023a0652c36113328734a1b1cacbd3089d558b2153956c993a052dceb7e58c4",
+      "sourceRow": 192691,
+      "district": "노원구"
+    },
+    {
+      "id": "0023cd5e51df5e2e64efd5f1a9c99aabb148655a0984acf25b0655793d833c1b",
+      "sourceRow": 185409,
+      "district": "노원구"
+    },
+    {
+      "id": "002781bb1ade553d7df2d59cac2f4bdd7ef9a3a2e44b00a578e26ffb12911ad4",
+      "sourceRow": 196836,
+      "district": "노원구"
+    },
+    {
+      "id": "002b3d72cb253b3f1e90e76a8904097d3b693a3d4b7df5cf914f5ec7adbc2d7b",
+      "sourceRow": 188615,
+      "district": "노원구"
+    },
+    {
+      "id": "0034848d1521c3dc6e93d24c62749c0fc061bae68b5611b2b9e78ae39220c54d",
+      "sourceRow": 186913,
+      "district": "노원구"
+    },
+    {
+      "id": "0035dffb4efc2d7b5fe4e7c514fc75972030436dc3c902bdf69d1c6c804826e1",
+      "sourceRow": 187536,
+      "district": "노원구"
+    },
+    {
+      "id": "003ad87d154f873002e626952f557f4a2fa80bdbd9797d4b7b1cf0a678c61a9d",
+      "sourceRow": 183193,
+      "district": "노원구"
+    },
+    {
+      "id": "0044ab62aa3ac29c47b5ac482868e388f8cdaa7acedfe68b978b30cb7220f1a0",
+      "sourceRow": 187321,
+      "district": "노원구"
+    },
+    {
+      "id": "00495d9a86cb6e7db6c827f81a69853acc8151fdfe369b5d446a898ea58126d8",
+      "sourceRow": 191422,
+      "district": "노원구"
+    },
+    {
+      "id": "004a5422a89a490777b84c247a3ad6feda4fa35372fc9318818256df9112d70a",
+      "sourceRow": 196924,
+      "district": "노원구"
+    },
+    {
+      "id": "004ce91bda619b601384a2dcb77a6d4ea60ebf51386f44da1d92b72c87c51c73",
+      "sourceRow": 181165,
+      "district": "노원구"
+    },
+    {
+      "id": "005047e6d485fcff53413dbe4f95b3cec0af4179b373a8889f011d9e9c8e807e",
+      "sourceRow": 182748,
+      "district": "노원구"
+    },
+    {
+      "id": "0057bda0bf87608f43b82c7ceb1986c8910aeab48033e2431f43d6293e8ecdc8",
+      "sourceRow": 196374,
+      "district": "노원구"
+    },
+    {
+      "id": "001e26b335d0fe34297a35c67b21a7a51e5b28c6a8bd288d5a823aee19b155fc",
+      "sourceRow": 214235,
+      "district": "은평구"
+    },
+    {
+      "id": "001ed21267f1679f8572dbca4988c27c6c7df68be2d29b97fd9b22ebbfe231a8",
+      "sourceRow": 213809,
+      "district": "은평구"
+    },
+    {
+      "id": "00292ba74e676771795faa675db59a490007f380948261474f9543510e1e6522",
+      "sourceRow": 200432,
+      "district": "은평구"
+    },
+    {
+      "id": "002a7d2849a1b53aad3194843c3615a71a365f6c84c96ed1db63401efd9b9a7d",
+      "sourceRow": 197491,
+      "district": "은평구"
+    },
+    {
+      "id": "002bb1f3fc972fa1255867d9ceefd625e0de6d92f727252b18fb61f57d6e686f",
+      "sourceRow": 208445,
+      "district": "은평구"
+    },
+    {
+      "id": "002cab914c1872df5b033eb87bc264f9f22e2477b4f8a27c495fb4f8a1615e92",
+      "sourceRow": 211661,
+      "district": "은평구"
+    },
+    {
+      "id": "003b5dbe3f08583855d2334c506d96120b9537196e641870e63e2ed74e9b1dcf",
+      "sourceRow": 203778,
+      "district": "은평구"
+    },
+    {
+      "id": "003f0c558a7859262db1a2ad545ef09f6fee5aa98b1cd64f1aea621b8a50234b",
+      "sourceRow": 199360,
+      "district": "은평구"
+    },
+    {
+      "id": "003f1a444e8e7ae2d402aa1e2a532e81560f343a5344939e4a16d733d16503d0",
+      "sourceRow": 206618,
+      "district": "은평구"
+    },
+    {
+      "id": "003fba3effc9a42820ff350473298e6a450da64e78e2ef2845c19d4d5b80d655",
+      "sourceRow": 202877,
+      "district": "은평구"
+    },
+    {
+      "id": "0045365fd151342235984901f7ce551acc0adb4e97e4b4c724d10f9c5f541dd7",
+      "sourceRow": 207232,
+      "district": "은평구"
+    },
+    {
+      "id": "005b31acfc4b1c6e0d465f93bc23600b256de86e045d67a32ed09346bce296b4",
+      "sourceRow": 204327,
+      "district": "은평구"
+    },
+    {
+      "id": "005d16f0509cc9f4f5205df473ba31efe382ec585fd1e03dcd71ba99e49e88ce",
+      "sourceRow": 206374,
+      "district": "은평구"
+    },
+    {
+      "id": "00602c466a4789e6bd276800af691264264d3b8bddd1c7b5c3bc2ede842e693f",
+      "sourceRow": 207444,
+      "district": "은평구"
+    },
+    {
+      "id": "00662abed8cd6c77cc129cb45830d7487c5e97a276d4fe919aeb87d71fb18b29",
+      "sourceRow": 213158,
+      "district": "은평구"
+    },
+    {
+      "id": "006ce22328b24afaf6084786492a9fd1d40bb7ef0d7d81fce62813e7088d1ed3",
+      "sourceRow": 198670,
+      "district": "은평구"
+    },
+    {
+      "id": "0008c000b2b0a90fe5d96900e65db3834f421dc9d7b609bc30d605849bb01a03",
+      "sourceRow": 216567,
+      "district": "서대문구"
+    },
+    {
+      "id": "0010d3e92f9cca7a8a226a83b8e3ef303017c4849c7aee073130982e12e0b0be",
+      "sourceRow": 222849,
+      "district": "서대문구"
+    },
+    {
+      "id": "00150a78ee970f5880c4574f241d03f7adaecc57ece301f42ae36a0ddb59fb7b",
+      "sourceRow": 230299,
+      "district": "서대문구"
+    },
+    {
+      "id": "001cdb26b5715a228675569ed9fab9360c8ac0227fa5b12bda10d01d23a66b28",
+      "sourceRow": 224669,
+      "district": "서대문구"
+    },
+    {
+      "id": "00208651a162b255b14a8faf51b5d4779db691bfce47f59c5731d134eb188ad7",
+      "sourceRow": 224711,
+      "district": "서대문구"
+    },
+    {
+      "id": "002525bebacc43077fdfbf80c24f585b548a6a812053265c3116fc7434756813",
+      "sourceRow": 216077,
+      "district": "서대문구"
+    },
+    {
+      "id": "0026f43299c68e52530365233208209b391221c5ab3022933c23010e7f1c4a55",
+      "sourceRow": 214734,
+      "district": "서대문구"
+    },
+    {
+      "id": "00294c36c9371c21687de79b9f2491fff5d3036ca692c44269f0f019c40a0764",
+      "sourceRow": 227298,
+      "district": "서대문구"
+    },
+    {
+      "id": "002b2273c809797bd2a4cd4f58f4c8cc68604b691f9aa0c20451ae6c2d07ff33",
+      "sourceRow": 227075,
+      "district": "서대문구"
+    },
+    {
+      "id": "002b8888d483cac2127676beb199cca3fd0491a2e71c6cd920747f44bc2bec20",
+      "sourceRow": 220781,
+      "district": "서대문구"
+    },
+    {
+      "id": "002cb93b66ec60cd0ceafd2c3623ac6b84b4b0fd93a613d61f4b0563d0242285",
+      "sourceRow": 232784,
+      "district": "서대문구"
+    },
+    {
+      "id": "0038ef8bab26c7c35bb865a1f21aeac2aa827eb3ad253a2b128c38d061efed21",
+      "sourceRow": 230583,
+      "district": "서대문구"
+    },
+    {
+      "id": "003c8d5e0ad84a7ec186d6ebc1550cb5a541d2596d02f7aa1bb22d75971fa47b",
+      "sourceRow": 215737,
+      "district": "서대문구"
+    },
+    {
+      "id": "0040f448ba29814354ccb57f101914e1444d26c152587bdbeb2e60018b4fe2bb",
+      "sourceRow": 225971,
+      "district": "서대문구"
+    },
+    {
+      "id": "004237304931dc2d5448c3540a290566637ed893310f350aaaba07d4b059d65c",
+      "sourceRow": 220297,
+      "district": "서대문구"
+    },
+    {
+      "id": "0044902937302728661ca3a2eb91122d8d76280adb2903fdb4c0fee72d4c6cc0",
+      "sourceRow": 215300,
+      "district": "서대문구"
+    },
+    {
+      "id": "0014542965c7c7c3effa12e20748c2308cf7857a60c3e33016424278b0005184",
+      "sourceRow": 258413,
+      "district": "마포구"
+    },
+    {
+      "id": "001a56c29cc804633a703700115921370802cc3bbe4ae807935ecd2e7200955a",
+      "sourceRow": 234325,
+      "district": "마포구"
+    },
+    {
+      "id": "001b747b6cdade706a25aaa59acafd77056a4f4818b294941832390ae268f5e3",
+      "sourceRow": 242180,
+      "district": "마포구"
+    },
+    {
+      "id": "001bc3b82908549708cb61cbb6f9f3e106a7cd037d22e99fa0457540e60b9bc7",
+      "sourceRow": 257295,
+      "district": "마포구"
+    },
+    {
+      "id": "001d15907e9bf7b219a7074aca45cd3c2d5a80dc0691f388171020996f2cce70",
+      "sourceRow": 248037,
+      "district": "마포구"
+    },
+    {
+      "id": "001ea729071e3330508f930d3fa392d18bd4247cda1fe6d7126990d4769d123e",
+      "sourceRow": 257725,
+      "district": "마포구"
+    },
+    {
+      "id": "001ed9f27d77491cf2a53d32e80c53f7661f72488a6605c6aef531a194c09018",
+      "sourceRow": 262400,
+      "district": "마포구"
+    },
+    {
+      "id": "002251684c5be7123702b48c7cec5b48aac598afa762362051139087bb3fec81",
+      "sourceRow": 236981,
+      "district": "마포구"
+    },
+    {
+      "id": "0022b37caf727fda41da23845f67bc72a1762916dc0b12fed9cd4ab781598c17",
+      "sourceRow": 252529,
+      "district": "마포구"
+    },
+    {
+      "id": "002304334cb797a324b0b0b4571827ce71b6f2b1881685e1ecc722987bf33c17",
+      "sourceRow": 238143,
+      "district": "마포구"
+    },
+    {
+      "id": "0026f93c2173f6c04438972fea945585d935476637c368264350609fd83c392c",
+      "sourceRow": 252996,
+      "district": "마포구"
+    },
+    {
+      "id": "0027eadba50c1ed82551031f5db04c16e3a76ced7df67a61924b73e568170cf2",
+      "sourceRow": 250374,
+      "district": "마포구"
+    },
+    {
+      "id": "002d8bc0323cb2e008570fdcd9c870b6a59b49acf7c44b015d567fa28beb9aac",
+      "sourceRow": 258537,
+      "district": "마포구"
+    },
+    {
+      "id": "003226462f2fd4b92bc03fa59b5564c494cd4348d5dc366f10408ddb75430e50",
+      "sourceRow": 253368,
+      "district": "마포구"
+    },
+    {
+      "id": "0033fa321d1d5e0deb829b23716970d1bd18a95b963d5a4f34c4c156b552b829",
+      "sourceRow": 246866,
+      "district": "마포구"
+    },
+    {
+      "id": "00348765751f7a840bb62fffa747aa1eeeb263a1e7f57a57ab8972c60319d236",
+      "sourceRow": 258549,
+      "district": "마포구"
+    },
+    {
+      "id": "000d70bcd4fcf5e0cb3fa88172fe5d687c68d8272002b7516d4f6e140805f8ad",
+      "sourceRow": 274278,
+      "district": "양천구"
+    },
+    {
+      "id": "000d9c9e99fc8f2677decb2da3e9735718989f50083f2bddb6a8f82edf6a963d",
+      "sourceRow": 264802,
+      "district": "양천구"
+    },
+    {
+      "id": "0013732102404e5fe824ae380435efb350271eb6db99cbbc58d0011a9e3eaebc",
+      "sourceRow": 279684,
+      "district": "양천구"
+    },
+    {
+      "id": "0016b46cc19c1930acf9a8d48000a1ab99e0645cd07bba74905df9413ac96ad2",
+      "sourceRow": 271376,
+      "district": "양천구"
+    },
+    {
+      "id": "0019900cfc4f228c9c8352f51724737cb62b92b3afbb871b8e7261e8586dd835",
+      "sourceRow": 270508,
+      "district": "양천구"
+    },
+    {
+      "id": "001c7ea79da86555bfec0e6a5ab0d79d3c9df0650586951953254d52391b3614",
+      "sourceRow": 267632,
+      "district": "양천구"
+    },
+    {
+      "id": "001f0daf2468df1a201842abd64a1d83b699e498fd32fbe14717ae8985ed7feb",
+      "sourceRow": 280493,
+      "district": "양천구"
+    },
+    {
+      "id": "00220c779557516e1d72ea74e84e5391cd12bd2d7ae0cdc49586a8f90aaedda6",
+      "sourceRow": 265570,
+      "district": "양천구"
+    },
+    {
+      "id": "00252be0d3f49f4bb7cdfb46d5b9c8fddb1ea42ec5a20663bfe2d72f828332d1",
+      "sourceRow": 271624,
+      "district": "양천구"
+    },
+    {
+      "id": "003b0098b36c7231745c91bb096347ac0f5c1cf49406b1c8ef3daf5025bbe36a",
+      "sourceRow": 278566,
+      "district": "양천구"
+    },
+    {
+      "id": "00405a3133ce5fa1a23d337b2de786b444988e2ba1bec0864f2b5b86e651cf14",
+      "sourceRow": 270033,
+      "district": "양천구"
+    },
+    {
+      "id": "0040dc3636ec346c9ebf655ed98478000153fb206ef987e1b6c3c38275e602b1",
+      "sourceRow": 272632,
+      "district": "양천구"
+    },
+    {
+      "id": "0046920753f3f3abad9741da1328a1533368b7470ea3317dca98051895df5f5f",
+      "sourceRow": 279573,
+      "district": "양천구"
+    },
+    {
+      "id": "0053efc28d5e36790be1a0102f90beb25a217ba25ded22a04b5411c0864b0eb0",
+      "sourceRow": 279137,
+      "district": "양천구"
+    },
+    {
+      "id": "005448201e01e614d93426be93dd44b37da15d7191e30debdd49be15788fd579",
+      "sourceRow": 270978,
+      "district": "양천구"
+    },
+    {
+      "id": "0056e00f0363f5ca5dcecef8456b9a9e071e0f984fcb6f5115350e005f37198b",
+      "sourceRow": 275309,
+      "district": "양천구"
+    },
+    {
+      "id": "00189109699bf9eff8a43117b65b2e7dbc7a378193597af5c676ce1421407335",
+      "sourceRow": 301878,
+      "district": "강서구"
+    },
+    {
+      "id": "001bb0c24588d3cac79fd483068ba53824c4a3d0dc60a0c8f69ef97e254e4b50",
+      "sourceRow": 302000,
+      "district": "강서구"
+    },
+    {
+      "id": "001c7dacb6d39dbcf39527850a301abc2932002d4a109f0867474fdc0ce00331",
+      "sourceRow": 289626,
+      "district": "강서구"
+    },
+    {
+      "id": "001e09c744879738ed5fd805f9184ac5d189e4ff86da7f5fbe3545a197fb735d",
+      "sourceRow": 290201,
+      "district": "강서구"
+    },
+    {
+      "id": "001f458b424ae94ef4d42ea571d0ab3ceb5bbe0f96313f38f93f077a53e7dc4b",
+      "sourceRow": 295546,
+      "district": "강서구"
+    },
+    {
+      "id": "00276bbaa6c1ac25f6038c2f7fe49b51728f8dba007425cd923da73b7259c2f4",
+      "sourceRow": 289901,
+      "district": "강서구"
+    },
+    {
+      "id": "00279407397880a22f410f55b4e811c4298f18c89d6a10b2b713bce03744c813",
+      "sourceRow": 299308,
+      "district": "강서구"
+    },
+    {
+      "id": "0028829f0aa660bacb5774bbbbf7b8bec9c3f822d4ecc4d3e1ffd2cf01f37f65",
+      "sourceRow": 291457,
+      "district": "강서구"
+    },
+    {
+      "id": "002ca95c8074dfb741bedf84f3d6e1c491c0a0da642efa6461f42039885ebcec",
+      "sourceRow": 291212,
+      "district": "강서구"
+    },
+    {
+      "id": "002d64863dbe8d1b6b2c3b005da8c1b7090d9809a6abc1de84804085d6d9c845",
+      "sourceRow": 284807,
+      "district": "강서구"
+    },
+    {
+      "id": "002d9c197ef0e165f03a1c11ef116df28db5142f12398e4eca092ca4517bc886",
+      "sourceRow": 293259,
+      "district": "강서구"
+    },
+    {
+      "id": "002efc875b4405d71ed9355541496d56fea4ec707d4d28d2ae31598cd00ac08f",
+      "sourceRow": 294930,
+      "district": "강서구"
+    },
+    {
+      "id": "0030a56882cdf0aa2ea6ed93449907856222dda6de7adacf2b258949f76d4db8",
+      "sourceRow": 283293,
+      "district": "강서구"
+    },
+    {
+      "id": "0031920dc3ff520b79bc797b07e9749824f195ca2f4eaa61bf2559e5a07557f5",
+      "sourceRow": 291879,
+      "district": "강서구"
+    },
+    {
+      "id": "0031a4def8e0c72be5a59621daca3404b32bffee776c8d9fb41bd801f554dd48",
+      "sourceRow": 284078,
+      "district": "강서구"
+    },
+    {
+      "id": "00331fa81507f376b97ca731acc1cfd7b16e9d8924a49fd74cc8ac8f9a6eb34f",
+      "sourceRow": 291988,
+      "district": "강서구"
+    },
+    {
+      "id": "00139f13d8224e9dcdeca623e4ed9c88f2ed0b30d16b76a86d9c5e235b3f4c1e",
+      "sourceRow": 323876,
+      "district": "구로구"
+    },
+    {
+      "id": "0018c5a2bca329218079b9d4a2f7cdee667678a89d118bded07acf363f8eb7eb",
+      "sourceRow": 316280,
+      "district": "구로구"
+    },
+    {
+      "id": "0018c8bb97cf3d9f136fb0aa9eab755c934c26d72cb5d3243b22395b638930ba",
+      "sourceRow": 307157,
+      "district": "구로구"
+    },
+    {
+      "id": "001d5f14cd99d73cef433df0cd5bb7ffd07f199e8ea3b60b9b894c1b4808f311",
+      "sourceRow": 315310,
+      "district": "구로구"
+    },
+    {
+      "id": "0024c8a8a7f37b78cf208bdd08bbaee4bec1cd0a7716930b05c9d386f2cd92e7",
+      "sourceRow": 314322,
+      "district": "구로구"
+    },
+    {
+      "id": "00251398d5ae7357d2aa3f538ff07dfc153ae15d7396fd82a540b200540eb500",
+      "sourceRow": 314897,
+      "district": "구로구"
+    },
+    {
+      "id": "002ac387579efbf1de2043961584823791c272f0653a5c5706f0dd03102260f6",
+      "sourceRow": 310898,
+      "district": "구로구"
+    },
+    {
+      "id": "002c4a1f486569c06e5064ba1e124250701e1c9c13396ba511090989e2f01f65",
+      "sourceRow": 306655,
+      "district": "구로구"
+    },
+    {
+      "id": "00388d593f592c13d5baa414c29258210a0e100c5e62617cbc323e26ac8d7cf7",
+      "sourceRow": 316233,
+      "district": "구로구"
+    },
+    {
+      "id": "00473547b478242bd83eb5ea63b8c16589e315a1d758f99cd69ede7ad3abf7dd",
+      "sourceRow": 319186,
+      "district": "구로구"
+    },
+    {
+      "id": "0047cbd62e0d7f265854eaec2721913ab2bdd215f2f1bf0e436870c7273fb7a2",
+      "sourceRow": 321506,
+      "district": "구로구"
+    },
+    {
+      "id": "004b7362caf57b4770f9b1283a20d144f3687daad603f74d0f707f935f929b78",
+      "sourceRow": 320139,
+      "district": "구로구"
+    },
+    {
+      "id": "004c2210067ea30ddc8a701b3e0766bcfa650f1bd0b0f9dc52f9711a60746856",
+      "sourceRow": 314629,
+      "district": "구로구"
+    },
+    {
+      "id": "004d7bf0dc9f21a2a246b1fe5c89072ea7a147ed196710297b67ca3bb0d8d6d5",
+      "sourceRow": 318027,
+      "district": "구로구"
+    },
+    {
+      "id": "004fc71f32b8763141d9f10be92eb0155f008fc73ac250495546289aa37f749f",
+      "sourceRow": 310173,
+      "district": "구로구"
+    },
+    {
+      "id": "00530a23d8770649dfeaeaa2de78e49e294d7e37dfe60f117681898e0c807be7",
+      "sourceRow": 321455,
+      "district": "구로구"
+    },
+    {
+      "id": "000acddd0e3ededae1c25ef015ee0741f7d8def3c4aab629f32f815d9069ae64",
+      "sourceRow": 336939,
+      "district": "금천구"
+    },
+    {
+      "id": "000bb167c21bc8411173889415b77bb46772ad71c58461f3df99db425125f268",
+      "sourceRow": 329360,
+      "district": "금천구"
+    },
+    {
+      "id": "000dea5e4af1738fa409c7e71f2f29d996a32f724338bedf81adb61e0ceb53a8",
+      "sourceRow": 333840,
+      "district": "금천구"
+    },
+    {
+      "id": "0014e9c550774d3a4fa8f9d0847aae09e818b0e615f680e394cef677024e950a",
+      "sourceRow": 336243,
+      "district": "금천구"
+    },
+    {
+      "id": "0015277579d9e6bed53b154552e3bbcec80d4feb1305b9dc48481ad6110d331f",
+      "sourceRow": 332980,
+      "district": "금천구"
+    },
+    {
+      "id": "001e8105070f7c95a1e575dc28e1e9d284d0ee988df1aaae04af26e84c348768",
+      "sourceRow": 326283,
+      "district": "금천구"
+    },
+    {
+      "id": "001f30d1a29ed8ee654ea81116fb9b1b9cf1978ccc1021dfe384a916c768aed6",
+      "sourceRow": 333848,
+      "district": "금천구"
+    },
+    {
+      "id": "00237026a8facf146bf1b2534ab70e17e8d459308cbe616d47f1dea6348d25e4",
+      "sourceRow": 324690,
+      "district": "금천구"
+    },
+    {
+      "id": "0027bf0cc71d8b4d5a5c0a1a87535a09c108af8bbd6afa0cdffd6b2de645d1f2",
+      "sourceRow": 335024,
+      "district": "금천구"
+    },
+    {
+      "id": "0028711a0b149fe0c2aa52695453a6853b42b59749ffabccbb2d405ae2a8c089",
+      "sourceRow": 327685,
+      "district": "금천구"
+    },
+    {
+      "id": "002cf9a5ef1507fccfa494dfc6b6449e65e5e3b74fb49d122cb1de4b9622f35e",
+      "sourceRow": 328423,
+      "district": "금천구"
+    },
+    {
+      "id": "002efb72402f12a87981601ad8d5145889078472f28544f5e2ee304d42c536ff",
+      "sourceRow": 328939,
+      "district": "금천구"
+    },
+    {
+      "id": "002f9e6b08b46b715d94a64b48c5ec5a77e0abe431fa05e6c63bb322547eaaf4",
+      "sourceRow": 328134,
+      "district": "금천구"
+    },
+    {
+      "id": "0035d677451f08f12784bbb2f6dff5f18c9d4015fa289d77c398e1909a468342",
+      "sourceRow": 326311,
+      "district": "금천구"
+    },
+    {
+      "id": "003768f6171698c743f9db08a566db5fc8926cec7366f670082053dc6e7d65e8",
+      "sourceRow": 325682,
+      "district": "금천구"
+    },
+    {
+      "id": "003c750a315976af3a49cd7af13b3e27f3626a34235a991b79b3006492b1460f",
+      "sourceRow": 330165,
+      "district": "금천구"
+    },
+    {
+      "id": "00108e62a6c591a92ffd05580b1afff53e05703913927f8845c06a874fbaf254",
+      "sourceRow": 348647,
+      "district": "영등포구"
+    },
+    {
+      "id": "001495749b150839bf62cc90cba99a90ce6fc511a8c9e8802caedb1a59e898b3",
+      "sourceRow": 366686,
+      "district": "영등포구"
+    },
+    {
+      "id": "00151d43d49bda77ce72e074516dfc1a05e9e17f8e4e89a834127773eed32db7",
+      "sourceRow": 345212,
+      "district": "영등포구"
+    },
+    {
+      "id": "0015adb235212aae479f1bcf3c30f59a18bdda45a987191705d61837761e55e5",
+      "sourceRow": 360474,
+      "district": "영등포구"
+    },
+    {
+      "id": "0016ba1a46edd23b81a9c35e654d976d8c9373c8e5ddd5026cf99cacb0c2d943",
+      "sourceRow": 345251,
+      "district": "영등포구"
+    },
+    {
+      "id": "0016ba20e6db7ce4ebfa46cdf58d1dd48a6c3ebae5789282f588f4ccd3aec36c",
+      "sourceRow": 349376,
+      "district": "영등포구"
+    },
+    {
+      "id": "0017e4487e940e3db69bd021b518e80c1560e6eaa308ae49b63045ec64eb1ac9",
+      "sourceRow": 354022,
+      "district": "영등포구"
+    },
+    {
+      "id": "0019c98ae11d42be7a46643a8eb411225d7ee05b557dc5a5ad0cb9aab22a903c",
+      "sourceRow": 350830,
+      "district": "영등포구"
+    },
+    {
+      "id": "001ef9d5a705fd796a3c303c5a021287508ba4137c0465ddf90ca5221008ef24",
+      "sourceRow": 353821,
+      "district": "영등포구"
+    },
+    {
+      "id": "00205576e208f5cb72dcb5bda2650f9f8843a0bfbd9930dce83bac061cd4964d",
+      "sourceRow": 355064,
+      "district": "영등포구"
+    },
+    {
+      "id": "0020a92ac1c1b631be1592896bbf134e865aac39fdc53d14d847c1aa71a3ffd8",
+      "sourceRow": 346905,
+      "district": "영등포구"
+    },
+    {
+      "id": "002339e290083b0c36d2cec8a51ff3c7e267154e798412f00c3c0006b3f1dbd4",
+      "sourceRow": 363319,
+      "district": "영등포구"
+    },
+    {
+      "id": "0023fe13fb9214de8b144ec6240558c41923d3086dc6422acc4bc0b5ded6d175",
+      "sourceRow": 360755,
+      "district": "영등포구"
+    },
+    {
+      "id": "0024636da93da86671e57f6e929e38f08ae51c3a3e37ea3ef24a75f3ab6e9a6e",
+      "sourceRow": 357545,
+      "district": "영등포구"
+    },
+    {
+      "id": "00261c634b60b8cc8373ee012a6031ff1f26a4c6489d265b932911fe1df671ff",
+      "sourceRow": 357320,
+      "district": "영등포구"
+    },
+    {
+      "id": "00272ec9b51113f047af79a91a430d67021e52dcb8d64913e02eb57e5cf9a479",
+      "sourceRow": 347343,
+      "district": "영등포구"
+    },
+    {
+      "id": "00094a3d53c11ffcb33bebdd14851eb00a074008a5dd8e7ffb8facbd2754df2c",
+      "sourceRow": 378329,
+      "district": "동작구"
+    },
+    {
+      "id": "000da9ff63f69542c94cddd2574f00292bdba036689614bcf613826c431f7af8",
+      "sourceRow": 367843,
+      "district": "동작구"
+    },
+    {
+      "id": "0015ffb25fe0532e8f1a406cb7fcf7f4c899d9fa81aa8a0b95e48291e617c4cd",
+      "sourceRow": 372532,
+      "district": "동작구"
+    },
+    {
+      "id": "001d44b217b054d3253a602720499b3942b1a41d24b176975afef1aa0f9208fb",
+      "sourceRow": 377635,
+      "district": "동작구"
+    },
+    {
+      "id": "0021a8ce0ef89849f67d32b93731c4eded5375d04339478199a79cbcff5d3495",
+      "sourceRow": 378145,
+      "district": "동작구"
+    },
+    {
+      "id": "0023a4af21ae01481bd67a9b7305c8beac9b8853d921c26879974896c8c694bc",
+      "sourceRow": 367251,
+      "district": "동작구"
+    },
+    {
+      "id": "00274705de819ef8d18d1e3e152ac14c3d5125aeef87b9cb8eac65a73ac3e52d",
+      "sourceRow": 369522,
+      "district": "동작구"
+    },
+    {
+      "id": "002f1d44e56594dd4975b3e9c500a55f5c1bf05d6083fb3ad7f6fbaa699c2aad",
+      "sourceRow": 377680,
+      "district": "동작구"
+    },
+    {
+      "id": "0030fc1c29de266d630b793a0235f5ec62679374551a06dee02ce5af9429c034",
+      "sourceRow": 378845,
+      "district": "동작구"
+    },
+    {
+      "id": "003a3bca8678644a66fafe96d862e858ab0857cc6374a0b20276e740185b7514",
+      "sourceRow": 369251,
+      "district": "동작구"
+    },
+    {
+      "id": "003a5cdb5c689454972b08edcb7f0b6b1face28c33b8b1b180a99f0e7e069b15",
+      "sourceRow": 368037,
+      "district": "동작구"
+    },
+    {
+      "id": "003fe687e1cda5642f51da1a081ace0f1d86846b213edb79e50c5784bf6fcd43",
+      "sourceRow": 379498,
+      "district": "동작구"
+    },
+    {
+      "id": "003fec461df32ca48800ecead70b8f5e23200f9aabc5be89661cd076cc837e5a",
+      "sourceRow": 375453,
+      "district": "동작구"
+    },
+    {
+      "id": "004b55278c249fcfc4153792ac9419fcc8752f3135c59c5afb9de6fc53b973af",
+      "sourceRow": 380852,
+      "district": "동작구"
+    },
+    {
+      "id": "0053c4439bcfd9c9c4944485338ea19b4ef78cef851b6896f00f489bfe713307",
+      "sourceRow": 369105,
+      "district": "동작구"
+    },
+    {
+      "id": "0055e5fc19be14e2f32e4ed7c78f2d057bce9c7cb0bc0ba8c3ed2d3ef44c1db0",
+      "sourceRow": 367221,
+      "district": "동작구"
+    },
+    {
+      "id": "0007f85cf11470a2f6078bcd6052b3e1b110f286a056ffab1e948d0e128958ce",
+      "sourceRow": 388446,
+      "district": "관악구"
+    },
+    {
+      "id": "000c361494fcf523d1295af7b5c87847cd04c44040cd3c63bce78c4ac548e3e4",
+      "sourceRow": 389864,
+      "district": "관악구"
+    },
+    {
+      "id": "000cf8b4f97b47aa08f9d87bb7082f67bbbf2beeaa89ccc08116fa41ac7677b6",
+      "sourceRow": 391020,
+      "district": "관악구"
+    },
+    {
+      "id": "000ff9dd8fa68ad587ccc82b835ee9539cb1a4a43b5f24b5fac5421ef658421d",
+      "sourceRow": 395242,
+      "district": "관악구"
+    },
+    {
+      "id": "0012a73f087f645263b5c07ce4f401dc0a041c66e61b58fee7acc0df9baf70f5",
+      "sourceRow": 396014,
+      "district": "관악구"
+    },
+    {
+      "id": "0014a83ef8b8a38241c43ffc7eeb7e280bc0ad284703cd4daac91b53f794c463",
+      "sourceRow": 387116,
+      "district": "관악구"
+    },
+    {
+      "id": "001856c5d2cf28c09fe0230e867c485c52276cf1555e469023b544f9d61b93b6",
+      "sourceRow": 393886,
+      "district": "관악구"
+    },
+    {
+      "id": "001b8010cbc4b05c00e9968840de9d4b36a88db521896082fb6496d49c3b7163",
+      "sourceRow": 381662,
+      "district": "관악구"
+    },
+    {
+      "id": "001ce26aacf2b3751cc4fc1d66cd7188b5d8da5ad0afb8afc5c1a8aac037c67b",
+      "sourceRow": 388823,
+      "district": "관악구"
+    },
+    {
+      "id": "001f85f9a8e63c3dfcfbe9fc762d22fe9cdb00ea1b5779ab4c8bc9853b29f920",
+      "sourceRow": 397304,
+      "district": "관악구"
+    },
+    {
+      "id": "001fb36d0afa5b45d54b8b6f5fb0462dca7229e8df9d65de456a16f8cdb92cba",
+      "sourceRow": 397972,
+      "district": "관악구"
+    },
+    {
+      "id": "002037681b3c9cca4cb72153e951ce812abad4275b5bd7f1b986ff98f72b880e",
+      "sourceRow": 389860,
+      "district": "관악구"
+    },
+    {
+      "id": "0021a9c7fde1782f8b1fe0070d43640ae528cc7666b1970e71b955e44d338b67",
+      "sourceRow": 393047,
+      "district": "관악구"
+    },
+    {
+      "id": "002782f0a4d8c297d0ed4d9cffd08b2bcf1b1a73de81276f3ed0fc628e07ffa5",
+      "sourceRow": 388550,
+      "district": "관악구"
+    },
+    {
+      "id": "002899ac4069c46b4f99db5641c3137d307306f03e18eac58d82f9eacb4fde1a",
+      "sourceRow": 384881,
+      "district": "관악구"
+    },
+    {
+      "id": "002d3395398b1c4753f298ea54e39081ad587ae0ea178ebf4e4f83d5e4124324",
+      "sourceRow": 397558,
+      "district": "관악구"
+    },
+    {
+      "id": "0006ed8883147487c5325b71d5cf5c9310a812f733632dc125ee0b36dbd0d969",
+      "sourceRow": 416988,
+      "district": "서초구"
+    },
+    {
+      "id": "00091bc2c7c90d5c18e7c180264b6f92b4010b531dbafc7bea53dea5b7d198ab",
+      "sourceRow": 420353,
+      "district": "서초구"
+    },
+    {
+      "id": "0009b54fa1586fbc25b471ac965afac0120d01e2f6a231531b0d3528522beabe",
+      "sourceRow": 419780,
+      "district": "서초구"
+    },
+    {
+      "id": "000a8292913ab257bb08ea4e0969147898dfd91161e08d5e93b090bfcab570eb",
+      "sourceRow": 411768,
+      "district": "서초구"
+    },
+    {
+      "id": "000bb1e9b1d7be9195f7856a14d4f6ff22e4d40f9b9a4b7a978eb66bc267c06c",
+      "sourceRow": 426951,
+      "district": "서초구"
+    },
+    {
+      "id": "0013013a94a1fd5431093069ae41bf7916036ee3ec4585ef46392c8452b90f00",
+      "sourceRow": 406605,
+      "district": "서초구"
+    },
+    {
+      "id": "0013ea24949f0b08074b3e8c632a15ccfa70d32174628732667b51c8d4c214ac",
+      "sourceRow": 418639,
+      "district": "서초구"
+    },
+    {
+      "id": "001528a4af078025a650ced0c29e543f2f69199f180bb6bf3765546c57c7e217",
+      "sourceRow": 408034,
+      "district": "서초구"
+    },
+    {
+      "id": "00161a2a842744cfa6f5e3e76ce372d57b28eaf532ab520a99fe8c0dc7fe7188",
+      "sourceRow": 425196,
+      "district": "서초구"
+    },
+    {
+      "id": "0018c0fa87d0b5f4b450881568ef16ee1f1cd26a6b25f1894be7bea048000f64",
+      "sourceRow": 429832,
+      "district": "서초구"
+    },
+    {
+      "id": "0018eaf23055a043e47e4cb33b9cb0f013a3cb37fd9e9f7f7a77a119ef61baf6",
+      "sourceRow": 429475,
+      "district": "서초구"
+    },
+    {
+      "id": "001b9da681cda977b986bee1517cae2790550663191d08bea9e369a4a88d160c",
+      "sourceRow": 424864,
+      "district": "서초구"
+    },
+    {
+      "id": "001f241b123881c6396ce049fec879c5a58410d83a6f2157409591bd11cf6aea",
+      "sourceRow": 409005,
+      "district": "서초구"
+    },
+    {
+      "id": "0021162d6c8a5f87341cd079941004514c2d3e31557b43ef49ad6a2de1ca79b9",
+      "sourceRow": 428380,
+      "district": "서초구"
+    },
+    {
+      "id": "002a456fdec4243c1a45416c64c34230357ac94928e2ac12411d4fb8348efa6c",
+      "sourceRow": 427537,
+      "district": "서초구"
+    },
+    {
+      "id": "0039a4c5bc72e71252b427adc571ad43609ea66b50f8421a5ca84ab70ffb6ef9",
+      "sourceRow": 406888,
+      "district": "서초구"
+    },
+    {
+      "id": "0006a8a2a102521661ec485f6d5c4bb54ae92c5b2525f492a354e03be69bd1c2",
+      "sourceRow": 440245,
+      "district": "강남구"
+    },
+    {
+      "id": "0007c2ac7516c9c90f08fae7cd42a2562abb8431a0f6ec4042a73fca8b7963cb",
+      "sourceRow": 461992,
+      "district": "강남구"
+    },
+    {
+      "id": "0008b93e315675ee4da91ca55eb1aed8563fa4d75baf6dd0f7de90ed73c12d30",
+      "sourceRow": 452803,
+      "district": "강남구"
+    },
+    {
+      "id": "0009e7a65d1bde37cc00c972e343d7e10c430bf09eecdb77fcd178a43a0ee572",
+      "sourceRow": 479565,
+      "district": "강남구"
+    },
+    {
+      "id": "000a2f1059645562fa8657d4ca2cccf150447dd9e37d77f411a3fe23c2ea5564",
+      "sourceRow": 456753,
+      "district": "강남구"
+    },
+    {
+      "id": "000b49f56b514d280dd02cae37351f2bcd10a957058383d940f682abc59f5816",
+      "sourceRow": 468553,
+      "district": "강남구"
+    },
+    {
+      "id": "000e71728f8307bd94b7a322b19f28d734f74461f4ccec23cabd0b2fea906b7a",
+      "sourceRow": 466060,
+      "district": "강남구"
+    },
+    {
+      "id": "0011b822ea2178371c7694352bfbb117ef5bfa096e7f4746026a0fd6c4330c28",
+      "sourceRow": 480807,
+      "district": "강남구"
+    },
+    {
+      "id": "00127b21a166f0b6fcf5ea48d9858fd5343385e2318a0bde2f1f22f5fde0c816",
+      "sourceRow": 438600,
+      "district": "강남구"
+    },
+    {
+      "id": "00133bd605697fcb500ab6f349954416b48f62f562f62c153748dfa0da9a3a64",
+      "sourceRow": 482136,
+      "district": "강남구"
+    },
+    {
+      "id": "0015cc7161483fe2e8bed2cb7bcbaa70655eabb21e7ef955d9cb17ba6abd50e2",
+      "sourceRow": 478206,
+      "district": "강남구"
+    },
+    {
+      "id": "0016265f2ac6f8e730aea45003124bce6c17de2dd9c45baf5c39967f35fffbb0",
+      "sourceRow": 463588,
+      "district": "강남구"
+    },
+    {
+      "id": "00182820602c9cd706b668fb4ad62c9faa09072faa244c3fe443507c6a23f9ea",
+      "sourceRow": 452599,
+      "district": "강남구"
+    },
+    {
+      "id": "001874592b70bb9a5b33bcdc19aa35a78640e0678da2cc97a6a1c1ba4f118e99",
+      "sourceRow": 462766,
+      "district": "강남구"
+    },
+    {
+      "id": "0019037750d75f901c6e0aa92d3ede9dfd577ea3fe626997323909ac2a48a081",
+      "sourceRow": 434828,
+      "district": "강남구"
+    },
+    {
+      "id": "001bcabb684771df12e6965dc900f010556a33a48ca2736d629226ccb8c46715",
+      "sourceRow": 452754,
+      "district": "강남구"
+    },
+    {
+      "id": "00089ec3f2b4c7e2b6789f9fcfa06b38862adf497357672784220e34d3607ed8",
+      "sourceRow": 492966,
+      "district": "송파구"
+    },
+    {
+      "id": "0009e0c5ac1d48244a5fd7bd83394b2fd9eeabb195a4a97f4ebe951cc7800363",
+      "sourceRow": 491487,
+      "district": "송파구"
+    },
+    {
+      "id": "000df38b898857eca1d8935eb6c6489bed828999f28378f0edb6436275d4d587",
+      "sourceRow": 498726,
+      "district": "송파구"
+    },
+    {
+      "id": "000ebd53b2ab37346cf63a27ac5849d5cbf981c467a506ec98f4d8ae2c369880",
+      "sourceRow": 512355,
+      "district": "송파구"
+    },
+    {
+      "id": "0014175a3bd72a9ab3451882a887a9ad0d907f5c1d15a7d14cf6b1b47d9149f5",
+      "sourceRow": 491324,
+      "district": "송파구"
+    },
+    {
+      "id": "0014819080ad6e9f1d818343407025e23ef83016991609e0a43b851846896f2c",
+      "sourceRow": 495078,
+      "district": "송파구"
+    },
+    {
+      "id": "0016dd2799548d0db18d8dabdfdf2b04813bbbc10492fc3291a1baab077dc4ed",
+      "sourceRow": 510153,
+      "district": "송파구"
+    },
+    {
+      "id": "001bc39b9d78107b85281860315e9cc92777bb4b858bb573a1345cdb4b793c05",
+      "sourceRow": 514158,
+      "district": "송파구"
+    },
+    {
+      "id": "001f23ddb2bde8c33bb7862e52423054b5b8c936e4d3aae729a39d085da8bb18",
+      "sourceRow": 497498,
+      "district": "송파구"
+    },
+    {
+      "id": "0020f5094ae5f0d03e3e99bfeb1d08c710a83899e66f93be6f05a88de193f144",
+      "sourceRow": 511843,
+      "district": "송파구"
+    },
+    {
+      "id": "0021f858e579648a695b939d0760a31060abd8357e7cd553f80a44adcd8531db",
+      "sourceRow": 498016,
+      "district": "송파구"
+    },
+    {
+      "id": "002589d974cd12de7ad42a600c961b5934e40560f0259d06863ff5f3f023394d",
+      "sourceRow": 491155,
+      "district": "송파구"
+    },
+    {
+      "id": "002843896b296f0a43c9769cf79c0da2f0a3b6d1b04087f656c02ac6d575cee3",
+      "sourceRow": 488382,
+      "district": "송파구"
+    },
+    {
+      "id": "002d44fea57a52ef6b30c0493e51d3ca20e2cb8cac3d95e5deb3e5ed14d97d43",
+      "sourceRow": 512459,
+      "district": "송파구"
+    },
+    {
+      "id": "002dd86b1070d8845c6db8a11b0e7b2abea6b572ec74c06c6d36721f62e84b7a",
+      "sourceRow": 492228,
+      "district": "송파구"
+    },
+    {
+      "id": "00310ddc412a2ec519659b18d9f460825ab5b13cb200903b0da7ce4129e53908",
+      "sourceRow": 493556,
+      "district": "송파구"
+    },
+    {
+      "id": "0006d10afc0f9ba3a0f2f673bec770c466ceba81eba8568e66b851d669378fe1",
+      "sourceRow": 515444,
+      "district": "강동구"
+    },
+    {
+      "id": "000924f68e171ab1e1bf57b7526405d57ad6bb8925a53ff01969501f0b0c6fc5",
+      "sourceRow": 522287,
+      "district": "강동구"
+    },
+    {
+      "id": "000969f5ab63e901ac0436e07017170a4bbec835449c807ab52ed01083aa35d2",
+      "sourceRow": 518467,
+      "district": "강동구"
+    },
+    {
+      "id": "0009acace6d0d87cf1cbd67a0dbaa9d5ac4bcddf51f42fb30a87d8b65e8eb42b",
+      "sourceRow": 527753,
+      "district": "강동구"
+    },
+    {
+      "id": "000c503b66510d83b312106697b1d0372462487e4b15093f3cc05f066b85d29b",
+      "sourceRow": 528910,
+      "district": "강동구"
+    },
+    {
+      "id": "000cef2d57a703536de26e2e4d334f2970f73db47682f061c6a9950b5da42bdf",
+      "sourceRow": 535778,
+      "district": "강동구"
+    },
+    {
+      "id": "0010d423d1c18cd3d2bddf6f25eeeb08be8601e22889db5ddc15048b3e6612ae",
+      "sourceRow": 520009,
+      "district": "강동구"
+    },
+    {
+      "id": "0015c3aeec70d574e8aeda47601bc8dd7cf58786f9f5a40664239b76fff91db1",
+      "sourceRow": 516295,
+      "district": "강동구"
+    },
+    {
+      "id": "0017d54c43cac10ccde56d1c3bedb5c240094d37d21e7323b0c35df08105c8f9",
+      "sourceRow": 524375,
+      "district": "강동구"
+    },
+    {
+      "id": "001a4a6266b17962b2b643e584b55e0cc294be3735b995135035ce9cb2ea15fd",
+      "sourceRow": 535854,
+      "district": "강동구"
+    },
+    {
+      "id": "001a5011377543d9be6b5a427b2fa497ea9a62449a992085eb6e70896281d3e0",
+      "sourceRow": 523247,
+      "district": "강동구"
+    },
+    {
+      "id": "001d26f4732d50b725c21a108e0b42c5493bce39097913cd85046250930afa3f",
+      "sourceRow": 520129,
+      "district": "강동구"
+    },
+    {
+      "id": "001fe821a4ea86b15ab9dbb104bf5ed4c0ade6a84176d5113340c83f8b9122e6",
+      "sourceRow": 529232,
+      "district": "강동구"
+    },
+    {
+      "id": "00234ef559cacfa5b138c7b9fdafc95fc03df3fea58dd2553f23e66f8663659c",
+      "sourceRow": 516565,
+      "district": "강동구"
+    },
+    {
+      "id": "002492175ba01d260ea2d96f0d91861c7c45d523db0ff5cbba0754166001444d",
+      "sourceRow": 516401,
+      "district": "강동구"
+    },
+    {
+      "id": "002764fa49a0541d0874587643990717f610f461ae4c05a4ed13f53a89c18665",
+      "sourceRow": 522321,
+      "district": "강동구"
+    }
+  ],
+  "implementationSha256": {
+    "/work/task013-sample.mjs": "1cd57ac5ae64979f7b4bee0d7951f8c382102c8d09b03312dab0b4fdc0f9d95b",
+    "/work/repository/src/pipeline/stream-csv.ts": "81f42b912047a0b5970a29cf41a76534fc0a7f552af7c21b04f28256873b7d42",
+    "/work/repository/src/pipeline/stream-process.ts": "bb25dec9dfff64a8ee5520766054eb0de9b2ca202215eec2c868a555b90daee1",
+    "/work/repository/src/pipeline/transform-license-records.ts": "a2beea03bea7f3d5ff170ff8032ef5f150bee58acc5aa6ca7dc257f23597910a",
+    "/work/task013-search-final/prepare-search-query.ts": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+    "/work/task013-search-final/compare-search-address.ts": "cbb76388d58d63e81037cb72c4adcb460aa6d83a651b1db02c4404c50aad370d"
+  },
+  "formattedFixtureSha256": "3b5e235e52ad91c710c2f1e22d1d9a343a2cba895c079554f2434989f1063553",
+  "formatting": "Biome JSON whitespace formatting only; parsed source corpus independently identical to the raw extractor output bound by corpusSha256.",
+  "closureReplay": {
+    "initialRecords": 2803,
+    "finalRecords": 2803,
+    "targetAndBackgroundSelectionUnchanged": true,
+    "corpusBytesUnchanged": true,
+    "initialArchiveSame": true
+  }
+}

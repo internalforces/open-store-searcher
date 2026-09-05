@@ -164,6 +164,10 @@ function scoreCandidate<T extends SearchRecord>(
     score = 100;
     confidence = 'medium';
   }
+  if (query.inferredNameBoundary && confidence === 'high') {
+    confidence = 'medium';
+    reasons.push('inferred_name_boundary');
+  }
   if (conflicts.length || query.ambiguous || ambiguousAddress || fallbackName) confidence = 'low';
   if (confidence === 'low' && !query.address) reasons.push('name_only_or_literal_evidence');
   return { record: entry.record, score, confidence, nameMatch, addressMatch, reasons };

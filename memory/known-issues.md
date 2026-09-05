@@ -21,7 +21,7 @@ _Last updated: 2026-09-04_
 |---|---|---|---|
 | DEBT-002 | ADR-009 permission coverage and TASK-005 delivery, schema, integrity, and entry-date contracts are verified, but conservative data as-of derivation remains undecided | Production publication remains prohibited until freshness semantics and later validation gates pass | M1 / TASK-008 |
 | DEBT-003 | Atomic preservation method for the last known-good data is undecided | A failed refresh could regress the service | M1 / TASK-009 |
-| DEBT-004 | Location of the Seoul search-quality test set is undecided | Top-3 recall cannot be verified | M2 / TASK-013 |
+| DEBT-004 | Resolved for TASK-013: reviewed 25-district restaurant snapshot and independent source replay | Source 98/100 and synthetic 28/30 meet the bounded >=90% criterion; all-category accuracy is not claimed | Verified 2026-09-05 |
 | DEBT-005 | No reviewed Seoul count/missing-value baseline or JSON budget exists; ADR-014 proposes explicit policy with no defaults | TASK-008 production acceptance cannot pass before measured evidence and reviewed limits | M1 / TASK-008 |
 | DEBT-006 | Recorded source PRD path is absent on this Windows host; repository PRD-name search found only traceability | Exact source-PRD design acceptance cannot be claimed; user was asked for the current location | TASK-008 design |
 | DEBT-007 | Current Windows host fails the real collector environment gate; no WSL installation or retained Actions archive exists | Cannot collect accepted production calibration observations here until approved Linux access/setup is available | TASK-008 evidence collection |
@@ -95,3 +95,30 @@ partial-address fallback, with regression evidence. Independent final review App
 open implementation finding remains. The intentionally bounded address grammar leaves unsupported
 or ambiguous syntax low-confidence; realistic Seoul coverage/90% recall remains TASK-013 and
 full-data latency remains TASK-018. These synthetic results do not close either production gate.
+
+## TASK-013 measured search limitations — 2026-09-05
+
+The unchanged accepted engine returns low-only results for fictional names `"별담문구"` and
+`"신사동"` because their suffixes look like address components. Five identical licensing targets
+cannot all appear in a Top-3 and correctly suppress primary selection. These five misses are
+preserved in reports/quality-2026-09-05-task-013.json (25/30), not relabeled or filtered away.
+A reviewed parser improvement and representative source-backed corpus remain required before
+claiming the release criterion; TASK-013 stays active. No status-mapping defect was found.
+
+## TASK-013 completion evidence supersedes the initial quality deficit — 2026-09-05
+
+The earlier 25/30 and missing-source notes are historical. Query/address interpretation corrections
+now preserve the same synthetic labels at 28/30 and the reviewed source corpus at 98/100. The
+source sample was deterministically selected before scoring and independently replayed, including
+all declared collision/core competitors. Thus DEBT-004's fixture-location/source-evidence gap is
+resolved for this bounded task. Remaining intentional misses are tied licensing IDs and ambiguous
+historical-road annotations; no unsafe status inference or relaxed conflict veto is introduced.
+These results do not establish all-category or full-dataset performance or overall release approval.
+
+
+## PR #14 regressions resolved — 2026-09-05
+
+R1 address-only parenthesized locality loss, R2 unchecked source corpus/audit digest mismatch,
+and R3 adjacent floor/unit ambiguity were reproduced and corrected. Twelve additional test
+cases cover the regressions and valid-binding paths; reports/review-2026-09-05-pr14.md records
+verification. Existing tied-ID and historical-road benchmark misses remain unchanged.

@@ -1,0 +1,27 @@
+{
+  "kind": "accepted",
+  "change": "changed",
+  "sha256": "fd95ab10c6b0cbb5e638b36b911da66880b0a42e429f4bea50b97292862ae4e5",
+  "byteLength": 216223358,
+  "fetchedAt": "2026-09-05T11:52:59.156Z",
+  "sourceEvidence": {
+    "expectedBytes": 216223358,
+    "finalUrl": "https://file.localdata.go.kr/file/download-all?orgCode=6110000_ALL",
+    "limitStatus": 200,
+    "rangeStatus": 206,
+    "providerFreshness": {
+      "updateCadence": "daily",
+      "coverageLagDays": 2,
+      "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+    }
+  },
+  "archiveEvidence": {
+    "entryCount": 195,
+    "schemaManifestSha256": "6254a2b3d6626c41f625bb98d79399bdd40318632ce0d54561a997fdd039ceb6",
+    "providerModifiedDate": "2026-09-05"
+  },
+  "archiveRetained": false,
+  "ownedStagingRemoved": true,
+  "cleanupAt": "2026-09-05T12:26:29.476Z",
+  "scope": "TASK-013 fixture research only; source cutoff and TASK-008 production gates remain unestablished."
+}

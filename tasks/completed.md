@@ -139,3 +139,34 @@ _Last updated: 2026-09-04_
 - Verified 10 expected design, plan, and handbook files; 8 handbook files; 11 prompt boundaries; and 5 milestone gates.
 - Verified balanced Markdown code fences, no unresolved-marker matches, required status-safety copy, and no handbook content in implementation context-loading directives.
 - The current directory is not a Git repository. No commit, tag, deployment, dependency, external service, or production change was made.
+
+## TASK-013: Seoul search quality fixtures and recall — Completed 2026-09-05
+
+- User requested activation/implementation and then explicit completion.
+- Requirements: FR-03, FR-07; PRD sections 16–18, exact name-plus-address Top-3 >=90%.
+- Implemented strict offline quality evaluator/CLI, unchanged-label synthetic corpus, independently
+  reviewed 100-target/25-district source corpus with 2,803 candidate records, and targeted
+  name/address parser corrections preserving scores, conflicts, status safety and raw values.
+- Synthetic: 25/30 before -> 28/30 (93.3333%) after. Source: 39/100 before -> 98/100 after.
+  Zero annotated safety failures; retained tie/historical-road misses. The final competitor-closure
+  replay returned byte-identical records/labels, with no target removal or denominator adjustment.
+- Pinned verify:full exited 0: 443 Vitest tests, 8 browser tests, 2 zero-violation a11y scans;
+  both >=90% quality checks are included. Independent Reviewer final verdict: Approved.
+- Source selection/identity/projection and hashes were independently replayed against the retained
+  archive before owned staging/archive cleanup was confirmed. No source cutoff or production claim.
+- Evidence in `.worktrees/task013-quality`: reports/test-2026-09-05-task-013.md,
+  reports/review-2026-09-05-task-013.md, final synthetic/source quality JSON, source fixture/audit,
+  and reports/source-2026-09-05-task-013-collection.json. Before results remain historical evidence.
+- TASK-008 remains deferred/incomplete. TASK-014 is next in backlog; no next task is activated.
+  M1/M2, UI, full-source performance and release/deployment gates remain open. No milestone closes.
+
+
+## TASK-013 PR #14 review remediation — 2026-09-05
+
+User authorized review implementation, commit and push. Resolved all three GitHub review findings
+and the independent-review floor-before-locality interaction. Added twelve test cases and
+retained all fixed corpus/audit bytes. Final independent Reviewer Approved. Pinned verify:full
+passed 455 tests, eight browser tests and two accessibility scans; focused engine suite passed
+80 tests. Synthetic28/30 and source98/100, safety zero. Evidence:
+`reports/review-2026-09-05-pr14.md` and its two hash-bound quality reports. No milestone closed;
+TASK-014 remains in backlog and production/UI/performance gates remain separate.

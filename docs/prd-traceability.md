@@ -22,7 +22,7 @@ _Last updated: 2026-09-04_
 |---|---|---|---|---|
 | FR-01 | Business-name or address input | TASK-011, 014 | TASK-011 pure input validation/projection and fixtures: reports/test-2026-09-05-task-011.md; actual input UI remains TASK-014 | In progress |
 | FR-02 | In-browser search | TASK-011, 012 | TASK-011 input and TASK-012 pure search pass real-engine browser tests in four projects with no query I/O; reports/test-2026-09-05-task-012.md; product UI/data integration pending | In progress |
-| FR-03 | Name and address candidate ranking | TASK-012, 013 | TASK-012 S01–S10 synthetic ranking/conflict/Top-3 evidence and independent approval: reports/test-2026-09-05-task-012.md; TASK-013 realistic recall pending | In progress |
+| FR-03 | Name and address candidate ranking | TASK-012, 013 | TASK-012 S01–S10 synthetic ranking/conflict/Top-3 evidence and independent approval: reports/test-2026-09-05-task-012.md; TASK-013 synthetic 28/30 and reviewed 100-target source 98/100 with zero safety failures: reports/test-2026-09-05-task-013.md; UI and production integration remain separate | In progress |
 | FR-04 | Four display statuses | TASK-007, 014 | Accepted ADR-013 and `reports/test-2026-09-04-task-007.md`: exact mapper, schema V2 integration, 86 unit tests and 100% mapper coverage; result-card UI remains pending | In progress |
 | FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 accepted: implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review passed; result-card UI remains pending | In progress |
 | FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 accepted: lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schemas, and missing-value tests passed; UI remains pending | In progress |
@@ -53,7 +53,7 @@ production source-cut/policy evidence and TASK-009 last-known-good publication/r
 | Area | Criterion | Tasks | Evidence | Status |
 |---|---|---|---|---|
 | Cost | Zero mandatory monthly cost and no payment method | TASK-001, 002, 003, 010, 021 | Dependency, license, static-build, and deployment audit; TASK-002 reports plus TASK-003 dependency-license report and independent Tester PASS / Reviewer APPROVED reports | In progress |
-| Search quality | Exact name-and-address Top-3 recall >= 90% | TASK-013, 021 | Benchmark report | Planned |
+| Search quality | Exact name-and-address Top-3 recall >= 90% | TASK-013, 021 | reports/test-2026-09-05-task-013.md; source 98/100, synthetic 28/30, independent source replay; snapshot scope only | Verified for TASK-013 |
 | Refresh reliability | Success rate >= 95% over the last 30 days | TASK-010, 021 | Actions run history | Planned |
 | Freshness | As-of date within seven days during normal operation | TASK-008, 015 | TASK-008 helper and staged validator tests pass for reviewed coverage, unknown/stale distinction, and regression checks; production evidence remains unresolved | In progress |
 | Performance | LCP target 2.5 s, search 500 ms, code 300 KB | TASK-018 | Performance report | Planned |
@@ -74,3 +74,11 @@ The Reviewer verifies that the following meanings remain consistent throughout t
 - `행정상 영업` (administratively operating) does not mean the business is open at the current moment.
 - No matching data does not mean that a business is closed.
 - When data refresh is delayed, show the as-of date and recommend additional verification.
+
+
+## PR #14 regression evidence — 2026-09-05
+
+FR-03/07 and TASK-013 Q07/Q08: reports/review-2026-09-05-pr14.md maps the three review findings
+to parser, actual-source candidate and CLI audit-binding regressions. Pinned full verification
+passes 455 tests, eight browser tests and two accessibility scans; unchanged corpora retain
+28/30 synthetic and 98/100 source Top-3 recall with zero safety failures. No release gate expands.
