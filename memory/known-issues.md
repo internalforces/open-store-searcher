@@ -79,3 +79,19 @@ human approval; production status-distribution validation remains TASK-008.
 - Temporary workaround:
 - Permanent fix direction:
 - Related FR and tests:
+
+## TASK-011 review outcome — 2026-09-05
+
+Independent review found coupled candidate/query validation, dropped Unicode hyphens and
+uppercase entity notation gaps. All were resolved with failing-then-passing regression tests
+and an Approved re-review. No new open defect remains. TASK-012 owns ranking and candidate
+integration; TASK-014/015 own UI input/guidance wiring, so their end-to-end checks remain pending.
+
+## TASK-012 review outcome — 2026-09-05
+
+Review resolved erased original-record field types and a strict descriptor typing issue in the
+browser sentinel. Parent verification corrected inherited sendBeacon instrumentation and literal
+partial-address fallback, with regression evidence. Independent final review Approved; no new
+open implementation finding remains. The intentionally bounded address grammar leaves unsupported
+or ambiguous syntax low-confidence; realistic Seoul coverage/90% recall remains TASK-013 and
+full-data latency remains TASK-018. These synthetic results do not close either production gate.

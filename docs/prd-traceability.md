@@ -20,13 +20,13 @@ _Last updated: 2026-09-04_
 
 | Requirement | Summary | Tasks | Verification and evidence | Status |
 |---|---|---|---|---|
-| FR-01 | Business-name or address input | TASK-011, 014 | Input combinations, empty input, and one-character tests | Planned |
-| FR-02 | In-browser search | TASK-011, 012 | Zero external API requests during search | Planned |
-| FR-03 | Name and address candidate ranking | TASK-012, 013 | Ranking fixtures and Top-3 recall | Planned |
+| FR-01 | Business-name or address input | TASK-011, 014 | TASK-011 pure input validation/projection and fixtures: reports/test-2026-09-05-task-011.md; actual input UI remains TASK-014 | In progress |
+| FR-02 | In-browser search | TASK-011, 012 | TASK-011 input and TASK-012 pure search pass real-engine browser tests in four projects with no query I/O; reports/test-2026-09-05-task-012.md; product UI/data integration pending | In progress |
+| FR-03 | Name and address candidate ranking | TASK-012, 013 | TASK-012 S01–S10 synthetic ranking/conflict/Top-3 evidence and independent approval: reports/test-2026-09-05-task-012.md; TASK-013 realistic recall pending | In progress |
 | FR-04 | Four display statuses | TASK-007, 014 | Accepted ADR-013 and `reports/test-2026-09-04-task-007.md`: exact mapper, schema V2 integration, 86 unit tests and 100% mapper coverage; result-card UI remains pending | In progress |
 | FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 accepted: implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review passed; result-card UI remains pending | In progress |
 | FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 accepted: lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schemas, and missing-value tests passed; UI remains pending | In progress |
-| FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | `reports/test-2026-09-04-task-007.md`: unknown, partial, contradictory, whitespace, Unicode and empty-stage regressions pass; later search/UX conflicts remain pending | In progress |
+| FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | `reports/test-2026-09-04-task-007.md`: unknown, partial, contradictory, whitespace, Unicode and empty-stage regressions pass; TASK-012 conflict/ambiguity/name-only separation passes S04–S08 in reports/test-2026-09-05-task-012.md; UX integration remains pending | In progress |
 | FR-08 | Data as-of date | TASK-008, 014 | Accepted ADR-014; `reports/test-2026-09-04-task-008.md` V08–V09 verify archive-bound coverage and reject unsupported timestamps; production evidence and UI pending | In progress |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; UI and public documentation remain pending | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | URL encoding and new-window security tests | Planned |

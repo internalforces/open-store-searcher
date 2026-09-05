@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: M1 — TASK-008 staged validator implemented and fully verified
+- Phase: TASK-011 input and TASK-012 candidate engine complete; M1 production gates open
 - Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
 - Overall health: 🟡 Caution — collector, synthetic transformation, and staged validation gates pass, while no
   production transformation or publication path exists
@@ -93,3 +93,10 @@ Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipel
 - Preserve the last known-good data after validation failure
 - Initial region: Seoul; code license: MIT
 - Korean human explanations live under `handbook/ko/**` and are not implementation input
+
+## Current task priority — 2026-09-05
+
+The user prioritized and approved TASK-011/012 offline browser work. Both are implemented and
+independently reviewed. No implementation task is active; TASK-013 is next in backlog. TASK-008
+remains deferred/incomplete. Later local TASK-008 continuation changes are outside this PR.
+See reports/delivery-2026-09-05-task-012.md for validation on the isolated main-based branch.
