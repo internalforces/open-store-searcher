@@ -49,6 +49,24 @@ export function addressWord(
   return { kind, value, number: match[2] ?? '' };
 }
 
+/** Remove floor/unit detail only from component parsing, preserving original address keys. */
+export function withoutFloorUnitDetails(value: string): string {
+  // A comma after the primary building/lot number is an address separator, not a floor list.
+  const primary = /(?:대로|로|길|동|가|읍|면|리)\s*(?:산\s*)?\d+(?:-\d+)?(?=$|[\s,()])/u.exec(
+    value,
+  );
+  const boundary = primary ? primary.index + primary[0].length : 0;
+  return (
+    value.slice(0, boundary) +
+    value
+      .slice(boundary)
+      .replace(
+        /(?<![\p{L}\p{N}])(?:(?:지상|지하)?\d+(?:-\d+)?(?:,\s*\d+(?:-\d+)?)*(?:층|호)+)+(?:\d+(?:-\d+)?(?:,\s*\d+(?:-\d+)?)*)?(?![\p{L}\p{N}])/gu,
+        ' ',
+      )
+  );
+}
+
 /** Parse a single address field, never combining evidence from different fields. */
 export function parseSearchAddress(value: string): AddressParts {
   const projection = projectSearchText(value);
@@ -71,11 +89,7 @@ export function parseSearchAddress(value: string): AddressParts {
     if (parts[kind]) parts.ambiguous = true;
     else parts[kind] = text;
   };
-  // Floor/unit lists describe a location within a building, not additional street/lot numbers.
-  const componentsText = projection.normalized.replace(
-    /(?<![\p{L}\p{N}])(?:지상|지하)?\d+(?:-\d+)?(?:,\s*\d+(?:-\d+)?)*(?:층|호)+/gu,
-    ' ',
-  );
+  const componentsText = withoutFloorUnitDetails(projection.normalized);
   let depth = 0;
   let mountain = false;
   const componentWords: { word: string; annotation: boolean }[] = [];

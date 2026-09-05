@@ -74,3 +74,11 @@ The Reviewer verifies that the following meanings remain consistent throughout t
 - `행정상 영업` (administratively operating) does not mean the business is open at the current moment.
 - No matching data does not mean that a business is closed.
 - When data refresh is delayed, show the as-of date and recommend additional verification.
+
+
+## PR #14 regression evidence — 2026-09-05
+
+FR-03/07 and TASK-013 Q07/Q08: reports/review-2026-09-05-pr14.md maps the three review findings
+to parser, actual-source candidate and CLI audit-binding regressions. Pinned full verification
+passes 455 tests, eight browser tests and two accessibility scans; unchanged corpora retain
+28/30 synthetic and 98/100 source Top-3 recall with zero safety failures. No release gate expands.

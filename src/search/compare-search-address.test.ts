@@ -211,3 +211,34 @@ test('preserves mountain lot qualifiers as conflicting numeric evidence', () => 
     compareSearchAddress(mountain, parseSearchAddress('서울특별시 동작구 상도1동 131-0')).conflicts,
   ).toContain('number');
 });
+
+test('R1 preserves parenthesized localities in address-only queries', () => {
+  for (const input of [
+    '서울특별시 영등포구 신길로34길 14 (신길동)',
+    '영등포구 신길로34길14 (신길동)',
+    '서울특별시 양천구 화곡로3길 3, 1층 1호 (신월동)',
+    '서울특별시 양천구 화곡로3길 3,1층 1호 (신월동)',
+    '서울특별시 성동구 한림말5길 11 (옥수동, 365-6 지상1층)',
+  ]) {
+    expect(query(input)).toMatchObject({ nameKey: '', ambiguous: false });
+    expect(query(input).address).toEqual(parseSearchAddress(input));
+  }
+  expect(query('서울특별시 영등포구 신길로34길 14 신사동')).toMatchObject({
+    nameKey: '신사동',
+    inferredNameBoundary: true,
+    ambiguous: false,
+  });
+  expect(query('서울특별시 영등포구 신길로34길 14 (신길동, 강남구)').ambiguous).toBe(true);
+});
+
+test.each(['지상1층104,105호', '3층3066', '지하1층101호', '1,3층104,105호'])(
+  'R3 consumes adjacent floor and unit notation atomically: %s',
+  (detail) => {
+    expect(parseSearchAddress(`서울특별시 강남구 대치동 989-0 ${detail}`)).toMatchObject({
+      locality: '대치동',
+      number: '989-0',
+      ambiguous: false,
+    });
+    expect(parseSearchAddress(`서울특별시 강남구 대치동 989-0 ${detail} 999`).ambiguous).toBe(true);
+  },
+);

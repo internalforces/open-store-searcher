@@ -19,6 +19,24 @@ try {
     : 'tests/fixtures/search/seoul-quality.json';
   const corpusBytes = await readFile(new URL(corpusPath, root));
   const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+  const corpusSha256 = hash(corpusBytes);
+  let sourceAuditSha256 = null;
+  if (args.includes('--source')) {
+    const auditBytes = await readFile(
+      new URL('tests/fixtures/search/seoul-source-audit.json', root),
+    );
+    const audit = JSON.parse(auditBytes.toString('utf8'));
+    // Formatted bytes have their own binding; never fall back after a formatted mismatch.
+    const expected = audit?.formattedFixtureSha256 ?? audit?.corpusSha256;
+    if (
+      typeof expected !== 'string' ||
+      !/^[a-f0-9]{64}$/u.test(expected) ||
+      expected !== corpusSha256
+    ) {
+      throw new Error('Source corpus digest does not match audit');
+    }
+    sourceAuditSha256 = hash(auditBytes);
+  }
   const paths = [
     'src/search/prepare-search-query.ts',
     'src/search/interpret-search-query.ts',
@@ -46,10 +64,8 @@ try {
   const report = {
     schemaVersion: 1,
     runtime: { node: process.version, icu: process.versions.icu },
-    corpusSha256: hash(corpusBytes),
-    sourceAuditSha256: args.includes('--source')
-      ? hash(await readFile(new URL('tests/fixtures/search/seoul-source-audit.json', root)))
-      : null,
+    corpusSha256,
+    sourceAuditSha256,
     implementationSha256,
     result,
   };

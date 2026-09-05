@@ -11,9 +11,9 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-013 completed on 2026-09-05 after independent Approved
-review, source replay and pinned full verification (443 tests, 8 browser, 2 a11y). See
-`tasks/completed.md` and the evidence in `.worktrees/task013-quality`. TASK-014 is next in backlog.
+No implementation task is active. TASK-013 PR #14 review remediation completed on 2026-09-05
+with independent Reviewer Approved and pinned full verification (455 tests, eight browser tests,
+two accessibility scans). Evidence: `reports/review-2026-09-05-pr14.md`. TASK-014 remains next.
 
 ## Deferred — incomplete
 

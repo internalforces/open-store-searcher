@@ -114,3 +114,11 @@ all declared collision/core competitors. Thus DEBT-004's fixture-location/source
 resolved for this bounded task. Remaining intentional misses are tied licensing IDs and ambiguous
 historical-road annotations; no unsafe status inference or relaxed conflict veto is introduced.
 These results do not establish all-category or full-dataset performance or overall release approval.
+
+
+## PR #14 regressions resolved — 2026-09-05
+
+R1 address-only parenthesized locality loss, R2 unchecked source corpus/audit digest mismatch,
+and R3 adjacent floor/unit ambiguity were reproduced and corrected. Twelve additional test
+cases cover the regressions and valid-binding paths; reports/review-2026-09-05-pr14.md records
+verification. Existing tied-ID and historical-road benchmark misses remain unchanged.

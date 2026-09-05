@@ -220,3 +220,17 @@ matches `origin/main` at delivery preparation. The final reviewed implementation
 quality evidence are unchanged since the successful pinned verify:full run. Original integration
 checkout changes remain outside this commit. The PR targets main; merge and deployment are
 separate actions.
+
+
+## PR #14 review remediation — 2026-09-05
+
+User authorized implementation, commit and push on the existing PR branch. All three findings
+were reproduced and fixed in the isolated task013-quality worktree. Original dirty integration
+work remains untouched. Address-only locality annotations and adjacent floor/unit notation now
+preserve medium Top-3 eligibility; source measurement rejects mismatched audit bindings before
+reporting any result. Fixed fixture/audit bytes and labels remain unchanged.
+Pinned verify:full passed 455 tests, eight browser tests and two accessibility scans; synthetic
+28/30 and source98/100 with zero safety failures. Evidence: reports/review-2026-09-05-pr14.md and
+its two hash-bound quality reports. Independent Reviewer Approved after resolving the floor-before-locality interaction; TASK-014
+is not activated. Commit/push delivery is authorized to `codex/task-013-search-quality` for PR #14;
+no merge or deployment is included.

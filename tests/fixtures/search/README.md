@@ -50,7 +50,9 @@ confirmed every immutable selection/audit field and byte-identical raw corpus be
 `seoul-source-audit.json` binds archive/member/script/comparator hashes, counts, all target and
 background IDs/districts and runtime/resource evidence. Its `corpusSha256` binds the raw extractor
 JSON; `formattedFixtureSha256` binds the repository's Biome-formatted JSON. Only whitespace changed.
-The final checked CLI separately hashes the actual fixture and audit bytes.
+The CLI verifies the fixture bytes against `formattedFixtureSha256` when present, otherwise
+`corpusSha256`, before evaluation. Missing or mismatched bindings exit 2 without a result.
+It also reports independent hashes of the actual fixture and audit bytes.
 
 ## Metric, scope and reproduction
 

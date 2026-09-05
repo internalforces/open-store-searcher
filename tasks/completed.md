@@ -159,3 +159,14 @@ _Last updated: 2026-09-04_
   and reports/source-2026-09-05-task-013-collection.json. Before results remain historical evidence.
 - TASK-008 remains deferred/incomplete. TASK-014 is next in backlog; no next task is activated.
   M1/M2, UI, full-source performance and release/deployment gates remain open. No milestone closes.
+
+
+## TASK-013 PR #14 review remediation — 2026-09-05
+
+User authorized review implementation, commit and push. Resolved all three GitHub review findings
+and the independent-review floor-before-locality interaction. Added twelve test cases and
+retained all fixed corpus/audit bytes. Final independent Reviewer Approved. Pinned verify:full
+passed 455 tests, eight browser tests and two accessibility scans; focused engine suite passed
+80 tests. Synthetic28/30 and source98/100, safety zero. Evidence:
+`reports/review-2026-09-05-pr14.md` and its two hash-bound quality reports. No milestone closed;
+TASK-014 remains in backlog and production/UI/performance gates remain separate.

@@ -1,7 +1,19 @@
 import { execFileSync, spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import {
+  cpSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, test } from 'vitest';
 import { evaluateSearchQuality } from '../../tests/quality/evaluate-search-quality.js';
+import { createSearchIndex, searchCandidates } from './search-candidates.js';
 
 const corpus = JSON.parse(
   readFileSync(new URL('../../tests/fixtures/search/seoul-quality.json', import.meta.url), 'utf8'),
@@ -298,3 +310,93 @@ test('Q03 reports low-only targets beyond the bounded similar-ID preview without
   expect(row?.similarIds).toHaveLength(10);
   expect(row?.similarIds).not.toContain('target');
 });
+
+test('R1/R3 retrieves the reviewed source records with medium confidence', () => {
+  const source = JSON.parse(
+    readFileSync(
+      new URL('../../tests/fixtures/search/seoul-source-quality.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const index = createSearchIndex(source.records);
+  for (const [input, road] of [
+    ['서울특별시 영등포구 신길로34길 14 (신길동)', '서울특별시 영등포구 신길로34길 14 (신길동)'],
+    [
+      '서울특별시 양천구 화곡로3길 3, 1층 1호 (신월동)',
+      '서울특별시 양천구 화곡로3길 3, 1층 1호 (신월동)',
+    ],
+    [
+      '김밥천국 서울특별시 강남구 삼성로 238',
+      '서울특별시 강남구 삼성로 238 (대치동,지상1층104,105호)',
+    ],
+  ] as const) {
+    const target = source.records.find((row: { roadAddress: string }) => row.roadAddress === road);
+    expect(target).toBeDefined();
+    const result = searchCandidates(index, input);
+    expect(result.topMatches.find((match) => match.record.id === target.id)).toMatchObject({
+      confidence: 'medium',
+    });
+    expect(result.primaryMatch).toBeNull();
+  }
+});
+
+test.each([
+  'corpus',
+  'formatted-digest',
+  'raw-digest',
+  'missing-digest',
+  'raw-only-valid',
+  'formatted-valid',
+])(
+  'R2 checks the source audit binding before reporting success: %s',
+  (change) => {
+    const root = fileURLToPath(new URL('../../', import.meta.url));
+    const sandbox = mkdtempSync(join(tmpdir(), 'search-quality-audit-'));
+    try {
+      for (const path of [
+        'scripts/measure-search-quality.mjs',
+        'src/search',
+        'tests/quality',
+        'tests/fixtures/search',
+        'package-lock.json',
+      ]) {
+        const destination = join(sandbox, path);
+        mkdirSync(join(destination, '..'), { recursive: true });
+        cpSync(join(root, path), destination, { recursive: true });
+      }
+      symlinkSync(join(root, 'node_modules'), join(sandbox, 'node_modules'), 'dir');
+      const auditPath = join(sandbox, 'tests/fixtures/search/seoul-source-audit.json');
+      const audit = JSON.parse(readFileSync(auditPath, 'utf8'));
+      if (change === 'corpus') {
+        const path = join(sandbox, 'tests/fixtures/search/seoul-source-quality.json');
+        const source = JSON.parse(readFileSync(path, 'utf8'));
+        source.provenance.description += ' Unreviewed change';
+        expect(evaluateSearchQuality(source).checkPassed).toBe(true);
+        writeFileSync(path, JSON.stringify(source));
+      } else if (change === 'formatted-digest') audit.formattedFixtureSha256 = '0'.repeat(64);
+      else if (change === 'formatted-valid') audit.corpusSha256 = '0'.repeat(64);
+      else {
+        delete audit.formattedFixtureSha256;
+        if (change === 'raw-digest') audit.corpusSha256 = '0'.repeat(64);
+        else if (change !== 'raw-only-valid') delete audit.corpusSha256;
+      }
+      writeFileSync(auditPath, JSON.stringify(audit));
+      const run = spawnSync(
+        process.execPath,
+        [join(sandbox, 'scripts/measure-search-quality.mjs'), '--source', '--check'],
+        { encoding: 'utf8' },
+      );
+      if (change.endsWith('valid')) {
+        expect(run.status).toBe(0);
+        expect(JSON.parse(run.stdout).result.checkPassed).toBe(true);
+      } else {
+        expect(run.status).toBe(2);
+        expect(run.stdout).toBe('');
+        expect(run.stderr).toContain('Source corpus digest does not match audit');
+      }
+    } finally {
+      rmSync(sandbox, { recursive: true, force: true });
+    }
+  },
+  30_000,
+);

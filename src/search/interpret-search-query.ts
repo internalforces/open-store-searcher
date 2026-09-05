@@ -1,13 +1,14 @@
 import {
+  type AddressParts,
   addressWord,
   addressWords,
-  type AddressParts,
   parseSearchAddress,
+  withoutFloorUnitDetails,
 } from './compare-search-address.js';
 import {
   normalizeSearchText,
-  projectSearchText,
   type PreparedSearchQuery,
+  projectSearchText,
 } from './prepare-search-query.js';
 
 export interface InterpretedSearchQuery {
@@ -74,6 +75,23 @@ export function interpretSearchQuery(
             (part?.kind === 'district' && SEOUL_DISTRICTS.has(part.value)),
         ),
     };
+  }
+  // Preserve legal-locality annotations for address-only inputs before punctuation is erased.
+  // A bare trailing address-shaped name still uses the inferred-name path below.
+  const annotated = /^([^()]+)\((.*)\)$/u.exec(query.normalized);
+  if (annotated?.[1] && annotated[2]) {
+    const coreWords = addressWords(projectSearchText(withoutFloorUnitDetails(annotated[1])));
+    const annotationWords = addressWords(projectSearchText(annotated[2]));
+    const core = parseSearchAddress(annotated[1]);
+    if (
+      core.strong &&
+      SEOUL_DISTRICTS.has(core.district) &&
+      coreWords.every((word) => addressWord(word) !== null) &&
+      addressWord(annotationWords[0] ?? '')?.kind === 'locality'
+    ) {
+      const address = parseSearchAddress(query.normalized);
+      return { nameKey: '', address, ambiguous: address.ambiguous };
+    }
   }
   const words = addressWords(query);
   const signals = words.map(addressWord);

@@ -406,3 +406,13 @@ component rules are recorded in the completion specification. Recovered address-
 at medium so they cannot acquire primary status. Final source competitor closure is a monotonic
 predeclared-predicate replay and returned byte-identical records/labels. Both fixed corpora now
 meet >=90%; sample-specific success does not approve the entire release.
+
+
+## PR #14 review implementation choices — 2026-09-05
+
+Preserve legal-locality annotation syntax before query punctuation removal only for an
+address-only core; bare trailing address-shaped names retain inferred confidence. Consume
+adjacent floor/unit sequences without altering original address keys. Source benchmark checks
+bind repository fixture bytes to the audit's formatted digest, or raw digest when no formatted
+value is available. These are bounded FR-03/07 and Q07/Q08 corrections under the user's review
+implementation request; no new architecture, dependency, source policy or public contract.
