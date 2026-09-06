@@ -234,3 +234,35 @@ Pinned verify:full passed 455 tests, eight browser tests and two accessibility s
 its two hash-bound quality reports. Independent Reviewer Approved after resolving the floor-before-locality interaction; TASK-014
 is not activated. Commit/push delivery is authorized to `codex/task-013-search-quality` for PR #14;
 no merge or deployment is included.
+
+
+## TASK-014 completed — 2026-09-06
+
+The user approved the written design and requested implementation. Reused the clean
+.worktrees/task013-quality worktree on new branch codex/task-014-search-ui from fetched
+merged main 9160d5 (tree-identical to reviewed TASK-013 head 5b9b2d5). Original dirty
+TASK-008 work remains preserved. Implemented a local Preact search form, engine-driven
+primary/top/similar groups, four-status evidence cards, all original lifecycle fields,
+explicit synthetic coverage/provenance, basic responsive CSS and accessible announcements.
+
+Pinned Node 24.19.0/npm 11.17.0 verify:full exited 0: 478 tests, 20 browser tests, 6 axe scans
+with zero violations. Independent Reviewer Approved after focused reruns. Desktop/mobile
+screenshots were inspected. Evidence: reports/test-2026-09-06-task-014.md and
+reports/review-2026-09-06-task-014.md in the TASK-014 worktree.
+
+TASK-014 is complete; no task is active. TASK-015 is next under the accepted M2 priority.
+TASK-008 remains deferred/incomplete; TASK-009/010 production gates, TASK-016 map links,
+TASK-017 fuller accessibility, and M1/M2/release closure remain open. Demo data is wholly
+synthetic and must not be used to determine an actual business status. No dependencies,
+source/status contract, public serialization, workflow, commit, push, deployment or handbook
+change occurred. Keep the uncommitted TASK-014 implementation in the reused worktree.
+
+
+## TASK-014 delivery authorization — 2026-09-06
+
+User explicitly authorized commit, push and PR creation. Rechecked fetched origin/main
+at 9160d5, reviewed source/test/runtime manifest equality, and reran pinned verify:full
+successfully: 478 Vitest tests, 20 browser tests and 6 zero-violation axe scans.
+Log: /tmp/task014-pr-verify-full.log. Delivery scope is only TASK-014 in the reused
+worktree on codex/task-014-search-ui; original dirty TASK-008 work remains untouched.
+Create the PR against main. Merge, release tags and deployment remain unauthorized.

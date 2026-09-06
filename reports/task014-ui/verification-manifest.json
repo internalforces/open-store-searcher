@@ -1,0 +1,28 @@
+{
+  "task": "TASK-014",
+  "base": "9160d570c35d161da9e64688db21c2520f6efaae",
+  "runtime": {
+    "node": "24.19.0",
+    "npm": "11.17.0"
+  },
+  "files": {
+    "package-lock.json": "44e2a32dad2d6725cdf1999cac12faa78e2d5be7c116ee38dcf3dc2b5684f21b",
+    "package.json": "8d315bd784a4a94466833bd0fbd13fc97e7a0923071e4400c2693243a61c0b58",
+    "playwright.config.ts": "ad79780f60b8c43d3e4a277602d6efb49aee80e61657d7dea373d04191960f41",
+    "src/app/app.css": "bf2b84f17c107dff138edd46b2e6f77236749264102eb70d063a55324184cb43",
+    "src/app/app.test.tsx": "9f51fe023c13cf791de43c6233facbe124d7cc217cae2e312af19ccbddf758a0",
+    "src/app/app.tsx": "70f43befb1354e8ada3ef2931ec8cae96bd7dd7cb8bb9f8f632557cf5458288a",
+    "src/app/demo-data.ts": "3d27261eae4358d32426127815aae886fa6a1adc28b1a961d8754e2bf8511133",
+    "src/app/display-data.ts": "d6a2fecdcd4e11299877d41544982f7a9d29f199edbdba3b860cff713e4adbae",
+    "src/app/evidence-context.tsx": "5af63f820b6f12501f9b493e7ebcb2147e08dbc9b5fb16a384df628cdbd0822d",
+    "src/app/main.tsx": "b9976790aa0f87997cd1b8e64503b6da726e8298a8ae34f9f662eb0a13b8cadd",
+    "src/app/result-card.test.tsx": "de129b29857123c14738b06cb80be88d65ba162df86c2b280f96c05c8ec4f84c",
+    "src/app/result-card.tsx": "ce7c005db945d238a55bc3835ad2dd813281cc55b12960fafbcf027cf9d61262",
+    "src/app/search-form.tsx": "b44a9eac2d14d328b94f80a45064f9ca8b7c39168e94a4c0480fa5a8f92fa358",
+    "src/app/search-results.tsx": "39810da2dd6073eeecb1d6d68656f9c0add089dc80c688db212003f3f16a0519",
+    "src/app/style.d.ts": "da5bf71d48cf909584a01c80b445f730507068f5b34c920f352e2bfcf0315e4c",
+    "tests/e2e/accessibility.spec.ts": "ac3f26b49958aa1c2a61669d0cb5d782c68c73c5c81898917460f94ecbbec51e",
+    "tests/e2e/search.spec.ts": "d32daf0faa7830f03aecc142a3f45f9bb59c512120fb842edae51335ab827dc7",
+    "vitest.config.ts": "85dc35d76db889230ac484fe67fb49ac7688903dec42e869daea20d55391c884"
+  }
+}

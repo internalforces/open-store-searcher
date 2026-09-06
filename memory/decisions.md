@@ -416,3 +416,15 @@ adjacent floor/unit sequences without altering original address keys. Source ben
 bind repository fixture bytes to the audit's formatted digest, or raw digest when no formatted
 value is available. These are bounded FR-03/07 and Q07/Q08 corrections under the user's review
 implementation request; no new architecture, dependency, source policy or public contract.
+
+
+## TASK-014 internal presentation decisions — 2026-09-06
+
+User approved the concrete UI design and implementation. Reuse Preact local state and
+existing generic search engine, preserving source/status contracts. DisplayRecord uses
+type-only references to existing transformation fields; Coverage explicitly separates
+synthetic, verified and unavailable evidence. No pipeline executable code enters the browser.
+This is an internal component input, not the deferred public JSON/share contract.
+Default demo records are invented and labeled on every page/card. No runtime loader exists.
+App state binds submitted results to their dataset to prevent stale evidence on replacement.
+Independent review Approved; no new architectural approval or dependency is needed.

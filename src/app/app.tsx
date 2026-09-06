@@ -1,7 +1,76 @@
-export function App() {
+import { useMemo, useState } from 'preact/hooks';
+import {
+  createSearchIndex,
+  type SearchResult,
+  searchCandidates,
+} from '../search/search-candidates.js';
+import { demoDataset } from './demo-data.js';
+import type { DisplayDataset, DisplayRecord } from './display-data.js';
+import { EvidenceContext, statusDisclaimer } from './evidence-context.js';
+import { SearchForm } from './search-form.js';
+import { SearchResults } from './search-results.js';
+import './app.css';
+
+export function App({ dataset = demoDataset }: { dataset?: DisplayDataset }) {
+  const [draft, setDraft] = useState('');
+  const [submission, setSubmission] = useState<{
+    dataset: DisplayDataset;
+    result: SearchResult<DisplayRecord>;
+  } | null>(null);
+  const index = useMemo(() => createSearchIndex(dataset.records), [dataset]);
+  // A new supplied dataset must never inherit results or coverage from the old one.
+  const result = submission?.dataset === dataset ? submission.result : null;
+  const error = result && !result.validation.ok ? result.validation.message : null;
   return (
-    <main>
-      <h1>open-store-searcher</h1>
-    </main>
+    <>
+      <main className="page-shell">
+        <header className="page-header">
+          <p className="eyebrow">서울 사업체 · 공개 인허가 정보</p>
+          <h1>open-store-searcher</h1>
+          <p className="purpose">
+            상호명이나 주소로 공개 행정 데이터상의 사업체 상태를 확인하세요.
+          </p>
+          <EvidenceContext coverage={dataset.coverage} />
+        </header>
+        <div className="search-panel">
+          <SearchForm
+            value={draft}
+            onChange={setDraft}
+            error={error}
+            exampleQuery={dataset.exampleQuery}
+            onSubmit={() => setSubmission({ dataset, result: searchCandidates(index, draft) })}
+          />
+          <p className="open-now-warning">현재 문이 열려 있는지는 확인할 수 없습니다</p>
+        </div>
+        <p role="status" aria-live="polite" aria-atomic="true" className="result-summary">
+          {result?.validation.ok
+            ? `일치 후보 ${result.eligibleCount}개 · 유사 후보 ${result.similarCount}개`
+            : ''}
+        </p>
+        {result?.validation.ok && <SearchResults result={result} coverage={dataset.coverage} />}
+      </main>
+      <footer className="page-footer">
+        <div className="footer-content">
+          <h2>출처와 이용 안내</h2>
+          {dataset.coverage.kind === 'synthetic' ? (
+            <p>
+              현재 화면은 프로젝트에서 만든 합성 예시로 작동합니다. 실제 사업체 상태를 확인하는 데
+              사용할 수 없습니다.
+            </p>
+          ) : (
+            <p>각 결과 카드의 원본 출처와 데이터 기준일을 함께 확인하세요.</p>
+          )}
+          <p>
+            <a href="https://www.data.go.kr/" referrerPolicy="no-referrer">
+              {dataset.coverage.kind === 'synthetic'
+                ? '향후 실제 데이터 출처: 행정안전부 공공데이터'
+                : '행정안전부 공공데이터 안내'}
+            </a>
+          </p>
+          <p>{statusDisclaimer}</p>
+          <p>검색어는 이 브라우저에서만 처리하며 저장하거나 전송하지 않습니다.</p>
+        </div>
+      </footer>
+    </>
   );
 }

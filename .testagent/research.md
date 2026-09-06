@@ -1,19 +1,15 @@
-# TASK-013 bounded quality harness research
+# TASK-014 Test Research
 
-Target: new offline evaluator under tests/quality, consumed fixtures under tests/fixtures/search,
-unit tests in src/search, and one scripts CLI. Existing Vitest unit project and Vite SSR loader
-are available. No new dependency or browser entry import. Test discovery helper is unavailable;
-target pairing is src/search/search-quality.test.ts -> tests/quality/evaluate-search-quality.ts.
+Scope: Broad, limited to new app components and browser interaction (U01–U08).
+Use existing Vitest component project, jsdom, Testing Library and cleanup setup.
+Existing App test asserts the h1; preserve it. Existing engine tests and source quality
+fixtures remain unchanged. Existing browser sentinels cover the standalone engine;
+add actual form interaction coverage. No code-testing-generator, find-untested-sources,
+test-gap-analysis or assertion-quality tool is available; perform the pipeline inline.
 
-Checklist: Q01 provenance and explicit labels; Q02 exact Top-3 denominator and misses;
-Q03 family/low-only reporting; Q04 conflicts/ties/absence and original status preservation;
-Q05 malformed/duplicate labels and invalid records; Q06 empty denominator and 90% boundary;
-Q07 deterministic report and CLI; Q08 representative evidence remains unavailable.
-
-## Completion scope
-
-Add P01 explicit Seoul/name boundaries and no-primary confidence cap; P02 real detailed-address
-components with numeric/mountain/conflict safety. Add Q08 100-source-target provenance/threshold
-checks. Q03 report preview must preserve target membership beyond ten similar IDs. Independent
-source extraction and comparator-closure replay supply annotation/evidence checks unavailable to
-pure unit tests. Baseline engine remains isolated and hash-bound for before/after metrics.
+Inventory: App/App test exist. Planned SearchForm, SearchResults, ResultCard,
+EvidenceContext, display-data and demo-data have no existing paired tests.
+Checklist: U01 four statuses/raw/inert HTML; U02 original fields/missing values;
+U03 synthetic/verified/missing date; U04 persistent provenance/disclaimer;
+U05 primary/conflict/tie/low/empty; U06 keyboard/mobile/wrapping;
+U07 repeated/invalid submissions; U08 actual form query I/O sentinels.
