@@ -416,3 +416,36 @@ test('keeps real form queries out of browser network, storage, logs and URL', as
   }));
   expect(stored).toEqual({ local: [], session: [], cookie: '' });
 });
+
+test('updates stale demo evidence at Seoul midnight and announces equal-count repeated searches', async ({
+  page,
+}) => {
+  await page.clock.install({ time: new Date('2026-09-07T14:59:59.000Z') });
+  await page.goto('./');
+  const warning =
+    '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.';
+  await expect(page.getByRole('searchbox')).toBeVisible();
+  await expect(page.getByText(warning)).toHaveCount(0);
+  await page.clock.fastForward(1000);
+  await expect(page.getByText(warning)).toHaveCount(1);
+  let previous = '';
+  for (const query of [
+    '가상노을 식당 서울특별시 송파구 올림픽로 10',
+    '가상달빛 가게 서울특별시 중구 세종대로 30',
+    '가상달빛 가게 서울특별시 중구 세종대로 30',
+  ]) {
+    await page.getByRole('searchbox').fill(query);
+    await page.getByRole('searchbox').press('Enter');
+    await expect(page.getByRole('status')).toContainText('일치 후보 1개 · 유사 후보 0개');
+    const announcement = await page.getByRole('status').innerText();
+    expect(announcement).not.toBe(previous);
+    previous = announcement;
+    await expect(page.getByRole('article').getByText(warning)).toBeVisible();
+  }
+  await page.getByRole('searchbox').fill('');
+  await page.getByRole('searchbox').press('Enter');
+  await expect(page.getByRole('searchbox')).toHaveAttribute('aria-invalid', 'true');
+  await page.getByRole('button', { name: /예시 입력/ }).click();
+  await expect(page.getByRole('searchbox')).toHaveAttribute('aria-invalid', 'false');
+  await expect(page.getByRole('alert')).toHaveCount(0);
+});

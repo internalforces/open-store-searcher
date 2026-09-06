@@ -207,3 +207,11 @@ EvidenceContext/SourceLink (coverage/source presentation), DisplayDataset/Displa
 The browser imports the existing domain mapper and search runtime; transformation imports
 are type-only. No network loader, public JSON schema, persistent state or query URL is added.
 Future production integration must supply validated coverage and records through its own gates.
+
+
+### PR #15 UI refinements
+
+CoverageClock supplies one shared instant to page and card EvidenceContext consumers,
+reschedules at Seoul midnight, refreshes on focus/visibility, and cleans up on unmount.
+DisplayDataset now requires sourceLabel/sourceUrl independently of record presence.
+These are internal props; no production loader or public serialization was introduced.

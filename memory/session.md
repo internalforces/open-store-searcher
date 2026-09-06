@@ -266,3 +266,17 @@ successfully: 478 Vitest tests, 20 browser tests and 6 zero-violation axe scans.
 Log: /tmp/task014-pr-verify-full.log. Delivery scope is only TASK-014 in the reused
 worktree on codex/task-014-search-ui; original dirty TASK-008 work remains untouched.
 Create the PR against main. Merge, release tags and deployment remain unauthorized.
+
+
+## PR #15 review remediation — 2026-09-06
+
+User authorized review fixes, commit and push. Resolved five findings: >=7 Seoul-day warnings,
+shared midnight/focus/visibility clock, repeat live-region announcements, obsolete invalid
+state clearing, missing-name fallback, and dataset-level provenance visible without cards.
+The current user-provided ADR-015 boundary supersedes the older merged AGENTS wording;
+aligned the invariant but preserved V1 pipeline helper behavior. No dependency/public schema,
+source mapping, workflow, production deployment or handbook change.
+Pinned verify:full passed 492 tests, 24 browser tests and 8 zero-violation axe scans.
+Independent re-review Approved after 38 component tests and typecheck. Evidence:
+reports/review-2026-09-06-pr15.md and reports/pr15-verification-manifest.json.
+TASK-014 is complete again; TASK-015 is next and TASK-008 remains deferred/incomplete.

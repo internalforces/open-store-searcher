@@ -18,6 +18,8 @@ export type Coverage =
   | { readonly kind: 'unavailable' };
 
 export interface DisplayDataset {
+  readonly sourceLabel: string;
+  readonly sourceUrl: string | null;
   readonly records: readonly DisplayRecord[];
   readonly coverage: Coverage;
   readonly exampleQuery: string;

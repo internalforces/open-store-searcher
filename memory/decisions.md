@@ -428,3 +428,19 @@ This is an internal component input, not the deferred public JSON/share contract
 Default demo records are invented and labeled on every page/card. No runtime loader exists.
 App state binds submitted results to their dataset to prevent stale evidence on replacement.
 Independent review Approved; no new architectural approval or dependency is needed.
+
+
+## PR #15 remediation boundary — 2026-09-06
+
+The current user-supplied constitution explicitly requires a warning at Seoul age >= 7
+(accepted ADR-015). This supersedes the older >7 wording still in the merged checkout.
+Aligned AGENTS.md with that supplied instruction. The UI reuses V1 validated calendar age
+and applies >=7, preserving the historical V1 pipeline helper and its existing tests.
+No new source-cut evidence, source status mapping or publication policy is accepted here.
+
+User requested implementation of reviewed fixes and commit/push. Required dataset-level
+sourceLabel/sourceUrl are internal presentation metadata, not a public JSON schema.
+One shared page clock refreshes at Seoul midnight and focus/visibility events. An ephemeral
+submission sequence changes live-region content even for identical repeat submissions;
+it is never persisted or transmitted. Invalid submission state clears on draft edits,
+while valid submitted results retain their query context. Blank names receive explicit fallback.

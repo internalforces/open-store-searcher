@@ -11,10 +11,10 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-014 completed on 2026-09-06 with independent Approved
-review and pinned full verification (478 tests, 20 browser tests, 6 accessibility scans).
-Implementation is in `.worktrees/task013-quality` on `codex/task-014-search-ui`.
-See `tasks/completed.md` and the TASK-014 test/review reports there. TASK-015 is next.
+No implementation task is active. TASK-014 PR #15 remediation completed on 2026-09-06:
+all five findings resolved; independent re-review Approved; pinned verify:full passed
+492 tests, 24 browser tests and 8 accessibility scans. See reports/review-2026-09-06-pr15.md.
+TASK-015 is next; deferred TASK-008 remains incomplete.
 
 ## Deferred — incomplete
 

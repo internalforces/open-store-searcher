@@ -1,0 +1,29 @@
+{
+  "base": "3230bc4a40f6394381661d707b3d08d3b636706b",
+  "runtime": {
+    "node": "24.19.0",
+    "npm": "11.17.0"
+  },
+  "files": {
+    "package-lock.json": "44e2a32dad2d6725cdf1999cac12faa78e2d5be7c116ee38dcf3dc2b5684f21b",
+    "package.json": "8d315bd784a4a94466833bd0fbd13fc97e7a0923071e4400c2693243a61c0b58",
+    "src/app/app.css": "bf2b84f17c107dff138edd46b2e6f77236749264102eb70d063a55324184cb43",
+    "src/app/app.test.tsx": "426193f8f209f1177a2269c9b0e67107ca1742f4e0d39c7aef858d9367d82aef",
+    "src/app/app.tsx": "ef072c55d339901f54369da81d267ab31f10840eb39a943c8738a541e8635a78",
+    "src/app/coverage-clock.tsx": "1d3e8b8a31f3483edcb11d45e17bc9568f9e8e9903787dc2dba08caa4a48c69c",
+    "src/app/demo-data.ts": "6cc7a4594cf26f4e17c8366a9dc83e19f4f35fae2ad83a61a4298cd309f974d4",
+    "src/app/display-data.ts": "16fcb5af7b24ad472310d0c3893896c533b69f894593cc7173794a117d9e214d",
+    "src/app/evidence-context.test.tsx": "95d5c01ce7ba85a46a2a83e967b42103004af57ac06e473ee4f0ac86911332f3",
+    "src/app/evidence-context.tsx": "168dd1b5bbfb972deb5988faa7deb6b1f4380d25420ee29240b7f26adb9fba9c",
+    "src/app/main.tsx": "b9976790aa0f87997cd1b8e64503b6da726e8298a8ae34f9f662eb0a13b8cadd",
+    "src/app/result-card.test.tsx": "de129b29857123c14738b06cb80be88d65ba162df86c2b280f96c05c8ec4f84c",
+    "src/app/result-card.tsx": "f0d20e2d5f07cc03c9a9ff30f187a9c8853cd7404d04c48905bef103a2c31e90",
+    "src/app/search-form.tsx": "b44a9eac2d14d328b94f80a45064f9ca8b7c39168e94a4c0480fa5a8f92fa358",
+    "src/app/search-results.tsx": "39810da2dd6073eeecb1d6d68656f9c0add089dc80c688db212003f3f16a0519",
+    "src/app/style.d.ts": "da5bf71d48cf909584a01c80b445f730507068f5b34c920f352e2bfcf0315e4c",
+    "src/shared/data-freshness.test.ts": "2745899ee7010b7082b2726d6a90c7f01d235e05ddc8d11126e155ae968d5cbb",
+    "src/shared/data-freshness.ts": "98464f9fdf89ec9e3cbdccb74561d9da7e0a8513a25fcb0ec5321715048fe892",
+    "tests/e2e/accessibility.spec.ts": "30aa194229e94bc89120c13adca268f3ef9d48a9f6921937c0771ba2dbdfb56b",
+    "tests/e2e/search.spec.ts": "f0122f4b779da6d6dcd7b226ba0c9bc71b367c08ea71605b93e47a64fdf03433"
+  }
+}

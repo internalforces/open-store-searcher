@@ -1,3 +1,6 @@
+import { useContext } from 'preact/hooks';
+import { evaluateDataFreshnessV1 } from '../shared/data-freshness.js';
+import { CoverageNow } from './coverage-clock.js';
 import type { Coverage } from './display-data.js';
 
 export const syntheticNotice = '합성 예시 데이터 · 실제 사업체 조회가 아닙니다';
@@ -5,13 +8,28 @@ export const statusDisclaimer =
   '행정상 영업은 공개 인허가 데이터에 기록된 상태이며, 현재 문이 열려 있음을 의미하지 않습니다.';
 
 export function EvidenceContext({ coverage }: { coverage: Coverage }) {
+  const now = useContext(CoverageNow) ?? new Date().toISOString();
+  const freshness = evaluateDataFreshnessV1(
+    coverage.kind === 'unavailable' ? null : coverage.date,
+    now,
+  );
+  const known = freshness.kind === 'fresh' || freshness.kind === 'stale';
+  // Current user-approved ADR-015 display boundary; preserve the historical V1 helper contract.
+  const stale = known && freshness.ageDays >= 7;
   return (
     <div className="evidence-context">
       {coverage.kind === 'synthetic' && <p className="synthetic-notice">{syntheticNotice}</p>}
       <p className="coverage-date">
         {coverage.kind === 'synthetic' ? '예시 데이터 기준일' : '데이터 기준일'}:{' '}
-        {coverage.kind === 'unavailable' ? '확인되지 않음' : coverage.date}
+        {coverage.kind === 'unavailable' || !known ? '확인되지 않음' : coverage.date}
       </p>
+      {stale && (
+        <p className="uncertainty">
+          {coverage.kind === 'synthetic'
+            ? '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.'
+            : '최근 데이터 갱신이 지연되고 있습니다. 아래 기준일을 확인하고 외부 지도 또는 사업체에 직접 확인하세요.'}
+        </p>
+      )}
     </div>
   );
 }

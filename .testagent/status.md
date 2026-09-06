@@ -17,3 +17,11 @@ Privacy sentinels self-check interception before exercising the actual form. Scr
 and 320px browser checks corroborate CSS behavior. No unresolved test-quality findings.
 
 No production date/loader/performance claim or manual screen-reader signoff is made.
+
+
+## PR #15 remediation final status
+
+PASS: all R1–R5 regression assertions and independent re-review. Component 38, full Vitest 492,
+cross-browser 24, axe 8, zero violations. Test callbacks corrected to return void for the existing
+TypeScript contracts. No test removed or skipped and no threshold changed. Exact names and
+counts are recorded in reports/review-2026-09-06-pr15.md. No unresolved review findings.

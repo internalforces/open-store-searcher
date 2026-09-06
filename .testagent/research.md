@@ -13,3 +13,11 @@ Checklist: U01 four statuses/raw/inert HTML; U02 original fields/missing values;
 U03 synthetic/verified/missing date; U04 persistent provenance/disclaimer;
 U05 primary/conflict/tie/low/empty; U06 keyboard/mobile/wrapping;
 U07 repeated/invalid submissions; U08 actual form query I/O sentinels.
+
+## PR #15 remediation inventory
+
+R1 EvidenceContext/shared clock: boundary 6/7/8 days, unavailable/rejected dates, rollover.
+R2 App: repeated identical/count-equal submissions update stable live region.
+R3 App: typing/example clears invalid state while valid results persist.
+R4 ResultCard: missing name remains accessible for address-only matches.
+R5 DisplayDataset/App: provenance survives initial/empty/invalid states.

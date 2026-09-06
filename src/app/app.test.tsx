@@ -33,6 +33,8 @@ function record(id: string, name: string, roadAddress: string): DisplayRecord {
   };
 }
 const dataset: DisplayDataset = {
+  sourceLabel: '합성 시험 데이터',
+  sourceUrl: null,
   coverage: { kind: 'synthetic', date: '2026-09-01' },
   exampleQuery: '가상별빛 카페 서울특별시 마포구 월드컵로 12-1',
   records: [
@@ -175,5 +177,69 @@ describe('App', () => {
     expect(screen.queryByRole('article')).toBeNull();
     expect(screen.getByText('데이터 기준일: 확인되지 않음')).toBeTruthy();
     expect(screen.queryByText('합성 예시 데이터 · 실제 사업체 조회가 아닙니다')).toBeNull();
+  });
+});
+
+describe('PR15 regressions', () => {
+  it('announces every submission even when counts and query repeat', async () => {
+    render(<App dataset={dataset} />);
+    await search('서울특별시 마포구 월드컵로 12-1');
+    const region = screen.getByRole('status');
+    const first = region.textContent;
+    await search('가상별빛 카페 서울특별시 마포구 월드컵로 12-1');
+    const second = region.textContent;
+    expect(second).not.toBe(first);
+    await search('가상별빛 카페 서울특별시 마포구 월드컵로 12-1');
+    expect(region.textContent).not.toBe(second);
+    expect(screen.getByRole('status')).toBe(region);
+  });
+  it.each(['typing', 'example'])(
+    'clears an obsolete invalid error on %s without submitting',
+    async (mode) => {
+      render(<App dataset={dataset} />);
+      const { user, input } = await search('');
+      expect(input.getAttribute('aria-invalid')).toBe('true');
+      if (mode === 'typing') await user.type(input, '가상별빛');
+      else await user.click(screen.getByRole('button', { name: /예시 입력/ }));
+      expect(input.getAttribute('aria-invalid')).toBe('false');
+      expect(screen.queryByRole('alert')).toBeNull();
+      expect(screen.queryByRole('article')).toBeNull();
+    },
+  );
+  it('gives missing-name address matches a visible and accessible fallback', async () => {
+    render(
+      <App
+        dataset={{
+          ...dataset,
+          records: [record('missing', '', '서울특별시 마포구 월드컵로 12-1')],
+        }}
+      />,
+    );
+    await search('서울특별시 마포구 월드컵로 12-1');
+    expect(screen.getByRole('heading', { level: 3, name: '제공되지 않음' })).toBeTruthy();
+    expect(screen.getByRole('article', { name: '제공되지 않음 인허가 정보' })).toBeTruthy();
+    expect(screen.getByText('일치 신뢰도 보통')).toBeTruthy();
+  });
+  it('keeps exact dataset provenance accessible before search and with no matches or invalid input', async () => {
+    render(
+      <App
+        dataset={{
+          ...dataset,
+          coverage: { kind: 'verified', date: '2026-09-01' },
+          sourceLabel: '시험 데이터셋 원본',
+          sourceUrl: 'https://www.data.go.kr/data/15045011/fileData.do',
+        }}
+      />,
+    );
+    const footer = within(screen.getByRole('contentinfo'));
+    const check = () =>
+      expect(footer.getByRole('link', { name: '시험 데이터셋 원본' }).getAttribute('href')).toBe(
+        'https://www.data.go.kr/data/15045011/fileData.do',
+      );
+    check();
+    await search('없는상호이름');
+    check();
+    await search('');
+    check();
   });
 });

@@ -38,11 +38,12 @@ export function ResultCard({
   coverage: Coverage;
 }) {
   const { record } = match;
+  const displayName = record.name.trim() ? record.name : '제공되지 않음';
   const status = mapLicenseStatusV1(record.rawStatus);
   return (
-    <article className="result-card" aria-label={`${record.name} 인허가 정보`}>
+    <article className="result-card" aria-label={`${displayName} 인허가 정보`}>
       <header className="card-header">
-        <h3>{record.name}</h3>
+        <h3>{displayName}</h3>
         <div className="badges">
           <span className="status-badge" data-status={statusStyles[status]}>
             {status}

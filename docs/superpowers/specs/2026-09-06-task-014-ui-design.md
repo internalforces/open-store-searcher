@@ -141,3 +141,13 @@ push, dependency adoption, status-policy change or handbook work is authorized b
 Self-review: requirements have explicit UI/test outcomes; synthetic dates cannot masquerade
 as source evidence; confidence and status remain separate; no new public contract is assumed.
 After human approval, prepare the implementation plan and execute only TASK-014.
+
+
+## User-authorized PR #15 corrections — 2026-09-06
+
+The user requested implementation and commit/push of review findings. Baseline stale warnings
+are now included in TASK-014 to honor the current >=7 Seoul-calendar-day safety invariant;
+TASK-015 retains broader recovery/loading UX. Add dataset-level sourceLabel/sourceUrl so
+provenance is independent of search results. Blank names use explicit missing-value fallback,
+invalid state clears on editing, and every submission changes live-region context.
+These local corrections were independently Approved; see reports/review-2026-09-06-pr15.md.
