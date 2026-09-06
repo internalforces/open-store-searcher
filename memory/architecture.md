@@ -196,3 +196,22 @@ quality check is included in verify:full. Reports contain bounded similar-ID pre
 membership/counts and separate numeric/safety/release outcomes. A research-only two-pass sampler
 uses the existing approved collector/decoder environment; production/browser code imports neither
 that sampler nor the fixtures. Source metadata records retrieval evidence without asserting cutoff.
+
+
+## TASK-014 presentation boundary — 2026-09-06
+
+src/app now contains App (transient state and search index), SearchForm (native search/form),
+SearchResults (engine-owned primary/top/similar grouping), ResultCard (original evidence),
+EvidenceContext/SourceLink (coverage/source presentation), DisplayDataset/DisplayRecord
+(internal types) and demo-data (six invented records). app.css owns responsive presentation.
+The browser imports the existing domain mapper and search runtime; transformation imports
+are type-only. No network loader, public JSON schema, persistent state or query URL is added.
+Future production integration must supply validated coverage and records through its own gates.
+
+
+### PR #15 UI refinements
+
+CoverageClock supplies one shared instant to page and card EvidenceContext consumers,
+reschedules at Seoul midnight, refreshes on focus/visibility, and cleans up on unmount.
+DisplayDataset now requires sourceLabel/sourceUrl independently of record presence.
+These are internal props; no production loader or public serialization was introduced.

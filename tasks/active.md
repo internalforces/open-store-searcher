@@ -11,9 +11,10 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-013 PR #14 review remediation completed on 2026-09-05
-with independent Reviewer Approved and pinned full verification (455 tests, eight browser tests,
-two accessibility scans). Evidence: `reports/review-2026-09-05-pr14.md`. TASK-014 remains next.
+No implementation task is active. TASK-014 PR #15 remediation completed on 2026-09-06:
+all five findings resolved; independent re-review Approved; pinned verify:full passed
+492 tests, 24 browser tests and 8 accessibility scans. See reports/review-2026-09-06-pr15.md.
+TASK-015 is next; deferred TASK-008 remains incomplete.
 
 ## Deferred — incomplete
 

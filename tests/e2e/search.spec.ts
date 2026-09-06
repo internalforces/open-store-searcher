@@ -304,3 +304,148 @@ test('runs the bundled candidate engine without browser query I/O', async ({ pag
     page.off('request', recordRequest);
   }
 });
+
+test('searches the real form with keyboard and wraps results at 320 CSS pixels', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.goto('./');
+  await page.keyboard.press('Tab');
+  const input = page.getByRole('searchbox', { name: '상호명 또는 주소' });
+  await expect(input).toBeFocused();
+  expect(await input.evaluate((element) => getComputedStyle(element).outlineStyle)).not.toBe(
+    'none',
+  );
+  await input.fill('가상별빛 카페 서울특별시 마포구 월드컵로 12-1');
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('region', { name: '가장 잘 일치하는 결과' })).toBeVisible();
+  await expect(page.getByRole('region', { name: '유사 후보' })).toBeVisible();
+  const buttonBox = await page.getByRole('button', { name: '검색', exact: true }).boundingBox();
+  expect(buttonBox?.height).toBeGreaterThanOrEqual(44);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await input.fill('아주긴검색어'.repeat(40));
+  await page.keyboard.press('Enter');
+  await expect(page.getByText(/폐업을 의미하지 않습니다/)).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('renders all four demo statuses through actual search submissions', async ({ page }) => {
+  await page.goto('./');
+  for (const [query, expected] of [
+    ['가상별빛 카페 서울특별시 마포구 월드컵로 12-1', '행정상 영업'],
+    ['가상별빛 카페 서울특별시 강남구 테헤란로 12-1', '휴업'],
+    ['가상노을 식당 서울특별시 송파구 올림픽로 10', '폐업'],
+    ['가상달빛 가게 서울특별시 중구 세종대로 30', '확인되지 않음'],
+  ] as const) {
+    await page.getByRole('searchbox').fill(query);
+    await page.getByRole('button', { name: '검색', exact: true }).click();
+    const primary = page.getByRole('region', { name: '가장 잘 일치하는 결과' });
+    await expect(primary.locator('.status-badge')).toHaveText(expected);
+    await expect(primary.getByText('합성 예시 데이터 · 실제 사업체 조회가 아닙니다')).toBeVisible();
+    await expect(primary.getByText('예시 데이터 기준일: 2026-09-01')).toBeVisible();
+  }
+});
+
+test('keeps real form queries out of browser network, storage, logs and URL', async ({ page }) => {
+  await page.goto('./');
+  await page.getByRole('searchbox').waitFor();
+  const url = page.url();
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(request.url()));
+  await page.evaluate(() => {
+    const effects: string[] = [];
+    Object.defineProperty(window, '__formEffects', { value: effects });
+    const replace = (target: object, key: string, value: unknown) => {
+      Object.defineProperty(target, key, { configurable: true, writable: true, value });
+    };
+    replace(window, 'fetch', () => {
+      effects.push('fetch');
+      return Promise.reject(new Error('Blocked query request'));
+    });
+    for (const key of ['XMLHttpRequest', 'WebSocket', 'EventSource']) {
+      replace(window, key, function blocked() {
+        effects.push(key);
+        throw new Error('Blocked query connection');
+      });
+    }
+    replace(navigator, 'sendBeacon', () => {
+      effects.push('beacon');
+      return false;
+    });
+    for (const key of ['getItem', 'setItem', 'removeItem', 'clear', 'key']) {
+      replace(Storage.prototype, key, () => {
+        effects.push(`storage:${key}`);
+        return null;
+      });
+    }
+    for (const key of ['debug', 'error', 'info', 'log', 'trace', 'warn']) {
+      replace(console, key, () => {
+        effects.push(`console:${key}`);
+      });
+    }
+    // Prove every category intercepts, then reset before the user interaction.
+    void fetch('/sentinel').catch(() => {});
+    navigator.sendBeacon('/sentinel');
+    for (const Constructor of [XMLHttpRequest, WebSocket, EventSource]) {
+      try {
+        new Constructor('https://example.invalid');
+      } catch {
+        /* Expected block. */
+      }
+    }
+    localStorage.getItem('sentinel');
+    sessionStorage.setItem('sentinel', 'value');
+    console.info('sentinel');
+    if (effects.length !== 8) throw new Error(`Incomplete sentinel self-check: ${effects.length}`);
+    effects.length = 0;
+  });
+  await page.getByRole('button', { name: /예시 입력/ }).click();
+  await page.getByRole('button', { name: '검색', exact: true }).click();
+  await expect(page.getByRole('region', { name: '가장 잘 일치하는 결과' })).toBeVisible();
+  await page.getByRole('searchbox').fill('<img src=x onerror=alert(1)>');
+  await page.getByRole('searchbox').press('Enter');
+  await expect(page.getByText(/폐업을 의미하지 않습니다/)).toBeVisible();
+  expect(await page.locator('img').count()).toBe(0);
+  expect(await page.evaluate(() => Reflect.get(window, '__formEffects'))).toEqual([]);
+  expect(requests).toEqual([]);
+  expect(page.url()).toBe(url);
+  const stored = await page.evaluate(() => ({
+    local: Object.keys(localStorage),
+    session: Object.keys(sessionStorage),
+    cookie: document.cookie,
+  }));
+  expect(stored).toEqual({ local: [], session: [], cookie: '' });
+});
+
+test('updates stale demo evidence at Seoul midnight and announces equal-count repeated searches', async ({
+  page,
+}) => {
+  await page.clock.install({ time: new Date('2026-09-07T14:59:59.000Z') });
+  await page.goto('./');
+  const warning =
+    '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.';
+  await expect(page.getByRole('searchbox')).toBeVisible();
+  await expect(page.getByText(warning)).toHaveCount(0);
+  await page.clock.fastForward(1000);
+  await expect(page.getByText(warning)).toHaveCount(1);
+  let previous = '';
+  for (const query of [
+    '가상노을 식당 서울특별시 송파구 올림픽로 10',
+    '가상달빛 가게 서울특별시 중구 세종대로 30',
+    '가상달빛 가게 서울특별시 중구 세종대로 30',
+  ]) {
+    await page.getByRole('searchbox').fill(query);
+    await page.getByRole('searchbox').press('Enter');
+    await expect(page.getByRole('status')).toContainText('일치 후보 1개 · 유사 후보 0개');
+    const announcement = await page.getByRole('status').innerText();
+    expect(announcement).not.toBe(previous);
+    previous = announcement;
+    await expect(page.getByRole('article').getByText(warning)).toBeVisible();
+  }
+  await page.getByRole('searchbox').fill('');
+  await page.getByRole('searchbox').press('Enter');
+  await expect(page.getByRole('searchbox')).toHaveAttribute('aria-invalid', 'true');
+  await page.getByRole('button', { name: /예시 입력/ }).click();
+  await expect(page.getByRole('searchbox')).toHaveAttribute('aria-invalid', 'false');
+  await expect(page.getByRole('alert')).toHaveCount(0);
+});

@@ -1,15 +1,27 @@
-# TASK-013 final test-quality status
+# TASK-014 Test Quality Status
 
-TASK-013 complete: implementation/source-quality gates PASS; final independent review Approved.
-Q01–Q08 and P01/P02 map to exact tests in reports/test-2026-09-05-task-013.md.
-Focused quality 35 tests, combined search/quality 68 tests, and pinned verify:full (443 tests,
-8 browser, 2 a11y) pass. Both fixed corpora satisfy checked >=90%: synthetic28/30, source98/100.
-Independent source extraction and final comparator-closure replays are byte-identical; 100 target
-and 400 background identities remain disjoint and fixed. No false-positive confidence/status
-workaround, target removal or weakened threshold was used. Remaining misses stay visible.
+PASS. Broad inline Research → Plan → Implement workflow completed. Optional discovery/gap
+analysis tools were unavailable; the inventory and assertion review were performed directly.
+Independent requesting-code-review agent returned Approved and reran 24 component tests,
+types, lint, format, build and whitespace checks. See reports/review-2026-09-06-task-014.md.
 
-Observed RED/GREEN for boundaries, confidence cap, detailed-address components, missing source
-fixture/CLI and bounded preview. Preview tests place a low-only target beyond ten displayed IDs
-and prove it remains a miss in the full denominator. Existing full browser privacy sentinels pass.
-Test-gap/assertion-quality tools are unavailable; inline assertion audit and independent code/source
-reviews covered the matrix. Final reports bind runtime and exact source/evaluator/corpus hashes.
+All U01–U08 requirements map to named tests in reports/test-2026-09-06-task-014.md.
+Full pinned verification exited 0: 478 tests, 20 browser tests, 6 zero-violation axe scans.
+Global coverage 92.72% statements / 92.08% branches / 96.26% functions / 94.97% lines.
+App report shows 100% across all measures. Coverage thresholds were not changed.
+
+Assertion review: raw strings are literal expectations; unknown state, null fields and
+coverage absence have separate assertions. Real engine tests cover conflict/tie/medium/low,
+not mocked search responses. Invalid and repeated submissions verify old cards disappear.
+Privacy sentinels self-check interception before exercising the actual form. Screenshots
+and 320px browser checks corroborate CSS behavior. No unresolved test-quality findings.
+
+No production date/loader/performance claim or manual screen-reader signoff is made.
+
+
+## PR #15 remediation final status
+
+PASS: all R1–R5 regression assertions and independent re-review. Component 38, full Vitest 492,
+cross-browser 24, axe 8, zero violations. Test callbacks corrected to return void for the existing
+TypeScript contracts. No test removed or skipped and no threshold changed. Exact names and
+counts are recorded in reports/review-2026-09-06-pr15.md. No unresolved review findings.

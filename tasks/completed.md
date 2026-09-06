@@ -11,6 +11,7 @@ _Last updated: 2026-09-04_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
+| TASK-014 | Implement initial search page and evidence cards | 2026-09-06 | Implementer / Tester | Approved design; four-status/raw/date/source UI, local search, synthetic provenance and responsive tests. Pinned full verification: 478 tests, 20 browser, 6 a11y; independent Reviewer Approved. Evidence in .worktrees/task013-quality/reports/test-2026-09-06-task-014.md and review-2026-09-06-task-014.md. Production integration remains gated. |
 | TASK-012 | Implement candidate search, scoring, address conflicts, confidence, and Top-3 | 2026-09-05 | Implementer / Tester | FR-03/07 synthetic engine; 24 new tests, 581 full-suite tests, 8 browser tests and 2 accessibility scans pass; independent Reviewer Approved. Evidence: reports/test-2026-09-05-task-012.md and reports/review-2026-09-05-task-012.md. TASK-013 realistic recall and TASK-014/015 UI remain open. |
 | TASK-011 | Implement browser input validation and name/address normalization | 2026-09-05 | Implementer / Tester | FR-01/02 input boundary; 11 focused tests, 557 full-suite tests, four browser smoke tests and two accessibility scans passed; independent Reviewer Approved. Evidence: reports/test-2026-09-05-task-011.md and reports/review-2026-09-05-task-011.md. UI and ranking remain later tasks; M1 remains open. |
 | HARNESS-001 | Initial AI Development Harness v1.1 Standard creation | 2026-08-18 | Architect / Planner | Created the PRD-based structure, backlog, and traceability matrix |
@@ -170,3 +171,17 @@ passed 455 tests, eight browser tests and two accessibility scans; focused engin
 80 tests. Synthetic28/30 and source98/100, safety zero. Evidence:
 `reports/review-2026-09-05-pr14.md` and its two hash-bound quality reports. No milestone closed;
 TASK-014 remains in backlog and production/UI/performance gates remain separate.
+
+
+## PR #15 review remediation — 2026-09-06
+
+User authorized review fixes, commit and push. Resolved five findings: >=7 Seoul-day warnings,
+shared midnight/focus/visibility clock, repeat live-region announcements, obsolete invalid
+state clearing, missing-name fallback, and dataset-level provenance visible without cards.
+The current user-provided ADR-015 boundary supersedes the older merged AGENTS wording;
+aligned the invariant but preserved V1 pipeline helper behavior. No dependency/public schema,
+source mapping, workflow, production deployment or handbook change.
+Pinned verify:full passed 492 tests, 24 browser tests and 8 zero-violation axe scans.
+Independent re-review Approved after 38 component tests and typecheck. Evidence:
+reports/review-2026-09-06-pr15.md and reports/pr15-verification-manifest.json.
+TASK-014 is complete again; TASK-015 is next and TASK-008 remains deferred/incomplete.
