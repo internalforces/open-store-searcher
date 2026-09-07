@@ -5,9 +5,11 @@ import { ResultCard } from './result-card.js';
 export function SearchResults({
   result,
   coverage,
+  synthetic = false,
 }: {
   result: SearchResult<DisplayRecord>;
   coverage: Coverage;
+  synthetic?: boolean;
 }) {
   const primary = result.primaryMatch;
   const remaining = result.topMatches.filter((match) => match.record.id !== primary?.record.id);
@@ -22,14 +24,19 @@ export function SearchResults({
       {primary && (
         <section aria-labelledby="primary-heading">
           <h2 id="primary-heading">가장 잘 일치하는 결과</h2>
-          <ResultCard match={primary} coverage={coverage} />
+          <ResultCard match={primary} coverage={coverage} synthetic={synthetic} />
         </section>
       )}
       {remaining.length > 0 && (
         <section aria-labelledby="matches-heading">
           <h2 id="matches-heading">일치 후보</h2>
           {remaining.map((match) => (
-            <ResultCard key={match.record.id} match={match} coverage={coverage} />
+            <ResultCard
+              key={match.record.id}
+              match={match}
+              coverage={coverage}
+              synthetic={synthetic}
+            />
           ))}
         </section>
       )}
@@ -41,7 +48,12 @@ export function SearchResults({
             시·군·구, 도로명과 건물번호를 함께 입력해 다시 검색해 보세요.
           </p>
           {result.similarCandidates.map((match) => (
-            <ResultCard key={match.record.id} match={match} coverage={coverage} />
+            <ResultCard
+              key={match.record.id}
+              match={match}
+              coverage={coverage}
+              synthetic={synthetic}
+            />
           ))}
         </section>
       )}

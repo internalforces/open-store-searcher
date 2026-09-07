@@ -192,3 +192,36 @@ TASK-014 is complete again; TASK-015 is next and TASK-008 remains deferred/incom
 All four review findings resolved; independent Approved re-review and pinned full verification
 passed 530 tests, 28 browser checks, 14 zero-violation axe scans. Initial delivery 8dc6de4 and
 review corrections are in codex/task-015-recovery-ux, PR #16. See reports/review-2026-09-07-pr16.md.
+
+
+## TASK-016 completed — 2026-09-07
+
+Implemented approved record-derived Naver/Kakao HTTPS search links, road/parcel fallback,
+strict encoding and unusable-term omission, protected native new tabs, candidate-specific
+uncertainty/evidence and synthetic coverage/loader suppression (FR-10; FR-07/09/12).
+User explicitly approved the Naver web-route compatibility limitation. No official Naver HTTPS
+route guarantee or live provider search verification is claimed.
+
+Pinned verify:full passed 553 tests, 32 browser checks and 16 zero-violation axe scans.
+Focused map unit/component suite passed 34 tests. Independent Reviewer Approved; all findings
+resolved. Reviewed 320px screenshot. Reports: reports/test-2026-09-07-task-016.md and
+reports/review-2026-09-07-task-016.md (both committed repository paths).
+
+TASK-016 acceptance is complete: provider research/accepted limitation, human design approval,
+implementation, encoding/missing fields/protected tabs, synthetic suppression, privacy/evidence,
+keyboard/layout/a11y/full checks and independent review. No task is active; TASK-017 is next.
+TASK-008 remains deferred/incomplete; no production, milestone or release gate closed.
+Implementation and reports were committed as f863439 and pushed on codex/task-016-map-links
+in PR #17. The evidence-link correction was committed and pushed as 6992eaf.
+The earlier uncommitted state describes the pre-delivery implementation handoff only.
+No dependencies, source/status/public identifier/workflow, merge, deployment or handbook
+change occurred. Original dirty TASK-008 work is preserved.
+
+
+## PR #17 review remediation — 2026-09-07
+
+Resolved P2 comment 3949635920: FR-10 now links directly to the committed TASK-016 test
+and review reports using repository-relative Markdown destinations. Confirmed both
+paths exist in Git HEAD and resolve without local worktrees; whitespace check passed.
+Documentation only; reviewed source/test/config manifest is unchanged. TASK-016 stays
+complete with prior 553 tests, 32 browser checks and 16 zero-violation axe scans.

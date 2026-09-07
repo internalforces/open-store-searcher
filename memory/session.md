@@ -346,3 +346,83 @@ The initial delivery is committed/pushed as 8dc6de4, PR #16; these review correc
 for the user-authorized commit/push on the same branch. This checkpoint supersedes historical
 uncommitted-work wording. TASK-015 is complete again; no task is active, TASK-016 is next.
 Original dirty work is preserved. No merge/deployment or production contract change occurred.
+
+
+## TASK-016 activated — 2026-09-07
+
+The user requested activation and execution. TASK-016 is the sole active task, in bounded
+pre-implementation design. Inspected FR-10 and the existing ResultCard/SearchResults/display
+contracts. The existing delivery checkout was clean; origin/main c29e405 is tree-identical to
+reviewed TASK-015 head 4428d81. No branch switch or new worktree was needed for preparation.
+Original dirty TASK-008 work remains preserved.
+
+Prepared the record-only name/address search design, missing-field fallback, explicit new-tab
+labels/protection, synthetic suppression and test boundaries in tasks/active.md and chat.
+Official Kakao documentation confirms its HTTPS search route. Official Naver documentation
+confirms the app-only scheme, but does not establish the proposed HTTPS web search route;
+recorded that compatibility limitation for explicit resolution/acceptance. No headless map
+inspection occurred. The brainstorming skill requires human approval of the concrete design
+before implementation; approval is pending. Only task/session/project/traceability documents
+changed. No implementation, test run, commit, push, deployment or milestone closure occurred.
+
+
+## TASK-016 implementation handoff — 2026-09-07
+
+Implemented approved record-derived Naver/Kakao HTTPS search links, road/parcel fallback,
+strict encoding and unusable-term omission, protected native new tabs, candidate-specific
+uncertainty/evidence and synthetic coverage/loader suppression (FR-10; FR-07/09/12).
+User explicitly approved the Naver web-route compatibility limitation. No official Naver HTTPS
+route guarantee or live provider search verification is claimed.
+
+Pinned verify:full passed 553 tests, 32 browser checks and 16 zero-violation axe scans.
+Focused map unit/component suite passed 34 tests. Independent Reviewer Approved; all findings
+resolved. Reviewed 320px screenshot. Reports: reports/test-2026-09-07-task-016.md and
+reports/review-2026-09-07-task-016.md in .worktrees/task013-quality.
+
+TASK-016 acceptance is complete: provider research/accepted limitation, human design approval,
+implementation, encoding/missing fields/protected tabs, synthetic suppression, privacy/evidence,
+keyboard/layout/a11y/full checks and independent review. No task is active; TASK-017 is next.
+TASK-008 remains deferred/incomplete; no production, milestone or release gate closed.
+Implementation is uncommitted in .worktrees/task013-quality on codex/task-016-map-links.
+No dependencies, source/status/public identifier/workflow, commit, push, deployment or handbook
+change occurred. Original dirty TASK-008 work is preserved.
+
+
+## TASK-016 delivery authorization — 2026-09-07
+
+The user authorized commit, push and PR creation. The reviewed source/test/config manifest
+still matches every current file; final pinned verification remains 553 tests, 32 browser
+checks and 16 zero-violation axe scans with independent Approved review. Freshly fetched
+origin/main and the branch baseline both remain c29e405, with no existing branch PR.
+Deliver TASK-016 only on codex/task-016-map-links against main. Earlier uncommitted-state
+notes describe the implementation handoff before this delivery authorization. No merge or
+deployment is authorized by this step; original dirty TASK-008 work remains preserved.
+
+
+## PR #17 evidence-link correction — 2026-09-07
+
+User authorized review remediation, commit and push. Reviewed comment 3949635920 on
+f863439 and confirmed the P2 finding: FR-10 directed fresh-checkout reviewers to an
+untracked local worktree instead of committed reports. Updated the evidence column to
+relative Markdown links to reports/test-2026-09-07-task-016.md and
+reports/review-2026-09-07-task-016.md. The accepted Naver compatibility limitation remains.
+
+Verified both destinations resolve from docs/prd-traceability.md and exist in Git HEAD,
+independently of any worktree directory. Reviewed the documentation diff and checked
+whitespace. Source/test/config files still match the approved verification manifest;
+no runtime behavior changed and no new tests or full-suite rerun were necessary for
+this link-only correction. The prior 553/32/16 verification remains applicable.
+TASK-016 remains complete; TASK-017 is next and TASK-008 remains deferred/incomplete.
+Original dirty work is preserved. No merge, deployment or handbook change occurred.
+
+
+## PR #17 committed-state correction — 2026-09-07
+
+Resolved review comment 3949700670 on user request. TASK-016's completion ledger now
+records delivered implementation f863439 and evidence-link correction 6992eaf, both
+pushed to PR #17. Its former uncommitted state is explicitly pre-delivery history;
+report references identify committed repository paths. Existing review-remediation
+commit/push authorization remains applicable. No source, test or configuration changed.
+Checked commit ancestry, the documentation diff and whitespace; the approved verification
+manifest still matches. Prior 553/32/16 evidence remains valid without a new test run.
+No merge or deployment; TASK-008 remains deferred/incomplete and TASK-017 is next.

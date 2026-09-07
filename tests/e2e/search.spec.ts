@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { build } from 'vite';
+import { mountMapSearch } from '../setup/map-browser.js';
 import { completeLoad, mountRecovery } from '../setup/recovery-browser.js';
 
 const searchEntry = fileURLToPath(
@@ -524,4 +525,77 @@ test('recovers loading failures with keyboard and preserves usable data without 
   expect(await page.evaluate(() => Reflect.get(window, '__recoveryEffects'))).toEqual([]);
   expect(requests).toEqual([]);
   expect(page.url()).toMatch(/\/recovery-harness$/);
+});
+
+test('opens candidate-only map searches by keyboard without automatic provider I/O', async ({
+  page,
+  context,
+}, testInfo) => {
+  await page.setViewportSize({ width: 320, height: 740 });
+  const outbound: { url: string; referer: string | undefined }[] = [];
+  // Intercept at context level, including new tabs, so no provider receives test traffic.
+  await context.route(/^https:\/\/(?:map\.naver\.com|map\.kakao\.com)\//, async (route) => {
+    outbound.push({ url: route.request().url(), referer: route.request().headers().referer });
+    await route.fulfill({
+      contentType: 'text/html',
+      body: '<!doctype html><title>Intercepted locally</title>',
+    });
+  });
+  await mountMapSearch(page);
+  const localUrl = page.url();
+  const automaticRequests: string[] = [];
+  page.on('request', (request) => automaticRequests.push(request.url()));
+  const input = page.getByRole('searchbox');
+  const query = '가상별빛 카페 서울특별시 마포구 월드컵로 12-1';
+  await input.fill(query);
+  await input.press('Enter');
+  const similar = page.getByRole('region', { name: '유사 후보' });
+  await expect(similar).toBeVisible();
+  // Edit the input after submission to distinguish both draft and submitted terms from the record.
+  await input.fill('PRIVATE-DRAFT-DO-NOT-SEND');
+  await expect(similar.getByText('데이터 기준일: 확인되지 않음')).toBeVisible();
+  expect(outbound).toEqual([]);
+  expect(automaticRequests).toEqual([]);
+  expect(
+    await page
+      .locator('[ping], link[rel=prefetch], link[rel=preconnect], link[rel=dns-prefetch]')
+      .count(),
+  ).toBe(0);
+  const tabKey =
+    testInfo.project.name === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab';
+  for (const [label, origin] of [
+    ['네이버 지도에서 검색 (새 탭)', 'https://map.naver.com'],
+    ['카카오맵에서 검색 (새 탭)', 'https://map.kakao.com'],
+  ] as const) {
+    const link = similar.getByRole('link', { name: label });
+    await input.focus();
+    for (
+      let step = 0;
+      step < 15 && !(await link.evaluate((element) => element === document.activeElement));
+      step++
+    ) {
+      await page.keyboard.press(tabKey);
+    }
+    await expect(link).toBeFocused();
+    expect(await link.evaluate((element) => getComputedStyle(element).outlineStyle)).not.toBe(
+      'none',
+    );
+    expect((await link.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    const opened = context.waitForEvent('page');
+    await page.keyboard.press('Enter');
+    const popup = await opened;
+    await popup.waitForLoadState();
+    expect(new URL(popup.url()).origin).toBe(origin);
+    expect(decodeURIComponent(new URL(popup.url()).pathname.split('/').at(-1) ?? '')).toBe(
+      '가상별빛 카페 서울특별시 강남구 테헤란로 12-1',
+    );
+    expect(await popup.evaluate(() => window.opener === null)).toBe(true);
+    expect(outbound.at(-1)?.referer).toBeUndefined();
+    expect(page.url()).toBe(localUrl);
+    await popup.close();
+  }
+  expect(outbound).toHaveLength(2);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath('map-links-320.png'), fullPage: true });
 });

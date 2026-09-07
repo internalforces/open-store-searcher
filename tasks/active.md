@@ -11,12 +11,11 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-015 initial delivery was committed as 8dc6de4 and
-pushed to `codex/task-015-recovery-ux` for PR #16 against main. The four PR review findings
-are resolved with independent Approved re-review and pinned full verification: 530 tests,
-28 browser checks and 14 zero-violation axe scans. This branch contains the delivery and
-review corrections; `.worktrees/task013-quality` remains the local review checkout.
-See `reports/review-2026-09-07-pr16.md`. TASK-016 is next, not activated.
+No implementation task is active. TASK-016 is complete in `.worktrees/task013-quality` on
+`codex/task-016-map-links`. User authorized commit, push and PR creation. The approved Naver
+web-route limitation implemented; independent Reviewer Approved. Pinned full verification
+passed 553 tests, 32 browser checks and 16 zero-violation axe scans. See the TASK-016 test
+and review reports in that worktree. TASK-017 is next; no milestone or production gate closed.
 
 ## Deferred — incomplete
 

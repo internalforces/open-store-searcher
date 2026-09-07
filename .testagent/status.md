@@ -49,3 +49,15 @@ real index implementation and checks real search output, replacement, cumulative
 and no rebuild per submission. 76 combined component tests pass; full verification 530/28/14.
 Independent reviewer passed 38 focused tests and Approved. No skipped test or threshold change.
 R3 is authoritative current-state documentation and does not need a source-text assertion test.
+
+
+## TASK-016 assertion-quality completion
+
+PASS. Broad inline research/plan/implementation workflow completed; optional specialized tools
+were unavailable. Every M01-M06 behavior maps to exact test names in the TASK-016 report.
+Assertions distinguish submitted and draft queries from candidate records, round-trip Unicode
+without mirroring the encoder, enforce fixed origins and popup Referer/opener protection,
+and cover empty/malformed terms and synthetic coverage/loader provenance independently.
+Focused 34 tests and final full 553/32/16 verification passed. Direct component null-address
+fixture corrected to string contract; helper null tests retained. Independent Reviewer Approved.
+No skipped tests, removed coverage or relaxed thresholds. No unresolved findings.

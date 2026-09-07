@@ -236,3 +236,12 @@ still see every raw input row; display-invalid entries are filtered from already
 with their count added to invalid-record diagnostics. App reuses this index, eliminating duplicate
 address parsing after each load. Cancelled late payloads are discarded before preparation begins.
 Nonblank record source attribution is required; original nonblank label text is preserved exactly.
+
+
+## TASK-016 map-search presentation — 2026-09-07
+
+src/shared/map-search-links.ts builds pure record-derived destinations; src/app/map-links.tsx
+renders native external anchors or unavailable/synthetic guidance. App passes synthetic loader
+provenance through SearchResults and ResultCard, which also checks synthetic coverage. No raw
+query enters the builder. Native deliberate navigation is the only external action; source/status
+and coverage boundaries remain unchanged. Tests use a separate bundled offline App fixture.

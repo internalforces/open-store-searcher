@@ -366,3 +366,19 @@ button:disabled {
 .data-state .uncertainty p + p {
   margin-top: 12px;
 }
+
+.map-search {
+  margin-top: 16px;
+}
+.map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 8px;
+}
+.map-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 8px;
+}

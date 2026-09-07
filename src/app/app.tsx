@@ -132,7 +132,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             : ''}
         </p>
         {dataset && result?.validation.ok && (
-          <SearchResults result={result} coverage={dataset.coverage} />
+          <SearchResults result={result} coverage={dataset.coverage} synthetic={isSynthetic} />
         )}
       </main>
       <footer className="page-footer">

@@ -35,3 +35,14 @@ R2: observe payload reads after source change/unmount and require zero obsolete 
 R4: spy through real createSearchIndex, require one build per load and none per submission;
 verify filtered results/diagnostics from the returned prepared index.
 R3: document delivered commit/PR and current remediation; final review/full checks before push.
+
+
+## TASK-016 test plan
+
+1. M01/M02: shared builder tests for exact URLs and independently decoded path values, fallback
+   table, all missing, lone surrogate and dot segments. Observe failure before implementation.
+2. M03/M04/M05: real App/card tests for link attributes, source/status preservation, distinct
+   candidate addresses, synthetic coverage and loader provenance.
+3. M06: local-only bundled App fixture, intercepted provider navigation with no Referer/opener,
+   native keyboard traversal, 320px layout and axe; keep existing production demo suppression.
+4. Run focused tests, pinned verify:full, independent review and assertion-quality audit.
