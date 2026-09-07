@@ -35,3 +35,12 @@ Acceptance matrix: T15-01 initial loading/search guard; 02 failure/retry and fix
 07 empty/low guidance and unchanged classifications; 08 stale/unknown coverage and truthful
 browser load time; 09 source change/unmount obsolete completion; 10 keyboard/live region,
 mobile wrapping and no query I/O. Existing freshness tests own the 6/7/8-day clock boundary.
+
+## PR #16 remediation research
+
+R1: record sourceLabel accepts whitespace while dataset sourceLabel rejects it.
+R2: cancelled promise fulfillment still enters prepareDisplayData before its cancellation guard.
+R4: preparation and App both build a full address/name index. Reuse filtered prepared entries,
+retaining duplicate checks across the entire input and cumulative diagnostics.
+R3: current memory/project.md and tasks/active.md incorrectly call delivered 8dc6de4 uncommitted.
+Scope spans existing modules; execute broad test workflow inline as before.

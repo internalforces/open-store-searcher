@@ -27,3 +27,11 @@ Run component RED/GREEN, browser regressions, full checks and independent review
 4. Bundle a test-only App entry for real browser injected loading/error/recovery, keyboard,
    no-I/O and mobile checks (T15-10). Add axe scans of actual loading/error UI.
 5. Run pinned verify:full, inspect screenshots and exact assertions; independent review.
+
+## PR #16 regression plan
+
+R1: parameterized blank attribution exclusion, nonblank exact preservation, all-invalid rejection.
+R2: observe payload reads after source change/unmount and require zero obsolete processing.
+R4: spy through real createSearchIndex, require one build per load and none per submission;
+verify filtered results/diagnostics from the returned prepared index.
+R3: document delivered commit/PR and current remediation; final review/full checks before push.

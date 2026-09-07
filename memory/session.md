@@ -325,3 +325,24 @@ Delivery uses the existing codex/task-015-recovery-ux branch in .worktrees/task0
 The independent Approved source/test/runtime manifest matches. Fresh pinned verify:full exited 0: 522 tests, 28 browser checks and 14 zero-violation axe
 scans. Log: /tmp/task015-pr-verify-full.log. Preserve original dirty integration work and this worktree.
 Merge and deployment are outside this authorization.
+
+## PR #16 remediation authorization — 2026-09-07
+
+Initial TASK-015 delivery was committed and pushed as 8dc6de4, with PR #16 open against main.
+The user authorized review fixes, commit and push. Reopened only TASK-015 for the four findings:
+blank record attribution, obsolete cancelled preparation, duplicate index work, and stale delivery
+records. Original dirty integration work remains untouched; TASK-016 is not activated.
+Focused RED/GREEN confirms blank labels are excluded, cancelled payloads are not read, and the
+single prepared index supports real search with unchanged exclusion diagnostics. The focused
+component suite passes 76 tests and typecheck passes. Full verification and independent re-review
+are in progress. No dependencies, source/status rules, public interfaces or workflow changes.
+
+## PR #16 remediation completed — 2026-09-07
+
+Resolved all four findings with reproduced regressions and independent Approved re-review.
+Fresh pinned verify:full exited 0: 530 tests, 28 browser checks, 14 zero-violation axe scans;
+reviewer independently passed 38 focused tests. Report: reports/review-2026-09-07-pr16.md.
+The initial delivery is committed/pushed as 8dc6de4, PR #16; these review corrections are ready
+for the user-authorized commit/push on the same branch. This checkpoint supersedes historical
+uncommitted-work wording. TASK-015 is complete again; no task is active, TASK-016 is next.
+Original dirty work is preserved. No merge/deployment or production contract change occurred.

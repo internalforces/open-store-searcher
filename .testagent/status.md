@@ -39,3 +39,13 @@ loader boundary; real Preact/search/domain/evidence code runs. Browser fixture w
 pending work, avoiding arbitrary sleeps. macOS WebKit uses native Option-Tab, tested by actual
 focus and Enter rather than direct button activation. Initial run failures and final passing
 verification are documented. Independent reviewer Approved; no unresolved test-quality findings.
+
+## PR #16 regression quality review
+
+PASS. R1 has empty/space/tab-newline and exact nonblank preservation assertions. R2 was strengthened
+to await actual loader start before cancellation, reproduced both source-change/unmount failures,
+and now proves zero reads of obsolete payloads. R4 uses a call-through spy without replacing the
+real index implementation and checks real search output, replacement, cumulative exclusion counts
+and no rebuild per submission. 76 combined component tests pass; full verification 530/28/14.
+Independent reviewer passed 38 focused tests and Approved. No skipped test or threshold change.
+R3 is authoritative current-state documentation and does not need a source-text assertion test.

@@ -11,10 +11,12 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-015 completed on 2026-09-07 with independent Approved
-review and pinned full verification: 522 tests, 28 browser checks and 14 zero-violation axe scans.
-Implementation is uncommitted in `.worktrees/task013-quality` on `codex/task-015-recovery-ux`.
-See `tasks/completed.md` and the TASK-015 reports there. TASK-016 is next.
+No implementation task is active. TASK-015 initial delivery was committed as 8dc6de4 and
+pushed to `codex/task-015-recovery-ux` for PR #16 against main. The four PR review findings
+are resolved with independent Approved re-review and pinned full verification: 530 tests,
+28 browser checks and 14 zero-violation axe scans. This branch contains the delivery and
+review corrections; `.worktrees/task013-quality` remains the local review checkout.
+See `reports/review-2026-09-07-pr16.md`. TASK-016 is next, not activated.
 
 ## Deferred — incomplete
 

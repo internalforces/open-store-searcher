@@ -113,7 +113,9 @@ Original TASK-008 work is preserved and incomplete; production and milestone gat
 
 ## Current task priority — 2026-09-07
 
-TASK-015 completed with independent Approved review and pinned full verification (522 tests,
-28 browser checks, 14 zero-violation axe scans). No task is active; TASK-016 is next. Work is
-uncommitted in `.worktrees/task013-quality` on `codex/task-015-recovery-ux`. Original TASK-008
-changes remain preserved/deferred/incomplete; production, milestone and release gates stay open.
+TASK-015 initial delivery was committed as 8dc6de4 and pushed to codex/task-015-recovery-ux
+for PR #16 against main. The four review findings are resolved in this branch and independently
+Approved; pinned verify:full passed 530 tests, 28 browser checks and 14 zero-violation axe scans.
+No task is active; TASK-016 is next. The local review checkout is .worktrees/task013-quality.
+Original TASK-008 changes remain preserved/deferred/incomplete; production, milestone and
+release gates stay open. See reports/review-2026-09-07-pr16.md for current evidence.

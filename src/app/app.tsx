@@ -1,9 +1,5 @@
-import { useMemo, useState } from 'preact/hooks';
-import {
-  createSearchIndex,
-  type SearchResult,
-  searchCandidates,
-} from '../search/search-candidates.js';
+import { useState } from 'preact/hooks';
+import { type SearchResult, searchCandidates } from '../search/search-candidates.js';
 import { CoverageClock } from './coverage-clock.js';
 import { demoDataset } from './demo-data.js';
 import type { DisplayDataset, DisplayRecord } from './display-data.js';
@@ -33,7 +29,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
     dataset: DisplayDataset;
     result: SearchResult<DisplayRecord>;
   } | null>(null);
-  const index = useMemo(() => createSearchIndex(dataset?.records ?? []), [dataset]);
+  const index = loading.prepared?.index;
   // A new supplied dataset must never inherit results or coverage from the old one.
   const result = submission?.dataset === dataset ? submission.result : null;
   const error = result && !result.validation.ok ? result.validation.message : null;
@@ -64,7 +60,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             exampleQuery={dataset?.exampleQuery ?? ''}
             disabled={!dataset}
             onSubmit={() => {
-              if (!dataset) return;
+              if (!dataset || !index) return;
               setSubmission((previous) => ({
                 sequence: (previous?.sequence ?? 0) + 1,
                 dataset,

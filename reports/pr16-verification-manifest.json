@@ -1,0 +1,26 @@
+{
+  "base": "8dc6de47cea293cda1da050ef3336e737706541c",
+  "review": "PR #16 R1-R4; independent Approved",
+  "command": "npm run verify:full",
+  "node": "24.19.0",
+  "npm": "11.17.0",
+  "exitCode": 0,
+  "vitest": 530,
+  "browser": 28,
+  "accessibilityTests": 10,
+  "axeScans": 14,
+  "axeViolations": 0,
+  "sha256": {
+    "src/app/app.tsx": "2fb05963564159296bae89d3941c8f45659c131e5e6fdc7d197d29f5968bfb9a",
+    "src/app/prepare-display-data.ts": "d1537f4cd2fae58a7f35194f0265a68cd0380a9a1094cb8e1c1a027b621fe063",
+    "src/app/prepare-display-data.test.tsx": "619788c561499bc6cf4ec23a080c0093b8e3d79ff03b41a95fe09d296be105e1",
+    "src/app/use-display-data.ts": "347ed9db133dcc47f20da5b0a91b7f94236a0410460b1362cc7560d7e9e3f2d8",
+    "src/app/pr16-regressions.test.tsx": "aef275b1ee803e05c6cb6a1c79f7fc382b4399327b08457d46181f2453b3a201",
+    "src/app/recovery.test.tsx": "ea162f4e3ebc5b623beca39bedaa3aa2cd149fd0b2f3f192d3717b58a392f0c4",
+    "src/search/search-candidates.ts": "52bf90fc8409fe8dd0608ac10f4bca3bdde58721a8ad40332eee07754cd517a4",
+    "package.json": "8d315bd784a4a94466833bd0fbd13fc97e7a0923071e4400c2693243a61c0b58",
+    "package-lock.json": "44e2a32dad2d6725cdf1999cac12faa78e2d5be7c116ee38dcf3dc2b5684f21b",
+    "vitest.config.ts": "85dc35d76db889230ac484fe67fb49ac7688903dec42e869daea20d55391c884",
+    "playwright.config.ts": "ad79780f60b8c43d3e4a277602d6efb49aee80e61657d7dea373d04191960f41"
+  }
+}

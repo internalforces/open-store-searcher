@@ -186,3 +186,9 @@ Pinned verify:full passed 492 tests, 24 browser tests and 8 zero-violation axe s
 Independent re-review Approved after 38 component tests and typecheck. Evidence:
 reports/review-2026-09-06-pr15.md and reports/pr15-verification-manifest.json.
 TASK-014 is complete again; TASK-015 is next and TASK-008 remains deferred/incomplete.
+
+## TASK-015 PR #16 remediation — 2026-09-07
+
+All four review findings resolved; independent Approved re-review and pinned full verification
+passed 530 tests, 28 browser checks, 14 zero-violation axe scans. Initial delivery 8dc6de4 and
+review corrections are in codex/task-015-recovery-ux, PR #16. See reports/review-2026-09-07-pr16.md.

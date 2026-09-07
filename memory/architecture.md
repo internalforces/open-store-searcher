@@ -228,3 +228,11 @@ useDisplayData owns loading/ready/error, explicit retries and cancellation on so
 unmount. It retains the accepted dataset after reload failure; a successful replacement clears
 obsolete submitted results. Last browser load time is actual receipt time, never source coverage.
 Coverage and synthetic provenance remain separate, and existing >=7 Seoul-day warnings apply.
+
+### PR #16 refinement
+
+Preparation returns the validated dataset and its filtered search index together. Identity checks
+still see every raw input row; display-invalid entries are filtered from already parsed entries,
+with their count added to invalid-record diagnostics. App reuses this index, eliminating duplicate
+address parsing after each load. Cancelled late payloads are discarded before preparation begins.
+Nonblank record source attribution is required; original nonblank label text is preserved exactly.

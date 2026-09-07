@@ -44,6 +44,7 @@ export function useDisplayData(source: DisplayDataset | DisplayLoader) {
     void Promise.resolve()
       .then(() => source.load())
       .then((value) => {
+        if (cancelled) return;
         const prepared = prepareDisplayData(value);
         if (!cancelled)
           setSnapshot({ source, prepared, phase: 'ready', loadedAt: new Date().toISOString() });

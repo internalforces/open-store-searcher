@@ -1,4 +1,4 @@
-import { createSearchIndex } from '../search/search-candidates.js';
+import { createSearchIndex, type SearchIndex } from '../search/search-candidates.js';
 import type { Coverage, DisplayDataset, DisplayRecord } from './display-data.js';
 
 function object(value: unknown): value is Record<string, unknown> {
@@ -20,6 +20,7 @@ function displayRecord(value: unknown): value is DisplayRecord {
   return (
     typeof value.categoryName === 'string' &&
     typeof value.sourceLabel === 'string' &&
+    value.sourceLabel.trim().length > 0 &&
     nullableText(value.sourceUrl) &&
     Array.isArray(value.businessTypes) &&
     value.businessTypes.every(
@@ -47,6 +48,7 @@ function displayRecord(value: unknown): value is DisplayRecord {
 /** Internal presentation validation only; never a production publication or freshness gate. */
 export function prepareDisplayData(value: unknown): {
   dataset: DisplayDataset;
+  index: SearchIndex<DisplayRecord>;
   excludedCount: number;
 } {
   if (
@@ -62,9 +64,11 @@ export function prepareDisplayData(value: unknown): {
   }
   // Check identity across all input rows before filtering malformed display fields, so a
   // malformed duplicate cannot cause its peer to become a falsely unique match.
-  const records = createSearchIndex(value.records)
-    .entries.map((entry) => entry.record)
-    .filter(displayRecord);
+  const preparedIndex = createSearchIndex(value.records);
+  const entries = preparedIndex.entries.filter(
+    (entry): entry is SearchIndex<DisplayRecord>['entries'][number] => displayRecord(entry.record),
+  );
+  const records = entries.map((entry) => entry.record);
   if (value.records.length > 0 && records.length === 0) throw new Error('No usable records.');
   return {
     dataset: {
@@ -73,6 +77,16 @@ export function prepareDisplayData(value: unknown): {
       sourceLabel: value.sourceLabel,
       sourceUrl: value.sourceUrl,
       exampleQuery: value.exampleQuery,
+    },
+    index: {
+      entries,
+      diagnostics: {
+        ...preparedIndex.diagnostics,
+        invalidRecordCount:
+          preparedIndex.diagnostics.invalidRecordCount +
+          preparedIndex.entries.length -
+          entries.length,
+      },
     },
     excludedCount: value.records.length - records.length,
   };
