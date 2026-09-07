@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-015 complete; TASK-016 next; M1 production gates remain open
+- Phase: TASK-016 complete; TASK-017 next; M1 production gates remain open
 - Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
 - Overall health: 🟡 Caution — collector, synthetic transformation, and staged validation gates pass, while no
   production transformation or publication path exists
@@ -119,3 +119,17 @@ Approved; pinned verify:full passed 530 tests, 28 browser checks and 14 zero-vio
 No task is active; TASK-016 is next. The local review checkout is .worktrees/task013-quality.
 Original TASK-008 changes remain preserved/deferred/incomplete; production, milestone and
 release gates stay open. See reports/review-2026-09-07-pr16.md for current evidence.
+
+
+## Current task priority — TASK-016 activation, 2026-09-07
+
+TASK-016 is active in bounded design; human design approval is pending. TASK-015 is complete.
+TASK-008 remains deferred/incomplete. No production or milestone gates closed.
+
+
+## Current task priority — TASK-016 completed, 2026-09-07
+
+TASK-016 is complete with independent Approved review and pinned verification (553 tests,
+32 browser checks, 16 zero-violation axe scans). Implementation lives in the reused
+.worktrees/task013-quality checkout on codex/task-016-map-links; delivery is user-authorized. No task is active; TASK-017
+is next. TASK-008 remains deferred/incomplete; production, milestone and release gates remain open.

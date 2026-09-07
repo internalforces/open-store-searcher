@@ -145,3 +145,11 @@ Pinned verify:full passed 492 tests, 24 browser tests and 8 zero-violation axe s
 Independent re-review Approved after 38 component tests and typecheck. Evidence:
 reports/review-2026-09-06-pr15.md and reports/pr15-verification-manifest.json.
 TASK-014 is complete again; TASK-015 is next and TASK-008 remains deferred/incomplete.
+
+
+## TASK-016 accepted compatibility limitation — 2026-09-07
+
+Naver HTTPS /p/search/{encodedTerms} has no verified official support guarantee in inspected
+provider documentation. The user accepted this limitation with the bounded design. Tests verify
+local URL generation and intercepted navigation only, not live provider matching/availability.
+Revisit if the provider route changes. This does not weaken status or source evidence rules.

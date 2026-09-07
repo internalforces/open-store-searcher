@@ -150,7 +150,7 @@ describe('ResultCard evidence', () => {
           coverage={{ kind: 'unavailable' }}
         />,
       );
-      expect(screen.queryByRole('link')).toBeNull();
+      expect(screen.queryByRole('link', { name: '테스트용 합성 원본' })).toBeNull();
       expect(screen.getByText('테스트용 합성 원본')).toBeTruthy();
     },
   );

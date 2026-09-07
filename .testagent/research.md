@@ -44,3 +44,17 @@ R4: preparation and App both build a full address/name index. Reuse filtered pre
 retaining duplicate checks across the entire input and cumulative diagnostics.
 R3: current memory/project.md and tasks/active.md incorrectly call delivered 8dc6de4 uncommitted.
 Scope spans existing modules; execute broad test workflow inline as before.
+
+
+## TASK-016 test research
+
+Broad bounded module set: new shared map URL builder, ResultCard integration and App synthetic
+provenance propagation, browser fixture/navigation. Existing Vitest unit/component and Playwright
+fixtures are authoritative; tests run offline. Specialized generator/find-untested-sources tools
+are unavailable (tool discovery checked); pairing is recorded here. New shared builder pairs with
+src/shared/map-search-links.test.ts; card/App behavior with src/app/map-links.test.tsx;
+navigation with tests/e2e/search.spec.ts; axe with tests/e2e/accessibility.spec.ts.
+Checklist: M01 record name/road preference/parcel fallback/partial fields; M02 Unicode, reserved
+characters, hostile terms, missing or unencodable terms and path-dot safety; M03 fixed HTTPS
+origins and new-tab protection; M04 synthetic coverage/loader suppression; M05 raw-query privacy,
+no automatic I/O and candidate-specific uncertainty/evidence; M06 keyboard/320px/axe and full checks.

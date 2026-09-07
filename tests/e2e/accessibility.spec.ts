@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { scanPageForWcag21Violations } from '../setup/accessibility.js';
+import { mountMapSearch } from '../setup/map-browser.js';
 import { completeLoad, mountRecovery } from '../setup/recovery-browser.js';
 
 test('has no automatically detectable WCAG 2.1 A or AA violations', async ({ page }) => {
@@ -53,5 +54,15 @@ test('has no WCAG violations during loading, initial failure and retained-data f
   await page.getByRole('button', { name: '데이터 다시 불러오기' }).click();
   await completeLoad(page, 'error');
   await expect(page.getByRole('article')).toHaveCount(1);
+  expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
+});
+
+test('has no WCAG violations with candidate map links and unavailable coverage', async ({
+  page,
+}) => {
+  await mountMapSearch(page);
+  await page.getByRole('searchbox').fill('가상별빛 카페 서울특별시 마포구 월드컵로 12-1');
+  await page.getByRole('searchbox').press('Enter');
+  await expect(page.getByRole('link', { name: '네이버 지도에서 검색 (새 탭)' })).toHaveCount(2);
   expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
 });

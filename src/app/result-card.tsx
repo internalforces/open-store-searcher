@@ -3,6 +3,8 @@ import type { CandidateMatch } from '../search/search-candidates.js';
 import type { Coverage, DisplayRecord } from './display-data.js';
 import { EvidenceContext, SourceLink, statusDisclaimer } from './evidence-context.js';
 
+import { MapLinks } from './map-links.js';
+
 const confidenceLabels = { high: '높음', medium: '보통', low: '낮음' } as const;
 const statusStyles = {
   '행정상 영업': 'operating',
@@ -33,9 +35,11 @@ function EvidenceField({ label, value }: { label: string; value: string | null }
 export function ResultCard({
   match,
   coverage,
+  synthetic = false,
 }: {
   match: CandidateMatch<DisplayRecord>;
   coverage: Coverage;
+  synthetic?: boolean;
 }) {
   const { record } = match;
   const displayName = record.name.trim() ? record.name : '제공되지 않음';
@@ -92,6 +96,7 @@ export function ResultCard({
         </p>
         <EvidenceContext coverage={coverage} />
         <p className="disclaimer">{statusDisclaimer}</p>
+        <MapLinks record={record} synthetic={synthetic || coverage.kind === 'synthetic'} />
       </footer>
     </article>
   );

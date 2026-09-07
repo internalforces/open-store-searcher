@@ -453,3 +453,13 @@ in-memory usable-data preservation, malformed/duplicate record exclusion and vis
 Do not infer source update time from browser load time or weaken production data validation.
 The fixed repository issue link contains no prefilled query. No new dependency, external service,
 public serialization/URL format, status rule, infrastructure or deployment is introduced.
+
+
+## TASK-016 approved map-link behavior — 2026-09-07
+
+The user explicitly approved the bounded record-only map-search design, including acceptance
+of the Naver HTTPS /p/search/{encodedTerms} route's unverified official compatibility. Kakao's
+/link/search/{encodedTerms} is documented in its official web guide. Use source-record name
+and preferred road/parcel address, fixed HTTPS origins, explicit protected new tabs, and suppress
+synthetic coverage or loader provenance. No API/SDK, dependency, public identifier or status
+contract changed. See reports/test-2026-09-07-task-016.md for evidence and limitations.
