@@ -205,14 +205,16 @@ route guarantee or live provider search verification is claimed.
 Pinned verify:full passed 553 tests, 32 browser checks and 16 zero-violation axe scans.
 Focused map unit/component suite passed 34 tests. Independent Reviewer Approved; all findings
 resolved. Reviewed 320px screenshot. Reports: reports/test-2026-09-07-task-016.md and
-reports/review-2026-09-07-task-016.md in .worktrees/task013-quality.
+reports/review-2026-09-07-task-016.md (both committed repository paths).
 
 TASK-016 acceptance is complete: provider research/accepted limitation, human design approval,
 implementation, encoding/missing fields/protected tabs, synthetic suppression, privacy/evidence,
 keyboard/layout/a11y/full checks and independent review. No task is active; TASK-017 is next.
 TASK-008 remains deferred/incomplete; no production, milestone or release gate closed.
-Implementation is uncommitted in .worktrees/task013-quality on codex/task-016-map-links.
-No dependencies, source/status/public identifier/workflow, commit, push, deployment or handbook
+Implementation and reports were committed as f863439 and pushed on codex/task-016-map-links
+in PR #17. The evidence-link correction was committed and pushed as 6992eaf.
+The earlier uncommitted state describes the pre-delivery implementation handoff only.
+No dependencies, source/status/public identifier/workflow, merge, deployment or handbook
 change occurred. Original dirty TASK-008 work is preserved.
 
 

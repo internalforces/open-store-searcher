@@ -414,3 +414,15 @@ no runtime behavior changed and no new tests or full-suite rerun were necessary 
 this link-only correction. The prior 553/32/16 verification remains applicable.
 TASK-016 remains complete; TASK-017 is next and TASK-008 remains deferred/incomplete.
 Original dirty work is preserved. No merge, deployment or handbook change occurred.
+
+
+## PR #17 committed-state correction — 2026-09-07
+
+Resolved review comment 3949700670 on user request. TASK-016's completion ledger now
+records delivered implementation f863439 and evidence-link correction 6992eaf, both
+pushed to PR #17. Its former uncommitted state is explicitly pre-delivery history;
+report references identify committed repository paths. Existing review-remediation
+commit/push authorization remains applicable. No source, test or configuration changed.
+Checked commit ancestry, the documentation diff and whitespace; the approved verification
+manifest still matches. Prior 553/32/16 evidence remains valid without a new test run.
+No merge or deployment; TASK-008 remains deferred/incomplete and TASK-017 is next.
