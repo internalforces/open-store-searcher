@@ -153,3 +153,10 @@ Naver HTTPS /p/search/{encodedTerms} has no verified official support guarantee 
 provider documentation. The user accepted this limitation with the bounded design. Tests verify
 local URL generation and intercepted navigation only, not live provider matching/availability.
 Revisit if the provider route changes. This does not weaken status or source evidence rules.
+
+
+## Resolved: PR #17 nonportable evidence reference — 2026-09-07
+
+FR-10 previously referred to .worktrees/task013-quality, which is absent in a fresh
+checkout. Comment 3949635920 is addressed by repository-relative links to both committed
+TASK-016 verification reports. Git-tracked target validation passed; no runtime defect.

@@ -214,3 +214,12 @@ TASK-008 remains deferred/incomplete; no production, milestone or release gate c
 Implementation is uncommitted in .worktrees/task013-quality on codex/task-016-map-links.
 No dependencies, source/status/public identifier/workflow, commit, push, deployment or handbook
 change occurred. Original dirty TASK-008 work is preserved.
+
+
+## PR #17 review remediation — 2026-09-07
+
+Resolved P2 comment 3949635920: FR-10 now links directly to the committed TASK-016 test
+and review reports using repository-relative Markdown destinations. Confirmed both
+paths exist in Git HEAD and resolve without local worktrees; whitespace check passed.
+Documentation only; reviewed source/test/config manifest is unchanged. TASK-016 stays
+complete with prior 553 tests, 32 browser checks and 16 zero-violation axe scans.

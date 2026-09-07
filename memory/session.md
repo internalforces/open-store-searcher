@@ -397,3 +397,20 @@ origin/main and the branch baseline both remain c29e405, with no existing branch
 Deliver TASK-016 only on codex/task-016-map-links against main. Earlier uncommitted-state
 notes describe the implementation handoff before this delivery authorization. No merge or
 deployment is authorized by this step; original dirty TASK-008 work remains preserved.
+
+
+## PR #17 evidence-link correction — 2026-09-07
+
+User authorized review remediation, commit and push. Reviewed comment 3949635920 on
+f863439 and confirmed the P2 finding: FR-10 directed fresh-checkout reviewers to an
+untracked local worktree instead of committed reports. Updated the evidence column to
+relative Markdown links to reports/test-2026-09-07-task-016.md and
+reports/review-2026-09-07-task-016.md. The accepted Naver compatibility limitation remains.
+
+Verified both destinations resolve from docs/prd-traceability.md and exist in Git HEAD,
+independently of any worktree directory. Reviewed the documentation diff and checked
+whitespace. Source/test/config files still match the approved verification manifest;
+no runtime behavior changed and no new tests or full-suite rerun were necessary for
+this link-only correction. The prior 553/32/16 verification remains applicable.
+TASK-016 remains complete; TASK-017 is next and TASK-008 remains deferred/incomplete.
+Original dirty work is preserved. No merge, deployment or handbook change occurred.
