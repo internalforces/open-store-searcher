@@ -13,7 +13,6 @@ _Last updated: 2026-09-04_
 |---|---|---|---|---|---|
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
-| TASK-015 | Implement empty-result, low-confidence, data-loading-failure, and stale-data UX | High | M2 | M | FR-07, FR-13 through FR-14 |
 | TASK-016 | Generate safe Naver and Kakao Map search links and test URL encoding | High | M2 | S | FR-10 |
 | TASK-017 | Implement responsive, keyboard, and screen-reader search flow and accessible status announcements | High | M2 | L | FR-11, FR-16, Section 14.3 |
 | TASK-018 | Verify bundle, primary-content, search-latency, and static-data partitioning budgets | High | M3 | M | Section 14.2, success metrics |

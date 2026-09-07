@@ -215,3 +215,24 @@ CoverageClock supplies one shared instant to page and card EvidenceContext consu
 reschedules at Seoul midnight, refreshes on focus/visibility, and cleans up on unmount.
 DisplayDataset now requires sourceLabel/sourceUrl independently of record presence.
 These are internal props; no production loader or public serialization was introduced.
+
+## TASK-015 internal UI recovery boundary — 2026-09-07
+
+The App accepts either a synchronous internal DisplayDataset or an injected DisplayLoader.
+The production entry currently supplies an asynchronous in-memory synthetic loader. It defines
+no public JSON delivery contract, endpoint, storage, or production publication capability.
+prepareDisplayData checks the envelope and display fields and reuses the search engine's
+identity checks before excluding malformed records. A nonempty payload with no usable records
+is rejected; an explicitly empty valid dataset remains searchable. Exclusion counts are visible.
+useDisplayData owns loading/ready/error, explicit retries and cancellation on source changes or
+unmount. It retains the accepted dataset after reload failure; a successful replacement clears
+obsolete submitted results. Last browser load time is actual receipt time, never source coverage.
+Coverage and synthetic provenance remain separate, and existing >=7 Seoul-day warnings apply.
+
+### PR #16 refinement
+
+Preparation returns the validated dataset and its filtered search index together. Identity checks
+still see every raw input row; display-invalid entries are filtered from already parsed entries,
+with their count added to invalid-record diagnostics. App reuses this index, eliminating duplicate
+address parsing after each load. Cancelled late payloads are discarded before preparation begins.
+Nonblank record source attribution is required; original nonblank label text is preserved exactly.

@@ -280,3 +280,69 @@ Pinned verify:full passed 492 tests, 24 browser tests and 8 zero-violation axe s
 Independent re-review Approved after 38 component tests and typecheck. Evidence:
 reports/review-2026-09-06-pr15.md and reports/pr15-verification-manifest.json.
 TASK-014 is complete again; TASK-015 is next and TASK-008 remains deferred/incomplete.
+
+
+## TASK-015 activated — 2026-09-07
+
+User requested activation and execution. TASK-015 is the only active task; TASK-008 remains
+preserved/deferred/incomplete. Reused the clean `.worktrees/task013-quality` checkout on
+`codex/task-015-recovery-ux` from merged main `d594ccc`, whose tree matches reviewed `497c86b`.
+Inspected existing UI, task contracts and original PRD sections 11.3/11.4. Existing UI already
+covers basic empty/uncertain results, persistent provenance and >=7 Seoul-day warnings.
+The remaining work is internal loader/retry state, usable-data preservation, malformed-record
+exclusion and actionable guidance. A bounded design is presented in chat for the brainstorming
+skill's explicit pre-implementation approval gate. Activation and investigation are complete;
+implementation and verification remain pending. No source code, dependency, public schema,
+status mapping, workflow, production data, handbook, commit, push or deployment changed.
+
+
+## TASK-015 completed — 2026-09-07
+
+The user approved the bounded recovery design and requested implementation. Completed in
+`.worktrees/task013-quality`, branch `codex/task-015-recovery-ux`, from merged PR #15 d594ccc.
+Implemented injected internal synthetic loading, failure/retry guidance, query-free issue link,
+in-memory usable-data preservation, malformed/duplicate exclusion and diagnostics, and actionable
+empty/low-confidence guidance. Actual browser load time is distinct from verified coverage;
+synthetic provenance and >=7 Seoul-day warnings remain intact. No public delivery schema exists.
+
+Pinned Node 24.19.0/npm 11.17.0 `npm run verify:full` exited 0: 522 tests, 28 cross-browser
+checks, 10 accessibility tests / 14 axe scans with zero violations. Independent Reviewer Approved
+and final delta approval; corrected its nonblocking keyboard-comment finding. Inspected 320px
+loading, initial failure and retained-data screenshots. See reports/test-2026-09-07-task-015.md,
+reports/review-2026-09-07-task-015.md and reports/task015-verification-manifest.json in the worktree.
+
+TASK-015 is complete; no task is active. TASK-016 is next. TASK-008 remains deferred/incomplete;
+production freshness/publication and TASK-017 comprehensive accessibility remain separate gates.
+No milestone closed; no manual screen-reader signoff is claimed. Original dirty work is preserved.
+No dependency, status mapping, public identifier, workflow, commit, push, deployment or handbook
+change occurred. All TASK-015 implementation is uncommitted in the reused worktree.
+
+
+## TASK-015 PR delivery authorization — 2026-09-07
+
+User explicitly authorized committing, pushing and creating the TASK-015 PR against main.
+Delivery uses the existing codex/task-015-recovery-ux branch in .worktrees/task013-quality.
+The independent Approved source/test/runtime manifest matches. Fresh pinned verify:full exited 0: 522 tests, 28 browser checks and 14 zero-violation axe
+scans. Log: /tmp/task015-pr-verify-full.log. Preserve original dirty integration work and this worktree.
+Merge and deployment are outside this authorization.
+
+## PR #16 remediation authorization — 2026-09-07
+
+Initial TASK-015 delivery was committed and pushed as 8dc6de4, with PR #16 open against main.
+The user authorized review fixes, commit and push. Reopened only TASK-015 for the four findings:
+blank record attribution, obsolete cancelled preparation, duplicate index work, and stale delivery
+records. Original dirty integration work remains untouched; TASK-016 is not activated.
+Focused RED/GREEN confirms blank labels are excluded, cancelled payloads are not read, and the
+single prepared index supports real search with unchanged exclusion diagnostics. The focused
+component suite passes 76 tests and typecheck passes. Full verification and independent re-review
+are in progress. No dependencies, source/status rules, public interfaces or workflow changes.
+
+## PR #16 remediation completed — 2026-09-07
+
+Resolved all four findings with reproduced regressions and independent Approved re-review.
+Fresh pinned verify:full exited 0: 530 tests, 28 browser checks, 14 zero-violation axe scans;
+reviewer independently passed 38 focused tests. Report: reports/review-2026-09-07-pr16.md.
+The initial delivery is committed/pushed as 8dc6de4, PR #16; these review corrections are ready
+for the user-authorized commit/push on the same branch. This checkpoint supersedes historical
+uncommitted-work wording. TASK-015 is complete again; no task is active, TASK-016 is next.
+Original dirty work is preserved. No merge/deployment or production contract change occurred.

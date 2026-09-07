@@ -1,6 +1,7 @@
-import { expect, test } from '@playwright/test';
 import { fileURLToPath } from 'node:url';
+import { expect, test } from '@playwright/test';
 import { build } from 'vite';
+import { completeLoad, mountRecovery } from '../setup/recovery-browser.js';
 
 const searchEntry = fileURLToPath(
   new URL('../../src/search/search-candidates.ts', import.meta.url),
@@ -448,4 +449,79 @@ test('updates stale demo evidence at Seoul midnight and announces equal-count re
   await page.getByRole('button', { name: /예시 입력/ }).click();
   await expect(page.getByRole('searchbox')).toHaveAttribute('aria-invalid', 'false');
   await expect(page.getByRole('alert')).toHaveCount(0);
+});
+
+test('recovers loading failures with keyboard and preserves usable data without query I/O', async ({
+  page,
+}, testInfo) => {
+  await page.setViewportSize({ width: 320, height: 740 });
+  await mountRecovery(page);
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(request.url()));
+  await page.evaluate(() => {
+    const effects: string[] = [];
+    Reflect.set(window, '__recoveryEffects', effects);
+    window.fetch = () => {
+      effects.push('fetch');
+      return Promise.reject(new Error('Unexpected I/O'));
+    };
+    Storage.prototype.setItem = () => {
+      effects.push('storage');
+    };
+    console.log = () => {
+      effects.push('log');
+    };
+    console.error = () => {
+      effects.push('error');
+    };
+  });
+  const input = page.getByRole('searchbox');
+  await input.fill('가상별빛 카페 서울특별시 마포구 월드컵로 12-1');
+  await input.press('Enter');
+  await expect(page.getByRole('article')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeDisabled();
+  await page.screenshot({ path: testInfo.outputPath('loading.png'), fullPage: true });
+  await completeLoad(page, 'error');
+  await expect(page.getByRole('alert')).toContainText('새로고침');
+  await expect(page.getByRole('link', { name: '저장소에 오류 신고' })).toHaveAttribute(
+    'href',
+    'https://github.com/internalforces/open-store-searcher/issues',
+  );
+  await page.screenshot({ path: testInfo.outputPath('error.png'), fullPage: true });
+  await input.focus();
+  const tabKey =
+    testInfo.project.name === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab';
+  await page.keyboard.press(tabKey);
+  // macOS Safari uses Option-Tab to include links; controls follow Keyboard Navigation settings.
+  // In either mode, the recovery button must be reachable within two keyboard steps.
+  if (
+    await page
+      .getByRole('link', { name: '저장소에 오류 신고' })
+      .evaluate((element) => element === document.activeElement)
+  ) {
+    await page.keyboard.press(tabKey);
+  }
+  const reload = page.getByRole('button', { name: '데이터 다시 불러오기' });
+  await expect(reload).toBeFocused();
+  await page.keyboard.press('Enter');
+  await completeLoad(page, 'partial');
+  await expect(page.getByRole('status')).toContainText('불러왔습니다');
+  await expect(page.getByText(/레코드 1개를 제외/)).toBeVisible();
+  await input.press('Enter');
+  await expect(page.getByRole('article')).toHaveCount(1);
+  await reload.click();
+  await completeLoad(page, 'error');
+  await expect(page.getByRole('alert')).toContainText('이전 데이터');
+  await expect(page.getByRole('article')).toHaveCount(1);
+  await expect(page.getByRole('article').getByText('예시 데이터 기준일: 2026-09-01')).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('retained.png'), fullPage: true });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await reload.click();
+  await completeLoad(page, 'empty');
+  await expect(page.getByRole('article')).toHaveCount(0);
+  await input.press('Enter');
+  await expect(page.getByText(/폐업을 의미하지 않습니다/)).toBeVisible();
+  expect(await page.evaluate(() => Reflect.get(window, '__recoveryEffects'))).toEqual([]);
+  expect(requests).toEqual([]);
+  expect(page.url()).toMatch(/\/recovery-harness$/);
 });

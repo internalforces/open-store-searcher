@@ -21,3 +21,26 @@ R2 App: repeated identical/count-equal submissions update stable live region.
 R3 App: typing/example clears invalid state while valid results persist.
 R4 ResultCard: missing name remains accessible for address-only matches.
 R5 DisplayDataset/App: provenance survives initial/empty/invalid states.
+
+## TASK-015 bounded module inventory — 2026-09-07
+
+Broad test scope across App, internal display preparation/loading and uncertainty components.
+The code-testing-generator/find-untested-sources/test-gap-analysis/assertion-quality tools are
+unavailable in this session; execute the research/plan/implementation/review workflow inline.
+Existing component tests use jsdom, Testing Library and real search/status functions; browser
+checks use Vite-built test runtimes for injected boundaries. No external data is needed.
+Acceptance matrix: T15-01 initial loading/search guard; 02 failure/retry and fixed issue link;
+03 usable data and results retained on failed reload; 04 successful replacement clears results;
+05 malformed/duplicate exclusion with diagnostics; 06 unusable envelope/replacement rejection;
+07 empty/low guidance and unchanged classifications; 08 stale/unknown coverage and truthful
+browser load time; 09 source change/unmount obsolete completion; 10 keyboard/live region,
+mobile wrapping and no query I/O. Existing freshness tests own the 6/7/8-day clock boundary.
+
+## PR #16 remediation research
+
+R1: record sourceLabel accepts whitespace while dataset sourceLabel rejects it.
+R2: cancelled promise fulfillment still enters prepareDisplayData before its cancellation guard.
+R4: preparation and App both build a full address/name index. Reuse filtered prepared entries,
+retaining duplicate checks across the entire input and cumulative diagnostics.
+R3: current memory/project.md and tasks/active.md incorrectly call delivered 8dc6de4 uncommitted.
+Scope spans existing modules; execute broad test workflow inline as before.

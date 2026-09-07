@@ -1,18 +1,26 @@
 interface SearchFormProps {
   value: string;
   error: string | null;
+  disabled?: boolean;
   exampleQuery: string;
   onChange: (value: string) => void;
   onSubmit: () => void;
 }
 
-export function SearchForm({ value, error, exampleQuery, onChange, onSubmit }: SearchFormProps) {
+export function SearchForm({
+  value,
+  error,
+  exampleQuery,
+  onChange,
+  onSubmit,
+  disabled = false,
+}: SearchFormProps) {
   return (
     <search>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          onSubmit();
+          if (!disabled) onSubmit();
         }}
       >
         <label htmlFor="business-query">상호명 또는 주소</label>
@@ -30,7 +38,7 @@ export function SearchForm({ value, error, exampleQuery, onChange, onSubmit }: S
             aria-describedby={error ? 'search-help search-error' : 'search-help'}
             onInput={(event) => onChange(event.currentTarget.value)}
           />
-          <button type="submit" className="search-button">
+          <button type="submit" className="search-button" disabled={disabled}>
             검색
           </button>
         </div>
@@ -39,9 +47,11 @@ export function SearchForm({ value, error, exampleQuery, onChange, onSubmit }: S
             {error}
           </p>
         )}
-        <button type="button" className="example-button" onClick={() => onChange(exampleQuery)}>
-          <span>예시 입력</span> {exampleQuery}
-        </button>
+        {exampleQuery && (
+          <button type="button" className="example-button" onClick={() => onChange(exampleQuery)}>
+            <span>예시 입력</span> {exampleQuery}
+          </button>
+        )}
       </form>
     </search>
   );

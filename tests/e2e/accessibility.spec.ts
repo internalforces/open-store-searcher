@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
-
 import { scanPageForWcag21Violations } from '../setup/accessibility.js';
+import { completeLoad, mountRecovery } from '../setup/recovery-browser.js';
 
 test('has no automatically detectable WCAG 2.1 A or AA violations', async ({ page }) => {
   await page.goto('./');
@@ -34,5 +34,24 @@ test('has no WCAG violations with stale coverage warnings', async ({ page }) => 
       '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.',
     ),
   ).toHaveCount(3);
+  expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
+});
+
+test('has no WCAG violations during loading, initial failure and retained-data failure', async ({
+  page,
+}) => {
+  await mountRecovery(page);
+  expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
+  await completeLoad(page, 'error');
+  await expect(page.getByRole('alert')).toBeVisible();
+  expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
+  await page.getByRole('button', { name: '데이터 다시 불러오기' }).click();
+  await completeLoad(page, 'partial');
+  await expect(page.getByRole('status')).toContainText('불러왔습니다');
+  await page.getByRole('button', { name: /예시 입력/ }).click();
+  await page.getByRole('button', { name: '검색', exact: true }).click();
+  await page.getByRole('button', { name: '데이터 다시 불러오기' }).click();
+  await completeLoad(page, 'error');
+  await expect(page.getByRole('article')).toHaveCount(1);
   expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
 });

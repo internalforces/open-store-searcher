@@ -25,3 +25,27 @@ PASS: all R1–R5 regression assertions and independent re-review. Component 38,
 cross-browser 24, axe 8, zero violations. Test callbacks corrected to return void for the existing
 TypeScript contracts. No test removed or skipped and no threshold changed. Exact names and
 counts are recorded in reports/review-2026-09-06-pr15.md. No unresolved review findings.
+
+
+## TASK-015 test quality review — 2026-09-07
+
+PASS. Broad research/plan executed inline because specialized test generator/gap/assertion tools
+were unavailable. The matrix in reports/test-2026-09-07-task-015.md maps each requirement to exact
+tests. New component coverage is 30 tests, combined component suite 68. Tests assert real App
+outcomes, search results, unchanged raw statuses, retained coverage/load time, record exclusion,
+keyboard-triggered recovery and absent I/O. No implementation/expected-value mirror, disabled
+assertion, removed test or relaxed threshold was introduced. Controlled promises model only the
+loader boundary; real Preact/search/domain/evidence code runs. Browser fixture waits for actual
+pending work, avoiding arbitrary sleeps. macOS WebKit uses native Option-Tab, tested by actual
+focus and Enter rather than direct button activation. Initial run failures and final passing
+verification are documented. Independent reviewer Approved; no unresolved test-quality findings.
+
+## PR #16 regression quality review
+
+PASS. R1 has empty/space/tab-newline and exact nonblank preservation assertions. R2 was strengthened
+to await actual loader start before cancellation, reproduced both source-change/unmount failures,
+and now proves zero reads of obsolete payloads. R4 uses a call-through spy without replacing the
+real index implementation and checks real search output, replacement, cumulative exclusion counts
+and no rebuild per submission. 76 combined component tests pass; full verification 530/28/14.
+Independent reviewer passed 38 focused tests and Approved. No skipped test or threshold change.
+R3 is authoritative current-state documentation and does not need a source-text assertion test.

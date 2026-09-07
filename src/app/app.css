@@ -338,3 +338,31 @@ dd {
     font-size: 1rem;
   }
 }
+
+.data-state {
+  margin-top: 24px;
+}
+.data-state:empty {
+  display: none;
+}
+.load-time {
+  color: #54645d;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+.reload-button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #7e9488;
+  border-radius: 6px;
+  color: #1c302c;
+  background: #fff;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+.empty-result p + p,
+.data-state .uncertainty p + p {
+  margin-top: 12px;
+}
