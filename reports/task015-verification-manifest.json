@@ -1,0 +1,33 @@
+{
+  "task": "TASK-015",
+  "base": "d594ccc",
+  "node": "24.19.0",
+  "npm": "11.17.0",
+  "verification": "npm run verify:full",
+  "exitCode": 0,
+  "vitestTests": 522,
+  "browserTests": 28,
+  "accessibilityTests": 10,
+  "axeScans": 14,
+  "axeViolations": 0,
+  "note": "Final nonfunctional keyboard comment and completion documents followed full verification; focused Chromium visual export passed.",
+  "sha256": {
+    "package-lock.json": "44e2a32dad2d6725cdf1999cac12faa78e2d5be7c116ee38dcf3dc2b5684f21b",
+    "package.json": "8d315bd784a4a94466833bd0fbd13fc97e7a0923071e4400c2693243a61c0b58",
+    "playwright.config.ts": "ad79780f60b8c43d3e4a277602d6efb49aee80e61657d7dea373d04191960f41",
+    "src/app/app.css": "d461afc0a65386ff9779e514203305d56bfcf666b0192c67f9c93bee663176bb",
+    "src/app/app.tsx": "e4690a60443507002c0c10c6e19f96bd10ea85cba9cc6abc3a56f9eaea7aafe6",
+    "src/app/main.tsx": "c3bc743746da8b23bcd0039aa45b776837d61311725e0f294e05503e2ba2a1b7",
+    "src/app/prepare-display-data.test.tsx": "5abc11f95304437f2ed0bb4559f578d3b2399fff15ebc85f5f6224aa3f0c2e5a",
+    "src/app/prepare-display-data.ts": "2e3af0c5c1bbb50cebc658b214894f7c1c10290f782a3a3647665d74f25d9fe3",
+    "src/app/recovery.test.tsx": "ea162f4e3ebc5b623beca39bedaa3aa2cd149fd0b2f3f192d3717b58a392f0c4",
+    "src/app/search-form.tsx": "b74f71dba5d7f521a587b69f78850d5df533484c084597de549346b790ea9d7a",
+    "src/app/search-results.tsx": "4f7e6e0647f70c67f204c1c43f25e9a2fa59815e1d7023842c364859353c0900",
+    "src/app/use-display-data.ts": "71c7240268f2add6e333c632e5c5a659d660f0bc2683ff6db10c05549a63ed06",
+    "tests/e2e/accessibility.spec.ts": "a7c8f8156c2c7167c0de382c611792404864725a3ddbcfe9453d7b257d999594",
+    "tests/e2e/search.spec.ts": "b3547942a4d42bc59be0ab7e70a6d93f33c29ea5bc91fb950205a55932df424d",
+    "tests/fixtures/recovery-runtime.tsx": "b25e3f5a43e58667cc946905be9b6d45ee076f3e494d2b243ff80abb4699f1b3",
+    "tests/setup/recovery-browser.ts": "d9c4af39ab7e307400786976b09804f7bb3cceaaafa8abb8ed47bf938542e399",
+    "vitest.config.ts": "85dc35d76db889230ac484fe67fb49ac7688903dec42e869daea20d55391c884"
+  }
+}

@@ -444,3 +444,12 @@ One shared page clock refreshes at Seoul midnight and focus/visibility events. A
 submission sequence changes live-region content even for identical repeat submissions;
 it is never persisted or transmitted. Invalid submission state clears on draft edits,
 while valid submitted results retain their query context. Blank names receive explicit fallback.
+
+## TASK-015 approved implementation choices — 2026-09-07
+
+The user approved the bounded in-chat recovery design and requested continuation. Extend only
+the internal synthetic presentation boundary: injected query-free loader, explicit retry,
+in-memory usable-data preservation, malformed/duplicate record exclusion and visible diagnostics.
+Do not infer source update time from browser load time or weaken production data validation.
+The fixed repository issue link contains no prefilled query. No new dependency, external service,
+public serialization/URL format, status rule, infrastructure or deployment is introduced.

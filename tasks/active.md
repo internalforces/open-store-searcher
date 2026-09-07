@@ -11,10 +11,10 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-014 PR #15 remediation completed on 2026-09-06:
-all five findings resolved; independent re-review Approved; pinned verify:full passed
-492 tests, 24 browser tests and 8 accessibility scans. See reports/review-2026-09-06-pr15.md.
-TASK-015 is next; deferred TASK-008 remains incomplete.
+No implementation task is active. TASK-015 completed on 2026-09-07 with independent Approved
+review and pinned full verification: 522 tests, 28 browser checks and 14 zero-violation axe scans.
+Implementation is uncommitted in `.worktrees/task013-quality` on `codex/task-015-recovery-ux`.
+See `tasks/completed.md` and the TASK-015 reports there. TASK-016 is next.
 
 ## Deferred — incomplete
 

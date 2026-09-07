@@ -25,3 +25,17 @@ PASS: all R1–R5 regression assertions and independent re-review. Component 38,
 cross-browser 24, axe 8, zero violations. Test callbacks corrected to return void for the existing
 TypeScript contracts. No test removed or skipped and no threshold changed. Exact names and
 counts are recorded in reports/review-2026-09-06-pr15.md. No unresolved review findings.
+
+
+## TASK-015 test quality review — 2026-09-07
+
+PASS. Broad research/plan executed inline because specialized test generator/gap/assertion tools
+were unavailable. The matrix in reports/test-2026-09-07-task-015.md maps each requirement to exact
+tests. New component coverage is 30 tests, combined component suite 68. Tests assert real App
+outcomes, search results, unchanged raw statuses, retained coverage/load time, record exclusion,
+keyboard-triggered recovery and absent I/O. No implementation/expected-value mirror, disabled
+assertion, removed test or relaxed threshold was introduced. Controlled promises model only the
+loader boundary; real Preact/search/domain/evidence code runs. Browser fixture waits for actual
+pending work, avoiding arbitrary sleeps. macOS WebKit uses native Option-Tab, tested by actual
+focus and Enter rather than direct button activation. Initial run failures and final passing
+verification are documented. Independent reviewer Approved; no unresolved test-quality findings.

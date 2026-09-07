@@ -18,3 +18,12 @@ Use one shared app clock, refresh at Seoul midnight and on visibility/focus, cle
 Add explicit dataset sourceLabel/sourceUrl, reuse SourceLink. Add submission sequence
 for stable live region changes, and clear only invalid submissions during edits.
 Run component RED/GREEN, browser regressions, full checks and independent review.
+
+## TASK-015 test-first plan
+
+1. Add App recovery interactions for T15-01/02/03/04/07/08/09; observe RED against existing App.
+2. Add display preparation cases for T15-05/06 and preserve unknown raw statuses/missing names.
+3. Implement internal loader/preparation and integrate existing App/form/evidence; focused GREEN.
+4. Bundle a test-only App entry for real browser injected loading/error/recovery, keyboard,
+   no-I/O and mobile checks (T15-10). Add axe scans of actual loading/error UI.
+5. Run pinned verify:full, inspect screenshots and exact assertions; independent review.

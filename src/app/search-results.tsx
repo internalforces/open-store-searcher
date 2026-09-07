@@ -37,7 +37,8 @@ export function SearchResults({
         <section aria-labelledby="similar-heading">
           <h2 id="similar-heading">유사 후보</h2>
           <p className="section-help">
-            이름이 같아도 다른 사업체일 수 있습니다. 주소와 원본 정보를 직접 비교해 주세요.
+            이름이 같아도 다른 사업체일 수 있습니다. 주소와 원본 정보를 직접 비교해 주세요. 상호명과
+            시·군·구, 도로명과 건물번호를 함께 입력해 다시 검색해 보세요.
           </p>
           {result.similarCandidates.map((match) => (
             <ResultCard key={match.record.id} match={match} coverage={coverage} />
@@ -45,10 +46,16 @@ export function SearchResults({
         </section>
       )}
       {result.topMatches.length === 0 && result.similarCandidates.length === 0 && (
-        <p className="empty-result">
-          일치하는 공개 인허가 데이터를 찾지 못했습니다. 데이터 미등재, 상호 변경 또는 검색어 차이일
-          수 있으며 폐업을 의미하지 않습니다.
-        </p>
+        <div className="empty-result">
+          <p>
+            일치하는 공개 인허가 데이터를 찾지 못했습니다. 데이터 미등재, 상호 변경 또는 검색어
+            차이일 수 있으며 폐업을 의미하지 않습니다.
+          </p>
+          <p>
+            상호명 철자와 띄어쓰기를 확인하거나 도로명 주소 또는 지번 주소로 다시 검색해 보세요.
+            그래도 찾지 못하면 원본 출처나 사업체에 직접 확인해 주세요.
+          </p>
+        </div>
       )}
     </div>
   );
