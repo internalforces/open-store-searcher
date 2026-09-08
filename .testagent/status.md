@@ -94,3 +94,57 @@ existing user authorization on codex/task-017-accessibility; no merge or deploym
 ## PR #18 review remediation — 2026-09-08
 
 Both PR #18 regressions reproduced before changes; all three new cases now pass. Inline assertion review checked identical full evidence, both candidate groups, keyboard focus, combined warnings and repeat submissions. Pinned verify:full passed 564/56/18 (22 axe scans, zero violations). No test or threshold removed. No new manual VoiceOver observation. Exact evidence: reports/review-2026-09-08-pr18.md.
+
+
+## TASK-018 measurement test quality — 2026-09-08
+
+Focused 16 tests pass; final pinned verify:full passes 580/56/18, including 22 zero-violation
+axe scans. Requirements map to exact tests in reports/performance-2026-09-08-task-018.md.
+Assertion review corrected invalid-sample parameterization to pass arrays rather than scalar
+rows; added full similar-count assertions after the real browser rejected the initial
+same-district expectation. Real search, App, fixture generation and browser layout run without
+mocking production computation. Each browser result requires expected actual candidate counts;
+missing/capped measurements cannot pass. Exact-boundary and UTF-8 checks use literal expected
+values. No tests skipped, threshold relaxed or product behavior changed.
+
+The performance command returns 1 as expected for unmet lab targets. This is separate from
+the passing correctness suite and retained production/release gaps. Before/after source
+manifests match. Independent final Reviewer Approved for the bounded audit; reran 16 tests and verified
+82 source hashes and 80 metric groups. No blocking tooling finding remains. No new manual assistive-technology observation is claimed.
+
+
+## TASK-018 optimization verification — 2026-09-08
+
+Approved continuation implemented with test-first failures for redundant segmentation and
+missing partition loading. Final pinned verify:full exited 0: 594 Vitest tests, 64 browser
+checks, 18 accessibility tests and 22 zero-violation axe scans. Coverage: 92.83% statements,
+92.39% branches, 96.17% functions and 94.94% lines. Search quality gates pass unchanged.
+The initial full run exposed old e2e assumptions that data was immediately ready; post-load
+tests now wait for enabled submission, preserving their original assertions. Separate new
+browser tests exercise pending loading, fixed batches, failure/retry and input-independent
+requests. Focused cancellation/optimization/recovery tests passed 17 cases.
+
+Full-field baseline equivalence passes 4,484 queries over both existing corpora. Final
+performance:check intentionally exits 1 for three exceeded and eight unavailable display
+cells. This is not a correctness verification failure or performance success. Evidence and
+exact test names: reports/performance-2026-09-08-task-018-optimized.md; raw metrics and
+reports/equivalence-2026-09-08-task-018.json. Final independent review approved, reran 17 focused tests and checked 91 hashes / 80 metric groups.
+See reports/review-2026-09-08-task-018-optimized.md; performance/production gates remain open.
+
+
+## TASK-018 result-page verification
+
+Approved 20-card pagination implemented after two valid failing regressions; two small-result
+boundary tests already passed. All four now pass, covering ordered all-page traversal, absolute
+positions, disabled boundaries, focus/status, repeated submissions and replaced datasets.
+Built-browser traversal passes in all four projects and both first/final pages pass desktop/mobile
+axe scans with no horizontal overflow. No search/uncertainty/privacy assertion was removed.
+
+Pinned verify:full exit 0: 598 unit/component/pipeline,68 browser,20 accessibility tests;26 clean
+axe scans. Coverage 92.89/92.41/96.23/94.99 statements/branches/functions/lines. Independent review
+caught a names-only performance oracle that could miss wrong pages for identical business names.
+Fixed it to compare distinguishing addresses and absolute positions; typecheck/lint and the entire
+final benchmark pass. Product/tests remained unchanged after the full pass. All 24 search cells
+(120 samples) and 16 navigation groups(320 samples) pass 500 ms, with no unavailable search cells.
+Final independent review approved; reran 4 regressions and verified 92 hashes/96 metric groups. Exact tests and boundaries are in
+reports/performance-2026-09-08-task-018-paginated.md.

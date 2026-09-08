@@ -396,3 +396,20 @@ button[aria-disabled="true"] {
 .candidate-list > li {
   padding-left: 0.25rem;
 }
+
+.candidate-pagination {
+  margin-block: 1rem;
+}
+.candidate-pagination nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.candidate-pagination button {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+}
+.candidate-pagination button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}

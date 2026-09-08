@@ -1,8 +1,72 @@
+import { mountPagination } from '../setup/pagination-browser.js';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { build } from 'vite';
 import { mountMapSearch } from '../setup/map-browser.js';
 import { completeLoad, mountRecovery } from '../setup/recovery-browser.js';
+
+test('loads built data parts after shell paint in bounded query-independent batches', async ({
+  page,
+}) => {
+  const requests: string[] = [];
+  let release!: () => void;
+  const gate = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await page.route('**/assets/demo-*.json', async (route) => {
+    requests.push(new URL(route.request().url()).pathname);
+    await gate;
+    await route.continue();
+  });
+  await page.goto('./');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  await expect.poll(() => requests.length).toBe(2);
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeDisabled();
+  await page.getByRole('searchbox').fill('입력중인개인검색어');
+  expect(requests).toHaveLength(2);
+  release();
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
+  expect(requests).toHaveLength(3);
+  expect(requests.every((path) => path.startsWith('/open-store-searcher/assets/demo-'))).toBe(true);
+  await page.getByRole('button', { name: '검색', exact: true }).click();
+  await expect(page.getByText(/검색 결과: 입력중인개인검색어/)).toBeVisible();
+  expect(requests).toHaveLength(3);
+  await page.getByRole('searchbox').fill('다른개인검색어');
+  await page.getByRole('button', { name: '데이터 다시 불러오기' }).click();
+  await expect.poll(() => requests.length).toBe(6);
+  await expect(page.getByRole('button', { name: /예시 입력/ })).toBeVisible();
+  expect(requests.slice(3)).toEqual(requests.slice(0, 3));
+  const scriptUrls = await page
+    .locator('script[src]')
+    .evaluateAll((elements) => elements.map((element) => (element as HTMLScriptElement).src));
+  for (const url of scriptUrls) {
+    const body = await (await page.request.get(url)).text();
+    expect(body).not.toContain('demo-unknown');
+    expect(body).not.toContain('demo-tie-a');
+  }
+});
+
+test('retries a failed built data part without exposing a partial searchable snapshot', async ({
+  page,
+}) => {
+  let fail = true;
+  await page.route('**/assets/demo-*.json', async (route) => {
+    if (fail) {
+      fail = false;
+      await route.fulfill({ status: 503, body: 'unavailable' });
+    } else await route.continue();
+  });
+  await page.goto('./');
+  await expect(page.getByRole('alert')).toBeVisible();
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeDisabled();
+  await expect(page.getByRole('article')).toHaveCount(0);
+  await page.getByRole('button', { name: '데이터 다시 불러오기' }).click();
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
+  await page.getByRole('searchbox').fill('가상동률 식당');
+  await page.getByRole('button', { name: '검색', exact: true }).click();
+  await expect(page.getByRole('article')).toHaveCount(2);
+  await expect(page.locator('[data-status=closed]')).toHaveCount(1);
+});
 
 const searchEntry = fileURLToPath(
   new URL('../../src/search/search-candidates.ts', import.meta.url),
@@ -50,6 +114,7 @@ test.beforeAll(async () => {
 
 test('runs the bundled candidate engine without browser query I/O', async ({ page }) => {
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
   await page.addScriptTag({ content: browserRuntime });
 
   const requestsAfterInjection: string[] = [];
@@ -312,6 +377,7 @@ test('searches the real form with keyboard and wraps results at 320 CSS pixels',
 }) => {
   await page.setViewportSize({ width: 320, height: 740 });
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
   await page.keyboard.press('Tab');
   const input = page.getByRole('searchbox', { name: '상호명 또는 주소' });
   await expect(input).toBeFocused();
@@ -337,6 +403,7 @@ test('searches the real form with keyboard and wraps results at 320 CSS pixels',
 
 test('renders all four demo statuses through actual search submissions', async ({ page }) => {
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
   for (const [query, expected] of [
     ['가상별빛 카페 서울특별시 마포구 월드컵로 12-1', '행정상 영업'],
     ['가상별빛 카페 서울특별시 강남구 테헤란로 12-1', '휴업'],
@@ -354,6 +421,7 @@ test('renders all four demo statuses through actual search submissions', async (
 
 test('keeps real form queries out of browser network, storage, logs and URL', async ({ page }) => {
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
   await page.getByRole('searchbox').waitFor();
   const url = page.url();
   const requests: string[] = [];
@@ -432,6 +500,7 @@ test('updates stale demo evidence at Seoul midnight and announces equal-count re
 }) => {
   await page.clock.install({ time: new Date('2026-09-07T14:59:59.000Z') });
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
   const warning =
     '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.';
   await expect(page.getByRole('searchbox')).toBeVisible();
@@ -617,6 +686,7 @@ test('TASK-017 traverses candidate evidence forwards and backwards with visible 
 }, testInfo) => {
   await page.setViewportSize({ width: 320, height: 740 });
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
   const input = page.getByRole('searchbox');
   await input.fill('가상별빛 카페');
   await input.press('Enter');
@@ -686,6 +756,7 @@ for (const width of [320, 768, 1280]) {
   }, testInfo) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('./');
+    await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
     // Text-resize stress test; 320px also represents the CSS layout width at 400% on 1280px.
     // This is not a claim of actual browser zoom or manual screen-reader verification.
     await page.addStyleTag({ content: 'html { font-size: 200%; }' });
@@ -750,4 +821,34 @@ test('TASK-017 reaches source and map links in order and activates source only o
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(sourceUrl);
   expect(requests).toEqual([sourceUrl]);
+});
+
+test('TASK-018 paginates all candidates with keyboard focus and no page requests', async ({
+  page,
+}) => {
+  await mountPagination(page);
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(request.url()));
+  const list = page.getByRole('list', { name: '유사 후보' });
+  const seen = await list.getByRole('heading', { level: 3 }).allTextContents();
+  await page.getByRole('button', { name: '다음 페이지' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('heading', { name: '유사 후보', exact: true })).toBeFocused();
+  await expect(page.getByRole('status').filter({ hasText: '21–40' })).toBeVisible();
+  seen.push(...(await list.getByRole('heading', { level: 3 }).allTextContents()));
+  await page.getByRole('button', { name: '마지막 페이지' }).click();
+  await expect(list.getByRole('article')).toHaveCount(7);
+  seen.push(...(await list.getByRole('heading', { level: 3 }).allTextContents()));
+  expect(new Set(seen).size).toBe(47);
+  await expect(page.getByRole('button', { name: '다음 페이지' })).toBeDisabled();
+  await page.getByRole('button', { name: '이전 페이지' }).click();
+  await expect(list.getByRole('article')).toHaveCount(20);
+  await page.getByRole('button', { name: '처음 페이지' }).click();
+  expect(await list.getByRole('heading', { level: 3 }).allTextContents()).toEqual(
+    seen.slice(0, 20),
+  );
+  await page.getByRole('button', { name: '마지막 페이지' }).click();
+  await page.getByRole('button', { name: '검색', exact: true }).click();
+  await expect(page.getByRole('button', { name: '이전 페이지' })).toBeDisabled();
+  expect(requests).toEqual([]);
 });

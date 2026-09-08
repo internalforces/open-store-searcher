@@ -1,3 +1,4 @@
+import { mountPagination } from '../setup/pagination-browser.js';
 import { expect, test } from '@playwright/test';
 import { scanPageForWcag21Violations } from '../setup/accessibility.js';
 import { mountMapSearch } from '../setup/map-browser.js';
@@ -5,6 +6,7 @@ import { completeLoad, mountRecovery } from '../setup/recovery-browser.js';
 
 test('has no automatically detectable WCAG 2.1 A or AA violations', async ({ page }) => {
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
 
   const results = await scanPageForWcag21Violations(page);
 
@@ -17,6 +19,7 @@ for (const [state, query] of [
 ] as const) {
   test(`has no WCAG violations with ${state} results`, async ({ page }) => {
     await page.goto('./');
+    await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
     await page.getByRole('searchbox').fill(query);
     await page.getByRole('button', { name: '검색', exact: true }).click();
     await expect(page.getByRole('article')).toHaveCount(2);
@@ -28,6 +31,7 @@ for (const [state, query] of [
 test('has no WCAG violations with stale coverage warnings', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-09-08T00:00:00.000Z') });
   await page.goto('./');
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
   await page.getByRole('button', { name: /예시 입력/ }).click();
   await page.getByRole('button', { name: '검색', exact: true }).click();
   await expect(
@@ -74,6 +78,7 @@ for (const [state, query] of [
 ] as const) {
   test(`TASK-017 has no WCAG violations in ${state} state with enlarged text`, async ({ page }) => {
     await page.goto('./');
+    await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
     await page.addStyleTag({ content: 'html { font-size: 200%; }' });
     await page.getByRole('searchbox').fill(query);
     await page.getByRole('searchbox').press('Enter');
@@ -82,3 +87,14 @@ for (const [state, query] of [
     expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
   });
 }
+
+test('TASK-018 pagination remains accessible on first and final pages', async ({ page }) => {
+  await mountPagination(page);
+  expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
+  await page.getByRole('button', { name: '마지막 페이지' }).click();
+  await expect(page.getByRole('heading', { name: '유사 후보', exact: true })).toBeFocused();
+  expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
+    true,
+  );
+});

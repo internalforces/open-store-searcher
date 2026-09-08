@@ -245,3 +245,31 @@ renders native external anchors or unavailable/synthetic guidance. App passes sy
 provenance through SearchResults and ResultCard, which also checks synthetic coverage. No raw
 query enters the builder. Native deliberate navigation is the only external action; source/status
 and coverage boundaries remain unchanged. Tests use a separate bundled offline App fixture.
+
+
+## TASK-018 optimized search and deferred synthetic assets — 2026-09-08
+
+The browser entry now injects demoLoader, which fetches three Vite-managed JSON assets after
+an abortable two-frame shell-paint boundary. createPartitionLoader uses fixed batches of at
+most two, independent of search input. It assembles ordered records before prepareDisplayData
+validates global identity and prepares one complete index. No partial snapshot is searchable.
+Failures abort outstanding parts; retries restart the sequence and retain previously accepted
+data. useDisplayData aborts obsolete loads on replacement/unmount. App requires an explicit
+dataset or loader; synchronous demo-data remains a test/benchmark fixture only.
+
+The candidate index caches parsed address tokens. Search rejects unrelated name substrings
+before bounded grapheme segmentation and avoids duplicate fallback comparisons. Ranking,
+conflicts, status mapping and result completeness are unchanged. All data is still downloaded;
+large-card rendering and production publication integration remain unresolved boundaries.
+
+
+## TASK-018 bounded candidate rendering
+
+SearchResults renders every primary/Top-3 candidate and at most 20 similar candidates per
+page. All ranked candidates remain in the unchanged engine result. First/previous/next/last
+controls only replace the displayed slice. Absolute card positions and list set positions
+preserve context; page changes focus the similar heading and announce count/range/page.
+App keys result presentation by submission sequence, resetting repeated searches without
+rerunning search during navigation. Dataset replacement retains its existing invalidation.
+No virtual scrolling, cumulative load-more, persistence or page requests were introduced.
+The approved performance endpoint is complete search plus a visible page, not all-result DOM.

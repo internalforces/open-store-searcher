@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-017 complete with assisted VoiceOver verification; no active task; M1 production gates remain open
+- Phase: TASK-018 result-page lab target achieved; no active implementation task; production/release gates remain open
 - Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
 - Overall health: 🟡 Caution — collector, synthetic transformation, and staged validation gates pass, while no
   production transformation or publication path exists
@@ -133,3 +133,122 @@ TASK-016 is complete with independent Approved review and pinned verification (5
 32 browser checks, 16 zero-violation axe scans). Implementation lives in the reused
 .worktrees/task013-quality checkout on codex/task-016-map-links; delivery is user-authorized. No task is active; TASK-017
 is next. TASK-008 remains deferred/incomplete; production, milestone and release gates remain open.
+
+
+## TASK-018 activation — 2026-09-08
+
+User requested activation and execution. TASK-018 is the sole active task, in bounded design
+pending the brainstorming skill's explicit human approval gate. Audited PRD 14.2, performance,
+implementation/testing/review prompts and the existing synthetic loader and linear candidate
+search. Reuse .worktrees/task013-quality at 1b570a2; preserve original dirty TASK-008 work.
+Proposed existing-tool local bundle/mobile display/search-to-render and synthetic scale
+measurements, with preparation/data-size diagnostics and explicit production limitations.
+No production dataset/partition contract is available; do not infer production performance
+from demo or synthetic measurements. TASK-008 remains explicitly on hold until a new user
+request. No code, tests, dependencies, public contracts, commit, push or deployment changed.
+
+
+## TASK-018 bounded performance audit complete — 2026-09-08
+
+User activated TASK-018 and approved its bounded measurement design. Implemented local
+performance/performance:check commands using existing Vite/Playwright, a separate real-App
+benchmark entry, deterministic 1,000/10,000/50,000-record synthetic fixtures and 16 helper/
+fixture unit tests. No product source, dependency, delivery/interface/status contract or
+workflow changed. Implementation is uncommitted on codex/task-018-performance in the reused
+.worktrees/task013-quality checkout; original dirty TASK-008 work is preserved.
+
+All approved audit acceptance criteria are satisfied: code assets and <=300,000-byte budget;
+primary/LCP cold/warm measurements under explicit mobile CPU/network conditions; loaded-search
+submission/display and separate preparation/search diagnostics; fixture/code hashes and raw
+sample summaries; UTF-8 data sizes and partitioning implications; complete verification and
+independent review. End-to-end rendering above 1,000 candidates is explicitly unavailable,
+not passed. This resource limit affects only the audit harness, not product results.
+
+Bundle: 47,806 bytes. Mobile primary max: 701.2 ms; LCP max: 668 ms. Search targets are NOT met:
+mobile 1,000-candidate address display reaches 1,478.4 ms and mobile 50,000-record common-name
+display reaches 2,488.4 ms. Five search cells exceed targets, eight are unavailable and eleven
+pass. `labTargetsMet=false` and `productionVerified=false`. The --check command correctly
+exits 1; production/rendering/partitioning release gaps stay open in memory/known-issues.md
+for Performance Engineer / Implementer remediation and TASK-021 acceptance.
+
+Pinned verify:full exits 0: 580 Vitest tests, 56 browser checks, 18 accessibility tests / 22
+zero-violation axe scans. Independent Reviewer Approved; reran 16 focused tests and verified
+82 source hashes plus 80 metric groups. All measured hashes still match after full verification.
+Reports: reports/performance-2026-09-08-task-018.md, matching JSON, and
+reports/review-2026-09-08-task-018.md. No performance-success, production, milestone or release
+gate is closed. No task is active; TASK-019 remains next in backlog. TASK-008 remains explicitly
+on hold until a new user request. No handbook access, commit, push, merge or deployment occurred.
+
+
+## TASK-018 optimization continuation — 2026-09-08
+
+User requested search computation optimization and partitioned loading after the audit.
+Reopened only TASK-018; its prior bounded audit remains completed historical evidence.
+Inspected actual search loops, index projection/filtering, App default demo imports, loader
+lifecycle and PRD 12.2/14.2. Prepared bounded same-semantics computation changes and a
+query-independent, fixed-order partition loader integrated with current synthetic assets.
+The existing loader allows atomic full-snapshot preparation and retained-data failure behavior.
+Proposed chunking reduces initial code work but not total data download; all required parts
+remain necessary before a new snapshot becomes searchable. Query-dependent region requests
+and partial search would require different privacy/completeness decisions and are not assumed.
+Concrete design awaits the brainstorming skill's explicit approval. No source/test/config
+changed in this preparation pass. Preserve audit outputs, uncommitted work and TASK-008 hold.
+No candidate pagination, production publication schema, dependency, commit, push or deployment
+was added. Performance and release acceptance remain open; TASK-019 is not activated.
+
+
+## TASK-018 optimization continuation complete — 2026-09-08
+
+The user approved and requested execution of the bounded continuation. Search now avoids
+unnecessary grapheme/fallback work and caches address tokens without changing full results.
+The current browser loads three synthetic JSON assets after shell paint in fixed batches of
+at most two, independent of input. Complete validation precedes atomic replacement; failed
+and obsolete loads are cancelled and accepted data is retained. All approved implementation
+acceptance criteria are complete. No implementation task is active; TASK-019 is not activated
+and TASK-008 remains explicitly on hold.
+
+Pinned verify:full passed 594 Vitest, 64 browser and 18 accessibility tests, with 22 zero-violation
+axe scans. Full-field baseline equivalence passed 4,484 queries. Independent review approved
+and reran 17 focused cases; all 91 measured source hashes and 80 raw metric groups match.
+Mobile 50,000-row maximum search computation improves from 1817.6 to 146.6 ms. Common-name
+display improves from 2488.4 to 690.2 ms and absent-result display from 1535.5 to 69.8 ms.
+
+Performance acceptance remains open: three display cells exceed 500 ms and eight are unavailable
+above the unchanged 1,000-card harness cap; thirteen pass. Mobile 1,000-row address display is
+1410.8 ms. Initial code increases from 47,806 to 48,118 bytes, plus 5,331 deferred JSON bytes;
+mobile cold search readiness increases from 701.2 to 1078.2 ms, still under 2.5 s. All data is
+still downloaded. labTargetsMet=false and productionVerified=false; performance:check correctly
+exits 1. Production delivery and release gates remain open, and the prior audit stays immutable.
+
+Evidence in .worktrees/task013-quality: reports/performance-2026-09-08-task-018-optimized.md,
+matching JSON, reports/equivalence-2026-09-08-task-018.json and
+reports/review-2026-09-08-task-018-optimized.md. Implementation remains uncommitted on
+codex/task-018-performance in the reused worktree. Original TASK-008 changes were preserved.
+No dependency, source/status contract, handbook, commit, push, merge or deployment was added.
+
+
+## TASK-018 result-page target achieved — 2026-09-08
+
+User explicitly approved 20-item similar-candidate pagination to achieve the remaining 500 ms
+large-result display target. Implemented bounded pages, full-count/range, first/previous/next/last
+navigation, preserved ranking/uncertainty/absolute positions, keyboard focus/status and reset
+on each submission. No candidate is discarded and page changes make no network requests.
+
+Pinned verify:full exited 0:598 Vitest,68 browser and 20 accessibility tests;26 zero-violation
+axe scans. Independent Reviewer approved, reran 4 focused cases, and verified 92 source hashes
+and 96 raw metric groups. A names-only measurement oracle was corrected to include distinct
+addresses and absolute positions; provisional results were excluded and final measurement rerun.
+
+Final performance:check exited 0: all 24 search cells/120 samples and 16 applicable navigation
+groups/320 samples pass 500 ms. Mobile maximum full-search-to-first-page 182.8 ms; page transition
+46.9 ms. Formerly skipped large-result searches now run with full-result-count and ordered
+card identity assertions. labTargetsMet=true; productionVerified=false. Initial code 49377 bytes
+and mobile cold readiness 1071.9 ms pass existing budgets. Historical reports remain immutable.
+This is complete search plus a visible page, not simultaneous full-result DOM construction.
+
+Evidence in the reused .worktrees/task013-quality checkout:
+reports/performance-2026-09-08-task-018-paginated.md, matching JSON and
+reports/review-2026-09-08-task-018-paginated.md. All approved continuation criteria are complete.
+No implementation task is active; TASK-019 remains unactivated and TASK-008 remains on hold.
+Production data/download/index and release gates remain separate. Work is uncommitted on
+codex/task-018-performance; no push, merge, deployment, dependency or handbook change occurred.

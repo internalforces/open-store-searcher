@@ -74,3 +74,38 @@ mobile/desktop, 200% text scaling and 320px reflow; screen-reader observations s
 ## PR #18 remediation — 2026-09-08
 
 Broad bounded PR #18 scope: ResultCard/SearchResults identity and App live guidance. Existing accessibility.test.tsx exercises real search with synthetic data. Specialized discovery/generator/gap tools are unavailable; use inline workflow. R1: identical name/address/status records must have distinct accessible names in both candidate groups. R2: a single result with two eligible ties and a conflicting similar candidate must announce both warnings.
+
+
+## TASK-018 measurement research
+
+Scope: new offline measurement helpers, deterministic fixtures and local browser harness.
+Use existing Vitest unit project, Vite production builds and Playwright Chromium. No new
+dependency or production seam. Optional generator/discovery/gap tools are unavailable;
+research, planning and assertion review run inline. P01 bundle bytes and exact limits;
+P02 nonempty finite percentile samples; P03 deterministic bounded fixtures and adversarial
+query outcomes; P04 production-only mobile primary/LCP cache runs; P05 real App submission
+through paint opportunity; P06 JSON/preparation scale diagnostics and limitations.
+
+
+## TASK-018 approved optimization/loading research
+
+Scope is broad across search and loader integration. Existing conventions: Vitest unit for
+search, component for app/loaders, Playwright built Pages-subpath checks. Specialized test
+generator/discovery tools remain unavailable; execute research/plan/quality review inline.
+O1: avoid irrelevant grapheme work and repeated address splitting while preserving Unicode,
+numeric boundaries, candidates/reasons/rank and quality. O2: partition reads after shell paint,
+fixed batches of at most two, complete ordered assembly, cancellation, failure/retry and no
+partial data. O3: full-snapshot duplicate checks, one index/load, retained state and obsolete
+load suppression. O4: real deferred JSON assets, no query-dependent requests, Pages routing,
+initial error/retry and all existing browser/a11y flows. O5: preserve baseline and repeat
+scale measurements plus startup/code budgets with actual JSON requests.
+
+
+## TASK-018 approved pagination continuation
+
+User approved 20-item similar-candidate pages. Scope: SearchResults/App, CSS, regression tests
+and performance harness. Preserve complete ranking, uncertainty, primary/Top-3, absolute
+positions and every candidate. Test all-page traversal, first/last/previous boundaries, focus,
+announcements, <=20 boundary, new search reset and small-result compatibility. Measure first
+page plus navigation under unchanged five-sample mobile/desktop profiles, with explicit
+complete-count and bounded-card assertions. Run focused tests then verify:full and review.

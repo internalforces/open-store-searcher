@@ -7,7 +7,7 @@ export interface DisplayLoader {
   readonly sourceLabel: string;
   readonly sourceUrl: string | null;
   readonly kind: 'synthetic' | 'source';
-  readonly load: () => Promise<unknown>;
+  readonly load: (signal?: AbortSignal) => Promise<unknown>;
 }
 interface Snapshot {
   source: DisplayDataset | DisplayLoader;
@@ -36,13 +36,14 @@ export function useDisplayData(source: DisplayDataset | DisplayLoader) {
       return;
     }
     let cancelled = false;
+    const controller = new AbortController();
     busy.current = true;
     setSnapshot((previous) => ({
       ...(previous.source === source ? previous : initial),
       phase: 'loading',
     }));
     void Promise.resolve()
-      .then(() => source.load())
+      .then(() => (cancelled ? undefined : source.load(controller.signal)))
       .then((value) => {
         if (cancelled) return;
         const prepared = prepareDisplayData(value);
@@ -57,6 +58,7 @@ export function useDisplayData(source: DisplayDataset | DisplayLoader) {
       });
     return () => {
       cancelled = true;
+      controller.abort();
       busy.current = false;
     };
   }, [source, initial, attempt]);

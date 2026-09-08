@@ -63,3 +63,41 @@ R3: document delivered commit/PR and current remediation; final review/full chec
 ## PR #18 remediation — 2026-09-08
 
 Add failing R1 parameterized exact/name-only searches and R2 mixed-state repeated-search regression in accessibility.test.tsx. Add display-order candidate positions and independent conditional warnings. Run focused components, pinned verify:full, and inspect assertions and diff.
+
+
+## TASK-018 measurement plan
+
+P01/P02: test inclusive limits, over-limit outcomes, missing/nonfinite metrics, nearest-rank
+percentiles and UTF-8 accounting before helper implementation. P03: test deterministic
+fixture shape, unique identities, scale bounds, and exact/common/address/no-match outcomes
+through the real search engine. P04/P05: run production and separate test-only built pages,
+assert ready content/LCP and correct submitted query/candidate counts before recording times;
+record all samples, failures and host/profile settings. P06: measure JSON bytes, generation,
+index construction, mounted App readiness and search-only time separately. Full verification
+and independent review follow. Production distribution, publication and real-device results
+remain explicitly unavailable.
+
+
+## TASK-018 optimization/loading test-first plan
+
+1. O1: add failing real search work-count regression; preserve real grapheme behavior and
+address whole-number matches. Existing quality and search suites remain mandatory.
+2. O2: add controlled part-promise tests before loader implementation for deferred start,
+max-two batches, input-order assembly, failure, retry, aborted/stale work and empty/invalid
+parts. Control only timing/network boundaries, use real assembled data and real preparation.
+3. O3: component tests use real partition loader through App; cross-part duplicates,
+retained data and no partial searchable snapshot are concrete outcomes.
+4. O4: built browser test intercepts only actual data assets and checks disabled submit,
+complete-data results, retry and invariant request paths across different drafts.
+5. O5: run narrow checks, then full verification, a new comparable performance report and
+independent review. Preserve audit JSON/report as historical evidence.
+
+
+## TASK-018 approved pagination continuation
+
+User approved 20-item similar-candidate pages. Scope: SearchResults/App, CSS, regression tests
+and performance harness. Preserve complete ranking, uncertainty, primary/Top-3, absolute
+positions and every candidate. Test all-page traversal, first/last/previous boundaries, focus,
+announcements, <=20 boundary, new search reset and small-result compatibility. Measure first
+page plus navigation under unchanged five-sample mobile/desktop profiles, with explicit
+complete-count and bounded-card assertions. Run focused tests then verify:full and review.

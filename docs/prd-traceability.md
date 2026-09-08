@@ -56,7 +56,7 @@ production source-cut/policy evidence and TASK-009 last-known-good publication/r
 | Search quality | Exact name-and-address Top-3 recall >= 90% | TASK-013, 021 | reports/test-2026-09-05-task-013.md; source 98/100, synthetic 28/30, independent source replay; snapshot scope only | Verified for TASK-013 |
 | Refresh reliability | Success rate >= 95% over the last 30 days | TASK-010, 021 | Actions run history | Planned |
 | Freshness | As-of date within seven days during normal operation | TASK-008, 015 | TASK-008 helper and staged validator tests pass for reviewed coverage, unknown/stale distinction, and regression checks; production evidence remains unresolved | In progress |
-| Performance | LCP target 2.5 s, search 500 ms, code 300 KB | TASK-018 | Performance report | Planned |
+| Performance | Primary/LCP 2.5 s, complete search plus visible page 500 ms, code 300 KB | TASK-018; TASK-021 release gate | [Paginated measurement](../reports/performance-2026-09-08-task-018-paginated.md) and [review](../reports/review-2026-09-08-task-018-paginated.md) | All lab budgets pass; production/release gates remain open |
 | Accessibility | Baseline WCAG 2.1 AA, zero critical automated errors | TASK-003, 017, 021 | TASK-003 Vitest/Playwright configuration, `reports/test-2026-08-24-task-003.md` PASS, and `reports/review-2026-08-24-task-003.md` APPROVED establish the automated foundation; product-level automated and manual audit remains pending | In progress |
 | Privacy | Zero collection of search terms or behavior | TASK-019, 021 | Network and code audit | Planned |
 | Safety | Zero missing-result-to-closed or new-code auto-mappings | TASK-007, 013, 021 | TASK-007 exact-pair and empty-stage regressions pass; search and release gates remain pending | In progress |
@@ -114,3 +114,19 @@ gates remain separate. No universal WCAG conformance or untested AT combination 
 ## PR #18 review remediation — 2026-09-08
 
 FR-16 / PRD Section 14.3 follow-up: PR #18 duplicate-identity and overlapping-announcement regressions resolved with displayed positions and independent warnings. Pinned full checks 564/56/18 passed; exact tests and manual-evidence limit in [PR #18 review](../reports/review-2026-09-08-pr18.md).
+
+
+### TASK-018 optimization verification — 2026-09-08
+
+FR-02/03/07/12/13 and PRD 12.2/14.2 continuation is implemented with FR-11/16 preserved.
+[Optimized evidence](../reports/performance-2026-09-08-task-018-optimized.md) and
+[independent approval](../reports/review-2026-09-08-task-018-optimized.md) record 594/64/18 passing checks
+and 4,484 equivalent results. This closes the bounded implementation, not the 500 ms search,
+production-data or release acceptance gates. TASK-008 remains on hold.
+
+### TASK-018 result-page acceptance
+
+User-approved 20-item pages preserve FR-03/07/11/16 while satisfying measured PRD 14.2 budgets.
+All 24 first-result search cells and 16 applicable navigation groups pass 500 ms; no large-search
+cells remain skipped. Correctness 598/68/20 and independent approval support bounded completion.
+Earlier rendering-gap notes are historical; full-DOM and production certification are not claimed.

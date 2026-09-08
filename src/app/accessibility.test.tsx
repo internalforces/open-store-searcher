@@ -15,7 +15,7 @@ async function submit(query: string) {
 
 describe('TASK-017 accessible search', () => {
   it('names candidate lists and distinguishes same-name addresses without changing evidence', async () => {
-    render(<App />);
+    render(<App dataset={demoDataset} />);
     await submit('가상별빛 카페');
     const list = screen.getByRole('list', { name: '유사 후보' });
     expect(within(list).getAllByRole('listitem')).toHaveLength(2);
@@ -97,7 +97,7 @@ describe('TASK-017 accessible search', () => {
   });
 
   it('offers explicit results focus while returning valid and invalid submissions to input', async () => {
-    render(<App />);
+    render(<App dataset={demoDataset} />);
     expect(screen.queryByRole('button', { name: '검색 결과로 이동' })).toBeNull();
     const { user, input } = await submit(demoDataset.exampleQuery);
     expect(document.activeElement).toBe(input);
@@ -118,7 +118,7 @@ describe('TASK-017 accessible search', () => {
     ['가상동률 식당 서울특별시 종로구 자하문로 20', '동일하게 일치하는 후보가 여러 개'],
     ['가상별빛 카페', '같은 사업체인지 주소와 원본 정보를 확인'],
   ])('announces safe guidance for %s in the persistent status region', async (query, guidance) => {
-    render(<App />);
+    render(<App dataset={demoDataset} />);
     const status = screen.getByRole('status');
     await submit(query);
     expect(status.textContent).toContain(guidance);

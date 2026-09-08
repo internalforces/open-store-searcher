@@ -1,0 +1,3179 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-08T13:18:18.371Z",
+  "environment": {
+    "node": "v24.19.0",
+    "browser": "151.0.7922.34",
+    "platform": "darwin",
+    "release": "25.6.0",
+    "cpu": "Apple M3",
+    "logicalCpus": 8,
+    "memoryBytes": 17179869184,
+    "profiles": [
+      {
+        "name": "desktop",
+        "cpuRate": 1,
+        "mobile": false
+      },
+      {
+        "name": "mobile-lab",
+        "cpuRate": 4,
+        "mobile": true
+      }
+    ],
+    "network": {
+      "offline": false,
+      "latency": 150,
+      "downloadThroughput": 200000,
+      "uploadThroughput": 93750
+    },
+    "repetitions": 5,
+    "scales": [1000, 10000, 50000],
+    "mobileDevice": "Pixel 5 emulation; CPU multiplier is host-relative, not a physical device",
+    "serving": "loopback HTTP, uncompressed bodies, max-age=3600; cold cache cleared, warm same-page navigation"
+  },
+  "methodology": {
+    "budgetRule": "Inclusive PRD targets, conservative all-samples gate; nearest-rank median/p95 with no removed outliers or retries.",
+    "codeSize": "Conservative sum of every production HTML/CSS/JS output; separately lists deferred JSON assets; excludes separately built benchmark.",
+    "primary": "Navigation to laid-out heading/input and enabled submit button plus two animation frames.",
+    "lcp": "Latest buffered LCP after readiness plus 1000 ms without interaction; fixed lab observation window.",
+    "search": "Loaded real App: programmatic form submission through updated query/candidate count, layout and two animation frames. Excludes typing, automation transport, and input scheduling delay; paint opportunity is not pixel presentation.",
+    "preparation": "Five fresh pages: generation, JSON parse and diagnostic prepare measured separately; App rebuilds its own index. Diagnostic preparation/search precedes mounting and can warm code caches.",
+    "queryOrder": ["exact", "common", "address", "absent"]
+  },
+  "implementationSha256": {
+    "package.json": "9351954e31e129135e0d7c3da5aa9956c5bc7fc28470d5c1a949c9deacbd0537",
+    "package-lock.json": "44e2a32dad2d6725cdf1999cac12faa78e2d5be7c116ee38dcf3dc2b5684f21b",
+    "vite.config.ts": "5328b85fb839a81fcb9603123f14320dc433b771ddea63b06824587b244355f1",
+    "vitest.config.ts": "0d9bab9c3a4c3299c574f125471dc2c0d6ad5832a61f559e08b34ef994d35a3d",
+    "index.html": "c6fc58100514435f413b614d0ed8d09df9f25b18eca7d1ce6d005842d9a349ba",
+    "scripts/measure-performance.mjs": "5140e5fdd74fa2b431ab096a75ad09c341fcad59f701e0f64e05f9b3109c512c",
+    "src/app/accessibility.test.tsx": "20c88a91c9d3c817532576eff22b3ed944f8b6ce0876cf218749c8008665149b",
+    "src/app/app.css": "17d83e5fbd7d547e034da3ac934fe46ee1381175a837daaee8ae3cb755e807a6",
+    "src/app/app.test.tsx": "e1b073465ac4b974c6a2d10e45d50f6a8a4a39a3bcd26d28de59e4a890b09d90",
+    "src/app/app.tsx": "61698ef75d6cb644f33ae44124cd2ba282006d44dc46547c0993ef4fde3a659d",
+    "src/app/coverage-clock.tsx": "1d3e8b8a31f3483edcb11d45e17bc9568f9e8e9903787dc2dba08caa4a48c69c",
+    "src/app/data-assets.d.ts": "4ab9606e56e491b0b63a3062a5837f0be8cf5ca56d8f6ab2b8b22bb23b0f6ee9",
+    "src/app/demo-data.ts": "3495fcd9db12735647ec729451ca3af5b24185e6e654250fc661920b9427e819",
+    "src/app/demo-loader.ts": "862c5062b84d536ca0fbdf2eebfd5298e93db97337a19237c7c93b91c529ce0d",
+    "src/app/demo-metadata.ts": "174ad9d9c5b5888e01aff5d12d337600183adb45be633ecd5ef4324ebde70e07",
+    "src/app/demo-parts/demo-1.json": "0c4fac06133c4bf4ae7e941aee5950710f87a633ac6b90f5869735b3dbcf8244",
+    "src/app/demo-parts/demo-2.json": "5196849d529dd0f5d0ebff154ab6270ab0738258fe6705a715c229dccf182353",
+    "src/app/demo-parts/demo-3.json": "14066ff1dfc94f46d5cc07e1ac778da08cefefc9b573835923da325d8208c770",
+    "src/app/display-data.ts": "16fcb5af7b24ad472310d0c3893896c533b69f894593cc7173794a117d9e214d",
+    "src/app/evidence-context.test.tsx": "95d5c01ce7ba85a46a2a83e967b42103004af57ac06e473ee4f0ac86911332f3",
+    "src/app/evidence-context.tsx": "168dd1b5bbfb972deb5988faa7deb6b1f4380d25420ee29240b7f26adb9fba9c",
+    "src/app/main.tsx": "2c0795d54fb0d7ba490227ab1733b8d873e49bc1cec8af3e299683146976bafd",
+    "src/app/map-links.test.tsx": "e85deca6906ab64531c93923d5dad6aeb90195431d38095d9a5dd7de9b770a10",
+    "src/app/map-links.tsx": "62ffd467e555817f904cdf8627e98915ee8cca1e8d8ee6bc2942b169e9fa03cf",
+    "src/app/partition-loader.test.tsx": "70d67b6bbd4ae2d34238ff7558885fc9e3e711de04338a7b7eeaf1f436714003",
+    "src/app/partition-loader.ts": "fbb92dcae9ea7f687a14aed264fe7b203fc0480b40d364f1c9b9485c04d118db",
+    "src/app/pr16-regressions.test.tsx": "aef275b1ee803e05c6cb6a1c79f7fc382b4399327b08457d46181f2453b3a201",
+    "src/app/prepare-display-data.test.tsx": "619788c561499bc6cf4ec23a080c0093b8e3d79ff03b41a95fe09d296be105e1",
+    "src/app/prepare-display-data.ts": "d1537f4cd2fae58a7f35194f0265a68cd0380a9a1094cb8e1c1a027b621fe063",
+    "src/app/recovery.test.tsx": "a922773b171ee1c082643b1fa708eec9200e1631e5eb4a28e1b47ad36bf337d8",
+    "src/app/result-card.test.tsx": "547707fb137d17d02e5ac420978ee5289405a76484adef59456d38f898b25f14",
+    "src/app/result-card.tsx": "9ee6d4de45f4e575b6fb9daf27efcdd4f90b5981548b74130c0eff9745b2b092",
+    "src/app/search-form.tsx": "524f4c359d34af8e1668823d2a301efd09c31120a41b24f15a7ebd0bdf704ef4",
+    "src/app/search-results.tsx": "bf4c2bf6439e8a9feb4e4b9edf4d4cd8af62ac0c32692208a1f3d68ed3c62176",
+    "src/app/style.d.ts": "da5bf71d48cf909584a01c80b445f730507068f5b34c920f352e2bfcf0315e4c",
+    "src/app/use-display-data.ts": "4d9695b79d72cf1adc637f1905de331e03fec2a5b394eda74d2c1d3937be23ca",
+    "src/domain/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/domain/map-license-status.test.ts": "92ac19bf74cb179159d92682094a4554f48c58b81bf89e37f9fb4d44717b46fd",
+    "src/domain/map-license-status.ts": "16f58c1ade9d11c5a5ae14d980312d5431438edc58369582c70d2a1d3cd0c4bf",
+    "src/pipeline/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/pipeline/archive-adapter.ts": "071bf9de82695f75cd3966e79cf5220973b3b9c6d1c6052e4d9a72eb85aabfa7",
+    "src/pipeline/archive-contract.test.ts": "5a228a3cca4a3e5a69cd8fad9c22ffc666b0b5289806687d7060796f4dd493c6",
+    "src/pipeline/archive-contract.ts": "7608154cf60f4c1c6e78c1e8679d38d38d9c8e80d89c3924fd2a1a10ba219608",
+    "src/pipeline/calendar-date.ts": "7f38dbc8eb6f4f8e21996d6e48203202cb37e496cab4a68c787b3a60bdedc28b",
+    "src/pipeline/collect-seoul-archive.test.ts": "3e173664ac0652a9469c2613aa5d37e26611d0e518e6bb25fdf9f072bb54a096",
+    "src/pipeline/collect-seoul-archive.ts": "3f2131785386b606ca6786ed03bbd287b9591ff88d0618276337550fcd120cf5",
+    "src/pipeline/collector-types.ts": "a7f1c5def30b48bebcfa8c3c48508dc36255fe274d7e7fd972de487b199322d0",
+    "src/pipeline/contracts/seoul-archive-contract.json": "7cd8ce23032b491a4d9859c2cf50d7fa7505ea94c63523cb44bcb5e4242388ec",
+    "src/pipeline/csv-header.test.ts": "e62b37661fb9d09c79bb770bb18657781e6003865d414041387bf12bdca43380",
+    "src/pipeline/csv-header.ts": "b3351361a078f554b59c7d4f7e97202b7938e922230cce652188b29be2bc7fc2",
+    "src/pipeline/discover-archive-contract.test.ts": "56dc3ed4fd2757d2f534f9d436586024d9816de2484de5e3c2e4c7e6988412d9",
+    "src/pipeline/discover-archive-contract.ts": "0db2dcd5a98546ff2782a81f41a19b2b03ea33a945a1dd391c7538abc6903bbd",
+    "src/pipeline/inspect-archive.test.ts": "0ac77924534aadb137d9facef0ae343922f13899acae1616ca305a8f22103e6c",
+    "src/pipeline/inspect-archive.ts": "a5def5e9b3be7d49306b7a1e1459563773496a8a5fa80423ddea4da7b9c81337",
+    "src/pipeline/manual-probe.test.ts": "71a7167581c8c516346e917b8fbea1c59dc6224258cffff70736903a9f4da7e5",
+    "src/pipeline/manual-probe.ts": "0b10fd69f241efa0edc6397289add8f06beda3bca553f0dda808144378ddab92",
+    "src/pipeline/probe-source.test.ts": "b90719e093281563775792eb5410623a10599e8c3a379112d294400d496702af",
+    "src/pipeline/probe-source.ts": "ab83f98a0bb6f8036f96750fa7e5253e848476866306c04a9d28f4a729367778",
+    "src/pipeline/refresh-validation-metrics.ts": "77ecbbac92473c1b67b5c10f30eb94710a1c2a42c2aa4154c2f7a143fd823f7f",
+    "src/pipeline/refresh-validation-types.ts": "e6f85546146fbb69c50f4ffb333549a9b4babc6b33bcdae7a4db5b66facea418",
+    "src/pipeline/source-contract.test.ts": "6443f028ebfec469d0b992b4efcdf2297d7ccbccec23d8a3084ec2de42afc5a4",
+    "src/pipeline/source-contract.ts": "a729abdaac5447c75bbb82eb017dbe8f36ac7911ea47f85cf56247e7a5750300",
+    "src/pipeline/staged-download.test.ts": "9a20e4ba95fef126bd2569bf7a879e7dc7d505f04a7271beb2e516ee7f8f1d6b",
+    "src/pipeline/staged-download.ts": "f883e04eee72d3e9dab926d3201f50c781114e1d0787f8a134a4acbda8604eb8",
+    "src/pipeline/transform-license-records.test.ts": "8bf28c5792cf167ce5b1ba3d16e5e3ffb25075f411b8d1e271c9768a7ce43c3d",
+    "src/pipeline/transform-license-records.ts": "a2beea03bea7f3d5ff170ff8032ef5f150bee58acc5aa6ca7dc257f23597910a",
+    "src/pipeline/unzip-archive.test.ts": "a9713b78ab02b49636411660b9c435d1776deabcf4a46c02702198fbe8acf8e0",
+    "src/pipeline/unzip-archive.ts": "679e2c30954cf0b2fe1b518a168c285ebd4135cd011b230ad7f54cd9a86ad800",
+    "src/pipeline/validate-json-bytes.test.ts": "c5cfa29b16378829d525d48d66a13c83cecf804c875c26abb5c72f518186a938",
+    "src/pipeline/validate-json-bytes.ts": "603870a02872ff34c65dcd22cceb2c9bc1603e9ed677c22d84733d7d1847cb50",
+    "src/pipeline/validate-license-refresh.test.ts": "076320c1658857297a0678b10ac0e7a1b7ef6f3ed46891562a1d73071530a8b2",
+    "src/pipeline/validate-license-refresh.ts": "4e17784ff88630ff3e21074703a3b78b7bfa0ef892505264eccbd9e7900a4282",
+    "src/search/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/search/compare-search-address.test.ts": "f5757b282068cc894e1239646acf7f238c5e1e44c50e5cdfaedc92d51270b2cf",
+    "src/search/compare-search-address.ts": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942",
+    "src/search/interpret-search-query.ts": "e5bdaad78cfbbcf7612e24dc40c501d8895272b6105fa22ff0a796803cededb8",
+    "src/search/prepare-search-query.test.ts": "3486479f9a73c08d008b9cfcd5c6f7f9067fcfc5880609adad7b4927b784bf61",
+    "src/search/prepare-search-query.ts": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+    "src/search/search-candidates.test.ts": "bfb9929bba72d905ab68b5ddeccf266deb97c766cca549bf07c065c0ec974196",
+    "src/search/search-candidates.ts": "736711b737a1f661c9a80b4e7a370affb7ff5b8b7e62153e0b53098a7adf5f5d",
+    "src/search/search-optimization.test.ts": "1657fc99311e470f8a1d1fa9cf8012620825593e50de3a5fbaf801139006d944",
+    "src/search/search-quality.test.ts": "fb1e08586949e4fc47889439f94588482a7cded27bb1cc1de25e05dd6501c6f6",
+    "src/shared/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/shared/data-freshness.test.ts": "2745899ee7010b7082b2726d6a90c7f01d235e05ddc8d11126e155ae968d5cbb",
+    "src/shared/data-freshness.ts": "98464f9fdf89ec9e3cbdccb74561d9da7e0a8513a25fcb0ec5321715048fe892",
+    "src/shared/map-search-links.test.ts": "fb6d756f1fac6ac97bb01d6228c6db9a54abdcf0f7856788c3fb53f2f3351543",
+    "src/shared/map-search-links.ts": "b59f5dd3f42ea9fe038efcc6e57af63747f7b11890dd227bad86c887163a630d",
+    "tests/performance/browser.tsx": "501d178c1e7067e7f75d0558c5f9e1831670b81e7e773e2c5d4e7175793b0f71",
+    "tests/performance/index.html": "882e961ad05b5e7ebb4b231a8c26fb30f7a17de730ce498f21dbc6e6d457de22",
+    "tests/performance/metrics.test.ts": "b5c5d9eff7f84d5a6138ee0995da96f72ffe71e23957f20d1ae0f5a22171508b",
+    "tests/performance/metrics.ts": "8db3dc2a9ae0470863d0ce7341ed2a7d9db670ce78d1a685075bfad193092b78"
+  },
+  "bundle": {
+    "assets": [
+      {
+        "path": "assets/demo-1-Dgx1yC7q.json",
+        "bytes": 1781,
+        "sha256": "0c4fac06133c4bf4ae7e941aee5950710f87a633ac6b90f5869735b3dbcf8244"
+      },
+      {
+        "path": "assets/demo-2-Cwgu9dF3.json",
+        "bytes": 1780,
+        "sha256": "5196849d529dd0f5d0ebff154ab6270ab0738258fe6705a715c229dccf182353"
+      },
+      {
+        "path": "assets/demo-3-DYrVXLTo.json",
+        "bytes": 1770,
+        "sha256": "14066ff1dfc94f46d5cc07e1ac778da08cefefc9b573835923da325d8208c770"
+      },
+      {
+        "path": "assets/index-BDu_wQ-Y.css",
+        "bytes": 5270,
+        "sha256": "fc5e60241824520a1e21d16b9a3fec9730a4d5a9df56a11680008881e659033e"
+      },
+      {
+        "path": "assets/index-CBiypycy.js",
+        "bytes": 42405,
+        "sha256": "a98852d60a8cb23a5da7333f5b9a118128e55bc8096f37342ce24709fc53c9b3"
+      },
+      {
+        "path": "index.html",
+        "bytes": 443,
+        "sha256": "4626c2e3d8bbdbbc526b14705030f3b335adc483109333621d87be8dfa062f1d"
+      }
+    ],
+    "initialBytes": 48118,
+    "target": 300000,
+    "verdict": "pass"
+  },
+  "startup": [
+    {
+      "profile": "desktop",
+      "cache": "cold",
+      "primary": {
+        "samples": [
+          1042.2000000178814, 997.4000000059605, 1028, 1030.7000000178814, 1037.4000000059605
+        ],
+        "count": 5,
+        "min": 997.4000000059605,
+        "median": 1030.7000000178814,
+        "p95": 1042.2000000178814,
+        "max": 1042.2000000178814,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "lcp": {
+        "samples": [636, 600, 632, 628, 640],
+        "count": 5,
+        "min": 600,
+        "median": 632,
+        "p95": 640,
+        "max": 640,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "observations": [
+        {
+          "primaryMs": 1042.2000000178814,
+          "lcpMs": 636,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 997.4000000059605,
+          "lcpMs": 600,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 1028,
+          "lcpMs": 632,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 1030.7000000178814,
+          "lcpMs": 628,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 1037.4000000059605,
+          "lcpMs": 640,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "cache": "warm",
+      "primary": {
+        "samples": [73, 87.7999999821186, 72.90000000596046, 87.40000000596046, 73],
+        "count": 5,
+        "min": 72.90000000596046,
+        "median": 73,
+        "p95": 87.7999999821186,
+        "max": 87.7999999821186,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "lcp": {
+        "samples": [16, 24, 24, 24, 24],
+        "count": 5,
+        "min": 16,
+        "median": 24,
+        "p95": 24,
+        "max": 24,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "observations": [
+        {
+          "primaryMs": 73,
+          "lcpMs": 16,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 87.7999999821186,
+          "lcpMs": 24,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 72.90000000596046,
+          "lcpMs": 24,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 87.40000000596046,
+          "lcpMs": 24,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 73,
+          "lcpMs": 24,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "mobile-lab",
+      "cache": "cold",
+      "primary": {
+        "samples": [1070.5, 1077, 1078.199999988079, 1059.9000000059605, 1059.7999999821186],
+        "count": 5,
+        "min": 1059.7999999821186,
+        "median": 1070.5,
+        "p95": 1078.199999988079,
+        "max": 1078.199999988079,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "lcp": {
+        "samples": [668, 660, 668, 660, 664],
+        "count": 5,
+        "min": 660,
+        "median": 664,
+        "p95": 668,
+        "max": 668,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "observations": [
+        {
+          "primaryMs": 1070.5,
+          "lcpMs": 668,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 1077,
+          "lcpMs": 660,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 1078.199999988079,
+          "lcpMs": 668,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 1059.9000000059605,
+          "lcpMs": 660,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 1059.7999999821186,
+          "lcpMs": 664,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 5570,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 42705,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 2081,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 2080,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 2070,
+              "decodedBodySize": 1770
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "mobile-lab",
+      "cache": "warm",
+      "primary": {
+        "samples": [
+          94.09999999403954, 91.7000000178814, 91.7999999821186, 92.09999999403954,
+          94.09999999403954
+        ],
+        "count": 5,
+        "min": 91.7000000178814,
+        "median": 92.09999999403954,
+        "p95": 94.09999999403954,
+        "max": 94.09999999403954,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "lcp": {
+        "samples": [40, 40, 40, 40, 40],
+        "count": 5,
+        "min": 40,
+        "median": 40,
+        "p95": 40,
+        "max": 40,
+        "target": 2500,
+        "verdict": "pass"
+      },
+      "observations": [
+        {
+          "primaryMs": 94.09999999403954,
+          "lcpMs": 40,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 91.7000000178814,
+          "lcpMs": 40,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 91.7999999821186,
+          "lcpMs": 40,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 92.09999999403954,
+          "lcpMs": 40,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        },
+        {
+          "primaryMs": 94.09999999403954,
+          "lcpMs": 40,
+          "resources": [
+            {
+              "path": "/open-store-searcher/assets/index-CBiypycy.js",
+              "transferSize": 0,
+              "decodedBodySize": 42405
+            },
+            {
+              "path": "/open-store-searcher/assets/index-BDu_wQ-Y.css",
+              "transferSize": 0,
+              "decodedBodySize": 5270
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-1-Dgx1yC7q.json",
+              "transferSize": 0,
+              "decodedBodySize": 1781
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-2-Cwgu9dF3.json",
+              "transferSize": 0,
+              "decodedBodySize": 1780
+            },
+            {
+              "path": "/open-store-searcher/assets/demo-3-DYrVXLTo.json",
+              "transferSize": 0,
+              "decodedBodySize": 1770
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workloads": [
+    {
+      "profile": "desktop",
+      "size": 1000,
+      "samples": [
+        {
+          "preparation": {
+            "generationMs": 0.5,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 1.0999999940395355,
+            "prepareMs": 16.099999994039536,
+            "searchOnly": {
+              "exact": {
+                "ms": 3.199999988079071,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 0.5,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 1.300000011920929,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.30000001192092896,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 30.399999976158142
+          },
+          "submissions": {
+            "exact": {
+              "ms": 360.30000001192093,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 28.200000017881393,
+              "cards": 10
+            },
+            "address": {
+              "ms": 294,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 30.80000001192093,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 0.30000001192092896,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 1,
+            "prepareMs": 17.099999994039536,
+            "searchOnly": {
+              "exact": {
+                "ms": 3.100000023841858,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 0.5,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 1.5,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.09999999403953552,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 26.099999994039536
+          },
+          "submissions": {
+            "exact": {
+              "ms": 336,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 28.80000001192093,
+              "cards": 10
+            },
+            "address": {
+              "ms": 300.2000000178814,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 25,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 0.3999999761581421,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 1.0999999940395355,
+            "prepareMs": 17.099999994039536,
+            "searchOnly": {
+              "exact": {
+                "ms": 3.300000011920929,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 0.5,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 1.4000000059604645,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.29999998211860657,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 26
+          },
+          "submissions": {
+            "exact": {
+              "ms": 328.2999999821186,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 26,
+              "cards": 10
+            },
+            "address": {
+              "ms": 299.60000002384186,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 24.80000001192093,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 0.20000001788139343,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 1.100000023841858,
+            "prepareMs": 18.19999998807907,
+            "searchOnly": {
+              "exact": {
+                "ms": 3.4000000059604645,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 0.5,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 1.5,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.29999998211860657,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 26.900000005960464
+          },
+          "submissions": {
+            "exact": {
+              "ms": 334.60000002384186,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 26,
+              "cards": 10
+            },
+            "address": {
+              "ms": 306.59999999403954,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 23.900000005960464,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 0.30000001192092896,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 1.2000000178813934,
+            "prepareMs": 16.900000005960464,
+            "searchOnly": {
+              "exact": {
+                "ms": 3.199999988079071,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 0.5,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 1.5,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.20000001788139343,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 26
+          },
+          "submissions": {
+            "exact": {
+              "ms": 334.59999999403954,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 30.900000005960464,
+              "cards": 10
+            },
+            "address": {
+              "ms": 303.5,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 24.5,
+              "cards": 0
+            }
+          }
+        }
+      ],
+      "preparation": {
+        "generationMs": {
+          "samples": [
+            0.5, 0.30000001192092896, 0.3999999761581421, 0.20000001788139343, 0.30000001192092896
+          ],
+          "count": 5,
+          "min": 0.20000001788139343,
+          "median": 0.30000001192092896,
+          "p95": 0.5,
+          "max": 0.5
+        },
+        "parseMs": {
+          "samples": [
+            1.0999999940395355, 1, 1.0999999940395355, 1.100000023841858, 1.2000000178813934
+          ],
+          "count": 5,
+          "min": 1,
+          "median": 1.0999999940395355,
+          "p95": 1.2000000178813934,
+          "max": 1.2000000178813934
+        },
+        "prepareMs": {
+          "samples": [
+            16.099999994039536, 17.099999994039536, 17.099999994039536, 18.19999998807907,
+            16.900000005960464
+          ],
+          "count": 5,
+          "min": 16.099999994039536,
+          "median": 17.099999994039536,
+          "p95": 18.19999998807907,
+          "max": 18.19999998807907
+        },
+        "mountMs": {
+          "samples": [30.399999976158142, 26.099999994039536, 26, 26.900000005960464, 26],
+          "count": 5,
+          "min": 26,
+          "median": 26.099999994039536,
+          "p95": 30.399999976158142,
+          "max": 30.399999976158142
+        }
+      },
+      "queries": {
+        "exact": {
+          "searchOnly": {
+            "samples": [
+              3.199999988079071, 3.100000023841858, 3.300000011920929, 3.4000000059604645,
+              3.199999988079071
+            ],
+            "count": 5,
+            "min": 3.100000023841858,
+            "median": 3.199999988079071,
+            "p95": 3.4000000059604645,
+            "max": 3.4000000059604645
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              360.30000001192093, 336, 328.2999999821186, 334.60000002384186, 334.59999999403954
+            ],
+            "count": 5,
+            "min": 328.2999999821186,
+            "median": 334.60000002384186,
+            "p95": 360.30000001192093,
+            "max": 360.30000001192093,
+            "target": 500,
+            "verdict": "pass"
+          }
+        },
+        "common": {
+          "searchOnly": {
+            "samples": [0.5, 0.5, 0.5, 0.5, 0.5],
+            "count": 5,
+            "min": 0.5,
+            "median": 0.5,
+            "p95": 0.5,
+            "max": 0.5
+          },
+          "submitToPaintOpportunity": {
+            "samples": [28.200000017881393, 28.80000001192093, 26, 26, 30.900000005960464],
+            "count": 5,
+            "min": 26,
+            "median": 28.200000017881393,
+            "p95": 30.900000005960464,
+            "max": 30.900000005960464,
+            "target": 500,
+            "verdict": "pass"
+          }
+        },
+        "address": {
+          "searchOnly": {
+            "samples": [1.300000011920929, 1.5, 1.4000000059604645, 1.5, 1.5],
+            "count": 5,
+            "min": 1.300000011920929,
+            "median": 1.5,
+            "p95": 1.5,
+            "max": 1.5
+          },
+          "submitToPaintOpportunity": {
+            "samples": [294, 300.2000000178814, 299.60000002384186, 306.59999999403954, 303.5],
+            "count": 5,
+            "min": 294,
+            "median": 300.2000000178814,
+            "p95": 306.59999999403954,
+            "max": 306.59999999403954,
+            "target": 500,
+            "verdict": "pass"
+          }
+        },
+        "absent": {
+          "searchOnly": {
+            "samples": [
+              0.30000001192092896, 0.09999999403953552, 0.29999998211860657, 0.29999998211860657,
+              0.20000001788139343
+            ],
+            "count": 5,
+            "min": 0.09999999403953552,
+            "median": 0.29999998211860657,
+            "p95": 0.30000001192092896,
+            "max": 0.30000001192092896
+          },
+          "submitToPaintOpportunity": {
+            "samples": [30.80000001192093, 25, 24.80000001192093, 23.900000005960464, 24.5],
+            "count": 5,
+            "min": 23.900000005960464,
+            "median": 24.80000001192093,
+            "p95": 30.80000001192093,
+            "max": 30.80000001192093,
+            "target": 500,
+            "verdict": "pass"
+          }
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "size": 10000,
+      "samples": [
+        {
+          "preparation": {
+            "generationMs": 2.699999988079071,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 9.099999994039536,
+            "prepareMs": 99.2000000178814,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.599999994039536,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 2.5,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 9,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 1.4000000059604645,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 106.40000000596046
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 38.19999998807907,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 21.799999982118607,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 1.800000011920929,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 8.699999988079071,
+            "prepareMs": 99.2000000178814,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.5,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 2.5,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 7.9000000059604645,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 1.5,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 106
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 38.099999994039536,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 20.299999982118607,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 2.5999999940395355,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 8.900000005960464,
+            "prepareMs": 99.7999999821186,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.5,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 3.0999999940395355,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 8.400000005960464,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 1.9000000059604645,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 105.90000000596046
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 37.400000005960464,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 26.099999994039536,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 2.800000011920929,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 9,
+            "prepareMs": 99.09999999403954,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.300000011920929,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 3.199999988079071,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 8.300000011920929,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 1.7999999821186066,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 109.2000000178814
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 36,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 22.900000005960464,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 2.7000000178813934,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 8.700000017881393,
+            "prepareMs": 100.69999998807907,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.5,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 3.300000011920929,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 8.699999988079071,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 1.9000000059604645,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 107.19999998807907
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 37.5,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 29.69999998807907,
+              "cards": 0
+            }
+          }
+        }
+      ],
+      "preparation": {
+        "generationMs": {
+          "samples": [
+            2.699999988079071, 1.800000011920929, 2.5999999940395355, 2.800000011920929,
+            2.7000000178813934
+          ],
+          "count": 5,
+          "min": 1.800000011920929,
+          "median": 2.699999988079071,
+          "p95": 2.800000011920929,
+          "max": 2.800000011920929
+        },
+        "parseMs": {
+          "samples": [
+            9.099999994039536, 8.699999988079071, 8.900000005960464, 9, 8.700000017881393
+          ],
+          "count": 5,
+          "min": 8.699999988079071,
+          "median": 8.900000005960464,
+          "p95": 9.099999994039536,
+          "max": 9.099999994039536
+        },
+        "prepareMs": {
+          "samples": [
+            99.2000000178814, 99.2000000178814, 99.7999999821186, 99.09999999403954,
+            100.69999998807907
+          ],
+          "count": 5,
+          "min": 99.09999999403954,
+          "median": 99.2000000178814,
+          "p95": 100.69999998807907,
+          "max": 100.69999998807907
+        },
+        "mountMs": {
+          "samples": [
+            106.40000000596046, 106, 105.90000000596046, 109.2000000178814, 107.19999998807907
+          ],
+          "count": 5,
+          "min": 105.90000000596046,
+          "median": 106.40000000596046,
+          "p95": 109.2000000178814,
+          "max": 109.2000000178814
+        }
+      },
+      "queries": {
+        "exact": {
+          "searchOnly": {
+            "samples": [10.599999994039536, 10.5, 10.5, 10.300000011920929, 10.5],
+            "count": 5,
+            "min": 10.300000011920929,
+            "median": 10.5,
+            "p95": 10.599999994039536,
+            "max": 10.599999994039536
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "common": {
+          "searchOnly": {
+            "samples": [2.5, 2.5, 3.0999999940395355, 3.199999988079071, 3.300000011920929],
+            "count": 5,
+            "min": 2.5,
+            "median": 3.0999999940395355,
+            "p95": 3.300000011920929,
+            "max": 3.300000011920929
+          },
+          "submitToPaintOpportunity": {
+            "samples": [38.19999998807907, 38.099999994039536, 37.400000005960464, 36, 37.5],
+            "count": 5,
+            "min": 36,
+            "median": 37.5,
+            "p95": 38.19999998807907,
+            "max": 38.19999998807907,
+            "target": 500,
+            "verdict": "pass"
+          }
+        },
+        "address": {
+          "searchOnly": {
+            "samples": [
+              9, 7.9000000059604645, 8.400000005960464, 8.300000011920929, 8.699999988079071
+            ],
+            "count": 5,
+            "min": 7.9000000059604645,
+            "median": 8.400000005960464,
+            "p95": 9,
+            "max": 9
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "absent": {
+          "searchOnly": {
+            "samples": [
+              1.4000000059604645, 1.5, 1.9000000059604645, 1.7999999821186066, 1.9000000059604645
+            ],
+            "count": 5,
+            "min": 1.4000000059604645,
+            "median": 1.7999999821186066,
+            "p95": 1.9000000059604645,
+            "max": 1.9000000059604645
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              21.799999982118607, 20.299999982118607, 26.099999994039536, 22.900000005960464,
+              29.69999998807907
+            ],
+            "count": 5,
+            "min": 20.299999982118607,
+            "median": 22.900000005960464,
+            "p95": 29.69999998807907,
+            "max": 29.69999998807907,
+            "target": 500,
+            "verdict": "pass"
+          }
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "size": 50000,
+      "samples": [
+        {
+          "preparation": {
+            "generationMs": 9.600000023841858,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 42,
+            "prepareMs": 497.2000000178814,
+            "searchOnly": {
+              "exact": {
+                "ms": 36.099999994039536,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 8.400000005960464,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 32.79999998211861,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 4.4000000059604645,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 496.59999999403954
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 167.90000000596046,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 25.69999998807907,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 9.699999988079071,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 41.400000005960464,
+            "prepareMs": 483.90000000596046,
+            "searchOnly": {
+              "exact": {
+                "ms": 36.599999994039536,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 6.9000000059604645,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 33.400000005960464,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 6.699999988079071,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 495.59999999403954
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 162.40000000596046,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 21.400000005960464,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 9.800000011920929,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 40.599999994039536,
+            "prepareMs": 486.5,
+            "searchOnly": {
+              "exact": {
+                "ms": 35.599999994039536,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 8.099999994039536,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 32.5,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 4.399999976158142,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 497.30000001192093
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 165.19999998807907,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 30.69999998807907,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 9.299999982118607,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 42.400000005960464,
+            "prepareMs": 507,
+            "searchOnly": {
+              "exact": {
+                "ms": 36,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 8,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 32.099999994039536,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 4.300000011920929,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 512.5
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 161.5,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 21.5,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 9.5,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 40.5,
+            "prepareMs": 485.80000001192093,
+            "searchOnly": {
+              "exact": {
+                "ms": 35.5,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 8.199999988079071,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 32.400000005960464,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 4.4000000059604645,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 498.09999999403954
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 162.80000001192093,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 21.299999982118607,
+              "cards": 0
+            }
+          }
+        }
+      ],
+      "preparation": {
+        "generationMs": {
+          "samples": [
+            9.600000023841858, 9.699999988079071, 9.800000011920929, 9.299999982118607, 9.5
+          ],
+          "count": 5,
+          "min": 9.299999982118607,
+          "median": 9.600000023841858,
+          "p95": 9.800000011920929,
+          "max": 9.800000011920929
+        },
+        "parseMs": {
+          "samples": [42, 41.400000005960464, 40.599999994039536, 42.400000005960464, 40.5],
+          "count": 5,
+          "min": 40.5,
+          "median": 41.400000005960464,
+          "p95": 42.400000005960464,
+          "max": 42.400000005960464
+        },
+        "prepareMs": {
+          "samples": [497.2000000178814, 483.90000000596046, 486.5, 507, 485.80000001192093],
+          "count": 5,
+          "min": 483.90000000596046,
+          "median": 486.5,
+          "p95": 507,
+          "max": 507
+        },
+        "mountMs": {
+          "samples": [
+            496.59999999403954, 495.59999999403954, 497.30000001192093, 512.5, 498.09999999403954
+          ],
+          "count": 5,
+          "min": 495.59999999403954,
+          "median": 497.30000001192093,
+          "p95": 512.5,
+          "max": 512.5
+        }
+      },
+      "queries": {
+        "exact": {
+          "searchOnly": {
+            "samples": [36.099999994039536, 36.599999994039536, 35.599999994039536, 36, 35.5],
+            "count": 5,
+            "min": 35.5,
+            "median": 36,
+            "p95": 36.599999994039536,
+            "max": 36.599999994039536
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "common": {
+          "searchOnly": {
+            "samples": [
+              8.400000005960464, 6.9000000059604645, 8.099999994039536, 8, 8.199999988079071
+            ],
+            "count": 5,
+            "min": 6.9000000059604645,
+            "median": 8.099999994039536,
+            "p95": 8.400000005960464,
+            "max": 8.400000005960464
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              167.90000000596046, 162.40000000596046, 165.19999998807907, 161.5, 162.80000001192093
+            ],
+            "count": 5,
+            "min": 161.5,
+            "median": 162.80000001192093,
+            "p95": 167.90000000596046,
+            "max": 167.90000000596046,
+            "target": 500,
+            "verdict": "pass"
+          }
+        },
+        "address": {
+          "searchOnly": {
+            "samples": [
+              32.79999998211861, 33.400000005960464, 32.5, 32.099999994039536, 32.400000005960464
+            ],
+            "count": 5,
+            "min": 32.099999994039536,
+            "median": 32.5,
+            "p95": 33.400000005960464,
+            "max": 33.400000005960464
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "absent": {
+          "searchOnly": {
+            "samples": [
+              4.4000000059604645, 6.699999988079071, 4.399999976158142, 4.300000011920929,
+              4.4000000059604645
+            ],
+            "count": 5,
+            "min": 4.300000011920929,
+            "median": 4.4000000059604645,
+            "p95": 6.699999988079071,
+            "max": 6.699999988079071
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              25.69999998807907, 21.400000005960464, 30.69999998807907, 21.5, 21.299999982118607
+            ],
+            "count": 5,
+            "min": 21.299999982118607,
+            "median": 21.5,
+            "p95": 30.69999998807907,
+            "max": 30.69999998807907,
+            "target": 500,
+            "verdict": "pass"
+          }
+        }
+      }
+    },
+    {
+      "profile": "mobile-lab",
+      "size": 1000,
+      "samples": [
+        {
+          "preparation": {
+            "generationMs": 1,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 3.199999988079071,
+            "prepareMs": 51.900000005960464,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.800000011920929,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 1.899999976158142,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 4.200000017881393,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 1.2999999821186066,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 92.90000000596046
+          },
+          "submissions": {
+            "exact": {
+              "ms": 1371.1000000238419,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 107.19999998807907,
+              "cards": 10
+            },
+            "address": {
+              "ms": 1362,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 97.30000001192093,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 0.9000000059604645,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 3.7999999821186066,
+            "prepareMs": 52.20000001788139,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.699999988079071,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 1.800000011920929,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 4.9000000059604645,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 1.0999999940395355,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 90.90000000596046
+          },
+          "submissions": {
+            "exact": {
+              "ms": 1337.4000000059605,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 108.2000000178814,
+              "cards": 10
+            },
+            "address": {
+              "ms": 1384.7999999821186,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 102.59999999403954,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 0.5999999940395355,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 2.5999999940395355,
+            "prepareMs": 51.19999998807907,
+            "searchOnly": {
+              "exact": {
+                "ms": 10,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 2.300000011920929,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 4.5999999940395355,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.9000000059604645,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 91.69999998807907
+          },
+          "submissions": {
+            "exact": {
+              "ms": 1341.5999999940395,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 108.09999999403954,
+              "cards": 10
+            },
+            "address": {
+              "ms": 1410.7999999821186,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 97.5,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 1.2000000178813934,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 2.9000000059604645,
+            "prepareMs": 51.599999994039536,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.300000011920929,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 1.7999999821186066,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 5,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.800000011920929,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 94.09999999403954
+          },
+          "submissions": {
+            "exact": {
+              "ms": 1329.199999988079,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 108.59999999403954,
+              "cards": 10
+            },
+            "address": {
+              "ms": 1382.7000000178814,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 97.80000001192093,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 0.9000000059604645,
+            "jsonBytes": 671821,
+            "fixtureSha256": "9dd28d396f1c8aeef88462718e5d76592a7cad9693891bf50705e8734ba0d46d",
+            "parseMs": 2.800000011920929,
+            "prepareMs": 51.79999998211861,
+            "searchOnly": {
+              "exact": {
+                "ms": 10.800000011920929,
+                "expectedCards": 1000
+              },
+              "common": {
+                "ms": 2,
+                "expectedCards": 10
+              },
+              "address": {
+                "ms": 4.800000011920929,
+                "expectedCards": 1000
+              },
+              "absent": {
+                "ms": 0.8999999761581421,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 91.10000002384186
+          },
+          "submissions": {
+            "exact": {
+              "ms": 1321.4000000059605,
+              "cards": 1000
+            },
+            "common": {
+              "ms": 108.5,
+              "cards": 10
+            },
+            "address": {
+              "ms": 1354.2999999821186,
+              "cards": 1000
+            },
+            "absent": {
+              "ms": 96.5,
+              "cards": 0
+            }
+          }
+        }
+      ],
+      "preparation": {
+        "generationMs": {
+          "samples": [
+            1, 0.9000000059604645, 0.5999999940395355, 1.2000000178813934, 0.9000000059604645
+          ],
+          "count": 5,
+          "min": 0.5999999940395355,
+          "median": 0.9000000059604645,
+          "p95": 1.2000000178813934,
+          "max": 1.2000000178813934
+        },
+        "parseMs": {
+          "samples": [
+            3.199999988079071, 3.7999999821186066, 2.5999999940395355, 2.9000000059604645,
+            2.800000011920929
+          ],
+          "count": 5,
+          "min": 2.5999999940395355,
+          "median": 2.9000000059604645,
+          "p95": 3.7999999821186066,
+          "max": 3.7999999821186066
+        },
+        "prepareMs": {
+          "samples": [
+            51.900000005960464, 52.20000001788139, 51.19999998807907, 51.599999994039536,
+            51.79999998211861
+          ],
+          "count": 5,
+          "min": 51.19999998807907,
+          "median": 51.79999998211861,
+          "p95": 52.20000001788139,
+          "max": 52.20000001788139
+        },
+        "mountMs": {
+          "samples": [
+            92.90000000596046, 90.90000000596046, 91.69999998807907, 94.09999999403954,
+            91.10000002384186
+          ],
+          "count": 5,
+          "min": 90.90000000596046,
+          "median": 91.69999998807907,
+          "p95": 94.09999999403954,
+          "max": 94.09999999403954
+        }
+      },
+      "queries": {
+        "exact": {
+          "searchOnly": {
+            "samples": [
+              10.800000011920929, 10.699999988079071, 10, 10.300000011920929, 10.800000011920929
+            ],
+            "count": 5,
+            "min": 10,
+            "median": 10.699999988079071,
+            "p95": 10.800000011920929,
+            "max": 10.800000011920929
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              1371.1000000238419, 1337.4000000059605, 1341.5999999940395, 1329.199999988079,
+              1321.4000000059605
+            ],
+            "count": 5,
+            "min": 1321.4000000059605,
+            "median": 1337.4000000059605,
+            "p95": 1371.1000000238419,
+            "max": 1371.1000000238419,
+            "target": 500,
+            "verdict": "exceeded"
+          }
+        },
+        "common": {
+          "searchOnly": {
+            "samples": [
+              1.899999976158142, 1.800000011920929, 2.300000011920929, 1.7999999821186066, 2
+            ],
+            "count": 5,
+            "min": 1.7999999821186066,
+            "median": 1.899999976158142,
+            "p95": 2.300000011920929,
+            "max": 2.300000011920929
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              107.19999998807907, 108.2000000178814, 108.09999999403954, 108.59999999403954, 108.5
+            ],
+            "count": 5,
+            "min": 107.19999998807907,
+            "median": 108.2000000178814,
+            "p95": 108.59999999403954,
+            "max": 108.59999999403954,
+            "target": 500,
+            "verdict": "pass"
+          }
+        },
+        "address": {
+          "searchOnly": {
+            "samples": [
+              4.200000017881393, 4.9000000059604645, 4.5999999940395355, 5, 4.800000011920929
+            ],
+            "count": 5,
+            "min": 4.200000017881393,
+            "median": 4.800000011920929,
+            "p95": 5,
+            "max": 5
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              1362, 1384.7999999821186, 1410.7999999821186, 1382.7000000178814, 1354.2999999821186
+            ],
+            "count": 5,
+            "min": 1354.2999999821186,
+            "median": 1382.7000000178814,
+            "p95": 1410.7999999821186,
+            "max": 1410.7999999821186,
+            "target": 500,
+            "verdict": "exceeded"
+          }
+        },
+        "absent": {
+          "searchOnly": {
+            "samples": [
+              1.2999999821186066, 1.0999999940395355, 0.9000000059604645, 0.800000011920929,
+              0.8999999761581421
+            ],
+            "count": 5,
+            "min": 0.800000011920929,
+            "median": 0.9000000059604645,
+            "p95": 1.2999999821186066,
+            "max": 1.2999999821186066
+          },
+          "submitToPaintOpportunity": {
+            "samples": [97.30000001192093, 102.59999999403954, 97.5, 97.80000001192093, 96.5],
+            "count": 5,
+            "min": 96.5,
+            "median": 97.5,
+            "p95": 102.59999999403954,
+            "max": 102.59999999403954,
+            "target": 500,
+            "verdict": "pass"
+          }
+        }
+      }
+    },
+    {
+      "profile": "mobile-lab",
+      "size": 10000,
+      "samples": [
+        {
+          "preparation": {
+            "generationMs": 5.9000000059604645,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 32.60000002384186,
+            "prepareMs": 397.09999999403954,
+            "searchOnly": {
+              "exact": {
+                "ms": 36.400000005960464,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 9.699999988079071,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 28.80000001192093,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 5.799999982118607,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 430.40000000596046
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 157.90000000596046,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 19.700000017881393,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 5.5,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 32.599999994039536,
+            "prepareMs": 404.09999999403954,
+            "searchOnly": {
+              "exact": {
+                "ms": 36.70000001788139,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 10.899999976158142,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 28,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 4.5,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 424.10000002384186
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 157.39999997615814,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 27.19999998807907,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 5,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 33,
+            "prepareMs": 402.7000000178814,
+            "searchOnly": {
+              "exact": {
+                "ms": 37.599999994039536,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 10.199999988079071,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 28.5,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 5,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 420.40000000596046
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 175.40000000596046,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 20,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 6.0999999940395355,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 32,
+            "prepareMs": 398.30000001192093,
+            "searchOnly": {
+              "exact": {
+                "ms": 38.900000005960464,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 9.599999994039536,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 27.599999994039536,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 5.300000011920929,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 421.5
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 154.59999999403954,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 19.299999982118607,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 4.5999999940395355,
+            "jsonBytes": 6745832,
+            "fixtureSha256": "92be5ca3d4c51a39f23feec577debcf2a2a3c0df88fac702b5586269cfc56527",
+            "parseMs": 33.099999994039536,
+            "prepareMs": 403,
+            "searchOnly": {
+              "exact": {
+                "ms": 36.5,
+                "expectedCards": 10000
+              },
+              "common": {
+                "ms": 10.700000017881393,
+                "expectedCards": 100
+              },
+              "address": {
+                "ms": 28.099999994039536,
+                "expectedCards": 10000
+              },
+              "absent": {
+                "ms": 4.700000017881393,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 423.19999998807907
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "common": {
+              "ms": 156.80000001192093,
+              "cards": 100
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 10000
+            },
+            "absent": {
+              "ms": 22,
+              "cards": 0
+            }
+          }
+        }
+      ],
+      "preparation": {
+        "generationMs": {
+          "samples": [5.9000000059604645, 5.5, 5, 6.0999999940395355, 4.5999999940395355],
+          "count": 5,
+          "min": 4.5999999940395355,
+          "median": 5.5,
+          "p95": 6.0999999940395355,
+          "max": 6.0999999940395355
+        },
+        "parseMs": {
+          "samples": [32.60000002384186, 32.599999994039536, 33, 32, 33.099999994039536],
+          "count": 5,
+          "min": 32,
+          "median": 32.60000002384186,
+          "p95": 33.099999994039536,
+          "max": 33.099999994039536
+        },
+        "prepareMs": {
+          "samples": [
+            397.09999999403954, 404.09999999403954, 402.7000000178814, 398.30000001192093, 403
+          ],
+          "count": 5,
+          "min": 397.09999999403954,
+          "median": 402.7000000178814,
+          "p95": 404.09999999403954,
+          "max": 404.09999999403954
+        },
+        "mountMs": {
+          "samples": [
+            430.40000000596046, 424.10000002384186, 420.40000000596046, 421.5, 423.19999998807907
+          ],
+          "count": 5,
+          "min": 420.40000000596046,
+          "median": 423.19999998807907,
+          "p95": 430.40000000596046,
+          "max": 430.40000000596046
+        }
+      },
+      "queries": {
+        "exact": {
+          "searchOnly": {
+            "samples": [
+              36.400000005960464, 36.70000001788139, 37.599999994039536, 38.900000005960464, 36.5
+            ],
+            "count": 5,
+            "min": 36.400000005960464,
+            "median": 36.70000001788139,
+            "p95": 38.900000005960464,
+            "max": 38.900000005960464
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "common": {
+          "searchOnly": {
+            "samples": [
+              9.699999988079071, 10.899999976158142, 10.199999988079071, 9.599999994039536,
+              10.700000017881393
+            ],
+            "count": 5,
+            "min": 9.599999994039536,
+            "median": 10.199999988079071,
+            "p95": 10.899999976158142,
+            "max": 10.899999976158142
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              157.90000000596046, 157.39999997615814, 175.40000000596046, 154.59999999403954,
+              156.80000001192093
+            ],
+            "count": 5,
+            "min": 154.59999999403954,
+            "median": 157.39999997615814,
+            "p95": 175.40000000596046,
+            "max": 175.40000000596046,
+            "target": 500,
+            "verdict": "pass"
+          }
+        },
+        "address": {
+          "searchOnly": {
+            "samples": [28.80000001192093, 28, 28.5, 27.599999994039536, 28.099999994039536],
+            "count": 5,
+            "min": 27.599999994039536,
+            "median": 28.099999994039536,
+            "p95": 28.80000001192093,
+            "max": 28.80000001192093
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "absent": {
+          "searchOnly": {
+            "samples": [5.799999982118607, 4.5, 5, 5.300000011920929, 4.700000017881393],
+            "count": 5,
+            "min": 4.5,
+            "median": 5,
+            "p95": 5.799999982118607,
+            "max": 5.799999982118607
+          },
+          "submitToPaintOpportunity": {
+            "samples": [19.700000017881393, 27.19999998807907, 20, 19.299999982118607, 22],
+            "count": 5,
+            "min": 19.299999982118607,
+            "median": 20,
+            "p95": 27.19999998807907,
+            "max": 27.19999998807907,
+            "target": 500,
+            "verdict": "pass"
+          }
+        }
+      }
+    },
+    {
+      "profile": "mobile-lab",
+      "size": 50000,
+      "samples": [
+        {
+          "preparation": {
+            "generationMs": 19.399999976158142,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 157.80000001192093,
+            "prepareMs": 2056.0999999940395,
+            "searchOnly": {
+              "exact": {
+                "ms": 146.59999999403954,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 33,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 133.09999999403954,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 21.200000017881393,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 2040.5
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 690.2000000178814,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 69.09999999403954,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 19,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 156.19999998807907,
+            "prepareMs": 1981.5,
+            "searchOnly": {
+              "exact": {
+                "ms": 141.59999999403954,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 32.400000005960464,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 128.7000000178814,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 20.5,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 2038.2999999821186
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 689.6999999880791,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 69.5,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 18.900000005960464,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 154.80000001192093,
+            "prepareMs": 1984.199999988079,
+            "searchOnly": {
+              "exact": {
+                "ms": 142.10000002384186,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 30.799999982118607,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 114.80000001192093,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 22.799999982118607,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 2009.9000000059605
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 657.1999999880791,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 68,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 19.80000001192093,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 157.2999999821186,
+            "prepareMs": 2014.7000000178814,
+            "searchOnly": {
+              "exact": {
+                "ms": 141,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 29.599999994039536,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 130.69999998807907,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 21.600000023841858,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 2031.8999999761581
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 664.4000000059605,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 68.39999997615814,
+              "cards": 0
+            }
+          }
+        },
+        {
+          "preparation": {
+            "generationMs": 20.200000017881393,
+            "jsonBytes": 33861032,
+            "fixtureSha256": "b617adb59e2b693ee407afa38cff577ac89edf72d2a805b0ae6f46c3323438b3",
+            "parseMs": 157.09999999403954,
+            "prepareMs": 1998.199999988079,
+            "searchOnly": {
+              "exact": {
+                "ms": 140.80000001192093,
+                "expectedCards": 50000
+              },
+              "common": {
+                "ms": 29.400000005960464,
+                "expectedCards": 500
+              },
+              "address": {
+                "ms": 125,
+                "expectedCards": 50000
+              },
+              "absent": {
+                "ms": 21,
+                "expectedCards": 0
+              }
+            },
+            "mountMs": 2031.699999988079
+          },
+          "submissions": {
+            "exact": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "common": {
+              "ms": 673.6999999880791,
+              "cards": 500
+            },
+            "address": {
+              "ms": null,
+              "cards": null,
+              "reason": "render-card-limit-1000",
+              "expectedCards": 50000
+            },
+            "absent": {
+              "ms": 69.7999999821186,
+              "cards": 0
+            }
+          }
+        }
+      ],
+      "preparation": {
+        "generationMs": {
+          "samples": [
+            19.399999976158142, 19, 18.900000005960464, 19.80000001192093, 20.200000017881393
+          ],
+          "count": 5,
+          "min": 18.900000005960464,
+          "median": 19.399999976158142,
+          "p95": 20.200000017881393,
+          "max": 20.200000017881393
+        },
+        "parseMs": {
+          "samples": [
+            157.80000001192093, 156.19999998807907, 154.80000001192093, 157.2999999821186,
+            157.09999999403954
+          ],
+          "count": 5,
+          "min": 154.80000001192093,
+          "median": 157.09999999403954,
+          "p95": 157.80000001192093,
+          "max": 157.80000001192093
+        },
+        "prepareMs": {
+          "samples": [
+            2056.0999999940395, 1981.5, 1984.199999988079, 2014.7000000178814, 1998.199999988079
+          ],
+          "count": 5,
+          "min": 1981.5,
+          "median": 1998.199999988079,
+          "p95": 2056.0999999940395,
+          "max": 2056.0999999940395
+        },
+        "mountMs": {
+          "samples": [
+            2040.5, 2038.2999999821186, 2009.9000000059605, 2031.8999999761581, 2031.699999988079
+          ],
+          "count": 5,
+          "min": 2009.9000000059605,
+          "median": 2031.8999999761581,
+          "p95": 2040.5,
+          "max": 2040.5
+        }
+      },
+      "queries": {
+        "exact": {
+          "searchOnly": {
+            "samples": [
+              146.59999999403954, 141.59999999403954, 142.10000002384186, 141, 140.80000001192093
+            ],
+            "count": 5,
+            "min": 140.80000001192093,
+            "median": 141.59999999403954,
+            "p95": 146.59999999403954,
+            "max": 146.59999999403954
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "common": {
+          "searchOnly": {
+            "samples": [
+              33, 32.400000005960464, 30.799999982118607, 29.599999994039536, 29.400000005960464
+            ],
+            "count": 5,
+            "min": 29.400000005960464,
+            "median": 30.799999982118607,
+            "p95": 33,
+            "max": 33
+          },
+          "submitToPaintOpportunity": {
+            "samples": [
+              690.2000000178814, 689.6999999880791, 657.1999999880791, 664.4000000059605,
+              673.6999999880791
+            ],
+            "count": 5,
+            "min": 657.1999999880791,
+            "median": 673.6999999880791,
+            "p95": 690.2000000178814,
+            "max": 690.2000000178814,
+            "target": 500,
+            "verdict": "exceeded"
+          }
+        },
+        "address": {
+          "searchOnly": {
+            "samples": [
+              133.09999999403954, 128.7000000178814, 114.80000001192093, 130.69999998807907, 125
+            ],
+            "count": 5,
+            "min": 114.80000001192093,
+            "median": 128.7000000178814,
+            "p95": 133.09999999403954,
+            "max": 133.09999999403954
+          },
+          "submitToPaintOpportunity": {
+            "samples": [],
+            "count": 0,
+            "target": 500,
+            "verdict": "unavailable"
+          }
+        },
+        "absent": {
+          "searchOnly": {
+            "samples": [21.200000017881393, 20.5, 22.799999982118607, 21.600000023841858, 21],
+            "count": 5,
+            "min": 20.5,
+            "median": 21.200000017881393,
+            "p95": 22.799999982118607,
+            "max": 22.799999982118607
+          },
+          "submitToPaintOpportunity": {
+            "samples": [69.09999999403954, 69.5, 68, 68.39999997615814, 69.7999999821186],
+            "count": 5,
+            "min": 68,
+            "median": 69.09999999403954,
+            "p95": 69.7999999821186,
+            "max": 69.7999999821186,
+            "target": 500,
+            "verdict": "pass"
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Synthetic distribution only: one district, 1% common name, 100 invented roads, distinct building numbers; no claim about production distribution or maximum supported rows.",
+    "Resource bound: do not render more than 1000 cards in one submission; such rows retain search-only diagnostics but have unavailable end-to-end verdicts, never pass.",
+    "Production JSON schema, data partition contract, source-cut and publication remain unavailable. No production data budget was invented.",
+    "Local lab only: no physical mobile device, Pages CDN, compression, field percentiles or production-scale signoff."
+  ],
+  "labTargetsMet": false,
+  "productionVerified": false
+}

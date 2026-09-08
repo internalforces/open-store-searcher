@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { SearchResult } from '../search/search-candidates.js';
 import type { Coverage, DisplayRecord } from './display-data.js';
 import { ResultCard } from './result-card.js';
@@ -11,10 +12,27 @@ export function SearchResults({
   coverage: Coverage;
   synthetic?: boolean;
 }) {
+  const [page, setPage] = useState(0);
+  const heading = useRef<HTMLHeadingElement>(null);
+  const previousPage = useRef(0);
+  const pageSize = 20;
+  const total = result.similarCandidates.length;
+  const lastPage = Math.max(0, Math.ceil(total / pageSize) - 1);
+  const start = page * pageSize;
+  useLayoutEffect(() => {
+    if (previousPage.current !== page) heading.current?.focus();
+    previousPage.current = page;
+  }, [page]);
   const primary = result.primaryMatch;
   const remaining = result.topMatches.filter((match) => match.record.id !== primary?.record.id);
   return (
-    <section id="search-results" className="search-results" tabIndex={-1} aria-label="검색 결과">
+    <section
+      id="search-results"
+      className="search-results"
+      data-total-candidates={result.topMatches.length + total}
+      tabIndex={-1}
+      aria-label="검색 결과"
+    >
       <p className="submitted-query">검색 결과: {result.validation.original}</p>
       {result.ambiguousTop && (
         <p className="uncertainty">
@@ -47,18 +65,50 @@ export function SearchResults({
       )}
       {result.similarCandidates.length > 0 && (
         <section aria-labelledby="similar-heading">
-          <h2 id="similar-heading">유사 후보</h2>
+          <h2 id="similar-heading" ref={heading} tabIndex={-1}>
+            유사 후보
+          </h2>
           <p className="section-help">
             이름이 같아도 다른 사업체일 수 있습니다. 주소와 원본 정보를 직접 비교해 주세요. 상호명과
             시·군·구, 도로명과 건물번호를 함께 입력해 다시 검색해 보세요.
           </p>
+          {total > pageSize && (
+            <div className="candidate-pagination">
+              <p role="status" aria-live="polite" aria-atomic="true">
+                유사 후보 {total}개 중 {start + 1}–{Math.min(start + pageSize, total)}개 ·{' '}
+                {page + 1}/{lastPage + 1}페이지
+              </p>
+              <nav aria-label="유사 후보 페이지">
+                <button type="button" disabled={page === 0} onClick={() => setPage(0)}>
+                  처음 페이지
+                </button>
+                <button type="button" disabled={page === 0} onClick={() => setPage(page - 1)}>
+                  이전 페이지
+                </button>
+                <button
+                  type="button"
+                  disabled={page === lastPage}
+                  onClick={() => setPage(page + 1)}
+                >
+                  다음 페이지
+                </button>
+                <button
+                  type="button"
+                  disabled={page === lastPage}
+                  onClick={() => setPage(lastPage)}
+                >
+                  마지막 페이지
+                </button>
+              </nav>
+            </div>
+          )}
           <ul className="candidate-list" aria-labelledby="similar-heading">
-            {result.similarCandidates.map((match, index) => (
-              <li key={match.record.id}>
+            {result.similarCandidates.slice(start, start + pageSize).map((match, index) => (
+              <li key={match.record.id} aria-posinset={start + index + 1} aria-setsize={total}>
                 <ResultCard
                   key={match.record.id}
                   match={match}
-                  position={index + remaining.length + (primary ? 1 : 0) + 1}
+                  position={start + index + remaining.length + (primary ? 1 : 0) + 1}
                   coverage={coverage}
                   synthetic={synthetic}
                 />
