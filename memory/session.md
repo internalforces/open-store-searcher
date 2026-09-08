@@ -471,3 +471,28 @@ no readable caption or saved speech was obtained. Actual screen-reader acceptanc
 open due to observation-tool limitations, not missing user approval. No code/test/config
 changed after approved full verification; all manifest hashes match. Proceeding with the
 expressly authorized delivery of reviewed TASK-017 implementation and accurate limitations.
+
+
+## TASK-017 assisted VoiceOver verification in progress — 2026-09-08
+
+User requested completion of screen-reader verification, confirmed VoiceOver is audible,
+and agreed to report actual speech while the assistant operates the test. Native System
+Settings was off initially, then enabled under persistent authorization. First staged query
+is the synthetic same-name case: eligible 0, similar 2, address/source guidance, input focused.
+The user has not yet reported whether that specific label/summary/guidance was heard.
+Do not mark any observation passed from general audibility. Remaining matrix is recorded in
+reports/voiceover-2026-09-08-task-017.md in the delivery checkout. No product code changed.
+The local test tab and loopback preview/recovery servers are retained for the pending assisted
+session; VoiceOver remains on for the user's listening step and must be restored off at cleanup.
+TASK-017 remains active. No new commit or push occurred during this partial verification.
+
+
+## TASK-017 assisted verification complete — 2026-09-08
+
+All seven user-assisted VoiceOver cases passed; exact confirmations and limitations are in
+reports/voiceover-2026-09-08-task-017.md. This supersedes the earlier pending manual-gate
+notes. VoiceOver is off and local test tabs/servers are cleaned up. Source/test/config
+hashes match approved implementation 1acf77f; existing 561/56/18 verification remains valid.
+TASK-017 moved to completed; no next task activated. Deferred TASK-008 and production gates
+remain open. Independent closure review Approved with no unresolved findings. Evidence delivery uses the
+existing user authorization on codex/task-017-accessibility; no merge or deployment.

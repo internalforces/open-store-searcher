@@ -474,3 +474,12 @@ Submission returns focus to input; asynchronous data completion does not steal f
 uses aria-disabled plus an execution guard to remain focusable while pending. Tall card
 self-focus reveals the heading; child links retain their native focus scroll position.
 No new public contract or architecture ADR is needed. Custom selection remains TASK-023.
+
+
+## TASK-017 assisted AT evidence method — 2026-09-08
+
+The user agreed to report actual VoiceOver speech while the assistant operated the synthetic
+UI. Explicit per-case confirmations, with native AX only as supporting evidence, resolve
+the manual observation gate. Record this bounded method separately from automated checks;
+no audio recording, rotor coverage, measured timing or universal AT conformance is claimed.
+See reports/voiceover-2026-09-08-task-017.md.

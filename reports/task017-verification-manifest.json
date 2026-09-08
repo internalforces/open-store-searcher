@@ -13,7 +13,7 @@
     "a11yTests": 18,
     "axeScans": 22
   },
-  "manualScreenReader": "authorized execution attempted; system toggle on/off verified; spoken output unavailable through tool; acceptance remains open",
+  "manualScreenReader": "PASS: user-assisted macOS VoiceOver/Chrome observations AT-01 through AT-07; reports/voiceover-2026-09-08-task-017.md; no recorded audio or broader AT conformance claim",
   "sha256": {
     "biome.json": "fa13c527f9cd998fe1d4ef69ba9b77b52c29104ab5d97a8eac240ecea616271c",
     "package-lock.json": "44e2a32dad2d6725cdf1999cac12faa78e2d5be7c116ee38dcf3dc2b5684f21b",

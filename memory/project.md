@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-017 implementation verified; manual screen-reader gate pending; M1 production gates remain open
+- Phase: TASK-017 complete with assisted VoiceOver verification; no active task; M1 production gates remain open
 - Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
 - Overall health: 🟡 Caution — collector, synthetic transformation, and staged validation gates pass, while no
   production transformation or publication path exists

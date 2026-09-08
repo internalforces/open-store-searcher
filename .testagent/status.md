@@ -78,3 +78,14 @@ inline and independently. Actual VoiceOver observation remains explicitly pendin
 Independent Reviewer Approved on the final state; no open code/test findings. Manual AT remains pending.
 
 VoiceOver execution was authorized and on/off verified; speech output unavailable through CUA, so the actual AT gate remains open.
+
+
+## TASK-017 assisted verification complete — 2026-09-08
+
+All seven user-assisted VoiceOver cases passed; exact confirmations and limitations are in
+reports/voiceover-2026-09-08-task-017.md. This supersedes the earlier pending manual-gate
+notes. VoiceOver is off and local test tabs/servers are cleaned up. Source/test/config
+hashes match approved implementation 1acf77f; existing 561/56/18 verification remains valid.
+TASK-017 moved to completed; no next task activated. Deferred TASK-008 and production gates
+remain open. Independent closure review Approved with no unresolved findings. Evidence delivery uses the
+existing user authorization on codex/task-017-accessibility; no merge or deployment.
