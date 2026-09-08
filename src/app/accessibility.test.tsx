@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/preact';
 import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { App } from './app.js';
 import { demoDataset } from './demo-data.js';
 
@@ -26,6 +26,73 @@ describe('TASK-017 accessible search', () => {
       expect(card.tabIndex).toBe(0);
       expect(within(card).getByText('원본 근거')).toBeTruthy();
       expect(within(card).getByText('예시 데이터 기준일: 2026-09-01')).toBeTruthy();
+    }
+  });
+
+  it.each(['가상동률 식당 서울특별시 종로구 자하문로 20', '가상동률 식당'])(
+    'distinguishes identical candidate evidence for %s',
+    async (query) => {
+      const record = demoDataset.records.find((item) => item.id === 'demo-tie-a');
+      if (!record) throw new Error('Missing tie fixture');
+      render(
+        <App dataset={{ ...demoDataset, records: [record, { ...record, id: 'tie-copy' }] }} />,
+      );
+      const { user } = await submit(query);
+      const cards = screen.getAllByRole('article');
+      expect(cards).toHaveLength(2);
+      expect(cards[0]?.getAttribute('aria-label')).toBe(
+        '가상동률 식당 인허가 정보 · 서울특별시 종로구 자하문로 20 · 후보 1',
+      );
+      expect(cards[1]?.getAttribute('aria-label')).toBe(
+        '가상동률 식당 인허가 정보 · 서울특별시 종로구 자하문로 20 · 후보 2',
+      );
+      await user.click(screen.getByRole('button', { name: '검색 결과로 이동' }));
+      for (const card of cards) {
+        // jsdom has no layout/scroll API; browser tests cover visible focus.
+        card.scrollIntoView = vi.fn();
+        await user.tab();
+        expect(document.activeElement).toBe(card);
+        expect(within(card).getByText('행정상 영업')).toBeTruthy();
+      }
+    },
+  );
+
+  it('announces both tie and similar guidance together on repeated searches', async () => {
+    const ties = demoDataset.records.filter((item) => item.name === '가상동률 식당');
+    const record = ties[0];
+    if (!record) throw new Error('Missing tie fixture');
+    render(
+      <App
+        dataset={{
+          ...demoDataset,
+          records: [
+            ...ties,
+            { ...record, id: 'tie-conflict', roadAddress: '서울특별시 강남구 테헤란로 99' },
+          ],
+        }}
+      />,
+    );
+    const status = screen.getByRole('status');
+    for (const sequence of [1, 2]) {
+      await submit('가상동률 식당 서울특별시 종로구 자하문로 20');
+      expect(screen.getByRole('status')).toBe(status);
+      expect(status.textContent).toContain(
+        `검색 ${sequence}회 완료 · 일치 후보 2개 · 유사 후보 1개`,
+      );
+      expect(status.textContent).toContain(
+        '동일하게 일치하는 후보가 여러 개입니다. 원본 정보를 비교해 주세요.',
+      );
+      expect(status.textContent).toContain(
+        '유사 후보는 같은 사업체인지 주소와 원본 정보를 확인하세요.',
+      );
+      expect(
+        within(screen.getByRole('list', { name: '일치 후보' })).getAllByRole('article'),
+      ).toHaveLength(2);
+      expect(
+        within(screen.getByRole('list', { name: '유사 후보' }))
+          .getByRole('article')
+          .getAttribute('aria-label'),
+      ).toContain('후보 3');
     }
   });
 

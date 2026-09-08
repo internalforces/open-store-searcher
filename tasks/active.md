@@ -11,7 +11,7 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No task is active. TASK-017 completed; see tasks/completed.md and its assisted VoiceOver report.
+No task is active. TASK-017 PR #18 review remediation completed; see reports/review-2026-09-08-pr18.md.
 
 ## Deferred — incomplete
 

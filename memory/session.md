@@ -496,3 +496,8 @@ hashes match approved implementation 1acf77f; existing 561/56/18 verification re
 TASK-017 moved to completed; no next task activated. Deferred TASK-008 and production gates
 remain open. Independent closure review Approved with no unresolved findings. Evidence delivery uses the
 existing user authorization on codex/task-017-accessibility; no merge or deployment.
+
+
+## PR #18 review remediation — 2026-09-08
+
+User requested PR #18 review remediation plus commit/push. Reused clean .worktrees/task013-quality on codex/task-017-accessibility at 633fbfa; original dirty checkout preserved. Accepted both P2 comments and added displayed candidate positions and independent tie/similar live warnings. Three regressions reproduced then passed; focused 92 component tests and pinned verify:full 564/56/18 passed (22 axe scans, zero violations). Inline review found no remaining supplied issue. No new manual VoiceOver observation, independent approval, merge or deployment claimed. Evidence: reports/review-2026-09-08-pr18.md. Authorized commit/push follows this record.

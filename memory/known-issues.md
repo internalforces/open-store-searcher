@@ -169,3 +169,8 @@ VoiceOver observations now pass all seven cases in reports/voiceover-2026-09-08-
 CUA still cannot capture speech directly; user confirmations supply the manual evidence.
 No rotor, measured announcement latency or other AT combination is claimed. This limitation
 does not invalidate the bounded assisted matrix. No TASK-017 blocker remains.
+
+
+## PR #18 review remediation — 2026-09-08
+
+PR #18 comments 3953627026 and 3953627033 resolved: identical candidate identity and suppressed overlapping live guidance. Regression/full-check evidence: reports/review-2026-09-08-pr18.md. Changed speech has automated coverage; manual VoiceOver was not repeated.

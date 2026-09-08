@@ -34,10 +34,12 @@ function EvidenceField({ label, value }: { label: string; value: string | null }
 
 export function ResultCard({
   match,
+  position,
   coverage,
   synthetic = false,
 }: {
   match: CandidateMatch<DisplayRecord>;
+  position?: number;
   coverage: Coverage;
   synthetic?: boolean;
 }) {
@@ -51,7 +53,7 @@ export function ResultCard({
       className="result-card"
       // biome-ignore lint/a11y/noNoninteractiveTabindex: Bounded read-only candidates need focus to inspect evidence even without links.
       tabIndex={0}
-      aria-label={`${displayName} 인허가 정보 · ${address}`}
+      aria-label={`${displayName} 인허가 정보 · ${address}${position === undefined ? '' : ` · 후보 ${position}`}`}
       onFocus={(event) => {
         // Native focus can reveal the bottom of a tall card. Keep its identity visible.
         // Child links retain their own scroll position while navigating the evidence.

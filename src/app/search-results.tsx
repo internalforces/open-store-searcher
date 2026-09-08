@@ -24,18 +24,19 @@ export function SearchResults({
       {primary && (
         <section aria-labelledby="primary-heading">
           <h2 id="primary-heading">가장 잘 일치하는 결과</h2>
-          <ResultCard match={primary} coverage={coverage} synthetic={synthetic} />
+          <ResultCard match={primary} position={1} coverage={coverage} synthetic={synthetic} />
         </section>
       )}
       {remaining.length > 0 && (
         <section aria-labelledby="matches-heading">
           <h2 id="matches-heading">일치 후보</h2>
           <ul className="candidate-list" aria-labelledby="matches-heading">
-            {remaining.map((match) => (
+            {remaining.map((match, index) => (
               <li key={match.record.id}>
                 <ResultCard
                   key={match.record.id}
                   match={match}
+                  position={index + (primary ? 1 : 0) + 1}
                   coverage={coverage}
                   synthetic={synthetic}
                 />
@@ -52,11 +53,12 @@ export function SearchResults({
             시·군·구, 도로명과 건물번호를 함께 입력해 다시 검색해 보세요.
           </p>
           <ul className="candidate-list" aria-labelledby="similar-heading">
-            {result.similarCandidates.map((match) => (
+            {result.similarCandidates.map((match, index) => (
               <li key={match.record.id}>
                 <ResultCard
                   key={match.record.id}
                   match={match}
+                  position={index + remaining.length + (primary ? 1 : 0) + 1}
                   coverage={coverage}
                   synthetic={synthetic}
                 />

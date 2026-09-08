@@ -226,3 +226,8 @@ and review reports using repository-relative Markdown destinations. Confirmed bo
 paths exist in Git HEAD and resolve without local worktrees; whitespace check passed.
 Documentation only; reviewed source/test/config manifest is unchanged. TASK-016 stays
 complete with prior 553 tests, 32 browser checks and 16 zero-violation axe scans.
+
+
+## PR #18 review remediation — 2026-09-08
+
+TASK-017 review follow-up completed under explicit PR #18 remediation authorization. Comments 3953627026 and 3953627033 reproduced and corrected. Focused 92 component tests and pinned full checks 564/56/18 passed; inline review and remaining manual-speech limitation in reports/review-2026-09-08-pr18.md. No next task or milestone gate activated.

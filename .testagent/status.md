@@ -89,3 +89,8 @@ hashes match approved implementation 1acf77f; existing 561/56/18 verification re
 TASK-017 moved to completed; no next task activated. Deferred TASK-008 and production gates
 remain open. Independent closure review Approved with no unresolved findings. Evidence delivery uses the
 existing user authorization on codex/task-017-accessibility; no merge or deployment.
+
+
+## PR #18 review remediation — 2026-09-08
+
+Both PR #18 regressions reproduced before changes; all three new cases now pass. Inline assertion review checked identical full evidence, both candidate groups, keyboard focus, combined warnings and repeat submissions. Pinned verify:full passed 564/56/18 (22 axe scans, zero violations). No test or threshold removed. No new manual VoiceOver observation. Exact evidence: reports/review-2026-09-08-pr18.md.

@@ -109,3 +109,8 @@ errors, retry/recovery, retained data and source/map keyboard navigation. Togeth
 reviewed implementation and existing full verification this closes TASK-017 for FR-11,
 baseline FR-16 and its Section 14.3 scope. TASK-023 enhancements and production/milestone
 gates remain separate. No universal WCAG conformance or untested AT combination is claimed.
+
+
+## PR #18 review remediation — 2026-09-08
+
+FR-16 / PRD Section 14.3 follow-up: PR #18 duplicate-identity and overlapping-announcement regressions resolved with displayed positions and independent warnings. Pinned full checks 564/56/18 passed; exact tests and manual-evidence limit in [PR #18 review](../reports/review-2026-09-08-pr18.md).

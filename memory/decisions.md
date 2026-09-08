@@ -483,3 +483,8 @@ UI. Explicit per-case confirmations, with native AX only as supporting evidence,
 the manual observation gate. Record this bounded method separately from automated checks;
 no audio recording, rotor coverage, measured timing or universal AT conformance is claimed.
 See reports/voiceover-2026-09-08-task-017.md.
+
+
+## PR #18 review remediation — 2026-09-08
+
+Use current display-order candidate positions across primary/eligible/similar groups to distinguish otherwise identical evidence. Positions are presentation context only, not persistent IDs or public URLs. Emit each applicable uncertainty warning independently. Bounded review correction; no architectural/status-mapping decision changed.

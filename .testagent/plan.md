@@ -58,3 +58,8 @@ R3: document delivered commit/PR and current remediation; final review/full chec
    error/empty/tie axe states and retained-data recovery; inspect representative screenshots.
 5. Run pinned focused checks and verify:full, review assertions and obtain independent review.
 6. Record actual assistive-technology evidence or explicitly leave that manual gate open.
+
+
+## PR #18 remediation — 2026-09-08
+
+Add failing R1 parameterized exact/name-only searches and R2 mixed-state repeated-search regression in accessibility.test.tsx. Add display-order candidate positions and independent conditional warnings. Run focused components, pinned verify:full, and inspect assertions and diff.

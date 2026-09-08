@@ -69,3 +69,8 @@ directly. No network mocks beyond existing offline fixture routes are needed.
 Requirements: named candidate lists and distinguishable identity; keyboard results access;
 input/error focus; zero/tie/low-result live guidance; retry focus and duplicate-load guard;
 mobile/desktop, 200% text scaling and 320px reflow; screen-reader observations separate from axe.
+
+
+## PR #18 remediation — 2026-09-08
+
+Broad bounded PR #18 scope: ResultCard/SearchResults identity and App live guidance. Existing accessibility.test.tsx exercises real search with synthetic data. Specialized discovery/generator/gap tools are unavailable; use inline workflow. R1: identical name/address/status records must have distinct accessible names in both candidate groups. R2: a single result with two eligible ties and a conflicting similar candidate must announce both warnings.
