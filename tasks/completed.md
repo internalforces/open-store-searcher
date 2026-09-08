@@ -11,6 +11,7 @@ _Last updated: 2026-09-04_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
+| TASK-017 | Responsive, keyboard and screen-reader search flow | 2026-09-08 | Implementer / Tester / Reviewer | Approved implementation 1acf77f pushed; 561 Vitest, 56 browser checks, 18 accessibility tests / 22 zero-violation axe scans; seven user-assisted VoiceOver cases passed. Evidence: [test](../reports/test-2026-09-08-task-017.md), [VoiceOver](../reports/voiceover-2026-09-08-task-017.md), [review](../reports/review-2026-09-08-task-017.md). FR-16 enhanced selection remains TASK-023. |
 | TASK-015 | Implement empty-result, low-confidence, loading-failure and stale-data recovery UX | 2026-09-07 | Implementer / Tester | User-approved bounded design; internal synthetic loader/retry, usable-data preservation, malformed/duplicate exclusion, truthful dates and uncertainty guidance. Pinned full verification: 522 tests, 28 browser checks, 14 zero-violation axe scans; independent Reviewer Approved. Evidence: .worktrees/task013-quality/reports/test-2026-09-07-task-015.md and review-2026-09-07-task-015.md. Production integration remains gated. |
 | TASK-014 | Implement initial search page and evidence cards | 2026-09-06 | Implementer / Tester | Approved design; four-status/raw/date/source UI, local search, synthetic provenance and responsive tests. Pinned full verification: 478 tests, 20 browser, 6 a11y; independent Reviewer Approved. Evidence in .worktrees/task013-quality/reports/test-2026-09-06-task-014.md and review-2026-09-06-task-014.md. Production integration remains gated. |
 | TASK-012 | Implement candidate search, scoring, address conflicts, confidence, and Top-3 | 2026-09-05 | Implementer / Tester | FR-03/07 synthetic engine; 24 new tests, 581 full-suite tests, 8 browser tests and 2 accessibility scans pass; independent Reviewer Approved. Evidence: reports/test-2026-09-05-task-012.md and reports/review-2026-09-05-task-012.md. TASK-013 realistic recall and TASK-014/015 UI remain open. |
@@ -225,3 +226,8 @@ and review reports using repository-relative Markdown destinations. Confirmed bo
 paths exist in Git HEAD and resolve without local worktrees; whitespace check passed.
 Documentation only; reviewed source/test/config manifest is unchanged. TASK-016 stays
 complete with prior 553 tests, 32 browser checks and 16 zero-violation axe scans.
+
+
+## PR #18 review remediation — 2026-09-08
+
+TASK-017 review follow-up completed under explicit PR #18 remediation authorization. Comments 3953627026 and 3953627033 reproduced and corrected. Focused 92 component tests and pinned full checks 564/56/18 passed; inline review and remaining manual-speech limitation in reports/review-2026-09-08-pr18.md. No next task or milestone gate activated.

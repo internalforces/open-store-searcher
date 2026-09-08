@@ -327,7 +327,11 @@ test('searches the real form with keyboard and wraps results at 320 CSS pixels',
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await input.fill('아주긴검색어'.repeat(40));
   await page.keyboard.press('Enter');
-  await expect(page.getByText(/폐업을 의미하지 않습니다/)).toBeVisible();
+  await expect(
+    page
+      .getByRole('region', { name: '검색 결과', exact: true })
+      .getByText(/폐업을 의미하지 않습니다/),
+  ).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
@@ -406,7 +410,11 @@ test('keeps real form queries out of browser network, storage, logs and URL', as
   await expect(page.getByRole('region', { name: '가장 잘 일치하는 결과' })).toBeVisible();
   await page.getByRole('searchbox').fill('<img src=x onerror=alert(1)>');
   await page.getByRole('searchbox').press('Enter');
-  await expect(page.getByText(/폐업을 의미하지 않습니다/)).toBeVisible();
+  await expect(
+    page
+      .getByRole('region', { name: '검색 결과', exact: true })
+      .getByText(/폐업을 의미하지 않습니다/),
+  ).toBeVisible();
   expect(await page.locator('img').count()).toBe(0);
   expect(await page.evaluate(() => Reflect.get(window, '__formEffects'))).toEqual([]);
   expect(requests).toEqual([]);
@@ -521,7 +529,11 @@ test('recovers loading failures with keyboard and preserves usable data without 
   await completeLoad(page, 'empty');
   await expect(page.getByRole('article')).toHaveCount(0);
   await input.press('Enter');
-  await expect(page.getByText(/폐업을 의미하지 않습니다/)).toBeVisible();
+  await expect(
+    page
+      .getByRole('region', { name: '검색 결과', exact: true })
+      .getByText(/폐업을 의미하지 않습니다/),
+  ).toBeVisible();
   expect(await page.evaluate(() => Reflect.get(window, '__recoveryEffects'))).toEqual([]);
   expect(requests).toEqual([]);
   expect(page.url()).toMatch(/\/recovery-harness$/);
@@ -598,4 +610,144 @@ test('opens candidate-only map searches by keyboard without automatic provider I
   expect(outbound).toHaveLength(2);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('map-links-320.png'), fullPage: true });
+});
+
+test('TASK-017 traverses candidate evidence forwards and backwards with visible keyboard focus', async ({
+  page,
+}, testInfo) => {
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.goto('./');
+  const input = page.getByRole('searchbox');
+  await input.fill('가상별빛 카페');
+  await input.press('Enter');
+  await expect(input).toBeFocused();
+  const tab =
+    testInfo.project.name === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab';
+  const back = tab === 'Alt+Tab' ? 'Alt+Shift+Tab' : 'Shift+Tab';
+  for (const name of ['검색', /예시 입력/, '검색 결과로 이동']) {
+    await page.keyboard.press(tab);
+    await expect(page.getByRole('button', { name, exact: typeof name === 'string' })).toBeFocused();
+  }
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('region', { name: '검색 결과', exact: true })).toBeFocused();
+  const cards = page.getByRole('list', { name: '유사 후보' }).getByRole('article');
+  await page.keyboard.press(tab);
+  await expect(cards.nth(0)).toBeFocused();
+  await expect(cards.nth(0).getByRole('heading', { level: 3 })).toBeInViewport();
+  expect(await cards.nth(0).evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
+  await page.keyboard.press(tab);
+  await expect(cards.nth(1)).toBeFocused();
+  await expect(cards.nth(1).getByRole('heading', { level: 3 })).toBeInViewport();
+  await page.keyboard.press(back);
+  await expect(cards.nth(0)).toBeFocused();
+  await expect(cards.nth(0).getByRole('heading', { level: 3 })).toBeInViewport();
+  await input.fill('');
+  await input.press('Enter');
+  await expect(input).toBeFocused();
+  await expect(input).toHaveAttribute('aria-invalid', 'true');
+  await expect(page.getByRole('alert')).toBeVisible();
+  await input.fill('다른상호');
+  await expect(input).toHaveAttribute('aria-invalid', 'false');
+});
+
+test('TASK-017 keeps retry focus during pending, failure and recovery without stealing edited input', async ({
+  page,
+}) => {
+  await mountRecovery(page);
+  await completeLoad(page, 'error');
+  const reload = page.getByRole('button', { name: '데이터 다시 불러오기' });
+  await reload.focus();
+  await reload.press('Enter');
+  await expect(reload).toHaveAttribute('aria-disabled', 'true');
+  await expect(reload).toBeFocused();
+  await reload.press('Enter');
+  await reload.press('Space');
+  await completeLoad(page, 'error');
+  await expect(reload).toBeFocused();
+  await expect(page.getByRole('alert')).toContainText('아직 사업체 상태');
+  await reload.press('Enter');
+  await completeLoad(page, 'partial');
+  await expect(reload).toBeFocused();
+  await expect(page.getByRole('status')).toContainText('불러왔습니다');
+  const input = page.getByRole('searchbox');
+  await input.fill('가상별빛 카페');
+  await input.press('Enter');
+  await reload.press('Enter');
+  await input.focus();
+  await completeLoad(page, 'error');
+  await expect(input).toBeFocused();
+  await expect(page.getByRole('article')).toHaveCount(1);
+  await expect(page.getByRole('alert')).toContainText('이전 데이터');
+});
+
+for (const width of [320, 768, 1280]) {
+  test(`TASK-017 reflows at ${width}px with doubled text and long search content`, async ({
+    page,
+  }, testInfo) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('./');
+    // Text-resize stress test; 320px also represents the CSS layout width at 400% on 1280px.
+    // This is not a claim of actual browser zoom or manual screen-reader verification.
+    await page.addStyleTag({ content: 'html { font-size: 200%; }' });
+    const input = page.getByRole('searchbox');
+    for (const query of [
+      '가상별빛 카페',
+      '가상동률 식당 서울특별시 종로구 자하문로 20',
+      '긴검색어'.repeat(60),
+    ]) {
+      await input.fill(query);
+      await input.press('Enter');
+      await expect(page.getByRole('region', { name: '검색 결과', exact: true })).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true,
+      );
+    }
+    await input.fill('가상별빛 카페');
+    await input.press('Enter');
+    await page.screenshot({
+      path: testInfo.outputPath(`task017-${width}-text200.png`),
+      fullPage: true,
+    });
+  });
+}
+
+test('TASK-017 reaches source and map links in order and activates source only on request', async ({
+  page,
+  context,
+}, testInfo) => {
+  const requests: string[] = [];
+  const sourceUrl = 'https://www.data.go.kr/data/15045011/fileData.do';
+  await context.route(sourceUrl, async (route) => {
+    requests.push(route.request().url());
+    expect(route.request().headers().referer).toBeUndefined();
+    await route.fulfill({
+      contentType: 'text/html',
+      body: '<!doctype html><title>Local source interception</title>',
+    });
+  });
+  await page.setViewportSize({ width: 320, height: 740 });
+  await mountMapSearch(page);
+  await page.getByRole('searchbox').fill('가상별빛 카페');
+  await page.getByRole('searchbox').press('Enter');
+  await page.getByRole('button', { name: '검색 결과로 이동' }).click();
+  const tab =
+    testInfo.project.name === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab';
+  const back = tab === 'Alt+Tab' ? 'Alt+Shift+Tab' : 'Shift+Tab';
+  const card = page.getByRole('list', { name: '유사 후보' }).getByRole('article').nth(0);
+  await page.keyboard.press(tab);
+  await expect(card).toBeFocused();
+  const source = card.getByRole('link', { name: '시험 원본 출처' });
+  await page.keyboard.press(tab);
+  await expect(source).toBeFocused();
+  await expect(source).toBeInViewport();
+  expect(await source.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
+  await page.keyboard.press(tab);
+  await expect(card.getByRole('link', { name: '네이버 지도에서 검색 (새 탭)' })).toBeFocused();
+  await page.keyboard.press(back);
+  await expect(source).toBeFocused();
+  await expect(source).toBeInViewport();
+  expect(requests).toEqual([]);
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(sourceUrl);
+  expect(requests).toEqual([sourceUrl]);
 });

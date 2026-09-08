@@ -463,3 +463,28 @@ of the Naver HTTPS /p/search/{encodedTerms} route's unverified official compatib
 and preferred road/parcel address, fixed HTTPS origins, explicit protected new tabs, and suppress
 synthetic coverage or loader provenance. No API/SDK, dependency, public identifier or status
 contract changed. See reports/test-2026-09-07-task-016.md for evidence and limitations.
+
+
+## TASK-017 approved UI decisions — 2026-09-08
+
+The user approved bounded accessibility implementation. Candidate collections use native lists;
+read-only evidence cards expose name and address and are keyboard-focusable, including when
+no external links exist. A local button focuses the results region without changing the URL.
+Submission returns focus to input; asynchronous data completion does not steal focus. Retry
+uses aria-disabled plus an execution guard to remain focusable while pending. Tall card
+self-focus reveals the heading; child links retain their native focus scroll position.
+No new public contract or architecture ADR is needed. Custom selection remains TASK-023.
+
+
+## TASK-017 assisted AT evidence method — 2026-09-08
+
+The user agreed to report actual VoiceOver speech while the assistant operated the synthetic
+UI. Explicit per-case confirmations, with native AX only as supporting evidence, resolve
+the manual observation gate. Record this bounded method separately from automated checks;
+no audio recording, rotor coverage, measured timing or universal AT conformance is claimed.
+See reports/voiceover-2026-09-08-task-017.md.
+
+
+## PR #18 review remediation — 2026-09-08
+
+Use current display-order candidate positions across primary/eligible/similar groups to distinguish otherwise identical evidence. Positions are presentation context only, not persistent IDs or public URLs. Emit each applicable uncertainty warning independently. Bounded review correction; no architectural/status-mapping decision changed.

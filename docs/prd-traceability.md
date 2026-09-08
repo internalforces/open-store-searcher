@@ -30,7 +30,7 @@ _Last updated: 2026-09-04_
 | FR-08 | Data as-of date | TASK-008, 014 | Accepted ADR-014; `reports/test-2026-09-04-task-008.md` V08–V09 verify archive-bound coverage and reject unsupported timestamps; production evidence pending; TASK-014 UI is verified TASK-014 evidence: TASK-014 U03 synthetic/verified/unavailable page/card coverage rendering passed; production source-cut evidence remains pending. | In progress |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; TASK-014 UI is verified; public documentation remains pending TASK-014 evidence: TASK-014 U04 persistent page/card provenance and disclaimer passed; production/public documentation remains pending. PR #15 R2–R5 regressions: reports/review-2026-09-06-pr15.md. | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | [URL encoding, protected new-tab navigation and full verification](../reports/test-2026-09-07-task-016.md); [independent Approved review](../reports/review-2026-09-07-task-016.md) | Complete (Naver compatibility limitation accepted) |
-| FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | E2E tests at primary viewports TASK-014 evidence: TASK-014 U06 desktop/mobile and 320px keyboard/wrapping checks plus six zero-violation axe scans passed; TASK-017 fuller flow remains pending. PR #15 R2–R5 regressions: reports/review-2026-09-06-pr15.md. | In progress |
+| FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | TASK-017: 320/768/1280px doubled-text reflow, long queries, visible candidate headings and native Chrome200% inspection; see [verification](../reports/test-2026-09-08-task-017.md) in the delivery revision. | Verified; TASK-017 complete |
 | FR-12 | No collection of personal or usage data | TASK-019 | Network, storage, and script audit TASK-014 evidence: TASK-014 U08 actual form network/storage/logging/URL sentinels passed; TASK-019 full security review remains pending. | In progress |
 | FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending TASK-015 internal UI preserves the accepted dataset/results after loader or presentation-validation failure (T15-03/06); reports/test-2026-09-07-task-015.md. TASK-008 production evidence and TASK-009/010 atomic publication/workflow gates remain open. | In progress |
 | FR-14 | Warn at seven Seoul calendar days or older | TASK-008, 014, 015 | Current user-approved ADR-015 boundary is age >= 7. PR #15 R1 UI tests cover days 6/7/8, Seoul midnight, focus/visibility and unavailable/rejected dates; reports/review-2026-09-06-pr15.md. V1 historical pipeline semantics remain unchanged; full recovery and production evidence stay gated. TASK-015 preserves >=7 Seoul-day warnings and separates actual browser load time from coverage (T15-03/04/08); reports/test-2026-09-07-task-015.md. Existing PR15 6/7/8-day and clock regressions remain. Production coverage is still gated. | In progress |
@@ -45,7 +45,7 @@ production source-cut/policy evidence and TASK-009 last-known-good publication/r
 | Requirement | Summary | Tasks | Start condition | Status |
 |---|---|---|---|---|
 | FR-15 | Identifier-based share URL | TASK-022 | P0 stable and search terms excluded | Deferred |
-| FR-16 | Candidate-list keyboard navigation | TASK-017, 023 | Improve after P0 accessibility completion | Planned |
+| FR-16 | Candidate-list keyboard navigation | TASK-017, 023 | TASK-017 named lists, explicit result focus, forward/reverse evidence and source/map links verified in four browser projects; [verification](../reports/test-2026-09-08-task-017.md). Enhanced selection remains TASK-023. | Baseline verified including assisted AT; TASK-023 pending |
 | FR-17 | Regional expansion outside Seoul | TASK-024 | Seoul performance and quality verified | Deferred |
 
 ## Non-Functional and Release Gates
@@ -82,3 +82,35 @@ FR-03/07 and TASK-013 Q07/Q08: reports/review-2026-09-05-pr14.md maps the three 
 to parser, actual-source candidate and CLI audit-binding regressions. Pinned full verification
 passes 455 tests, eight browser tests and two accessibility scans; unchanged corpora retain
 28/30 synthetic and 98/100 source Top-3 recall with zero safety failures. No release gate expands.
+
+
+### TASK-017 activation — 2026-09-08
+
+FR-11, baseline FR-16 and PRD Section 14.3 are active in TASK-017. Static gap audit is complete;
+concrete bounded design approval precedes implementation. Existing TASK-014/015/016 verification
+is historical evidence, not TASK-017 acceptance. Candidate-list semantics, accessible identity,
+status/error/recovery flow, complete keyboard navigation and zoom/reflow verification are pending.
+Actual screen-reader observation must be reported separately from automated accessibility checks.
+TASK-023 retains later enhanced candidate navigation. No milestone or release gate is closed.
+
+### TASK-017 implementation evidence — 2026-09-08
+
+The activation note above is historical. User approved design; implementation and pinned full
+verification now pass 561/56/18 (22 axe scans). Native Chrome200% inspection passes after the
+reproduced tall-card focus correction. Actual VoiceOver observation remains pending; do not
+mark Section 14.3 fully accepted or close TASK-017 solely from automated tests.
+
+
+### TASK-017 assisted AT closure — 2026-09-08
+
+The pending manual gate above is historical. [User-assisted VoiceOver evidence](../reports/voiceover-2026-09-08-task-017.md)
+records seven passing cases for labels/lists/evidence, repeated and safe result announcements,
+errors, retry/recovery, retained data and source/map keyboard navigation. Together with the
+reviewed implementation and existing full verification this closes TASK-017 for FR-11,
+baseline FR-16 and its Section 14.3 scope. TASK-023 enhancements and production/milestone
+gates remain separate. No universal WCAG conformance or untested AT combination is claimed.
+
+
+## PR #18 review remediation — 2026-09-08
+
+FR-16 / PRD Section 14.3 follow-up: PR #18 duplicate-identity and overlapping-announcement regressions resolved with displayed positions and independent warnings. Pinned full checks 564/56/18 passed; exact tests and manual-evidence limit in [PR #18 review](../reports/review-2026-09-08-pr18.md).

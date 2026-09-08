@@ -217,7 +217,11 @@ describe('PR15 regressions', () => {
     );
     await search('서울특별시 마포구 월드컵로 12-1');
     expect(screen.getByRole('heading', { level: 3, name: '제공되지 않음' })).toBeTruthy();
-    expect(screen.getByRole('article', { name: '제공되지 않음 인허가 정보' })).toBeTruthy();
+    expect(
+      screen.getByRole('article', {
+        name: '제공되지 않음 인허가 정보 · 서울특별시 마포구 월드컵로 12-1 · 후보 1',
+      }),
+    ).toBeTruthy();
     expect(screen.getByText('일치 신뢰도 보통')).toBeTruthy();
   });
   it('keeps exact dataset provenance accessible before search and with no matches or invalid input', async () => {

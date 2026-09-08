@@ -11,11 +11,7 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-016 is complete in `.worktrees/task013-quality` on
-`codex/task-016-map-links`. User authorized commit, push and PR creation. The approved Naver
-web-route limitation implemented; independent Reviewer Approved. Pinned full verification
-passed 553 tests, 32 browser checks and 16 zero-violation axe scans. See the TASK-016 test
-and review reports in that worktree. TASK-017 is next; no milestone or production gate closed.
+No task is active. TASK-017 PR #18 review remediation completed; see reports/review-2026-09-08-pr18.md.
 
 ## Deferred — incomplete
 

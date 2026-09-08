@@ -34,18 +34,34 @@ function EvidenceField({ label, value }: { label: string; value: string | null }
 
 export function ResultCard({
   match,
+  position,
   coverage,
   synthetic = false,
 }: {
   match: CandidateMatch<DisplayRecord>;
+  position?: number;
   coverage: Coverage;
   synthetic?: boolean;
 }) {
   const { record } = match;
   const displayName = record.name.trim() ? record.name : '제공되지 않음';
+  const address =
+    record.roadAddress?.trim() || record.parcelAddress?.trim() || '주소 제공되지 않음';
   const status = mapLicenseStatusV1(record.rawStatus);
   return (
-    <article className="result-card" aria-label={`${displayName} 인허가 정보`}>
+    <article
+      className="result-card"
+      // biome-ignore lint/a11y/noNoninteractiveTabindex: Bounded read-only candidates need focus to inspect evidence even without links.
+      tabIndex={0}
+      aria-label={`${displayName} 인허가 정보 · ${address}${position === undefined ? '' : ` · 후보 ${position}`}`}
+      onFocus={(event) => {
+        // Native focus can reveal the bottom of a tall card. Keep its identity visible.
+        // Child links retain their own scroll position while navigating the evidence.
+        if (event.target === event.currentTarget) {
+          event.currentTarget.scrollIntoView({ block: 'start' });
+        }
+      }}
+    >
       <header className="card-header">
         <h3>{displayName}</h3>
         <div className="badges">

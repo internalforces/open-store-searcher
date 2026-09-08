@@ -13,7 +13,6 @@ _Last updated: 2026-09-04_
 |---|---|---|---|---|---|
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
-| TASK-017 | Implement responsive, keyboard, and screen-reader search flow and accessible status announcements | High | M2 | L | FR-11, FR-16, Section 14.3 |
 | TASK-018 | Verify bundle, primary-content, search-latency, and static-data partitioning budgets | High | M3 | M | Section 14.2, success metrics |
 | TASK-019 | Review privacy, input rendering, external links, and Actions permissions | High | M3 | M | FR-12, Section 14.4 |
 | TASK-020 | Write setup, deployment, source, disclaimer, contribution, code-of-conduct, and security-reporting docs | High | M3 | M | Section 17, Section 20 |

@@ -58,3 +58,19 @@ Checklist: M01 record name/road preference/parcel fallback/partial fields; M02 U
 characters, hostile terms, missing or unencodable terms and path-dot safety; M03 fixed HTTPS
 origins and new-tab protection; M04 synthetic coverage/loader suppression; M05 raw-query privacy,
 no automatic I/O and candidate-specific uncertainty/evidence; M06 keyboard/320px/axe and full checks.
+
+
+## TASK-017 research — 2026-09-08
+
+Broad scope: App, SearchForm, SearchResults, ResultCard and CSS. Existing Vitest component
+tests and Playwright fixtures provide deterministic synthetic inputs and controlled loader
+promises. The find-untested-sources tool is unavailable; source/test pairs were inspected
+directly. No network mocks beyond existing offline fixture routes are needed.
+Requirements: named candidate lists and distinguishable identity; keyboard results access;
+input/error focus; zero/tie/low-result live guidance; retry focus and duplicate-load guard;
+mobile/desktop, 200% text scaling and 320px reflow; screen-reader observations separate from axe.
+
+
+## PR #18 remediation — 2026-09-08
+
+Broad bounded PR #18 scope: ResultCard/SearchResults identity and App live guidance. Existing accessibility.test.tsx exercises real search with synthetic data. Specialized discovery/generator/gap tools are unavailable; use inline workflow. R1: identical name/address/status records must have distinct accessible names in both candidate groups. R2: a single result with two eligible ties and a conflicting similar candidate must announce both warnings.

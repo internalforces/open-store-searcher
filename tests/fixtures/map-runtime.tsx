@@ -8,5 +8,18 @@ import { demoDataset } from '../../src/app/demo-data.js';
 export function mount() {
   const root = document.createElement('div');
   document.body.replaceChildren(root);
-  render(<App dataset={{ ...demoDataset, coverage: { kind: 'unavailable' } }} />, root);
+  render(
+    <App
+      dataset={{
+        ...demoDataset,
+        coverage: { kind: 'unavailable' },
+        records: demoDataset.records.map((record) => ({
+          ...record,
+          sourceLabel: '시험 원본 출처',
+          sourceUrl: 'https://www.data.go.kr/data/15045011/fileData.do',
+        })),
+      }}
+    />,
+    root,
+  );
 }

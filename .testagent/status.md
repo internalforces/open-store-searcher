@@ -61,3 +61,36 @@ and cover empty/malformed terms and synthetic coverage/loader provenance indepen
 Focused 34 tests and final full 553/32/16 verification passed. Direct component null-address
 fixture corrected to string contract; helper null tests retained. Independent Reviewer Approved.
 No skipped tests, removed coverage or relaxed thresholds. No unresolved findings.
+
+
+## TASK-017 final test-quality review — 2026-09-08
+
+All matrix behaviors are mapped to exact tests in reports/test-2026-09-08-task-017.md.
+Focused 89 component tests and final pinned full 561/56/18 verification exited 0.
+Independent review identified the missing source-link keyboard case; added explicit local
+interception, no-before-activation requests and link order/visible-focus assertions.
+Manual 200% Chrome inspection found tall-card bottom scrolling; red/green regression now
+checks heading visibility in forward/reverse navigation on all four browser projects.
+The duplicate-retry assertion checks loader call counts, not only the disabled attribute.
+No test-gap-analysis/assertion-quality tools are available; assertion review was performed
+inline and independently. Actual VoiceOver observation remains explicitly pending.
+
+Independent Reviewer Approved on the final state; no open code/test findings. Manual AT remains pending.
+
+VoiceOver execution was authorized and on/off verified; speech output unavailable through CUA, so the actual AT gate remains open.
+
+
+## TASK-017 assisted verification complete — 2026-09-08
+
+All seven user-assisted VoiceOver cases passed; exact confirmations and limitations are in
+reports/voiceover-2026-09-08-task-017.md. This supersedes the earlier pending manual-gate
+notes. VoiceOver is off and local test tabs/servers are cleaned up. Source/test/config
+hashes match approved implementation 1acf77f; existing 561/56/18 verification remains valid.
+TASK-017 moved to completed; no next task activated. Deferred TASK-008 and production gates
+remain open. Independent closure review Approved with no unresolved findings. Evidence delivery uses the
+existing user authorization on codex/task-017-accessibility; no merge or deployment.
+
+
+## PR #18 review remediation — 2026-09-08
+
+Both PR #18 regressions reproduced before changes; all three new cases now pass. Inline assertion review checked identical full evidence, both candidate groups, keyboard focus, combined warnings and repeat submissions. Pinned verify:full passed 564/56/18 (22 axe scans, zero violations). No test or threshold removed. No new manual VoiceOver observation. Exact evidence: reports/review-2026-09-08-pr18.md.

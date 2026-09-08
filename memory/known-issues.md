@@ -160,3 +160,17 @@ Revisit if the provider route changes. This does not weaken status or source evi
 FR-10 previously referred to .worktrees/task013-quality, which is absent in a fresh
 checkout. Comment 3949635920 is addressed by repository-relative links to both committed
 TASK-016 verification reports. Git-tracked target validation passed; no runtime defect.
+
+
+## TASK-017 manual evidence gate resolved — 2026-09-08
+
+The tall-card focus defect is fixed and covered in four browser projects. User-assisted
+VoiceOver observations now pass all seven cases in reports/voiceover-2026-09-08-task-017.md.
+CUA still cannot capture speech directly; user confirmations supply the manual evidence.
+No rotor, measured announcement latency or other AT combination is claimed. This limitation
+does not invalidate the bounded assisted matrix. No TASK-017 blocker remains.
+
+
+## PR #18 review remediation — 2026-09-08
+
+PR #18 comments 3953627026 and 3953627033 resolved: identical candidate identity and suppressed overlapping live guidance. Regression/full-check evidence: reports/review-2026-09-08-pr18.md. Changed speech has automated coverage; manual VoiceOver was not repeated.

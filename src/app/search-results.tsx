@@ -14,7 +14,7 @@ export function SearchResults({
   const primary = result.primaryMatch;
   const remaining = result.topMatches.filter((match) => match.record.id !== primary?.record.id);
   return (
-    <div className="search-results">
+    <section id="search-results" className="search-results" tabIndex={-1} aria-label="검색 결과">
       <p className="submitted-query">검색 결과: {result.validation.original}</p>
       {result.ambiguousTop && (
         <p className="uncertainty">
@@ -24,20 +24,25 @@ export function SearchResults({
       {primary && (
         <section aria-labelledby="primary-heading">
           <h2 id="primary-heading">가장 잘 일치하는 결과</h2>
-          <ResultCard match={primary} coverage={coverage} synthetic={synthetic} />
+          <ResultCard match={primary} position={1} coverage={coverage} synthetic={synthetic} />
         </section>
       )}
       {remaining.length > 0 && (
         <section aria-labelledby="matches-heading">
           <h2 id="matches-heading">일치 후보</h2>
-          {remaining.map((match) => (
-            <ResultCard
-              key={match.record.id}
-              match={match}
-              coverage={coverage}
-              synthetic={synthetic}
-            />
-          ))}
+          <ul className="candidate-list" aria-labelledby="matches-heading">
+            {remaining.map((match, index) => (
+              <li key={match.record.id}>
+                <ResultCard
+                  key={match.record.id}
+                  match={match}
+                  position={index + (primary ? 1 : 0) + 1}
+                  coverage={coverage}
+                  synthetic={synthetic}
+                />
+              </li>
+            ))}
+          </ul>
         </section>
       )}
       {result.similarCandidates.length > 0 && (
@@ -47,14 +52,19 @@ export function SearchResults({
             이름이 같아도 다른 사업체일 수 있습니다. 주소와 원본 정보를 직접 비교해 주세요. 상호명과
             시·군·구, 도로명과 건물번호를 함께 입력해 다시 검색해 보세요.
           </p>
-          {result.similarCandidates.map((match) => (
-            <ResultCard
-              key={match.record.id}
-              match={match}
-              coverage={coverage}
-              synthetic={synthetic}
-            />
-          ))}
+          <ul className="candidate-list" aria-labelledby="similar-heading">
+            {result.similarCandidates.map((match, index) => (
+              <li key={match.record.id}>
+                <ResultCard
+                  key={match.record.id}
+                  match={match}
+                  position={index + remaining.length + (primary ? 1 : 0) + 1}
+                  coverage={coverage}
+                  synthetic={synthetic}
+                />
+              </li>
+            ))}
+          </ul>
         </section>
       )}
       {result.topMatches.length === 0 && result.similarCandidates.length === 0 && (
@@ -69,6 +79,6 @@ export function SearchResults({
           </p>
         </div>
       )}
-    </div>
+    </section>
   );
 }
