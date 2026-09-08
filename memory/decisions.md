@@ -488,3 +488,38 @@ See reports/voiceover-2026-09-08-task-017.md.
 ## PR #18 review remediation — 2026-09-08
 
 Use current display-order candidate positions across primary/eligible/similar groups to distinguish otherwise identical evidence. Positions are presentation context only, not persistent IDs or public URLs. Emit each applicable uncertainty warning independently. Bounded review correction; no architectural/status-mapping decision changed.
+
+
+## TASK-018 approved measurement boundaries — 2026-09-08
+
+User approved a bounded measurement design using the existing runtime, Vite and Playwright.
+Use decimal 300,000 uncompressed code bytes and inclusive source PRD time targets; retain
+all samples and apply a conservative maximum-sample local gate. Synthetic and host-relative
+mobile emulation evidence is not production or real-device certification. Candidate rendering
+is measured only up to 1,000 cards to bound this local audit; skipped workloads are unavailable,
+never passed. This is a harness resource limit, not a product limit or approved partition policy.
+No production optimization, new dependency, delivery contract or public interface was selected.
+
+
+## TASK-018 optimization design accepted — 2026-09-08
+
+The user approved the concrete continuation design with an explicit instruction to proceed.
+Use semantics-preserving search work reduction and fixed, query-independent asset batches
+(maximum two concurrent requests) after shell paint. Validate and replace only complete
+snapshots; retain accepted data on failure and abort obsolete work. Apply to current synthetic
+assets without inventing a production publication schema. This accepts deferred data requests,
+not reduced total download or query-selected loading. No new dependency, source/status rule,
+public identifier, infrastructure or deployment change was made. Candidate pagination remains
+outside the approved scope. Measured initial code grows by 312 bytes and mobile cold search
+readiness increases from 701.2 to 1078.2 ms; both code/startup budgets still pass.
+
+
+## TASK-018 rendering design approved
+
+After requesting the 500 ms large-card target, the user explicitly approved the presented
+20-item similar-candidate pagination design. Retain primary/Top-3 and all ordered candidates;
+show counts/ranges and native boundary controls with keyboard/focus/status support. Measure
+initial page and page changes separately against 500 ms using unchanged scales/profiles.
+Replace prior resource-skipped measurements with complete-count and actual-page identity
+assertions. This is a visible product behavior change and must not be described as rendering
+all cards simultaneously. No production-data, dependency, interface or release gate changed.

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "demo-tie-a",
+    "name": "가상동률 식당",
+    "roadAddress": "서울특별시 종로구 자하문로 20",
+    "parcelAddress": "",
+    "categoryName": "합성 예시 업종",
+    "businessTypes": [
+      {
+        "sourceField": "업태구분명",
+        "value": "합성 예시 업태"
+      }
+    ],
+    "rawStatus": {
+      "operatingCode": "01",
+      "operatingName": "영업/정상",
+      "detailedCode": null,
+      "detailedName": null
+    },
+    "lifecycle": {
+      "licensedOn": "2020-01-02",
+      "licenseCancelledOn": null,
+      "suspendedFrom": null,
+      "suspendedThrough": null,
+      "reopenedOn": null,
+      "closedOn": null,
+      "sourceUpdatedAt": "2026-09-01 09:00:00",
+      "sourceLastModifiedAt": null
+    },
+    "sourceLabel": "프로젝트에서 만든 합성 예시 (공공데이터 원본 아님)",
+    "sourceUrl": null
+  },
+  {
+    "id": "demo-tie-b",
+    "name": "가상동률 식당",
+    "roadAddress": "서울특별시 종로구 자하문로 20",
+    "parcelAddress": "",
+    "categoryName": "합성 예시 업종",
+    "businessTypes": [
+      {
+        "sourceField": "업태구분명",
+        "value": "합성 예시 업태"
+      }
+    ],
+    "rawStatus": {
+      "operatingCode": "03",
+      "operatingName": "폐업",
+      "detailedCode": null,
+      "detailedName": null
+    },
+    "lifecycle": {
+      "licensedOn": "2020-01-02",
+      "licenseCancelledOn": null,
+      "suspendedFrom": null,
+      "suspendedThrough": null,
+      "reopenedOn": null,
+      "closedOn": "2026-08-15",
+      "sourceUpdatedAt": "2026-09-01 09:00:00",
+      "sourceLastModifiedAt": null
+    },
+    "sourceLabel": "프로젝트에서 만든 합성 예시 (공공데이터 원본 아님)",
+    "sourceUrl": null
+  }
+]

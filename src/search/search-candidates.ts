@@ -21,6 +21,7 @@ interface IndexedRecord<T extends SearchRecord = SearchRecord> {
   readonly record: T;
   readonly nameKey: string;
   readonly addresses: readonly AddressParts[];
+  readonly addressTokens: readonly (readonly string[])[];
 }
 export interface SearchDiagnostics {
   readonly invalidRecordCount: number;
@@ -84,10 +85,15 @@ export function createSearchIndex(records: readonly unknown[]): SearchIndex {
       duplicateIdRecordCount++;
       continue;
     }
+    const addresses = [
+      parseSearchAddress(record.roadAddress),
+      parseSearchAddress(record.parcelAddress),
+    ];
     entries.push({
       record,
       nameKey: projectSearchText(record.name).nameKey,
-      addresses: [parseSearchAddress(record.roadAddress), parseSearchAddress(record.parcelAddress)],
+      addresses,
+      addressTokens: addresses.map((address) => address.key.split(' ')),
     });
   }
   return { entries, diagnostics: { invalidRecordCount, duplicateIdRecordCount } };
@@ -97,9 +103,13 @@ const segmenter = new Intl.Segmenter('ko', { granularity: 'grapheme' });
 function matchName(query: string, candidate: string): NameMatch {
   if (!query || !candidate) return 'none';
   if (query === candidate) return 'exact';
+  if (!query.includes(candidate) && !candidate.includes(query)) return 'none';
   const shared = query.length <= candidate.length ? query : candidate;
-  if ([...segmenter.segment(shared.replace(/ /g, ''))].length < 2) return 'none';
-  return query.includes(candidate) || candidate.includes(query) ? 'partial' : 'none';
+  let characters = 0;
+  for (const _character of segmenter.segment(shared.replace(/ /g, ''))) {
+    if (++characters === 2) return 'partial';
+  }
+  return 'none';
 }
 const MATCH_ORDER: Record<AddressMatch, number> = { none: 0, partial: 1, core: 2, exact: 3 };
 const compareIds = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
@@ -112,9 +122,13 @@ function scoreCandidate<T extends SearchRecord>(
   entry: IndexedRecord<T>,
   query: InterpretedSearchQuery,
   validation: Extract<PreparedSearchQuery, { ok: true }>,
+  literalTokens: readonly { value: string; numeric: boolean }[],
 ): CandidateMatch<T> | null {
   let nameMatch = matchName(query.nameKey, entry.nameKey);
-  const literalName = matchName(validation.nameKey, entry.nameKey);
+  const literalName =
+    nameMatch === 'none' && query.nameKey !== validation.nameKey
+      ? matchName(validation.nameKey, entry.nameKey)
+      : 'none';
   const fallbackName = nameMatch === 'none' && literalName !== 'none';
   if (fallbackName) nameMatch = literalName;
   const comparisons = query.address
@@ -128,11 +142,10 @@ function scoreCandidate<T extends SearchRecord>(
   // Unclassified text may partially match address words; numbers remain whole tokens.
   const literalAddress =
     !query.address &&
-    entry.addresses.some((address) => {
-      const tokens = address.key.split(' ');
-      return validation.addressTokens.every((token) =>
+    entry.addressTokens.some((tokens) => {
+      return literalTokens.every((token) =>
         tokens.some((candidate) =>
-          /\d/u.test(token) ? candidate === token : candidate.includes(token),
+          token.numeric ? candidate === token.value : candidate.includes(token.value),
         ),
       );
     });
@@ -191,8 +204,12 @@ export function searchCandidates<T extends SearchRecord>(
   };
   if (!validation.ok) return result;
   const query = interpretSearchQuery(validation);
+  const literalTokens = validation.addressTokens.map((value) => ({
+    value,
+    numeric: /\d/u.test(value),
+  }));
   for (const entry of index.entries) {
-    const match = scoreCandidate(entry, query, validation);
+    const match = scoreCandidate(entry, query, validation, literalTokens);
     if (!match) continue;
     if (match.confidence === 'low') result.similarCandidates.push(match);
     else {

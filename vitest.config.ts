@@ -27,7 +27,7 @@ export default defineConfig({
         test: {
           name: 'unit',
           environment: 'node',
-          include: ['src/{domain,search,shared}/**/*.test.ts'],
+          include: ['src/{domain,search,shared}/**/*.test.ts', 'tests/performance/*.test.ts'],
         },
       },
       {

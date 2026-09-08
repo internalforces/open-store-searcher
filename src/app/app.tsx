@@ -1,7 +1,6 @@
 import { useState } from 'preact/hooks';
 import { type SearchResult, searchCandidates } from '../search/search-candidates.js';
 import { CoverageClock } from './coverage-clock.js';
-import { demoDataset } from './demo-data.js';
 import type { DisplayDataset, DisplayRecord } from './display-data.js';
 import {
   EvidenceContext,
@@ -15,13 +14,14 @@ import { type DisplayLoader, useDisplayData } from './use-display-data.js';
 import './app.css';
 
 type AppProps =
-  | { dataset?: DisplayDataset; loader?: never }
+  | { dataset: DisplayDataset; loader?: never }
   | { dataset?: never; loader: DisplayLoader };
 
 export function App({ dataset: suppliedDataset, loader }: AppProps) {
-  const loading = useDisplayData(loader ?? suppliedDataset ?? demoDataset);
+  const inputSource = (loader ?? suppliedDataset) as DisplayDataset | DisplayLoader;
+  const loading = useDisplayData(inputSource);
   const dataset = loading.prepared?.dataset ?? null;
-  const source = dataset ?? loader ?? suppliedDataset ?? demoDataset;
+  const source = dataset ?? inputSource;
   const isSynthetic = loader?.kind === 'synthetic' || dataset?.coverage.kind === 'synthetic';
   const [draft, setDraft] = useState('');
   const [submission, setSubmission] = useState<{
@@ -155,7 +155,12 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             ' · 유사 후보는 같은 사업체인지 주소와 원본 정보를 확인하세요.'}
         </p>
         {dataset && result?.validation.ok && (
-          <SearchResults result={result} coverage={dataset.coverage} synthetic={isSynthetic} />
+          <SearchResults
+            key={submission?.sequence}
+            result={result}
+            coverage={dataset.coverage}
+            synthetic={isSynthetic}
+          />
         )}
       </main>
       <footer className="page-footer">

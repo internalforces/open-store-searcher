@@ -174,3 +174,52 @@ does not invalidate the bounded assisted matrix. No TASK-017 blocker remains.
 ## PR #18 review remediation — 2026-09-08
 
 PR #18 comments 3953627026 and 3953627033 resolved: identical candidate identity and suppressed overlapping live guidance. Regression/full-check evidence: reports/review-2026-09-08-pr18.md. Changed speech has automated coverage; manual VoiceOver was not repeated.
+
+
+## Open: TASK-018 measured search/rendering and production performance gaps — 2026-09-08
+
+Owner: Performance Engineer / Implementer; TASK-021 must keep performance release acceptance
+open until approved remediation and remeasurement pass. The TASK-014 assignment of full-data
+rendering/partitioning to TASK-018 is not resolved by completing a bounded measurement audit.
+See reports/performance-2026-09-08-task-018.md and its bound JSON.
+
+On Apple M3 with Chromium Pixel 5 emulation and fourfold CPU slowdown, 1,000 same-district
+address candidates take up to 1,478.4 ms to reach the measured display/paint opportunity.
+At 50,000 synthetic records, common-name display takes 2,488.4 ms, no-match display 1,535.5 ms,
+and diagnostic exact search alone 1,817.6 ms. These exceed the 500 ms target. Same-district
+address queries at 10,000/50,000 candidates were not rendered above the 1,000-card harness
+resource cap; their end-to-end result is unavailable, not pass. No product truncation exists.
+
+Follow-up: design accessible bounded initial rendering with access to every candidate;
+profile semantic-preserving search CPU improvements; evaluate real data partitioning when
+source/publication contracts exist. Any interaction or delivery/interface change retains its
+approval gate. Production scale, physical mobile devices and Pages/CDN performance remain
+unverified. TASK-018 audit completion is not performance or release approval; TASK-008 remains
+explicitly on hold. No subsequent task was activated or security/status behavior changed.
+
+
+## TASK-018 optimization follow-up — 2026-09-08
+
+The optimized report supersedes baseline search-cost estimates, not its production warning.
+Mobile 50,000-record exact computation falls from 1817.6 to 146.6 ms; common-name display falls
+from 2488.4 to 690.2 ms and absent-result display from 1535.5 to 69.8 ms. Three display cells
+still exceed 500 ms, eight are unavailable above the harness's 1,000-card cap, and thirteen
+pass. Mobile 1,000-record address display is 1410.8 ms. labTargetsMet and productionVerified
+remain false. Performance Engineer / Implementer must address broad candidate DOM cost and
+measure full production data before TASK-021 release acceptance. Index preparation at 50,000
+mobile records is 2056.1 ms; partitioning still downloads all records. Current three-part
+synthetic loading is implemented and tested, while production delivery stays with the existing
+TASK-008/009/010 gates. TASK-008 remains on hold. Evidence:
+reports/performance-2026-09-08-task-018-optimized.md and matching JSON.
+
+
+## TASK-018 result-page performance remediation
+
+The previously open lab display misses and eight unavailable search cells are resolved for
+the user-approved 20-item pagination behavior. All 24 search cells and 16 applicable navigation
+groups pass 500 ms. Mobile first-page maximum is 182.8 ms and navigation maximum is 46.9 ms.
+This does not claim simultaneous full-card DOM rendering within 500 ms. ProductionVerified
+remains false: all-data download/index preparation, production source-cut/publication and
+physical-device verification retain their existing gates. Earlier issue measurements are
+historical evidence. No remaining known implementation issue is inferred from these closed
+lab misses. Evidence: reports/performance-2026-09-08-task-018-paginated.md in the working checkout.

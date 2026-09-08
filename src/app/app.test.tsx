@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/preact';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { App } from './app.js';
+import { demoDataset } from './demo-data.js';
 import type { DisplayDataset, DisplayRecord } from './display-data.js';
 
 function record(id: string, name: string, roadAddress: string): DisplayRecord {
@@ -55,12 +56,12 @@ async function search(query: string) {
 
 describe('App', () => {
   it('renders the application name as the page heading', () => {
-    render(<App />);
+    render(<App dataset={demoDataset} />);
     expect(screen.getByRole('heading', { level: 1, name: 'open-store-searcher' })).toBeTruthy();
   });
 
   it('shows truthful demo context, source and disclaimer before searching', () => {
-    render(<App />);
+    render(<App dataset={demoDataset} />);
     expect(screen.getByText('합성 예시 데이터 · 실제 사업체 조회가 아닙니다')).toBeTruthy();
     expect(screen.getByText('예시 데이터 기준일: 2026-09-01')).toBeTruthy();
     expect(screen.getByText('현재 문이 열려 있는지는 확인할 수 없습니다')).toBeTruthy();

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "demo-closed",
+    "name": "가상노을 식당",
+    "roadAddress": "서울특별시 송파구 올림픽로 10",
+    "parcelAddress": "",
+    "categoryName": "합성 예시 업종",
+    "businessTypes": [
+      {
+        "sourceField": "업태구분명",
+        "value": "합성 예시 업태"
+      }
+    ],
+    "rawStatus": {
+      "operatingCode": "03",
+      "operatingName": "폐업",
+      "detailedCode": null,
+      "detailedName": null
+    },
+    "lifecycle": {
+      "licensedOn": "2020-01-02",
+      "licenseCancelledOn": null,
+      "suspendedFrom": null,
+      "suspendedThrough": null,
+      "reopenedOn": null,
+      "closedOn": "2026-08-15",
+      "sourceUpdatedAt": "2026-09-01 09:00:00",
+      "sourceLastModifiedAt": null
+    },
+    "sourceLabel": "프로젝트에서 만든 합성 예시 (공공데이터 원본 아님)",
+    "sourceUrl": null
+  },
+  {
+    "id": "demo-unknown",
+    "name": "가상달빛 가게",
+    "roadAddress": "서울특별시 중구 세종대로 30",
+    "parcelAddress": "",
+    "categoryName": "합성 예시 업종",
+    "businessTypes": [
+      {
+        "sourceField": "업태구분명",
+        "value": "합성 예시 업태"
+      }
+    ],
+    "rawStatus": {
+      "operatingCode": "99",
+      "operatingName": "예시 미등록 상태",
+      "detailedCode": null,
+      "detailedName": null
+    },
+    "lifecycle": {
+      "licensedOn": "2020-01-02",
+      "licenseCancelledOn": null,
+      "suspendedFrom": null,
+      "suspendedThrough": null,
+      "reopenedOn": null,
+      "closedOn": null,
+      "sourceUpdatedAt": "2026-09-01 09:00:00",
+      "sourceLastModifiedAt": null
+    },
+    "sourceLabel": "프로젝트에서 만든 합성 예시 (공공데이터 원본 아님)",
+    "sourceUrl": null
+  }
+]

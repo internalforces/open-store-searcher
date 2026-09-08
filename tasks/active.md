@@ -11,12 +11,16 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No task is active. TASK-017 PR #18 review remediation completed; see reports/review-2026-09-08-pr18.md.
+No implementation task is active. TASK-018's approved result-page continuation is complete:
+full verification, independent review and every measured 500 ms search/page-navigation budget
+pass. See tasks/completed.md and paginated performance/review reports in the working checkout
+.worktrees/task013-quality. Production and release gates remain separate; TASK-019 is not activated.
 
 ## Deferred — incomplete
 
-TASK-008 is deferred by the user’s M2 priority. Its baseline evidence below remains historical;
-separate local continuation work is not part of this search PR.
+TASK-008 is explicitly on hold and incomplete at the user's request on 2026-09-08.
+Resume only on a new user request; preserve its implementation, evidence and acceptance gates.
+The baseline below is historical; separate local continuation work remains preserved.
 
 
 ### TASK-008: Validate staged refreshes and freshness evidence

@@ -1,0 +1,21 @@
+{
+  "baselineRef": "1b570a2",
+  "baselineEngineSha256": "52bf90fc8409fe8dd0608ac10f4bca3bdde58721a8ad40332eee07754cd517a4",
+  "optimizedEngineSha256": "736711b737a1f661c9a80b4e7a370affb7ff5b8b7e62153e0b53098a7adf5f5d",
+  "comparisons": [
+    {
+      "corpus": "seoul-quality",
+      "corpusSha256": "de93344cb0bc6fda2198d8d5b66774e656dab8333338b8c7bb3217eafe24ade8",
+      "records": 24,
+      "queries": 77,
+      "allResultFieldsEqual": true
+    },
+    {
+      "corpus": "seoul-source-quality",
+      "corpusSha256": "3b5e235e52ad91c710c2f1e22d1d9a343a2cba895c079554f2434989f1063553",
+      "records": 2803,
+      "queries": 4407,
+      "allResultFieldsEqual": true
+    }
+  ]
+}
