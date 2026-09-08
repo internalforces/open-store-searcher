@@ -66,3 +66,19 @@ test('has no WCAG violations with candidate map links and unavailable coverage',
   await expect(page.getByRole('link', { name: '네이버 지도에서 검색 (새 탭)' })).toHaveCount(2);
   expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
 });
+
+for (const [state, query] of [
+  ['invalid', ''],
+  ['empty', '존재하지않는시험상호'],
+  ['similar', '가상별빛 카페'],
+] as const) {
+  test(`TASK-017 has no WCAG violations in ${state} state with enlarged text`, async ({ page }) => {
+    await page.goto('./');
+    await page.addStyleTag({ content: 'html { font-size: 200%; }' });
+    await page.getByRole('searchbox').fill(query);
+    await page.getByRole('searchbox').press('Enter');
+    if (state === 'invalid') await expect(page.getByRole('alert')).toBeVisible();
+    else await expect(page.getByRole('region', { name: '검색 결과', exact: true })).toBeVisible();
+    expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
+  });
+}

@@ -160,3 +160,11 @@ Revisit if the provider route changes. This does not weaken status or source evi
 FR-10 previously referred to .worktrees/task013-quality, which is absent in a fresh
 checkout. Comment 3949635920 is addressed by repository-relative links to both committed
 TASK-016 verification reports. Git-tracked target validation passed; no runtime defect.
+
+
+## TASK-017 manual evidence gate — 2026-09-08
+
+The tall-card focus/heading visibility defect found at native Chrome200% is fixed and covered
+in all four browser projects. Actual VoiceOver speech, rotor and live-announcement timing remain
+unverified. User authorized temporary VoiceOver execution; the native on/off toggle was verified but the tool could not expose spoken output; do not infer a pass
+from native AX or 22 zero-violation axe scans. TASK-017 remains active for that manual gate.

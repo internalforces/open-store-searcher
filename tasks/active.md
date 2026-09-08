@@ -11,11 +11,54 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-016 is complete in `.worktrees/task013-quality` on
-`codex/task-016-map-links`. User authorized commit, push and PR creation. The approved Naver
-web-route limitation implemented; independent Reviewer Approved. Pinned full verification
-passed 553 tests, 32 browser checks and 16 zero-violation axe scans. See the TASK-016 test
-and review reports in that worktree. TASK-017 is next; no milestone or production gate closed.
+### TASK-017: Responsive, keyboard and screen-reader search flow
+
+- Owner: Implementer / Tester / Reviewer
+- Priority: High
+- Milestone: M2
+- Size: L
+- Related requirements: FR-11, FR-16 (baseline), PRD Section 14.3
+- Status: Active; implementation and automated verification passed; manual screen-reader observation pending
+- Authorization: User requested activation and execution on 2026-09-08. User approved the concrete design by requesting implementation.
+- Workspace: Reuse `.worktrees/task013-quality`; inspected clean baseline 2ff1508; implementation branch `codex/task-017-accessibility`. No new worktree or branch switch during preparation.
+- Dependencies: Completed TASK-014, TASK-015 and TASK-016.
+- Scope: Existing search, candidate evidence, loading and recovery UI. Preserve native controls,
+  safety copy, privacy, synthetic-data boundaries and source/status semantics.
+- Audit: Named input, error alert, polite repeated-search summary, visible focus styles and
+  320px tests already exist. Candidate groups lack list semantics; same-name articles have
+  identical accessible names; zero-result live text reports counts without the safety guidance.
+  Zoom/reflow, complete focus order and recovery focus continuity need dedicated evidence.
+- Proposed design: Use named native candidate lists with address-aware article names; provide
+  keyboard access to candidate evidence through native links and explicit results navigation;
+  retain input focus after search and make invalid submissions/retries predictably recoverable.
+  Extend concise status text for empty/ambiguous results without moving focus on async completion.
+  Fix only demonstrated layout/focus defects. Keep custom arrow-key selection with TASK-023.
+- Acceptance criteria:
+  - [x] Inspect authoritative PRD, existing components, CSS and browser/accessibility checks.
+  - [x] Activate TASK-017 as the only active task while preserving deferred TASK-008.
+  - [x] Obtain approval of the concrete bounded design presented in chat.
+  - [x] Implement named candidate-list semantics and distinguish same-name candidates by evidence.
+  - [x] Verify keyboard search, error correction, candidate/source/map navigation and retry focus.
+  - [x] Verify empty, ambiguous, repeated-search, loading, failure and recovery announcements.
+  - [x] Verify mobile/desktop, 200% zoom and 320 CSS-pixel reflow, long content and focus visibility.
+  - [ ] Record actual screen-reader observations separately from accessibility-tree/axe evidence;
+        leave the manual screen-reader gate explicitly open if direct observation is unavailable.
+  - [x] Pass relevant component regressions, browser/axe checks and pinned `npm run verify:full`.
+  - [x] Obtain independent Reviewer approval and update traceability/session/task records.
+- Verification: Existing pinned Node/npm toolchain; component tests, four-browser E2E,
+  automated axe checks, manual layout/keyboard/assistive-technology observations, diff checks.
+- Boundaries: No dependencies, external services, public identifiers, data delivery, status mapping,
+  infrastructure or deployment changes. No handbook access or milestone closure.
+
+- Implementation evidence: `reports/test-2026-09-08-task-017.md` and
+  `reports/task017-verification-manifest.json` in the delivery checkout. Final pinned full
+  verification: 561 Vitest tests, 56 browser checks, 18 accessibility tests / 22 zero-violation
+  axe scans. Native Chrome 200% zoom inspected and restored; actual VoiceOver remains pending.
+- Manual gate: User authorized VoiceOver execution and commit/push. Native System Settings
+  confirmed VoiceOver on and then off after the bounded attempt. The tool could not expose
+  VoiceOver speech/caption output, so direct AT observation remains open. No additional
+  authorization is needed to retry the same bounded test with a supported observation path.
+  Commit/push is explicitly authorized despite this recorded limitation.
 
 ## Deferred — incomplete
 

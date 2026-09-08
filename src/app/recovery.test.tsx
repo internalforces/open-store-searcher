@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/preact';
 import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { App } from './app.js';
 import { demoDataset } from './demo-data.js';
 
@@ -119,7 +119,11 @@ describe('TASK-015 recovery', () => {
     expect(screen.getByText('데이터 기준일: 확인되지 않음')).toBeTruthy();
     expect(screen.getByText(/원본 데이터가 갱신되었다는 뜻은 아닙니다/)).toBeTruthy();
     await submit();
-    expect(screen.getByText(/폐업을 의미하지 않습니다/)).toBeTruthy();
+    expect(
+      within(screen.getByRole('region', { name: '검색 결과' })).getByText(
+        /폐업을 의미하지 않습니다/,
+      ),
+    ).toBeTruthy();
   });
 
   it('keeps the synthetic disclaimer when a synthetic loader returns unavailable coverage', async () => {
@@ -185,5 +189,30 @@ describe('TASK-015 recovery', () => {
     expect(screen.getByText(/상호명과 시·군·구, 도로명과 건물번호를 함께 입력/)).toBeTruthy();
     expect(screen.getByText('행정상 영업', { selector: '.status-badge' })).toBeTruthy();
     expect(screen.getByText('휴업', { selector: '.status-badge' })).toBeTruthy();
+  });
+});
+
+describe('TASK-017 retry accessibility', () => {
+  it('keeps the retry control focusable and ignores repeated activation while pending', async () => {
+    const pending = deferred();
+    const load = vi
+      .fn()
+      .mockRejectedValueOnce(new Error('initial'))
+      .mockImplementation(() => pending.promise);
+    render(<App loader={source(load)} />);
+    await screen.findByRole('alert');
+    const user = userEvent.setup();
+    const reload = screen.getByRole('button', { name: '데이터 다시 불러오기' });
+    await user.click(reload);
+    await waitFor(() => expect(load).toHaveBeenCalledTimes(2));
+    expect(document.activeElement).toBe(reload);
+    expect(reload.getAttribute('aria-disabled')).toBe('true');
+    await user.keyboard('{Enter} ');
+    fireEvent.click(reload);
+    expect(load).toHaveBeenCalledTimes(2);
+    await act(async () => pending.resolve(demoDataset));
+    await waitFor(() => expect(reload.getAttribute('aria-disabled')).toBe('false'));
+    expect(document.activeElement).toBe(reload);
+    expect(screen.getByRole('status').textContent).toContain('불러왔습니다');
   });
 });

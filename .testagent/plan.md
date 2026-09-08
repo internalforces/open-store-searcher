@@ -46,3 +46,15 @@ R3: document delivered commit/PR and current remediation; final review/full chec
 3. M06: local-only bundled App fixture, intercepted provider navigation with no Referer/opener,
    native keyboard traversal, 320px layout and axe; keep existing production demo suppression.
 4. Run focused tests, pinned verify:full, independent review and assertion-quality audit.
+
+
+## TASK-017 test-first plan — 2026-09-08
+
+1. Add component regressions for named lists, address/fallback article names, keyboard results
+   access, invalid correction and empty/tie/low-result summaries; observe failure.
+2. Add retry-focus browser coverage against controlled loading and guarded repeat activation.
+3. Implement minimal native semantics, explicit local focus navigation and concise live copy.
+4. Extend browser coverage for tab/reverse-tab order, visible focus, reflow/long text, text scaling,
+   error/empty/tie axe states and retained-data recovery; inspect representative screenshots.
+5. Run pinned focused checks and verify:full, review assertions and obtain independent review.
+6. Record actual assistive-technology evidence or explicitly leave that manual gate open.

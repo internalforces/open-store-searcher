@@ -1,3 +1,5 @@
+import { useRef } from 'preact/hooks';
+
 interface SearchFormProps {
   value: string;
   error: string | null;
@@ -15,12 +17,16 @@ export function SearchForm({
   onSubmit,
   disabled = false,
 }: SearchFormProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <search>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          if (!disabled) onSubmit();
+          if (!disabled) {
+            onSubmit();
+            inputRef.current?.focus();
+          }
         }}
       >
         <label htmlFor="business-query">상호명 또는 주소</label>
@@ -29,6 +35,7 @@ export function SearchForm({
         </p>
         <div className="search-controls">
           <input
+            ref={inputRef}
             id="business-query"
             type="search"
             value={value}

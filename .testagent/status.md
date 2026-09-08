@@ -61,3 +61,20 @@ and cover empty/malformed terms and synthetic coverage/loader provenance indepen
 Focused 34 tests and final full 553/32/16 verification passed. Direct component null-address
 fixture corrected to string contract; helper null tests retained. Independent Reviewer Approved.
 No skipped tests, removed coverage or relaxed thresholds. No unresolved findings.
+
+
+## TASK-017 final test-quality review — 2026-09-08
+
+All matrix behaviors are mapped to exact tests in reports/test-2026-09-08-task-017.md.
+Focused 89 component tests and final pinned full 561/56/18 verification exited 0.
+Independent review identified the missing source-link keyboard case; added explicit local
+interception, no-before-activation requests and link order/visible-focus assertions.
+Manual 200% Chrome inspection found tall-card bottom scrolling; red/green regression now
+checks heading visibility in forward/reverse navigation on all four browser projects.
+The duplicate-retry assertion checks loader call counts, not only the disabled attribute.
+No test-gap-analysis/assertion-quality tools are available; assertion review was performed
+inline and independently. Actual VoiceOver observation remains explicitly pending.
+
+Independent Reviewer Approved on the final state; no open code/test findings. Manual AT remains pending.
+
+VoiceOver execution was authorized and on/off verified; speech output unavailable through CUA, so the actual AT gate remains open.

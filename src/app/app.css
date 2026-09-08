@@ -200,6 +200,7 @@ input[aria-invalid="true"] {
   margin-bottom: 16px;
 }
 .result-card {
+  scroll-margin-top: 12px;
   min-width: 0;
   margin-top: 16px;
   padding: 28px;
@@ -322,6 +323,7 @@ dd {
   }
   .search-panel,
   .result-card {
+    scroll-margin-top: 12px;
     padding: 18px;
   }
   .search-controls {
@@ -350,7 +352,8 @@ dd {
   font-size: 0.85rem;
   overflow-wrap: anywhere;
 }
-.reload-button {
+.reload-button,
+.results-button {
   min-height: 44px;
   padding: 8px 14px;
   border: 1px solid #7e9488;
@@ -358,7 +361,8 @@ dd {
   color: #1c302c;
   background: #fff;
 }
-button:disabled {
+button:disabled,
+button[aria-disabled="true"] {
   cursor: default;
   opacity: 0.65;
 }
@@ -381,4 +385,14 @@ button:disabled {
   align-items: center;
   min-height: 44px;
   padding-block: 8px;
+}
+
+.results-button {
+  margin-top: 12px;
+}
+.candidate-list {
+  padding-left: 1.5rem;
+}
+.candidate-list > li {
+  padding-left: 0.25rem;
 }

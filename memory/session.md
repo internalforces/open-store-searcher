@@ -426,3 +426,48 @@ commit/push authorization remains applicable. No source, test or configuration c
 Checked commit ancestry, the documentation diff and whitespace; the approved verification
 manifest still matches. Prior 553/32/16 evidence remains valid without a new test run.
 No merge or deployment; TASK-008 remains deferred/incomplete and TASK-017 is next.
+
+
+## TASK-017 activated and audited — 2026-09-08
+
+User requested activation and execution. TASK-017 is the sole active task. Read authoritative
+PRD FR-11/FR-16/14.3, role prompts, standards, current components/styles and existing E2E/axe
+coverage. Reused delivery checkout was clean at 2ff1508; no branch switch or worktree creation.
+Original dirty TASK-008 work is preserved. Identified missing candidate-list semantics,
+indistinguishable same-name article labels, limited zero-result live guidance and missing
+zoom/full keyboard/recovery-focus evidence. Existing basic search and repeated announcements
+remain the baseline. Concrete bounded design is presented in chat for the brainstorming skill's
+explicit human approval gate. Only activation/project/session/traceability records changed;
+no code, tests, dependencies, commits, pushes, deployment or handbook work occurred.
+TASK-017 is not complete; actual screen-reader observation and independent review remain gates.
+
+
+## TASK-017 implementation and verification — 2026-09-08
+
+User approved the bounded design by requesting implementation. Reused `.worktrees/task013-quality`
+on `codex/task-017-accessibility` from 2ff1508; original dirty TASK-008 work preserved.
+Added named native candidate lists, address-aware focusable evidence cards, explicit result
+navigation without URL mutation, input focus after submission, safe empty/tie/similar live copy,
+and focus-preserving guarded retry. Manual native Chrome200% revealed tall-card bottom scrolling;
+reproduced and fixed with guarded self-focus scrolling while preserving child-link visibility.
+Native 200% recheck passed and zoom restored. Source/map keyboard order and deliberately
+activated source navigation verified with local interception and no Referer.
+
+Final pinned verify:full exited 0: 561 Vitest tests, 56 browser checks, 18 a11y tests / 22 axe
+scans with zero violations. Focused 89 component tests passed. Test report and source/test/config
+manifest are in the delivery checkout. Independent Reviewer Approved; no open code/test findings. Actual VoiceOver
+observation remains pending user authorization; native AX inspection is not speech evidence.
+TASK-017 stays active; tasks/completed.md is intentionally unchanged. No milestone closed.
+No dependencies, production data/status mappings, public URL contracts, workflow, handbook,
+commit, push or deployment changed. All TASK-017 changes remain uncommitted.
+
+
+## TASK-017 authorized delivery preparation — 2026-09-08
+
+User explicitly authorized commit/push and temporary VoiceOver execution. Verified native
+System Settings VoiceOver on, attempted native navigation and documented speech-output
+commands, and verified off during cleanup. CUA VoiceOver window access timed out twice;
+no readable caption or saved speech was obtained. Actual screen-reader acceptance remains
+open due to observation-tool limitations, not missing user approval. No code/test/config
+changed after approved full verification; all manifest hashes match. Proceeding with the
+expressly authorized delivery of reviewed TASK-017 implementation and accurate limitations.

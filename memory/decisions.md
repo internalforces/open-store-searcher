@@ -463,3 +463,14 @@ of the Naver HTTPS /p/search/{encodedTerms} route's unverified official compatib
 and preferred road/parcel address, fixed HTTPS origins, explicit protected new tabs, and suppress
 synthetic coverage or loader provenance. No API/SDK, dependency, public identifier or status
 contract changed. See reports/test-2026-09-07-task-016.md for evidence and limitations.
+
+
+## TASK-017 approved UI decisions — 2026-09-08
+
+The user approved bounded accessibility implementation. Candidate collections use native lists;
+read-only evidence cards expose name and address and are keyboard-focusable, including when
+no external links exist. A local button focuses the results region without changing the URL.
+Submission returns focus to input; asynchronous data completion does not steal focus. Retry
+uses aria-disabled plus an execution guard to remain focusable while pending. Tall card
+self-focus reveals the heading; child links retain their native focus scroll position.
+No new public contract or architecture ADR is needed. Custom selection remains TASK-023.

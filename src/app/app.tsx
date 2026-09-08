@@ -68,6 +68,17 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
               }));
             }}
           />
+          {result?.validation.ok && (
+            <button
+              type="button"
+              className="results-button"
+              onClick={() => {
+                document.getElementById('search-results')?.focus();
+              }}
+            >
+              검색 결과로 이동
+            </button>
+          )}
           <p className="open-now-warning">현재 문이 열려 있는지는 확인할 수 없습니다</p>
         </div>
         <section className="data-state" aria-label="데이터 불러오기">
@@ -111,8 +122,10 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
               <button
                 type="button"
                 className="reload-button"
-                disabled={loading.phase === 'loading'}
-                onClick={loading.reload}
+                aria-disabled={loading.phase === 'loading'}
+                onClick={() => {
+                  if (loading.phase !== 'loading') loading.reload();
+                }}
               >
                 데이터 다시 불러오기
               </button>
@@ -130,6 +143,14 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
           {result?.validation.ok
             ? `검색 ${submission?.sequence}회 완료 · 일치 후보 ${result.eligibleCount}개 · 유사 후보 ${result.similarCount}개`
             : ''}
+          {result?.validation.ok &&
+            (result.eligibleCount === 0 && result.similarCount === 0
+              ? ' · 일치하는 데이터를 찾지 못했습니다. 폐업을 의미하지 않습니다. 검색어를 바꾸거나 원본 출처를 확인하세요.'
+              : result.ambiguousTop
+                ? ' · 동일하게 일치하는 후보가 여러 개입니다. 원본 정보를 비교해 주세요.'
+                : result.similarCount > 0
+                  ? ' · 유사 후보는 같은 사업체인지 주소와 원본 정보를 확인하세요.'
+                  : '')}
         </p>
         {dataset && result?.validation.ok && (
           <SearchResults result={result} coverage={dataset.coverage} synthetic={isSynthetic} />
