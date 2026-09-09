@@ -13,44 +13,44 @@
 scripts/sample-search-source.mjs:253:23 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   i Template literals are preferred over string concatenation.
-  
+
     251 │   };
     252 │   const corpus = { id: 'seoul-restaurants-source-v1', provenance, records, cases };
   > 253 │   const corpusBytes = JSON.stringify(corpus, null, 2) + '\n';
         │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     254 │   const audit = {
     255 │     schemaVersion: 1,
-  
+
   i Unsafe fix: Use a template literal.
-  
+
     251 251 │     };
     252 252 │     const corpus = { id: 'seoul-restaurants-source-v1', provenance, records, cases };
     253     │ - ··const·corpusBytes·=·JSON.stringify(corpus,·null,·2)·+·'\n';
         253 │ + ··const·corpusBytes·=·`${JSON.stringify(corpus,·null,·2)}\n`;
     254 254 │     const audit = {
     255 255 │       schemaVersion: 1,
-  
+
 
 scripts/sample-search-source.mjs:301:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   i Template literals are preferred over string concatenation.
-  
+
     299 │   await mkdir(outputRoot, { recursive: false });
     300 │   await writeFile(resolve(outputRoot, 'corpus.json'), corpusBytes, { flag: 'wx' });
   > 301 │   await writeFile(resolve(outputRoot, 'audit.json'), JSON.stringify(audit, null, 2) + '\n', {
         │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     302 │     flag: 'wx',
     303 │   });
-  
+
   i Unsafe fix: Use a template literal.
-  
+
     299 299 │     await mkdir(outputRoot, { recursive: false });
     300 300 │     await writeFile(resolve(outputRoot, 'corpus.json'), corpusBytes, { flag: 'wx' });
     301     │ - ··await·writeFile(resolve(outputRoot,·'audit.json'),·JSON.stringify(audit,·null,·2)·+·'\n',·{
         301 │ + ··await·writeFile(resolve(outputRoot,·'audit.json'),·`${JSON.stringify(audit,·null,·2)}\n`,·{
     302 302 │       flag: 'wx',
     303 303 │     });
-  
+
 
 Checked 126 files in 105ms. No fixes applied.
 Found 2 infos.
@@ -79,37 +79,37 @@ Checked 124 files in 37ms. No fixes applied.
 
  % Coverage report from v8
 -------------------|---------|----------|---------|---------|-------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   92.89 |    92.41 |   96.23 |   94.99 |                   
- app               |    94.9 |    95.98 |   96.92 |   95.78 |                   
-  app.tsx          |   95.23 |    97.33 |     100 |     100 | 63,141            
-  demo-loader.ts   |       0 |        0 |       0 |       0 | 8-21              
-  ...ion-loader.ts |     100 |     87.5 |     100 |     100 | 44                
-  ...splay-data.ts |   94.44 |    97.14 |     100 |     100 | 19                
-  result-card.tsx  |     100 |       95 |     100 |     100 | 60                
-  ...h-results.tsx |     100 |       95 |     100 |     100 | 57                
-  ...splay-data.ts |   95.34 |    95.45 |     100 |   97.05 | 25                
- pipeline          |   90.59 |    89.28 |   95.04 |   93.57 |                   
-  ...ul-archive.ts |   72.72 |       75 |      50 |   74.19 | 59,73,110,137-149 
-  csv-header.ts    |    94.2 |    93.22 |     100 |      95 | 46,51,80          
-  ...e-contract.ts |    92.5 |    85.18 |     100 |   91.89 | 18,23,46          
-  ...ct-archive.ts |   91.93 |    91.48 |     100 |    92.3 | 60,90,97,128      
-  manual-probe.ts  |   61.29 |       60 |     100 |      64 | 36,70,79-91       
-  probe-source.ts  |   93.33 |    88.23 |     100 |   95.45 | 63,77,87          
-  ...on-metrics.ts |   92.12 |    89.89 |     100 |   95.49 | ...11,256,271,278 
-  ...tion-types.ts |   91.66 |    93.33 |     100 |     100 | 135               
-  ...e-contract.ts |    85.1 |    83.78 |     100 |   86.66 | 26,33,41,44,47,92 
-  ...d-download.ts |   90.24 |    91.07 |   61.53 |   97.36 | 64,158            
-  ...se-records.ts |   92.89 |    86.29 |     100 |   96.44 | ...91,311,476,488 
-  unzip-archive.ts |   81.35 |    73.13 |   89.47 |   87.73 | ...11,161,172,203 
-  ...json-bytes.ts |   89.47 |    85.71 |     100 |     100 | 26-32             
-  ...se-refresh.ts |   96.58 |    95.71 |     100 |   98.01 | 84,123,215,408    
- search            |   99.64 |    97.66 |     100 |   99.59 |                   
-  ...ch-address.ts |    98.9 |    98.37 |     100 |    98.8 | 136               
-  ...arch-query.ts |     100 |    95.58 |     100 |     100 | 57,86,90          
-  ...arch-query.ts |     100 |    95.45 |     100 |     100 | 23                
-  ...candidates.ts |     100 |    98.44 |     100 |     100 | 84,115            
+All files          |   92.89 |    92.41 |   96.23 |   94.99 |
+ app               |    94.9 |    95.98 |   96.92 |   95.78 |
+  app.tsx          |   95.23 |    97.33 |     100 |     100 | 63,141
+  demo-loader.ts   |       0 |        0 |       0 |       0 | 8-21
+  ...ion-loader.ts |     100 |     87.5 |     100 |     100 | 44
+  ...splay-data.ts |   94.44 |    97.14 |     100 |     100 | 19
+  result-card.tsx  |     100 |       95 |     100 |     100 | 60
+  ...h-results.tsx |     100 |       95 |     100 |     100 | 57
+  ...splay-data.ts |   95.34 |    95.45 |     100 |   97.05 | 25
+ pipeline          |   90.59 |    89.28 |   95.04 |   93.57 |
+  ...ul-archive.ts |   72.72 |       75 |      50 |   74.19 | 59,73,110,137-149
+  csv-header.ts    |    94.2 |    93.22 |     100 |      95 | 46,51,80
+  ...e-contract.ts |    92.5 |    85.18 |     100 |   91.89 | 18,23,46
+  ...ct-archive.ts |   91.93 |    91.48 |     100 |    92.3 | 60,90,97,128
+  manual-probe.ts  |   61.29 |       60 |     100 |      64 | 36,70,79-91
+  probe-source.ts  |   93.33 |    88.23 |     100 |   95.45 | 63,77,87
+  ...on-metrics.ts |   92.12 |    89.89 |     100 |   95.49 | ...11,256,271,278
+  ...tion-types.ts |   91.66 |    93.33 |     100 |     100 | 135
+  ...e-contract.ts |    85.1 |    83.78 |     100 |   86.66 | 26,33,41,44,47,92
+  ...d-download.ts |   90.24 |    91.07 |   61.53 |   97.36 | 64,158
+  ...se-records.ts |   92.89 |    86.29 |     100 |   96.44 | ...91,311,476,488
+  unzip-archive.ts |   81.35 |    73.13 |   89.47 |   87.73 | ...11,161,172,203
+  ...json-bytes.ts |   89.47 |    85.71 |     100 |     100 | 26-32
+  ...se-refresh.ts |   96.58 |    95.71 |     100 |   98.01 | 84,123,215,408
+ search            |   99.64 |    97.66 |     100 |   99.59 |
+  ...ch-address.ts |    98.9 |    98.37 |     100 |    98.8 | 136
+  ...arch-query.ts |     100 |    95.58 |     100 |     100 | 57,86,90
+  ...arch-query.ts |     100 |    95.45 |     100 |     100 | 23
+  ...candidates.ts |     100 |    98.44 |     100 |     100 | 84,115
 -------------------|---------|----------|---------|---------|-------------------
 
 =============================== Coverage summary ===============================

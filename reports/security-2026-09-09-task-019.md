@@ -62,7 +62,7 @@ Pinned runtime: Node 24.19.0 / npm 11.17.0, using the existing
 - Built artifact pattern scan: zero matches; SHA-256 inventory saved. The build is the tested
   Pages-subpath synthetic application. No external hosting headers or account settings were audited.
 
-Full verification output: `security-2026-09-09-task-019-verify.txt`.
+Full verification output (trailing whitespace normalized for Git): `security-2026-09-09-task-019-verify.txt`.
 
 ## Remaining release gates
 
