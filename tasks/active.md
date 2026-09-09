@@ -11,10 +11,10 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-018's approved result-page continuation is complete:
-full verification, independent review and every measured 500 ms search/page-navigation budget
-pass. See tasks/completed.md and paginated performance/review reports in the working checkout
-.worktrees/task013-quality. Production and release gates remain separate; TASK-019 is not activated.
+No implementation task is active. TASK-019's bounded security review completed on 2026-09-09.
+See `reports/security-2026-09-09-task-019.md` in `.worktrees/task013-quality`.
+No actionable vulnerability was confirmed in current code; production and Actions review gates
+remain open for TASK-009/010/021. TASK-020 remains in backlog and is not activated.
 
 ## Deferred — incomplete
 

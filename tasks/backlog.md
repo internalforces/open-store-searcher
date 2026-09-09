@@ -13,7 +13,6 @@ _Last updated: 2026-09-04_
 |---|---|---|---|---|---|
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
-| TASK-019 | Review privacy, input rendering, external links, and Actions permissions | High | M3 | M | FR-12, Section 14.4 |
 | TASK-020 | Write setup, deployment, source, disclaimer, contribution, code-of-conduct, and security-reporting docs | High | M3 | M | Section 17, Section 20 |
 | TASK-021 | Run full P0 traceability and v1.0 release-candidate verification | High | M3 | L | FR-01 through FR-14, Section 17 |
 | TASK-022 | Design and implement identifier-based share URLs | Medium | M4 | M | FR-15 |

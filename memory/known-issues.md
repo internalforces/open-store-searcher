@@ -223,3 +223,13 @@ remains false: all-data download/index preparation, production source-cut/public
 physical-device verification retain their existing gates. Earlier issue measurements are
 historical evidence. No remaining known implementation issue is inferred from these closed
 lab misses. Evidence: reports/performance-2026-09-08-task-018-paginated.md in the working checkout.
+
+
+## TASK-019 security review follow-up — 2026-09-09
+
+No confirmed current-application vulnerability requires remediation. TASK-010/021 must review
+actual Actions workflows and repository permissions when available (none exist in reviewed
+b614838); TASK-009/021 retain production artifact limits/provenance/publication security gates.
+TASK-020 retains public security-reporting documentation. These are deferred release checks,
+not discovered exploits or a reason to resume held TASK-008. See the TASK-019 security report
+in .worktrees/task013-quality. No architectural or security-policy decision changed.
