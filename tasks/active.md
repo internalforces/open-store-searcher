@@ -12,7 +12,7 @@ _Last updated: 2026-09-04_
 ## In Progress
 
 No implementation task is active. TASK-019's bounded security review completed on 2026-09-09.
-See `reports/security-2026-09-09-task-019.md` in `.worktrees/task013-quality`.
+See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).
 No actionable vulnerability was confirmed in current code; production and Actions review gates
 remain open for TASK-009/010/021. TASK-020 remains in backlog and is not activated.
 

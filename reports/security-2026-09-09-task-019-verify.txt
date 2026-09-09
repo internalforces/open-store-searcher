@@ -68,7 +68,7 @@ Checked 124 files in 37ms. No fixes applied.
 > vitest run --coverage
 
 
- RUN  v4.1.11 /Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality
+ RUN  v4.1.11 <repository>
       Coverage enabled with v8
 
 

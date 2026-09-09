@@ -233,3 +233,12 @@ b614838); TASK-009/021 retain production artifact limits/provenance/publication 
 TASK-020 retains public security-reporting documentation. These are deferred release checks,
 not discovered exploits or a reason to resume held TASK-008. See the TASK-019 security report
 in .worktrees/task013-quality. No architectural or security-policy decision changed.
+
+
+### PR #20 evidence corrections — 2026-09-10
+
+Three documentation/evidence findings are resolved: checkout-dependent FR-12 evidence pointer,
+public transcript local-path disclosure and missing artifact-scan definition. Exact scan replay
+and full verification pass; see reports/review-2026-09-10-pr20.md. Historical Git objects and
+existing review comments may retain the former local path; no history rewrite was performed.
+No new application vulnerability or architecture decision was introduced.

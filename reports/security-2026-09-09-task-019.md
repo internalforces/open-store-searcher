@@ -62,7 +62,7 @@ Pinned runtime: Node 24.19.0 / npm 11.17.0, using the existing
 - Built artifact pattern scan: zero matches; SHA-256 inventory saved. The build is the tested
   Pages-subpath synthetic application. No external hosting headers or account settings were audited.
 
-Full verification output (trailing whitespace normalized for Git): `security-2026-09-09-task-019-verify.txt`.
+Full verification output (trailing whitespace normalized for Git; local checkout path replaced by `<repository>`): `security-2026-09-09-task-019-verify.txt`.
 
 ## Remaining release gates
 
@@ -76,3 +76,45 @@ production data and independent release/merge approval remain unverified here.
 TASK-008 stays on hold. No dependency, security fix, workflow, infrastructure, public contract,
 commit, push, merge, deployment or handbook change was made. No remediation approval is requested
 because this review identified no concrete fix to apply.
+
+
+## Artifact scan reproduction
+
+PR #20 review follow-up, 2026-09-10: the original scan definition is now preserved in
+`artifactScan` in the companion evidence JSON. The five exact regular expressions are the
+original 2026-09-09 patterns, not an expanded scanner. `artifactHashes` lists all six searched
+paths and their bytes' SHA-256 values. This narrow heuristic does not establish absence of
+all credentials or tracking. It prints only pattern labels and relative paths, never matches.
+
+From the repository root, with the pinned Node/npm runtime on PATH, run the following command.
+Python 3 standard library is required. The command rejects missing/extra/changed artifacts
+before comparing the reproduced results with the saved result. It does not read environment
+files, credentials or the contributor's home directory.
+
+```sh
+npm run build:e2e && python3 - <<'PYSCAN'
+from pathlib import Path
+import hashlib
+import json
+import re
+
+evidence = json.loads(Path('reports/security-2026-09-09-task-019-evidence.json').read_text())
+paths = sorted(p for p in Path('dist').rglob('*') if p.is_file())
+actual = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+if actual != evidence['artifactHashes']:
+    raise SystemExit('Artifact inventory or hashes differ from reviewed evidence')
+hits = []
+for path in paths:
+    text = path.read_text(encoding='utf-8', errors='replace')
+    for name, pattern in evidence['artifactScan']['patterns'].items():
+        if re.search(pattern, text):
+            hits.append({'file': str(path), 'pattern': name})
+print(json.dumps({'searchedPaths': list(actual), 'artifactPatternHits': hits}, indent=2))
+if hits != evidence['artifactPatternHits']:
+    raise SystemExit('Scan results differ from reviewed evidence')
+PYSCAN
+```
+
+The public verification transcript now uses `<repository>` in place of its absolute local
+checkout path. Test results and measurements are unchanged. This edits the current report;
+it does not erase the path from earlier Git commits or existing review comments.

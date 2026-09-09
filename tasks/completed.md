@@ -341,3 +341,14 @@ No security fix was needed or applied. Actions files do not exist; production pu
 workflow/account settings and release security gates stay open for TASK-009/010/021.
 No active task; TASK-020 is next, unactivated. TASK-008 remains on hold. No source/test changes,
 dependency change, commit, push, merge, deployment or handbook access occurred.
+
+
+## PR #20 review remediation — 2026-09-10
+
+Resolved all three P2 review comments: portable FR-12/active-task report links, anonymous
+public-log checkout path, and reproducible artifact scan definition/command. The exact command
+reproduces six artifact hashes and zero hits; 53 source hashes remain unchanged. Pinned
+verify:full passes 598 Vitest, 68 browser and 20 accessibility tests. See
+[review remediation](../reports/review-2026-09-10-pr20.md). TASK-019 remains complete; TASK-008
+stays on hold. User-authorized PR delivery continues on codex/task-019-security-review.
+No application code, security policy, dependency, workflow or deployment changed.

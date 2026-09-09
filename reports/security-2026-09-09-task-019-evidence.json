@@ -67,5 +67,17 @@
   "workflowFiles": [],
   "lockEntries": 307,
   "missingIntegrity": 0,
-  "nonRegistryResolutions": 0
+  "nonRegistryResolutions": 0,
+  "artifactScan": {
+    "engine": "Python 3 re.search; default flags; UTF-8 with replacement decoding",
+    "scope": "Every regular file recursively under dist; inventory must exactly match artifactHashes",
+    "patterns": {
+      "private_key": "-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
+      "github_token": "gh[pousr]_[A-Za-z0-9]{36,}",
+      "aws_key": "AKIA[0-9A-Z]{16}",
+      "environment_injection": "import\\.meta\\.env|process\\.env",
+      "tracking": "googletagmanager|google-analytics|plausible\\.io|segment\\.com|hotjar"
+    },
+    "commandLocation": "security-2026-09-09-task-019.md#artifact-scan-reproduction"
+  }
 }
