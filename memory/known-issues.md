@@ -231,8 +231,8 @@ No confirmed current-application vulnerability requires remediation. TASK-010/02
 actual Actions workflows and repository permissions when available (none exist in reviewed
 b614838); TASK-009/021 retain production artifact limits/provenance/publication security gates.
 TASK-020 retains public security-reporting documentation. These are deferred release checks,
-not discovered exploits or a reason to resume held TASK-008. See the TASK-019 security report
-in .worktrees/task013-quality. No architectural or security-policy decision changed.
+not discovered exploits or a reason to resume held TASK-008. See the
+[TASK-019 security report](../reports/security-2026-09-09-task-019.md). No architectural or security-policy decision changed.
 
 
 ### PR #20 evidence corrections — 2026-09-10

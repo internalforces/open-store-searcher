@@ -667,3 +667,12 @@ verify:full passes 598 Vitest, 68 browser and 20 accessibility tests. See
 [review remediation](../reports/review-2026-09-10-pr20.md). TASK-019 remains complete; TASK-008
 stays on hold. User-authorized PR delivery continues on codex/task-019-security-review.
 No application code, security policy, dependency, workflow or deployment changed.
+
+
+## PR #20 second review correction — 2026-09-10
+
+Resolved comment 3979191617: the remaining TASK-019 security-evidence reference in
+memory/known-issues.md now links to the committed report using a repository-relative path.
+Verified the known-issues, active-task and FR-12 links against Git's tracked file list and
+confirmed all 53 source hashes remain unchanged. Markdown-only correction; prior full
+verification remains applicable. TASK-019 stays complete; TASK-008 remains on hold.
