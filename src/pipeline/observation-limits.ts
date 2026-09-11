@@ -1,6 +1,6 @@
 import type { ObservationLimits } from './observe-license-archive.js';
 
-/** ADR-015 reviewed experiment stop conditions, never production validation thresholds. */
+/** Independently reviewed TASK-008 disk experiment caps; never production validation thresholds. */
 export function parseObservationLimits(values: Record<string, unknown>): ObservationLimits {
   const bounded = (key: string, ceiling: number) => {
     const value = values[key];
@@ -12,8 +12,8 @@ export function parseObservationLimits(values: Record<string, unknown>): Observa
     return number;
   };
   return {
-    maxTotalBytes: bounded('max-bytes', 268_435_456),
-    maxRows: bounded('max-rows', 100_000),
+    maxTotalBytes: bounded('max-bytes', 2_147_483_648),
+    maxRows: bounded('max-rows', 3_000_000),
     maxRecordChars: bounded('max-record-chars', 65_536),
     timeoutMs: bounded('timeout-ms', 600_000),
     maxRssBytes: bounded('max-rss-bytes', 3_221_225_472),

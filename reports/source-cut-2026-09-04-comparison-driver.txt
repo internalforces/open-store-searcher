@@ -1,0 +1,57 @@
+import {createHash} from 'node:crypto';
+import {mkdtemp, readFile, readdir, rm, writeFile} from 'node:fs/promises';
+import {createServer} from '/work/repository/node_modules/vite/dist/node/index.js';
+const root='/work/repository';
+const previous='9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c';
+const executionFiles=['/work/compare-retrieval.mjs','/work/comparison-implementation.json','/work/comparison-code.tar'];
+const executionHashes=async()=>Object.fromEntries(await Promise.all(executionFiles.map(async p=>[p,createHash('sha256').update(await readFile(p)).digest('hex')])));
+const executionBefore=await executionHashes();
+const expectedExecution=[process.argv[2],'edc11c96004bf2f25e0b097162c494dfcf998b0d459bc4ee0dcb1126f0722fd1','3f7542f331041865742dd41807897364230767295c01fbfdfb4230c352c66d52'];
+if(!executionFiles.every((p,i)=>/^[a-f0-9]{64}$/.test(expectedExecution[i]??'')&&executionBefore[p]===expectedExecution[i]))throw Error('execution_mismatch_before');
+const manifest=JSON.parse(await readFile('/work/comparison-implementation.json','utf8'));
+const hashes=async()=>Object.fromEntries(await Promise.all(Object.keys(manifest).map(async p=>[p,createHash('sha256').update(await readFile(`${root}/${p}`)).digest('hex')])));
+const before=await hashes();
+if(JSON.stringify(before)!==JSON.stringify(manifest))throw Error('implementation_mismatch_before');
+const stagingRoot=await mkdtemp('/work/staging/task008-comparison-');
+const audit={version:1,startedAt:new Date().toISOString(),priorArchiveSha256:previous,researchOnly:true,independentTemporalObservation:false,sourceCutEstablished:false,productionBaselineCreated:false,completeEvidenceWritten:false,implementation:before,executionFiles:executionBefore,limits:{maxTotalBytes:2147483648,maxRows:3000000,maxRecordChars:65536,timeoutMs:600000,maxRssBytes:3221225472}};
+let server,indexStore,archivePath,report;
+try {
+ server=await createServer({root,configFile:false,appType:'custom',logLevel:'silent'});
+ const [{collectSeoulArchive},{DEFAULT_COLLECTOR_LIMITS}]=await Promise.all([server.ssrLoadModule('/src/pipeline/collect-seoul-archive.ts'),server.ssrLoadModule('/src/pipeline/collector-types.ts')]);
+ const collection=await collectSeoulArchive({stagingRoot,fetchedAt:new Date().toISOString(),limits:DEFAULT_COLLECTOR_LIMITS});
+ audit.collectorCompletedAt=new Date().toISOString();
+ audit.collectorLimits=DEFAULT_COLLECTOR_LIMITS;
+ if(collection.kind!=='accepted'){audit.collection=collection;process.exitCode=1;}
+ else{
+  archivePath=collection.archivePath;
+  const {archivePath:privatePath,...evidence}=collection;
+  audit.collection=evidence;
+  audit.archiveMatchesPrevious=collection.sha256===previous;
+  if(audit.archiveMatchesPrevious){await rm(archivePath);archivePath=undefined;audit.outcome='identical_archive_no_new_temporal_sample';}
+  else {
+   const [{observeLicenseArchiveV2,nativeObservationDependencies},{parseArchiveContract},{parsePermissionManifest},{ResearchIndexStore},{VOCABULARY_V2}]=await Promise.all([server.ssrLoadModule('/src/pipeline/observe-license-archive.ts'),server.ssrLoadModule('/src/pipeline/archive-contract.ts'),server.ssrLoadModule('/src/pipeline/source-contract.ts'),server.ssrLoadModule('/src/pipeline/research-index-store.ts'),server.ssrLoadModule('/src/pipeline/aggregate-vocabulary.ts')]);
+   report=await observeLicenseArchiveV2({validationVersion:2,...VOCABULARY_V2,collection,archiveContract:parseArchiveContract(JSON.parse(await readFile(`${root}/src/pipeline/contracts/seoul-archive-contract.json`,'utf8'))),permissionManifest:parsePermissionManifest(JSON.parse(await readFile(`${root}/reports/source-permission-manifest-2026-08-28.json`,'utf8'))),now:new Date().toISOString(),limits:audit.limits},{...nativeObservationDependencies,createIndexStore:async(_path,checkBudget)=>{indexStore=await ResearchIndexStore.create(stagingRoot,root,checkBudget);return indexStore;}});
+   audit.outcome=report.complete?'different_archive_complete_research_observation':'different_archive_incomplete_observation';
+   audit.distinctArchiveObservationComplete=report.complete;
+   process.exitCode=report.kind==='rejected'?1:2;
+  }
+ }
+} catch(error){audit.failure=error instanceof Error?error.message:'comparison_failed';process.exitCode=1;}
+finally{
+ try{await indexStore?.cleanup();if(archivePath)await rm(archivePath);audit.stagingEmptyAfter=(await readdir(stagingRoot)).length===0;if(!audit.stagingEmptyAfter)throw Error('staging_not_empty');}catch{audit.cleanupFailed=true;process.exitCode=1;}
+ finally{try{await rm(stagingRoot,{recursive:true});audit.ownedStagingRemoved=true;}catch{audit.cleanupFailed=true;process.exitCode=1;}}
+ try{await server?.close();}catch{audit.serverCloseFailed=true;process.exitCode=1;}
+ try{audit.implementationMatchedAfter=JSON.stringify(before)===JSON.stringify(await hashes());audit.executionMatchedAfter=JSON.stringify(executionBefore)===JSON.stringify(await executionHashes());}catch{audit.implementationMatchedAfter=false;audit.executionMatchedAfter=false;}
+ if(!audit.implementationMatchedAfter||!audit.executionMatchedAfter)process.exitCode=1;
+ audit.completedAt=new Date().toISOString();
+ audit.integrityPassed=!audit.cleanupFailed&&!audit.serverCloseFailed&&audit.implementationMatchedAfter&&audit.executionMatchedAfter;
+ const reportPath='/work/evidence/task008-comparison-observation.json';
+ const auditPath='/work/evidence/task008-comparison-audit.json';
+ let reportOwned=false;
+ await writeFile('/work/evidence/task008-comparison-audit.json',JSON.stringify(audit,null,2)+'\n',{flag:'wx'});
+ if(report&&audit.integrityPassed&&!audit.failure){
+  try{const bytes=JSON.stringify(report,null,2)+'\n';await writeFile(reportPath,bytes,{flag:'wx'});reportOwned=true;audit.reportSha256=createHash('sha256').update(bytes).digest('hex');audit.completeEvidenceWritten=report.complete;await writeFile(auditPath,JSON.stringify(audit,null,2)+'\n');}
+  catch(error){if(reportOwned)await rm(reportPath);audit.completeEvidenceWritten=false;audit.outputFailed=true;process.exitCode=1;await writeFile(auditPath,JSON.stringify(audit,null,2)+'\n');}
+ }
+ console.log(JSON.stringify({outcome:audit.outcome,archiveMatchesPrevious:audit.archiveMatchesPrevious,stagingEmptyAfter:audit.stagingEmptyAfter,implementationMatchedAfter:audit.implementationMatchedAfter,completedAt:audit.completedAt}));
+}

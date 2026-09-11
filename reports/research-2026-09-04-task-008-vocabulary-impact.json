@@ -1,0 +1,1282 @@
+{
+  "artifactKind": "unapproved_vocabulary_impact_proposal",
+  "derivationVersion": 1,
+  "researchOnly": true,
+  "proposalApproved": false,
+  "sourceReport": "reports/observation-2026-09-04-task-008-complete.json",
+  "sourceReportSha256": "1e218c054100dc8dbdccf387a383ab37e85e0797d82e72a7ba341755bc6edab6",
+  "sourceAudit": "reports/observation-2026-09-04-task-008-complete-audit.json",
+  "sourceAuditSha256": "0e7ffda54b8d52b058a311f4e2c4502c0305c61c98f468d0a8026f7da773b481",
+  "sourceArchiveSha256": "9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c",
+  "proposedEnvelope": {
+    "observationVersion": 2,
+    "validationVersion": 2,
+    "aggregateVocabularyVersion": 2,
+    "aggregateVocabularySha256": "3950016eb0d666c08b567d90cd63903201c2ccb6cd9e2b6ebb5b4bd668e2626e"
+  },
+  "vocabulary": {
+    "aggregateVocabularyVersion": 2,
+    "pairs": [
+      {
+        "code": "01",
+        "name": "영업/정상"
+      },
+      {
+        "code": "02",
+        "name": "휴업"
+      },
+      {
+        "code": "03",
+        "name": "폐업"
+      },
+      {
+        "code": "04",
+        "name": "취소/말소/만료/정지/중지"
+      },
+      {
+        "code": "05",
+        "name": "제외/삭제/전출"
+      },
+      {
+        "code": "06",
+        "name": "기타"
+      }
+    ]
+  },
+  "canonicalization": "Recursive lexicographic object-key sorting; array order preserved; compact JSON UTF-8; no trailing newline",
+  "derivationImplementation": [
+    {
+      "path": "scripts/analyze-task008-vocabulary-proposal.mjs",
+      "sha256": "ff9ff5c61c880613a5fd8c7bbab35bbc2c187a4501a621f42dfde0da1defdd57"
+    },
+    {
+      "path": "src/pipeline/refresh-validation-metrics.ts",
+      "sha256": "77ecbbac92473c1b67b5c10f30eb94710a1c2a42c2aa4154c2f7a143fd823f7f"
+    },
+    {
+      "path": "src/domain/map-license-status.ts",
+      "sha256": "16f58c1ade9d11c5a5ae14d980312d5431438edc58369582c70d2a1d3cd0c4bf"
+    }
+  ],
+  "proposedAddedPairs": [
+    {
+      "code": "05",
+      "name": "제외/삭제/전출",
+      "count": 186864
+    },
+    {
+      "code": "06",
+      "name": "기타",
+      "count": 23
+    }
+  ],
+  "processedStatusChange": false,
+  "unverifiedRowsBeforeAndAfter": 380285,
+  "categoryCount": 195,
+  "changedCategoryCount": 68,
+  "comparison": [
+    {
+      "category": "total",
+      "recordCount": 2936760,
+      "observedUnknownPairCountV1": 186887,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006668",
+      "recordCount": 92,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006679",
+      "recordCount": 148,
+      "observedUnknownPairCountV1": 14,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006697",
+      "recordCount": 13128,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006700",
+      "recordCount": 8,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006706",
+      "recordCount": 605,
+      "observedUnknownPairCountV1": 4,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006727",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006730",
+      "recordCount": 146945,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15006741",
+      "recordCount": 6,
+      "observedUnknownPairCountV1": 2,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044950",
+      "recordCount": 2664,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044952",
+      "recordCount": 35507,
+      "observedUnknownPairCountV1": 3335,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044953",
+      "recordCount": 2894,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044954",
+      "recordCount": 662,
+      "observedUnknownPairCountV1": 89,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044955",
+      "recordCount": 284,
+      "observedUnknownPairCountV1": 41,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044956",
+      "recordCount": 147,
+      "observedUnknownPairCountV1": 4,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044957",
+      "recordCount": 5572,
+      "observedUnknownPairCountV1": 375,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044958",
+      "recordCount": 21,
+      "observedUnknownPairCountV1": 2,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044959",
+      "recordCount": 22,
+      "observedUnknownPairCountV1": 4,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044960",
+      "recordCount": 662,
+      "observedUnknownPairCountV1": 75,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044961",
+      "recordCount": 1913,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044962",
+      "recordCount": 270,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044963",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044964",
+      "recordCount": 15358,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044965",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044966",
+      "recordCount": 9036,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044967",
+      "recordCount": 964,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044968",
+      "recordCount": 7130,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044969",
+      "recordCount": 356,
+      "observedUnknownPairCountV1": 8,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044970",
+      "recordCount": 78,
+      "observedUnknownPairCountV1": 8,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044971",
+      "recordCount": 986,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044972",
+      "recordCount": 8955,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044973",
+      "recordCount": 16713,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044974",
+      "recordCount": 143,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044975",
+      "recordCount": 5762,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044976",
+      "recordCount": 10900,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044977",
+      "recordCount": 155807,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044978",
+      "recordCount": 19645,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044979",
+      "recordCount": 1960,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044980",
+      "recordCount": 417,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044981",
+      "recordCount": 7409,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044982",
+      "recordCount": 51,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044983",
+      "recordCount": 68337,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044984",
+      "recordCount": 2504,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044985",
+      "recordCount": 115839,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044986",
+      "recordCount": 363,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044987",
+      "recordCount": 2949,
+      "observedUnknownPairCountV1": 6,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044988",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044989",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044991",
+      "recordCount": 842,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044992",
+      "recordCount": 23,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044993",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044994",
+      "recordCount": 1,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044995",
+      "recordCount": 728,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044996",
+      "recordCount": 13588,
+      "observedUnknownPairCountV1": 3566,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044997",
+      "recordCount": 11825,
+      "observedUnknownPairCountV1": 3900,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044998",
+      "recordCount": 5441,
+      "observedUnknownPairCountV1": 1088,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15044999",
+      "recordCount": 34,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045000",
+      "recordCount": 12965,
+      "observedUnknownPairCountV1": 2653,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045001",
+      "recordCount": 39,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045002",
+      "recordCount": 1645,
+      "observedUnknownPairCountV1": 315,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045003",
+      "recordCount": 1347,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045004",
+      "recordCount": 1366,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045005",
+      "recordCount": 479,
+      "observedUnknownPairCountV1": 86,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045006",
+      "recordCount": 7403,
+      "observedUnknownPairCountV1": 1639,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045007",
+      "recordCount": 1818,
+      "observedUnknownPairCountV1": 412,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045008",
+      "recordCount": 942,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045009",
+      "recordCount": 2449,
+      "observedUnknownPairCountV1": 570,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045010",
+      "recordCount": 156,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045011",
+      "recordCount": 746,
+      "observedUnknownPairCountV1": 53,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045012",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045013",
+      "recordCount": 1051,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045014",
+      "recordCount": 956,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045015",
+      "recordCount": 34,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045016",
+      "recordCount": 538141,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045017",
+      "recordCount": 11615,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045018",
+      "recordCount": 4991,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045019",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045020",
+      "recordCount": 3284,
+      "observedUnknownPairCountV1": 466,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045021",
+      "recordCount": 117,
+      "observedUnknownPairCountV1": 28,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045022",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045023",
+      "recordCount": 810,
+      "observedUnknownPairCountV1": 136,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045024",
+      "recordCount": 37631,
+      "observedUnknownPairCountV1": 796,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045025",
+      "recordCount": 930,
+      "observedUnknownPairCountV1": 12,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045026",
+      "recordCount": 95,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045027",
+      "recordCount": 244,
+      "observedUnknownPairCountV1": 3,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045028",
+      "recordCount": 4902,
+      "observedUnknownPairCountV1": 75,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045029",
+      "recordCount": 2532,
+      "observedUnknownPairCountV1": 278,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045030",
+      "recordCount": 146,
+      "observedUnknownPairCountV1": 3,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045031",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045032",
+      "recordCount": 70152,
+      "observedUnknownPairCountV1": 6869,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045033",
+      "recordCount": 1466,
+      "observedUnknownPairCountV1": 172,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045034",
+      "recordCount": 18034,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045035",
+      "recordCount": 3814,
+      "observedUnknownPairCountV1": 437,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045036",
+      "recordCount": 22426,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045037",
+      "recordCount": 99527,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045038",
+      "recordCount": 15632,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045039",
+      "recordCount": 224,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045040",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045041",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045042",
+      "recordCount": 75,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045043",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045044",
+      "recordCount": 44,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045045",
+      "recordCount": 5716,
+      "observedUnknownPairCountV1": 16,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045046",
+      "recordCount": 1,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045047",
+      "recordCount": 264,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045048",
+      "recordCount": 7319,
+      "observedUnknownPairCountV1": 14,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045049",
+      "recordCount": 589,
+      "observedUnknownPairCountV1": 38,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045050",
+      "recordCount": 2233,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045051",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045052",
+      "recordCount": 812,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045053",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045054",
+      "recordCount": 1,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045055",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045056",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045057",
+      "recordCount": 5414,
+      "observedUnknownPairCountV1": 486,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045058",
+      "recordCount": 83685,
+      "observedUnknownPairCountV1": 14204,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045059",
+      "recordCount": 9923,
+      "observedUnknownPairCountV1": 1128,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045060",
+      "recordCount": 944151,
+      "observedUnknownPairCountV1": 136253,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045061",
+      "recordCount": 1592,
+      "observedUnknownPairCountV1": 81,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045062",
+      "recordCount": 4286,
+      "observedUnknownPairCountV1": 47,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045063",
+      "recordCount": 159,
+      "observedUnknownPairCountV1": 21,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045064",
+      "recordCount": 510,
+      "observedUnknownPairCountV1": 7,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045065",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045066",
+      "recordCount": 210,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045067",
+      "recordCount": 4,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045068",
+      "recordCount": 20,
+      "observedUnknownPairCountV1": 1,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045069",
+      "recordCount": 4190,
+      "observedUnknownPairCountV1": 2,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045070",
+      "recordCount": 4159,
+      "observedUnknownPairCountV1": 727,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045071",
+      "recordCount": 10206,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045072",
+      "recordCount": 4640,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045073",
+      "recordCount": 16844,
+      "observedUnknownPairCountV1": 3,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045074",
+      "recordCount": 7970,
+      "observedUnknownPairCountV1": 1188,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045075",
+      "recordCount": 76,
+      "observedUnknownPairCountV1": 8,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045076",
+      "recordCount": 70,
+      "observedUnknownPairCountV1": 6,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045077",
+      "recordCount": 45,
+      "observedUnknownPairCountV1": 8,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045078",
+      "recordCount": 113,
+      "observedUnknownPairCountV1": 10,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045079",
+      "recordCount": 3618,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045080",
+      "recordCount": 2,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045081",
+      "recordCount": 11546,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045082",
+      "recordCount": 3990,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045083",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045084",
+      "recordCount": 6,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045085",
+      "recordCount": 555,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045086",
+      "recordCount": 3,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045087",
+      "recordCount": 3,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045088",
+      "recordCount": 5,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045089",
+      "recordCount": 772,
+      "observedUnknownPairCountV1": 21,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045090",
+      "recordCount": 1,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045091",
+      "recordCount": 6,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045092",
+      "recordCount": 110,
+      "observedUnknownPairCountV1": 2,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045093",
+      "recordCount": 1,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045094",
+      "recordCount": 33,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045095",
+      "recordCount": 228,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045096",
+      "recordCount": 2,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045097",
+      "recordCount": 496,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045098",
+      "recordCount": 32,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045099",
+      "recordCount": 1620,
+      "observedUnknownPairCountV1": 412,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045100",
+      "recordCount": 5,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045101",
+      "recordCount": 12625,
+      "observedUnknownPairCountV1": 1568,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045102",
+      "recordCount": 857,
+      "observedUnknownPairCountV1": 129,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045103",
+      "recordCount": 564,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045104",
+      "recordCount": 95442,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045105",
+      "recordCount": 296,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045106",
+      "recordCount": 1416,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045107",
+      "recordCount": 14036,
+      "observedUnknownPairCountV1": 5,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045108",
+      "recordCount": 414,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045109",
+      "recordCount": 12802,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045110",
+      "recordCount": 75,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045111",
+      "recordCount": 3,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045112",
+      "recordCount": 7986,
+      "observedUnknownPairCountV1": 1760,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045113",
+      "recordCount": 65,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045114",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045115",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045116",
+      "recordCount": 10612,
+      "observedUnknownPairCountV1": 171,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045117",
+      "recordCount": 64,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15045118",
+      "recordCount": 134,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15096255",
+      "recordCount": 35,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15096257",
+      "recordCount": 10735,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101543",
+      "recordCount": 4850,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101544",
+      "recordCount": 199,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101545",
+      "recordCount": 13,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101546",
+      "recordCount": 2506,
+      "observedUnknownPairCountV1": 10,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101548",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101549",
+      "recordCount": 41977,
+      "observedUnknownPairCountV1": 961,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101550",
+      "recordCount": 1533,
+      "observedUnknownPairCountV1": 16,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101551",
+      "recordCount": 1794,
+      "observedUnknownPairCountV1": 60,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101552",
+      "recordCount": 74,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15101553",
+      "recordCount": 350,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15106987",
+      "recordCount": 1490,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15106988",
+      "recordCount": 185,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15107028",
+      "recordCount": 1201,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15107029",
+      "recordCount": 1378,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15107030",
+      "recordCount": 4372,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15107031",
+      "recordCount": 50,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15107032",
+      "recordCount": 2469,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    },
+    {
+      "category": "15113628",
+      "recordCount": 0,
+      "observedUnknownPairCountV1": 0,
+      "proposedUnknownPairCountV2": 0
+    }
+  ],
+  "proposedDiagnostics": [
+    {
+      "code": "baseline_review_required",
+      "severity": "review"
+    },
+    {
+      "code": "data_as_of_unverified",
+      "severity": "review"
+    },
+    {
+      "code": "policy_review_required",
+      "severity": "review"
+    }
+  ],
+  "diagnosticChanges": {
+    "removedKnownPairReviewDiagnostics": 68,
+    "remainingPairReviewDiagnostics": 0,
+    "futureUnregisteredPairRemainsUnknown": true
+  },
+  "equivalence": {
+    "allCategoryIdsAndCountsPreserved": true,
+    "immutableProjectionUnchanged": true,
+    "immutableProjectionSha256": "04e32f9a2fd21f093c22c7cd7381b77bba07f51934c7e1d066e6dd39ed572c25",
+    "ingestionSha256": "92dd28c0dfdd163071f38abdfb552946a6146c173c9b6216b002b87f9a3934e2"
+  },
+  "independentTemporalObservation": false,
+  "productionBaselineCreated": false
+}

@@ -60,6 +60,54 @@ describe('parseCsvRows', () => {
     ).resolves.toEqual([['가']]);
   });
 
+  test('decodes WHATWG EUC-KR extension Hangul and euro at every chunk split', async () => {
+    // Synthetic standard mappings: 8141 -> U+AC02, A2E6 -> U+20AC, B0A1 -> U+AC00.
+    const source = Uint8Array.from([
+      ...encoder.encode('name\n'),
+      0x81,
+      0x41,
+      0xa2,
+      0xe6,
+      0xb0,
+      0xa1,
+      10,
+    ]);
+    for (let split = 0; split <= source.length; split += 1) {
+      await expect(
+        rows([source.subarray(0, split), new Uint8Array(), source.subarray(split)], {
+          encoding: 'euc-kr',
+          headers: ['name'],
+        }),
+      ).resolves.toEqual([['갂€가']]);
+    }
+  });
+
+  test('compares a WHATWG EUC-KR extension header without native misdecoding', async () => {
+    await expect(
+      rows([Uint8Array.of(0x81, 0x41, 10, 65, 10)], {
+        encoding: 'euc-kr',
+        headers: ['갂'],
+      }),
+    ).resolves.toEqual([['A']]);
+  });
+
+  test.each([
+    ['incomplete lead', [0x81]],
+    ['invalid trail', [0x81, 0x2c]],
+    ['invalid byte', [0xff]],
+    ['unassigned pair', [0xc9, 0xa1]],
+  ] as const)('rejects WHATWG EUC-KR %s at every chunk split', async (_name, invalid) => {
+    const source = Uint8Array.from([...encoder.encode('name\n'), ...invalid]);
+    for (let split = 0; split <= source.length; split += 1) {
+      await expect(
+        rows([source.subarray(0, split), new Uint8Array(), source.subarray(split)], {
+          encoding: 'euc-kr',
+          headers: ['name'],
+        }),
+      ).rejects.toThrow('csv_invalid_encoding');
+    }
+  });
+
   test.each(['\n', '\r\n'])(
     'bounds logical record content independently of its %j terminator',
     async (separator) => {

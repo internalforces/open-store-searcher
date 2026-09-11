@@ -6,6 +6,7 @@ import { parseArgs } from 'node:util';
 // Research command: explicit operational limits, aggregate output, no policy or publication flags.
 let server;
 let archivePath;
+let indexStore;
 try {
   const names = [
     'staging',
@@ -60,13 +61,17 @@ try {
     { DEFAULT_COLLECTOR_LIMITS },
     { parseArchiveContract },
     { parsePermissionManifest },
-    { observeLicenseArchive },
+    { observeLicenseArchiveV2, nativeObservationDependencies },
+    { ResearchIndexStore },
+    { VOCABULARY_V2 },
   ] = await Promise.all([
     server.ssrLoadModule('/src/pipeline/collect-seoul-archive.ts'),
     server.ssrLoadModule('/src/pipeline/collector-types.ts'),
     server.ssrLoadModule('/src/pipeline/archive-contract.ts'),
     server.ssrLoadModule('/src/pipeline/source-contract.ts'),
     server.ssrLoadModule('/src/pipeline/observe-license-archive.ts'),
+    server.ssrLoadModule('/src/pipeline/research-index-store.ts'),
+    server.ssrLoadModule('/src/pipeline/aggregate-vocabulary.ts'),
   ]);
   const collection = await collectSeoulArchive({
     stagingRoot,
@@ -90,13 +95,24 @@ try {
       ),
     ),
   );
-  const report = await observeLicenseArchive({
-    collection,
-    archiveContract,
-    permissionManifest,
-    now: new Date().toISOString(),
-    limits,
-  });
+  const report = await observeLicenseArchiveV2(
+    {
+      validationVersion: 2,
+      ...VOCABULARY_V2,
+      collection,
+      archiveContract,
+      permissionManifest,
+      now: new Date().toISOString(),
+      limits,
+    },
+    {
+      ...nativeObservationDependencies,
+      createIndexStore: async (_path, checkBudget) => {
+        indexStore = await ResearchIndexStore.create(stagingRoot, repositoryRoot, checkBudget);
+        return indexStore;
+      },
+    },
+  );
   if (archivePath) {
     await rm(archivePath);
     archivePath = undefined;
@@ -111,6 +127,7 @@ try {
   process.exitCode = 1;
 } finally {
   try {
+    await indexStore?.cleanup();
     if (archivePath) await rm(archivePath);
   } catch {
     console.error(JSON.stringify({ kind: 'rejected', code: 'observation_cleanup_failed' }));

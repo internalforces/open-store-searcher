@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "complete": true,
+  "node": "v24.19.0",
+  "rows": 500000,
+  "distinctSearchKeys": 2000000,
+  "batchSize": 1000,
+  "retainedProviderRows": false,
+  "sampledPeakRssBytes": 1334763520,
+  "sampledPeakHeapBytes": 1101951144,
+  "elapsedMs": 16382,
+  "limits": {
+    "rows": 500000,
+    "maxRssBytes": 1610612736,
+    "timeoutMs": 120000
+  },
+  "recordCount": 500000,
+  "collisionGroupCount": 0
+}

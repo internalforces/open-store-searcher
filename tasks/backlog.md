@@ -13,15 +13,6 @@ _Last updated: 2026-09-04_
 |---|---|---|---|---|---|
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
-| TASK-011 | Implement business-name and address input validation and normalization | High | M2 | M | FR-01 through FR-02 |
-| TASK-012 | Implement name/address candidate search, scoring, address conflicts, confidence, and Top-3 ranking | High | M2 | L | FR-03, FR-07 |
-| TASK-013 | Build Seoul same-name, address-conflict, and exact-match quality fixtures and recall measurement | High | M2 | M | Top-3 90% |
-| TASK-014 | Implement the initial page and result-card UI with status, evidence, as-of date, and source | High | M2 | L | FR-04 through FR-09, FR-11 |
-| TASK-015 | Implement empty-result, low-confidence, data-loading-failure, and stale-data UX | High | M2 | M | FR-07, FR-13 through FR-14 |
-| TASK-016 | Generate safe Naver and Kakao Map search links and test URL encoding | High | M2 | S | FR-10 |
-| TASK-017 | Implement responsive, keyboard, and screen-reader search flow and accessible status announcements | High | M2 | L | FR-11, FR-16, Section 14.3 |
-| TASK-018 | Verify bundle, primary-content, search-latency, and static-data partitioning budgets | High | M3 | M | Section 14.2, success metrics |
-| TASK-019 | Review privacy, input rendering, external links, and Actions permissions | High | M3 | M | FR-12, Section 14.4 |
 | TASK-020 | Write setup, deployment, source, disclaimer, contribution, code-of-conduct, and security-reporting docs | High | M3 | M | Section 17, Section 20 |
 | TASK-021 | Run full P0 traceability and v1.0 release-candidate verification | High | M3 | L | FR-01 through FR-14, Section 17 |
 | TASK-022 | Design and implement identifier-based share URLs | Medium | M4 | M | FR-15 |
@@ -46,3 +37,27 @@ TASK-026 recurs after milestone implementation, testing, and review. TASK-020 re
 | M | Half a day to 1 day |
 | L | 1 to 3 days |
 | XL | More than 3 days — must be split before activation |
+
+
+## TASK-018 audit follow-up — 2026-09-08
+
+TASK-018's approved bounded measurement is complete; this does not satisfy the performance
+release gate. Performance Engineer / Implementer own follow-up search CPU, accessible candidate
+rendering and real-data partitioning remediation recorded in memory/known-issues.md. TASK-021
+must retain the gate until approved remediation and remeasurement pass. No follow-up task or
+TASK-019 is activated here; TASK-008 remains explicitly on hold.
+
+
+### TASK-018 continuation disposition — 2026-09-08
+
+Approved computation optimization and current synthetic partition loading are complete.
+Remaining performance work is broad candidate rendering, full-data download/index cost and
+production measurement. Three display cells exceed 500 ms and eight are unavailable; do not
+close TASK-021 acceptance. TASK-019 is not activated and TASK-008 remains on hold.
+
+
+### TASK-018 result-page follow-up closed
+
+User-approved pagination resolves the prior lab display misses and unavailable search cells.
+All 24 search and 16 applicable page-navigation groups pass 500 ms. Earlier follow-up entries are
+historical. Production measurements/data gates remain required for release; no next task activated.

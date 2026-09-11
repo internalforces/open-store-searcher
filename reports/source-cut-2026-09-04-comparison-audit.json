@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "startedAt": "2026-09-04T14:17:43.756Z",
+  "priorArchiveSha256": "9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c",
+  "researchOnly": true,
+  "independentTemporalObservation": false,
+  "sourceCutEstablished": false,
+  "productionBaselineCreated": false,
+  "completeEvidenceWritten": false,
+  "implementation": {
+    "package-lock.json": "663a878c17164966c5d2d2a6f59c7772efa59979314bc892760e1cf17bfcd52b",
+    "package.json": "91003a9238d1954a48903ac0f923d982c409abb0f810aa0ba41746e2aa24a12b",
+    "reports/source-permission-manifest-2026-08-28.json": "4b47b0296c34c0bd3b7c2ee88448ffe2cf5c40f90b99a8c8c8b46b3cf5c8f023",
+    "src/domain/map-license-status.ts": "16f58c1ade9d11c5a5ae14d980312d5431438edc58369582c70d2a1d3cd0c4bf",
+    "src/pipeline/aggregate-vocabulary.ts": "5a0005251bd229959bac99e25725234182a8d4ce62b2ef47649715e485924831",
+    "src/pipeline/archive-adapter.ts": "071bf9de82695f75cd3966e79cf5220973b3b9c6d1c6052e4d9a72eb85aabfa7",
+    "src/pipeline/archive-contract.ts": "7608154cf60f4c1c6e78c1e8679d38d38d9c8e80d89c3924fd2a1a10ba219608",
+    "src/pipeline/calendar-date.ts": "7f38dbc8eb6f4f8e21996d6e48203202cb37e496cab4a68c787b3a60bdedc28b",
+    "src/pipeline/collect-seoul-archive.ts": "3f2131785386b606ca6786ed03bbd287b9591ff88d0618276337550fcd120cf5",
+    "src/pipeline/collector-types.ts": "a7f1c5def30b48bebcfa8c3c48508dc36255fe274d7e7fd972de487b199322d0",
+    "src/pipeline/contracts/seoul-archive-contract.json": "7cd8ce23032b491a4d9859c2cf50d7fa7505ea94c63523cb44bcb5e4242388ec",
+    "src/pipeline/csv-header.ts": "a74f66b24048bb21c017aedadee257262bfeb8a637e1c53a4a13eaf1baf1f24c",
+    "src/pipeline/derive-research-observation.ts": "25530f0a7276745fb00a1d203360d73da5ba993ebb6c832932dd941ea7dc1596",
+    "src/pipeline/discover-archive-contract.ts": "0db2dcd5a98546ff2782a81f41a19b2b03ea33a945a1dd391c7538abc6903bbd",
+    "src/pipeline/inspect-archive.ts": "a5def5e9b3be7d49306b7a1e1459563773496a8a5fa80423ddea4da7b9c81337",
+    "src/pipeline/manual-probe.ts": "0b10fd69f241efa0edc6397289add8f06beda3bca553f0dda808144378ddab92",
+    "src/pipeline/observation-limits.ts": "505e102d84e6f4c407a702b19322a12ad9022b18dc23990414eb2ea1c09357af",
+    "src/pipeline/observe-license-archive.ts": "bdfac7708a7751647dab3634f4dc40532edc7448099e1d3eea5f9532505d5a90",
+    "src/pipeline/probe-source.ts": "ab83f98a0bb6f8036f96750fa7e5253e848476866306c04a9d28f4a729367778",
+    "src/pipeline/refresh-validation-metrics.ts": "7259e202acaa34b11d727a0751d8586101d78e7da32f45de0fa46fa8199b1f4c",
+    "src/pipeline/refresh-validation-types.ts": "34f0848f6b6f077098d4b81bdab73a5bf217593f47a413e58b8d3a95badbcfe5",
+    "src/pipeline/research-index-store.ts": "6462af52ee17a476f702a0310919382b1fa6d6a3390118e570e09e4680b83f0a",
+    "src/pipeline/research-metrics-accumulator.ts": "d92fa89200f46c4bcb39e170d48b05f86f6e0e63612a78bf09ca742edbfc0d76",
+    "src/pipeline/research-observation-diagnostics.ts": "2245e3390869804a41946bb8ddd93edb6ebf08742d796547bd5e7ded3906fe75",
+    "src/pipeline/source-contract.ts": "a729abdaac5447c75bbb82eb017dbe8f36ac7911ea47f85cf56247e7a5750300",
+    "src/pipeline/staged-download.ts": "f883e04eee72d3e9dab926d3201f50c781114e1d0787f8a134a4acbda8604eb8",
+    "src/pipeline/stream-csv.ts": "81f42b912047a0b5970a29cf41a76534fc0a7f552af7c21b04f28256873b7d42",
+    "src/pipeline/stream-process.ts": "bb25dec9dfff64a8ee5520766054eb0de9b2ca202215eec2c868a555b90daee1",
+    "src/pipeline/transform-license-records.ts": "a2beea03bea7f3d5ff170ff8032ef5f150bee58acc5aa6ca7dc257f23597910a",
+    "src/pipeline/unzip-archive.ts": "679e2c30954cf0b2fe1b518a168c285ebd4135cd011b230ad7f54cd9a86ad800",
+    "src/pipeline/validate-json-bytes.ts": "603870a02872ff34c65dcd22cceb2c9bc1603e9ed677c22d84733d7d1847cb50",
+    "src/pipeline/validate-license-refresh.ts": "5433c1928f2b1707294489f0f99770e9e12d67795bb6955391e1c59eef30a09e",
+    "src/shared/data-freshness.ts": "f1cb78c0ee6d5a614939ed56896286d60f3a9151d1a09f9468478db2978e137e"
+  },
+  "executionFiles": {
+    "/work/compare-retrieval.mjs": "53831f0c68bb80007e034eaaa8fb08a8aaa0d0a274004913c767a107736357fe",
+    "/work/comparison-implementation.json": "edc11c96004bf2f25e0b097162c494dfcf998b0d459bc4ee0dcb1126f0722fd1",
+    "/work/comparison-code.tar": "3f7542f331041865742dd41807897364230767295c01fbfdfb4230c352c66d52"
+  },
+  "limits": {
+    "maxTotalBytes": 2147483648,
+    "maxRows": 3000000,
+    "maxRecordChars": 65536,
+    "timeoutMs": 600000,
+    "maxRssBytes": 3221225472
+  },
+  "collectorCompletedAt": "2026-09-04T14:19:16.782Z",
+  "collectorLimits": {
+    "minArchiveBytes": 1048576,
+    "maxArchiveBytes": 536870912,
+    "maxProcessOutputBytes": 8388608,
+    "maxHeaderBytes": 262144,
+    "httpProbeTimeoutMs": 30000,
+    "downloadInactivityTimeoutMs": 120000,
+    "downloadDeadlineMs": 1200000,
+    "maxRedirects": 3
+  },
+  "collection": {
+    "kind": "accepted",
+    "change": "changed",
+    "sha256": "9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c",
+    "byteLength": 216180315,
+    "fetchedAt": "2026-09-04T14:17:43.833Z",
+    "sourceEvidence": {
+      "expectedBytes": 216180315,
+      "finalUrl": "https://file.localdata.go.kr/file/download-all?orgCode=6110000_ALL",
+      "limitStatus": 200,
+      "rangeStatus": 206,
+      "providerFreshness": {
+        "updateCadence": "daily",
+        "coverageLagDays": 2,
+        "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+      }
+    },
+    "archiveEvidence": {
+      "entryCount": 195,
+      "schemaManifestSha256": "6254a2b3d6626c41f625bb98d79399bdd40318632ce0d54561a997fdd039ceb6",
+      "providerModifiedDate": "2026-09-04"
+    }
+  },
+  "archiveMatchesPrevious": true,
+  "outcome": "identical_archive_no_new_temporal_sample",
+  "stagingEmptyAfter": true,
+  "ownedStagingRemoved": true,
+  "implementationMatchedAfter": true,
+  "executionMatchedAfter": true,
+  "completedAt": "2026-09-04T14:19:16.793Z",
+  "integrityPassed": true
+}

@@ -1,0 +1,125 @@
+{
+  "categoryId": "15045028",
+  "archiveSha256": "9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c",
+  "archiveSha256Before": "9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c",
+  "archiveSha256After": "9cbe96a9bdadb46b8e0bb8034b6b8b60ea133598f6125ba0cfc954bbc31c898c",
+  "archiveHashStable": true,
+  "limits": {
+    "maxEntryBytes": 16777216,
+    "subprocessTimeoutMs": 60000,
+    "maxRows": 100000,
+    "maxRecordChars": 65536,
+    "collector": {
+      "minArchiveBytes": 1048576,
+      "maxArchiveBytes": 536870912,
+      "maxProcessOutputBytes": 8388608,
+      "maxHeaderBytes": 262144,
+      "httpProbeTimeoutMs": 30000,
+      "downloadInactivityTimeoutMs": 120000,
+      "downloadDeadlineMs": 1200000,
+      "maxRedirects": 3
+    }
+  },
+  "archiveByteLength": 216180315,
+  "entrySha256": "23ff0cf2b0a4e9c79210bbccd3d94a689a9786e4f360e6b1753f082e99f5077c",
+  "entryByteLength": 1390700,
+  "node": "v24.19.0",
+  "icu": "78.3",
+  "results": [
+    {
+      "encoding": "utf-8",
+      "chunkSize": 1390700,
+      "valid": false,
+      "rejectedChunkOffset": 0
+    },
+    {
+      "encoding": "utf-8",
+      "chunkSize": 65536,
+      "valid": false,
+      "rejectedChunkOffset": 0
+    },
+    {
+      "encoding": "utf-8",
+      "chunkSize": 4096,
+      "valid": false,
+      "rejectedChunkOffset": 0
+    },
+    {
+      "encoding": "utf-8",
+      "chunkSize": 1,
+      "valid": false,
+      "rejectedChunkOffset": 0
+    },
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 1390700,
+      "valid": false,
+      "rejectedChunkOffset": 0
+    },
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 65536,
+      "valid": false,
+      "rejectedChunkOffset": 131072
+    },
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 4096,
+      "valid": false,
+      "rejectedChunkOffset": 151552
+    },
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 1,
+      "valid": false,
+      "rejectedChunkOffset": 155177
+    }
+  ],
+  "exodusWhatwg": [
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 1390700,
+      "valid": true,
+      "decodedSha256": "5b2eb3ffc4cad41d44d334fbaf9ad4a040bed028a34c691dd56eab181f6bce8a"
+    },
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 65536,
+      "valid": true,
+      "decodedSha256": "5b2eb3ffc4cad41d44d334fbaf9ad4a040bed028a34c691dd56eab181f6bce8a"
+    },
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 4096,
+      "valid": true,
+      "decodedSha256": "5b2eb3ffc4cad41d44d334fbaf9ad4a040bed028a34c691dd56eab181f6bce8a"
+    },
+    {
+      "encoding": "euc-kr",
+      "chunkSize": 1,
+      "valid": true,
+      "decodedSha256": "5b2eb3ffc4cad41d44d334fbaf9ad4a040bed028a34c691dd56eab181f6bce8a"
+    }
+  ],
+  "comparator": {
+    "package": "@exodus/bytes",
+    "version": "1.15.1"
+  },
+  "iconv": [
+    {
+      "encoding": "EUC-KR",
+      "valid": false
+    },
+    {
+      "encoding": "CP949",
+      "valid": true,
+      "decodedSha256": "5b2eb3ffc4cad41d44d334fbaf9ad4a040bed028a34c691dd56eab181f6bce8a"
+    }
+  ],
+  "parser": {
+    "complete": false,
+    "code": "csv_invalid_encoding"
+  },
+  "completeObservation": false,
+  "metrics": null
+}

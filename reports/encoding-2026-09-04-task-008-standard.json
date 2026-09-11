@@ -1,0 +1,19 @@
+{
+  "indexSha256": "89af20dd867c84cefb710b1790229786cfef2bf11916361a210d81b90381e267",
+  "mappedPairs": 17048,
+  "node": "v24.19.0",
+  "implementations": [
+    {
+      "name": "native",
+      "mappedMismatch": 8824,
+      "unassignedAccepted": 536,
+      "splitMismatch": 8824
+    },
+    {
+      "name": "@exodus/bytes@1.15.1",
+      "mappedMismatch": 0,
+      "unassignedAccepted": 0,
+      "splitMismatch": 0
+    }
+  ]
+}

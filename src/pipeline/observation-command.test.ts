@@ -7,16 +7,16 @@ import { describe, expect, test } from 'vitest';
 
 describe('research observation command', () => {
   test.each([
-    ['max-bytes', '268435457'],
-    ['max-rows', '100001'],
+    ['max-bytes', '2147483649'],
+    ['max-rows', '3000001'],
     ['max-record-chars', '65537'],
     ['timeout-ms', '600001'],
     ['max-rss-bytes', '3221225473'],
   ])('refuses a live %s override above the reviewed ceiling', async (key, value) => {
     const staging = await mkdtemp(join(tmpdir(), 'oss-observation-cli-'));
     const limits = {
-      'max-bytes': '268435456',
-      'max-rows': '100000',
+      'max-bytes': '2147483648',
+      'max-rows': '3000000',
       'max-record-chars': '65536',
       'timeout-ms': '600000',
       'max-rss-bytes': '3221225472',

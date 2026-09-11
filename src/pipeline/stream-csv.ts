@@ -1,3 +1,5 @@
+import { TextDecoder } from '@exodus/bytes/encoding.js';
+
 export interface StreamCsvOptions {
   encoding: 'utf-8' | 'euc-kr';
   headers: readonly string[];

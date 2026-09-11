@@ -1,19 +1,20 @@
 import { mapLicenseStatusV1 } from '../domain/map-license-status.js';
+import { type AggregateVocabularyVersion, knownPairForVocabulary } from './aggregate-vocabulary.js';
+import {
+  compareText,
+  count,
+  object,
+  RAW_COMPLETENESS_FIELDS,
+  requireValue,
+  sameKeys,
+  VALIDATION_STATUSES,
+  type ValidationMetricsV1,
+  type ValidationMetricV1,
+} from './refresh-validation-types.js';
 import type {
   TransformationResultV2,
   TransformedLicenseRecordV2,
 } from './transform-license-records.js';
-import {
-  RAW_COMPLETENESS_FIELDS,
-  VALIDATION_STATUSES,
-  compareText,
-  count,
-  object,
-  sameKeys,
-  requireValue,
-  type ValidationMetricV1,
-  type ValidationMetricsV1,
-} from './refresh-validation-types.js';
 
 // ADR-013's known mixed bucket remains unverified; the mapper alone cannot distinguish it from drift.
 export function knownAggregatePair(code: string | null, name: string | null): boolean {
@@ -69,7 +70,10 @@ function emptyMetric(): ValidationMetricV1 {
     collisionRecordCount: 0,
   };
 }
-function measure(records: TransformedLicenseRecordV2[]): ValidationMetricV1 {
+function measure(
+  records: TransformedLicenseRecordV2[],
+  version: AggregateVocabularyVersion,
+): ValidationMetricV1 {
   const metric = emptyMetric();
   const pairs = new Map<
     string,
@@ -87,7 +91,7 @@ function measure(records: TransformedLicenseRecordV2[]): ValidationMetricV1 {
       metric.missingBothAddressCount++;
     metric.statusCounts[record.processedStatus]++;
     const { operatingCode: code, operatingName: name } = record.rawStatus;
-    if (!knownAggregatePair(code, name)) metric.unknownPairCount++;
+    if (!knownPairForVocabulary(code, name, version)) metric.unknownPairCount++;
     const key = JSON.stringify([code, name]);
     const pair = pairs.get(key) ?? {
       code,
@@ -113,17 +117,18 @@ function measure(records: TransformedLicenseRecordV2[]): ValidationMetricV1 {
 }
 
 /** Measures every category, including completed zero-row categories; never filters incomplete records. */
-export function measureValidationMetrics(
+export function measureValidationMetricsForVocabulary(
   result: TransformationResultV2,
   categoryIds: string[],
+  version: AggregateVocabularyVersion,
 ): ValidationMetricsV1 {
   const grouped = new Map(categoryIds.map((id) => [id, [] as TransformedLicenseRecordV2[]]));
   for (const record of result.records)
     requireValue(grouped.get(record.identity.source.categoryFileDataId)).push(record);
   const categories = Object.fromEntries(
-    categoryIds.map((id) => [id, measure(requireValue(grouped.get(id)))]),
+    categoryIds.map((id) => [id, measure(requireValue(grouped.get(id)), version)]),
   );
-  const total = measure(result.records);
+  const total = measure(result.records, version);
   const collided = new Set<string>();
   const perCategory = new Map(categoryIds.map((id) => [id, new Set<string>()]));
   for (const diagnostic of result.diagnostics) {
@@ -149,7 +154,10 @@ export function measureValidationMetrics(
     categories,
   };
 }
-function validMetric(value: unknown): value is ValidationMetricV1 {
+function validMetric(
+  value: unknown,
+  version: AggregateVocabularyVersion,
+): value is ValidationMetricV1 {
   if (
     !object(value) ||
     ![
@@ -219,7 +227,7 @@ function validMetric(value: unknown): value is ValidationMetricV1 {
         operatingName: pair.name,
       })
     ] += pair.count;
-    if (!knownAggregatePair(pair.code, pair.name)) unknown += pair.count;
+    if (!knownPairForVocabulary(pair.code, pair.name, version)) unknown += pair.count;
   }
   return (
     total === n &&
@@ -231,16 +239,17 @@ function validMetric(value: unknown): value is ValidationMetricV1 {
 }
 
 /** Rejects corrupted baseline aggregates before any arithmetic with previous observations. */
-export function validValidationMetrics(
+export function validValidationMetricsForVocabulary(
   value: unknown,
   ids: string[],
+  version: AggregateVocabularyVersion,
 ): value is ValidationMetricsV1 {
   if (
     !object(value) ||
-    !validMetric(value.total) ||
+    !validMetric(value.total, version) ||
     !object(value.categories) ||
     !sameKeys(value.categories, ids) ||
-    !Object.values(value.categories).every(validMetric)
+    !Object.values(value.categories).every((metric) => validMetric(metric, version))
   )
     return false;
   const categories = Object.values(value.categories) as ValidationMetricV1[];
@@ -288,4 +297,18 @@ export function validValidationMetrics(
       (pair) => summed.get(JSON.stringify([pair.code, pair.name])) === pair.count,
     )
   );
+}
+
+/** Historical V1 entry points never adopt later vocabulary semantics. */
+export function measureValidationMetrics(
+  result: TransformationResultV2,
+  ids: string[],
+): ValidationMetricsV1 {
+  return measureValidationMetricsForVocabulary(result, ids, 1);
+}
+export function validValidationMetrics(
+  value: unknown,
+  ids: string[],
+): value is ValidationMetricsV1 {
+  return validValidationMetricsForVocabulary(value, ids, 1);
 }

@@ -1,20 +1,22 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { describe, expect, test, vi } from 'vitest';
+import { VOCABULARY_V2 } from './aggregate-vocabulary.js';
 import { parseArchiveContract } from './archive-contract.js';
 import {
+  parsePermissionManifest,
   SOURCE_ARCHIVE_URL,
   SOURCE_PROVIDER_FRESHNESS,
-  parsePermissionManifest,
 } from './source-contract.js';
 import * as transformer from './transform-license-records.js';
 import { serializeTransformationForInternalTest } from './transform-license-records.js';
 import { validateJsonBytesV1 } from './validate-json-bytes.js';
+import * as validation from './validate-license-refresh.js';
 import {
-  validateLicenseRefreshV1,
+  type ValidationBaselineV1,
   type ValidationInputV1,
   type ValidationPolicyV1,
-  type ValidationBaselineV1,
+  validateLicenseRefreshV1,
 } from './validate-license-refresh.js';
 
 // TASK-008 synthetic rows and test-only limits. Update only with reviewed contract changes.
@@ -135,6 +137,37 @@ function fixture(): ValidationInputV1 {
     now: '2026-09-04T01:00:00.000Z',
   };
 }
+
+test('recognizes approved uncertain pairs under V2 while retaining V1 review and raw statuses', () => {
+  expect(validation.validateLicenseRefreshV2).toBeTypeOf('function');
+  const input = fixture();
+  for (const row of input.rows) {
+    row.values.영업상태코드 = '05';
+    row.values.영업상태명 = '제외/삭제/전출';
+  }
+  const legacy = validateLicenseRefreshV1(input);
+  expect(legacy.metrics?.total.unknownPairCount).toBe(195);
+  const modern = validation.validateLicenseRefreshV2({
+    ...input,
+    validationVersion: 2,
+    aggregateVocabularyVersion: 2,
+    aggregateVocabularySha256: '3950016eb0d666c08b567d90cd63903201c2ccb6cd9e2b6ebb5b4bd668e2626e',
+    policy: undefined,
+    coverage: undefined,
+  });
+  expect(modern.validationVersion).toBe(2);
+  expect(modern.kind).toBe('review_required');
+  expect(modern.metrics?.total.unknownPairCount).toBe(0);
+  expect(modern.metrics?.total.statusCounts['확인되지 않음']).toBe(195);
+  expect(modern.metrics?.total.aggregatePairs).toEqual([
+    { code: '05', name: '제외/삭제/전출', count: 195 },
+  ]);
+  expect(modern.diagnostics.map((d) => d.code)).toEqual([
+    'baseline_review_required',
+    'data_as_of_unverified',
+    'policy_review_required',
+  ]);
+});
 function bootstrap(input: ValidationInputV1): ValidationBaselineV1 {
   const result = validateLicenseRefreshV1(input);
   expect(result.metrics).not.toBeNull();
@@ -649,7 +682,7 @@ describe('TASK-008 staged validation', () => {
       const input = acceptedFixture();
       const policy = requireValue(input.policy);
       if (scope === 'root') {
-        Object.assign(policy, { version: 2 });
+        Object.assign(policy, { version: 999 }); // V2 now has a dedicated revision-mismatch diagnostic.
         Reflect.deleteProperty(policy, 'maxJsonBytes');
       }
       if (scope === 'limits') {
@@ -664,3 +697,132 @@ describe('TASK-008 staged validation', () => {
     },
   );
 });
+
+function v2Fixture() {
+  const input = fixture();
+  const envelope = { validationVersion: 2 as const, ...VOCABULARY_V2 };
+  return {
+    ...input,
+    ...envelope,
+    baseline: undefined,
+    policy: { ...requireValue(input.policy), version: 2 as const, ...VOCABULARY_V2 },
+  };
+}
+test.each([
+  ['01', '영업/정상', 0, '행정상 영업'],
+  ['02', '휴업', 0, '휴업'],
+  ['03', '폐업', 0, '폐업'],
+  ['04', '취소/말소/만료/정지/중지', 0, '확인되지 않음'],
+  ['05', '제외/삭제/전출', 0, '확인되지 않음'],
+  ['06', '기타', 0, '확인되지 않음'],
+  ['05', '기타', 1, '확인되지 않음'],
+  ['05 ', '제외/삭제/전출', 1, '확인되지 않음'],
+  ['06', '기타 ', 1, '확인되지 않음'],
+  ['０６', '기타', 1, '확인되지 않음'],
+  ['06', '기타', 1, '확인되지 않음'],
+  [null, '기타', 1, '확인되지 않음'],
+  ['06', null, 1, '확인되지 않음'],
+  ['07', 'future', 1, '확인되지 않음'],
+])('V2 preserves exact raw pair %s/%s and its processed status', (code, name, unknown, status) => {
+  const input = v2Fixture();
+  const row = requireValue(input.rows[0]);
+  row.values.영업상태코드 = code as string | null;
+  row.values.영업상태명 = name as string | null;
+  const result = validation.validateLicenseRefreshV2(input);
+  expect(result.metrics?.total.unknownPairCount).toBe(unknown);
+  expect(result.metrics?.categories[firstId]?.aggregatePairs).toEqual([{ code, name, count: 1 }]);
+  expect(result.metrics?.categories[firstId]?.statusCounts).toMatchObject({
+    [status as string]: 1,
+  });
+  expect(
+    result.diagnostics.filter((d) => d.code === 'aggregate_pair_review_required'),
+  ).toHaveLength(unknown as number);
+});
+
+test('accepts a compatible V2 baseline while preserving uncertain candidates and numeric gates', () => {
+  const input = v2Fixture();
+  requireValue(input.rows[0]).values.영업상태코드 = '06';
+  requireValue(input.rows[0]).values.영업상태명 = '기타';
+  const measured = validation.validateLicenseRefreshV2(input);
+  const baseline = {
+    ...bootstrap(fixture()),
+    validationVersion: 2,
+    ...VOCABULARY_V2,
+    metrics: measured.metrics,
+  };
+  const result = validation.validateLicenseRefreshV2({ ...input, baseline });
+  expect(result.kind).toBe('accepted');
+  if (result.kind !== 'accepted') throw new Error('Expected synthetic acceptance');
+  expect(result.candidate.records).toHaveLength(195);
+  const uncertain = result.candidate.records.find((r) => r.rawStatus.operatingCode === '06');
+  expect(uncertain?.processedStatus).toBe('확인되지 않음');
+  expect(uncertain?.rawStatus.operatingName).toBe('기타');
+  input.policy.total.maxCount = 194;
+  expect(
+    validation.validateLicenseRefreshV2({ ...input, baseline }).diagnostics.map((d) => d.code),
+  ).toContain('count_above_maximum');
+  const corrupt = structuredClone(baseline);
+  requireValue(corrupt.metrics).total.unknownPairCount = 1;
+  expect(
+    validation
+      .validateLicenseRefreshV2({ ...input, baseline: corrupt })
+      .diagnostics.map((d) => d.code),
+  ).toContain('invalid_baseline');
+});
+
+test.each(['input', 'policy', 'baseline'] as const)(
+  'rejects missing or mixed %s vocabulary without fallback',
+  (target) => {
+    for (const field of [
+      'aggregateVocabularyVersion',
+      'aggregateVocabularySha256',
+      target === 'policy' ? 'version' : 'validationVersion',
+    ]) {
+      for (const bad of [undefined, 1, 'wrong-hash']) {
+        const input = {
+          ...v2Fixture(),
+          baseline: { ...bootstrap(fixture()), validationVersion: 2, ...VOCABULARY_V2 },
+        };
+        const destination = target === 'input' ? input : input[target];
+        Object.assign(destination, { [field]: bad });
+        const result = validation.validateLicenseRefreshV2(input);
+        expect(result.kind).toBe('review_required');
+        expect(result.metrics).toBeNull();
+        expect(result.diagnostics).toEqual([
+          { code: 'vocabulary_revision_mismatch', severity: 'review' },
+        ]);
+        expect(result).not.toHaveProperty('candidate');
+      }
+    }
+  },
+);
+test('rejects V1 through V2 and V2 through V1 with typed revision mismatch', () => {
+  expect(validation.validateLicenseRefreshV2(fixture()).diagnostics[0]?.code).toBe(
+    'vocabulary_revision_mismatch',
+  );
+  expect(validateLicenseRefreshV1(v2Fixture()).diagnostics[0]?.code).toBe(
+    'vocabulary_revision_mismatch',
+  );
+  expect(
+    validateLicenseRefreshV1({
+      ...fixture(),
+      baseline: { ...bootstrap(fixture()), validationVersion: 2, ...VOCABULARY_V2 },
+    }).diagnostics[0]?.code,
+  ).toBe('vocabulary_revision_mismatch');
+});
+
+test.each(['input', 'policy', 'baseline'] as const)(
+  'V1 rejects an isolated vocabulary hash in %s instead of ignoring a partial V2 envelope',
+  (target) => {
+    const input = acceptedFixture();
+    Object.assign(target === 'input' ? input : requireValue(input[target]), {
+      aggregateVocabularySha256: VOCABULARY_V2.aggregateVocabularySha256,
+    });
+    const result = validateLicenseRefreshV1(input);
+    expect(result.kind).toBe('review_required');
+    expect(result.diagnostics).toEqual([
+      { code: 'vocabulary_revision_mismatch', severity: 'review' },
+    ]);
+    expect(result.metrics).toBeNull();
+  },
+);

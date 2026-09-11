@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-09-04T14:11:09.879Z",
+  "kind": "metadata-only-probe",
+  "result": {
+    "kind": "accepted",
+    "evidence": {
+      "expectedBytes": 216180315,
+      "finalUrl": "https://file.localdata.go.kr/file/download-all?orgCode=6110000_ALL",
+      "limitStatus": 200,
+      "rangeStatus": 206,
+      "providerFreshness": {
+        "updateCadence": "daily",
+        "coverageLagDays": 2,
+        "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+      }
+    }
+  },
+  "responses": [
+    {
+      "url": "https://file.localdata.go.kr/file/validate/download-count",
+      "status": 200,
+      "headers": {
+        "date": "Fri, 04 Sep 2026 14:11:10 GMT",
+        "etag": null,
+        "last-modified": null,
+        "content-range": null,
+        "content-length": null,
+        "content-type": null,
+        "content-disposition": null
+      }
+    },
+    {
+      "url": "https://file.localdata.go.kr/file/download-all?orgCode=6110000_ALL",
+      "status": 206,
+      "headers": {
+        "date": "Fri, 04 Sep 2026 14:11:10 GMT",
+        "etag": null,
+        "last-modified": null,
+        "content-range": "bytes 0-0/216180315",
+        "content-length": "1",
+        "content-type": "application/zip;charset=UTF-8",
+        "content-disposition": "attachment; filename*=UTF-8''%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C.zip"
+      }
+    }
+  ],
+  "sourceCutEstablished": false,
+  "independentTemporalObservation": false
+}

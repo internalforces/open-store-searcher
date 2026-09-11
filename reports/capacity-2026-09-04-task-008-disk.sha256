@@ -1,0 +1,4 @@
+9dfbb1bea8dd9e07a015c7c3fa338c89c7b5fa657e2a80c42987c0f5acdb0b57  src/pipeline/research-index-store.ts
+763737fc8206ce030401f04f36c82b561621c9e105b9a2c301e3f1011696c519  src/pipeline/research-metrics-accumulator.ts
+1b2ebf799a8b08aafd0fef0a16cda0119fd203beecfb968ce0c50498e9de7dfe  src/pipeline/observe-license-archive.ts
+f9e6f755eed40edf6fe2785e146b24b94b6bd19868090b928150675863469c7a  /work/benchmark-disk.mjs

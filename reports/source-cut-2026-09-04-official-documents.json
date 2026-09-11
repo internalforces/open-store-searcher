@@ -1,0 +1,49 @@
+{
+  "evidenceVersion": 1,
+  "noticeUrl": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004566",
+  "attachmentUrl": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003615156&fileDetailSn=1",
+  "attachmentBytes": 645142,
+  "attachmentSha256": "86a841656b9721501f15b564f28b823f67469e5d3f9e83cf3a876055726db248",
+  "documents": [
+    {
+      "filename": "붙임4. 지방행정 인허가정보_업종별 업태구분명_20260727신규.xlsx",
+      "bytes": 96608,
+      "sha256": "257ac28fe0022f6e3faccd914d88fa584fa318ad01b3f143606d1a3036a91d42"
+    },
+    {
+      "filename": "붙임3. 지방행정 인허가정보 제공항목(응답변수) 매핑테이블_20260727수정.xlsx",
+      "bytes": 72818,
+      "sha256": "8c7470d94d901bbcca5da49185fa5b3bc9f9b6285f20872c0ffc9b786017c73e"
+    },
+    {
+      "filename": "붙임2. 공공데이터포털 지방행정 인허가정보 API 호출 URL 목록_20260727수정.xlsx",
+      "bytes": 34498,
+      "sha256": "d7181cee793036515dab4241c68d9850a3acb516b534d99174b50c10582d5c72"
+    },
+    {
+      "filename": "붙임1. 공공데이터포털 지방행정 인허가정보 API 호출 예시.pdf",
+      "bytes": 496091,
+      "sha256": "647cfc89e5eefe6b821bec5b5b9d81163c5df08bfa4c888d2acdddb2c6c9896b"
+    }
+  ],
+  "findings": [
+    {
+      "document": "붙임1. 공공데이터포털 지방행정 인허가정보 API 호출 예시.pdf",
+      "page": 2,
+      "fact": "BASE_DATE is documented for the history API; the example requests hospital history on 20260101."
+    },
+    {
+      "document": "붙임1. 공공데이터포털 지방행정 인허가정보 API 호출 예시.pdf",
+      "page": 3,
+      "fact": "DAT_UPDT_PNT includes changes to additional open-data information, such as coordinates; LAST_MDFCN_PNT can select changes to municipal source data."
+    },
+    {
+      "document": "붙임3. 지방행정 인허가정보 제공항목(응답변수) 매핑테이블_20260727수정.xlsx",
+      "fact": "Mapped update and final-modification timestamps are VARCHAR2 with length 14. These inspected mapping rows do not specify a timezone."
+    }
+  ],
+  "fileArchiveSourceCutEstablished": false,
+  "fileArchiveTimezoneEstablished": false,
+  "apiDeliveryAdopted": false,
+  "inspectionDate": "2026-09-04"
+}

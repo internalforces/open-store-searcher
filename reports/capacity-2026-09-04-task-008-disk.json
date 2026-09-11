@@ -1,0 +1,33 @@
+{
+  "synthetic": true,
+  "complete": true,
+  "node": "v24.19.0",
+  "rows": 500000,
+  "distinctSearchKeys": 2000000,
+  "longKeys": false,
+  "sourceNameCharacters": 33,
+  "storageLimits": {
+    "maxScratchBytes": 4294967296,
+    "maxPartitionBytes": 67108864,
+    "maxPendingBytes": 16777216,
+    "maxLineBytes": 2097152,
+    "maxPartitionKeys": 250000,
+    "maxKeyBytes": 33554432,
+    "maxPairBytes": 33554432,
+    "maxPairs": 100000,
+    "maxHeapBytes": 1610612736,
+    "freeSpaceHeadroom": 536870912
+  },
+  "batchSize": 64,
+  "retainedProviderRows": false,
+  "sampledPeakRssBytes": 377438208,
+  "sampledPeakHeapBytes": 112260696,
+  "elapsedMs": 44568,
+  "limits": {
+    "rows": 500000,
+    "maxRssBytes": 3221225472,
+    "timeoutMs": 600000
+  },
+  "recordCount": 500000,
+  "collisionGroupCount": 0
+}

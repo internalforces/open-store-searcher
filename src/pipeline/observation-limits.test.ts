@@ -2,8 +2,8 @@ import { describe, expect, test } from 'vitest';
 import { parseObservationLimits } from './observation-limits.js';
 
 const boundary = {
-  'max-bytes': '268435456',
-  'max-rows': '100000',
+  'max-bytes': '2147483648',
+  'max-rows': '3000000',
   'max-record-chars': '65536',
   'timeout-ms': '600000',
   'max-rss-bytes': '3221225472',
@@ -11,8 +11,8 @@ const boundary = {
 describe('reviewed live observation budget', () => {
   test('accepts all reviewed ceilings at equality', () => {
     expect(parseObservationLimits(boundary)).toEqual({
-      maxTotalBytes: 268435456,
-      maxRows: 100000,
+      maxTotalBytes: 2147483648,
+      maxRows: 3000000,
       maxRecordChars: 65536,
       timeoutMs: 600000,
       maxRssBytes: 3221225472,

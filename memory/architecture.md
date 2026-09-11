@@ -17,6 +17,13 @@ GitHub Actions collects, normalizes, and validates public administrative data in
 
 ## Trust Boundaries
 
+ADR-017 adds explicit V1/V2 aggregate vocabulary selection to the shared staged validator and
+research accumulator/finalizer. V2 input, policy, baseline and report envelopes bind the canonical
+six-pair vocabulary hash; legacy wrappers remain V1. The observation CLI selects V2 for future
+approved runs. `derive-research-observation.ts` and its offline command derive separate research
+evidence from the immutable V1 report/audit and current implementation digests. This does not
+provide production coverage, numeric policy or bootstrap approval.
+
 - Build-time external boundary: download of local administrative licensing open data
 - Repository boundary: collector, transformer, validator, fixtures, and static artifacts
 - Deployment boundary: publication of validated artifacts from GitHub Actions to GitHub Pages
@@ -173,3 +180,85 @@ reports. `scripts/observe-seoul-source.mjs` is a research CLI with explicit reso
 external staging/output, cleanup, and non-success exit codes. It does not publish or promote
 a baseline. A separate Ubuntu 24.04 container with the approved runtime/Info-ZIP passes the
 existing environment gate. TASK-009 retains production publication and recovery ownership.
+
+## ADR-016 CSV Decoder Correction
+
+The user approved exact `@exodus/bytes@1.15.1` as a direct development dependency after the native
+Node/ICU EUC-KR defect was demonstrated. `csv-header.ts` and `stream-csv.ts` explicitly use its
+WHATWG TextDecoder, preserving fatal behavior and the existing `euc-kr`/UTF-8 contract. No global
+polyfill is installed. This build-time dependency does not enter the seven-module browser bundle.
+Strict malformed input remains a rejection; incomplete observation cannot become a baseline.
+
+
+## TASK-008 research capacity continuation (not production ingestion)
+
+The research observer transforms bounded batches (64 rows for disk indexing), merges non-collision
+metrics through the existing metric implementation, and replays 256 private disk partitions for
+exact identity and normalized-key collisions. It shares group/participant-bitset logic with the
+offline in-memory oracle. `research-index-store.ts` owns canonical JSONL, byte/count/hash checks,
+external staging isolation and cleanup. Reports cannot be completed before scratch removal.
+The existing staged production validator and status/identity contracts are unchanged. Operational
+caps and independent live review remain research controls, not production validation thresholds.
+
+## TASK-011 browser input boundary
+
+`src/search/prepare-search-query.ts` is a pure browser-compatible module with no imports, I/O,
+storage or DOM parsing. It preserves input and produces separate name/address keys and tokens,
+or typed empty/short-input guidance. Its baseline matches TASK-006 V1 without importing Node
+pipeline code. Candidate ranking and actual UI integration remain TASK-012 and TASK-014/015.
+
+## TASK-012 browser candidate engine — 2026-09-05
+
+The accepted search design is implemented in three pure modules under src/search: query
+interpretation, address parsing/comparison, and candidate index/ranking. TASK-011 projections
+remain shared unchanged. A transient generic index preserves exact typed original-record references,
+excludes malformed/duplicate-ID groups, and returns high/medium Top-3 separately from low matches.
+Address conflicts and ambiguity override scores; identifier tie order cannot create primary-match
+certainty. No Node, network, storage, logging or status-mapping dependency exists in the engine.
+Real-engine browser tests are now included in the existing e2e command sets. Public JSON/loading,
+UI, production-data recall and full-size performance remain their existing task boundaries.
+
+
+## TASK-015 completion evidence — 2026-09-07
+
+Bounded internal synthetic UI recovery completed and independently Approved in
+`.worktrees/task013-quality`. See its `reports/test-2026-09-07-task-015.md` and
+`reports/review-2026-09-07-task-015.md` for FR-07/13/14 evidence: 522 tests, 28 browser checks,
+14 zero-violation axe scans. Production source-cut/atomic publication gates remain open.
+
+
+## TASK-016 map-search presentation — 2026-09-07
+
+src/shared/map-search-links.ts builds pure record-derived destinations; src/app/map-links.tsx
+renders native external anchors or unavailable/synthetic guidance. App passes synthetic loader
+provenance through SearchResults and ResultCard, which also checks synthetic coverage. No raw
+query enters the builder. Native deliberate navigation is the only external action; source/status
+and coverage boundaries remain unchanged. Tests use a separate bundled offline App fixture.
+
+
+## TASK-018 optimized search and deferred synthetic assets — 2026-09-08
+
+The browser entry now injects demoLoader, which fetches three Vite-managed JSON assets after
+an abortable two-frame shell-paint boundary. createPartitionLoader uses fixed batches of at
+most two, independent of search input. It assembles ordered records before prepareDisplayData
+validates global identity and prepares one complete index. No partial snapshot is searchable.
+Failures abort outstanding parts; retries restart the sequence and retain previously accepted
+data. useDisplayData aborts obsolete loads on replacement/unmount. App requires an explicit
+dataset or loader; synchronous demo-data remains a test/benchmark fixture only.
+
+The candidate index caches parsed address tokens. Search rejects unrelated name substrings
+before bounded grapheme segmentation and avoids duplicate fallback comparisons. Ranking,
+conflicts, status mapping and result completeness are unchanged. All data is still downloaded;
+large-card rendering and production publication integration remain unresolved boundaries.
+
+
+## TASK-018 bounded candidate rendering
+
+SearchResults renders every primary/Top-3 candidate and at most 20 similar candidates per
+page. All ranked candidates remain in the unchanged engine result. First/previous/next/last
+controls only replace the displayed slice. Absolute card positions and list set positions
+preserve context; page changes focus the similar heading and announce count/range/page.
+App keys result presentation by submission sequence, resetting repeated searches without
+rerunning search during navigation. Dataset replacement retains its existing invalidation.
+No virtual scrolling, cumulative load-more, persistence or page requests were introduced.
+The approved performance endpoint is complete search plus a visible page, not all-result DOM.

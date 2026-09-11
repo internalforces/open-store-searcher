@@ -22,6 +22,20 @@ describe('inspectCsvHeader', () => {
     });
   });
 
+  test('preserves WHATWG EUC-KR extension Hangul and euro in headers', () => {
+    expect(inspectCsvHeader(Uint8Array.of(0x81, 0x41, 44, 0xa2, 0xe6, 10))).toMatchObject({
+      encoding: 'euc-kr',
+      headers: ['갂', '€'],
+    });
+  });
+
+  test('rejects an unassigned WHATWG EUC-KR pair in the header', () => {
+    // B0A1 forces the approved EUC-KR fallback; C9A1 alone is also valid UTF-8.
+    expect(() => inspectCsvHeader(Uint8Array.of(0xb0, 0xa1, 44, 0xc9, 0xa1, 10))).toThrow(
+      'CSV encoding',
+    );
+  });
+
   test('supports doubled quotes and removes one leading BOM', () => {
     const bytes = new TextEncoder().encode('\ufeff"사업""장명",LAST_MDFCN_PNT\n');
     expect(inspectCsvHeader(bytes)).toMatchObject({

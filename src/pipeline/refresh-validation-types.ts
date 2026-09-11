@@ -1,4 +1,5 @@
 import type { ProcessedStatusV1 } from '../domain/map-license-status.js';
+import type { VocabularyEnvelopeV2 } from './aggregate-vocabulary.js';
 import type { ArchiveContract } from './archive-contract.js';
 import type { CollectionResult, PermissionManifest } from './collector-types.js';
 import type { StagedLicenseRowV1, TransformationResultV2 } from './transform-license-records.js';
@@ -108,6 +109,28 @@ interface ValidationReportV1 {
 export type ValidationResultV1 =
   | (ValidationReportV1 & { kind: 'accepted'; dataAsOf: string; candidate: TransformationResultV2 })
   | (ValidationReportV1 & { kind: 'rejected' | 'review_required' });
+
+export interface ValidationPolicyV2
+  extends Omit<ValidationPolicyV1, 'version'>,
+    VocabularyEnvelopeV2 {
+  version: 2;
+}
+export interface ValidationBaselineV2
+  extends Omit<ValidationBaselineV1, 'validationVersion'>,
+    VocabularyEnvelopeV2 {
+  validationVersion: 2;
+}
+export interface ValidationInputV2
+  extends Omit<ValidationInputV1, 'policy' | 'baseline'>,
+    VocabularyEnvelopeV2 {
+  validationVersion: 2;
+  policy?: ValidationPolicyV2;
+  baseline?: ValidationBaselineV2;
+}
+type WithV2<T> = T extends unknown
+  ? Omit<T, 'validationVersion'> & VocabularyEnvelopeV2 & { validationVersion: 2 }
+  : never;
+export type ValidationResultV2 = WithV2<ValidationResultV1>;
 
 export function object(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);

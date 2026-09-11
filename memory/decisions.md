@@ -374,3 +374,194 @@ coverage dates, production thresholds, a bootstrap baseline, new dependencies, o
 
 **Consequences**: DEBT-009 is resolved by the explicit boundary amendment; DEBT-007/008 require
 verified implementation/environment evidence. Production source-cut and calibration gates remain.
+
+## ADR-016: Correct CSV Decoding with a Pinned WHATWG Implementation
+
+- Date: 2026-09-04
+- Status: Accepted by explicit user approval on 2026-09-04
+- Decision maker: User
+
+**Context**: The complete category 15045028 body is valid WHATWG EUC-KR/Windows-949.
+Native Node 24.19.0/ICU 78.3 rejects it and fails exhaustive synthetic mapping comparisons.
+The existing lockfile-pinned `@exodus/bytes@1.15.1` comparator matches every assigned pair and
+strict invalid-pair expectation in the reviewed diagnostic. See
+`reports/research-2026-09-04-task-008-encoding.md` and its aggregate evidence.
+
+**Decision**: Add exact `@exodus/bytes: 1.15.1` to direct development dependencies and explicitly
+import its `TextDecoder` from `@exodus/bytes/encoding.js` in both `csv-header.ts` and
+`stream-csv.ts`. Preserve fatal decoding, BOM handling, source contract labels, all resource
+limits, and status mapping. Use normal test-first integration and pinned full verification,
+then independent review and the same-budget observation retry.
+
+**Approval boundary**: Initial diagnostic use was confined to temporary research scripts/copies.
+AGENTS.md requires human approval for direct external dependency adoption. The user approved the concrete
+ADR-016 request after reviewing the diagnosis and temporary candidate verification. Implementation,
+verification, independent review and the same-budget retry are authorized. It does not approve new
+source-cut assertions, production limits/bootstrap, public serialization, deployment, or TASK-009 activation before TASK-008 is complete.
+
+**Alternatives**: A custom audited mapping implementation or a different verified runtime would
+increase maintenance or alter the approved toolchain. Merely using the `windows-949` alias on
+native TextDecoder does not select an independent implementation. Lossy decoding is unacceptable.
+
+
+### ADR-015 implementation continuation: bounded disk research observation
+
+On 2026-09-04 the user's complete-observation goal was implemented within the existing research
+scope. Independent review approved shared exact metric accumulation with private bounded JSONL
+partitions after fixing a cross-batch buffer cap. Current reproducible 3m and long-key benchmarks
+and matching source hashes support one research attempt at 3m rows / 2 GiB source, retaining
+600 seconds, 3 GiB RSS, 2 GiB process heap, fixed 1.5 GiB observed heap and 4 GiB scratch limits.
+The post-edit full gate and Linux tests passed. This internal capacity decision adds no dependency,
+service, production threshold, source/status change, public URL or publication authority. The
+source-cut, calibrated policy and baseline acceptance gates remain outstanding.
+
+
+## ADR-017: Recognize Observed Uncertain Aggregate Pairs with Explicit Vocabulary Versioning
+
+- Date: 2026-09-04
+- Status: Accepted by explicit user approval in this session
+- Decision maker: User
+
+**Context**: Complete source observation found exact pairs `05` / `제외/삭제/전출` (186,864 rows)
+and `06` / `기타` (23 rows), across 68 categories. Both already display unverified. They cause
+review-required vocabulary diagnostics under the accepted four-pair validation vocabulary.
+
+**Proposal**: Recognize only these exact pairs as known uncertain vocabulary in an explicit
+revision 2, retaining every raw field and the existing unverified display. Keep V1 validation and
+historical report semantics intact; require explicit V2 vocabulary/envelope/policy/baseline
+versions and reject silent compatibility fallback. Preserve the original observation/audit and
+bind any newly derived research report to its hash. No independent temporal sample is created.
+
+**Evidence and acceptance design**:
+`docs/superpowers/specs/2026-09-04-task-008-vocabulary-review-design.md` and
+`reports/research-2026-09-04-task-008-vocabulary-impact.json`. A histogram-only impact analysis
+reduces proposed unknown-pair counts from 186,887 to zero without changing the 380,285 unverified
+records or any other status/count/completeness/collision metric.
+
+**Approval boundary**: AGENTS.md and the accepted source/status vocabulary rules require human
+approval. The user explicitly approved ADR-017 and requested goal resumption. This authorizes
+the specified versioned implementation and its regression/full review;
+it would not approve a source-cut date, numeric policy, initial baseline, public JSON budget,
+new dependency/provider retrieval, deployment or premature TASK-009 activation.
+
+**Implementation evidence**: Explicit V1/V2 validation and observation paths, canonical vocabulary
+hashes, bounded offline derivation, 546 passing tests plus four browser and two accessibility tests.
+Independent review approved after pre-parse bounds were added and reran 159 focused tests.
+See `reports/test-2026-09-04-task-008-vocabulary.md` and the implementation review addendum in
+`reports/review-2026-09-04-task-008-vocabulary-proposal.md`. The separately derived V2 observation
+preserves 2,936,760 rows and 380,285 unverified statuses; the original V1 report/audit remain intact.
+
+## TASK-011 implementation choices — 2026-09-05
+
+The user requested TASK-011 execution after its scope assessment. Defer incomplete TASK-008
+and make TASK-011 the sole active implementation task; this does not close M1 or activate
+TASK-009/010. Use dependency-free browser pure functions and synthetic tests. Retain the source
+V1 contract and exact originals; common entity references are decoded once as text, punctuation
+is separated only in derived comparison keys, and address numbers/hyphens remain distinguishable.
+Count graphemes after normalization and punctuation cleanup for the two-character minimum.
+Keep combined input unclassified and expose both comparison views; do not infer a name/address
+split, aliases, a match, or status. No new public URL, source schema, service or deployment choice.
+
+Independent TASK-011 review refined the same implementation: candidate projection is exported
+separately from query rejection, Unicode dash punctuation becomes ASCII hyphen in address keys,
+and the bounded common-entity decoder handles case variants. These comparison-only changes
+preserve exact originals and the unchanged source V1 normalization baseline.
+
+## TASK-012 proposed search policy — 2026-09-05
+
+Status: Proposed, not accepted. The user selected TASK-012 for design and offline work.
+Recommend candidate-independent query interpretation, explicit address conflict vetoes, ordinal
+PRD ranking tiers, separate low-confidence results and stable identifier tie-breaking without
+false certainty. Details and synthetic acceptance matrix are in
+`docs/superpowers/specs/2026-09-05-task-012-search-design.md`. Human design review is pending;
+no runtime or source-status contract has changed.
+
+### TASK-012 acceptance and implementation
+
+The user explicitly approved the written proposal on 2026-09-05. Implemented and independently
+Approved after 581 tests, eight browser tests and two accessibility scans. Ordinal scores are
+not probabilities. The proposed tier 4 is subsumed by the bounded substring tier 3 and needs no
+unreachable code branch. Unclassified partial address text can retrieve low candidates by literal
+token substring, while any token containing digits must match in full. Generic references preserve
+status/source metadata for future typed UI consumers without altering their values or schema.
+
+
+## TASK-015 completion evidence — 2026-09-07
+
+Bounded internal synthetic UI recovery completed and independently Approved in
+`.worktrees/task013-quality`. See its `reports/test-2026-09-07-task-015.md` and
+`reports/review-2026-09-07-task-015.md` for FR-07/13/14 evidence: 522 tests, 28 browser checks,
+14 zero-violation axe scans. Production source-cut/atomic publication gates remain open.
+
+
+## TASK-016 approved map-link behavior — 2026-09-07
+
+The user explicitly approved the bounded record-only map-search design, including acceptance
+of the Naver HTTPS /p/search/{encodedTerms} route's unverified official compatibility. Kakao's
+/link/search/{encodedTerms} is documented in its official web guide. Use source-record name
+and preferred road/parcel address, fixed HTTPS origins, explicit protected new tabs, and suppress
+synthetic coverage or loader provenance. No API/SDK, dependency, public identifier or status
+contract changed. See reports/test-2026-09-07-task-016.md for evidence and limitations.
+
+
+## TASK-017 approved UI decisions — 2026-09-08
+
+The user approved bounded accessibility implementation. Candidate collections use native lists;
+read-only evidence cards expose name and address and are keyboard-focusable, including when
+no external links exist. A local button focuses the results region without changing the URL.
+Submission returns focus to input; asynchronous data completion does not steal focus. Retry
+uses aria-disabled plus an execution guard to remain focusable while pending. Tall card
+self-focus reveals the heading; child links retain their native focus scroll position.
+No new public contract or architecture ADR is needed. Custom selection remains TASK-023.
+
+
+## TASK-017 assisted AT evidence method — 2026-09-08
+
+The user agreed to report actual VoiceOver speech while the assistant operated the synthetic
+UI. Explicit per-case confirmations, with native AX only as supporting evidence, resolve
+the manual observation gate. Record this bounded method separately from automated checks;
+no audio recording, rotor coverage, measured timing or universal AT conformance is claimed.
+See .worktrees/task013-quality/reports/voiceover-2026-09-08-task-017.md.
+
+
+## TASK-008 hold — 2026-09-08
+
+User decision: retain TASK-008 as incomplete and on hold for later resumption. This supersedes
+prior continuation instructions. Do not adopt the suggested task split or alternate publication
+conditions. Existing evidence and production acceptance gates remain intact. Resume only when
+the user requests it.
+
+
+## TASK-018 approved measurement boundaries — 2026-09-08
+
+User approved a bounded measurement design using the existing runtime, Vite and Playwright.
+Use decimal 300,000 uncompressed code bytes and inclusive source PRD time targets; retain
+all samples and apply a conservative maximum-sample local gate. Synthetic and host-relative
+mobile emulation evidence is not production or real-device certification. Candidate rendering
+is measured only up to 1,000 cards to bound this local audit; skipped workloads are unavailable,
+never passed. This is a harness resource limit, not a product limit or approved partition policy.
+No production optimization, new dependency, delivery contract or public interface was selected.
+
+
+## TASK-018 optimization design accepted — 2026-09-08
+
+The user approved the concrete continuation design with an explicit instruction to proceed.
+Use semantics-preserving search work reduction and fixed, query-independent asset batches
+(maximum two concurrent requests) after shell paint. Validate and replace only complete
+snapshots; retain accepted data on failure and abort obsolete work. Apply to current synthetic
+assets without inventing a production publication schema. This accepts deferred data requests,
+not reduced total download or query-selected loading. No new dependency, source/status rule,
+public identifier, infrastructure or deployment change was made. Candidate pagination remains
+outside the approved scope. Measured initial code grows by 312 bytes and mobile cold search
+readiness increases from 701.2 to 1078.2 ms; both code/startup budgets still pass.
+
+
+## TASK-018 rendering design approved
+
+After requesting the 500 ms large-card target, the user explicitly approved the presented
+20-item similar-candidate pagination design. Retain primary/Top-3 and all ordered candidates;
+show counts/ranges and native boundary controls with keyboard/focus/status support. Measure
+initial page and page changes separately against 500 ms using unchanged scales/profiles.
+Replace prior resource-skipped measurements with complete-count and actual-page identity
+assertions. This is a visible product behavior change and must not be described as rendering
+all cards simultaneously. No production-data, dependency, interface or release gate changed.

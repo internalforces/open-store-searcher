@@ -1,23 +1,36 @@
 import { createHash } from 'node:crypto';
 import { evaluateDataFreshnessV1, seoulCalendarDate } from '../shared/data-freshness.js';
-import { parseArchiveContract, type ArchiveContract } from './archive-contract.js';
+import {
+  type AggregateVocabularyVersion,
+  matchesVocabularyV2,
+  VOCABULARY_V2,
+} from './aggregate-vocabulary.js';
+import { type ArchiveContract, parseArchiveContract } from './archive-contract.js';
 import { isCalendarDate } from './calendar-date.js';
 import {
-  isCanonicalUtc,
   type CollectionResult,
+  isCanonicalUtc,
   type PermissionManifest,
 } from './collector-types.js';
-import { measureValidationMetrics, validValidationMetrics } from './refresh-validation-metrics.js';
 import {
-  VALIDATION_STATUSES,
+  measureValidationMetricsForVocabulary,
+  validValidationMetricsForVocabulary,
+} from './refresh-validation-metrics.js';
+import type {
+  ValidationBaselineV2,
+  ValidationPolicyV2,
+  ValidationResultV2,
+} from './refresh-validation-types.js';
+import {
   compareText,
   count,
+  type MetricLimitsV1,
   object,
-  sameKeys,
   requireValue,
+  sameKeys,
   sha256,
   text,
-  type MetricLimitsV1,
+  VALIDATION_STATUSES,
   type ValidationBaselineV1,
   type ValidationDiagnosticV1,
   type ValidationInputV1,
@@ -26,23 +39,30 @@ import {
   type ValidationResultV1,
 } from './refresh-validation-types.js';
 import {
-  SOURCE_PROVIDER_FRESHNESS,
   isAllowedProviderUrl,
   parsePermissionManifest,
+  SOURCE_PROVIDER_FRESHNESS,
 } from './source-contract.js';
 import {
   TransformationRejected,
-  transformLicenseRecordsV2,
   type TransformationResultV2,
+  transformLicenseRecordsV2,
 } from './transform-license-records.js';
+
 export type {
+  ValidationBaselineV1,
   ValidationInputV1,
   ValidationPolicyV1,
-  ValidationBaselineV1,
   ValidationResultV1,
 } from './refresh-validation-types.js';
+
 function finite(value: unknown): value is number {
   return typeof value === 'number' && Number.isFinite(value) && value >= 0;
+}
+function hasVocabularyMetadata(value: unknown): boolean {
+  return (
+    object(value) && ('aggregateVocabularyVersion' in value || 'aggregateVocabularySha256' in value)
+  );
 }
 function rate(value: unknown): value is number {
   return finite(value) && value <= 1;
@@ -236,11 +256,15 @@ function limitsState(value: unknown): PolicyState {
     statusLimitsState(value.maxStatusShareChange),
   ]);
 }
-function policyState(value: unknown, ids: string[]): PolicyState {
+function policyState(
+  value: unknown,
+  ids: string[],
+  version: AggregateVocabularyVersion,
+): PolicyState {
   if (value === undefined) return 'missing';
   if (!object(value)) return 'invalid';
   const basic = fieldsState(value, {
-    version: (v) => v === 1,
+    version: (v) => v === version,
     revision: text,
     evidenceReference: text,
     maxJsonBytes: (v) => count(v) && v > 0,
@@ -258,8 +282,9 @@ function policyState(value: unknown, ids: string[]): PolicyState {
 function baselineState(
   value: unknown,
   ids: string[],
-  policy: ValidationPolicyV1 | null,
+  policy: ValidationPolicyV1 | ValidationPolicyV2 | null,
   schemaHash: string,
+  version: AggregateVocabularyVersion,
 ): 'valid' | 'missing' | 'invalid' | 'incompatible' {
   if (value === undefined) return 'missing';
   if (
@@ -273,7 +298,7 @@ function baselineState(
   )
     return 'invalid';
   if (
-    value.validationVersion !== 1 ||
+    value.validationVersion !== version ||
     value.schemaVersion !== 2 ||
     value.identifierContractVersion !== 1 ||
     value.normalizationContractVersion !== 1 ||
@@ -287,7 +312,7 @@ function baselineState(
     !sameKeys(value.metrics.categories, ids)
   )
     return 'incompatible';
-  return validValidationMetrics(value.metrics, ids) ? 'valid' : 'invalid';
+  return validValidationMetricsForVocabulary(value.metrics, ids, version) ? 'valid' : 'invalid';
 }
 function compareMetric(
   current: ValidationMetricsV1['total'],
@@ -370,7 +395,10 @@ function compareMetric(
  * review inputs, not cryptographic attestations. There is no I/O, baseline promotion, or public
  * artifact serializer; TASK-009 must validate and bind the exact publication bytes separately.
  */
-export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
+function validateLicenseRefresh(
+  input: unknown,
+  version: AggregateVocabularyVersion,
+): ValidationResultV1 | ValidationResultV2 {
   const diagnostics: ValidationDiagnosticV1[] = [];
   let archiveSha256: string | null = null,
     policyRevision: string | null = null,
@@ -379,7 +407,7 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
   const add = (diagnostic: ValidationDiagnosticV1) => {
     diagnostics.push(diagnostic);
   };
-  const finish = (candidate?: TransformationResultV2): ValidationResultV1 => {
+  const finish = (candidate?: TransformationResultV2): ValidationResultV1 | ValidationResultV2 => {
     diagnostics.sort(
       (a, b) =>
         compareText(a.code, b.code) ||
@@ -387,7 +415,9 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
         compareText(a.metric ?? '', b.metric ?? ''),
     );
     const report = {
-      validationVersion: 1 as const,
+      ...(version === 1
+        ? { validationVersion: 1 as const }
+        : { validationVersion: 2 as const, ...VOCABULARY_V2 }),
       archiveSha256,
       policyRevision,
       dataAsOf,
@@ -421,6 +451,28 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
     return finish();
   };
   if (!object(input) || !object(input.collection)) return reject('malformed_validation_input');
+  const mismatched =
+    version === 2
+      ? input.validationVersion !== 2 ||
+        !matchesVocabularyV2(input) ||
+        (input.policy !== undefined &&
+          (!object(input.policy) ||
+            input.policy.version !== 2 ||
+            !matchesVocabularyV2(input.policy))) ||
+        (input.baseline !== undefined &&
+          (!object(input.baseline) ||
+            input.baseline.validationVersion !== 2 ||
+            !matchesVocabularyV2(input.baseline)))
+      : (input.validationVersion !== undefined && input.validationVersion !== 1) ||
+        hasVocabularyMetadata(input) ||
+        (object(input.policy) &&
+          (input.policy.version === 2 || hasVocabularyMetadata(input.policy))) ||
+        (object(input.baseline) &&
+          (input.baseline.validationVersion === 2 || hasVocabularyMetadata(input.baseline)));
+  if (mismatched) {
+    add({ code: 'vocabulary_revision_mismatch', severity: 'review' });
+    return finish();
+  }
   const collection = input.collection;
   if (collection.kind === 'rejected')
     return reject(text(collection.code) ? collection.code : 'collection_rejected');
@@ -462,7 +514,7 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
     throw error;
   }
   const ids = archive.entries.map((e) => e.fileDataId).sort(compareText);
-  metrics = measureValidationMetrics(transformed, ids);
+  metrics = measureValidationMetricsForVocabulary(transformed, ids, version);
   if (metrics.total.recordCount === 0)
     add({
       code: 'empty_refresh',
@@ -477,16 +529,20 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
         metric: 'unknownPairCount',
         actual: requireValue(metrics.categories[id]).unknownPairCount,
       });
-  const policyStatus = policyState(input.policy, ids);
-  const policy = policyStatus === 'valid' ? (input.policy as ValidationPolicyV1) : null;
+  const policyStatus = policyState(input.policy, ids, version);
+  const policy =
+    policyStatus === 'valid' ? (input.policy as ValidationPolicyV1 | ValidationPolicyV2) : null;
   if (policy) policyRevision = policy.revision;
   else
     add({
       code: policyStatus === 'missing' ? 'policy_review_required' : 'invalid_validation_policy',
       severity: policyStatus === 'missing' ? 'review' : 'rejection',
     });
-  const baselineStatus = baselineState(input.baseline, ids, policy, schemaHash);
-  const baseline = baselineStatus === 'valid' ? (input.baseline as ValidationBaselineV1) : null;
+  const baselineStatus = baselineState(input.baseline, ids, policy, schemaHash, version);
+  const baseline =
+    baselineStatus === 'valid'
+      ? (input.baseline as ValidationBaselineV1 | ValidationBaselineV2)
+      : null;
   if (!baseline)
     add({
       code:
@@ -575,4 +631,13 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
       });
   }
   return finish(transformed);
+}
+
+/** Explicit historical four-pair validation; never infers V2 from input values. */
+export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
+  return validateLicenseRefresh(input, 1) as ValidationResultV1;
+}
+/** ADR-017 six-pair validation with mandatory input/policy/baseline vocabulary binding. */
+export function validateLicenseRefreshV2(input: unknown): ValidationResultV2 {
+  return validateLicenseRefresh(input, 2) as ValidationResultV2;
 }

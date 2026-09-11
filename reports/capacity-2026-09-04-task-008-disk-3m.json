@@ -1,0 +1,48 @@
+{
+  "synthetic": true,
+  "complete": true,
+  "code": null,
+  "node": "v24.19.0",
+  "profile": "short",
+  "rows": 3000000,
+  "distinctSearchKeys": 12000000,
+  "sourceNameCharacters": 34,
+  "batchSize": 64,
+  "retainedProviderRows": false,
+  "sampledPeakRssBytes": 413048832,
+  "sampledPeakHeapBytes": 151173512,
+  "elapsedMs": 273905,
+  "limits": {
+    "maxRows": 3000000,
+    "maxRssBytes": 3221225472,
+    "timeoutMs": 600000,
+    "maxScratchBytes": 4294967296,
+    "maxPartitionBytes": 67108864,
+    "maxPendingBytes": 16777216,
+    "maxLineBytes": 2097152,
+    "maxPartitionKeys": 250000,
+    "maxKeyBytes": 33554432,
+    "maxPairBytes": 33554432,
+    "maxPairs": 100000,
+    "maxHeapBytes": 1610612736,
+    "freeSpaceHeadroom": 536870912
+  },
+  "storage": {
+    "serializedBytes": 1890444450,
+    "indexCount": 15000000,
+    "largestPartitionBytes": 7499011,
+    "peakBufferedBytes": 15014266
+  },
+  "metrics": {
+    "recordCount": 3000000,
+    "collisionGroupCount": 0
+  },
+  "implementation": {
+    "scripts/benchmark-research-index.mjs": "a08f073399d38c77fcabf1a3153895e1f5886bfb16bac7e122b823ce3c9b016a",
+    "src/pipeline/research-index-store.ts": "6462af52ee17a476f702a0310919382b1fa6d6a3390118e570e09e4680b83f0a",
+    "src/pipeline/research-metrics-accumulator.ts": "763737fc8206ce030401f04f36c82b561621c9e105b9a2c301e3f1011696c519",
+    "src/pipeline/transform-license-records.ts": "a2beea03bea7f3d5ff170ff8032ef5f150bee58acc5aa6ca7dc257f23597910a",
+    "src/pipeline/refresh-validation-metrics.ts": "77ecbbac92473c1b67b5c10f30eb94710a1c2a42c2aa4154c2f7a143fd823f7f",
+    "src/pipeline/contracts/seoul-archive-contract.json": "7cd8ce23032b491a4d9859c2cf50d7fa7505ea94c63523cb44bcb5e4242388ec"
+  }
+}
