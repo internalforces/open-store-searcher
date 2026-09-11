@@ -642,3 +642,64 @@ is bound by the paginated report's 92 matching hashes; verify:full passed598/68/
 performance:check passed all120 search and320 navigation samples. Independent review approved.
 Earlier uncommitted/no-push notes are historical. No merge or deployment is authorized.
 Preserve original dirty TASK-008 work; commit only the reused working checkout's TASK-018 changes.
+
+
+## TASK-019 completed — 2026-09-09
+
+User authorized activation and execution. Completed current-code privacy/input/external-link,
+build exposure, dependency and Actions-applicability review against b614838 in the reused
+.worktrees/task013-quality checkout. No actionable vulnerability confirmed. Pinned verify:full
+passed 598 unit/component/pipeline tests, 68 browser tests and 20 accessibility tests; npm audit
+reported zero advisories and 304 unique package-version license declarations were recorded.
+Evidence: reports/security-2026-09-09-task-019.md and companion audit/hash/verification files.
+No security fix was needed or applied. Actions files do not exist; production publication,
+workflow/account settings and release security gates stay open for TASK-009/010/021.
+No active task; TASK-020 is next, unactivated. TASK-008 remains on hold. No source/test changes,
+dependency change, commit, push, merge, deployment or handbook access occurred.
+
+
+## PR #20 review remediation — 2026-09-10
+
+Resolved all three P2 review comments: portable FR-12/active-task report links, anonymous
+public-log checkout path, and reproducible artifact scan definition/command. The exact command
+reproduces six artifact hashes and zero hits; 53 source hashes remain unchanged. Pinned
+verify:full passes 598 Vitest, 68 browser and 20 accessibility tests. See
+[review remediation](../reports/review-2026-09-10-pr20.md). TASK-019 remains complete; TASK-008
+stays on hold. User-authorized PR delivery continues on codex/task-019-security-review.
+No application code, security policy, dependency, workflow or deployment changed.
+
+
+## PR #20 second review correction — 2026-09-10
+
+Resolved comment 3979191617: the remaining TASK-019 security-evidence reference in
+memory/known-issues.md now links to the committed report using a repository-relative path.
+Verified the known-issues, active-task and FR-12 links against Git's tracked file list and
+confirmed all 53 source hashes remain unchanged. Markdown-only correction; prior full
+verification remains applicable. TASK-019 stays complete; TASK-008 remains on hold.
+
+
+## PR #20 third review correction — 2026-09-11
+
+Reviewed both unresolved comments on 550901f in the existing clean PR checkout. Added a
+criterion/evidence matrix for TASK-019 and corrected three FR-10 source citations to immutable
+links containing the actual protection statements. The committed history does not establish
+an approved Actions waiver; AC-019-8 remains unchecked and overall TASK-019 is now explicitly
+deferred/incomplete in backlog/current status. Its bounded application assessment remains
+completed. Earlier unqualified completion statements are historical, superseded by this record.
+
+All 53 reviewed source hashes remain unchanged; local evidence links/anchors and exact source
+citation ranges pass validation, as do pinned format and Git whitespace checks. This is a
+Markdown-only correction; the historical 598/68/20 full verification was not rerun. Details:
+[PR #20 remediation](../reports/review-2026-09-10-pr20.md#third-review-follow-up--2026-09-11).
+No new architectural decision, application/security-policy change or independent approval.
+TASK-008 remains on hold, no implementation task is active, and no workflow work is activated.
+Changes are local and uncommitted; no push, GitHub messages, thread resolution, merge or deployment.
+
+
+## PR #20 authorized correction delivery — 2026-09-11
+
+The user explicitly requested commit and push of the eight reviewed Markdown corrections
+on codex/task-019-security-review. The preceding local-only notes describe the preparation
+pass. Deliver only these files to the existing PR #20; no merge, deployment, GitHub comment
+or review-thread resolution is requested. TASK-019's Actions criterion remains deferred
+and TASK-008 remains on hold.

@@ -223,3 +223,31 @@ remains false: all-data download/index preparation, production source-cut/public
 physical-device verification retain their existing gates. Earlier issue measurements are
 historical evidence. No remaining known implementation issue is inferred from these closed
 lab misses. Evidence: reports/performance-2026-09-08-task-018-paginated.md in the working checkout.
+
+
+## TASK-019 security review follow-up — 2026-09-09
+
+No confirmed current-application vulnerability requires remediation. TASK-010/021 must review
+actual Actions workflows and repository permissions when available (none exist in reviewed
+b614838); TASK-009/021 retain production artifact limits/provenance/publication security gates.
+TASK-020 retains public security-reporting documentation. These are deferred release checks,
+not discovered exploits or a reason to resume held TASK-008. See the
+[TASK-019 security report](../reports/security-2026-09-09-task-019.md). No architectural or security-policy decision changed.
+
+
+### PR #20 evidence corrections — 2026-09-10
+
+Three documentation/evidence findings are resolved: checkout-dependent FR-12 evidence pointer,
+public transcript local-path disclosure and missing artifact-scan definition. Exact scan replay
+and full verification pass; see reports/review-2026-09-10-pr20.md. Historical Git objects and
+existing review comments may retain the former local path; no history rewrite was performed.
+No new application vulnerability or architecture decision was introduced.
+
+
+### PR #20 acceptance-record correction — 2026-09-11
+
+The missing TASK-019 criterion/evidence matrix and incorrect external-link source citations
+are corrected. No recorded approval waived actual Actions review, so AC-019-8 remains unchecked
+and overall TASK-019 is deferred/incomplete in the backlog. See the
+[acceptance record](../tasks/completed.md#task-019-acceptance-criteria-and-evidence).
+This is a documentation/status correction, not a new application vulnerability or policy change.
