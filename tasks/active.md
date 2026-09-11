@@ -11,7 +11,10 @@ _Last updated: 2026-09-04_
 
 ## In Progress
 
-No implementation task is active. TASK-019's bounded security review completed on 2026-09-09.
+No implementation task is active. TASK-019's bounded application assessment completed on
+2026-09-09; overall TASK-019 remains deferred/incomplete for AC-019-8, the actual Actions review.
+See its [acceptance checklist](completed.md#task-019-acceptance-criteria-and-evidence) and
+[unfinished criterion](backlog.md#task-019-unfinished-actions-criterion).
 See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).
 No actionable vulnerability was confirmed in current code; production and Actions review gates
 remain open for TASK-009/010/021. TASK-020 remains in backlog and is not activated.

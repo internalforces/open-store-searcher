@@ -676,3 +676,30 @@ memory/known-issues.md now links to the committed report using a repository-rela
 Verified the known-issues, active-task and FR-12 links against Git's tracked file list and
 confirmed all 53 source hashes remain unchanged. Markdown-only correction; prior full
 verification remains applicable. TASK-019 stays complete; TASK-008 remains on hold.
+
+
+## PR #20 third review correction — 2026-09-11
+
+Reviewed both unresolved comments on 550901f in the existing clean PR checkout. Added a
+criterion/evidence matrix for TASK-019 and corrected three FR-10 source citations to immutable
+links containing the actual protection statements. The committed history does not establish
+an approved Actions waiver; AC-019-8 remains unchecked and overall TASK-019 is now explicitly
+deferred/incomplete in backlog/current status. Its bounded application assessment remains
+completed. Earlier unqualified completion statements are historical, superseded by this record.
+
+All 53 reviewed source hashes remain unchanged; local evidence links/anchors and exact source
+citation ranges pass validation, as do pinned format and Git whitespace checks. This is a
+Markdown-only correction; the historical 598/68/20 full verification was not rerun. Details:
+[PR #20 remediation](../reports/review-2026-09-10-pr20.md#third-review-follow-up--2026-09-11).
+No new architectural decision, application/security-policy change or independent approval.
+TASK-008 remains on hold, no implementation task is active, and no workflow work is activated.
+Changes are local and uncommitted; no push, GitHub messages, thread resolution, merge or deployment.
+
+
+## PR #20 authorized correction delivery — 2026-09-11
+
+The user explicitly requested commit and push of the eight reviewed Markdown corrections
+on codex/task-019-security-review. The preceding local-only notes describe the preparation
+pass. Deliver only these files to the existing PR #20; no merge, deployment, GitHub comment
+or review-thread resolution is requested. TASK-019's Actions criterion remains deferred
+and TASK-008 remains on hold.

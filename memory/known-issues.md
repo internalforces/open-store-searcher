@@ -242,3 +242,12 @@ public transcript local-path disclosure and missing artifact-scan definition. Ex
 and full verification pass; see reports/review-2026-09-10-pr20.md. Historical Git objects and
 existing review comments may retain the former local path; no history rewrite was performed.
 No new application vulnerability or architecture decision was introduced.
+
+
+### PR #20 acceptance-record correction — 2026-09-11
+
+The missing TASK-019 criterion/evidence matrix and incorrect external-link source citations
+are corrected. No recorded approval waived actual Actions review, so AC-019-8 remains unchecked
+and overall TASK-019 is deferred/incomplete in the backlog. See the
+[acceptance record](../tasks/completed.md#task-019-acceptance-criteria-and-evidence).
+This is a documentation/status correction, not a new application vulnerability or policy change.

@@ -329,7 +329,7 @@ Production data/download/index and release gates remain separate. Work is uncomm
 codex/task-018-performance; no push, merge, deployment, dependency or handbook change occurred.
 
 
-## TASK-019 completed — 2026-09-09
+## TASK-019 bounded assessment completed — 2026-09-09
 
 User authorized activation and execution. Completed current-code privacy/input/external-link,
 build exposure, dependency and Actions-applicability review against b614838 in the reused
@@ -341,6 +341,33 @@ No security fix was needed or applied. Actions files do not exist; production pu
 workflow/account settings and release security gates stay open for TASK-009/010/021.
 No active task; TASK-020 is next, unactivated. TASK-008 remains on hold. No source/test changes,
 dependency change, commit, push, merge, deployment or handbook access occurred.
+
+
+### TASK-019 acceptance criteria and evidence
+
+Related requirements: FR-12, PRD Section 14.4; FR-10 for explicit external navigation.
+The user authorized activation and execution on 2026-09-09. The committed history preserves
+only the original backlog scope (privacy, input rendering, external links, Actions permissions),
+not a separately approved acceptance checklist or approval to waive Actions review. The matrix
+below reconstructs that scope using [the security prompt](../prompts/security.md) and the
+[assessment](../reports/security-2026-09-09-task-019.md); it is not a claim of retroactive approval.
+
+| Check | ID / requirement | Criterion | Evidence and disposition |
+|---|---|---|---|
+| [x] | AC-019-1 / FR-12 | Review transmission and storage of search terms and behavior. | Assessment, “Query or behavior exfiltration” row and “Verification”: component-state, fixed-asset and runtime sentinel inspection; uninstrumented APIs are explicitly limited to static inspection. Complete for the reviewed application. |
+| [x] | AC-019-2 / FR-12, Section 14.4 | Review safe rendering of user and source data. | Assessment, “HTML/script execution” row: JSX text rendering, hostile-markup component and live-form browser evidence. Complete for the reviewed application. |
+| [x] | AC-019-3 / FR-10, Section 14.4 | Review external URL encoding, destination and new-window policies. | Assessment, “Unsafe external navigation” row: immutable source links identify encoding, fixed hosts, protected tabs and source URL filtering; browser navigation evidence verifies opener/referrer behavior. |
+| [x] | AC-019-4 / Section 14.4 | Inspect frontend artifacts for secret/tracking exposure with reproducible scope. | [Evidence JSON](../reports/security-2026-09-09-task-019-evidence.json): six artifact hashes, named patterns and zero matches; assessment “Artifact scan reproduction” supplies the exact command. Heuristic inspection only, not proof of universal absence. |
+| [x] | AC-019-5 / Section 14.4 | Review dependency advisories, licenses and lockfile integrity. | [Saved audit response](../reports/security-2026-09-09-task-019-audit.json), evidence JSON lock inventory and [304-version license report](../reports/dependency-licenses-2026-09-09.md). Complete as of the recorded review; release recheck required. |
+| [x] | AC-019-6 / Section 14.4 | Assess existing downloaded-file controls and record production limitations. | Assessment, “Malicious provider archive” row: bounds, hashes, archive/schema checks and existing pipeline tests reviewed. Live Linux and complete production ingestion remain unverified under TASK-009/021. |
+| [x] | AC-019-7 / verification | Preserve full verification and reviewed-source identity. | [Verification transcript](../reports/security-2026-09-09-task-019-verify.txt): pinned verify:full passed 598 Vitest, 68 browser and 20 accessibility tests; evidence JSON contains 53 source hashes. [PR remediation](../reports/review-2026-09-10-pr20.md) records the subsequent full rerun. |
+| [ ] | AC-019-8 / Section 14.4 | Review actual Actions permissions, triggers, action pinning, credentials and artifact trust. | Evidence JSON records an empty workflow inventory; the assessment marks this unavailable, not passed. No workflow exists at the reviewed commit and no approved exemption was found. Retained in [TASK-019 backlog](backlog.md#task-019-unfinished-actions-criterion); Security Reviewer / Release Manager must complete it with TASK-010 before TASK-021 release acceptance. |
+
+Completion disposition corrected on 2026-09-11: only AC-019-1 through AC-019-7 are complete
+within the stated evidence boundaries. Overall TASK-019 remains incomplete/deferred until
+AC-019-8 has actual workflow and repository-setting evidence and review. No workflow work is
+activated, no permission change is authorized, and TASK-008 remains on hold. The earlier
+unqualified completion statements describe the historical bounded assessment, not a waiver.
 
 
 ## PR #20 review remediation — 2026-09-10
