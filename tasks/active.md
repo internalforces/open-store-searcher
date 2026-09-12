@@ -7,11 +7,38 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-09-04_
+_Last updated: 2026-09-12_
 
 ## In Progress
 
-No implementation task is active. TASK-019's bounded application assessment completed on
+TASK-010 is the sole active task, in verification and release-gate resolution. TASK-009's
+collection-date staging foundation is implemented; both overall tasks remain incomplete.
+Pinned verification passes 636 tests and 20 accessibility tests. Full verification remains
+blocked by two Windows WebKit failures also reproduced at the unchanged base commit.
+Production calibration, hosted publication/recovery and independent review remain pending.
+The user authorized collection-date operation while retaining the real-data criteria hold.
+See the [publication design](../docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md)
+for AC-009-1 through AC-010-5, implementation boundaries and failure-injection requirements.
+The collection date replaces source coverage only as the explicitly labeled display date.
+Reviewed quality policy and baseline remain required; no synthetic production defaults are allowed.
+
+- [x] Inspect collection, validation, transformation, browser loading and workflow boundaries.
+- [x] Prepare a concrete publication transaction and Actions trust/verification design.
+- [x] Resolve the date-basis direction: collection-date operation; real-data criteria held.
+- [x] Implement the bounded staged serialization and same-release deployed-baseline binding.
+- [ ] Implement and verify TASK-009, including failure injection and independent review.
+- [x] Activate TASK-010 after the bounded TASK-009 staging contract is tested.
+- [x] Add trusted daily/manual refresh, read-only CI and guarded Pages publication workflows.
+- [x] Run checks and record failures and remaining hosted/release evidence gates.
+- [ ] Resolve existing Windows WebKit verification failures or obtain passing approved-runner evidence.
+- [ ] Resume reviewed quality config/bootstrap/resource calibration when authorized.
+- [ ] Complete independent review, GitHub settings review and approved hosted publication/recovery.
+
+Evidence: [verification](../reports/test-2026-09-12-task-009-010.md),
+[Actions self-review](../reports/security-2026-09-12-task-009-010.md),
+[operator contract](../publication/README.md). No deployment or task-completion claim is made.
+
+TASK-019's bounded application assessment completed on
 2026-09-09; overall TASK-019 remains deferred/incomplete for AC-019-8, the actual Actions review.
 See its [acceptance checklist](completed.md#task-019-acceptance-criteria-and-evidence) and
 [unfinished criterion](backlog.md#task-019-unfinished-actions-criterion).

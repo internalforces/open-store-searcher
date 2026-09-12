@@ -260,7 +260,7 @@ describe('TASK-013 quality measurement', () => {
 
   test('Q08 measures the source corpus through the same checked CLI path', () => {
     const cli = new URL('../../scripts/measure-search-quality.mjs', import.meta.url);
-    const run = spawnSync(process.execPath, [cli.pathname, '--source', '--check'], {
+    const run = spawnSync(process.execPath, [fileURLToPath(cli), '--source', '--check'], {
       encoding: 'utf8',
     });
     expect(run.status).toBe(0);
@@ -277,7 +277,7 @@ describe('TASK-013 quality measurement', () => {
 
   test('Q07 executes the offline CLI deterministically with auditable hashes and honest exit codes', () => {
     const cli = new URL('../../scripts/measure-search-quality.mjs', import.meta.url);
-    const run = () => execFileSync(process.execPath, [cli.pathname], { encoding: 'utf8' });
+    const run = () => execFileSync(process.execPath, [fileURLToPath(cli)], { encoding: 'utf8' });
     const first = run();
     expect(run()).toBe(first);
     const report = JSON.parse(first);
@@ -287,10 +287,14 @@ describe('TASK-013 quality measurement', () => {
       /^[a-f0-9]{64}$/,
     );
     expect(report.result).toEqual(evaluateSearchQuality(corpus));
-    const checked = spawnSync(process.execPath, [cli.pathname, '--check'], { encoding: 'utf8' });
+    const checked = spawnSync(process.execPath, [fileURLToPath(cli), '--check'], {
+      encoding: 'utf8',
+    });
     expect(checked.status).toBe(report.result.checkPassed ? 0 : 1);
     expect(JSON.parse(checked.stdout)).toEqual(report);
-    const invalid = spawnSync(process.execPath, [cli.pathname, '--unknown'], { encoding: 'utf8' });
+    const invalid = spawnSync(process.execPath, [fileURLToPath(cli), '--unknown'], {
+      encoding: 'utf8',
+    });
     expect(invalid.status).toBe(2);
     expect(invalid.stdout).toBe('');
   }, 30_000);
@@ -364,7 +368,11 @@ test.each([
         mkdirSync(join(destination, '..'), { recursive: true });
         cpSync(join(root, path), destination, { recursive: true });
       }
-      symlinkSync(join(root, 'node_modules'), join(sandbox, 'node_modules'), 'dir');
+      symlinkSync(
+        join(root, 'node_modules'),
+        join(sandbox, 'node_modules'),
+        process.platform === 'win32' ? 'junction' : 'dir',
+      );
       const auditPath = join(sandbox, 'tests/fixtures/search/seoul-source-audit.json');
       const audit = JSON.parse(readFileSync(auditPath, 'utf8'));
       if (change === 'corpus') {

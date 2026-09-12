@@ -130,3 +130,27 @@ User-approved 20-item pages preserve FR-03/07/11/16 while satisfying measured PR
 All 24 first-result search cells and 16 applicable navigation groups pass 500 ms; no large-search
 cells remain skipped. Correctness 598/68/20 and independent approval support bounded completion.
 Earlier rendering-gap notes are historical; full-DOM and production certification are not claimed.
+
+## TASK-009/010 design activation — 2026-09-12
+
+FR-13 publication/recovery and Section 12.3 workflow work is in design. The
+[publication specification](superpowers/specs/2026-09-12-task-009-010-publication-design.md)
+links AC-009-1 through AC-010-5 to failure-injection, complete-artifact, privacy, hosted deployment
+and reliability evidence. These are proposed acceptance checks, not passing results.
+TASK-008 remains held, TASK-009 is the sole active task, and TASK-010 follows sequentially.
+Production and release statuses remain open; no completion or Actions waiver is recorded.
+
+## Collection-date implementation evidence — 2026-09-12
+
+FR-08/13/14 now have an explicit user-approved collection-date branch with unverified source
+coverage, date-basis-matching validation and >=7 Seoul-day collection warnings. FR-13 staging
+and deployed-baseline byte binding are implemented, with injected partial-write/lock/corruption
+failures preserving previous state. Section 12.3 has daily/manual trusted Actions preparation
+and guarded same-run Pages publication; FR-12 has a read-only CI boundary and author security
+review. Evidence: [test report](../reports/test-2026-09-12-task-009-010.md) and
+[Actions self-review](../reports/security-2026-09-12-task-009-010.md).
+
+Pinned verify passes 636 tests and a11y passes 20. Full verification fails two Windows WebKit
+cases reproduced at the unchanged base; hosted runs and recovery, reviewed real-data config,
+production performance and independent approval remain open. No requirement is marked Done
+from this foundation, and TASK-019 AC-019-8 is not waived. TASK-008's real-data criteria remain held.

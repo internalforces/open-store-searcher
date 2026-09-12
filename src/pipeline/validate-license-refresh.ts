@@ -372,6 +372,8 @@ function compareMetric(
  */
 export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
   const diagnostics: ValidationDiagnosticV1[] = [];
+  const dateBasis: 'coverage' | 'collection' =
+    object(input) && input.dateBasis === 'collection' ? 'collection' : 'coverage';
   let archiveSha256: string | null = null,
     policyRevision: string | null = null,
     dataAsOf: string | null = null;
@@ -387,6 +389,7 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
         compareText(a.metric ?? '', b.metric ?? ''),
     );
     const report = {
+      dateBasis,
       validationVersion: 1 as const,
       archiveSha256,
       policyRevision,
@@ -421,6 +424,12 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
     return finish();
   };
   if (!object(input) || !object(input.collection)) return reject('malformed_validation_input');
+  if (
+    input.dateBasis !== undefined &&
+    input.dateBasis !== 'coverage' &&
+    input.dateBasis !== 'collection'
+  )
+    return reject('invalid_date_basis');
   const collection = input.collection;
   if (collection.kind === 'rejected')
     return reject(text(collection.code) ? collection.code : 'collection_rejected');
@@ -487,6 +496,8 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
     });
   const baselineStatus = baselineState(input.baseline, ids, policy, schemaHash);
   const baseline = baselineStatus === 'valid' ? (input.baseline as ValidationBaselineV1) : null;
+  if (baseline && (baseline.dateBasis ?? 'coverage') !== dateBasis)
+    return reject('baseline_date_basis_mismatch');
   if (!baseline)
     add({
       code:
@@ -515,6 +526,25 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
         add,
       );
     }
+  }
+  if (dateBasis === 'collection') {
+    // User-approved collection-date mode. Do not synthesize coverage assertions.
+    if (input.coverage !== undefined) return reject('collection_mode_with_coverage');
+    dataAsOf = seoulCalendarDate(collection.fetchedAt);
+    if (dataAsOf === null) return reject('invalid_collection_date');
+    if (baseline && dataAsOf < baseline.dataAsOf) return reject('collection_date_regressed');
+    const freshness = evaluateDataFreshnessV1(dataAsOf, input.now);
+    if (freshness.kind === 'rejected') return reject(freshness.code);
+    if ((freshness.kind === 'fresh' || freshness.kind === 'stale') && freshness.ageDays >= 7)
+      add({
+        code: 'collection_stale',
+        severity: 'warning',
+        metric: 'ageDays',
+        actual: freshness.ageDays,
+        limit: 7,
+      });
+    add({ code: 'source_coverage_unverified', severity: 'warning' });
+    return finish(transformed);
   }
   const coverage = input.coverage;
   if (coverage === undefined)

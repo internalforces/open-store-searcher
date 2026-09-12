@@ -251,3 +251,29 @@ are corrected. No recorded approval waived actual Actions review, so AC-019-8 re
 and overall TASK-019 is deferred/incomplete in the backlog. See the
 [acceptance record](../tasks/completed.md#task-019-acceptance-criteria-and-evidence).
 This is a documentation/status correction, not a new application vulnerability or policy change.
+
+## TASK-009/010 publication integration dependencies — 2026-09-12
+
+TASK-009 owns resolution of the production serializer/identifier encoding, fixed partition
+manifest, durable matching baseline/recovery state and candidate-to-byte validation contract.
+The current internal Uint8Array transformation and synthetic browser loader do not define them.
+TASK-008 coverage/policy/calibration evidence remains held, and cannot be fabricated to unblock
+publication. See the [proposed transaction and acceptance matrix](../docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md).
+This is a known integration gap, not a confirmed security exploit. TASK-009/010 remain incomplete.
+
+## Collection-date integration and verification gates — 2026-09-12
+
+The user-approved collection-date mode removes the need to pretend source coverage is known;
+it does not waive quality policy, bootstrap or resource calibration. The serializer/staging,
+deployed-baseline binding and build/workflow foundation now exist. Earlier descriptions of
+those modules as entirely absent are historical. No reviewed production config or hosted
+verification exists. Production loading currently uses one fixed dataset asset; partition
+sizing and real-data performance remain release work.
+
+Two Windows WebKit E2E failures remain: candidate map-link keyboard activation and ordered
+source/map-link focus. Both reproduce on unchanged ec6bb6f with pinned Node and the same
+browser binaries; no product keyboard change or skip was added. Full verify:full remains
+unsuccessful. Eight separate Windows quality-CLI path/junction failures were fixed and pass.
+Owner: Tester / Debugger for Windows WebKit evidence; Release Manager for hosted gates.
+Evidence: reports/test-2026-09-12-task-009-010.md. TASK-019 AC-019-8 remains unclosed because
+Actions account/environment settings and independent review are unavailable.

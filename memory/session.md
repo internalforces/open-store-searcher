@@ -703,3 +703,75 @@ on codex/task-019-security-review. The preceding local-only notes describe the p
 pass. Deliver only these files to the existing PR #20; no merge, deployment, GitHub comment
 or review-thread resolution is requested. TASK-019's Actions criterion remains deferred
 and TASK-008 remains on hold.
+
+## Git synchronization and orientation — 2026-09-12
+
+User requested synchronization with Git and a review of current work. The original
+codex/task-008-planning checkout was clean at ea8f4da and fully contained in origin/main.
+Fetched origin with pruning, switched to main, and fast-forwarded local main from d9dba5f
+to ec6bb6f (merged PR #20). Existing local branches were preserved.
+
+Reviewed project/current-session/task records, planning instructions, backlog, traceability,
+roadmap, package scripts and the application/demo loader. No implementation task is active.
+TASK-008 remains explicitly on hold; TASK-019 remains deferred/incomplete for AC-019-8.
+TASK-020 is the next recorded documentation candidate, not activated. The current application
+uses synthetic partitioned data; production ingestion/publication, Actions and release gates
+remain open. Historical passing verification is recorded as 598 Vitest, 68 browser and
+20 accessibility tests; no tests were rerun for this synchronization-only session.
+
+Only this session note was added locally. No application change, new decision, task activation,
+commit, push or deployment occurred. No handbook content was accessed.
+
+## TASK-009/010 execution request — 2026-09-12
+
+User requested deployment pipeline work. Created codex/task-009-010-publication from ec6bb6f,
+preserving the existing uncommitted synchronization note. Activated TASK-009 alone in design;
+TASK-010 follows its tested contract. Inspected collector, staged validator, internal transformer,
+synthetic browser loader, acceptance records and official Pages/schedule documentation.
+
+Prepared docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md with the complete
+publication transaction, same-release baseline promotion, Actions trust/permission boundaries,
+bootstrap/recovery concerns and AC-009-1 through AC-010-5 failure-injection/hosted evidence matrix.
+The proposal is not an accepted architecture decision or implementation-completion claim.
+
+TASK-008 remains explicitly held. Asked whether the user authorizes its resumption or wants only
+the bounded testable publication foundation. No answer or approval is inferred from elapsed time.
+Production ingestion/coverage/policy and serialization/baseline storage contracts remain unresolved.
+No code/workflow/dependency/settings changes, commit, push, deployment or handbook access occurred.
+No implementation tests were rerun for this documentation-only preparation. TASK-009/010 and
+TASK-019 AC-019-8 remain incomplete; no milestone or release gates closed.
+
+## Collection-date continuation outcome — 2026-09-12
+
+The user explicitly kept real-data criteria on hold and requested collection-date operation.
+Implemented the date-basis validator/UI, strict full-category CSV parser, exact-byte candidate
+staging, whole-directory promotion, matching deployed-baseline verification, Vite data build,
+read-only CI and daily/manual guarded Pages workflow. Recorded ADR-016 and aligned AGENTS.md
+with the approved date interpretation. TASK-009's bounded staging contract was tested before
+activating TASK-010; both overall tasks remain incomplete for production/hosted/review gates.
+
+Pinned Node 24.19.0 / npm 11.17.0 npm run verify passes 636 tests with two existing Windows
+skips, all coverage gates, build and quality checks. npm run test:a11y passes 20 tests.
+Full four-browser verification passes 66/68; two Windows WebKit link-focus tests fail, also on
+a separate unchanged ec6bb6f checkout. The temporary baseline checkout was removed after
+verification without changing the shared dependencies. Experimental E2E key changes were
+reverted. Fixed eight existing Windows quality-test path/junction failures without weakening
+assertions or changing product search behavior. The initial ambient-runtime failure is superseded
+by the pinned run; no full-suite success is claimed.
+
+Reports: reports/test-2026-09-12-task-009-010.md, reports/security-2026-09-12-task-009-010.md
+and reports/task-009-010-2026-09-12-hashes.json. The security assessment is an author self-review,
+not independent approval. YAML syntax, default permissions and top-level pins passed checks.
+Quality config remains intentionally absent; publication enablement remains unset/unverified.
+No official archive ingestion, account-setting change, hosted Actions execution, commit, push,
+merge, deployment or handbook access occurred. No task was moved to completed because full
+verification, independent review and production/hosted acceptance gates remain open.
+
+## Authorized branch delivery — 2026-09-12
+
+The user explicitly requested commit and push of the prepared TASK-009/010 changes on
+codex/task-009-010-publication. Earlier no-commit/no-push statements describe the preparation
+pass. Deliver the collection-date foundation, workflows, verification reports and harness
+updates together; retain all documented quality, WebKit, independent-review and hosted gates.
+The prior synchronization note is preserved. No PR creation, merge or deployment is requested.
+Before delivery, verify the 19 implementation/workflow hashes and Git whitespace checks.

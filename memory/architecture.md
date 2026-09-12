@@ -273,3 +273,27 @@ App keys result presentation by submission sequence, resetting repeated searches
 rerunning search during navigation. Dataset replacement retains its existing invalidation.
 No virtual scrolling, cumulative load-more, persistence or page requests were introduced.
 The approved performance endpoint is complete search plus a visible page, not all-result DOM.
+
+## TASK-009/010 collection-date publication foundation — 2026-09-12
+
+The staged validator supports explicit coverage/collection date bases with matching baselines.
+Collection mode preserves source uncertainty and quality gates. parse-license-csv.ts strictly
+parses complete category bytes with exact headers and bounded rows. stage-validated-release.ts
+projects complete accepted records, validates their serialized consumer representation, hashes
+dataset/baseline bytes and promotes only a fresh complete staging directory under a per-output
+lock. It does not replace an existing deployment directory.
+
+stage-refresh.mjs runs the approved collector and bounded unzip ingestion, hashes the archive
+before and after parsing and stages only accepted results. read-deployed-baseline.ts retrieves
+and binds the currently deployed descriptor/baseline with size, hash and repeated-descriptor
+checks; explicit manual bootstrap is separate. build-publication.mjs emits a collection-date
+asset using Vite's pre-resolution loader substitution and copies only verified in-memory state
+bytes into the same site artifact. The default development/demo entry remains synthetic.
+
+publication-loader.ts loads a fixed credential-free asset after paint and rejects partial or
+incorrectly labeled snapshots. EvidenceContext labels collection dates and source uncertainty.
+.github/workflows/verify.yml is read-only; refresh.yml separates trusted preparation from the
+Pages/OIDC deploy job, uses one concurrency group and guards publication behind an explicit
+repository variable and the github-pages environment. Quality config is intentionally absent.
+The current production foundation uses a single dataset asset; real-data partition/performance,
+full hosted ingestion/publication/recovery and actual environment controls remain unverified.

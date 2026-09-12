@@ -1,5 +1,13 @@
 import { createHash } from 'node:crypto';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { readFileSync } from 'node:fs';
+import { promises as filesystem } from 'node:fs';
+import { syncBuiltinESMExports } from 'node:module';
+import { mkdtemp, readFile, readdir, rm, mkdir, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { prepareValidatedRelease, stageValidatedRelease } from './stage-validated-release.js';
 import { describe, expect, test, vi } from 'vitest';
 import { parseArchiveContract } from './archive-contract.js';
 import {
@@ -652,4 +660,187 @@ describe('TASK-008 staged validation', () => {
       expect(codes(validateLicenseRefreshV1(input))).toContain('invalid_validation_policy');
     },
   );
+});
+
+describe('TASK-009 collection-date publication', () => {
+  function collectedFixture() {
+    const input = acceptedFixture();
+    input.dateBasis = 'collection';
+    delete input.coverage;
+    if (!input.baseline) throw new Error('missing fixture baseline');
+    input.baseline.dateBasis = 'collection';
+    input.baseline.dataAsOf = '2026-09-03';
+    return input;
+  }
+  test('uses Seoul collection date while retaining unverified source coverage', () => {
+    const input = collectedFixture();
+    if (input.collection.kind !== 'accepted') throw new Error('missing fixture collection');
+    input.collection.fetchedAt = '2026-09-04T15:00:00.000Z';
+    input.now = '2026-09-04T16:00:00.000Z';
+    const result = validateLicenseRefreshV1(input);
+    expect(result.kind).toBe('accepted');
+    expect(result.dateBasis).toBe('collection');
+    expect(result.dataAsOf).toBe('2026-09-05');
+    expect(codes(result)).toEqual(['source_coverage_unverified']);
+    expect(input).not.toHaveProperty('coverage');
+  });
+  test.each([
+    ['2026-09-10T14:59:59.999Z', false],
+    ['2026-09-10T15:00:00.000Z', true],
+  ])('warns after seven Seoul collection days at %s', (now, stale) => {
+    const input = collectedFixture();
+    input.now = now;
+    const result = validateLicenseRefreshV1(input);
+    expect(result.kind).toBe('accepted');
+    expect(codes(result).includes('collection_stale')).toBe(stale);
+  });
+  test('does not waive quality policy or initial baseline review for collection dates', () => {
+    const input = collectedFixture();
+    delete input.policy;
+    delete input.baseline;
+    const result = validateLicenseRefreshV1(input);
+    expect(result.kind).toBe('review_required');
+    expect(codes(result)).toEqual([
+      'baseline_review_required',
+      'policy_review_required',
+      'source_coverage_unverified',
+    ]);
+    expect(() => prepareValidatedRelease(input)).toThrow('Publication blocked');
+  });
+  test('rejects mixing coverage and collection baselines', () => {
+    const input = collectedFixture();
+    delete requireValue(input.baseline).dateBasis;
+    expect(codes(validateLicenseRefreshV1(input))).toContain('baseline_date_basis_mismatch');
+  });
+  test('rejects asserted coverage in collection mode and regressing collection dates', () => {
+    const input = collectedFixture();
+    input.coverage = requireValue(fixture().coverage);
+    expect(codes(validateLicenseRefreshV1(input))).toContain('collection_mode_with_coverage');
+    delete input.coverage;
+    requireValue(input.baseline).dataAsOf = '2026-09-05';
+    expect(codes(validateLicenseRefreshV1(input))).toContain('collection_date_regressed');
+  });
+  test('binds exact dataset bytes and matching baseline without asserting source data date', () => {
+    const input = collectedFixture();
+    const files = prepareValidatedRelease(input);
+    const parse = (name: string) => JSON.parse(new TextDecoder().decode(requireValue(files[name])));
+    const dataset = parse('dataset.json'),
+      baseline = parse('baseline.json'),
+      release = parse('release.json');
+    expect(dataset.coverage).toEqual({ kind: 'collected', date: '2026-09-04' });
+    expect(dataset.records).toHaveLength(195);
+    expect(dataset.records[0].rawStatus).toEqual(
+      expect.objectContaining({ operatingCode: '01', operatingName: '영업/정상' }),
+    );
+    expect(dataset.records[0].processedStatus).toBe('행정상 영업');
+    expect(new Set(dataset.records.map((r: { id: string }) => r.id)).size).toBe(195);
+    expect(baseline.dateBasis).toBe('collection');
+    expect(baseline.dataAsOf).toBe('2026-09-04');
+    expect(release.sourceDataAsOf).toBeNull();
+    for (const entry of release.entries) {
+      expect(createHash('sha256').update(requireValue(files[entry.name])).digest('hex')).toBe(
+        entry.sha256,
+      );
+      expect(requireValue(files[entry.name]).length).toBe(entry.byteLength);
+    }
+  });
+  test('refuses a total artifact larger than the explicit JSON budget', () => {
+    const input = collectedFixture();
+    const files = prepareValidatedRelease(input);
+    requireValue(input.policy).maxJsonBytes = Math.max(
+      ...Object.values(files).map((v) => v.length),
+    );
+    expect(() => prepareValidatedRelease(input)).toThrow('total_json_size_exceeded');
+  });
+  test('promotes a complete staged directory and preserves an existing release on retry or rejection', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'task009-test-'));
+    try {
+      const output = join(root, 'release');
+      const input = collectedFixture();
+      await stageValidatedRelease(input, output);
+      expect((await readdir(output)).sort()).toEqual([
+        'baseline.json',
+        'dataset.json',
+        'release.json',
+      ]);
+      const before = await readFile(join(output, 'dataset.json'));
+      await expect(stageValidatedRelease(input, output)).rejects.toThrow('already exists');
+      delete input.policy;
+      await expect(stageValidatedRelease(input, output)).rejects.toThrow('Publication blocked');
+      expect(await readFile(join(output, 'dataset.json'))).toEqual(before);
+      expect(await readdir(root)).toEqual(['release']);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+  test('a competing publication lock prevents promotion and removes incomplete staging', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'task009-lock-'));
+    try {
+      const output = join(root, 'release');
+      await mkdir(`${output}.lock`);
+      await writeFile(join(root, 'known-good.json'), 'old release');
+      await expect(stageValidatedRelease(collectedFixture(), output)).rejects.toThrow();
+      expect((await readdir(root)).sort()).toEqual(['known-good.json', 'release.lock']);
+      expect(await readFile(join(root, 'known-good.json'), 'utf8')).toBe('old release');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+  test('builds real collection-date assets and rejects tampered staging before building', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'task009-build-'));
+    try {
+      const output = join(root, 'release');
+      const site = join(root, 'site');
+      await stageValidatedRelease(collectedFixture(), output);
+      await promisify(execFile)(process.execPath, ['scripts/build-publication.mjs', output, site]);
+      const assets = await readdir(join(site, 'assets'));
+      const assetName = assets.find(
+        (name) => name.startsWith('collected-dataset-') && name.endsWith('.json'),
+      );
+      expect(assetName).toBeDefined();
+      expect(
+        JSON.parse(await readFile(join(site, 'assets', requireValue(assetName)), 'utf8')).coverage
+          .kind,
+      ).toBe('collected');
+      expect(assets.some((name) => name.startsWith('demo-'))).toBe(false);
+      expect(await readFile(join(site, 'baseline.json'))).toEqual(
+        await readFile(join(output, 'baseline.json')),
+      );
+      await writeFile(join(output, 'dataset.json'), '{}');
+      await expect(
+        promisify(execFile)(process.execPath, [
+          'scripts/build-publication.mjs',
+          output,
+          join(root, 'tampered-site'),
+        ]),
+      ).rejects.toThrow('hash mismatch');
+      expect(await readdir(root)).not.toContain('tampered-site');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  }, 30_000);
+  test('a partial staging write failure preserves known-good bytes and cleans the candidate', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'task009-io-'));
+    try {
+      const previous = join(root, 'known-good.json');
+      await writeFile(previous, 'known good');
+      const original = filesystem.writeFile;
+      const writer = vi.spyOn(filesystem, 'writeFile');
+      writer
+        .mockImplementationOnce(original)
+        .mockRejectedValueOnce(new Error('simulated disk full'));
+      syncBuiltinESMExports();
+      await expect(
+        stageValidatedRelease(collectedFixture(), join(root, 'candidate')),
+      ).rejects.toThrow('simulated disk full');
+      writer.mockRestore();
+      syncBuiltinESMExports();
+      expect(await readdir(root)).toEqual(['known-good.json']);
+      expect(await readFile(previous, 'utf8')).toBe('known good');
+    } finally {
+      vi.restoreAllMocks();
+      syncBuiltinESMExports();
+      await rm(root, { recursive: true, force: true });
+    }
+  });
 });

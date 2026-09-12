@@ -16,10 +16,9 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-019 bounded application assessment complete; overall task deferred/incomplete for Actions criterion AC-019-8; no active task; production/release gates remain open
+- Phase: TASK-009/010 collection-date publication foundation implemented; TASK-010 active in verification; overall task and production/release gates remain open
 - Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
-- Overall health: 🟡 Caution — collector, synthetic transformation, and staged validation gates pass, while no
-  production transformation or publication path exists
+- Overall health: 🟡 Caution — staged collection-date publication is implemented; real-data quality configuration, hosted execution/recovery and independent review remain unverified
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -252,3 +251,20 @@ reports/review-2026-09-08-task-018-paginated.md. All approved continuation crite
 No implementation task is active; TASK-019 remains unactivated and TASK-008 remains on hold.
 Production data/download/index and release gates remain separate. Work is uncommitted on
 codex/task-018-performance; no push, merge, deployment, dependency or handbook change occurred.
+
+## TASK-009/010 current priority — 2026-09-12
+
+User requested publication pipeline work. TASK-009 is active in design/prerequisite resolution
+on codex/task-009-010-publication; TASK-010 follows sequentially. The concrete design is in
+[the publication specification](../docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md).
+TASK-008 remains held pending an explicit answer to the resumption question. No production,
+Actions-security, milestone or release gate is closed by this preparation.
+
+## Collection-date publication state — 2026-09-12
+
+The user authorized collection-date operation while keeping real-data criteria deferred.
+The local publication foundation and Actions files are implemented; TASK-010 is active in
+verification. Pinned checks pass 636 tests and 20 accessibility tests. Full verification retains
+two Windows WebKit failures reproduced on unchanged ec6bb6f (66/68 browser checks pass).
+Quality config, actual hosted ingestion/deployment/recovery and independent review remain open.
+See reports/test-2026-09-12-task-009-010.md. TASK-009/010/019 and release gates are not complete.

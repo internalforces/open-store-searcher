@@ -523,3 +523,28 @@ initial page and page changes separately against 500 ms using unchanged scales/p
 Replace prior resource-skipped measurements with complete-count and actual-page identity
 assertions. This is a visible product behavior change and must not be described as rendering
 all cards simultaneously. No production-data, dependency, interface or release gate changed.
+
+## ADR-016: Explicit Collection-Date Operation
+
+- Date: 2026-09-12
+- Status: Accepted for the date-basis change by the user's explicit continuation request
+- Decision maker: User
+
+Keep source coverage and real-data calibration research deferred. Permit a distinct collection
+basis using the successful archive collection instant converted to an Asia/Seoul calendar date.
+Label it with the exact product literal "데이터 수집일" and explicitly state that source coverage
+is unverified. Warn at collection age >=7 Seoul calendar days. Never manufacture a coverage
+assertion or turn collection/build/ZIP/row dates into a verified source-cut claim.
+
+The validator retains coverage mode for historical callers and requires matching baseline date
+bases. Its legacy internal dataAsOf field represents the selected date and must be read with
+`dateBasis`; published release metadata uses `sourceDataAsOf: null` in collection mode. Unknown
+statuses, ingestion integrity, reviewed policy and baseline requirements remain unchanged.
+Missing quality evidence still blocks publication; this decision does not approve synthetic
+limits, automatic first-run bootstrap, release gate closure or an actual deployment.
+
+Implementation uses a private staging dataset with hexadecimal digest IDs for the existing
+browser identity input, not a share-identifier/URL promise. Vite manages emitted asset names.
+The site artifact carries its matching next baseline and descriptor; normal refreshes read and
+verify the deployed pair and never fall back to bootstrap after an error. An initial baseline
+requires explicit reviewed config and a manual bootstrap selection. No dependency was added.
