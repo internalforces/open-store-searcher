@@ -11,13 +11,21 @@ _Last updated: 2026-09-12_
 
 ## In Progress
 
-TASK-010 is the sole active task, in verification and release-gate resolution. TASK-009's
+TASK-008 is the sole active task for production observation and quality/bootstrap review,
+explicitly resumed by the user on 2026-09-12. Collection-date mode remains authoritative.
+Use the existing approved Ubuntu collector/parser to obtain aggregate observations before
+proposing thresholds; no synthetic bootstrap, automatic policy approval or deployment.
+TASK-009/010 are paused while this prerequisite is resolved, then resume sequentially.
+
+## Paused publication work
+
+TASK-010 was in verification and release-gate resolution. TASK-009's
 collection-date staging foundation is implemented; both overall tasks remain incomplete.
 Pinned Ubuntu hosted verification passes 638 tests, 68 browser tests and 20 accessibility tests.
 The two Windows WebKit failures reproduce in application-free HTML; approved-runner evidence
 now satisfies the full-verification gate without changing or skipping keyboard assertions.
 Production calibration, hosted publication/recovery and independent review remain pending.
-The user authorized collection-date operation while retaining the real-data criteria hold.
+The user authorized collection-date operation and has now resumed real-data quality review.
 See the [publication design](../docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md)
 for AC-009-1 through AC-010-5, implementation boundaries and failure-injection requirements.
 The collection date replaces source coverage only as the explicitly labeled display date.
@@ -32,7 +40,7 @@ Reviewed quality policy and baseline remain required; no synthetic production de
 - [x] Add trusted daily/manual refresh, read-only CI and guarded Pages publication workflows.
 - [x] Run checks and record failures and remaining hosted/release evidence gates.
 - [x] Obtain passing approved Ubuntu-runner evidence; retain Windows WebKit diagnosis separately.
-- [ ] Resume reviewed quality config/bootstrap/resource calibration when authorized.
+- [x] Resume quality config/bootstrap/resource calibration on explicit user request.
 - [ ] Complete independent review, GitHub settings review and approved hosted publication/recovery.
 
 Evidence: [verification](../reports/test-2026-09-12-task-009-010.md),
@@ -43,8 +51,8 @@ Continuation: [hosted verification and acceptance state](../reports/test-2026-09
 [actual repository settings assessment](../reports/security-2026-09-12-publication-settings.md).
 Draft PR #21 exists and its Ubuntu CI passed. Actual settings inspection found no environment,
 main protection or ruleset, no publication variable, and no retrievable Pages site. Independent
-review is still absent. The existing real-data hold is pending user clarification; no permission
-to resume calibration or deploy is inferred from silence. No overall task was moved to completed.
+review is still absent. The user explicitly resumed calibration; deployment and security-setting
+approval remain separate. No overall task was moved to completed.
 
 TASK-019's bounded application assessment completed on
 2026-09-09; overall TASK-019 remains deferred/incomplete for AC-019-8, the actual Actions review.
@@ -54,11 +62,11 @@ See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).
 No actionable vulnerability was confirmed in current code; production and Actions review gates
 remain open for TASK-009/010/021. TASK-020 remains in backlog and is not activated.
 
-## Deferred — incomplete
+## Active prerequisite — incomplete
 
-TASK-008 is explicitly on hold and incomplete at the user's request on 2026-09-08.
-Resume only on a new user request; preserve its implementation, evidence and acceptance gates.
-The baseline below is historical; separate local continuation work remains preserved.
+The 2026-09-08 hold was lifted by the user's explicit resumption request on 2026-09-12.
+Preserve the previous implementation and evidence. Production observation/review is active;
+source coverage is still unverified under the approved collection-date interpretation.
 
 
 ### TASK-008: Validate staged refreshes and freshness evidence
