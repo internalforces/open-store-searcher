@@ -78,6 +78,42 @@ try {
             message: result.message,
           })}`,
         );
+        for (const args of [
+          ['-Z', '-O', 'UTF-8', '-1', options.archivePath],
+          ['-O', 'UTF-8', '-Z1', options.archivePath],
+        ]) {
+          const probe = await runProcess({
+            executable: 'unzip',
+            args,
+            maxOutputBytes: DEFAULT_COLLECTOR_LIMITS.maxProcessOutputBytes,
+            timeoutMs: 30_000,
+          });
+          const names = new TextDecoder('utf-8', { fatal: true })
+            .decode(probe.stdout)
+            .split(/\r?\n/)
+            .filter(Boolean);
+          console.log(
+            `ENCODING_DIAGNOSTIC ${JSON.stringify({
+              args: args.slice(0, -1),
+              exitCode: probe.exitCode,
+              count: names.length,
+              matching: names.filter((name) => expected.includes(name.normalize('NFC'))).length,
+              sample: names.slice(0, 2),
+              stderr: new TextDecoder().decode(probe.stderr).slice(0, 300),
+            })}`,
+          );
+        }
+        const metadata = await runProcess({
+          executable: 'python3',
+          args: [
+            '-c',
+            'import zipfile,json,sys; z=zipfile.ZipFile(sys.argv[1]); print(json.dumps([{ "flags": i.flag_bits, "system": i.create_system, "decoded": i.filename, "utf8": i.filename if i.flag_bits & 2048 else i.filename.encode("cp437").decode("utf-8") } for i in z.infolist()[:2]],ensure_ascii=False))',
+            options.archivePath,
+          ],
+          maxOutputBytes: 10000,
+          timeoutMs: 30_000,
+        });
+        console.log(`ZIP_METADATA ${new TextDecoder().decode(metadata.stdout).trim()}`);
       }
       return result;
     },
