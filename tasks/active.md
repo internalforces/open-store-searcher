@@ -29,8 +29,11 @@ replay completed all 2,939,947 rows, global checks and exact serialization with
 a 2,048 MiB heap (1,822,576 KiB peak Node RSS; 22.49 minutes). The 2.44 GB dataset crashes the
 current Chromium whole-file loader. Status pairs 05/06 require review for 187,173 rows in 68
 categories; no policy/baseline is fabricated. Evidence: reports/test-2026-09-12-bounded-source.md.
-The existing read-only Ubuntu observation now uses the same bounded path; hosted replay,
-browser delivery redesign, quality review and publication/release gates remain open.
+The existing read-only Ubuntu observation now uses the same bounded path. Run 34695738766
+at fbb2d65 completed the full source in 910,348 ms at 2,265,876 KiB peak Node RSS, with exact
+local dataset/validation parity and unchanged runner memory configuration. Full Ubuntu CI
+34695740858 passes 668 unit, 68 browser and 20 accessibility checks at that commit.
+Browser delivery redesign, quality review and publication/release gates remain open.
 
 ## Paused publication work
 

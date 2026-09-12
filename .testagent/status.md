@@ -238,3 +238,20 @@ Uint8Array decoding assumption; the injector now decodes string/byte inputs corr
 remaining disk-heavy duplicate/incomplete cases use thirty seconds. The three new cases then
 passed independently and the complete final focused run passed. Product quality thresholds and
 performance targets are unchanged. Parent owns final coverage/full-workspace verification.
+
+### TASK-008 final repository verification
+
+After final local source replay completed, the pinned Node 24.19.0/npm 11.17.0 `npm run verify`
+ran once and exited 0: 665 passed/3 existing Windows skips; coverage 92.10/91.19/95.41/93.68
+(statements/branches/functions/lines). Build and both search-quality checks passed. The same
+implementation at fbb2d65 passed approved Ubuntu verify:full (run 34695740858): 668 tests,
+68 four-browser checks and 20 accessibility checks; coverage 93.53/92.09/96.49/95.26.
+This is test evidence, not independent release approval or production data-policy acceptance.
+
+### TASK-008 hosted complete-source receipt
+
+Run 34695738766 at fbb2d65 completed 195 categories / 2,939,947 rows with zero parsing errors:
+910,348 ms, 2,265,876 KiB peak Node RSS, unchanged runner memory configuration. Exact archive,
+dataset and validation parity with the final local replay was checked. Validation remains
+review_required. This is producer evidence; the actual-data browser crash and release gates
+remain open. See reports/test-2026-09-12-bounded-source.md.

@@ -319,7 +319,9 @@ that remediation against the source. Full validated metrics and a baseline remai
 Resolved parser coverage: Ubuntu run 34692888618 attempt 3 completes all 195 categories and
 2,939,947 rows with zero parser errors. The final bounded producer completes the same source
 locally at 1,822,576 KiB peak Node RSS with a 2,048 MiB heap, retaining all global quality gates.
-The old all-row/all-candidate staging implementation is replaced; hosted replay is pending.
+The old all-row/all-candidate staging implementation is replaced. Ubuntu replay 34695738766
+at fbb2d65 completes all rows in 910,348 ms at 2,265,876 KiB peak Node RSS without increasing
+the runner's existing memory configuration. Dataset and validation exactly match local results.
 
 Open browser blocker: the 2,439,358,850-byte dataset crashes Chromium 151 during the current
 single-file load on local HTTP. Streaming production output does not solve browser loading.

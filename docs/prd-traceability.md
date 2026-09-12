@@ -190,5 +190,10 @@ policy/size failures, intermediate/metadata corruption and previous-release pres
 See reports/test-2026-09-12-bounded-source.md and its linked aggregate/resource/browser evidence.
 
 The actual browser load crashes on the 2.44 GB single asset. Reviewed policy/baseline, 05/06
-source-pair treatment, hosted replay, independent release review, protection, deployment,
+source-pair treatment, independent release review, protection, deployment,
 recovery and thirty-day reliability remain open. No requirement is marked Done from this pass.
+
+Ubuntu source run 34695738766 at fbb2d65 completes all 195 categories and 2,939,947 rows in
+910,348 ms at 2,265,876 KiB peak Node RSS with unchanged runner settings and exact local
+dataset/validation parity. Full CI 34695740858 passes 668 unit, 68 browser and 20 accessibility
+checks. This closes the bounded producer's hosted measurement gap, not the release gates above.

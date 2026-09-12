@@ -92,8 +92,22 @@ Final pinned `npm run verify` passes 665 tests with three existing Windows nativ
 The exact status mapper retains 100% coverage. Lint, formatting, type checking, build and both
 search-quality checks pass. Chromium/mobile E2E passed 34/34 and
 accessibility passed 20/20. The unchanged Windows WebKit issue remains previously documented.
-No independent release approval, real publication build from an approved baseline, hosted memory
-replay, protection change, deployment, recovery exercise or thirty-day reliability is claimed.
+Approved Ubuntu [full CI 34695740858](https://github.com/internalforces/open-store-searcher/actions/runs/34695740858)
+passes at `fbb2d652bff0d7d906f76a6cdebcdf89b6cae107`: 668 tests, 68 four-browser checks and
+20 accessibility checks. Coverage: 93.53% statements, 92.09% branches, 96.49% functions and
+95.26% lines. The unchanged read-only source observation at the same commit is
+[run 34695738766](https://github.com/internalforces/open-store-searcher/actions/runs/34695738766).
+It completed all 195 categories and 2,939,947 rows with zero parsing errors in 910,348 ms
+(15.17 minutes), at 2,265,876 KiB peak Node RSS (2.16 GiB). The existing runner and 6,144 MiB
+heap configuration were unchanged. This executes the shared production processing path in
+research mode; it does not bypass the absent publication policy/baseline. Its archive SHA,
+dataset SHA and complete validation object exactly match the final local replay. Validation
+remains `review_required`. The formatted aggregate receipt is
+`observation-2026-09-12-ubuntu-bounded-source.json`; its original emitted bytes were verified
+against SHA-256 `8389896908657edf188e93191221a68f82f72d80ab1ae73c7a9772fb05ca6fdd` before formatting.
+No independent release approval, real publication build from
+an approved baseline, protection change, deployment, recovery exercise or thirty-day reliability
+is claimed.
 
 A cancelled local replay left an owned temporary scratch directory because automatic approval
 review blocked deletion, including an explicit literal-path retry, with only "blocked by policy"

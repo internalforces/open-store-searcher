@@ -877,3 +877,12 @@ native-tool skips, all coverage gates, build and both search-quality checks. Chr
 E2E passes 34 tests and accessibility passes 20. The existing read-only observation script now
 uses the bounded path so branch delivery can obtain actual Ubuntu memory and full-suite evidence.
 No merge, protected-setting change or deployment is part of this branch verification.
+
+Final hosted evidence at implementation commit fbb2d65: full CI 34695740858 passes 668 unit,
+68 four-browser and 20 accessibility checks. Complete-source run 34695738766 succeeds with
+195 categories, 2,939,947 rows and zero parsing errors in 910,348 ms at 2,265,876 KiB peak
+Node RSS. Existing runner memory configuration is unchanged. Archive, dataset and entire
+validation object match the final local replay; validation remains review_required. Aggregate
+receipt hash verified before formatting and retained in the bounded-source report. Browser,
+reviewed quality/baseline, independent release review, protection, deployment/recovery and
+thirty-day reliability remain open. TASK-008 is not complete; no task is moved to completed.
