@@ -821,3 +821,24 @@ source/status contract, permissive decoding or production config was added. No s
 partial baseline was invented. Evidence and proposed tests are in
 reports/research-2026-09-12-quality-resumption.md. The branch/PR #21 contains the diagnostic
 and fixed-filename implementation; no merge, deployment, security-settings or handbook change.
+
+## CP949 approval and implementation — 2026-09-12
+
+User explicitly approved the concrete dependency proposal. Added pinned build-only iconv-lite
+0.7.3, locked safer-buffer 2.1.2, and shared strict CP949 byte-round-trip decoding. A focused
+regression reproduced silent extension corruption before the fix. Local verification passes
+644 tests with three Windows native-tool skips; browser module inspection excludes the decoder
+and its dependencies. Audit reports zero vulnerabilities. Hosted runs 34692671364 (full CI)
+and 34692668848 (actual observation) started at 909bb9b. Evidence: reports/test-2026-09-12-cp949.md.
+TASK-008 remains active; no publication policy, baseline, deployment or completion claim.
+
+### Hosted outcome and continuation boundary
+
+Ubuntu run 34692671364 passed 647 tests, 68 browser tests and 20 accessibility tests. Actual
+run 34692668848 decoded 127 categories / 1,723,957 rows without parser errors, then exhausted
+the 6144 MiB heap. Research follow-up c3c474a retains only per-category counts/hashes and
+explicitly reports validation null. Run 34692888618 and its single retry both failed with
+provider connect timeout before collection. Full inventory and production memory/quality gates
+remain open; do not create a partial baseline. Next: successful approved-runner inventory, then
+bounded production transformation/serialization and reviewed baseline/policy. Deployment and
+independent release gates remain separate. No merge or deployment occurred.

@@ -286,3 +286,8 @@ full verification passes 639/68/20. Actual CP949 source data exposed a native No
 gap; the build-only iconv-lite proposal is awaiting approval. Complete metrics/baseline and
 production/independent/hosted-recovery gates remain open. See
 reports/research-2026-09-12-quality-resumption.md. Earlier hold statements are historical.
+
+CP949 update (2026-09-12): user-approved strict decoder is implemented and Ubuntu 647/68/20
+verification passes. Actual 127-category observation hit the 6144 MiB heap; complete bounded
+inventory attempts then failed at provider connection. Production quality/bootstrap and
+TASK-009/010 remain incomplete. See reports/test-2026-09-12-cp949.md.

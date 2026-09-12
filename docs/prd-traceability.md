@@ -171,3 +171,11 @@ by CP949 decoder support and intermittent hosted connection failures. See
 reports/research-2026-09-12-quality-resumption.md; it includes actual source receipts and the
 pending dependency proposal. No production threshold/baseline, source freshness, task completion
 or release reliability criterion is inferred from these observations.
+
+### FR-08 / FR-13 decoding and resource evidence — 2026-09-12
+
+Strict CP949 preservation is verified by the exact regression matrix in
+reports/test-2026-09-12-cp949.md and Ubuntu 647/68/20. Actual observation decoded 127 categories
+without parser errors before heap exhaustion. No complete transformation, quality baseline or
+publication acceptance follows from those partial observations. Bounded research inventory
+is explicit about validation not running; provider connection failures prevent full replay.

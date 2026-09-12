@@ -557,3 +557,10 @@ prerequisite. The concrete proposal pins build-only iconv-lite@0.7.3 and its loc
 safer-buffer@2.1.2, requires byte-preserving strict decoding and leaves status/source interfaces
 unchanged. See reports/research-2026-09-12-quality-resumption.md. Do not treat the general
 resumption request as approval of this subsequently identified dependency.
+
+## Approved CP949 decoder — 2026-09-12
+
+The user explicitly approved the proposed iconv-lite 0.7.3 and safer-buffer 2.1.2 build-only
+dependency addition and strict byte validation. This supersedes the pending proposal above.
+Implemented in 909bb9b; native UTF-8 remains fatal and CP949 must round-trip exactly.
+Source encoding labels, delivery, status mappings and publication gates remain unchanged.

@@ -303,3 +303,13 @@ Open: Some hosted source probes fail with UND_ERR_CONNECT_TIMEOUT at ten seconds
 source diagnostics succeed, and one corrected hosted collection reached body parsing. This is
 not evidence of reliable daily acquisition. Owner: Implementer/Researcher for CP949 support;
 Release Manager for hosted reliability. See reports/research-2026-09-12-quality-resumption.md.
+
+CP949 update: the user approved the decoder dependency; 909bb9b fixes synthetic extension
+corruption with strict byte preservation. Full-source replay remains necessary before treating
+the production ingestion prerequisite as resolved. See reports/test-2026-09-12-cp949.md.
+
+Open production resource issue: 34692668848 exhausted the 6144 MiB heap after 127 categories
+(1,723,957 parsed rows). Existing staging retains whole raw, transformed and display arrays;
+production memory/partition work remains necessary. The research inventory now discards rows
+after each category, but 34692888618 and its retry failed on provider connection before testing
+that remediation against the source. Full validated metrics and a baseline remain unavailable.

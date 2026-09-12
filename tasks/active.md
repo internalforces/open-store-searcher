@@ -20,7 +20,12 @@ TASK-009/010 are paused while this prerequisite is resolved, then resume sequent
 Actual collection exposed and resolved an Ubuntu ZIP filename-decoding bug. Full Ubuntu
 verification now passes 639/68/20. Body observation then found a CP949 extension decoder gap;
 the complete member is valid CP949, while native Node EUC-KR cannot preserve it. The concrete
-build-only dependency/strict-decoding proposal is awaiting human approval, not yet installed.
+build-only dependency/strict-decoding proposal was approved by the user and implemented.
+Strict CP949 round-trip checks and hosted verification pass at 909bb9b (647/68/20).
+Actual observation parsed 127 categories without decoding errors, then exhausted the 6144 MiB
+heap while retaining all source rows. A bounded per-category parser inventory is implemented;
+its hosted run and one retry failed at provider connection establishment, before collection.
+It explicitly does not replace full transformation or quality/baseline validation.
 See [resumption evidence and proposal](../reports/research-2026-09-12-quality-resumption.md).
 No complete metrics, calibrated policy or baseline is available yet. Intermittent hosted
 provider connection timeouts are also recorded; do not infer daily reliability from PR CI.

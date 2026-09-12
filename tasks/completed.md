@@ -388,3 +388,9 @@ before the explicit UTF-8 filename-option fix and passes afterward. Approved Ubu
 verification passes 639/68/20 in run 34692123385. Real collection passed inventory/schema after
 the fix. CP949 body decoding, complete metrics and publication gates remain open. Evidence:
 reports/research-2026-09-12-quality-resumption.md.
+
+## Bounded CP949 decoder prerequisite — 2026-09-12
+
+Completed only the user-approved decoder addition, strict preservation tests, dependency audit
+and hosted verification (647/68/20 at 909bb9b). Evidence: reports/test-2026-09-12-cp949.md.
+TASK-008/009/010 remain incomplete for full-source quality, resource and publication gates.

@@ -303,5 +303,12 @@ full hosted ingestion/publication/recovery and actual environment controls remai
 UnzipArchiveAdapter and full-entry staging/observation reads use shared UTF8_UNZIP_OPTIONS
 (-O UTF-8) for the approved provider's DOS-origin UTF-8 names. The same option is checked in
 the environment probe. CSV byte encoding, source mapping and publication architecture are
-unchanged. observe-seoul-quality.mjs is a non-publishing research path; incomplete parsing
-clears candidate rows and cannot yield complete validation metrics or an accepted baseline.
+unchanged. observe-seoul-quality.mjs is a non-publishing research path. Its version-2 report
+retains only per-category counts/hashes and explicitly does not run whole-candidate validation.
+Neither complete parser inventory nor incomplete parsing can yield an accepted baseline.
+
+Both header inspection and full CSV parsing now share decode-csv.ts. The approved build-only
+iconv-lite CP949 decoder must reproduce every source byte on re-encoding; UTF-8 remains fatal.
+Actual whole-candidate retention exceeded 6144 MiB after 127 categories in research. Production
+staging still retains complete raw/transformed/display representations; bounded production
+ingestion and real-data partition/consumer measurement remain unresolved.

@@ -96,3 +96,9 @@ actions. It triggers only relevant pushes to this working branch, has no deploym
 publication permissions, and logs aggregate evidence only. A later parser failure records an
 incomplete category, discards candidate rows and prevents complete metrics/baseline approval.
 No hosted publication, security-setting change, independent approval or task completion is claimed.
+
+## Approval received and implementation
+
+The user explicitly approved the dependency and strict-byte proposal on 2026-09-12.
+Implementation and tests are at 909bb9b; see test-2026-09-12-cp949.md. The pending-approval
+wording above records the earlier proposal and no longer blocks this decoder work.
