@@ -27,7 +27,7 @@ jobs:
           node-version: 24.19.0
       - run: npm install --global npm@11.17.0
       - run: npm ci
-      - name: Observe complete source with existing collector and validator
+      - name: Observe complete parser inventory without retaining all source rows
         env:
           NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/observe-seoul-quality.mjs

@@ -136,9 +136,6 @@ try {
     },
   });
   const { parseLicenseCsv } = await server.ssrLoadModule('/src/pipeline/parse-license-csv.ts');
-  const { validateLicenseRefreshV1 } = await server.ssrLoadModule(
-    '/src/pipeline/validate-license-refresh.ts',
-  );
   const collection = await collectSeoulArchive({
     stagingRoot,
     fetchedAt: new Date().toISOString(),
@@ -158,9 +155,6 @@ try {
     const archiveContract = JSON.parse(
       await readFile('src/pipeline/contracts/seoul-archive-contract.json', 'utf8'),
     );
-    const permissionManifest = JSON.parse(
-      await readFile('reports/source-permission-manifest-2026-08-28.json', 'utf8'),
-    );
     const checkHash = async () => {
       const digest = createHash('sha256');
       for await (const bytes of createReadStream(collection.archivePath)) digest.update(bytes);
@@ -168,9 +162,7 @@ try {
         throw new Error('Observation archive changed');
     };
     await checkHash();
-    const rows = [],
-      ingestion = [],
-      entries = [];
+    const entries = [];
     let complete = true;
     let parsedRowCount = 0;
     for (const entry of archiveContract.entries) {
@@ -192,21 +184,10 @@ try {
           resourceLimits.maxTotalRows - parsedRowCount,
         );
         parsedRowCount += parsed.length;
-        if (complete) for (const row of parsed) rows.push(row);
       } catch (error) {
         parseError = error.code ?? error.message;
         complete = false;
-        // Once any member fails, retain no candidate rows. Continue inventory diagnostics only.
-        rows.length = 0;
       }
-      ingestion.push({
-        fileDataId: entry.fileDataId,
-        entryName: entry.entryName,
-        headers: entry.headers,
-        completed: parsed !== null,
-        rowCount: parsed?.length ?? null,
-        archiveSha256: collection.sha256,
-      });
       entries.push({
         fileDataId: entry.fileDataId,
         bytes: extracted.stdout.length,
@@ -217,41 +198,34 @@ try {
         elapsedMs: Math.round(performance.now() - begin),
       });
       console.log(JSON.stringify({ kind: 'category-observed', ...entries.at(-1) }));
+      // Retain only counts/hashes across categories, never all source rows simultaneously.
+      parsed = null;
     }
     await checkHash();
-    // Missing policy/baseline deliberately keeps the validator in review_required.
-    const result = validateLicenseRefreshV1({
-      dateBasis: 'collection',
-      collection,
-      archiveContract,
-      permissionManifest,
-      rows,
-      ingestion,
-      now: new Date().toISOString(),
-    });
     const { archivePath: _privatePath, ...collectionEvidence } = collection;
     const report = {
-      version: 1,
-      kind: 'quality-observation',
+      version: 2,
+      kind: 'parser-inventory-observation',
       complete,
       publicationApproved: false,
       sourceDataAsOf: null,
       collection: collectionEvidence,
       resourceLimits,
       entries,
-      validation: result,
+      parsedRowCount,
+      validation: null,
+      validationNotRunReason:
+        'Full-candidate retention exceeded the 6144 MiB research heap; this inventory does not establish transformation, quality metrics or a baseline.',
       elapsedMs: Math.round(performance.now() - started),
       maxRssKiB: process.resourceUsage().maxRSS,
     };
-    if (result.kind === 'accepted')
-      throw new Error('Observation unexpectedly approved publication');
     const bytes = Buffer.from(JSON.stringify(report));
     console.log(`OBSERVATION_SHA256 ${createHash('sha256').update(bytes).digest('hex')}`);
     const encoded = bytes.toString('base64');
     for (let offset = 0; offset < encoded.length; offset += 8000)
       console.log(`OBSERVATION_CHUNK ${encoded.slice(offset, offset + 8000)}`);
     console.log('OBSERVATION_END');
-    if (result.kind === 'rejected' || !result.metrics) process.exitCode = 1;
+    if (!complete) process.exitCode = 1;
   }
 } finally {
   await server.close();
