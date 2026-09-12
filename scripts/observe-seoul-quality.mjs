@@ -171,6 +171,8 @@ try {
     const rows = [],
       ingestion = [],
       entries = [];
+    let complete = true;
+    let parsedRowCount = 0;
     for (const entry of archiveContract.entries) {
       const begin = performance.now();
       const extracted = await runProcess({
@@ -181,24 +183,37 @@ try {
       });
       if (extracted.exitCode !== 0 || extracted.truncated)
         throw new Error('Incomplete observation extraction');
-      const parsed = parseLicenseCsv(
-        extracted.stdout,
-        entry,
-        resourceLimits.maxTotalRows - rows.length,
-      );
-      for (const row of parsed) rows.push(row);
+      let parsed = null;
+      let parseError = null;
+      try {
+        parsed = parseLicenseCsv(
+          extracted.stdout,
+          entry,
+          resourceLimits.maxTotalRows - parsedRowCount,
+        );
+        parsedRowCount += parsed.length;
+        if (complete) for (const row of parsed) rows.push(row);
+      } catch (error) {
+        parseError = error.code ?? error.message;
+        complete = false;
+        // Once any member fails, retain no candidate rows. Continue inventory diagnostics only.
+        rows.length = 0;
+      }
       ingestion.push({
         fileDataId: entry.fileDataId,
         entryName: entry.entryName,
         headers: entry.headers,
-        completed: true,
-        rowCount: parsed.length,
+        completed: parsed !== null,
+        rowCount: parsed?.length ?? null,
         archiveSha256: collection.sha256,
       });
       entries.push({
         fileDataId: entry.fileDataId,
         bytes: extracted.stdout.length,
-        rows: parsed.length,
+        rows: parsed?.length ?? null,
+        completed: parsed !== null,
+        parseError,
+        sha256: createHash('sha256').update(extracted.stdout).digest('hex'),
         elapsedMs: Math.round(performance.now() - begin),
       });
       console.log(JSON.stringify({ kind: 'category-observed', ...entries.at(-1) }));
@@ -218,6 +233,7 @@ try {
     const report = {
       version: 1,
       kind: 'quality-observation',
+      complete,
       publicationApproved: false,
       sourceDataAsOf: null,
       collection: collectionEvidence,
