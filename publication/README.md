@@ -42,6 +42,10 @@ unset until independent review, production data/performance checks, baseline rec
 protected `github-pages` environment approval and the existing release gates are satisfied.
 Neither this flag nor YAML alone proves that repository/environment controls are configured.
 
-No hosted run, Pages setting, deployment, public recovery exercise or thirty-day reliability
-verification has occurred. TASK-009/010 remain incomplete for those gates. Source coverage
+Hosted PR CI passed the complete approved Ubuntu verification suite; see
+[run evidence](../reports/test-2026-09-12-publication-hosted.md). No hosted refresh, Pages setting
+change, deployment, public recovery exercise or thirty-day reliability verification has occurred.
+The [settings assessment](../reports/security-2026-09-12-publication-settings.md) records missing
+environment/branch protection and a transitive mutable action reference for review.
+TASK-009/010 remain incomplete for those gates. Source coverage
 research remains deferred; collection-date support does not claim its completion.

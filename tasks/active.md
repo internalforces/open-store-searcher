@@ -13,8 +13,9 @@ _Last updated: 2026-09-12_
 
 TASK-010 is the sole active task, in verification and release-gate resolution. TASK-009's
 collection-date staging foundation is implemented; both overall tasks remain incomplete.
-Pinned verification passes 636 tests and 20 accessibility tests. Full verification remains
-blocked by two Windows WebKit failures also reproduced at the unchanged base commit.
+Pinned Ubuntu hosted verification passes 638 tests, 68 browser tests and 20 accessibility tests.
+The two Windows WebKit failures reproduce in application-free HTML; approved-runner evidence
+now satisfies the full-verification gate without changing or skipping keyboard assertions.
 Production calibration, hosted publication/recovery and independent review remain pending.
 The user authorized collection-date operation while retaining the real-data criteria hold.
 See the [publication design](../docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md)
@@ -30,13 +31,20 @@ Reviewed quality policy and baseline remain required; no synthetic production de
 - [x] Activate TASK-010 after the bounded TASK-009 staging contract is tested.
 - [x] Add trusted daily/manual refresh, read-only CI and guarded Pages publication workflows.
 - [x] Run checks and record failures and remaining hosted/release evidence gates.
-- [ ] Resolve existing Windows WebKit verification failures or obtain passing approved-runner evidence.
+- [x] Obtain passing approved Ubuntu-runner evidence; retain Windows WebKit diagnosis separately.
 - [ ] Resume reviewed quality config/bootstrap/resource calibration when authorized.
 - [ ] Complete independent review, GitHub settings review and approved hosted publication/recovery.
 
 Evidence: [verification](../reports/test-2026-09-12-task-009-010.md),
 [Actions self-review](../reports/security-2026-09-12-task-009-010.md),
 [operator contract](../publication/README.md). No deployment or task-completion claim is made.
+
+Continuation: [hosted verification and acceptance state](../reports/test-2026-09-12-publication-hosted.md),
+[actual repository settings assessment](../reports/security-2026-09-12-publication-settings.md).
+Draft PR #21 exists and its Ubuntu CI passed. Actual settings inspection found no environment,
+main protection or ruleset, no publication variable, and no retrievable Pages site. Independent
+review is still absent. The existing real-data hold is pending user clarification; no permission
+to resume calibration or deploy is inferred from silence. No overall task was moved to completed.
 
 TASK-019's bounded application assessment completed on
 2026-09-09; overall TASK-019 remains deferred/incomplete for AC-019-8, the actual Actions review.

@@ -277,3 +277,13 @@ unsuccessful. Eight separate Windows quality-CLI path/junction failures were fix
 Owner: Tester / Debugger for Windows WebKit evidence; Release Manager for hosted gates.
 Evidence: reports/test-2026-09-12-task-009-010.md. TASK-019 AC-019-8 remains unclosed because
 Actions account/environment settings and independent review are unavailable.
+
+## Publication runner and actual settings follow-up — 2026-09-12
+
+Approved Ubuntu verify:full passes 638/68/20 in run 34691119664. Earlier full-verification
+blocking notes are superseded; Windows WebKit still skips native anchors in a minimal HTML
+reproduction (reports/webkit-link-focus-2026-09-12.mjs), with no product workaround applied.
+The repository settings assessment found missing main/environment protection and a transitive
+mutable first-party upload action. Proposed remedies are recorded, not applied; publication
+remains disabled. See reports/security-2026-09-12-publication-settings.md. Owners: Security
+Reviewer/Release Manager for protection and recovery; Tester for the Windows engine limitation.

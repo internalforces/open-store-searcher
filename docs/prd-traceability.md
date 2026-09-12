@@ -154,3 +154,11 @@ Pinned verify passes 636 tests and a11y passes 20. Full verification fails two W
 cases reproduced at the unchanged base; hosted runs and recovery, reviewed real-data config,
 production performance and independent approval remain open. No requirement is marked Done
 from this foundation, and TASK-019 AC-019-8 is not waived. TASK-008's real-data criteria remain held.
+
+## TASK-009/010 approved-runner evidence — 2026-09-12
+
+FR-08/12/13/14: reports/test-2026-09-12-publication-hosted.md records successful actual Ubuntu
+PR verification (638 Vitest, 68 browser, 20 accessibility). This closes the local/approved-runner
+full-verification gap, not production integration or publication/recovery/reliability gates.
+Actual account review and pending remedies are in reports/security-2026-09-12-publication-settings.md;
+independent review and TASK-019 AC-019-8 approval remain open.

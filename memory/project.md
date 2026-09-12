@@ -268,3 +268,12 @@ verification. Pinned checks pass 636 tests and 20 accessibility tests. Full veri
 two Windows WebKit failures reproduced on unchanged ec6bb6f (66/68 browser checks pass).
 Quality config, actual hosted ingestion/deployment/recovery and independent review remain open.
 See reports/test-2026-09-12-task-009-010.md. TASK-009/010/019 and release gates are not complete.
+
+## TASK-009/010 current verification — 2026-09-12
+
+Draft PR #21 and approved Ubuntu CI run 34691119664 establish passing pinned full verification:
+638 Vitest, 68 browser and 20 accessibility tests. The previous full-suite blocker is superseded
+by this runner evidence; Windows WebKit native-link skipping remains diagnosed separately.
+TASK-010 stays the sole active task. Both overall tasks remain incomplete for held quality/bootstrap
+work, independent review, deployment protection and actual publication/recovery/history.
+See reports/test-2026-09-12-publication-hosted.md and the companion settings assessment.

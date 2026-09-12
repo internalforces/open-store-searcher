@@ -775,3 +775,25 @@ pass. Deliver the collection-date foundation, workflows, verification reports an
 updates together; retain all documented quality, WebKit, independent-review and hosted gates.
 The prior synchronization note is preserved. No PR creation, merge or deployment is requested.
 Before delivery, verify the 19 implementation/workflow hashes and Git whitespace checks.
+
+## TASK-009/010 hosted verification continuation — 2026-09-12
+
+User requested completion of TASK-009/010. Continued TASK-010 verification without resuming
+held production calibration. Reproduced both Windows WebKit failures and isolated native
+anchor skipping in application-free HTML; preserved all product and E2E assertions.
+Created draft PR #21 from already pushed 3745940. Approved Ubuntu 24.04 CI run 34691119664
+passed pinned verify:full: 638 Vitest, 68 browser and 20 accessibility tests. This resolves
+the approved-runner verification gate; the Windows limitation remains separately documented.
+
+Read-only account inspection found no environment, main protection or ruleset, zero publication
+variables and a Pages 404. Actions uses read-only default tokens and cannot approve PRs.
+The pinned upload-pages composite delegates to mutable actions/upload-artifact@v4 and defaults
+to one-day retention. Recorded concrete review proposals without applying security/settings
+changes. Independent review is absent. Asked whether the previously held real-data policy and
+bootstrap review may resume; no answer was received during this pass and silence is not approval.
+
+Evidence: reports/test-2026-09-12-publication-hosted.md and
+reports/security-2026-09-12-publication-settings.md. TASK-009/010 remain incomplete for held
+production work, independent review, deployment protection/approval, hosted recovery and actual
+thirty-day reliability. No task was falsely moved to completed. No application/dependency,
+architecture, status mapping, workflow, secret, handbook, merge or deployment change occurred.
