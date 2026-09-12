@@ -287,3 +287,19 @@ The repository settings assessment found missing main/environment protection and
 mutable first-party upload action. Proposed remedies are recorded, not applied; publication
 remains disabled. See reports/security-2026-09-12-publication-settings.md. Owners: Security
 Reviewer/Release Manager for protection and recovery; Tester for the Windows engine limitation.
+
+## Source decoding findings — 2026-09-12
+
+Resolved: Ubuntu default OEM conversion corrupts UTF-8 DOS-origin ZIP filenames. An exact
+synthetic name/date/body regression failed before the explicit -O UTF-8 fix and passes afterward;
+approved Ubuntu full verification passes 639/68/20 in run 34692123385.
+
+Open: Native Node EUC-KR decoding does not preserve CP949 extension bytes. The actual glasses
+category member passes Python CP949 decoding and its CRC but fails the current parser. Synthetic
+81 41 is wrongly decoded as U+0081/U+0041 instead of U+AC02. Do not disable fatal decoding or
+publish a partial archive. Proposed build-only iconv-lite support requires dependency approval.
+
+Open: Some hosted source probes fail with UND_ERR_CONNECT_TIMEOUT at ten seconds. Local bounded
+source diagnostics succeed, and one corrected hosted collection reached body parsing. This is
+not evidence of reliable daily acquisition. Owner: Implementer/Researcher for CP949 support;
+Release Manager for hosted reliability. See reports/research-2026-09-12-quality-resumption.md.

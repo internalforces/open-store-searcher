@@ -548,3 +548,12 @@ browser identity input, not a share-identifier/URL promise. Vite manages emitted
 The site artifact carries its matching next baseline and descriptor; normal refreshes read and
 verify the deployed pair and never fall back to bootstrap after an error. An initial baseline
 requires explicit reviewed config and a manual bootstrap selection. No dependency was added.
+
+## Proposed CP949 decoder dependency — 2026-09-12
+
+Status: Proposed, awaiting explicit human approval; not an accepted ADR or installed dependency.
+The user resumed production quality research. Real source evidence proves a CP949 body-decoding
+prerequisite. The concrete proposal pins build-only iconv-lite@0.7.3 and its lockfile-resolved
+safer-buffer@2.1.2, requires byte-preserving strict decoding and leaves status/source interfaces
+unchanged. See reports/research-2026-09-12-quality-resumption.md. Do not treat the general
+resumption request as approval of this subsequently identified dependency.

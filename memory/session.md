@@ -797,3 +797,27 @@ reports/security-2026-09-12-publication-settings.md. TASK-009/010 remain incompl
 production work, independent review, deployment protection/approval, hosted recovery and actual
 thirty-day reliability. No task was falsely moved to completed. No application/dependency,
 architecture, status mapping, workflow, secret, handbook, merge or deployment change occurred.
+
+## TASK-008 explicitly resumed; decoder prerequisites — 2026-09-12
+
+The user explicitly resumed actual data quality/baseline review. TASK-008 is the sole active
+prerequisite; TASK-009/010 are paused pending it. Implemented a read-only approved Ubuntu
+observation job and script using the existing strict collector, parser and validator.
+Real collection first exposed incorrect ZIP filename recoding. A 191-byte synthetic DOS-origin
+UTF-8/data-descriptor ZIP reproduced it in a red hosted regression. Explicit UTF-8 filename
+options fix the adapter and full-entry reads. Hosted full verification at 6069283 passes
+639 Vitest, 68 browser and 20 accessibility tests (run 34692123385).
+
+Actual archive collection subsequently passed inventory/schema and parsed three categories,
+then encountered CP949 extension bytes unsupported by Node's native EUC-KR decoder. Bounded
+local member diagnostics verified the member CRC and complete strict Python CP949 decoding;
+no raw row was printed or retained. ZIP suffix metadata reports 195 exact matching names,
+216440796 archive bytes and 894143343 advertised uncompressed bytes, not complete row metrics.
+Several hosted attempts also failed with UND_ERR_CONNECT_TIMEOUT; one explicit retry failed.
+
+Prepared a concrete build-only iconv-lite@0.7.3 plus locked safer-buffer@2.1.2 proposal with
+strict decode/re-encode byte preservation. Human dependency approval is pending; no dependency,
+source/status contract, permissive decoding or production config was added. No synthetic or
+partial baseline was invented. Evidence and proposed tests are in
+reports/research-2026-09-12-quality-resumption.md. The branch/PR #21 contains the diagnostic
+and fixed-filename implementation; no merge, deployment, security-settings or handbook change.

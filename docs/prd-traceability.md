@@ -162,3 +162,12 @@ PR verification (638 Vitest, 68 browser, 20 accessibility). This closes the loca
 full-verification gap, not production integration or publication/recovery/reliability gates.
 Actual account review and pending remedies are in reports/security-2026-09-12-publication-settings.md;
 independent review and TASK-019 AC-019-8 approval remain open.
+
+## TASK-008 resumed source observation — 2026-09-12
+
+FR-08/13/14: the user resumed real-data quality review. Ubuntu filename regression is resolved
+and full verification passes 639/68/20 (run 34692123385). Complete archive metrics remain blocked
+by CP949 decoder support and intermittent hosted connection failures. See
+reports/research-2026-09-12-quality-resumption.md; it includes actual source receipts and the
+pending dependency proposal. No production threshold/baseline, source freshness, task completion
+or release reliability criterion is inferred from these observations.

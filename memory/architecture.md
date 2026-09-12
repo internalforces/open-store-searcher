@@ -297,3 +297,11 @@ Pages/OIDC deploy job, uses one concurrency group and guards publication behind 
 repository variable and the github-pages environment. Quality config is intentionally absent.
 The current production foundation uses a single dataset asset; real-data partition/performance,
 full hosted ingestion/publication/recovery and actual environment controls remain unverified.
+
+## UTF-8 ZIP filename execution correction — 2026-09-12
+
+UnzipArchiveAdapter and full-entry staging/observation reads use shared UTF8_UNZIP_OPTIONS
+(-O UTF-8) for the approved provider's DOS-origin UTF-8 names. The same option is checked in
+the environment probe. CSV byte encoding, source mapping and publication architecture are
+unchanged. observe-seoul-quality.mjs is a non-publishing research path; incomplete parsing
+clears candidate rows and cannot yield complete validation metrics or an accepted baseline.

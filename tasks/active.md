@@ -17,6 +17,14 @@ Use the existing approved Ubuntu collector/parser to obtain aggregate observatio
 proposing thresholds; no synthetic bootstrap, automatic policy approval or deployment.
 TASK-009/010 are paused while this prerequisite is resolved, then resume sequentially.
 
+Actual collection exposed and resolved an Ubuntu ZIP filename-decoding bug. Full Ubuntu
+verification now passes 639/68/20. Body observation then found a CP949 extension decoder gap;
+the complete member is valid CP949, while native Node EUC-KR cannot preserve it. The concrete
+build-only dependency/strict-decoding proposal is awaiting human approval, not yet installed.
+See [resumption evidence and proposal](../reports/research-2026-09-12-quality-resumption.md).
+No complete metrics, calibrated policy or baseline is available yet. Intermittent hosted
+provider connection timeouts are also recorded; do not infer daily reliability from PR CI.
+
 ## Paused publication work
 
 TASK-010 was in verification and release-gate resolution. TASK-009's

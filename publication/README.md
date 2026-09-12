@@ -5,7 +5,9 @@ criteria hold. The UI says "데이터 수집일" and explicitly states that sour
 unverified. The date is the completed archive collection instant converted to Asia/Seoul.
 Source ZIP dates, row dates and build time never become a claimed source coverage date.
 
-`config.json` is intentionally absent until quality review is authorized. Do not copy the
+The user resumed quality review on 2026-09-12. `config.json` remains absent until complete
+CP949-capable source observation and baseline/policy review pass; see the
+[decoder prerequisite](../reports/research-2026-09-12-quality-resumption.md). Do not copy the
 synthetic test policy/baseline into it, waive unknown-status review, or auto-bootstrap from
 the same unreviewed candidate. Missing configuration fails the refresh before any publication.
 

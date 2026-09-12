@@ -1,0 +1,27 @@
+{
+  "kind": "member-encoding-diagnostic",
+  "entry": "건강_안경업.csv",
+  "bytes": 1391915,
+  "sourceDataAsOf": null,
+  "fullArchiveValidated": false,
+  "decoders": [
+    {
+      "encoding": "euc_kr",
+      "accepted": false,
+      "offset": 155448,
+      "reason": "illegal multibyte sequence",
+      "offendingBytes": "98"
+    },
+    {
+      "encoding": "cp949",
+      "accepted": true
+    },
+    {
+      "encoding": "utf-8",
+      "accepted": false,
+      "offset": 0,
+      "reason": "invalid start byte",
+      "offendingBytes": "b0"
+    }
+  ]
+}

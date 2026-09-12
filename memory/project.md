@@ -277,3 +277,12 @@ by this runner evidence; Windows WebKit native-link skipping remains diagnosed s
 TASK-010 stays the sole active task. Both overall tasks remain incomplete for held quality/bootstrap
 work, independent review, deployment protection and actual publication/recovery/history.
 See reports/test-2026-09-12-publication-hosted.md and the companion settings assessment.
+
+## Current priority: quality review resumed — 2026-09-12
+
+User explicitly resumed TASK-008 production quality/bootstrap review. It is the sole active
+task; TASK-009/010 are paused sequentially. Ubuntu ZIP filename corruption is fixed and hosted
+full verification passes 639/68/20. Actual CP949 source data exposed a native Node decoding
+gap; the build-only iconv-lite proposal is awaiting approval. Complete metrics/baseline and
+production/independent/hosted-recovery gates remain open. See
+reports/research-2026-09-12-quality-resumption.md. Earlier hold statements are historical.
