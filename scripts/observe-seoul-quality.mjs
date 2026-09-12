@@ -128,7 +128,13 @@ try {
     limits: DEFAULT_COLLECTOR_LIMITS,
   });
   if (collection.kind !== 'accepted') {
-    console.log(JSON.stringify({ kind: 'observation-rejected', code: collection.code }));
+    console.log(
+      JSON.stringify({
+        kind: 'observation-rejected',
+        code: collection.code,
+        message: collection.message,
+      }),
+    );
     process.exitCode = 1;
   } else {
     collection.fetchedAt = new Date().toISOString();
