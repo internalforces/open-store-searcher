@@ -22,13 +22,66 @@ const server = await createServer({
 });
 const started = performance.now();
 try {
-  const { collectSeoulArchive } = await server.ssrLoadModule(
+  const { createSeoulCollector } = await server.ssrLoadModule(
     '/src/pipeline/collect-seoul-archive.ts',
   );
   const { DEFAULT_COLLECTOR_LIMITS } = await server.ssrLoadModule(
     '/src/pipeline/collector-types.ts',
   );
-  const { runProcess } = await server.ssrLoadModule('/src/pipeline/unzip-archive.ts');
+  const { runProcess, UnzipArchiveAdapter } = await server.ssrLoadModule(
+    '/src/pipeline/unzip-archive.ts',
+  );
+  const { probeSourceContract } = await server.ssrLoadModule('/src/pipeline/probe-source.ts');
+  const { downloadArchiveToStaging } = await server.ssrLoadModule(
+    '/src/pipeline/staged-download.ts',
+  );
+  const { inspectArchive } = await server.ssrLoadModule('/src/pipeline/inspect-archive.ts');
+  const { parsePermissionManifest } = await server.ssrLoadModule(
+    '/src/pipeline/source-contract.ts',
+  );
+  const { parseArchiveContract } = await server.ssrLoadModule('/src/pipeline/archive-contract.ts');
+  // Use exactly the normal dependencies; add inventory diagnostics without changing acceptance.
+  const collectSeoulArchive = createSeoulCollector({
+    checkArchiveEnvironment: (options) =>
+      new UnzipArchiveAdapter('unzip', options.limits).checkEnvironment(options.signal),
+    probeSource: probeSourceContract,
+    downloadArchive: downloadArchiveToStaging,
+    cleanupRejectedDownload: (archivePath) => rm(archivePath, { force: true }),
+    loadContracts: async () => ({
+      permissionManifest: parsePermissionManifest(
+        JSON.parse(await readFile('reports/source-permission-manifest-2026-08-28.json', 'utf8')),
+      ),
+      archiveContract: parseArchiveContract(
+        JSON.parse(await readFile('src/pipeline/contracts/seoul-archive-contract.json', 'utf8')),
+      ),
+    }),
+    inspectArchive: async (options) => {
+      const result = await inspectArchive(options);
+      if (result.kind === 'rejected' && result.code === 'category_manifest_changed') {
+        const listed = await options.adapter.listEntries(options.archivePath);
+        const actual = listed
+          .filter((entry) => !entry.name.endsWith('/'))
+          .map((entry) => entry.name.normalize('NFC'))
+          .sort();
+        const expected = options.contract.entries
+          .map((entry) => entry.entryName.normalize('NFC'))
+          .sort();
+        const digest = createHash('sha256');
+        for await (const bytes of createReadStream(options.archivePath)) digest.update(bytes);
+        console.log(
+          `INVENTORY_DIAGNOSTIC ${JSON.stringify({
+            archiveSha256: digest.digest('hex'),
+            expectedCount: expected.length,
+            actualCount: actual.length,
+            missing: expected.filter((name) => !actual.includes(name)),
+            added: actual.filter((name) => !expected.includes(name)),
+            message: result.message,
+          })}`,
+        );
+      }
+      return result;
+    },
+  });
   const { parseLicenseCsv } = await server.ssrLoadModule('/src/pipeline/parse-license-csv.ts');
   const { validateLicenseRefreshV1 } = await server.ssrLoadModule(
     '/src/pipeline/validate-license-refresh.ts',
