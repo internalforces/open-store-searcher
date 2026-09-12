@@ -28,7 +28,7 @@ try {
   const { DEFAULT_COLLECTOR_LIMITS } = await server.ssrLoadModule(
     '/src/pipeline/collector-types.ts',
   );
-  const { runProcess, UnzipArchiveAdapter } = await server.ssrLoadModule(
+  const { runProcess, UnzipArchiveAdapter, UTF8_UNZIP_OPTIONS } = await server.ssrLoadModule(
     '/src/pipeline/unzip-archive.ts',
   );
   const { probeSourceContract } = await server.ssrLoadModule('/src/pipeline/probe-source.ts');
@@ -158,7 +158,7 @@ try {
       const begin = performance.now();
       const extracted = await runProcess({
         executable: 'unzip',
-        args: ['-p', collection.archivePath, entry.entryName],
+        args: [...UTF8_UNZIP_OPTIONS, '-p', collection.archivePath, entry.entryName],
         maxOutputBytes: resourceLimits.maxEntryBytes,
         timeoutMs: resourceLimits.entryTimeoutMs,
       });

@@ -47,7 +47,9 @@ try {
   const { DEFAULT_COLLECTOR_LIMITS } = await server.ssrLoadModule(
     '/src/pipeline/collector-types.ts',
   );
-  const { runProcess } = await server.ssrLoadModule('/src/pipeline/unzip-archive.ts');
+  const { runProcess, UTF8_UNZIP_OPTIONS } = await server.ssrLoadModule(
+    '/src/pipeline/unzip-archive.ts',
+  );
   const { parseLicenseCsv } = await server.ssrLoadModule('/src/pipeline/parse-license-csv.ts');
   const { stageValidatedRelease } = await server.ssrLoadModule(
     '/src/pipeline/stage-validated-release.ts',
@@ -77,7 +79,7 @@ try {
   for (const entry of archiveContract.entries) {
     const result = await runProcess({
       executable: 'unzip',
-      args: ['-p', collection.archivePath, entry.entryName],
+      args: [...UTF8_UNZIP_OPTIONS, '-p', collection.archivePath, entry.entryName],
       maxOutputBytes: config.maxEntryBytes,
       timeoutMs: config.entryTimeoutMs,
     });
