@@ -312,3 +312,19 @@ iconv-lite CP949 decoder must reproduce every source byte on re-encoding; UTF-8 
 Actual whole-candidate retention exceeded 6144 MiB after 127 categories in research. Production
 staging still retains complete raw/transformed/display representations; bounded production
 ingestion and real-data partition/consumer measurement remain unresolved.
+
+## TASK-008 disk-backed staging — 2026-09-12
+
+`iterateLicenseCsv` retains one bounded decoded CSV member and yields rows. `stageBoundedRelease`
+consumes batches (default 1,000; maximum 10,000), uses 256 hash buckets for global identities,
+normalization groups and unique collision participants, and applies a per-bucket byte ceiling.
+Two passes through normalization buckets avoid retaining every member of a common value.
+Fixed 16-way disk merge runs preserve the reference serializer's exact identity order. Temporary
+files and final dataset bytes are checked against hashes tracked during writing. `validateMeasuredRefresh`
+centralizes the unchanged policy/baseline/date rules for both the in-memory oracle and the trusted
+streaming measurement path. Existing output is never replaced; failure removes only owned scratch.
+
+The internal research entry produces dataset/observation files only, never baseline/release.json.
+The build copies and hashes the dataset as a stream into a Vite-managed immutable relative asset;
+it does not parse the complete dataset in Node. The current browser still fetches one whole JSON
+and builds a whole index; actual-data feasibility is a separate measured gate, not presumed solved.

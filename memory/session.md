@@ -842,3 +842,38 @@ provider connect timeout before collection. Full inventory and production memory
 remain open; do not create a partial baseline. Next: successful approved-runner inventory, then
 bounded production transformation/serialization and reviewed baseline/policy. Deployment and
 independent release gates remain separate. No merge or deployment occurred.
+
+## TASK-008 bounded production processing — 2026-09-12
+
+User requested full parser re-observation and memory remediation first, with quality-policy,
+protection and deployment decisions kept separate. The successful Ubuntu parser inventory
+(run 34692888618, attempt 3, c3c474a) covers all 195 categories: 2,939,947 rows,
+894,143,343 CSV bytes, zero parser errors; archive SHA-256 is
+`e2eeb1a868a2bfb94dbc9d193dae74707c0e27e38230376d5ad105e174a69faa`.
+It is aggregate evidence, not a policy or baseline.
+
+The production staging script now consumes the strict CSV iterator in bounded row batches.
+Intermediate disk buckets retain global identity and normalization-collision checks; external
+merge runs preserve exact identity ordering. One shared validator still owns quality, baseline,
+source-contract and date gates. Exact-byte hashes cover intermediate and staged files. Only a
+complete accepted new directory can become a publication candidate; the research entry emits
+no release descriptor or baseline. The site builder streams descriptor-bound data instead of
+retaining the whole JSON asset in Vite's heap. The single build-managed relative asset contract
+remains; no stable public endpoint, share identifier, source delivery or status mapping changed.
+
+Final-code local full replay passed global checks and serialization with a 2,048 MiB heap:
+1,822,576 KiB peak Node RSS and 1,349,416 ms. It reproduced every quality metric and dataset
+hash from the preliminary run. The actual 2,439,358,850-byte dataset crashes Chromium's current
+whole-file loader. Exact source pairs 05/06 remain unverified and require review for 187,173
+rows across 68 categories. No policy/baseline was adopted. See the bounded-source report.
+The existing read-only Ubuntu observation script now shares the bounded production path;
+branch delivery and hosted source/CI evidence follow local verification. Do not infer production
+readiness from parser success, fixture parity or producer memory improvements.
+No config, dependency, workflow, account protection, deployment or handbook change is authorized
+by these measurements. TASK-008 remains the sole active task and is not complete.
+
+Local final verification: pinned npm run verify passes 665 tests with three existing Windows
+native-tool skips, all coverage gates, build and both search-quality checks. Chromium/mobile
+E2E passes 34 tests and accessibility passes 20. The existing read-only observation script now
+uses the bounded path so branch delivery can obtain actual Ubuntu memory and full-suite evidence.
+No merge, protected-setting change or deployment is part of this branch verification.

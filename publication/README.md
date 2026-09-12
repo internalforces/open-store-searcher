@@ -51,3 +51,17 @@ The [settings assessment](../reports/security-2026-09-12-publication-settings.md
 environment/branch protection and a transitive mutable action reference for review.
 TASK-009/010 remain incomplete for those gates. Source coverage
 research remains deferred; collection-date support does not claim its completion.
+
+## Bounded staging and research replay
+
+Staging processes source rows in batches and stores identity, collision and sort intermediates
+in its owned temporary directory. All categories and global quality gates must finish before
+publication output appears. Disk buckets have explicit ceilings and fail closed on skew/overflow.
+The builder streams the hashed single dataset asset; this does not prove whole-file browser
+loading is practical. Parser observation and browser measurements cannot authorize a baseline.
+
+`measure-bounded-source.mjs` is a local research adapter requiring the exact successful Ubuntu
+observation hash; Python ZIP extraction there is diagnostic only. Production continues using
+the approved Ubuntu Info-ZIP collector. `measure-source-browser.mjs` exercises the current
+publication loader and the hook's second preparation pass on a local real-data research file.
+Neither command deploys or creates a publication policy. Keep raw/intermediate files outside Git.

@@ -8,6 +8,7 @@ import { mkdtemp, readFile, readdir, rm, mkdir, writeFile } from 'node:fs/promis
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { prepareValidatedRelease, stageValidatedRelease } from './stage-validated-release.js';
+import { observeBoundedRelease, stageBoundedRelease } from './stage-bounded-release.js';
 import { describe, expect, test, vi } from 'vitest';
 import { parseArchiveContract } from './archive-contract.js';
 import {
@@ -843,4 +844,419 @@ describe('TASK-009 collection-date publication', () => {
       await rm(root, { recursive: true, force: true });
     }
   });
+});
+
+describe('TASK-008 bounded staged processing', () => {
+  function collectedInput() {
+    const input = acceptedFixture();
+    input.dateBasis = 'collection';
+    delete input.coverage;
+    requireValue(input.baseline).dateBasis = 'collection';
+    return input;
+  }
+  async function* categories(input: ValidationInputV1) {
+    for (const entry of input.archiveContract.entries)
+      yield {
+        entry,
+        rows: input.rows.filter((row) => row.categoryFileDataId === entry.fileDataId),
+      };
+  }
+  async function isolated(run: (root: string) => Promise<void>) {
+    const root = await mkdtemp(join(tmpdir(), 'task008-bounded-'));
+    try {
+      await run(root);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  }
+  test.each([1, 7])(
+    'matches complete legacy release and metrics with batch size %i',
+    async (batchRows) => {
+      await isolated(async (root) => {
+        const input = collectedInput();
+        const extraRows = ['zz', 'a', 'AAA'].map((managementNumber, index) => {
+          const row = structuredClone(requireValue(input.rows[0]));
+          row.values.관리번호 = managementNumber;
+          row.values.사업장명 = [null, '', ' \t '][index] ?? null;
+          row.values.도로명주소 = null;
+          row.values.지번주소 = index === 2 ? '합성 지번' : '';
+          return row;
+        });
+        input.rows.splice(0, 0, ...extraRows);
+        syncCounts(input);
+        requireValue(input.baseline).metrics = requireValue(
+          validateLicenseRefreshV1(input).metrics,
+        );
+        const expected = prepareValidatedRelease(input);
+        const result = await stageBoundedRelease(
+          input,
+          categories(input),
+          join(root, 'candidate'),
+          { batchRows },
+        );
+        expect(result.files.sort()).toEqual(Object.keys(expected).sort());
+        expect(result.metrics).toEqual(validateLicenseRefreshV1(input).metrics);
+        for (const name of result.files) {
+          const actual = await readFile(join(result.outputDirectory, name), 'utf8');
+          expect(JSON.parse(actual)).toEqual(
+            JSON.parse(new TextDecoder().decode(requireValue(expected[name]))),
+          );
+        }
+        expect(await readdir(root)).toEqual(['candidate']);
+        expect((await readdir(result.outputDirectory)).sort()).toEqual([
+          'baseline.json',
+          'dataset.json',
+          'release.json',
+        ]);
+      });
+    },
+    30_000,
+  );
+  test('preserves global normalization collision metrics across batches and categories', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      const first = requireValue(input.rows[0]);
+      first.values.사업장명 = 'Ａ shop';
+      first.values.도로명주소 = 'Road  1';
+      const second = structuredClone(first);
+      second.values.관리번호 = 'synthetic-2';
+      second.values.사업장명 = 'A shop';
+      second.values.도로명주소 = 'Road 1';
+      input.rows.splice(1, 0, second);
+      const crossCategory = requireValue(input.rows[2]);
+      crossCategory.values.사업장명 = 'A shop';
+      crossCategory.values.도로명주소 = 'Road 1';
+      syncCounts(input);
+      const expected = validateLicenseRefreshV1(input);
+      expect(expected.kind).toBe('accepted');
+      expect(requireValue(expected.metrics).total.collisionGroupCount).toBeGreaterThan(0);
+      expect(
+        requireValue(expected.metrics).categories[first.categoryFileDataId]?.collisionRecordCount,
+      ).toBe(2);
+      expect(
+        requireValue(expected.metrics).categories[crossCategory.categoryFileDataId]
+          ?.collisionRecordCount,
+      ).toBe(1);
+      const result = await stageBoundedRelease(input, categories(input), join(root, 'candidate'), {
+        batchRows: 1,
+      });
+      expect(result.metrics).toEqual(expected.metrics);
+      const baseline = JSON.parse(
+        await readFile(join(result.outputDirectory, 'baseline.json'), 'utf8'),
+      );
+      expect(baseline.metrics).toEqual(expected.metrics);
+    });
+  }, 30_000);
+  test('preserves exact release bytes across multiple merge and dataset write flushes', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      const longSourceText = 'synthetic-inert-source-text-'.repeat(650);
+      for (const row of input.rows) row.values.데이터갱신시점 = longSourceText;
+      const expected = prepareValidatedRelease(input);
+      expect(requireValue(expected['dataset.json']).byteLength).toBeGreaterThan(2 * 1024 * 1024);
+      const result = await stageBoundedRelease(input, categories(input), join(root, 'candidate'), {
+        batchRows: 7,
+      });
+      expect(result.files.sort()).toEqual(Object.keys(expected).sort());
+      for (const name of result.files) {
+        const actual = await readFile(join(result.outputDirectory, name));
+        expect(actual.equals(Buffer.from(requireValue(expected[name])))).toBe(true);
+      }
+      const dataset = JSON.parse(
+        await readFile(join(result.outputDirectory, 'dataset.json'), 'utf8'),
+      );
+      expect(dataset.records).toHaveLength(195);
+      expect(
+        dataset.records.every(
+          (record: { lifecycle: { sourceUpdatedAt: string } }) =>
+            record.lifecycle.sourceUpdatedAt === longSourceText,
+        ),
+      ).toBe(true);
+      expect(result.metrics.total.recordCount).toBe(195);
+      expect(await readdir(root)).toEqual(['candidate']);
+    });
+  }, 30_000);
+  test('rejects repeated identities separated by batches and removes staged output', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      const first = requireValue(input.rows[0]);
+      const intervening = structuredClone(first);
+      intervening.values.관리번호 = 'different-id';
+      input.rows.splice(1, 0, intervening, structuredClone(first));
+      syncCounts(input);
+      await expect(
+        stageBoundedRelease(input, categories(input), join(root, 'candidate'), { batchRows: 1 }),
+      ).rejects.toThrow(/duplicate/i);
+      expect(await readdir(root)).toEqual([]);
+    });
+  }, 30_000);
+  test.each(['late ingestion', 'missing-name quality', 'total JSON budget'] as const)(
+    'preserves known-good release and leaves no candidate after %s failure',
+    async (failure) => {
+      await isolated(async (root) => {
+        const input = collectedInput();
+        const knownGood = join(root, 'known-good');
+        await stageValidatedRelease(input, knownGood);
+        const before = await Promise.all(
+          ['dataset.json', 'baseline.json', 'release.json'].map((name) =>
+            readFile(join(knownGood, name)),
+          ),
+        );
+        if (failure === 'missing-name quality') {
+          requireValue(input.rows.at(-1)).values.사업장명 = null;
+          requireValue(input.policy).total.maxMissingNameRate = 0;
+        }
+        if (failure === 'total JSON budget') {
+          requireValue(input.policy).maxJsonBytes = Math.max(
+            ...Object.values(prepareValidatedRelease(input)).map((bytes) => bytes.length),
+          );
+        }
+        async function* source() {
+          let count = 0;
+          for await (const category of categories(input)) {
+            if (failure === 'late ingestion' && ++count === 195)
+              throw new Error('late category read failed');
+            yield category;
+          }
+        }
+        await expect(
+          stageBoundedRelease(input, source(), join(root, 'candidate'), { batchRows: 7 }),
+        ).rejects.toThrow(
+          failure === 'late ingestion' ? 'late category read failed' : /Publication blocked/,
+        );
+        expect(await readdir(root)).toEqual(['known-good']);
+        const after = await Promise.all(
+          ['dataset.json', 'baseline.json', 'release.json'].map((name) =>
+            readFile(join(knownGood, name)),
+          ),
+        );
+        expect(after).toEqual(before);
+      });
+    },
+    30_000,
+  );
+  test('refuses to replace an existing release directory', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      const output = join(root, 'known-good');
+      await stageValidatedRelease(input, output);
+      const before = await readFile(join(output, 'dataset.json'));
+      await expect(
+        stageBoundedRelease(input, categories(input), output, { batchRows: 7 }),
+      ).rejects.toThrow('already exists');
+      expect(await readFile(join(output, 'dataset.json'))).toEqual(before);
+      expect(await readdir(root)).toEqual(['known-good']);
+    });
+  });
+  test('rejects an incomplete category stream instead of publishing a partial snapshot', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      async function* incomplete() {
+        let count = 0;
+        for await (const category of categories(input)) {
+          if (++count === 195) return;
+          yield category;
+        }
+      }
+      await expect(
+        stageBoundedRelease(input, incomplete(), join(root, 'candidate'), { batchRows: 7 }),
+      ).rejects.toThrow('ingestion_evidence_mismatch');
+      expect(await readdir(root)).toEqual([]);
+    });
+  }, 30_000);
+  test('rejects a disk bucket above the explicit memory bound and removes all candidate files', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      await expect(
+        stageBoundedRelease(input, categories(input), join(root, 'candidate'), {
+          batchRows: 1,
+          maxBucketBytes: 1,
+        }),
+      ).rejects.toThrow(/bucket/i);
+      expect(await readdir(root)).toEqual([]);
+    });
+  });
+  test('records unapproved observation without publishing a baseline or release descriptor', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      delete input.policy;
+      delete input.baseline;
+      const result = await observeBoundedRelease(
+        input,
+        categories(input),
+        join(root, 'observation'),
+        { batchRows: 7 },
+      );
+      expect(result.files.sort()).toEqual(['dataset.json', 'observation.json']);
+      expect((await readdir(result.outputDirectory)).sort()).toEqual([
+        'dataset.json',
+        'observation.json',
+      ]);
+      const datasetBytes = await readFile(join(result.outputDirectory, 'dataset.json'));
+      const dataset = JSON.parse(datasetBytes.toString('utf8'));
+      const report = JSON.parse(
+        await readFile(join(result.outputDirectory, 'observation.json'), 'utf8'),
+      );
+      expect(dataset.records).toHaveLength(195);
+      expect(dataset.coverage).toEqual({ kind: 'collected', date: '2026-09-04' });
+      expect(report).toMatchObject({
+        kind: 'bounded-source-observation',
+        publicationApproved: false,
+        recordCount: 195,
+        dataset: {
+          byteLength: datasetBytes.length,
+          sha256: createHash('sha256').update(datasetBytes).digest('hex'),
+        },
+        validation: { kind: 'review_required' },
+      });
+      expect(report.validation.diagnostics.map((item: { code: string }) => item.code)).toEqual([
+        'baseline_review_required',
+        'policy_review_required',
+        'source_coverage_unverified',
+      ]);
+      expect(report.validation.metrics).toEqual(validateLicenseRefreshV1(input).metrics);
+      expect(result.metrics).toEqual(report.validation.metrics);
+      expect(await readdir(root)).toEqual(['observation']);
+    });
+  }, 30_000);
+  test.each(['release.json', 'observation.json'] as const)(
+    'preserves known-good artifacts and cleans candidate after late %s write failure',
+    async (descriptor) => {
+      await isolated(async (root) => {
+        const input = collectedInput();
+        const previous = join(root, 'known-good');
+        await stageValidatedRelease(input, previous);
+        const names = ['dataset.json', 'baseline.json', 'release.json'];
+        const before = await Promise.all(names.map((name) => readFile(join(previous, name))));
+        const original = filesystem.writeFile;
+        const writer = vi
+          .spyOn(filesystem, 'writeFile')
+          .mockImplementation(async (path, data, options) => {
+            if (String(path).endsWith(descriptor)) throw new Error('simulated late disk full');
+            return original(path, data, options);
+          });
+        syncBuiltinESMExports();
+        try {
+          const process =
+            descriptor === 'release.json' ? stageBoundedRelease : observeBoundedRelease;
+          await expect(
+            process(input, categories(input), join(root, 'candidate'), { batchRows: 7 }),
+          ).rejects.toThrow('simulated late disk full');
+        } finally {
+          writer.mockRestore();
+          syncBuiltinESMExports();
+        }
+        expect(await readdir(root)).toEqual(['known-good']);
+        expect(await Promise.all(names.map((name) => readFile(join(previous, name))))).toEqual(
+          before,
+        );
+      });
+    },
+    30_000,
+  );
+  test.each(['run', 'identity bucket'] as const)(
+    'rejects %s corruption before promotion and preserves known-good bytes',
+    async (target) => {
+      await isolated(async (root) => {
+        const input = collectedInput();
+        const previous = join(root, 'known-good');
+        await stageValidatedRelease(input, previous);
+        const names = ['dataset.json', 'baseline.json', 'release.json'];
+        const before = await Promise.all(names.map((name) => readFile(join(previous, name))));
+        const originalWrite = filesystem.writeFile;
+        const originalAppend = filesystem.appendFile;
+        let corrupted = false;
+        const writer = vi
+          .spyOn(filesystem, 'writeFile')
+          .mockImplementation(async (path, data, options) => {
+            await originalWrite(path, data, options);
+            if (target === 'run' && !corrupted && /[\\/]run-0$/.test(String(path))) {
+              corrupted = true;
+              await originalWrite(path, String(data).replace('합성 상점', '변조 상점'));
+            }
+          });
+        const appender = vi
+          .spyOn(filesystem, 'appendFile')
+          .mockImplementation(async (path, data, options) => {
+            await originalAppend(path, data, options);
+            if (
+              target === 'identity bucket' &&
+              !corrupted &&
+              /[\\/]identity-[a-f0-9]+$/.test(String(path))
+            ) {
+              corrupted = true;
+              const records = (await readFile(path, 'utf8')).trimEnd().split('\n');
+              const first = JSON.parse(requireValue(records[0])) as [string, string];
+              first[1] += '00';
+              records[0] = JSON.stringify(first);
+              await originalWrite(path, `${records.join('\n')}\n`);
+            }
+          });
+        syncBuiltinESMExports();
+        try {
+          await expect(
+            stageBoundedRelease(input, categories(input), join(root, 'candidate'), {
+              batchRows: 7,
+            }),
+          ).rejects.toThrow('Intermediate file hash mismatch');
+          expect(corrupted).toBe(true);
+        } finally {
+          writer.mockRestore();
+          appender.mockRestore();
+          syncBuiltinESMExports();
+        }
+        expect(await readdir(root)).toEqual(['known-good']);
+        expect(await Promise.all(names.map((name) => readFile(join(previous, name))))).toEqual(
+          before,
+        );
+      });
+    },
+    30_000,
+  );
+  test.each(['baseline.json', 'release.json', 'observation.json'] as const)(
+    'rejects same-size valid JSON corruption of %s and preserves known-good artifacts',
+    async (descriptor) => {
+      await isolated(async (root) => {
+        const input = collectedInput();
+        const previous = join(root, 'known-good');
+        await stageValidatedRelease(input, previous);
+        const names = ['dataset.json', 'baseline.json', 'release.json'];
+        const before = await Promise.all(names.map((name) => readFile(join(previous, name))));
+        const original = filesystem.writeFile;
+        let corrupted = false;
+        const writer = vi
+          .spyOn(filesystem, 'writeFile')
+          .mockImplementation(async (path, data, options) => {
+            await original(path, data, options);
+            if (!corrupted && String(path).endsWith(descriptor)) {
+              const bytes =
+                typeof data === 'string' ? data : new TextDecoder().decode(data as Uint8Array);
+              const changed = bytes.replace('a'.repeat(64), 'b'.repeat(64));
+              expect(changed).not.toBe(bytes);
+              expect(Buffer.byteLength(changed)).toBe(Buffer.byteLength(bytes));
+              expect(JSON.parse(changed).archiveSha256).toBe('b'.repeat(64));
+              corrupted = true;
+              await original(path, changed);
+            }
+          });
+        syncBuiltinESMExports();
+        try {
+          const process =
+            descriptor === 'observation.json' ? observeBoundedRelease : stageBoundedRelease;
+          await expect(
+            process(input, categories(input), join(root, 'candidate'), { batchRows: 7 }),
+          ).rejects.toThrow('Staged publication bytes changed');
+          expect(corrupted).toBe(true);
+        } finally {
+          writer.mockRestore();
+          syncBuiltinESMExports();
+        }
+        expect(await readdir(root)).toEqual(['known-good']);
+        expect(await Promise.all(names.map((name) => readFile(join(previous, name))))).toEqual(
+          before,
+        );
+      });
+    },
+    30_000,
+  );
 });

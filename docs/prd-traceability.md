@@ -179,3 +179,16 @@ reports/test-2026-09-12-cp949.md and Ubuntu 647/68/20. Actual observation decode
 without parser errors before heap exhaustion. No complete transformation, quality baseline or
 publication acceptance follows from those partial observations. Bounded research inventory
 is explicit about validation not running; provider connection failures prevent full replay.
+
+## TASK-008 full-source and bounded processing evidence — 2026-09-12
+
+FR-08/13/14: the approved Ubuntu parser inventory completed all 195 categories (2,939,947 rows;
+zero parser errors). The final bounded local producer retains global identity/collision and
+quality/date/baseline gates and reproduces all measured metrics and exact bytes. Regression
+coverage includes iterator boundaries, multi-flush byte parity, duplicates, incomplete input,
+policy/size failures, intermediate/metadata corruption and previous-release preservation.
+See reports/test-2026-09-12-bounded-source.md and its linked aggregate/resource/browser evidence.
+
+The actual browser load crashes on the 2.44 GB single asset. Reviewed policy/baseline, 05/06
+source-pair treatment, hosted replay, independent release review, protection, deployment,
+recovery and thirty-day reliability remain open. No requirement is marked Done from this pass.

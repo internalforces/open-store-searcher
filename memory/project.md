@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-009/010 collection-date publication foundation implemented; TASK-010 active in verification; overall task and production/release gates remain open
+- Phase: TASK-008 active; full source observed and bounded producer verified locally; browser delivery and quality/release gates remain open
 - Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
 - Overall health: 🟡 Caution — staged collection-date publication is implemented; real-data quality configuration, hosted execution/recovery and independent review remain unverified
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`

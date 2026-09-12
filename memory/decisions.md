@@ -564,3 +564,13 @@ The user explicitly approved the proposed iconv-lite 0.7.3 and safer-buffer 2.1.
 dependency addition and strict byte validation. This supersedes the pending proposal above.
 Implemented in 909bb9b; native UTF-8 remains fatal and CP949 must round-trip exactly.
 Source encoding labels, delivery, status mappings and publication gates remain unchanged.
+
+## TASK-008 bounded processing implementation — 2026-09-12
+
+The user explicitly requested sequential processing and intermediate files in the existing free
+runtime before quality calibration and deployment. Implemented this within ADR-014/016: the
+same status mapper, identity frame, metrics, policy and baseline/date gates remain authoritative.
+No new dependency, source transport, public identifier contract or hosting infrastructure is
+introduced. In-memory validation remains the fixture oracle; the trusted streaming path shares
+its quality evaluator. Research output has no publication descriptor/baseline. One observation
+can establish a measured candidate shape, never normal daily variation or automatic approval.

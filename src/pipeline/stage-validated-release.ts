@@ -6,19 +6,14 @@ import { prepareDisplayData } from '../app/prepare-display-data.js';
 import type { ValidationBaselineV1, ValidationInputV1 } from './refresh-validation-types.js';
 import { validateJsonBytesV1 } from './validate-json-bytes.js';
 import { validateLicenseRefreshV1 } from './validate-license-refresh.js';
+import type { TransformedLicenseRecordV2 } from './transform-license-records.js';
 
 const digest = (bytes: Uint8Array) => createHash('sha256').update(bytes).digest('hex');
 
-/** Internal staging package, not a public URL/share-identifier contract. */
-export function prepareValidatedRelease(input: ValidationInputV1) {
-  const validation = validateLicenseRefreshV1(input);
-  if (validation.kind !== 'accepted')
-    throw new Error(
-      `Publication blocked: ${validation.diagnostics.map((item) => item.code).join(', ')}`,
-    );
-  if (!input.policy || input.collection.kind !== 'accepted' || !validation.metrics)
-    throw new Error('Missing accepted publication evidence');
-  const records: DisplayRecord[] = validation.candidate.records.map((record) => ({
+export function toDisplayRecord(record: TransformedLicenseRecordV2): DisplayRecord & {
+  processedStatus: TransformedLicenseRecordV2['processedStatus'];
+} {
+  return {
     id: Buffer.from(record.identity.digest).toString('hex'),
     name: record.display.businessName ?? '',
     roadAddress: record.display.roadAddress ?? '',
@@ -30,7 +25,19 @@ export function prepareValidatedRelease(input: ValidationInputV1) {
     lifecycle: record.lifecycle,
     sourceLabel: record.provenance.provider,
     sourceUrl: record.provenance.sourceFileDataUrl,
-  }));
+  };
+}
+
+/** Internal staging package, not a public URL/share-identifier contract. */
+export function prepareValidatedRelease(input: ValidationInputV1) {
+  const validation = validateLicenseRefreshV1(input);
+  if (validation.kind !== 'accepted')
+    throw new Error(
+      `Publication blocked: ${validation.diagnostics.map((item) => item.code).join(', ')}`,
+    );
+  if (!input.policy || input.collection.kind !== 'accepted' || !validation.metrics)
+    throw new Error('Missing accepted publication evidence');
+  const records = validation.candidate.records.map(toDisplayRecord);
   const dataset: DisplayDataset = {
     sourceLabel: input.archiveContract.provider,
     sourceUrl: input.collection.sourceEvidence.providerFreshness.sourceUrl,

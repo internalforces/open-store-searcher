@@ -313,3 +313,20 @@ Open production resource issue: 34692668848 exhausted the 6144 MiB heap after 12
 production memory/partition work remains necessary. The research inventory now discards rows
 after each category, but 34692888618 and its retry failed on provider connection before testing
 that remediation against the source. Full validated metrics and a baseline remain unavailable.
+
+## TASK-008 complete-source results — 2026-09-12
+
+Resolved parser coverage: Ubuntu run 34692888618 attempt 3 completes all 195 categories and
+2,939,947 rows with zero parser errors. The final bounded producer completes the same source
+locally at 1,822,576 KiB peak Node RSS with a 2,048 MiB heap, retaining all global quality gates.
+The old all-row/all-candidate staging implementation is replaced; hosted replay is pending.
+
+Open browser blocker: the 2,439,358,850-byte dataset crashes Chromium 151 during the current
+single-file load on local HTTP. Streaming production output does not solve browser loading.
+Owner: Architect/Performance Engineer for a reviewed static delivery/index design. No new
+public contract or publishing configuration has been approved by this observation.
+
+Open quality gate: exact source pairs 05 / "제외/삭제/전출" and 06 / "기타" account for
+187,173 unknown pairs across 68 categories. They remain unverified and require explicit review;
+23 observed empty categories also need review before policy adoption. One source observation
+cannot establish daily drift limits. See reports/test-2026-09-12-bounded-source.md.

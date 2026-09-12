@@ -135,7 +135,7 @@ try {
       return result;
     },
   });
-  const { parseLicenseCsv } = await server.ssrLoadModule('/src/pipeline/parse-license-csv.ts');
+  const { iterateLicenseCsv } = await server.ssrLoadModule('/src/pipeline/parse-license-csv.ts');
   const collection = await collectSeoulArchive({
     stagingRoot,
     fetchedAt: new Date().toISOString(),
@@ -162,60 +162,78 @@ try {
         throw new Error('Observation archive changed');
     };
     await checkHash();
+    const { observeBoundedRelease } = await server.ssrLoadModule(
+      '/src/pipeline/stage-bounded-release.ts',
+    );
+    const permissionManifest = JSON.parse(
+      await readFile('reports/source-permission-manifest-2026-08-28.json', 'utf8'),
+    );
     const entries = [];
-    let complete = true;
     let parsedRowCount = 0;
-    for (const entry of archiveContract.entries) {
-      const begin = performance.now();
-      const extracted = await runProcess({
-        executable: 'unzip',
-        args: [...UTF8_UNZIP_OPTIONS, '-p', collection.archivePath, entry.entryName],
-        maxOutputBytes: resourceLimits.maxEntryBytes,
-        timeoutMs: resourceLimits.entryTimeoutMs,
-      });
-      if (extracted.exitCode !== 0 || extracted.truncated)
-        throw new Error('Incomplete observation extraction');
-      let parsed = null;
-      let parseError = null;
-      try {
-        parsed = parseLicenseCsv(
-          extracted.stdout,
-          entry,
-          resourceLimits.maxTotalRows - parsedRowCount,
-        );
-        parsedRowCount += parsed.length;
-      } catch (error) {
-        parseError = error.code ?? error.message;
-        complete = false;
+    async function* categories() {
+      for (const entry of archiveContract.entries) {
+        const begin = performance.now();
+        const extracted = await runProcess({
+          executable: 'unzip',
+          args: [...UTF8_UNZIP_OPTIONS, '-p', collection.archivePath, entry.entryName],
+          maxOutputBytes: resourceLimits.maxEntryBytes,
+          timeoutMs: resourceLimits.entryTimeoutMs,
+        });
+        if (extracted.exitCode !== 0 || extracted.truncated)
+          throw new Error('Incomplete observation extraction');
+        let count = 0;
+        function* rows() {
+          for (const row of iterateLicenseCsv(
+            extracted.stdout,
+            entry,
+            resourceLimits.maxTotalRows - parsedRowCount,
+          )) {
+            count++;
+            parsedRowCount++;
+            yield row;
+          }
+        }
+        yield { entry, rows: rows() };
+        entries.push({
+          fileDataId: entry.fileDataId,
+          bytes: extracted.stdout.length,
+          rows: count,
+          completed: true,
+          parseError: null,
+          sha256: createHash('sha256').update(extracted.stdout).digest('hex'),
+          elapsedMs: Math.round(performance.now() - begin),
+        });
+        console.log(JSON.stringify({ kind: 'category-observed', ...entries.at(-1) }));
       }
-      entries.push({
-        fileDataId: entry.fileDataId,
-        bytes: extracted.stdout.length,
-        rows: parsed?.length ?? null,
-        completed: parsed !== null,
-        parseError,
-        sha256: createHash('sha256').update(extracted.stdout).digest('hex'),
-        elapsedMs: Math.round(performance.now() - begin),
-      });
-      console.log(JSON.stringify({ kind: 'category-observed', ...entries.at(-1) }));
-      // Retain only counts/hashes across categories, never all source rows simultaneously.
-      parsed = null;
+      await checkHash();
     }
-    await checkHash();
+    const observed = await observeBoundedRelease(
+      {
+        dateBasis: 'collection',
+        collection,
+        archiveContract,
+        permissionManifest,
+        now: new Date().toISOString(),
+      },
+      categories(),
+      join(stagingRoot, 'research'),
+    );
+    const observation = JSON.parse(
+      await readFile(join(observed.outputDirectory, 'observation.json'), 'utf8'),
+    );
     const { archivePath: _privatePath, ...collectionEvidence } = collection;
     const report = {
-      version: 2,
-      kind: 'parser-inventory-observation',
-      complete,
+      version: 3,
+      kind: 'bounded-pipeline-observation',
+      complete: true,
       publicationApproved: false,
       sourceDataAsOf: null,
       collection: collectionEvidence,
       resourceLimits,
       entries,
       parsedRowCount,
-      validation: null,
-      validationNotRunReason:
-        'Full-candidate retention exceeded the 6144 MiB research heap; this inventory does not establish transformation, quality metrics or a baseline.',
+      validation: observation.validation,
+      dataset: observation.dataset,
       elapsedMs: Math.round(performance.now() - started),
       maxRssKiB: process.resourceUsage().maxRSS,
     };
@@ -225,7 +243,6 @@ try {
     for (let offset = 0; offset < encoded.length; offset += 8000)
       console.log(`OBSERVATION_CHUNK ${encoded.slice(offset, offset + 8000)}`);
     console.log('OBSERVATION_END');
-    if (!complete) process.exitCode = 1;
   }
 } finally {
   await server.close();

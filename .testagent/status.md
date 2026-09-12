@@ -148,3 +148,93 @@ final benchmark pass. Product/tests remained unchanged after the full pass. All 
 (120 samples) and 16 navigation groups(320 samples) pass 500 ms, with no unavailable search cells.
 Final independent review approved; reran 4 regressions and verified 92 hashes/96 metric groups. Exact tests and boundaries are in
 reports/performance-2026-09-08-task-018-paginated.md.
+
+## TASK-008 bounded processing quality status — 2026-09-12
+
+PASS for the bounded offline module set. Pinned Node 24.19.0 ran
+`node node_modules/vitest/vitest.mjs run --project=pipeline src/pipeline/validate-license-refresh.test.ts src/pipeline/parse-license-csv.test.ts`
+to exit 0: 121 tests in 2 files (21.83 seconds). New cases are ten bounded-stage executions and two
+iterator executions. Typecheck passed; both changed test files passed Biome lint and format.
+No dependency, deployment, protection setting, product policy or performance target changed.
+
+Research/plan/implementation/assertion review executed inline because specialized discovery/gap
+and assertion-quality tools were unavailable. Tests exercise real filesystem staging and existing
+transformer, validator and consumer. Exact legacy dataset/baseline/release parity includes output
+ordering and manifest hashes at batch sizes 1 and 7, non-sorted varying-length identities and
+null/empty/whitespace cells. Cross-category collision participation and distinct global participant
+counts are compared in full, with positive literal category counts. Duplicate identities span
+separate flushes. Late category, missing-name quality and JSON-budget rejection each preserve all
+three known-good artifacts and prove that candidate/work/lock paths are absent. Incomplete category
+streams and bucket overflow also leave no output. Existing destinations remain intact. Iterator tests
+prove an earlier complete row is available before a malformed tail or row-limit error is raised.
+
+Initial RED was the missing implementation seam. Test fixture corrections switched the bounded
+inputs to the intended collection-date mode, used the actual contracted parcel header, and bound
+the enriched synthetic baseline to its explicit fixture counts. Existing production policies were
+not relaxed. Three disk integration cases use a 30-second timeout after concurrent local disk I/O
+exceeded Vitest's 5-second default; this is not a change to a performance acceptance target.
+No implementation failure remained in the final focused run. Parent owns full-workspace final
+verification and independent review. Real-data memory/browser performance, calibrated thresholds,
+actual deployment/recovery and 30-day reliability remain separate evidence gates.
+
+| Requirement | Exact evidence |
+| --- | --- |
+| Complete release and quality metrics | `matches complete legacy release and metrics with batch size %i` (1 and 7) |
+| Global normalization collisions | `preserves global normalization collision metrics across batches and categories` |
+| Cross-batch identity integrity | `rejects repeated identities separated by batches and removes staged output` |
+| Failure preserves known-good data | `preserves known-good release and leaves no candidate after %s failure` (late ingestion, missing-name quality, total JSON budget) |
+| Existing output protection | `refuses to replace an existing release directory` |
+| Complete ingestion required | `rejects an incomplete category stream instead of publishing a partial snapshot` |
+| Bounded buckets | `rejects a disk bucket above the explicit memory bound and removes all candidate files` |
+| Incremental parser and errors | `yields a complete row before discovering a malformed later row`; `iterator preserves multilingual multiline fields and exact complete-row bound` |
+
+### Observation-only and late-write continuation
+
+Pinned focused validator/parser run passed 124 tests in 2 files (38.66 seconds); typecheck and
+focused Biome lint passed. `records unapproved observation without publishing a baseline or
+release descriptor` proves no-policy/no-baseline input retains review_required, false publication
+approval, exact dataset hash/size and all metrics, with only dataset.json and observation.json.
+`preserves known-good artifacts and cleans candidate after late %s write failure` separately
+injects disk-full at release.json and observation.json, after dataset writes, and verifies all
+three previous release artifacts remain byte-identical with no candidate/work leftovers.
+The existing actual publication-build integration also passed after the parent's streaming-copy
+build change. These are offline failure mechanics, not hosted deployment/recovery evidence.
+
+### Intermediate integrity continuation
+
+Pinned validator/parser run passed 126 tests in 2 files (42.39 seconds). Typecheck and focused
+lint/format passed. `rejects %s corruption before promotion and preserves known-good bytes`
+mutates valid run JSON after its original write and, independently, a valid identity tuple after
+its original bucket append. Both must raise exactly Intermediate file hash mismatch; the tests
+assert injection occurred, candidate/work paths are absent and all three previous release
+artifacts are unchanged. The run mutation keeps valid syntax and byte length, proving hash
+integrity rather than merely parse rejection or file-size mismatch. Concurrent source processing
+caused the existing JSON-budget failure-preservation case to exceed the default five seconds;
+its disk-integration table now uses the same 30-second timeout as other bounded staging tests.
+No production quality or performance threshold changed. Parent owns final global verification.
+
+### Multi-flush serialization boundary
+
+`preserves exact release bytes across multiple merge and dataset write flushes` passed under
+pinned Node 24.19.0 with the exact-name Vitest filter (one selected test; 113 unrelated tests
+excluded by the filter). The fixture keeps 195 rows and uses benign lifecycle source text to
+exceed 2 MiB, exercising repeated merge and dataset file writes. It asserts byte-for-byte
+legacy parity for every emitted file, complete JSON parsing, 195 retained records and exact
+lifecycle text on every row. The existing synthetic 10 MB JSON policy was sufficient and was
+not modified. Parent owns the final full verification after all concurrent changes.
+
+### Metadata write-time integrity
+
+Pinned full validator/parser run passed 130 tests in two files (39.85 seconds). Typecheck,
+focused lint/format and scoped whitespace checks passed. `rejects same-size valid JSON corruption
+of %s and preserves known-good artifacts` covers baseline.json, release.json and observation.json.
+Each case mutates only the archive hash after the original write, explicitly checks unchanged
+byte length and valid JSON, and requires Staged publication bytes changed. It also verifies the
+injection occurred, all previous release bytes are unchanged and no candidate/work files remain.
+
+An earlier contended run exceeded the old five-second duplicate/incomplete integration timeouts
+and one thirty-second metadata timeout. Continued timed-out mock work exposed a test-fixture
+Uint8Array decoding assumption; the injector now decodes string/byte inputs correctly, and the
+remaining disk-heavy duplicate/incomplete cases use thirty seconds. The three new cases then
+passed independently and the complete final focused run passed. Product quality thresholds and
+performance targets are unchanged. Parent owns final coverage/full-workspace verification.

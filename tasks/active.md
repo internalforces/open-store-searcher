@@ -17,18 +17,20 @@ Use the existing approved Ubuntu collector/parser to obtain aggregate observatio
 proposing thresholds; no synthetic bootstrap, automatic policy approval or deployment.
 TASK-009/010 are paused while this prerequisite is resolved, then resume sequentially.
 
-Actual collection exposed and resolved an Ubuntu ZIP filename-decoding bug. Full Ubuntu
-verification now passes 639/68/20. Body observation then found a CP949 extension decoder gap;
-the complete member is valid CP949, while native Node EUC-KR cannot preserve it. The concrete
-build-only dependency/strict-decoding proposal was approved by the user and implemented.
-Strict CP949 round-trip checks and hosted verification pass at 909bb9b (647/68/20).
-Actual observation parsed 127 categories without decoding errors, then exhausted the 6144 MiB
-heap while retaining all source rows. A bounded per-category parser inventory is implemented;
-its hosted run and one retry failed at provider connection establishment, before collection.
-It explicitly does not replace full transformation or quality/baseline validation.
-See [resumption evidence and proposal](../reports/research-2026-09-12-quality-resumption.md).
-No complete metrics, calibrated policy or baseline is available yet. Intermittent hosted
-provider connection timeouts are also recorded; do not infer daily reliability from PR CI.
+Decoder prerequisites are resolved. The re-requested Ubuntu parser observation succeeded on
+attempt 3 of run 34692888618 at c3c474a: all 195 categories, 2,939,947 rows, 894,143,343 CSV
+bytes and zero parser errors. Its 5,063,428 KiB peak RSS still reflects whole-category row arrays.
+The successful inventory is in reports/observation-2026-09-12-parser-inventory.json.
+
+The production memory refactor now uses a strict row iterator, bounded transformation batches,
+disk-backed global identity/collision checks, external merge serialization and streamed site
+asset copying. Reference-output parity and failure-preservation tests pass. Final-code local
+replay completed all 2,939,947 rows, global checks and exact serialization with
+a 2,048 MiB heap (1,822,576 KiB peak Node RSS; 22.49 minutes). The 2.44 GB dataset crashes the
+current Chromium whole-file loader. Status pairs 05/06 require review for 187,173 rows in 68
+categories; no policy/baseline is fabricated. Evidence: reports/test-2026-09-12-bounded-source.md.
+The existing read-only Ubuntu observation now uses the same bounded path; hosted replay,
+browser delivery redesign, quality review and publication/release gates remain open.
 
 ## Paused publication work
 

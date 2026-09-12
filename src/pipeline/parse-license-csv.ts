@@ -8,9 +8,18 @@ export function parseLicenseCsv(
   entry: ArchiveContractEntry,
   maxRows: number,
 ): StagedLicenseRowV1[] {
+  return [...iterateLicenseCsv(bytes, entry, maxRows)];
+}
+
+/** Holds decoded category text, but yields rows without retaining the whole row graph. */
+export function* iterateLicenseCsv(
+  bytes: Uint8Array,
+  entry: ArchiveContractEntry,
+  maxRows: number,
+): Generator<StagedLicenseRowV1> {
   if (!Number.isSafeInteger(maxRows) || maxRows < 0) throw new Error('Invalid row limit');
   const text = decodeCsv(bytes, entry.encoding);
-  const rows: StagedLicenseRowV1[] = [];
+  let rowCount = 0;
   let fields: string[] = [],
     field = '',
     quoted = false,
@@ -21,8 +30,9 @@ export function parseLicenseCsv(
     field = '';
     closed = false;
   };
-  const record = () => {
+  const record = (): StagedLicenseRowV1 | undefined => {
     cell();
+    let row: StagedLicenseRowV1 | undefined;
     if (!header) {
       if (
         fields.length !== entry.headers.length ||
@@ -32,14 +42,16 @@ export function parseLicenseCsv(
       header = true;
     } else {
       if (fields.length !== entry.headers.length) throw new Error('CSV field count mismatch');
-      if (rows.length >= maxRows) throw new Error('CSV row limit exceeded');
-      rows.push({
+      if (rowCount >= maxRows) throw new Error('CSV row limit exceeded');
+      rowCount++;
+      row = {
         categoryFileDataId: entry.fileDataId,
         sourceFileDataUrl: `https://www.data.go.kr/data/${entry.fileDataId}/fileData.do`,
         values: Object.fromEntries(entry.headers.map((name, index) => [name, fields[index] ?? ''])),
-      });
+      };
     }
     fields = [];
+    return row;
   };
   for (let i = 0; i < text.length; i++) {
     const character = text[i];
@@ -59,7 +71,8 @@ export function parseLicenseCsv(
         if (text[i + 1] !== '\n') throw new Error('Unsupported CSV separator');
         i++;
       }
-      record();
+      const row = record();
+      if (row) yield row;
     } else if (character === '"' && field === '' && !closed) quoted = true;
     else {
       if (closed || character === '"') throw new Error('Malformed CSV quoting');
@@ -67,7 +80,9 @@ export function parseLicenseCsv(
     }
   }
   if (quoted) throw new Error('Unterminated CSV quote');
-  if (field !== '' || fields.length > 0 || closed) record();
+  if (field !== '' || fields.length > 0 || closed) {
+    const row = record();
+    if (row) yield row;
+  }
   if (!header) throw new Error('Missing CSV header');
-  return rows;
 }
