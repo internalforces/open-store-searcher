@@ -44,7 +44,24 @@ try {
   const collectSeoulArchive = createSeoulCollector({
     checkArchiveEnvironment: (options) =>
       new UnzipArchiveAdapter('unzip', options.limits).checkEnvironment(options.signal),
-    probeSource: probeSourceContract,
+    probeSource: (options) =>
+      probeSourceContract({
+        ...options,
+        fetchImpl: async (input, init) => {
+          try {
+            return await options.fetchImpl(input, init);
+          } catch (error) {
+            console.log(
+              `SOURCE_CONNECTION_DIAGNOSTIC ${JSON.stringify({
+                name: error.name,
+                code: error.cause?.code,
+                cause: error.cause?.message,
+              })}`,
+            );
+            throw error;
+          }
+        },
+      }),
     downloadArchive: downloadArchiveToStaging,
     cleanupRejectedDownload: (archivePath) => rm(archivePath, { force: true }),
     loadContracts: async () => ({
