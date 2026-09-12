@@ -523,3 +523,54 @@ initial page and page changes separately against 500 ms using unchanged scales/p
 Replace prior resource-skipped measurements with complete-count and actual-page identity
 assertions. This is a visible product behavior change and must not be described as rendering
 all cards simultaneously. No production-data, dependency, interface or release gate changed.
+
+## ADR-016: Explicit Collection-Date Operation
+
+- Date: 2026-09-12
+- Status: Accepted for the date-basis change by the user's explicit continuation request
+- Decision maker: User
+
+Keep source coverage and real-data calibration research deferred. Permit a distinct collection
+basis using the successful archive collection instant converted to an Asia/Seoul calendar date.
+Label it with the exact product literal "데이터 수집일" and explicitly state that source coverage
+is unverified. Warn at collection age >=7 Seoul calendar days. Never manufacture a coverage
+assertion or turn collection/build/ZIP/row dates into a verified source-cut claim.
+
+The validator retains coverage mode for historical callers and requires matching baseline date
+bases. Its legacy internal dataAsOf field represents the selected date and must be read with
+`dateBasis`; published release metadata uses `sourceDataAsOf: null` in collection mode. Unknown
+statuses, ingestion integrity, reviewed policy and baseline requirements remain unchanged.
+Missing quality evidence still blocks publication; this decision does not approve synthetic
+limits, automatic first-run bootstrap, release gate closure or an actual deployment.
+
+Implementation uses a private staging dataset with hexadecimal digest IDs for the existing
+browser identity input, not a share-identifier/URL promise. Vite manages emitted asset names.
+The site artifact carries its matching next baseline and descriptor; normal refreshes read and
+verify the deployed pair and never fall back to bootstrap after an error. An initial baseline
+requires explicit reviewed config and a manual bootstrap selection. No dependency was added.
+
+## Proposed CP949 decoder dependency — 2026-09-12
+
+Status: Proposed, awaiting explicit human approval; not an accepted ADR or installed dependency.
+The user resumed production quality research. Real source evidence proves a CP949 body-decoding
+prerequisite. The concrete proposal pins build-only iconv-lite@0.7.3 and its lockfile-resolved
+safer-buffer@2.1.2, requires byte-preserving strict decoding and leaves status/source interfaces
+unchanged. See reports/research-2026-09-12-quality-resumption.md. Do not treat the general
+resumption request as approval of this subsequently identified dependency.
+
+## Approved CP949 decoder — 2026-09-12
+
+The user explicitly approved the proposed iconv-lite 0.7.3 and safer-buffer 2.1.2 build-only
+dependency addition and strict byte validation. This supersedes the pending proposal above.
+Implemented in 909bb9b; native UTF-8 remains fatal and CP949 must round-trip exactly.
+Source encoding labels, delivery, status mappings and publication gates remain unchanged.
+
+## TASK-008 bounded processing implementation — 2026-09-12
+
+The user explicitly requested sequential processing and intermediate files in the existing free
+runtime before quality calibration and deployment. Implemented this within ADR-014/016: the
+same status mapper, identity frame, metrics, policy and baseline/date gates remain authoritative.
+No new dependency, source transport, public identifier contract or hosting infrastructure is
+introduced. In-memory validation remains the fixture oracle; the trusted streaming path shares
+its quality evaluator. Research output has no publication descriptor/baseline. One observation
+can establish a measured candidate shape, never normal daily variation or automatic approval.

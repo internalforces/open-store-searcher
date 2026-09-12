@@ -251,3 +251,84 @@ are corrected. No recorded approval waived actual Actions review, so AC-019-8 re
 and overall TASK-019 is deferred/incomplete in the backlog. See the
 [acceptance record](../tasks/completed.md#task-019-acceptance-criteria-and-evidence).
 This is a documentation/status correction, not a new application vulnerability or policy change.
+
+## TASK-009/010 publication integration dependencies — 2026-09-12
+
+TASK-009 owns resolution of the production serializer/identifier encoding, fixed partition
+manifest, durable matching baseline/recovery state and candidate-to-byte validation contract.
+The current internal Uint8Array transformation and synthetic browser loader do not define them.
+TASK-008 coverage/policy/calibration evidence remains held, and cannot be fabricated to unblock
+publication. See the [proposed transaction and acceptance matrix](../docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md).
+This is a known integration gap, not a confirmed security exploit. TASK-009/010 remain incomplete.
+
+## Collection-date integration and verification gates — 2026-09-12
+
+The user-approved collection-date mode removes the need to pretend source coverage is known;
+it does not waive quality policy, bootstrap or resource calibration. The serializer/staging,
+deployed-baseline binding and build/workflow foundation now exist. Earlier descriptions of
+those modules as entirely absent are historical. No reviewed production config or hosted
+verification exists. Production loading currently uses one fixed dataset asset; partition
+sizing and real-data performance remain release work.
+
+Two Windows WebKit E2E failures remain: candidate map-link keyboard activation and ordered
+source/map-link focus. Both reproduce on unchanged ec6bb6f with pinned Node and the same
+browser binaries; no product keyboard change or skip was added. Full verify:full remains
+unsuccessful. Eight separate Windows quality-CLI path/junction failures were fixed and pass.
+Owner: Tester / Debugger for Windows WebKit evidence; Release Manager for hosted gates.
+Evidence: reports/test-2026-09-12-task-009-010.md. TASK-019 AC-019-8 remains unclosed because
+Actions account/environment settings and independent review are unavailable.
+
+## Publication runner and actual settings follow-up — 2026-09-12
+
+Approved Ubuntu verify:full passes 638/68/20 in run 34691119664. Earlier full-verification
+blocking notes are superseded; Windows WebKit still skips native anchors in a minimal HTML
+reproduction (reports/webkit-link-focus-2026-09-12.mjs), with no product workaround applied.
+The repository settings assessment found missing main/environment protection and a transitive
+mutable first-party upload action. Proposed remedies are recorded, not applied; publication
+remains disabled. See reports/security-2026-09-12-publication-settings.md. Owners: Security
+Reviewer/Release Manager for protection and recovery; Tester for the Windows engine limitation.
+
+## Source decoding findings — 2026-09-12
+
+Resolved: Ubuntu default OEM conversion corrupts UTF-8 DOS-origin ZIP filenames. An exact
+synthetic name/date/body regression failed before the explicit -O UTF-8 fix and passes afterward;
+approved Ubuntu full verification passes 639/68/20 in run 34692123385.
+
+Open: Native Node EUC-KR decoding does not preserve CP949 extension bytes. The actual glasses
+category member passes Python CP949 decoding and its CRC but fails the current parser. Synthetic
+81 41 is wrongly decoded as U+0081/U+0041 instead of U+AC02. Do not disable fatal decoding or
+publish a partial archive. Proposed build-only iconv-lite support requires dependency approval.
+
+Open: Some hosted source probes fail with UND_ERR_CONNECT_TIMEOUT at ten seconds. Local bounded
+source diagnostics succeed, and one corrected hosted collection reached body parsing. This is
+not evidence of reliable daily acquisition. Owner: Implementer/Researcher for CP949 support;
+Release Manager for hosted reliability. See reports/research-2026-09-12-quality-resumption.md.
+
+CP949 update: the user approved the decoder dependency; 909bb9b fixes synthetic extension
+corruption with strict byte preservation. Full-source replay remains necessary before treating
+the production ingestion prerequisite as resolved. See reports/test-2026-09-12-cp949.md.
+
+Open production resource issue: 34692668848 exhausted the 6144 MiB heap after 127 categories
+(1,723,957 parsed rows). Existing staging retains whole raw, transformed and display arrays;
+production memory/partition work remains necessary. The research inventory now discards rows
+after each category, but 34692888618 and its retry failed on provider connection before testing
+that remediation against the source. Full validated metrics and a baseline remain unavailable.
+
+## TASK-008 complete-source results — 2026-09-12
+
+Resolved parser coverage: Ubuntu run 34692888618 attempt 3 completes all 195 categories and
+2,939,947 rows with zero parser errors. The final bounded producer completes the same source
+locally at 1,822,576 KiB peak Node RSS with a 2,048 MiB heap, retaining all global quality gates.
+The old all-row/all-candidate staging implementation is replaced. Ubuntu replay 34695738766
+at fbb2d65 completes all rows in 910,348 ms at 2,265,876 KiB peak Node RSS without increasing
+the runner's existing memory configuration. Dataset and validation exactly match local results.
+
+Open browser blocker: the 2,439,358,850-byte dataset crashes Chromium 151 during the current
+single-file load on local HTTP. Streaming production output does not solve browser loading.
+Owner: Architect/Performance Engineer for a reviewed static delivery/index design. No new
+public contract or publishing configuration has been approved by this observation.
+
+Open quality gate: exact source pairs 05 / "제외/삭제/전출" and 06 / "기타" account for
+187,173 unknown pairs across 68 categories. They remain unverified and require explicit review;
+23 observed empty categories also need review before policy adoption. One source observation
+cannot establish daily drift limits. See reports/test-2026-09-12-bounded-source.md.

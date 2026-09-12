@@ -703,3 +703,186 @@ on codex/task-019-security-review. The preceding local-only notes describe the p
 pass. Deliver only these files to the existing PR #20; no merge, deployment, GitHub comment
 or review-thread resolution is requested. TASK-019's Actions criterion remains deferred
 and TASK-008 remains on hold.
+
+## Git synchronization and orientation — 2026-09-12
+
+User requested synchronization with Git and a review of current work. The original
+codex/task-008-planning checkout was clean at ea8f4da and fully contained in origin/main.
+Fetched origin with pruning, switched to main, and fast-forwarded local main from d9dba5f
+to ec6bb6f (merged PR #20). Existing local branches were preserved.
+
+Reviewed project/current-session/task records, planning instructions, backlog, traceability,
+roadmap, package scripts and the application/demo loader. No implementation task is active.
+TASK-008 remains explicitly on hold; TASK-019 remains deferred/incomplete for AC-019-8.
+TASK-020 is the next recorded documentation candidate, not activated. The current application
+uses synthetic partitioned data; production ingestion/publication, Actions and release gates
+remain open. Historical passing verification is recorded as 598 Vitest, 68 browser and
+20 accessibility tests; no tests were rerun for this synchronization-only session.
+
+Only this session note was added locally. No application change, new decision, task activation,
+commit, push or deployment occurred. No handbook content was accessed.
+
+## TASK-009/010 execution request — 2026-09-12
+
+User requested deployment pipeline work. Created codex/task-009-010-publication from ec6bb6f,
+preserving the existing uncommitted synchronization note. Activated TASK-009 alone in design;
+TASK-010 follows its tested contract. Inspected collector, staged validator, internal transformer,
+synthetic browser loader, acceptance records and official Pages/schedule documentation.
+
+Prepared docs/superpowers/specs/2026-09-12-task-009-010-publication-design.md with the complete
+publication transaction, same-release baseline promotion, Actions trust/permission boundaries,
+bootstrap/recovery concerns and AC-009-1 through AC-010-5 failure-injection/hosted evidence matrix.
+The proposal is not an accepted architecture decision or implementation-completion claim.
+
+TASK-008 remains explicitly held. Asked whether the user authorizes its resumption or wants only
+the bounded testable publication foundation. No answer or approval is inferred from elapsed time.
+Production ingestion/coverage/policy and serialization/baseline storage contracts remain unresolved.
+No code/workflow/dependency/settings changes, commit, push, deployment or handbook access occurred.
+No implementation tests were rerun for this documentation-only preparation. TASK-009/010 and
+TASK-019 AC-019-8 remain incomplete; no milestone or release gates closed.
+
+## Collection-date continuation outcome — 2026-09-12
+
+The user explicitly kept real-data criteria on hold and requested collection-date operation.
+Implemented the date-basis validator/UI, strict full-category CSV parser, exact-byte candidate
+staging, whole-directory promotion, matching deployed-baseline verification, Vite data build,
+read-only CI and daily/manual guarded Pages workflow. Recorded ADR-016 and aligned AGENTS.md
+with the approved date interpretation. TASK-009's bounded staging contract was tested before
+activating TASK-010; both overall tasks remain incomplete for production/hosted/review gates.
+
+Pinned Node 24.19.0 / npm 11.17.0 npm run verify passes 636 tests with two existing Windows
+skips, all coverage gates, build and quality checks. npm run test:a11y passes 20 tests.
+Full four-browser verification passes 66/68; two Windows WebKit link-focus tests fail, also on
+a separate unchanged ec6bb6f checkout. The temporary baseline checkout was removed after
+verification without changing the shared dependencies. Experimental E2E key changes were
+reverted. Fixed eight existing Windows quality-test path/junction failures without weakening
+assertions or changing product search behavior. The initial ambient-runtime failure is superseded
+by the pinned run; no full-suite success is claimed.
+
+Reports: reports/test-2026-09-12-task-009-010.md, reports/security-2026-09-12-task-009-010.md
+and reports/task-009-010-2026-09-12-hashes.json. The security assessment is an author self-review,
+not independent approval. YAML syntax, default permissions and top-level pins passed checks.
+Quality config remains intentionally absent; publication enablement remains unset/unverified.
+No official archive ingestion, account-setting change, hosted Actions execution, commit, push,
+merge, deployment or handbook access occurred. No task was moved to completed because full
+verification, independent review and production/hosted acceptance gates remain open.
+
+## Authorized branch delivery — 2026-09-12
+
+The user explicitly requested commit and push of the prepared TASK-009/010 changes on
+codex/task-009-010-publication. Earlier no-commit/no-push statements describe the preparation
+pass. Deliver the collection-date foundation, workflows, verification reports and harness
+updates together; retain all documented quality, WebKit, independent-review and hosted gates.
+The prior synchronization note is preserved. No PR creation, merge or deployment is requested.
+Before delivery, verify the 19 implementation/workflow hashes and Git whitespace checks.
+
+## TASK-009/010 hosted verification continuation — 2026-09-12
+
+User requested completion of TASK-009/010. Continued TASK-010 verification without resuming
+held production calibration. Reproduced both Windows WebKit failures and isolated native
+anchor skipping in application-free HTML; preserved all product and E2E assertions.
+Created draft PR #21 from already pushed 3745940. Approved Ubuntu 24.04 CI run 34691119664
+passed pinned verify:full: 638 Vitest, 68 browser and 20 accessibility tests. This resolves
+the approved-runner verification gate; the Windows limitation remains separately documented.
+
+Read-only account inspection found no environment, main protection or ruleset, zero publication
+variables and a Pages 404. Actions uses read-only default tokens and cannot approve PRs.
+The pinned upload-pages composite delegates to mutable actions/upload-artifact@v4 and defaults
+to one-day retention. Recorded concrete review proposals without applying security/settings
+changes. Independent review is absent. Asked whether the previously held real-data policy and
+bootstrap review may resume; no answer was received during this pass and silence is not approval.
+
+Evidence: reports/test-2026-09-12-publication-hosted.md and
+reports/security-2026-09-12-publication-settings.md. TASK-009/010 remain incomplete for held
+production work, independent review, deployment protection/approval, hosted recovery and actual
+thirty-day reliability. No task was falsely moved to completed. No application/dependency,
+architecture, status mapping, workflow, secret, handbook, merge or deployment change occurred.
+
+## TASK-008 explicitly resumed; decoder prerequisites — 2026-09-12
+
+The user explicitly resumed actual data quality/baseline review. TASK-008 is the sole active
+prerequisite; TASK-009/010 are paused pending it. Implemented a read-only approved Ubuntu
+observation job and script using the existing strict collector, parser and validator.
+Real collection first exposed incorrect ZIP filename recoding. A 191-byte synthetic DOS-origin
+UTF-8/data-descriptor ZIP reproduced it in a red hosted regression. Explicit UTF-8 filename
+options fix the adapter and full-entry reads. Hosted full verification at 6069283 passes
+639 Vitest, 68 browser and 20 accessibility tests (run 34692123385).
+
+Actual archive collection subsequently passed inventory/schema and parsed three categories,
+then encountered CP949 extension bytes unsupported by Node's native EUC-KR decoder. Bounded
+local member diagnostics verified the member CRC and complete strict Python CP949 decoding;
+no raw row was printed or retained. ZIP suffix metadata reports 195 exact matching names,
+216440796 archive bytes and 894143343 advertised uncompressed bytes, not complete row metrics.
+Several hosted attempts also failed with UND_ERR_CONNECT_TIMEOUT; one explicit retry failed.
+
+Prepared a concrete build-only iconv-lite@0.7.3 plus locked safer-buffer@2.1.2 proposal with
+strict decode/re-encode byte preservation. Human dependency approval is pending; no dependency,
+source/status contract, permissive decoding or production config was added. No synthetic or
+partial baseline was invented. Evidence and proposed tests are in
+reports/research-2026-09-12-quality-resumption.md. The branch/PR #21 contains the diagnostic
+and fixed-filename implementation; no merge, deployment, security-settings or handbook change.
+
+## CP949 approval and implementation — 2026-09-12
+
+User explicitly approved the concrete dependency proposal. Added pinned build-only iconv-lite
+0.7.3, locked safer-buffer 2.1.2, and shared strict CP949 byte-round-trip decoding. A focused
+regression reproduced silent extension corruption before the fix. Local verification passes
+644 tests with three Windows native-tool skips; browser module inspection excludes the decoder
+and its dependencies. Audit reports zero vulnerabilities. Hosted runs 34692671364 (full CI)
+and 34692668848 (actual observation) started at 909bb9b. Evidence: reports/test-2026-09-12-cp949.md.
+TASK-008 remains active; no publication policy, baseline, deployment or completion claim.
+
+### Hosted outcome and continuation boundary
+
+Ubuntu run 34692671364 passed 647 tests, 68 browser tests and 20 accessibility tests. Actual
+run 34692668848 decoded 127 categories / 1,723,957 rows without parser errors, then exhausted
+the 6144 MiB heap. Research follow-up c3c474a retains only per-category counts/hashes and
+explicitly reports validation null. Run 34692888618 and its single retry both failed with
+provider connect timeout before collection. Full inventory and production memory/quality gates
+remain open; do not create a partial baseline. Next: successful approved-runner inventory, then
+bounded production transformation/serialization and reviewed baseline/policy. Deployment and
+independent release gates remain separate. No merge or deployment occurred.
+
+## TASK-008 bounded production processing — 2026-09-12
+
+User requested full parser re-observation and memory remediation first, with quality-policy,
+protection and deployment decisions kept separate. The successful Ubuntu parser inventory
+(run 34692888618, attempt 3, c3c474a) covers all 195 categories: 2,939,947 rows,
+894,143,343 CSV bytes, zero parser errors; archive SHA-256 is
+`e2eeb1a868a2bfb94dbc9d193dae74707c0e27e38230376d5ad105e174a69faa`.
+It is aggregate evidence, not a policy or baseline.
+
+The production staging script now consumes the strict CSV iterator in bounded row batches.
+Intermediate disk buckets retain global identity and normalization-collision checks; external
+merge runs preserve exact identity ordering. One shared validator still owns quality, baseline,
+source-contract and date gates. Exact-byte hashes cover intermediate and staged files. Only a
+complete accepted new directory can become a publication candidate; the research entry emits
+no release descriptor or baseline. The site builder streams descriptor-bound data instead of
+retaining the whole JSON asset in Vite's heap. The single build-managed relative asset contract
+remains; no stable public endpoint, share identifier, source delivery or status mapping changed.
+
+Final-code local full replay passed global checks and serialization with a 2,048 MiB heap:
+1,822,576 KiB peak Node RSS and 1,349,416 ms. It reproduced every quality metric and dataset
+hash from the preliminary run. The actual 2,439,358,850-byte dataset crashes Chromium's current
+whole-file loader. Exact source pairs 05/06 remain unverified and require review for 187,173
+rows across 68 categories. No policy/baseline was adopted. See the bounded-source report.
+The existing read-only Ubuntu observation script now shares the bounded production path;
+branch delivery and hosted source/CI evidence follow local verification. Do not infer production
+readiness from parser success, fixture parity or producer memory improvements.
+No config, dependency, workflow, account protection, deployment or handbook change is authorized
+by these measurements. TASK-008 remains the sole active task and is not complete.
+
+Local final verification: pinned npm run verify passes 665 tests with three existing Windows
+native-tool skips, all coverage gates, build and both search-quality checks. Chromium/mobile
+E2E passes 34 tests and accessibility passes 20. The existing read-only observation script now
+uses the bounded path so branch delivery can obtain actual Ubuntu memory and full-suite evidence.
+No merge, protected-setting change or deployment is part of this branch verification.
+
+Final hosted evidence at implementation commit fbb2d65: full CI 34695740858 passes 668 unit,
+68 four-browser and 20 accessibility checks. Complete-source run 34695738766 succeeds with
+195 categories, 2,939,947 rows and zero parsing errors in 910,348 ms at 2,265,876 KiB peak
+Node RSS. Existing runner memory configuration is unchanged. Archive, dataset and entire
+validation object match the final local replay; validation remains review_required. Aggregate
+receipt hash verified before formatting and retained in the bounded-source report. Browser,
+reviewed quality/baseline, independent release review, protection, deployment/recovery and
+thirty-day reliability remain open. TASK-008 is not complete; no task is moved to completed.

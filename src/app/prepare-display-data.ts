@@ -11,7 +11,8 @@ function coverage(value: unknown): value is Coverage {
   return (
     object(value) &&
     (value.kind === 'unavailable' ||
-      ((value.kind === 'synthetic' || value.kind === 'verified') && typeof value.date === 'string'))
+      ((value.kind === 'synthetic' || value.kind === 'verified' || value.kind === 'collected') &&
+        typeof value.date === 'string'))
   );
 }
 

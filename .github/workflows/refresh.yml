@@ -1,0 +1,86 @@
+name: Validated Pages refresh
+on:
+  schedule:
+    - cron: '17 21 * * *'
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: Use an explicitly reviewed initial collection-date baseline
+        required: false
+        type: boolean
+        default: false
+permissions: {}
+concurrency:
+  group: pages-publication
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - name: Require reviewed quality configuration
+        run: |
+          test -f publication/config.json || {
+            echo 'Publication blocked: reviewed quality policy and baseline remain on hold.' >&2
+            exit 1
+          }
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24.19.0
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+      - run: npx --no-install playwright install --with-deps
+      - run: npm run verify:full
+      - name: Collect, validate and stage a complete release
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+          BOOTSTRAP: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap }}
+        run: |
+          if [ "$BOOTSTRAP" = true ]; then
+            node scripts/stage-refresh.mjs publication/config.json "$RUNNER_TEMP/candidate" --bootstrap
+          else
+            node scripts/stage-refresh.mjs publication/config.json "$RUNNER_TEMP/candidate"
+          fi
+      - name: Build against accepted collection-date data
+        run: node scripts/build-publication.mjs "$RUNNER_TEMP/candidate" "$RUNNER_TEMP/site"
+      - name: Reject an obsolete source revision
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          current_sha=$(git ls-remote origin "refs/heads/$DEFAULT_BRANCH" | cut -f1)
+          test "$current_sha" = "$EXPECTED_SHA"
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: ${{ runner.temp }}/site
+  deploy:
+    needs: prepare
+    if: vars.PAGES_PUBLICATION_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Reject obsolete code after environment approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          current_sha=$(gh api "repos/$GH_REPO/git/ref/heads/$DEFAULT_BRANCH" --jq '.object.sha')
+          test "$current_sha" = "$EXPECTED_SHA"
+      - name: Publish the validated artifact from this run
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

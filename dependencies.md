@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # dependencies.md — open-store-searcher Dependencies
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-09-12_
 
 ## Core Dependencies
 
@@ -36,6 +36,13 @@ impact, alternatives, and human approval.
 | @playwright/test | 1.62.1 | Chromium, Firefox, WebKit, and viewport E2E tests | Apache-2.0 | User approved 2026-08-20 |
 | @axe-core/playwright | 4.13.0 | Automated WCAG checks in Playwright | MPL-2.0 | User approved 2026-08-20 |
 | @types/node | 24.13.3 | Strict type declarations for approved Node.js 24 pipeline APIs | MIT | User approved 2026-08-28 |
+| iconv-lite | 0.7.3 | Build-only CP949 source decoding with exact byte round-trip validation | MIT | User approved 2026-09-12 |
+
+The CP949 addition locks safer-buffer 2.1.2 (MIT). Native Node EUC-KR silently corrupts
+extension Hangul and cannot replace this decoder. Permissive replacement decoding is rejected.
+The browser build module graph contains neither package; no browser bundle increase was observed.
+See [approval and verification](reports/test-2026-09-12-cp949.md) and the
+[updated license inventory](reports/dependency-licenses-2026-09-12.md).
 
 ## External Services and Data
 

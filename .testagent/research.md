@@ -109,3 +109,15 @@ positions and every candidate. Test all-page traversal, first/last/previous boun
 announcements, <=20 boundary, new search reset and small-result compatibility. Measure first
 page plus navigation under unchanged five-sample mobile/desktop profiles, with explicit
 complete-count and bounded-card assertions. Run focused tests then verify:full and review.
+
+## TASK-008 bounded processing test research — 2026-09-12
+
+Broad scope is limited to stageBoundedRelease and iterateLicenseCsv. Existing Vitest pipeline
+fixtures cover all 195 contractual categories with synthetic-only quality policy/baseline.
+Reuse those fixtures in validate-license-refresh.test.ts and parser fixtures in parse-license-csv.test.ts.
+Specialized generator, find-untested-sources, gap-analysis and assertion-quality tools are unavailable
+(tool inventory searched); execute research, planning and final assertion review inline.
+Checklist: complete artifact/metric parity; cross-batch identity rejection; global normalization
+collision parity; late ingestion and quality rejection preserving known-good bytes; existing-output
+protection; bucket cap cleanup; iterator incremental yield, multiline parity and late-error visibility.
+This verifies FR-08/FR-13/FR-14 mechanics, not production thresholds, deployment or 30-day reliability.

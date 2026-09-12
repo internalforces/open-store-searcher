@@ -1,0 +1,33 @@
+name: Observe Seoul quality
+on:
+  push:
+    branches: [codex/task-009-010-publication]
+    paths:
+      - scripts/observe-seoul-quality.mjs
+      - src/pipeline/**
+      - package.json
+      - package-lock.json
+      - .github/workflows/observe-quality.yml
+permissions: {}
+concurrency:
+  group: seoul-quality-observation
+  cancel-in-progress: false
+jobs:
+  observe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24.19.0
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+      - name: Observe complete parser inventory without retaining all source rows
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: node scripts/observe-seoul-quality.mjs

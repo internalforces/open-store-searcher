@@ -379,3 +379,18 @@ verify:full passes 598 Vitest, 68 browser and 20 accessibility tests. See
 [review remediation](../reports/review-2026-09-10-pr20.md). TASK-019 remains complete; TASK-008
 stays on hold. User-authorized PR delivery continues on codex/task-019-security-review.
 No application code, security policy, dependency, workflow or deployment changed.
+
+## TASK-008/009 filename regression resolved — 2026-09-12
+
+This is a completed bounded prerequisite fix, not completion of TASK-008, TASK-009 or TASK-010.
+The synthetic test preserves UTF-8 Korean DOS-origin filenames and exact entry bytes; it failed
+before the explicit UTF-8 filename-option fix and passes afterward. Approved Ubuntu full
+verification passes 639/68/20 in run 34692123385. Real collection passed inventory/schema after
+the fix. CP949 body decoding, complete metrics and publication gates remain open. Evidence:
+reports/research-2026-09-12-quality-resumption.md.
+
+## Bounded CP949 decoder prerequisite — 2026-09-12
+
+Completed only the user-approved decoder addition, strict preservation tests, dependency audit
+and hosted verification (647/68/20 at 909bb9b). Evidence: reports/test-2026-09-12-cp949.md.
+TASK-008/009/010 remain incomplete for full-source quality, resource and publication gates.

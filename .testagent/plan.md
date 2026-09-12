@@ -101,3 +101,15 @@ positions and every candidate. Test all-page traversal, first/last/previous boun
 announcements, <=20 boundary, new search reset and small-result compatibility. Measure first
 page plus navigation under unchanged five-sample mobile/desktop profiles, with explicit
 complete-count and bounded-card assertions. Run focused tests then verify:full and review.
+
+## TASK-008 bounded processing test plan — 2026-09-12
+
+1. Reuse acceptedFixture for exact parsed dataset/baseline/release parity at batch sizes 1 and 7.
+2. Add distinct identities with normalization-equivalent names/addresses across category and batch
+   boundaries; compare all metrics and pin positive collision participation.
+3. Duplicate an identity after an intervening row; require global rejection and complete cleanup.
+4. Throw from a late category iterator, exceed missing-name policy and JSON total limit separately;
+   require absent candidate and unchanged pre-existing release bytes for each failure.
+5. Require existing-output refusal and bounded disk-bucket rejection without leftover staging.
+6. Exercise iterator yields before malformed tail/row-limit failures and exact multilingual CSV parity.
+7. Run focused pipeline/parser tests, inspect concrete assertions, record results and outstanding gates.

@@ -1,3 +1,5 @@
+import { decodeCsv } from './decode-csv.js';
+
 export interface CsvHeaderEvidence {
   encoding: 'utf-8' | 'euc-kr';
   delimiter: ',';
@@ -8,7 +10,7 @@ export interface CsvHeaderEvidence {
 function decode(bytes: Uint8Array): { text: string; encoding: 'utf-8' | 'euc-kr' } {
   for (const encoding of ['utf-8', 'euc-kr'] as const) {
     try {
-      return { text: new TextDecoder(encoding, { fatal: true }).decode(bytes), encoding };
+      return { text: decodeCsv(bytes, encoding), encoding };
     } catch {
       // Continue to the only approved fallback.
     }

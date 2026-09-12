@@ -273,3 +273,58 @@ App keys result presentation by submission sequence, resetting repeated searches
 rerunning search during navigation. Dataset replacement retains its existing invalidation.
 No virtual scrolling, cumulative load-more, persistence or page requests were introduced.
 The approved performance endpoint is complete search plus a visible page, not all-result DOM.
+
+## TASK-009/010 collection-date publication foundation — 2026-09-12
+
+The staged validator supports explicit coverage/collection date bases with matching baselines.
+Collection mode preserves source uncertainty and quality gates. parse-license-csv.ts strictly
+parses complete category bytes with exact headers and bounded rows. stage-validated-release.ts
+projects complete accepted records, validates their serialized consumer representation, hashes
+dataset/baseline bytes and promotes only a fresh complete staging directory under a per-output
+lock. It does not replace an existing deployment directory.
+
+stage-refresh.mjs runs the approved collector and bounded unzip ingestion, hashes the archive
+before and after parsing and stages only accepted results. read-deployed-baseline.ts retrieves
+and binds the currently deployed descriptor/baseline with size, hash and repeated-descriptor
+checks; explicit manual bootstrap is separate. build-publication.mjs emits a collection-date
+asset using Vite's pre-resolution loader substitution and copies only verified in-memory state
+bytes into the same site artifact. The default development/demo entry remains synthetic.
+
+publication-loader.ts loads a fixed credential-free asset after paint and rejects partial or
+incorrectly labeled snapshots. EvidenceContext labels collection dates and source uncertainty.
+.github/workflows/verify.yml is read-only; refresh.yml separates trusted preparation from the
+Pages/OIDC deploy job, uses one concurrency group and guards publication behind an explicit
+repository variable and the github-pages environment. Quality config is intentionally absent.
+The current production foundation uses a single dataset asset; real-data partition/performance,
+full hosted ingestion/publication/recovery and actual environment controls remain unverified.
+
+## UTF-8 ZIP filename execution correction — 2026-09-12
+
+UnzipArchiveAdapter and full-entry staging/observation reads use shared UTF8_UNZIP_OPTIONS
+(-O UTF-8) for the approved provider's DOS-origin UTF-8 names. The same option is checked in
+the environment probe. CSV byte encoding, source mapping and publication architecture are
+unchanged. observe-seoul-quality.mjs is a non-publishing research path. Its version-2 report
+retains only per-category counts/hashes and explicitly does not run whole-candidate validation.
+Neither complete parser inventory nor incomplete parsing can yield an accepted baseline.
+
+Both header inspection and full CSV parsing now share decode-csv.ts. The approved build-only
+iconv-lite CP949 decoder must reproduce every source byte on re-encoding; UTF-8 remains fatal.
+Actual whole-candidate retention exceeded 6144 MiB after 127 categories in research. Production
+staging still retains complete raw/transformed/display representations; bounded production
+ingestion and real-data partition/consumer measurement remain unresolved.
+
+## TASK-008 disk-backed staging — 2026-09-12
+
+`iterateLicenseCsv` retains one bounded decoded CSV member and yields rows. `stageBoundedRelease`
+consumes batches (default 1,000; maximum 10,000), uses 256 hash buckets for global identities,
+normalization groups and unique collision participants, and applies a per-bucket byte ceiling.
+Two passes through normalization buckets avoid retaining every member of a common value.
+Fixed 16-way disk merge runs preserve the reference serializer's exact identity order. Temporary
+files and final dataset bytes are checked against hashes tracked during writing. `validateMeasuredRefresh`
+centralizes the unchanged policy/baseline/date rules for both the in-memory oracle and the trusted
+streaming measurement path. Existing output is never replaced; failure removes only owned scratch.
+
+The internal research entry produces dataset/observation files only, never baseline/release.json.
+The build copies and hashes the dataset as a stream into a Vite-managed immutable relative asset;
+it does not parse the complete dataset in Node. The current browser still fetches one whole JSON
+and builds a whole index; actual-data feasibility is a separate measured gate, not presumed solved.

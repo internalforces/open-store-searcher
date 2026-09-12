@@ -88,3 +88,30 @@ describe('coverage warnings', () => {
     expect(screen.queryByText(warning)).toBeNull();
   });
 });
+
+it.each([
+  ['2026-09-07T14:59:59.999Z', false],
+  ['2026-09-07T15:00:00.000Z', true],
+])('labels collection dates and warns without claiming source coverage at %s', (now, stale) => {
+  vi.useFakeTimers();
+  vi.setSystemTime(new Date(now));
+  render(
+    <CoverageClock>
+      <EvidenceContext coverage={{ kind: 'collected', date: '2026-09-01' }} />
+    </CoverageClock>,
+  );
+  expect(screen.getByText('데이터 수집일: 2026-09-01')).toBeTruthy();
+  expect(
+    screen.getByText(
+      '원천 데이터 기준일은 확인되지 않았습니다. 수집일은 사업체 상태가 확인된 날짜가 아닙니다.',
+    ),
+  ).toBeTruthy();
+  expect(screen.queryByText('데이터 기준일: 2026-09-01')).toBeNull();
+  expect(
+    Boolean(
+      screen.queryByText(
+        '데이터 수집일로부터 7일 이상 지났습니다. 외부 지도 또는 사업체에 직접 확인하세요.',
+      ),
+    ),
+  ).toBe(stale);
+});

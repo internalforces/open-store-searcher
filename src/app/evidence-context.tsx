@@ -20,14 +20,25 @@ export function EvidenceContext({ coverage }: { coverage: Coverage }) {
     <div className="evidence-context">
       {coverage.kind === 'synthetic' && <p className="synthetic-notice">{syntheticNotice}</p>}
       <p className="coverage-date">
-        {coverage.kind === 'synthetic' ? '예시 데이터 기준일' : '데이터 기준일'}:{' '}
-        {coverage.kind === 'unavailable' || !known ? '확인되지 않음' : coverage.date}
+        {coverage.kind === 'synthetic'
+          ? '예시 데이터 기준일'
+          : coverage.kind === 'collected'
+            ? '데이터 수집일'
+            : '데이터 기준일'}
+        : {coverage.kind === 'unavailable' || !known ? '확인되지 않음' : coverage.date}
       </p>
+      {coverage.kind === 'collected' && (
+        <p className="uncertainty">
+          원천 데이터 기준일은 확인되지 않았습니다. 수집일은 사업체 상태가 확인된 날짜가 아닙니다.
+        </p>
+      )}
       {stale && (
         <p className="uncertainty">
           {coverage.kind === 'synthetic'
             ? '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.'
-            : '최근 데이터 갱신이 지연되고 있습니다. 아래 기준일을 확인하고 외부 지도 또는 사업체에 직접 확인하세요.'}
+            : coverage.kind === 'collected'
+              ? '데이터 수집일로부터 7일 이상 지났습니다. 외부 지도 또는 사업체에 직접 확인하세요.'
+              : '최근 데이터 갱신이 지연되고 있습니다. 아래 기준일을 확인하고 외부 지도 또는 사업체에 직접 확인하세요.'}
         </p>
       )}
     </div>

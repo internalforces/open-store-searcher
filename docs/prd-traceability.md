@@ -130,3 +130,70 @@ User-approved 20-item pages preserve FR-03/07/11/16 while satisfying measured PR
 All 24 first-result search cells and 16 applicable navigation groups pass 500 ms; no large-search
 cells remain skipped. Correctness 598/68/20 and independent approval support bounded completion.
 Earlier rendering-gap notes are historical; full-DOM and production certification are not claimed.
+
+## TASK-009/010 design activation — 2026-09-12
+
+FR-13 publication/recovery and Section 12.3 workflow work is in design. The
+[publication specification](superpowers/specs/2026-09-12-task-009-010-publication-design.md)
+links AC-009-1 through AC-010-5 to failure-injection, complete-artifact, privacy, hosted deployment
+and reliability evidence. These are proposed acceptance checks, not passing results.
+TASK-008 remains held, TASK-009 is the sole active task, and TASK-010 follows sequentially.
+Production and release statuses remain open; no completion or Actions waiver is recorded.
+
+## Collection-date implementation evidence — 2026-09-12
+
+FR-08/13/14 now have an explicit user-approved collection-date branch with unverified source
+coverage, date-basis-matching validation and >=7 Seoul-day collection warnings. FR-13 staging
+and deployed-baseline byte binding are implemented, with injected partial-write/lock/corruption
+failures preserving previous state. Section 12.3 has daily/manual trusted Actions preparation
+and guarded same-run Pages publication; FR-12 has a read-only CI boundary and author security
+review. Evidence: [test report](../reports/test-2026-09-12-task-009-010.md) and
+[Actions self-review](../reports/security-2026-09-12-task-009-010.md).
+
+Pinned verify passes 636 tests and a11y passes 20. Full verification fails two Windows WebKit
+cases reproduced at the unchanged base; hosted runs and recovery, reviewed real-data config,
+production performance and independent approval remain open. No requirement is marked Done
+from this foundation, and TASK-019 AC-019-8 is not waived. TASK-008's real-data criteria remain held.
+
+## TASK-009/010 approved-runner evidence — 2026-09-12
+
+FR-08/12/13/14: reports/test-2026-09-12-publication-hosted.md records successful actual Ubuntu
+PR verification (638 Vitest, 68 browser, 20 accessibility). This closes the local/approved-runner
+full-verification gap, not production integration or publication/recovery/reliability gates.
+Actual account review and pending remedies are in reports/security-2026-09-12-publication-settings.md;
+independent review and TASK-019 AC-019-8 approval remain open.
+
+## TASK-008 resumed source observation — 2026-09-12
+
+FR-08/13/14: the user resumed real-data quality review. Ubuntu filename regression is resolved
+and full verification passes 639/68/20 (run 34692123385). Complete archive metrics remain blocked
+by CP949 decoder support and intermittent hosted connection failures. See
+reports/research-2026-09-12-quality-resumption.md; it includes actual source receipts and the
+pending dependency proposal. No production threshold/baseline, source freshness, task completion
+or release reliability criterion is inferred from these observations.
+
+### FR-08 / FR-13 decoding and resource evidence — 2026-09-12
+
+Strict CP949 preservation is verified by the exact regression matrix in
+reports/test-2026-09-12-cp949.md and Ubuntu 647/68/20. Actual observation decoded 127 categories
+without parser errors before heap exhaustion. No complete transformation, quality baseline or
+publication acceptance follows from those partial observations. Bounded research inventory
+is explicit about validation not running; provider connection failures prevent full replay.
+
+## TASK-008 full-source and bounded processing evidence — 2026-09-12
+
+FR-08/13/14: the approved Ubuntu parser inventory completed all 195 categories (2,939,947 rows;
+zero parser errors). The final bounded local producer retains global identity/collision and
+quality/date/baseline gates and reproduces all measured metrics and exact bytes. Regression
+coverage includes iterator boundaries, multi-flush byte parity, duplicates, incomplete input,
+policy/size failures, intermediate/metadata corruption and previous-release preservation.
+See reports/test-2026-09-12-bounded-source.md and its linked aggregate/resource/browser evidence.
+
+The actual browser load crashes on the 2.44 GB single asset. Reviewed policy/baseline, 05/06
+source-pair treatment, independent release review, protection, deployment,
+recovery and thirty-day reliability remain open. No requirement is marked Done from this pass.
+
+Ubuntu source run 34695738766 at fbb2d65 completes all 195 categories and 2,939,947 rows in
+910,348 ms at 2,265,876 KiB peak Node RSS with unchanged runner settings and exact local
+dataset/validation parity. Full CI 34695740858 passes 668 unit, 68 browser and 20 accessibility
+checks. This closes the bounded producer's hosted measurement gap, not the release gates above.
