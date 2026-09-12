@@ -39,3 +39,20 @@ test('enforces complete-row bounds without silently truncating and permits expli
 test('rejects invalid bytes in the declared encoding', () => {
   expect(() => parseLicenseCsv(new Uint8Array([0xff]), entry, 10)).toThrow();
 });
+
+test('preserves CP949 extension Hangul in quoted multiline fields', () => {
+  const bytes = Uint8Array.from([
+    ...new TextEncoder().encode('name,address\r\n"'),
+    0x81,
+    0x41,
+    ...new TextEncoder().encode('\n""A""",'),
+    0xb0,
+    0xa1,
+    0x0d,
+    0x0a,
+  ]);
+  expect(parseLicenseCsv(bytes, { ...entry, encoding: 'euc-kr' }, 10)[0]?.values).toEqual({
+    name: '갂\n"A"',
+    address: '가',
+  });
+});

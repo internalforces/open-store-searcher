@@ -4,6 +4,9 @@ on:
     branches: [codex/task-009-010-publication]
     paths:
       - scripts/observe-seoul-quality.mjs
+      - src/pipeline/**
+      - package.json
+      - package-lock.json
       - .github/workflows/observe-quality.yml
 permissions: {}
 concurrency:

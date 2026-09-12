@@ -1,4 +1,5 @@
 import type { ArchiveContractEntry } from './archive-contract.js';
+import { decodeCsv } from './decode-csv.js';
 import type { StagedLicenseRowV1 } from './transform-license-records.js';
 
 /** Strict whole-entry parser. Caller bounds decompression before providing bytes. */
@@ -8,7 +9,7 @@ export function parseLicenseCsv(
   maxRows: number,
 ): StagedLicenseRowV1[] {
   if (!Number.isSafeInteger(maxRows) || maxRows < 0) throw new Error('Invalid row limit');
-  const text = new TextDecoder(entry.encoding, { fatal: true }).decode(bytes);
+  const text = decodeCsv(bytes, entry.encoding);
   const rows: StagedLicenseRowV1[] = [];
   let fields: string[] = [],
     field = '',
