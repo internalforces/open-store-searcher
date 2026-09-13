@@ -11,13 +11,12 @@ _Last updated: 2026-09-12_
 
 ## In Progress
 
-PR #21 review correction scope (user-authorized 2026-09-13): correct attribution and collection
-wording, enforce the hosting size limit, and restrict bootstrap to initial deployment on the
-existing PR branch. The third review correction passes local focused, build and browser checks;
-current Ubuntu full verification remains outstanding due to the known Apple unzip incompatibility. This is
-bounded remediation of the current branch, not activation/completion of another task. The bounded
-corrections are verified (Ubuntu 680/68/20) and recorded in completed.md. Production
-hosting format remains unresolved; see [review evidence](../reports/review-2026-09-13-pr21.md).
+PR #21 review correction scope (user-authorized 2026-09-13): the fourth-review descriptor
+and observation binding corrections pass focused local tests. Full local verification has
+712 passes and two known Apple unzip failures; current Ubuntu verification is pending.
+Prior a54a499 passed Ubuntu 692/68/20. These are bounded corrections on the existing branch,
+not activation/completion of another task. Production hosting format remains unresolved;
+see [review evidence](../reports/review-2026-09-13-pr21.md).
 
 TASK-008 is the sole active task for production observation and quality/bootstrap review,
 explicitly resumed by the user on 2026-09-12. Collection-date mode remains authoritative.

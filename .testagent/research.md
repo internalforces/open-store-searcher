@@ -126,3 +126,15 @@ This verifies FR-08/FR-13/FR-14 mechanics, not production thresholds, deployment
 ## PR #21 review regressions — 2026-09-13
 
 Scope: bounded PR #21 regressions across publication staging/build and App. Existing Vitest pipeline fixtures provide all 195 categories; component recovery tests use Testing Library. No generator/discovery tools are available; execute inline. R1: Pages total-size bound including site assets and state metadata, preserving prior output. R2: archive-wide dataset attribution with category-specific record provenance. R3: collection-date instructions across reload and footer states. No dependency or delivery redesign.
+
+
+## PR #21 fourth review — 2026-09-13
+
+Fourth-review scope: two production files, read-deployed-baseline.ts and measure-source-browser.mjs.
+Use the broad workflow inline; specialized generator/discovery/gap-analysis tools are unavailable.
+Existing baseline tests use mocked fetch. Existing CLI tests use real temporary files and Node
+registerHooks to replace tool boundaries. Requirements: exact dataset/baseline entry set with
+valid hashes/sizes; reject absent/duplicate/extra/malformed entries before baseline requests;
+stream-verify observed dataset hash/size before server/browser creation; reject truncated,
+same-size altered, foreign, missing and malformed-binding data without creating a report;
+allow matching bytes and bind successful report evidence to the verified digest.

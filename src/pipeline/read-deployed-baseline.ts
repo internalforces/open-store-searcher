@@ -77,15 +77,27 @@ export async function readDeployedBaseline(
     !Array.isArray(release.entries)
   )
     throw new Error('Invalid deployed release descriptor');
-  const entries = release.entries.filter(
-    (entry) => object(entry) && entry.name === 'baseline.json',
-  );
-  if (entries.length !== 1 || !object(entries[0]) || !sha256(entries[0].sha256))
-    throw new Error('Missing deployed baseline binding');
+  const entries = new Map<string, { byteLength: number; sha256: string }>();
+  for (const entry of release.entries) {
+    if (
+      !object(entry) ||
+      (entry.name !== 'dataset.json' && entry.name !== 'baseline.json') ||
+      entries.has(entry.name) ||
+      typeof entry.byteLength !== 'number' ||
+      !Number.isSafeInteger(entry.byteLength) ||
+      entry.byteLength <= 0 ||
+      !sha256(entry.sha256)
+    )
+      throw new Error('Invalid deployed release entries');
+    entries.set(entry.name, { byteLength: entry.byteLength, sha256: entry.sha256 });
+  }
+  const baselineEntry = entries.get('baseline.json');
+  if (entries.size !== 2 || !entries.has('dataset.json') || !baselineEntry)
+    throw new Error('Invalid deployed release entries');
   const baselineBytes = await read(new URL('baseline.json', url));
   if (
-    baselineBytes.length !== entries[0].byteLength ||
-    createHash('sha256').update(baselineBytes).digest('hex') !== entries[0].sha256
+    baselineBytes.length !== baselineEntry.byteLength ||
+    createHash('sha256').update(baselineBytes).digest('hex') !== baselineEntry.sha256
   )
     throw new Error('Deployed baseline hash mismatch');
   const after = await read(url);

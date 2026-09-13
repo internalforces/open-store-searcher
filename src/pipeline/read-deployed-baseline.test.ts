@@ -21,6 +21,7 @@ function fixture() {
         byteLength: Buffer.byteLength(bytes),
         sha256: createHash('sha256').update(bytes).digest('hex'),
       },
+      { name: 'dataset.json', byteLength: 1234, sha256: 'c'.repeat(64) },
     ],
   };
   const fetcher = vi
@@ -146,4 +147,60 @@ test('rejects bootstrap when the missing response cannot be cancelled', async ()
   await expect(
     readDeployedBaseline(releaseUrl, 10_000, fetcher, { baseline: initialBaseline }),
   ).rejects.toThrow('cancel failed');
+});
+
+test.each([
+  'missing-dataset',
+  'missing-baseline',
+  'duplicate-dataset',
+  'duplicate-baseline',
+  'extra-entry',
+  'unknown-entry',
+  'null-entry',
+  'invalid-hash',
+  'zero-bytes',
+  'negative-bytes',
+  'fractional-bytes',
+  'unsafe-bytes',
+  'string-bytes',
+])('rejects %s in the deployed descriptor before reading a baseline', async (kind) => {
+  const { release } = fixture();
+  const baseline = requireValue(release.entries[0]);
+  const dataset = requireValue(release.entries[1]);
+  let entries: unknown[] = [baseline, dataset];
+  if (kind === 'missing-dataset') entries = [baseline];
+  if (kind === 'missing-baseline') entries = [dataset];
+  if (kind === 'duplicate-dataset') entries = [dataset, dataset];
+  if (kind === 'duplicate-baseline') entries = [baseline, baseline];
+  if (kind === 'extra-entry') entries.push({ ...dataset, name: 'other.json' });
+  if (kind === 'unknown-entry') entries[1] = { ...dataset, name: 'other.json' };
+  if (kind === 'null-entry') entries[1] = null;
+  if (kind === 'invalid-hash') entries[1] = { ...dataset, sha256: 'invalid' };
+  const sizes: Record<string, unknown> = {
+    'zero-bytes': 0,
+    'negative-bytes': -1,
+    'fractional-bytes': 1.5,
+    'unsafe-bytes': Number.MAX_SAFE_INTEGER + 1,
+    'string-bytes': '1234',
+  };
+  if (kind in sizes) entries[1] = { ...dataset, byteLength: sizes[kind] };
+  const fetcher = vi
+    .fn<typeof fetch>()
+    .mockResolvedValue(new Response(JSON.stringify({ ...release, entries })));
+  await expect(readDeployedBaseline(releaseUrl, 10_000, fetcher)).rejects.toThrow(
+    'Invalid deployed release entries',
+  );
+  expect(fetcher).toHaveBeenCalledTimes(1);
+});
+
+test('accepts the exact deployed entry set in either order', async () => {
+  const { release, baseline, bytes } = fixture();
+  release.entries.reverse();
+  const fetcher = vi
+    .fn<typeof fetch>()
+    .mockResolvedValueOnce(new Response(JSON.stringify(release)))
+    .mockResolvedValueOnce(new Response(bytes))
+    .mockResolvedValueOnce(new Response(JSON.stringify(release)));
+  await expect(readDeployedBaseline(releaseUrl, 10_000, fetcher)).resolves.toEqual(baseline);
+  expect(fetcher).toHaveBeenCalledTimes(3);
 });

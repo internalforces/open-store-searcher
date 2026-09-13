@@ -118,3 +118,12 @@ complete-count and bounded-card assertions. Run focused tests then verify:full a
 ## PR #21 review regressions — 2026-09-13
 
 Write reproducing assertions in validate-license-refresh.test.ts and recovery.test.tsx, then fix attribution and collection wording. Add publication-size.test.ts for inclusive byte boundaries and whole-directory accounting; exercise the actual builder with an oversized descriptor before hashing. Run focused RED/GREEN, pinned verify:full, and inspect assertions/diff. The production format remains an explicitly unresolved design gate; a guard cannot make the measured snapshot deployable.
+
+
+## PR #21 fourth review — 2026-09-13
+
+Fourth-review plan: correct the baseline fixture to contain both expected entries; add a
+mutated descriptor rejection matrix and reordered valid-entry test. Add measure-source-browser.test.ts
+running the actual CLI with mocked Vite/Chromium and real files; assert no tool-start marker or report
+on invalid bytes, and verify a report for matching bytes. Run RED, implement minimal guards, then
+focused GREEN and required full verification. Preserve historical evidence and known platform gates.

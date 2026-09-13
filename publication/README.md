@@ -14,7 +14,9 @@ the same unreviewed candidate. Missing configuration fails the refresh before an
 The reviewed configuration contains `policy` (`ValidationPolicyV1`), `previousReleaseUrl`
 (the deployed HTTPS `/release.json` URL), and explicit positive integer
 `maxEntryBytes`, `maxTotalRows`, `entryTimeoutMs` resource limits. It contains no credentials.
-Normal runs read the matching baseline from the deployed release, check its byte hash and metadata,
+Normal runs require exactly one dataset.json and one baseline.json descriptor entry, each with
+a valid SHA-256 and positive safe integer byte length. They read the matching baseline from
+the deployed release, check its byte hash and metadata,
 and reread the release descriptor to detect a concurrent replacement. Missing, oversized, malformed
 or mismatched deployed state fails without bootstrapping. For the initial run only, an explicitly
 reviewed `baseline` (`ValidationBaselineV1`, `dateBasis: collection`) may be supplied in config
@@ -67,7 +69,10 @@ loading is practical. Parser observation and browser measurements cannot authori
 observation hash; Python ZIP extraction there is diagnostic only. Production continues using
 the approved Ubuntu Info-ZIP collector. `measure-source-browser.mjs` exercises the current
 publication loader and the hook's second preparation pass on a local real-data research file.
-Neither command deploys or creates a publication policy. Keep raw/intermediate files outside Git.
+The browser laboratory verifies the dataset byte length and SHA-256 against observation.json
+before starting its server/browser, and includes that digest in its report. Keep research inputs
+unchanged throughout measurement. Neither command deploys or creates a publication policy.
+Keep raw/intermediate files outside Git.
 
 
 ## Pages size gate — PR #21

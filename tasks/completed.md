@@ -426,3 +426,13 @@ See [third-review evidence](../reports/review-2026-09-13-pr21.md#third-review-lo
 Local full verification still fails two unchanged Apple unzip fixtures; current Ubuntu verification
 and independent release approval remain outstanding. This records bounded code correction only,
 not overall TASK-008/009/010 completion or release readiness. Changes have not been committed/pushed.
+
+
+## PR #21 bounded descriptor and observation corrections — 2026-09-13
+
+Locally corrected 3998971153/3998971154 with exact deployed descriptor entry validation and
+streamed research dataset hash/length verification before tool startup. Focused 43 tests pass;
+see [fourth-review evidence](../reports/review-2026-09-13-pr21.md#fourth-review-deployed-descriptor-and-measurement-binding--2026-09-13).
+Local full verification still fails two unchanged Apple unzip fixtures (712 pass); current
+Ubuntu evidence and independent release gates remain open. This records bounded corrections,
+not overall TASK-008/009/010 completion. No commit/push or production browser rerun occurred.

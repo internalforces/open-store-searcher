@@ -356,3 +356,10 @@ Only an explicit release-descriptor 404 permits the reviewed initial baseline; n
 continues to require deployed-state binding. See the third-review section of
 [review evidence](../reports/review-2026-09-13-pr21.md). Current Ubuntu verification remains
 pending; local verification has 690 passes and the same two unchanged Apple unzip failures.
+
+
+PR #21 fourth review: baseline-only deployed descriptors and unchecked browser measurement
+inputs are locally corrected. Exact descriptor entries and streamed dataset hash/length are now
+required. Current local full verification has 712 passes and the same two Apple unzip failures;
+current Ubuntu evidence is pending. Historical actual-data browser reports were not rerun or
+retroactively verified. See the fourth-review section of the PR #21 review report.

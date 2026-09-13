@@ -280,3 +280,15 @@ passed. This supersedes the pending-hosted-verification state recorded during pr
 The two native fixture failures are macOS-specific and pass on the approved runner. No test
 was skipped or weakened. This follow-up changes only documentation; implementation stays at 392b528.
 Production hosting-format/browser feasibility and independent release approval remain open.
+
+
+## PR #21 fourth-review assertion audit — 2026-09-13
+
+Broad bounded workflow executed inline; specialized generator/discovery/gap tools unavailable.
+Focused GREEN passed 43 tests after 20 RED failures. The descriptor matrix asserts a single fetch
+on corruption and three fetches for an order-independent valid set. CLI regressions use actual
+script/file hashing with tool-boundary mocks; assert absent startup marker/report on mismatch,
+UTF-8 length preservation for same-size edits, and exact verified hash/size in accepted evidence.
+No weak success-only assertions or uncovered requested behavior found in self-review. Full local
+verification reaches 712 passes and two unchanged Apple unzip failures; current Ubuntu proof is
+pending. Exact requirements/test names are in the fourth-review section of the PR #21 report.

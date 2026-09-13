@@ -1,6 +1,7 @@
 // Local actual-data laboratory. No publication and no search/click collection.
+import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
-import { readFile, stat, writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { chromium } from '@playwright/test';
@@ -14,7 +15,26 @@ const observation = JSON.parse(await readFile(join(researchPath, 'observation.js
 if (observation.kind !== 'bounded-source-observation' || observation.publicationApproved !== false)
   throw new Error('Research dataset required');
 const datasetPath = resolve(researchPath, 'dataset.json');
-const size = (await stat(datasetPath)).size;
+const binding = observation.dataset;
+if (
+  !binding ||
+  !Number.isSafeInteger(binding.byteLength) ||
+  binding.byteLength <= 0 ||
+  typeof binding.sha256 !== 'string' ||
+  !/^[a-f0-9]{64}$/.test(binding.sha256)
+)
+  throw new Error('Observed dataset binding is invalid');
+// Stream the full file before starting the laboratory; never buffer the actual multi-GB JSON.
+const digest = createHash('sha256');
+let size = 0;
+for await (const bytes of createReadStream(datasetPath)) {
+  size += bytes.length;
+  if (size > binding.byteLength) throw new Error('Observed dataset byte length mismatch');
+  digest.update(bytes);
+}
+const datasetSha256 = digest.digest('hex');
+if (size !== binding.byteLength || datasetSha256 !== binding.sha256)
+  throw new Error('Observed dataset hash or byte length mismatch');
 let transferred = 0;
 const vite = await createServer({
   configFile: false,
@@ -92,6 +112,7 @@ try {
     archiveSha256: observation.archiveSha256,
     recordCount: observation.recordCount,
     datasetBytes: size,
+    datasetSha256,
     transferredBytes: transferred,
     elapsedMs: Math.round(performance.now() - started),
     result,

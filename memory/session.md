@@ -969,3 +969,31 @@ The user explicitly requested commit and push of the nine reviewed correction fi
 existing PR #21 branch. Earlier local-only statements record preparation, not the current
 delivery authorization. Push the bootstrap correction on codex/task-009-010-publication;
 current Ubuntu verification remains pending. No merge, deployment or GitHub message is authorized.
+
+
+## PR #21 fourth review correction — 2026-09-13
+
+User requested review assessment and fixes. Reused clean a54a499 on the existing PR worktree.
+Comments 3998971153/3998971154 are valid. Require the exact dataset/baseline descriptor set
+with valid entry bindings before fetching baseline bytes. Verify research dataset SHA-256 and
+length by streaming before laboratory startup, and include the verified digest in new reports.
+Historical performance reports remain unchanged; no actual-data measurement was rerun.
+
+Focused 43 tests pass (20 RED failures before fixes). Pinned verify:full reaches 712 passes
+and the two unchanged Apple unzip failures; current Ubuntu proof remains required. Prior
+commit a54a499 passed Ubuntu 692/68/20 in run 34743021815. See fourth-review evidence in
+reports/review-2026-09-13-pr21.md. TASK-008 remains active/incomplete; TASK-009/010, production
+size/browser/quality and release gates remain open. No new architecture decision or public
+application contract. Changes are local; no commit, push, GitHub message, merge or deployment.
+
+Fourth-review follow-up: separate build, both search-quality checks, 68 browser checks and
+20 accessibility checks passed. Final formatter and Git whitespace checks passed. Current
+Ubuntu verification remains pending; there is no full-verification or release-completion claim.
+
+
+### Fourth-review authorized delivery
+
+The user explicitly requested commit and push of the thirteen reviewed correction files to
+PR #21 on codex/task-009-010-publication. Earlier local-only notes describe preparation.
+Deliver the descriptor and observed-dataset binding fixes with their tests and evidence;
+current Ubuntu verification remains pending. No merge, deployment or GitHub message is authorized.
