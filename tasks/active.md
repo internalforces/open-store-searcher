@@ -12,7 +12,9 @@ _Last updated: 2026-09-12_
 ## In Progress
 
 PR #21 review correction scope (user-authorized 2026-09-13): correct attribution and collection
-wording, enforce the hosting size limit, verify and deliver on the existing PR branch. This is
+wording, enforce the hosting size limit, and restrict bootstrap to initial deployment on the
+existing PR branch. The third review correction passes local focused, build and browser checks;
+current Ubuntu full verification remains outstanding due to the known Apple unzip incompatibility. This is
 bounded remediation of the current branch, not activation/completion of another task. The bounded
 corrections are verified (Ubuntu 680/68/20) and recorded in completed.md. Production
 hosting format remains unresolved; see [review evidence](../reports/review-2026-09-13-pr21.md).

@@ -3,11 +3,12 @@ import type { ValidationBaselineV1 } from './refresh-validation-types.js';
 import { object, sha256 } from './refresh-validation-types.js';
 import { validateJsonBytesV1 } from './validate-json-bytes.js';
 
-/** Fail closed on missing, changed, oversized or mismatched deployed state. Never bootstrap. */
+/** Read deployed state; explicit initial bootstrap requires a release-descriptor 404. */
 export async function readDeployedBaseline(
   releaseUrl: string,
   maxBytes: number,
   fetcher: typeof fetch = fetch,
+  bootstrap?: { baseline: ValidationBaselineV1 },
 ): Promise<ValidationBaselineV1> {
   const url = new URL(releaseUrl);
   if (
@@ -21,14 +22,24 @@ export async function readDeployedBaseline(
     throw new Error('Invalid deployed release URL');
   if (!Number.isSafeInteger(maxBytes) || maxBytes <= 0)
     throw new Error('Invalid deployed state limit');
-  const read = async (target: URL) => {
-    const response = await fetcher(target, {
+  const request = (target: URL) =>
+    fetcher(target, {
       redirect: 'error',
       credentials: 'omit',
       cache: 'no-store',
       referrerPolicy: 'no-referrer',
       signal: AbortSignal.timeout(30_000),
     });
+  // Do not infer first deployment from authentication, server, redirect or network errors.
+  if (bootstrap) {
+    const response = await request(url);
+    await response.body?.cancel();
+    if (response.status !== 404)
+      throw new Error('Bootstrap requires an absent deployed release (HTTP 404)');
+    return bootstrap.baseline;
+  }
+  const read = async (target: URL) => {
+    const response = await request(target);
     if (!response.ok || !response.body) {
       await response.body?.cancel();
       throw new Error('Deployed baseline unavailable; explicit bootstrap review required');

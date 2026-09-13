@@ -35,10 +35,14 @@ try {
   const { readDeployedBaseline } = await server.ssrLoadModule(
     '/src/pipeline/read-deployed-baseline.ts',
   );
-  const baseline =
-    mode === '--bootstrap'
-      ? config.baseline
-      : await readDeployedBaseline(config.previousReleaseUrl, config.policy.maxJsonBytes);
+  if (mode === '--bootstrap' && config.baseline?.dateBasis !== 'collection')
+    throw new Error('Reviewed collection-date baseline required');
+  const baseline = await readDeployedBaseline(
+    config.previousReleaseUrl,
+    config.policy.maxJsonBytes,
+    fetch,
+    mode === '--bootstrap' ? { baseline: config.baseline } : undefined,
+  );
   if (baseline?.dateBasis !== 'collection')
     throw new Error('Reviewed collection-date baseline required');
   const { collectSeoulArchive } = await server.ssrLoadModule(

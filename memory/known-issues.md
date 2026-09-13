@@ -349,3 +349,10 @@ these tests or relax the collector environment gate; obtain current Ubuntu CI ev
 Ubuntu verification update: implementation 392b528 passes all 680 tests, 68 browser checks and
 20 accessibility checks in run 34740089608. The Apple unzip incompatibility remains a local
 platform limitation, not a regression introduced by the PR #21 corrections.
+
+
+PR #21 third review: the bootstrap bypass of an existing deployed baseline is locally corrected.
+Only an explicit release-descriptor 404 permits the reviewed initial baseline; normal refresh
+continues to require deployed-state binding. See the third-review section of
+[review evidence](../reports/review-2026-09-13-pr21.md). Current Ubuntu verification remains
+pending; local verification has 690 passes and the same two unchanged Apple unzip failures.

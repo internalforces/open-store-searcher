@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { expect, test, vi } from 'vitest';
+import { requireValue, type ValidationBaselineV1 } from './refresh-validation-types.js';
 import { readDeployedBaseline } from './read-deployed-baseline.js';
 
 function fixture() {
@@ -88,3 +89,61 @@ test.each(['missing', 'oversized', 'syntax', 'binding', 'changed', 'metadata'])(
     ).rejects.toThrow();
   },
 );
+
+const releaseUrl = 'https://example.github.io/site/release.json';
+const initialBaseline = {
+  ...fixture().baseline,
+  archiveSha256: 'b'.repeat(64),
+} as ValidationBaselineV1;
+
+test('rejects bootstrap when a deployed release exists', async () => {
+  const { fetcher } = fixture();
+  await expect(
+    readDeployedBaseline(releaseUrl, 10_000, fetcher, { baseline: initialBaseline }),
+  ).rejects.toThrow('Bootstrap requires an absent deployed release');
+  expect(fetcher).toHaveBeenCalledTimes(1);
+});
+
+test('uses the reviewed initial baseline only after an explicit release 404', async () => {
+  const response = new Response('Not found', { status: 404 });
+  const cancel = vi.spyOn(requireValue(response.body), 'cancel');
+  const fetcher = vi.fn<typeof fetch>().mockResolvedValue(response);
+  await expect(
+    readDeployedBaseline(releaseUrl, 10_000, fetcher, { baseline: initialBaseline }),
+  ).resolves.toBe(initialBaseline);
+  expect(fetcher).toHaveBeenCalledExactlyOnceWith(
+    new URL(releaseUrl),
+    expect.objectContaining({ redirect: 'error', credentials: 'omit', cache: 'no-store' }),
+  );
+  expect(cancel).toHaveBeenCalledOnce();
+});
+
+test.each([200, 204, 301, 403, 410, 500])(
+  'rejects bootstrap on HTTP %s instead of treating it as no deployment',
+  async (status) => {
+    const response = new Response(status === 204 ? null : 'unavailable', { status });
+    const fetcher = vi.fn<typeof fetch>().mockResolvedValue(response);
+    await expect(
+      readDeployedBaseline(releaseUrl, 10_000, fetcher, { baseline: initialBaseline }),
+    ).rejects.toThrow('Bootstrap requires an absent deployed release');
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    if (response.body) expect(response.bodyUsed).toBe(true);
+  },
+);
+
+test('rejects bootstrap on a failed deployment probe', async () => {
+  const fetcher = vi.fn<typeof fetch>().mockRejectedValue(new Error('network unavailable'));
+  await expect(
+    readDeployedBaseline(releaseUrl, 10_000, fetcher, { baseline: initialBaseline }),
+  ).rejects.toThrow('network unavailable');
+  expect(fetcher).toHaveBeenCalledTimes(1);
+});
+
+test('rejects bootstrap when the missing response cannot be cancelled', async () => {
+  const response = new Response('Not found', { status: 404 });
+  vi.spyOn(requireValue(response.body), 'cancel').mockRejectedValue(new Error('cancel failed'));
+  const fetcher = vi.fn<typeof fetch>().mockResolvedValue(response);
+  await expect(
+    readDeployedBaseline(releaseUrl, 10_000, fetcher, { baseline: initialBaseline }),
+  ).rejects.toThrow('cancel failed');
+});

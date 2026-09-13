@@ -943,3 +943,29 @@ Second-review implementation `75356552a53bdf0652c992cd41fb745a7bb55775` passed U
 the second-review verification pending above. Both native unzip fixtures pass on Ubuntu.
 The documentation-only follow-up does not change the verified implementation. TASK-008 and
 production hosting/browser/release gates remain incomplete.
+
+
+## PR #21 third review correction — 2026-09-13
+
+User requested review assessment and correction. Reused the clean PR worktree at 99e4f94.
+Comment 3998893054 is valid: bootstrap unconditionally bypassed the deployed baseline.
+The CLI now always resolves deployed state before collection. Explicit bootstrap requires
+reviewed collection-date baseline configuration and HTTP 404 at the configured release URL;
+existing releases, redirects, errors and failed cleanup abort. Normal refresh binding is unchanged.
+
+Focused regression: eight RED failures, then 21 tests passed. Pinned local verify:full passes
+lint/format/types and 690 tests, failing the two unchanged Apple unzip fixtures (692 total).
+Separate build, search-quality, full browser and 20 accessibility checks pass. An offline actual
+CLI invocation confirms rejection before collection with no output directory. See the third-review
+section of reports/review-2026-09-13-pr21.md. Current Ubuntu evidence is still required.
+TASK-008 remains the sole active task and incomplete; TASK-009/010 and actual hosting/browser,
+quality/protection/release gates remain open. No new architectural decision or public interface.
+Changes are local and uncommitted; no push, GitHub comment, thread resolution, merge or deployment.
+
+
+### Third-review authorized delivery
+
+The user explicitly requested commit and push of the nine reviewed correction files to the
+existing PR #21 branch. Earlier local-only statements record preparation, not the current
+delivery authorization. Push the bootstrap correction on codex/task-009-010-publication;
+current Ubuntu verification remains pending. No merge, deployment or GitHub message is authorized.

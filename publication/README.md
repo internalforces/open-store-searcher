@@ -18,7 +18,10 @@ Normal runs read the matching baseline from the deployed release, check its byte
 and reread the release descriptor to detect a concurrent replacement. Missing, oversized, malformed
 or mismatched deployed state fails without bootstrapping. For the initial run only, an explicitly
 reviewed `baseline` (`ValidationBaselineV1`, `dateBasis: collection`) may be supplied in config
-and selected with `--bootstrap` or the manual workflow's bootstrap input. Scheduled runs never
+and selected with `--bootstrap` or the manual workflow's bootstrap input. Bootstrap probes
+`previousReleaseUrl` before collection and requires an explicit HTTP 404; an existing release,
+redirect, server/authentication error, or failed request aborts without using the configured
+initial baseline. Later refreshes must omit bootstrap and use the deployed baseline. Scheduled runs never
 auto-bootstrap. Failed deployments cannot advance the authoritative baseline because it is
 served inside the same Pages release. Hosted reconciliation/recovery verification remains open.
 

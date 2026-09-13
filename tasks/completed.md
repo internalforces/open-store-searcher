@@ -414,3 +414,15 @@ retry. Missing dates remain unknown. Two regressions reproduced the bug and veri
 and loader replacement. Ubuntu full verification passed 682/68/20 with all coverage gates;
 see [second-review evidence](../reports/review-2026-09-13-pr21.md#second-review-ubuntu-verification).
 User-authorized commit/push delivered the correction. No overall task/release approval is claimed.
+
+
+## PR #21 bounded bootstrap correction — 2026-09-13
+
+Locally corrected comment 3998893054: explicit bootstrap is rejected unless the configured
+release descriptor returns HTTP 404, and the CLI checks this before collection. Ten added
+regressions cover current deployment, explicit absence, HTTP/network errors and cleanup failure;
+all 21 baseline tests pass. Actual CLI rejection was also checked offline without candidate output.
+See [third-review evidence](../reports/review-2026-09-13-pr21.md#third-review-local-verification).
+Local full verification still fails two unchanged Apple unzip fixtures; current Ubuntu verification
+and independent release approval remain outstanding. This records bounded code correction only,
+not overall TASK-008/009/010 completion or release readiness. Changes have not been committed/pushed.
