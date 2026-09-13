@@ -216,3 +216,67 @@ describe('TASK-017 retry accessibility', () => {
     expect(screen.getByRole('status').textContent).toContain('불러왔습니다');
   });
 });
+
+describe('PR21 collection-date guidance', () => {
+  it('keeps collection-date instructions through search and failed reload', async () => {
+    const pending = deferred();
+    let calls = 0;
+    const collected = {
+      ...demoDataset,
+      coverage: { kind: 'collected' as const, date: '2026-09-12' },
+    };
+    render(
+      <App
+        loader={{
+          kind: 'source',
+          sourceLabel: '행정안전부',
+          sourceUrl: 'https://www.localdata.go.kr/',
+          load: () => (++calls === 1 ? Promise.resolve(collected) : pending.promise),
+        }}
+      />,
+    );
+    await waitFor(() => expect(screen.getByRole('status').textContent).toContain('불러왔습니다'));
+    await submit();
+    const check = () => {
+      expect(screen.getByText(/다시 불러오기는 원본 데이터가/).textContent).toContain(
+        '수집일과 원본 출처',
+      );
+      expect(screen.getByText('각 결과 카드의 원본 출처와 수집일을 함께 확인하세요.')).toBeTruthy();
+      expect(
+        screen.queryByText('각 결과 카드의 원본 출처와 데이터 기준일을 함께 확인하세요.'),
+      ).toBeNull();
+      for (const card of screen.getAllByRole('article')) {
+        expect(within(card).getByText('데이터 수집일: 2026-09-12')).toBeTruthy();
+        expect(within(card).getByText(/원천 데이터 기준일은 확인되지 않았습니다/)).toBeTruthy();
+      }
+    };
+    check();
+    fireEvent.click(screen.getByRole('button', { name: '데이터 다시 불러오기' }));
+    check();
+    await act(async () => pending.reject(new Error('offline')));
+    await screen.findByRole('alert');
+    check();
+  });
+  it('keeps verified-date instructions when verified coverage is supplied', async () => {
+    render(
+      <App
+        loader={{
+          kind: 'source',
+          sourceLabel: '행정안전부',
+          sourceUrl: null,
+          load: async () => ({
+            ...demoDataset,
+            coverage: { kind: 'verified', date: '2026-09-12' },
+          }),
+        }}
+      />,
+    );
+    await waitFor(() => expect(screen.getByRole('status').textContent).toContain('불러왔습니다'));
+    expect(screen.getByText(/다시 불러오기는 원본 데이터가/).textContent).toContain(
+      '데이터 기준일과 원본 출처',
+    );
+    expect(screen.getByRole('contentinfo').textContent).toContain(
+      '원본 출처와 데이터 기준일을 함께 확인',
+    );
+  });
+});

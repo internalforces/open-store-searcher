@@ -379,3 +379,60 @@ verify:full passes 598 Vitest, 68 browser and 20 accessibility tests. See
 [review remediation](../reports/review-2026-09-10-pr20.md). TASK-019 remains complete; TASK-008
 stays on hold. User-authorized PR delivery continues on codex/task-019-security-review.
 No application code, security policy, dependency, workflow or deployment changed.
+
+## TASK-008/009 filename regression resolved — 2026-09-12
+
+This is a completed bounded prerequisite fix, not completion of TASK-008, TASK-009 or TASK-010.
+The synthetic test preserves UTF-8 Korean DOS-origin filenames and exact entry bytes; it failed
+before the explicit UTF-8 filename-option fix and passes afterward. Approved Ubuntu full
+verification passes 639/68/20 in run 34692123385. Real collection passed inventory/schema after
+the fix. CP949 body decoding, complete metrics and publication gates remain open. Evidence:
+reports/research-2026-09-12-quality-resumption.md.
+
+## Bounded CP949 decoder prerequisite — 2026-09-12
+
+Completed only the user-approved decoder addition, strict preservation tests, dependency audit
+and hosted verification (647/68/20 at 909bb9b). Evidence: reports/test-2026-09-12-cp949.md.
+TASK-008/009/010 remain incomplete for full-source quality, resource and publication gates.
+
+
+## PR #21 bounded review corrections — 2026-09-13
+
+Completed the attribution and collection-date wording corrections and the bounded Pages size
+mitigation at 392b528. Ubuntu full verification passed 680/68/20 with all coverage thresholds;
+see [review evidence](../reports/review-2026-09-13-pr21.md). User-authorized commit/push delivered
+the corrections to the existing PR. The P1 production delivery-format requirement remains
+unresolved: the measured snapshot is safely rejected, not made deployable. No overall
+TASK-008/009/010 completion, independent approval, merge or deployment is claimed.
+
+
+## PR #21 initial-load date-basis correction — 2026-09-13
+
+Resolved review comment 3998845544 at 7535655: loader date-basis metadata preserves collection
+wording in the header, reload help and footer before initial data arrives, through failure and
+retry. Missing dates remain unknown. Two regressions reproduced the bug and verify recovery
+and loader replacement. Ubuntu full verification passed 682/68/20 with all coverage gates;
+see [second-review evidence](../reports/review-2026-09-13-pr21.md#second-review-ubuntu-verification).
+User-authorized commit/push delivered the correction. No overall task/release approval is claimed.
+
+
+## PR #21 bounded bootstrap correction — 2026-09-13
+
+Locally corrected comment 3998893054: explicit bootstrap is rejected unless the configured
+release descriptor returns HTTP 404, and the CLI checks this before collection. Ten added
+regressions cover current deployment, explicit absence, HTTP/network errors and cleanup failure;
+all 21 baseline tests pass. Actual CLI rejection was also checked offline without candidate output.
+See [third-review evidence](../reports/review-2026-09-13-pr21.md#third-review-local-verification).
+Local full verification still fails two unchanged Apple unzip fixtures; current Ubuntu verification
+and independent release approval remain outstanding. This records bounded code correction only,
+not overall TASK-008/009/010 completion or release readiness. Changes have not been committed/pushed.
+
+
+## PR #21 bounded descriptor and observation corrections — 2026-09-13
+
+Locally corrected 3998971153/3998971154 with exact deployed descriptor entry validation and
+streamed research dataset hash/length verification before tool startup. Focused 43 tests pass;
+see [fourth-review evidence](../reports/review-2026-09-13-pr21.md#fourth-review-deployed-descriptor-and-measurement-binding--2026-09-13).
+Local full verification still fails two unchanged Apple unzip fixtures (712 pass); current
+Ubuntu evidence and independent release gates remain open. This records bounded corrections,
+not overall TASK-008/009/010 completion. No commit/push or production browser rerun occurred.

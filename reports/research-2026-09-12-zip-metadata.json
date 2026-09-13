@@ -1,0 +1,24 @@
+{
+  "kind": "central-directory-observation",
+  "archiveBytes": 216440796,
+  "rangeBytes": 65536,
+  "count": 195,
+  "matching": 195,
+  "flags": [2056],
+  "systems": [0],
+  "sample": [
+    {
+      "name": "문화_음반및음악영상물배급업.csv",
+      "flags": 2056,
+      "system": 0,
+      "nameHex": "ebacb8ed99945fec9d8cebb098ebb08fec9d8cec9585ec9881ec8381ebacbcebb0b0eab889ec97852e637376"
+    },
+    {
+      "name": "문화_음반및음악영상물제작업.csv",
+      "flags": 2056,
+      "system": 0,
+      "nameHex": "ebacb8ed99945fec9d8cebb098ebb08fec9d8cec9585ec9881ec8381ebacbceca09cec9e91ec97852e637376"
+    }
+  ],
+  "sourceDataAsOf": null
+}

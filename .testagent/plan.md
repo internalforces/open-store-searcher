@@ -101,3 +101,29 @@ positions and every candidate. Test all-page traversal, first/last/previous boun
 announcements, <=20 boundary, new search reset and small-result compatibility. Measure first
 page plus navigation under unchanged five-sample mobile/desktop profiles, with explicit
 complete-count and bounded-card assertions. Run focused tests then verify:full and review.
+
+## TASK-008 bounded processing test plan — 2026-09-12
+
+1. Reuse acceptedFixture for exact parsed dataset/baseline/release parity at batch sizes 1 and 7.
+2. Add distinct identities with normalization-equivalent names/addresses across category and batch
+   boundaries; compare all metrics and pin positive collision participation.
+3. Duplicate an identity after an intervening row; require global rejection and complete cleanup.
+4. Throw from a late category iterator, exceed missing-name policy and JSON total limit separately;
+   require absent candidate and unchanged pre-existing release bytes for each failure.
+5. Require existing-output refusal and bounded disk-bucket rejection without leftover staging.
+6. Exercise iterator yields before malformed tail/row-limit failures and exact multilingual CSV parity.
+7. Run focused pipeline/parser tests, inspect concrete assertions, record results and outstanding gates.
+
+
+## PR #21 review regressions — 2026-09-13
+
+Write reproducing assertions in validate-license-refresh.test.ts and recovery.test.tsx, then fix attribution and collection wording. Add publication-size.test.ts for inclusive byte boundaries and whole-directory accounting; exercise the actual builder with an oversized descriptor before hashing. Run focused RED/GREEN, pinned verify:full, and inspect assertions/diff. The production format remains an explicitly unresolved design gate; a guard cannot make the measured snapshot deployable.
+
+
+## PR #21 fourth review — 2026-09-13
+
+Fourth-review plan: correct the baseline fixture to contain both expected entries; add a
+mutated descriptor rejection matrix and reordered valid-entry test. Add measure-source-browser.test.ts
+running the actual CLI with mocked Vite/Chromium and real files; assert no tool-start marker or report
+on invalid bytes, and verify a report for matching bytes. Run RED, implement minimal guards, then
+focused GREEN and required full verification. Preserve historical evidence and known platform gates.

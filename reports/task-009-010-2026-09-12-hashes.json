@@ -1,0 +1,25 @@
+{
+  "baseCommit": "ec6bb6f",
+  "date": "2026-09-12",
+  "hashes": {
+    ".github/workflows/refresh.yml": "84e182ad78984e0bc678350a95b1ca7c44d862b49b20a1aca49017f39cdf7778",
+    ".github/workflows/verify.yml": "e3363a6fb9626db60662342b56eaec6bcc8828c10b36da01910865eabcf378d4",
+    "scripts/build-publication.mjs": "a4cab8c412e08652ebcc07765740ceb41c9697351047bbf6f66a64bcf4b47008",
+    "scripts/stage-refresh.mjs": "56c7946bc5fd0bd7b54668ee87506e788950e7fced5d70ce74ec4450ec43e39d",
+    "src/app/display-data.ts": "36222f33ba317b74401f53c5949e6e38d3d3348ae175d128f5df7577e19c9aad",
+    "src/app/evidence-context.test.tsx": "9ff15791138cbdf8fc9ccf1011b3ee46bde11076e7bb19063c8f0059b1dcd7f1",
+    "src/app/evidence-context.tsx": "64fcfb0c7c4f87cbd5f51f11c1a3fda5bcc56803a27036247524c68002a66323",
+    "src/app/prepare-display-data.ts": "7c1cc1d001903b8d8241077d75ebeb4c39eea381cf68e1ef7c239738ae7f9554",
+    "src/app/publication-loader.test.tsx": "30465989077807345d38b64a9df7603827e719388a6ac6f190a905fbdfc806e9",
+    "src/app/publication-loader.ts": "c3b7acb5ec82d7752557b71f02d49d30aa7326a6c60f1206354d69847d2b47ff",
+    "src/pipeline/parse-license-csv.test.ts": "56d705c82a02f06205184053ebe85078718c77cafaccc6d86c637826e6d66f7b",
+    "src/pipeline/parse-license-csv.ts": "c770bd36828d8bbe9e127ab2ef8728028fa74125e6bc3469fcebc607a8341b72",
+    "src/pipeline/read-deployed-baseline.test.ts": "5c5b75caf3303253e0f3550327c4353110236787652474adfec1340925f16479",
+    "src/pipeline/read-deployed-baseline.ts": "19cbd64f0cef055b029caebef92353612767a42f7937478439667894cd46f4c4",
+    "src/pipeline/refresh-validation-types.ts": "e7a502a82adefc81629af2e0439a34fdd4fcc135751949c987b2ed0fbf5ba2c2",
+    "src/pipeline/stage-validated-release.ts": "4b0fcd9426ebe3b520134ffd51553a23da0c37ac6fe5b0410064ec4f47a63063",
+    "src/pipeline/validate-license-refresh.test.ts": "815c3fc9082b3e5a5a4c9669ed06b34c933a4205db1f626dda9f04db9383e15b",
+    "src/pipeline/validate-license-refresh.ts": "1e939e206b62394c3538b3b50f02b0fe622afa050544a7534efcdeb1224b61a5",
+    "src/search/search-quality.test.ts": "ee0cbc5b61a5036fec79346ea5b04e3288d8b214fddab3eb015a2f90d40fae6c"
+  }
+}

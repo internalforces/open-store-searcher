@@ -52,6 +52,8 @@ export interface ValidationPolicyV1 {
   allowedEmptyCategories: string[];
 }
 export interface ValidationBaselineV1 {
+  /** Omitted on historical coverage baselines. Never compare different date bases. */
+  dateBasis?: 'coverage' | 'collection';
   validationVersion: 1;
   schemaVersion: 2;
   identifierContractVersion: 1;
@@ -78,6 +80,7 @@ export interface IngestionCategoryV1 {
   archiveSha256: string;
 }
 export interface ValidationInputV1 {
+  dateBasis?: 'coverage' | 'collection';
   collection: CollectionResult;
   archiveContract: ArchiveContract;
   permissionManifest: PermissionManifest;
@@ -98,6 +101,8 @@ export interface ValidationDiagnosticV1 {
   evidenceReference?: string;
 }
 interface ValidationReportV1 {
+  /** dataAsOf is the selected internal validation date; collection is not source coverage. */
+  dateBasis: 'coverage' | 'collection';
   validationVersion: 1;
   archiveSha256: string | null;
   policyRevision: string | null;

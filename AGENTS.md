@@ -88,10 +88,10 @@ Do not take any of the following actions. If the user requests a change, identif
 ## Product Safety Invariants
 
 1. The UI may use only `행정상 영업` (administratively operating), `휴업` (suspended), `폐업` (closed), and `확인되지 않음` (unverified) as display statuses.
-2. Show the raw status, processed status, source, and data as-of date together.
+2. Show the raw status, processed status, source, and date evidence together. Under the user-approved collection-date mode (2026-09-12), label the collection date explicitly and state that source data coverage is unverified; never present collection time as a source as-of date.
 3. Do not auto-confirm a match when names are identical but addresses conflict.
 4. Process input only in the browser and never execute it as HTML.
-5. Show a delay warning when data age reaches seven Seoul calendar days (age >= 7; ADR-015).
+5. Show a delay warning when data age reaches seven Seoul calendar days (age >= 7; ADR-015). Collection-date mode measures age from the explicitly labeled collection date and does not imply source freshness.
 6. If refresh validation fails, continue serving the previous known-good data.
 
 ## Context Loading Order

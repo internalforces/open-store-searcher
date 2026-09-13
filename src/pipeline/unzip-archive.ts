@@ -8,6 +8,10 @@ import type {
   ProcessRunner,
 } from './archive-adapter.js';
 
+// The approved provider uses UTF-8 names with DOS creator metadata. Ubuntu's OEM
+// default can otherwise recode even these names; this changes filenames, never CSV bytes.
+export const UTF8_UNZIP_OPTIONS = ['-O', 'UTF-8'] as const;
+
 function concat(chunks: Uint8Array[], length: number): Uint8Array {
   const result = new Uint8Array(length);
   let offset = 0;
@@ -142,7 +146,7 @@ export class UnzipArchiveAdapter implements ArchiveAdapter {
 
   async checkEnvironment(signal?: AbortSignal): Promise<{ ok: boolean; version?: string }> {
     try {
-      const result = await this.#run(['-v'], signal);
+      const result = await this.#run([...UTF8_UNZIP_OPTIONS, '-v'], signal);
       if (result.exitCode !== 0) return { ok: false };
       const output = decode(result.stdout);
       if (!hasApprovedInfoZipCapabilities(output)) return { ok: false };
@@ -155,7 +159,7 @@ export class UnzipArchiveAdapter implements ArchiveAdapter {
   async testIntegrity(archivePath: string, signal?: AbortSignal): Promise<{ ok: boolean }> {
     assertSafeArguments(archivePath);
     try {
-      const result = await this.#run(['-tqq', archivePath], signal);
+      const result = await this.#run([...UTF8_UNZIP_OPTIONS, '-tqq', archivePath], signal);
       return { ok: result.exitCode === 0 };
     } catch {
       return { ok: false };
@@ -165,8 +169,8 @@ export class UnzipArchiveAdapter implements ArchiveAdapter {
   async listEntries(archivePath: string, signal?: AbortSignal): Promise<ArchiveEntry[]> {
     assertSafeArguments(archivePath);
     const [namesResult, metadataResult] = await Promise.all([
-      this.#run(['-Z1', archivePath], signal),
-      this.#run(['-Z', '-T', archivePath], signal),
+      this.#run(['-Z', ...UTF8_UNZIP_OPTIONS, '-1', archivePath], signal),
+      this.#run(['-Z', ...UTF8_UNZIP_OPTIONS, '-T', archivePath], signal),
     ]);
     if (namesResult.exitCode !== 0 || metadataResult.exitCode !== 0) {
       throw new Error('archive inventory failed');
@@ -202,7 +206,11 @@ export class UnzipArchiveAdapter implements ArchiveAdapter {
     ) {
       throw new Error('invalid archive prefix limit');
     }
-    const result = await this.#run(['-p', archivePath, entryName], signal, maxBytes);
+    const result = await this.#run(
+      [...UTF8_UNZIP_OPTIONS, '-p', archivePath, entryName],
+      signal,
+      maxBytes,
+    );
     if (result.exitCode !== 0 && !result.truncated) throw new Error('archive entry read failed');
     return result.stdout;
   }

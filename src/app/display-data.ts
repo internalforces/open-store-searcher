@@ -15,6 +15,7 @@ export interface DisplayRecord extends SearchRecord {
 export type Coverage =
   | { readonly kind: 'synthetic'; readonly date: string }
   | { readonly kind: 'verified'; readonly date: string }
+  | { readonly kind: 'collected'; readonly date: string }
   | { readonly kind: 'unavailable' };
 
 export interface DisplayDataset {

@@ -25,7 +25,7 @@ export function knownAggregatePair(code: string | null, name: string | null): bo
     (code === '04' && name === '취소/말소/만료/정지/중지')
   );
 }
-function emptyMetric(): ValidationMetricV1 {
+export function emptyMetric(): ValidationMetricV1 {
   return {
     recordCount: 0,
     missingNameCount: 0,
@@ -69,7 +69,7 @@ function emptyMetric(): ValidationMetricV1 {
     collisionRecordCount: 0,
   };
 }
-function measure(records: TransformedLicenseRecordV2[]): ValidationMetricV1 {
+export function measure(records: TransformedLicenseRecordV2[]): ValidationMetricV1 {
   const metric = emptyMetric();
   const pairs = new Map<
     string,

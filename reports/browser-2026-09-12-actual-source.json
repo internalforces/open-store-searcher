@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "kind": "actual-source-browser-lab",
+  "publicationApproved": false,
+  "platform": "win32",
+  "node": "v24.19.0",
+  "browser": "151.0.7922.34",
+  "profile": "desktop-loopback-unthrottled",
+  "archiveSha256": "e2eeb1a868a2bfb94dbc9d193dae74707c0e27e38230376d5ad105e174a69faa",
+  "recordCount": 2939947,
+  "datasetBytes": 2439358850,
+  "transferredBytes": 892534784,
+  "elapsedMs": 4271,
+  "result": {
+    "phase": "renderer-crashed"
+  }
+}

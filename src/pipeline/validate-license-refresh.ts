@@ -30,11 +30,7 @@ import {
   isAllowedProviderUrl,
   parsePermissionManifest,
 } from './source-contract.js';
-import {
-  TransformationRejected,
-  transformLicenseRecordsV2,
-  type TransformationResultV2,
-} from './transform-license-records.js';
+import { TransformationRejected, transformLicenseRecordsV2 } from './transform-license-records.js';
 export type {
   ValidationInputV1,
   ValidationPolicyV1,
@@ -370,8 +366,23 @@ function compareMetric(
  * review inputs, not cryptographic attestations. There is no I/O, baseline promotion, or public
  * artifact serializer; TASK-009 must validate and bind the exact publication bytes separately.
  */
-export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
+type MeasuredResult<T> =
+  | Exclude<ValidationResultV1, { kind: 'accepted' }>
+  | (Omit<Extract<ValidationResultV1, { kind: 'accepted' }>, 'candidate'> & { candidate: T });
+
+/** Shared quality gates. The measurement callback is trusted internal code, never config data. */
+export function validateMeasuredRefresh<T>(
+  input: unknown,
+  measure: (
+    input: Record<string, unknown>,
+    archive: ArchiveContract,
+    permission: PermissionManifest,
+    hash: string,
+  ) => { candidate: T; metrics: ValidationMetricsV1 },
+): MeasuredResult<T> {
   const diagnostics: ValidationDiagnosticV1[] = [];
+  const dateBasis: 'coverage' | 'collection' =
+    object(input) && input.dateBasis === 'collection' ? 'collection' : 'coverage';
   let archiveSha256: string | null = null,
     policyRevision: string | null = null,
     dataAsOf: string | null = null;
@@ -379,7 +390,7 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
   const add = (diagnostic: ValidationDiagnosticV1) => {
     diagnostics.push(diagnostic);
   };
-  const finish = (candidate?: TransformationResultV2): ValidationResultV1 => {
+  const finish = (candidate?: T): MeasuredResult<T> => {
     diagnostics.sort(
       (a, b) =>
         compareText(a.code, b.code) ||
@@ -387,6 +398,7 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
         compareText(a.metric ?? '', b.metric ?? ''),
     );
     const report = {
+      dateBasis,
       validationVersion: 1 as const,
       archiveSha256,
       policyRevision,
@@ -421,6 +433,12 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
     return finish();
   };
   if (!object(input) || !object(input.collection)) return reject('malformed_validation_input');
+  if (
+    input.dateBasis !== undefined &&
+    input.dateBasis !== 'coverage' &&
+    input.dateBasis !== 'collection'
+  )
+    return reject('invalid_date_basis');
   const collection = input.collection;
   if (collection.kind === 'rejected')
     return reject(text(collection.code) ? collection.code : 'collection_rejected');
@@ -445,24 +463,17 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
     .digest('hex');
   if (schemaHash !== collection.archiveEvidence.schemaManifestSha256)
     return reject('schema_hash_mismatch');
-  if (!validStaging(input, archive, permission, archiveSha256))
-    return reject('ingestion_evidence_mismatch');
-  let transformed: TransformationResultV2;
+  const ids = archive.entries.map((e) => e.fileDataId).sort(compareText);
+  let transformed: T;
   try {
-    transformed = transformLicenseRecordsV2({
-      archiveContract: archive,
-      archive: {
-        fetchedAt: collection.fetchedAt,
-        sha256: archiveSha256,
-      },
-      rows: input.rows,
-    });
+    const measured = measure(input, archive, permission, archiveSha256);
+    transformed = measured.candidate;
+    metrics = measured.metrics;
+    if (!validValidationMetrics(metrics, ids)) return reject('invalid_measured_metrics');
   } catch (error) {
     if (error instanceof TransformationRejected) return reject(error.code);
     throw error;
   }
-  const ids = archive.entries.map((e) => e.fileDataId).sort(compareText);
-  metrics = measureValidationMetrics(transformed, ids);
   if (metrics.total.recordCount === 0)
     add({
       code: 'empty_refresh',
@@ -487,6 +498,8 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
     });
   const baselineStatus = baselineState(input.baseline, ids, policy, schemaHash);
   const baseline = baselineStatus === 'valid' ? (input.baseline as ValidationBaselineV1) : null;
+  if (baseline && (baseline.dateBasis ?? 'coverage') !== dateBasis)
+    return reject('baseline_date_basis_mismatch');
   if (!baseline)
     add({
       code:
@@ -515,6 +528,25 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
         add,
       );
     }
+  }
+  if (dateBasis === 'collection') {
+    // User-approved collection-date mode. Do not synthesize coverage assertions.
+    if (input.coverage !== undefined) return reject('collection_mode_with_coverage');
+    dataAsOf = seoulCalendarDate(collection.fetchedAt);
+    if (dataAsOf === null) return reject('invalid_collection_date');
+    if (baseline && dataAsOf < baseline.dataAsOf) return reject('collection_date_regressed');
+    const freshness = evaluateDataFreshnessV1(dataAsOf, input.now);
+    if (freshness.kind === 'rejected') return reject(freshness.code);
+    if ((freshness.kind === 'fresh' || freshness.kind === 'stale') && freshness.ageDays >= 7)
+      add({
+        code: 'collection_stale',
+        severity: 'warning',
+        metric: 'ageDays',
+        actual: freshness.ageDays,
+        limit: 7,
+      });
+    add({ code: 'source_coverage_unverified', severity: 'warning' });
+    return finish(transformed);
   }
   const coverage = input.coverage;
   if (coverage === undefined)
@@ -575,4 +607,27 @@ export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
       });
   }
   return finish(transformed);
+}
+
+/** In-memory reference implementation, retained for bounded callers and equivalence tests. */
+export function validateLicenseRefreshV1(input: unknown): ValidationResultV1 {
+  return validateMeasuredRefresh(input, (value, archive, permission, hash) => {
+    if (!validStaging(value, archive, permission, hash))
+      throw new TransformationRejected('ingestion_evidence_mismatch');
+    const candidate = transformLicenseRecordsV2({
+      archiveContract: archive,
+      archive: {
+        fetchedAt: (value.collection as Extract<CollectionResult, { kind: 'accepted' }>).fetchedAt,
+        sha256: hash,
+      },
+      rows: value.rows,
+    });
+    return {
+      candidate,
+      metrics: measureValidationMetrics(
+        candidate,
+        archive.entries.map((e) => e.fileDataId).sort(compareText),
+      ),
+    };
+  });
 }

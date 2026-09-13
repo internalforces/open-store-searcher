@@ -1,0 +1,19 @@
+{
+  "kind": "local-bounded-replay",
+  "implementationSha256": {
+    "scripts/measure-bounded-source.mjs": "54822a5375d9c5ec522261d1400357d13c2a9f192ba8bbb29af875841a804212",
+    "src/pipeline/stage-bounded-release.ts": "eddef5efdfc1794d9a4219fe4ee7719d9dadeb3e75893198e58335da9e8a367c",
+    "src/pipeline/validate-license-refresh.ts": "9091194e82f0818a04f3bb6799c409f8187add26badf6549993ec91374f61a79",
+    "src/pipeline/refresh-validation-metrics.ts": "966a88f234e99402f3a1dd3a4ebd2e84959e4598f2637ad7d6e8a0bc6ef6a515",
+    "src/pipeline/transform-license-records.ts": "a2beea03bea7f3d5ff170ff8032ef5f150bee58acc5aa6ca7dc257f23597910a",
+    "src/pipeline/parse-license-csv.ts": "86186c2e809951b958457dd0864fc1413ceeeb92f041b94168e3c7fc8ec0537e",
+    "src/pipeline/decode-csv.ts": "83affdaffbccc84b6574e8fb298ada960a2ff7981f5c4c73919c6704c947d28c"
+  },
+  "platform": "win32",
+  "node": "v24.19.0",
+  "publicationApproved": false,
+  "archiveSha256": "e2eeb1a868a2bfb94dbc9d193dae74707c0e27e38230376d5ad105e174a69faa",
+  "rows": 2939947,
+  "elapsedMs": 1349416,
+  "maxRssKiB": 1822576
+}

@@ -8,6 +8,17 @@ const fixture = (name: string) =>
 const infoZipTest = process.platform === 'win32' ? test.skip : test;
 
 describe('UnzipArchiveAdapter', () => {
+  infoZipTest('preserves UTF-8 Korean DOS-origin filenames and exact entry bytes', async () => {
+    const adapter = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_COLLECTOR_LIMITS);
+    const archive = fixture('korean-dos-utf8.zip');
+    await expect(adapter.testIntegrity(archive)).resolves.toEqual({ ok: true });
+    await expect(adapter.listEntries(archive)).resolves.toEqual([
+      { name: '가상_한글 자료.csv', modifiedDate: '2026-09-12' },
+    ]);
+    const bytes = await adapter.readEntryPrefix(archive, '가상_한글 자료.csv', 256);
+    expect(bytes).toEqual(new TextEncoder().encode('사업장명\r\n가상 업소\r\n'));
+  });
+
   infoZipTest('lists and streams entries from a valid local archive', async () => {
     const adapter = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_COLLECTOR_LIMITS);
     await expect(adapter.testIntegrity(fixture('valid-two-category.zip'))).resolves.toEqual({
