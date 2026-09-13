@@ -10,6 +10,7 @@ import { join } from 'node:path';
 import { prepareValidatedRelease, stageValidatedRelease } from './stage-validated-release.js';
 import { observeBoundedRelease, stageBoundedRelease } from './stage-bounded-release.js';
 import { describe, expect, test, vi } from 'vitest';
+import { readDeployedBaseline } from './read-deployed-baseline.js';
 import { parseArchiveContract } from './archive-contract.js';
 import {
   SOURCE_ARCHIVE_URL,
@@ -811,6 +812,34 @@ describe('TASK-009 collection-date publication', () => {
       expect(await readFile(join(site, 'baseline.json'))).toEqual(
         await readFile(join(output, 'baseline.json')),
       );
+      const descriptor = JSON.parse(await readFile(join(site, 'release.json'), 'utf8'));
+      expect(descriptor.entries.map((entry: { name: string }) => entry.name).sort()).toEqual([
+        `assets/${assetName}`,
+        'baseline.json',
+      ]);
+      for (const entry of descriptor.entries) {
+        const bytes = await readFile(join(site, entry.name));
+        expect(bytes.length).toBe(entry.byteLength);
+        expect(createHash('sha256').update(bytes).digest('hex')).toBe(entry.sha256);
+      }
+      const deployedFetch = vi.fn<typeof fetch>(async (url) => {
+        const path = new URL(String(url)).pathname.replace('/site/', '');
+        return new Response(await readFile(join(site, path)));
+      });
+      await expect(
+        readDeployedBaseline(
+          'https://example.github.io/site/release.json',
+          1_000_000,
+          deployedFetch,
+        ),
+      ).resolves.toEqual(JSON.parse(await readFile(join(site, 'baseline.json'), 'utf8')));
+      expect(deployedFetch).toHaveBeenCalledTimes(3);
+      expect(
+        JSON.parse(await readFile(join(output, 'release.json'), 'utf8'))
+          .entries.map((entry: { name: string }) => entry.name)
+          .sort(),
+      ).toEqual(['baseline.json', 'dataset.json']);
+      expect(await readdir(site)).not.toContain('dataset.json');
       await writeFile(join(output, 'dataset.json'), '{}');
       await expect(
         promisify(execFile)(process.execPath, [

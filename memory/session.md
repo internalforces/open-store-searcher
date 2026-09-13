@@ -1053,3 +1053,19 @@ Reused this worktree on codex/pr21-release-descriptor-followup from origin/main,
 CI recovery documentation. Create a draft follow-up first, then address comment 3999130863.
 The descriptor must name the existing hash-addressed dataset file without introducing a duplicate
 multi-GB copy or changing the existing application data URL. All production/release gates remain.
+
+
+## PR #22 implementation — 2026-09-13
+
+Created draft PR #22 before implementation as requested. The builder now writes the actual
+hash-addressed dataset path in the deployed descriptor, and the deployed reader validates
+that exact digest-derived path. Public dataset URLs, staging format and data/baseline bytes
+are unchanged; no duplicate dataset is emitted. Real-build binding and unsafe-path regressions
+pass with all 158 focused pipeline tests. Pinned local verify:full passes lint/format/types and
+716 tests but fails the same two unchanged Apple unzip fixtures (718 total). Current Ubuntu
+proof follows delivery. See reports/review-2026-09-13-pr22.md. TASK-008 remains active/incomplete;
+no new production policy, workflow, deployment, independent approval or overall task closure.
+
+Separate local build, both search-quality checks, 68 browser checks and 20 accessibility checks
+passed. Final format and Git whitespace checks passed. Deliver implementation to PR #22 under
+the user's explicit follow-up authorization; no follow-up merge or deployment is authorized.

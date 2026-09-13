@@ -343,3 +343,12 @@ PR #21 initial-load correction: optional internal DisplayLoader.dateBasis descri
 before data is available. Publication loaders declare collection mode. App prefers accepted or
 retained dataset coverage, otherwise the current loader hint; EvidenceContext labels unavailable
 collection dates without inventing a date or freshness evidence. Public dataset shape is unchanged.
+
+
+## PR #22 descriptor path binding — 2026-09-13
+
+The staging descriptor retains canonical input names. Build output rewrites only the dataset
+entry name to its existing digest-addressed assets/collected-dataset-<sha256>.json path and
+accounts for the deployed descriptor size. The deployed reader accepts only this digest-bound
+path plus baseline.json. Public dataset URLs and payload bytes are unchanged; no duplicate
+asset is emitted. See reports/review-2026-09-13-pr22.md for real-build binding evidence.

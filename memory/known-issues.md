@@ -375,3 +375,9 @@ CI connectivity follow-up: attempt 3 of run 34746029824 passed unchanged 7a1dd37
 now pass. All 195 categories / 2,940,404 rows completed without parser errors and the report hash
 was verified. This incident is recovered; future provider-network reliability is not guaranteed.
 See CI observation recovery in reports/review-2026-09-13-pr21.md. Production quality/hosting gates remain open.
+
+
+PR #22 corrects comment 3999130863: deployed release.json now names the actual digest-addressed
+asset, and the reader rejects stale staging/unsafe/unbound paths. Actual small-site build tests
+verify all descriptor file hashes and sizes. Production dataset size/browser feasibility remains
+unresolved; this descriptor correction cannot make the 2.44 GB dataset deployable.

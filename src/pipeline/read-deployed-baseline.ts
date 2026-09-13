@@ -81,15 +81,17 @@ export async function readDeployedBaseline(
   for (const entry of release.entries) {
     if (
       !object(entry) ||
-      (entry.name !== 'dataset.json' && entry.name !== 'baseline.json') ||
-      entries.has(entry.name) ||
+      !sha256(entry.sha256) ||
+      (entry.name !== 'baseline.json' &&
+        entry.name !== `assets/collected-dataset-${entry.sha256}.json`) ||
       typeof entry.byteLength !== 'number' ||
       !Number.isSafeInteger(entry.byteLength) ||
-      entry.byteLength <= 0 ||
-      !sha256(entry.sha256)
+      entry.byteLength <= 0
     )
       throw new Error('Invalid deployed release entries');
-    entries.set(entry.name, { byteLength: entry.byteLength, sha256: entry.sha256 });
+    const key = entry.name === 'baseline.json' ? 'baseline.json' : 'dataset.json';
+    if (entries.has(key)) throw new Error('Invalid deployed release entries');
+    entries.set(key, { byteLength: entry.byteLength, sha256: entry.sha256 });
   }
   const baselineEntry = entries.get('baseline.json');
   if (entries.size !== 2 || !entries.has('dataset.json') || !baselineEntry)

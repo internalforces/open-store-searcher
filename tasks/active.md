@@ -14,8 +14,8 @@ _Last updated: 2026-09-12_
 PR #21 was merged on explicit user instruction at a33600f. The user requested a new PR
 before addressing the current review. Bounded follow-up: comment 3999130863, align the deployed
 release descriptor with its existing hash-addressed dataset asset. Preserve dataset/baseline
-bytes, existing public asset URLs, staged input format and all publication/size gates. Correct
-the deployed descriptor entry name and its reader validation, with real-build regression evidence.
+bytes, existing public asset URLs, staged input format and all publication/size gates. The correction is implemented in PR #22 with 158 focused tests passing. Local full verification
+has 716 passes and the same two Apple unzip failures; current Ubuntu evidence is pending.
 This is follow-up remediation on the existing worktree, not completion of TASK-008/009/010.
 
 TASK-008 is the sole active task for production observation and quality/bootstrap review,

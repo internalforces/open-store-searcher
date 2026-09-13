@@ -70,9 +70,19 @@ for (const entry of release.entries) {
     throw new Error('Invalid release entry');
   files.set(entry.name, entry);
 }
+const datasetAsset = `assets/collected-dataset-${files.get('dataset.json').sha256}.json`;
+// Staging names are local inputs; deployed names must resolve to the actual published files.
+const deployedRelease = {
+  ...release,
+  entries: release.entries.map((entry) => ({
+    ...entry,
+    name: entry.name === 'dataset.json' ? datasetAsset : entry.name,
+  })),
+};
+const deployedReleaseBytes = Buffer.from(`${JSON.stringify(deployedRelease)}\n`);
 const stagedBytes = release.entries.reduce(
   (sum, entry) => sum + entry.byteLength,
-  releaseBytes.length,
+  deployedReleaseBytes.length,
 );
 // Reject an impossible site before hashing/copying multi-gigabyte assets.
 requirePagesSize(stagedBytes);
@@ -80,7 +90,6 @@ for (const entry of files.values()) await verifyOrCopy(entry);
 await mkdir(dirname(output), { recursive: true });
 const candidate = await mkdtemp(join(dirname(output), `.${basename(output)}-`));
 try {
-  const datasetAsset = `assets/collected-dataset-${files.get('dataset.json').sha256}.json`;
   await build({
     configFile: false,
     base: './',
@@ -115,7 +124,7 @@ try {
   // Same deployment carries the baseline corresponding to its data, for operator recovery.
   await verifyOrCopy(files.get('dataset.json'), join(candidate, datasetAsset));
   await verifyOrCopy(files.get('baseline.json'), join(candidate, 'baseline.json'));
-  await writeFile(join(candidate, 'release.json'), releaseBytes, { flag: 'wx' });
+  await writeFile(join(candidate, 'release.json'), deployedReleaseBytes, { flag: 'wx' });
 
   requirePagesSize(await directoryBytes(candidate));
   // Preserve an output that appeared while the candidate was being built.

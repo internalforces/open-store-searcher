@@ -127,3 +127,8 @@ mutated descriptor rejection matrix and reordered valid-entry test. Add measure-
 running the actual CLI with mocked Vite/Chromium and real files; assert no tool-start marker or report
 on invalid bytes, and verify a report for matching bytes. Run RED, implement minimal guards, then
 focused GREEN and required full verification. Preserve historical evidence and known platform gates.
+
+
+## PR #21 descriptor-path follow-up — 2026-09-13
+
+Add a real-build assertion for every descriptor entry file/hash/size and verify the deployed reader against built files. Adapt baseline fixtures to published names, add invalid-path cases. Run RED; rewrite only the published descriptor name and size accounting; align reader path validation. Run focused GREEN and full verification; deliver to the already-open follow-up PR.
