@@ -23,7 +23,10 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
   const dataset = loading.prepared?.dataset ?? null;
   const source = dataset ?? inputSource;
   const isSynthetic = loader?.kind === 'synthetic' || dataset?.coverage.kind === 'synthetic';
-  const dateLabel = dataset?.coverage.kind === 'collected' ? '수집일' : '데이터 기준일';
+  const isCollection = dataset
+    ? dataset.coverage.kind === 'collected'
+    : loader?.dateBasis === 'collection';
+  const dateLabel = isCollection ? '수집일' : '데이터 기준일';
   const [draft, setDraft] = useState('');
   const [submission, setSubmission] = useState<{
     sequence: number;
@@ -46,7 +49,10 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
           {dataset?.coverage.kind !== 'synthetic' && isSynthetic && (
             <p className="synthetic-notice">{syntheticNotice}</p>
           )}
-          <EvidenceContext coverage={dataset?.coverage ?? { kind: 'unavailable' }} />
+          <EvidenceContext
+            coverage={dataset?.coverage ?? { kind: 'unavailable' }}
+            dateBasis={isCollection ? 'collection' : 'coverage'}
+          />
         </header>
         <div className="search-panel">
           <SearchForm

@@ -915,3 +915,20 @@ passed. This supersedes the pending-hosted-verification state recorded during pr
 The two native fixture failures are macOS-specific and pass on the approved runner. No test
 was skipped or weakened. This follow-up changes only documentation; implementation stays at 392b528.
 Production hosting-format/browser feasibility and independent release approval remain open.
+
+
+## PR #21 second review correction — 2026-09-13
+
+User again requested review correction and commit/push. Reproduced comment 3998845544 with two
+failing tests against 96b0838. Publication loader now exposes internal collection date-basis
+metadata, which App uses before initial data arrives; header/reload/footer preserve collection
+wording through initial failure and retry. Accepted dataset coverage remains authoritative and
+switching loaders removes obsolete hints. Missing dates remain unknown; no date is fabricated.
+119 component tests pass. Pinned local verify:full reaches 680 passing tests and two unchanged
+Apple unzip failures. See the second-review section of reports/review-2026-09-13-pr21.md.
+Current Ubuntu verification follows user-authorized delivery. TASK-008 remains active and
+incomplete; the earlier production-size/browser gate is unchanged. No GitHub comments, review
+resolution, merge, deployment or public contract change is part of this correction.
+
+Second-review local follow-up: build, both search-quality checks, all 68 browser checks and
+20 accessibility checks passed. Final formatting and Git whitespace checks passed.

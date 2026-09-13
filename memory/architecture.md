@@ -337,3 +337,9 @@ including baseline/release metadata. Vite builds in an owned sibling temporary d
 hash/size checks finish before it is promoted to the requested new site. The dataset format and
 single asset loader remain unchanged. Both staging implementations attribute the complete
 dataset to the licensing portal and preserve category-specific record URLs.
+
+
+PR #21 initial-load correction: optional internal DisplayLoader.dateBasis describes date semantics
+before data is available. Publication loaders declare collection mode. App prefers accepted or
+retained dataset coverage, otherwise the current loader hint; EvidenceContext labels unavailable
+collection dates without inventing a date or freshness evidence. Public dataset shape is unchanged.

@@ -7,6 +7,8 @@ export interface DisplayLoader {
   readonly sourceLabel: string;
   readonly sourceUrl: string | null;
   readonly kind: 'synthetic' | 'source';
+  /** Date semantics known before loading; never supplies a date or freshness evidence. */
+  readonly dateBasis?: 'collection' | 'coverage';
   readonly load: (signal?: AbortSignal) => Promise<unknown>;
 }
 interface Snapshot {

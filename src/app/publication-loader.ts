@@ -6,6 +6,7 @@ import type { DisplayLoader } from './use-display-data.js';
 export function createPublicationLoader(url: string): DisplayLoader {
   return {
     kind: 'source',
+    dateBasis: 'collection',
     sourceLabel: '행정안전부',
     sourceUrl: 'https://www.localdata.go.kr/',
     async load(parentSignal) {
