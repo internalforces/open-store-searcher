@@ -394,3 +394,13 @@ reports/research-2026-09-12-quality-resumption.md.
 Completed only the user-approved decoder addition, strict preservation tests, dependency audit
 and hosted verification (647/68/20 at 909bb9b). Evidence: reports/test-2026-09-12-cp949.md.
 TASK-008/009/010 remain incomplete for full-source quality, resource and publication gates.
+
+
+## PR #21 bounded review corrections — 2026-09-13
+
+Completed the attribution and collection-date wording corrections and the bounded Pages size
+mitigation at 392b528. Ubuntu full verification passed 680/68/20 with all coverage thresholds;
+see [review evidence](../reports/review-2026-09-13-pr21.md). User-authorized commit/push delivered
+the corrections to the existing PR. The P1 production delivery-format requirement remains
+unresolved: the measured snapshot is safely rejected, not made deployable. No overall
+TASK-008/009/010 completion, independent approval, merge or deployment is claimed.

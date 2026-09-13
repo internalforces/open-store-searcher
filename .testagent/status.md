@@ -268,3 +268,15 @@ Vite build remains tested. Optional generator/gap-analysis tools are unavailable
 Local full-suite completion is blocked by two unchanged Apple unzip incompatibilities; 678 tests,
 68 browser checks and 20 accessibility checks pass. Current Ubuntu verification remains required.
 No production-size solution or release approval is implied. See reports/review-2026-09-13-pr21.md.
+
+
+## Hosted verification — 2026-09-13
+
+Current implementation `392b52823c3e15d6945925c323c8fb0c631a4d01` passed the approved Ubuntu
+`npm run verify:full` in [run 34740089608](https://github.com/internalforces/open-store-searcher/actions/runs/34740089608):
+680 tests across 37 files, 68 browser tests and 20 accessibility tests. Global coverage:
+93.53% statements, 92.09% branches, 96.51% functions and 95.24% lines; all configured thresholds
+passed. This supersedes the pending-hosted-verification state recorded during preparation.
+The two native fixture failures are macOS-specific and pass on the approved runner. No test
+was skipped or weakened. This follow-up changes only documentation; implementation stays at 392b528.
+Production hosting-format/browser feasibility and independent release approval remain open.

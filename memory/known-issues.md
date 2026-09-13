@@ -345,3 +345,7 @@ browser feasibility remain required. The two attribution/date-wording review fin
 Local macOS full verification encounters two unchanged native unzip tests: Apple unzip rejects
 the approved Linux -O UTF-8 option. Source and tests match PR head 759db3a. Do not disable
 these tests or relax the collector environment gate; obtain current Ubuntu CI evidence.
+
+Ubuntu verification update: implementation 392b528 passes all 680 tests, 68 browser checks and
+20 accessibility checks in run 34740089608. The Apple unzip incompatibility remains a local
+platform limitation, not a regression introduced by the PR #21 corrections.
