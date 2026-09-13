@@ -436,3 +436,12 @@ see [fourth-review evidence](../reports/review-2026-09-13-pr21.md#fourth-review-
 Local full verification still fails two unchanged Apple unzip fixtures (712 pass); current
 Ubuntu evidence and independent release gates remain open. This records bounded corrections,
 not overall TASK-008/009/010 completion. No commit/push or production browser rerun occurred.
+
+
+## PR #21 CI connection incident recovered — 2026-09-13
+
+On explicit user request, diagnostic attempt 3 of observation run 34746029824 passed at unchanged
+7a1dd37. Both observe and verify checks pass. Verified final report hash, all 195 complete categories,
+2,940,404 rows and zero parser errors. See CI observation recovery in the PR #21 review report.
+No implementation/workflow/timeout changes or publication occurred. Overall production/release
+acceptance is separate and remains incomplete; this records only recovery of the failed CI run.

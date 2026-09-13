@@ -363,3 +363,15 @@ inputs are locally corrected. Exact descriptor entries and streamed dataset hash
 required. Current local full verification has 712 passes and the same two Apple unzip failures;
 current Ubuntu evidence is pending. Historical actual-data browser reports were not rerun or
 retroactively verified. See the fourth-review section of the PR #21 review report.
+
+
+Fourth-review hosted follow-up: 7a1dd37 passes Ubuntu Verify run 34746030961 (714/68/20).
+Observation run 34746029824 fails twice with UND_ERR_CONNECT_TIMEOUT to file.localdata.go.kr:443
+before collection. Runner/provider connectivity remains unresolved; no source contract change
+is proven. See the fourth-review CI diagnosis in reports/review-2026-09-13-pr21.md.
+
+
+CI connectivity follow-up: attempt 3 of run 34746029824 passed unchanged 7a1dd37; both PR checks
+now pass. All 195 categories / 2,940,404 rows completed without parser errors and the report hash
+was verified. This incident is recovered; future provider-network reliability is not guaranteed.
+See CI observation recovery in reports/review-2026-09-13-pr21.md. Production quality/hosting gates remain open.
