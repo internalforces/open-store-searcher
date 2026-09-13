@@ -404,3 +404,13 @@ see [review evidence](../reports/review-2026-09-13-pr21.md). User-authorized com
 the corrections to the existing PR. The P1 production delivery-format requirement remains
 unresolved: the measured snapshot is safely rejected, not made deployable. No overall
 TASK-008/009/010 completion, independent approval, merge or deployment is claimed.
+
+
+## PR #21 initial-load date-basis correction — 2026-09-13
+
+Resolved review comment 3998845544 at 7535655: loader date-basis metadata preserves collection
+wording in the header, reload help and footer before initial data arrives, through failure and
+retry. Missing dates remain unknown. Two regressions reproduced the bug and verify recovery
+and loader replacement. Ubuntu full verification passed 682/68/20 with all coverage gates;
+see [second-review evidence](../reports/review-2026-09-13-pr21.md#second-review-ubuntu-verification).
+User-authorized commit/push delivered the correction. No overall task/release approval is claimed.

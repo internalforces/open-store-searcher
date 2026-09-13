@@ -932,3 +932,14 @@ resolution, merge, deployment or public contract change is part of this correcti
 
 Second-review local follow-up: build, both search-quality checks, all 68 browser checks and
 20 accessibility checks passed. Final formatting and Git whitespace checks passed.
+
+
+### Second-review Ubuntu verification
+
+Second-review implementation `75356552a53bdf0652c992cd41fb745a7bb55775` passed Ubuntu
+`npm run verify:full` in [run 34741144392](https://github.com/internalforces/open-store-searcher/actions/runs/34741144392):
+682 tests, 68 browser checks and 20 accessibility checks. Coverage is 93.54% statements,
+92.12% branches, 96.51% functions and 95.25% lines; all configured gates passed. This resolves
+the second-review verification pending above. Both native unzip fixtures pass on Ubuntu.
+The documentation-only follow-up does not change the verified implementation. TASK-008 and
+production hosting/browser/release gates remain incomplete.
