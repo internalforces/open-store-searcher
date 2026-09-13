@@ -1,3 +1,4 @@
+import { SOURCE_LANDING_URL } from './source-contract.js';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
 import {
@@ -265,7 +266,7 @@ async function processBoundedRelease(
     );
     const metadata = {
       sourceLabel: input.archiveContract.provider,
-      sourceUrl: collection.sourceEvidence.providerFreshness.sourceUrl,
+      sourceUrl: SOURCE_LANDING_URL,
       coverage: { kind: 'collected' as const, date: date ?? '' },
       exampleQuery: '',
     };

@@ -886,3 +886,20 @@ validation object match the final local replay; validation remains review_requir
 receipt hash verified before formatting and retained in the bounded-source report. Browser,
 reviewed quality/baseline, independent release review, protection, deployment/recovery and
 thirty-day reliability remain open. TASK-008 is not complete; no task is moved to completed.
+
+
+## PR #21 review corrections — 2026-09-13
+
+User requested assessment and correction of PR #21 reviews plus commit/push. Reused the clean
+.worktrees/task013-quality checkout and checked out codex/task-009-010-publication at 759db3a;
+the main checkout's untracked duplicate files remain untouched. Corrected whole-archive source
+attribution in both serializers and collection-date instructions in App. Added a complete-site
+Pages size guard and temporary-candidate promotion. Hosting-format feasibility remains unresolved:
+the measured 2.44 GB dataset is rejected, not made deployable. No architecture change is adopted.
+
+Regression RED reproduced all three comments. Focused GREEN passed 140 tests; pinned local
+full verification passed lint/format/types and 678 tests, but two unchanged Linux unzip fixtures
+fail on Apple's unsupported -O option. Build, search-quality checks, 68 browser checks and 20
+accessibility checks passed separately. Current Ubuntu CI follows the user-authorized commit/push.
+See reports/review-2026-09-13-pr21.md. TASK-008 remains active and incomplete; publication and
+independent release gates remain open. No comment/thread resolution, merge or deployment.

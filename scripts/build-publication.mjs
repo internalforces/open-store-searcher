@@ -1,9 +1,10 @@
+import { requirePagesSize, directoryBytes } from '../src/pipeline/publication-size.ts';
 import { createHash } from 'node:crypto';
-import { readFile, access, writeFile } from 'node:fs/promises';
+import { readFile, lstat, writeFile, mkdtemp, mkdir, rename, rm } from 'node:fs/promises';
 import { createReadStream, createWriteStream } from 'node:fs';
 import { Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
-import { resolve, join } from 'node:path';
+import { resolve, join, dirname, basename } from 'node:path';
 import { build } from 'vite';
 import preact from '@preact/preset-vite';
 
@@ -12,7 +13,7 @@ if (!stagingPath || !outputPath || process.argv.length !== 4)
   throw new Error('Usage: node scripts/build-publication.mjs STAGED-release NEW-site-directory');
 const output = resolve(outputPath);
 try {
-  await access(output);
+  await lstat(output);
   throw new Error('Build output already exists');
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
@@ -67,39 +68,64 @@ for (const entry of release.entries) {
     !/^[a-f0-9]{64}$/.test(entry.sha256)
   )
     throw new Error('Invalid release entry');
-  await verifyOrCopy(entry);
   files.set(entry.name, entry);
 }
-const datasetAsset = `assets/collected-dataset-${files.get('dataset.json').sha256}.json`;
-await build({
-  configFile: false,
-  base: './',
-  plugins: [
-    preact(),
-    {
-      name: 'validated-publication',
-      enforce: 'pre',
-      resolveId(source, importer) {
-        if (
-          source === './demo-loader.js' &&
-          importer?.replaceAll('\\', '/').endsWith('/src/app/main.tsx')
-        )
-          return '\0validated-publication';
+const stagedBytes = release.entries.reduce(
+  (sum, entry) => sum + entry.byteLength,
+  releaseBytes.length,
+);
+// Reject an impossible site before hashing/copying multi-gigabyte assets.
+requirePagesSize(stagedBytes);
+for (const entry of files.values()) await verifyOrCopy(entry);
+await mkdir(dirname(output), { recursive: true });
+const candidate = await mkdtemp(join(dirname(output), `.${basename(output)}-`));
+try {
+  const datasetAsset = `assets/collected-dataset-${files.get('dataset.json').sha256}.json`;
+  await build({
+    configFile: false,
+    base: './',
+    plugins: [
+      preact(),
+      {
+        name: 'validated-publication',
+        enforce: 'pre',
+        resolveId(source, importer) {
+          if (
+            source === './demo-loader.js' &&
+            importer?.replaceAll('\\', '/').endsWith('/src/app/main.tsx')
+          )
+            return '\0validated-publication';
+        },
+        load(id) {
+          if (id !== '\0validated-publication') return;
+          const asset = this.emitFile({
+            type: 'asset',
+            fileName: datasetAsset,
+            source: '',
+          });
+          return `import { createPublicationLoader } from '/src/app/publication-loader.ts'; export const demoLoader = createPublicationLoader(import.meta.ROLLUP_FILE_URL_${asset});`;
+        },
       },
-      load(id) {
-        if (id !== '\0validated-publication') return;
-        const asset = this.emitFile({
-          type: 'asset',
-          fileName: datasetAsset,
-          source: '',
-        });
-        return `import { createPublicationLoader } from '/src/app/publication-loader.ts'; export const demoLoader = createPublicationLoader(import.meta.ROLLUP_FILE_URL_${asset});`;
-      },
-    },
-  ],
-  build: { outDir: output, emptyOutDir: false },
-});
-// Same deployment carries the baseline corresponding to its data, for operator recovery.
-await verifyOrCopy(files.get('dataset.json'), join(output, datasetAsset));
-await verifyOrCopy(files.get('baseline.json'), join(output, 'baseline.json'));
-await writeFile(join(output, 'release.json'), releaseBytes, { flag: 'wx' });
+    ],
+    build: { outDir: candidate, emptyOutDir: false },
+  });
+  // Vite has emitted a zero-byte dataset placeholder. Account for every remaining file
+  // before copying data; an over-budget candidate never becomes the requested site.
+  requirePagesSize((await directoryBytes(candidate)) + stagedBytes);
+  // Same deployment carries the baseline corresponding to its data, for operator recovery.
+  await verifyOrCopy(files.get('dataset.json'), join(candidate, datasetAsset));
+  await verifyOrCopy(files.get('baseline.json'), join(candidate, 'baseline.json'));
+  await writeFile(join(candidate, 'release.json'), releaseBytes, { flag: 'wx' });
+
+  requirePagesSize(await directoryBytes(candidate));
+  // Preserve an output that appeared while the candidate was being built.
+  try {
+    await lstat(output);
+    throw new Error('Build output already exists');
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  await rename(candidate, output);
+} finally {
+  await rm(candidate, { recursive: true, force: true });
+}

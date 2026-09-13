@@ -11,6 +11,11 @@ _Last updated: 2026-09-12_
 
 ## In Progress
 
+PR #21 review correction scope (user-authorized 2026-09-13): correct attribution and collection
+wording, enforce the hosting size limit, verify and deliver on the existing PR branch. This is
+bounded remediation of the current branch, not activation/completion of another task. Production
+hosting format remains unresolved; see [review evidence](../reports/review-2026-09-13-pr21.md).
+
 TASK-008 is the sole active task for production observation and quality/bootstrap review,
 explicitly resumed by the user on 2026-09-12. Collection-date mode remains authoritative.
 Use the existing approved Ubuntu collector/parser to obtain aggregate observations before

@@ -328,3 +328,12 @@ The internal research entry produces dataset/observation files only, never basel
 The build copies and hashes the dataset as a stream into a Vite-managed immutable relative asset;
 it does not parse the complete dataset in Node. The current browser still fetches one whole JSON
 and builds a whole index; actual-data feasibility is a separate measured gate, not presumed solved.
+
+
+## PR #21 review remediation — 2026-09-13
+
+PR #21 build validation now counts the complete site using a conservative decimal 1 GB bound,
+including baseline/release metadata. Vite builds in an owned sibling temporary directory;
+hash/size checks finish before it is promoted to the requested new site. The dataset format and
+single asset loader remain unchanged. Both staging implementations attribute the complete
+dataset to the licensing portal and preserve category-specific record URLs.

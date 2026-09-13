@@ -23,6 +23,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
   const dataset = loading.prepared?.dataset ?? null;
   const source = dataset ?? inputSource;
   const isSynthetic = loader?.kind === 'synthetic' || dataset?.coverage.kind === 'synthetic';
+  const dateLabel = dataset?.coverage.kind === 'collected' ? '수집일' : '데이터 기준일';
   const [draft, setDraft] = useState('');
   const [submission, setSubmission] = useState<{
     sequence: number;
@@ -116,8 +117,8 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
           {loader && (
             <>
               <p className="input-help">
-                다시 불러오기는 원본 데이터가 갱신되었다는 뜻은 아닙니다. 데이터 기준일과 원본
-                출처를 확인하세요.
+                다시 불러오기는 원본 데이터가 갱신되었다는 뜻은 아닙니다. {dateLabel}과 원본 출처를
+                확인하세요.
               </p>
               <button
                 type="button"
@@ -172,7 +173,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
               사용할 수 없습니다.
             </p>
           ) : (
-            <p>각 결과 카드의 원본 출처와 데이터 기준일을 함께 확인하세요.</p>
+            <p>각 결과 카드의 원본 출처와 {dateLabel}을 함께 확인하세요.</p>
           )}
           <p>
             데이터 출처: <SourceLink label={source.sourceLabel} url={source.sourceUrl} />

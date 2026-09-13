@@ -574,3 +574,11 @@ No new dependency, source transport, public identifier contract or hosting infra
 introduced. In-memory validation remains the fixture oracle; the trusted streaming path shares
 its quality evaluator. Research output has no publication descriptor/baseline. One observation
 can establish a measured candidate shape, never normal daily variation or automatic approval.
+
+
+## PR #21 review remediation — 2026-09-13
+
+No new deployment architecture or source/status contract is adopted. The publication builder
+uses 1,000,000,000 logical bytes as a conservative enforcement of the documented Pages 1 GB
+hosting limit, separately from source-quality policy. A production format change remains an
+explicit architecture/public-interface approval gate in AGENTS.md.

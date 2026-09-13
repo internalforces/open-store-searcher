@@ -4,6 +4,8 @@ import type {
   ProviderFreshnessEvidence,
 } from './collector-types.js';
 
+// Dataset attribution covers the complete archive; freshness evidence remains category-specific.
+export const SOURCE_LANDING_URL = 'https://www.localdata.go.kr/';
 export const SOURCE_INFO_URL = 'https://file.localdata.go.kr/file/general_restaurants/info';
 export const SOURCE_LIMIT_URL = 'https://file.localdata.go.kr/file/validate/download-count';
 export const SOURCE_ARCHIVE_URL =

@@ -332,3 +332,16 @@ Open quality gate: exact source pairs 05 / "제외/삭제/전출" and 06 / "기�
 187,173 unknown pairs across 68 categories. They remain unverified and require explicit review;
 23 observed empty categories also need review before policy adoption. One source observation
 cannot establish daily drift limits. See reports/test-2026-09-12-bounded-source.md.
+
+
+## PR #21 review remediation — 2026-09-13
+
+PR #21 confirms another production blocker: the measured 2,439,358,850-byte single dataset
+exceeds GitHub Pages' 1 GB published-site limit before HTML/JS/baseline overhead. The builder
+now rejects oversized totals and preserves previous output; this is mitigation, not a delivery-format
+solution. Owner: Architect/Performance Engineer. Approved compact/static delivery and measured
+browser feasibility remain required. The two attribution/date-wording review findings are fixed.
+
+Local macOS full verification encounters two unchanged native unzip tests: Apple unzip rejects
+the approved Linux -O UTF-8 option. Source and tests match PR head 759db3a. Do not disable
+these tests or relax the collector environment gate; obtain current Ubuntu CI evidence.

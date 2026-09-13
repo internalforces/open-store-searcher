@@ -1,3 +1,4 @@
+import { SOURCE_LANDING_URL } from './source-contract.js';
 import { createHash } from 'node:crypto';
 import { lstat, mkdir, mkdtemp, readFile, rename, rm, rmdir, writeFile } from 'node:fs/promises';
 import { basename, dirname, join, resolve } from 'node:path';
@@ -40,7 +41,7 @@ export function prepareValidatedRelease(input: ValidationInputV1) {
   const records = validation.candidate.records.map(toDisplayRecord);
   const dataset: DisplayDataset = {
     sourceLabel: input.archiveContract.provider,
-    sourceUrl: input.collection.sourceEvidence.providerFreshness.sourceUrl,
+    sourceUrl: SOURCE_LANDING_URL,
     coverage: {
       kind: validation.dateBasis === 'collection' ? 'collected' : 'verified',
       date: validation.dataAsOf,

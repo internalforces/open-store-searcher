@@ -121,3 +121,8 @@ Checklist: complete artifact/metric parity; cross-batch identity rejection; glob
 collision parity; late ingestion and quality rejection preserving known-good bytes; existing-output
 protection; bucket cap cleanup; iterator incremental yield, multiline parity and late-error visibility.
 This verifies FR-08/FR-13/FR-14 mechanics, not production thresholds, deployment or 30-day reliability.
+
+
+## PR #21 review regressions — 2026-09-13
+
+Scope: bounded PR #21 regressions across publication staging/build and App. Existing Vitest pipeline fixtures provide all 195 categories; component recovery tests use Testing Library. No generator/discovery tools are available; execute inline. R1: Pages total-size bound including site assets and state metadata, preserving prior output. R2: archive-wide dataset attribution with category-specific record provenance. R3: collection-date instructions across reload and footer states. No dependency or delivery redesign.

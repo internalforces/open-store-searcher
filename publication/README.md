@@ -65,3 +65,18 @@ observation hash; Python ZIP extraction there is diagnostic only. Production con
 the approved Ubuntu Info-ZIP collector. `measure-source-browser.mjs` exercises the current
 publication loader and the hook's second preparation pass on a local real-data research file.
 Neither command deploys or creates a publication policy. Keep raw/intermediate files outside Git.
+
+
+## Pages size gate — PR #21
+
+The builder enforces a conservative 1,000,000,000-byte total site budget against GitHub's
+[1 GB published-site limit](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
+It checks the descriptor total before reading assets, then includes all Vite output, the dataset,
+baseline and release metadata before copying and promotion. Only a complete checked temporary
+site becomes the requested new output; failures remove its temporary candidate. This is a hosting
+constraint independent of reviewed data-quality budgets.
+
+The measured 2,439,358,850-byte snapshot is rejected. This guard does **not** make the real
+snapshot deployable or repair whole-file browser loading. A reviewed compact/static delivery
+design, measured complete-site size and browser evidence remain required before publication.
+Dataset-level attribution uses the whole licensing portal; records retain category-specific sources.

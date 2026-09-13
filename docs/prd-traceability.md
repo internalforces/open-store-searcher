@@ -197,3 +197,13 @@ Ubuntu source run 34695738766 at fbb2d65 completes all 195 categories and 2,939,
 910,348 ms at 2,265,876 KiB peak Node RSS with unchanged runner settings and exact local
 dataset/validation parity. Full CI 34695740858 passes 668 unit, 68 browser and 20 accessibility
 checks. This closes the bounded producer's hosted measurement gap, not the release gates above.
+
+
+## PR #21 review remediation — 2026-09-13
+
+FR-08/14: collection-mode reload/footer instructions now name the collection date while
+retaining unknown source coverage; verified-date instructions retain their existing wording.
+FR-13: oversized descriptor and combined-site failures cannot promote a site or replace prior
+output. Dataset-level source attribution covers the complete archive and category links remain
+unchanged. See [PR #21 review remediation](../reports/review-2026-09-13-pr21.md).
+Production size/browser feasibility and TASK-008/009/010 remain incomplete.

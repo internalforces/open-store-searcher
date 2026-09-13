@@ -113,3 +113,8 @@ complete-count and bounded-card assertions. Run focused tests then verify:full a
 5. Require existing-output refusal and bounded disk-bucket rejection without leftover staging.
 6. Exercise iterator yields before malformed tail/row-limit failures and exact multilingual CSV parity.
 7. Run focused pipeline/parser tests, inspect concrete assertions, record results and outstanding gates.
+
+
+## PR #21 review regressions — 2026-09-13
+
+Write reproducing assertions in validate-license-refresh.test.ts and recovery.test.tsx, then fix attribution and collection wording. Add publication-size.test.ts for inclusive byte boundaries and whole-directory accounting; exercise the actual builder with an oversized descriptor before hashing. Run focused RED/GREEN, pinned verify:full, and inspect assertions/diff. The production format remains an explicitly unresolved design gate; a guard cannot make the measured snapshot deployable.

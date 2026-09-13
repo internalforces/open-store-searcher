@@ -255,3 +255,16 @@ Run 34695738766 at fbb2d65 completed 195 categories / 2,939,947 rows with zero p
 dataset and validation parity with the final local replay was checked. Validation remains
 review_required. This is producer evidence; the actual-data browser crash and release gates
 remain open. See reports/test-2026-09-12-bounded-source.md.
+
+
+## PR #21 review corrections — 2026-09-13
+
+Bounded PR regression review: 140 focused tests pass after RED reproduced the three findings.
+All-category provenance and exact bounded/reference parity are asserted. Collection wording is
+checked in ready/search/reloading/error states alongside the source-date caveat; verified wording
+has a separate assertion. Size tests cover below/at/above budget, invalid totals, nested files,
+metadata and the real builder's pre/post-build rejection with candidate cleanup. Real small-site
+Vite build remains tested. Optional generator/gap-analysis tools are unavailable; review ran inline.
+Local full-suite completion is blocked by two unchanged Apple unzip incompatibilities; 678 tests,
+68 browser checks and 20 accessibility checks pass. Current Ubuntu verification remains required.
+No production-size solution or release approval is implied. See reports/review-2026-09-13-pr21.md.

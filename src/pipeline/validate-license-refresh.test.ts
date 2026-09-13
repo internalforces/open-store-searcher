@@ -730,6 +730,10 @@ describe('TASK-009 collection-date publication', () => {
       release = parse('release.json');
     expect(dataset.coverage).toEqual({ kind: 'collected', date: '2026-09-04' });
     expect(dataset.records).toHaveLength(195);
+    expect(dataset.sourceUrl).toBe('https://www.localdata.go.kr/');
+    expect(dataset.records.map((record: { sourceUrl: string }) => record.sourceUrl).sort()).toEqual(
+      input.permissionManifest.categories.map((entry) => entry.fileDataUrl).sort(),
+    );
     expect(dataset.records[0].rawStatus).toEqual(
       expect.objectContaining({ operatingCode: '01', operatingName: '영업/정상' }),
     );
@@ -820,6 +824,77 @@ describe('TASK-009 collection-date publication', () => {
       await rm(root, { recursive: true, force: true });
     }
   }, 30_000);
+  test('rejects combined Pages assets and staging bytes and removes only its candidate', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'pr21-combined-size-'));
+    try {
+      const staging = join(root, 'staging');
+      await stageValidatedRelease(collectedFixture(), staging);
+      await writeFile(join(root, 'known-good'), 'previous site');
+      const hook = join(root, 'vite-hook.mjs');
+      // Replace only Vite in this child; sparse output exercises the real builder size gate.
+      const fakeVite = `import { mkdir, open } from 'node:fs/promises';
+        import { join } from 'node:path';
+        export async function build(options) {
+          await mkdir(options.build.outDir, { recursive: true });
+          const file = await open(join(options.build.outDir, 'index.html'), 'wx');
+          try { await file.truncate(1_000_000_000); } finally { await file.close(); }
+        }`;
+      await writeFile(
+        hook,
+        `import { registerHooks } from 'node:module';
+        registerHooks({ resolve(specifier, context, nextResolve) {
+          if (specifier === 'vite' && context.parentURL?.endsWith('/scripts/build-publication.mjs'))
+            return { url: 'data:text/javascript,' + encodeURIComponent(${JSON.stringify(fakeVite)}), shortCircuit: true };
+          return nextResolve(specifier, context);
+        } });`,
+      );
+      await expect(
+        promisify(execFile)(process.execPath, [
+          '--import',
+          hook,
+          'scripts/build-publication.mjs',
+          staging,
+          join(root, 'site'),
+        ]),
+      ).rejects.toThrow('GitHub Pages site size exceeds');
+      expect((await readdir(root)).sort()).toEqual(['known-good', 'staging', 'vite-hook.mjs']);
+      expect(await readFile(join(root, 'known-good'), 'utf8')).toBe('previous site');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+  test('rejects oversized Pages descriptors before reading assets or creating a site', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'pr21-size-'));
+    try {
+      const staging = join(root, 'staging');
+      await mkdir(staging);
+      await writeFile(join(root, 'known-good'), 'previous site');
+      await writeFile(
+        join(staging, 'release.json'),
+        JSON.stringify({
+          version: 1,
+          kind: 'validated-staging',
+          dateBasis: 'collection',
+          sourceDataAsOf: null,
+          entries: [
+            { name: 'dataset.json', byteLength: 2_439_358_850, sha256: 'a'.repeat(64) },
+            { name: 'baseline.json', byteLength: 1, sha256: 'b'.repeat(64) },
+          ],
+        }),
+      );
+      await expect(
+        promisify(execFile)(process.execPath, [
+          'scripts/build-publication.mjs',
+          staging,
+          join(root, 'site'),
+        ]),
+      ).rejects.toThrow('GitHub Pages site size exceeds');
+      expect((await readdir(root)).sort()).toEqual(['known-good', 'staging']);
+      expect(await readFile(join(root, 'known-good'), 'utf8')).toBe('previous site');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
   test('a partial staging write failure preserves known-good bytes and cleans the candidate', async () => {
     const root = await mkdtemp(join(tmpdir(), 'task009-io-'));
     try {
