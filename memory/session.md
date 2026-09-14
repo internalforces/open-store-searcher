@@ -1218,3 +1218,8 @@ Before committing, all 150 source/test/configuration hashes matched the verified
 `npm test` passed all 754 tests across 43 files again on pinned Node 24.19.0/npm 11.17.0.
 Prepare a draft PR against main with the measured readiness/memory and platform limitations.
 This delivery authorization does not close TASK-008/009/010 or authorize merge or deployment.
+
+Implementation commit `3779200` is pushed on `codex/task-008-compact-delivery`. Draft
+[PR #23](https://github.com/internalforces/open-store-searcher/pull/23) targets main and records
+the verification evidence and remaining limits. Hosted CI is pending at this handoff. The Ubuntu
+research container has been returned to its prior stopped state; the worktree is retained.
