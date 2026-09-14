@@ -271,7 +271,6 @@ async function processBoundedRelease(
       coverage: { kind: 'collected' as const, date: date ?? '' },
       exampleQuery: '',
     };
-    let recordBytes = 0;
     await mkdir(staging);
     for await (const category of categories) {
       const entry = input.archiveContract.entries.find(
@@ -326,9 +325,6 @@ async function processBoundedRelease(
             await collisions.add(key, [key, id, entry.fileDataId]);
           }
           const json = JSON.stringify(display[i]);
-          recordBytes += Buffer.byteLength(json) + 1;
-          if (input.policy && recordBytes > input.policy.maxJsonBytes)
-            throw new Error('Publication blocked: total_json_size_exceeded');
           run.push(`${tuple}\t${json}`);
         }
         const path = join(work, `run-${runs.length}`);

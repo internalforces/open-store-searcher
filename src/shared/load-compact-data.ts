@@ -75,44 +75,58 @@ export async function loadCompactSnapshot(
   signal?.throwIfAborted();
   return { manifest, blocks, dictionaries };
 }
+const READ_INACTIVITY_MS = 30_000;
 export async function readCompactResponse(
   url: string,
   maxBytes: number,
   signal: AbortSignal,
 ): Promise<Uint8Array> {
-  const response = await fetch(url, {
-    signal,
-    credentials: 'omit',
-    referrerPolicy: 'no-referrer',
-    redirect: 'error',
-  });
-  if (!response.ok || !response.body) {
-    await response.body?.cancel();
-    throw new Error('Unable to load compact data');
-  }
-  const reader = response.body.getReader(),
-    chunks: Uint8Array[] = [];
-  let length = 0;
+  let inactivityTimer: ReturnType<typeof setTimeout> | undefined;
+  const inactivityController = new AbortController();
+  const resetInactivityTimer = () => {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => inactivityController.abort(), READ_INACTIVITY_MS);
+  };
+  const combinedSignal = AbortSignal.any([signal, inactivityController.signal]);
   try {
-    while (true) {
-      const next = await reader.read();
-      if (next.done) break;
-      length += next.value.length;
-      requireCompact(length <= maxBytes);
-      chunks.push(next.value);
+    resetInactivityTimer();
+    const response = await fetch(url, {
+      signal: combinedSignal,
+      credentials: 'omit',
+      referrerPolicy: 'no-referrer',
+      redirect: 'error',
+    });
+    if (!response.ok || !response.body) {
+      await response.body?.cancel();
+      throw new Error('Unable to load compact data');
     }
-    const bytes = new Uint8Array(length);
-    let offset = 0;
-    for (const b of chunks) {
-      bytes.set(b, offset);
-      offset += b.length;
+    const reader = response.body.getReader(),
+      chunks: Uint8Array[] = [];
+    let length = 0;
+    try {
+      while (true) {
+        resetInactivityTimer();
+        const next = await reader.read();
+        if (next.done) break;
+        length += next.value.length;
+        requireCompact(length <= maxBytes);
+        chunks.push(next.value);
+      }
+      const bytes = new Uint8Array(length);
+      let offset = 0;
+      for (const b of chunks) {
+        bytes.set(b, offset);
+        offset += b.length;
+      }
+      return bytes;
+    } catch (error) {
+      await reader.cancel();
+      throw error;
+    } finally {
+      reader.releaseLock();
     }
-    return bytes;
-  } catch (error) {
-    await reader.cancel();
-    throw error;
   } finally {
-    reader.releaseLock();
+    clearTimeout(inactivityTimer);
   }
 }
 
