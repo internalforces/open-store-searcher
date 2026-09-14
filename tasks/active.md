@@ -11,13 +11,16 @@ _Last updated: 2026-09-12_
 
 ## In Progress
 
-PR #21 was merged on explicit user instruction at a33600f. The user requested a new PR
-before addressing the current review. Bounded follow-up: comment 3999130863, align the deployed
-release descriptor with its existing hash-addressed dataset asset. Preserve dataset/baseline
-bytes, existing public asset URLs, staged input format and all publication/size gates. The bounded correction is complete in PR #22 at a192e73: Ubuntu full verification passed
-718 tests, 68 browser checks and 20 accessibility checks in run 34747253199. PR #22 remains
-a draft for review; production and independent release gates remain open.
-This is follow-up remediation on the existing worktree, not completion of TASK-008/009/010.
+PR #22 is merged as `81a1441`; the reused worktree at `e8f8c92` is its head ancestor
+and has an identical tracked tree. The user requested static delivery and Worker-owned search
+improvements within TASK-008 on 2026-09-14. The user supplied and downloaded the original dataset; hash/byte verification passed.
+Complete-source profiling and exact round-trip measurements are complete. The proposed shared/local
+column format contains 686,691,922 data bytes; the measured research site is 687,009,428 bytes.
+A coordinated delivery/Worker design awaits explicit approval before production implementation.
+Browser readiness, memory, full-result equivalence and latency gates remain pending; no production
+performance result or quality policy is inferred.
+See [feasibility preparation](../reports/feasibility-2026-09-14-static-delivery.md).
+Preserve the pre-existing analysis/session edits. TASK-009/010 remain paused and incomplete.
 
 TASK-008 is the sole active task for production observation and quality/bootstrap review,
 explicitly resumed by the user on 2026-09-12. Collection-date mode remains authoritative.
@@ -150,3 +153,30 @@ source coverage is still unverified under the approved collection-date interpret
   - [ ] Criterion 2
 - Verification commands:
 - Results and evidence:
+
+## TASK-008 compact delivery continuation — approval boundary
+
+- [x] Reuse the existing worktree and verify its relationship to merged PR #22.
+- [x] Obtain and hash-verify the complete original source.
+- [x] Measure all-source fields, cardinalities, candidate data/index and research-site sizes.
+- [x] Verify exact research round-trip, complete IDs, original order and row-count parity.
+- [x] Prepare a concrete delivery/Worker migration design with measured limitations.
+- [x] Obtain approval of the proposed delivery/public-interface contract (user: 2026-09-14).
+- [x] Implement the coordinated production codec, reader/builder and Worker store.
+- [x] Verify local production-code failure preservation and full search-result equivalence.
+- [x] Measure real-source desktop readiness, memory, refresh overlap, latency and pagination.
+- [x] Run applicable local checks and record platform limits without closing production or release gates.
+
+Design: [compact delivery proposal](../docs/superpowers/specs/2026-09-14-task-008-compact-delivery-design.md).
+
+
+Compact-delivery implementation and local verification are documented in
+[verification](../reports/test-2026-09-14-compact-delivery.md) and the independent review. The
+production-codec exact round-trip covers 2,939,947 records; the functional research site is 688.5 MB.
+Two desktop observations show 241–494 ms searches after 48–49 s readiness; mobile/hosted readiness
+and memory are unverified. Hosted verification, reviewed policy/baseline, 05/06 review
+and all overall TASK-008/009/010/release acceptance remain open. No completed-task entry added.
+
+Local Ubuntu 24.04 verification passes 754 tests and the browser 68/accessibility 20 suites with
+one worker. The initial default-parallel WebKit flakes remain a documented limitation; no flaky
+policy or assertion was weakened. These local results do not close any production release gate.

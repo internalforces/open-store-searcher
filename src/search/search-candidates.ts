@@ -17,8 +17,10 @@ export interface SearchRecord {
   readonly roadAddress: string;
   readonly parcelAddress: string;
 }
-interface IndexedRecord<T extends SearchRecord = SearchRecord> {
+interface IndexedRecord<T extends SearchRecord = SearchRecord> extends ScoringEntry {
   readonly record: T;
+}
+export interface ScoringEntry {
   readonly nameKey: string;
   readonly addresses: readonly AddressParts[];
   readonly addressTokens: readonly (readonly string[])[];
@@ -40,6 +42,7 @@ export interface CandidateMatch<T extends SearchRecord = SearchRecord> {
   addressMatch: AddressMatch;
   reasons: string[];
 }
+export type ScoredCandidate = Omit<CandidateMatch, 'record'>;
 export interface SearchResult<T extends SearchRecord = SearchRecord> {
   validation: PreparedSearchQuery;
   topMatches: CandidateMatch<T>[];
@@ -100,7 +103,7 @@ export function createSearchIndex(records: readonly unknown[]): SearchIndex {
 }
 
 const segmenter = new Intl.Segmenter('ko', { granularity: 'grapheme' });
-function matchName(query: string, candidate: string): NameMatch {
+export function matchName(query: string, candidate: string): NameMatch {
   if (!query || !candidate) return 'none';
   if (query === candidate) return 'exact';
   if (!query.includes(candidate) && !candidate.includes(query)) return 'none';
@@ -113,17 +116,57 @@ function matchName(query: string, candidate: string): NameMatch {
 }
 const MATCH_ORDER: Record<AddressMatch, number> = { none: 0, partial: 1, core: 2, exact: 3 };
 const compareIds = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
+export const compareCandidateRank = (aScore: number, aId: string, bScore: number, bId: string) =>
+  bScore - aScore || compareIds(aId, bId);
+export const compareSimilarCandidateRank = (
+  aConflict: boolean,
+  aScore: number,
+  aId: string,
+  bConflict: boolean,
+  bScore: number,
+  bId: string,
+) => Number(aConflict) - Number(bConflict) || compareCandidateRank(aScore, aId, bScore, bId);
 const compareMatches = (a: CandidateMatch, b: CandidateMatch) =>
-  b.score - a.score || compareIds(a.record.id, b.record.id);
-const hasConflict = (match: CandidateMatch) =>
+  compareCandidateRank(a.score, a.record.id, b.score, b.record.id);
+export const hasConflict = (match: Pick<CandidateMatch, 'reasons'>) =>
   match.reasons.some((reason) => reason.startsWith('address_conflict:'));
 
-function scoreCandidate<T extends SearchRecord>(
-  entry: IndexedRecord<T>,
+export interface ScoringQuery {
+  readonly query: InterpretedSearchQuery;
+  readonly validation: Extract<PreparedSearchQuery, { ok: true }>;
+  readonly literalTokens: readonly { value: string; numeric: boolean }[];
+}
+
+export function prepareScoringQuery(
+  validation: Extract<PreparedSearchQuery, { ok: true }>,
+): ScoringQuery {
+  return {
+    query: interpretSearchQuery(validation),
+    validation,
+    literalTokens: validation.addressTokens.map((value) => ({
+      value,
+      numeric: /\d/u.test(value),
+    })),
+  };
+}
+
+export function matchesLiteralAddress(
+  tokens: readonly string[],
+  literalTokens: readonly { value: string; numeric: boolean }[],
+): boolean {
+  return literalTokens.every((token) =>
+    tokens.some((candidate) =>
+      token.numeric ? candidate === token.value : candidate.includes(token.value),
+    ),
+  );
+}
+
+export function scoreCandidate(
+  entry: ScoringEntry,
   query: InterpretedSearchQuery,
   validation: Extract<PreparedSearchQuery, { ok: true }>,
   literalTokens: readonly { value: string; numeric: boolean }[],
-): CandidateMatch<T> | null {
+): ScoredCandidate | null {
   let nameMatch = matchName(query.nameKey, entry.nameKey);
   const literalName =
     nameMatch === 'none' && query.nameKey !== validation.nameKey
@@ -142,13 +185,7 @@ function scoreCandidate<T extends SearchRecord>(
   // Unclassified text may partially match address words; numbers remain whole tokens.
   const literalAddress =
     !query.address &&
-    entry.addressTokens.some((tokens) => {
-      return literalTokens.every((token) =>
-        tokens.some((candidate) =>
-          token.numeric ? candidate === token.value : candidate.includes(token.value),
-        ),
-      );
-    });
+    entry.addressTokens.some((tokens) => matchesLiteralAddress(tokens, literalTokens));
   if (literalAddress) addressMatch = 'partial';
   const relevantAddress = comparisons.some((comparison) => comparison.relevant);
   if (nameMatch === 'none' && addressMatch === 'none' && !literalAddress && !relevantAddress)
@@ -183,7 +220,7 @@ function scoreCandidate<T extends SearchRecord>(
   }
   if (conflicts.length || query.ambiguous || ambiguousAddress || fallbackName) confidence = 'low';
   if (confidence === 'low' && !query.address) reasons.push('name_only_or_literal_evidence');
-  return { record: entry.record, score, confidence, nameMatch, addressMatch, reasons };
+  return { score, confidence, nameMatch, addressMatch, reasons };
 }
 
 /** Search transient loaded data only. Confidence describes a match, never administrative status. */
@@ -203,14 +240,11 @@ export function searchCandidates<T extends SearchRecord>(
     diagnostics: index.diagnostics,
   };
   if (!validation.ok) return result;
-  const query = interpretSearchQuery(validation);
-  const literalTokens = validation.addressTokens.map((value) => ({
-    value,
-    numeric: /\d/u.test(value),
-  }));
+  const { query, literalTokens } = prepareScoringQuery(validation);
   for (const entry of index.entries) {
-    const match = scoreCandidate(entry, query, validation, literalTokens);
-    if (!match) continue;
+    const scored = scoreCandidate(entry, query, validation, literalTokens);
+    if (!scored) continue;
+    const match: CandidateMatch<T> = { record: entry.record, ...scored };
     if (match.confidence === 'low') result.similarCandidates.push(match);
     else {
       result.eligibleCount++;
@@ -219,8 +253,15 @@ export function searchCandidates<T extends SearchRecord>(
       if (result.topMatches.length > 3) result.topMatches.pop();
     }
   }
-  result.similarCandidates.sort(
-    (a, b) => Number(hasConflict(a)) - Number(hasConflict(b)) || compareMatches(a, b),
+  result.similarCandidates.sort((a, b) =>
+    compareSimilarCandidateRank(
+      hasConflict(a),
+      a.score,
+      a.record.id,
+      hasConflict(b),
+      b.score,
+      b.record.id,
+    ),
   );
   result.similarCount = result.similarCandidates.length;
   const [first, second] = result.topMatches;

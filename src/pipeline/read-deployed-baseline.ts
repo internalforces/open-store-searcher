@@ -1,3 +1,8 @@
+import {
+  validateManifest,
+  validateCompactReleaseBinding,
+  type CompactManifest,
+} from '../shared/compact-data.js';
 import { createHash } from 'node:crypto';
 import type { ValidationBaselineV1 } from './refresh-validation-types.js';
 import { object, sha256 } from './refresh-validation-types.js';
@@ -70,7 +75,7 @@ export async function readDeployedBaseline(
   const release: unknown = JSON.parse(before.toString('utf8'));
   if (
     !object(release) ||
-    release.version !== 1 ||
+    (release.version !== 1 && release.version !== 2) ||
     release.kind !== 'validated-staging' ||
     release.dateBasis !== 'collection' ||
     release.sourceDataAsOf !== null ||
@@ -83,7 +88,10 @@ export async function readDeployedBaseline(
       !object(entry) ||
       !sha256(entry.sha256) ||
       (entry.name !== 'baseline.json' &&
-        entry.name !== `assets/collected-dataset-${entry.sha256}.json`) ||
+        entry.name !==
+          (release.version === 1
+            ? `assets/collected-dataset-${entry.sha256}.json`
+            : `assets/compact-manifest-${entry.sha256}.json`)) ||
       typeof entry.byteLength !== 'number' ||
       !Number.isSafeInteger(entry.byteLength) ||
       entry.byteLength <= 0
@@ -96,6 +104,24 @@ export async function readDeployedBaseline(
   const baselineEntry = entries.get('baseline.json');
   if (entries.size !== 2 || !entries.has('dataset.json') || !baselineEntry)
     throw new Error('Invalid deployed release entries');
+  let compactManifest: CompactManifest | null = null;
+  if (release.version === 2) {
+    const binding = required(entries.get('dataset.json'));
+    const bytes = await read(new URL(`assets/compact-manifest-${binding.sha256}.json`, url));
+    if (
+      bytes.length !== binding.byteLength ||
+      createHash('sha256').update(bytes).digest('hex') !== binding.sha256
+    )
+      throw new Error('Deployed manifest hash mismatch');
+    const manifest = validateManifest(JSON.parse(bytes.toString('utf8')));
+    compactManifest = manifest;
+    if (
+      manifest.archiveSha256 !== release.archiveSha256 ||
+      manifest.policyRevision !== release.policyRevision ||
+      manifest.recordCount !== release.recordCount
+    )
+      throw new Error('Deployed manifest metadata mismatch');
+  }
   const baselineBytes = await read(new URL('baseline.json', url));
   if (
     baselineBytes.length !== baselineEntry.byteLength ||
@@ -112,6 +138,12 @@ export async function readDeployedBaseline(
     baseline.policyRevision !== release.policyRevision
   )
     throw new Error('Deployed baseline metadata mismatch');
+  if (compactManifest) validateCompactReleaseBinding(compactManifest, release, baseline);
   // The staged validator subsequently checks the full baseline schema and metrics.
   return baseline as unknown as ValidationBaselineV1;
+}
+
+function required<T>(v: T | null | undefined): T {
+  if (v === null || v === undefined) throw new Error('Missing required compact value');
+  return v;
 }

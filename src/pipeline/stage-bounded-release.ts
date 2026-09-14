@@ -1,3 +1,4 @@
+import { writeCompactDataset } from './write-compact-dataset.js';
 import { SOURCE_LANDING_URL } from './source-contract.js';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
@@ -403,6 +404,67 @@ async function processBoundedRelease(
         `Publication blocked: ${validation.diagnostics.map((item) => item.code).join(', ')}`,
       );
     const merged = await mergeRuns(work, runs, runHashes);
+    if (!observation) {
+      if (validation.kind !== 'accepted' || !input.policy)
+        throw new Error('Missing publication evidence');
+      const compact = await writeCompactDataset(
+        {
+          archiveSha256: collection.sha256,
+          policyRevision: input.policy.revision,
+          recordCount: metrics.total.recordCount,
+          metadata,
+        },
+        async function* () {
+          if (merged)
+            for await (const line of lines(merged, requireValue(runHashes.get(merged))))
+              yield JSON.parse(line.slice(line.indexOf('\t') + 1));
+        },
+        staging,
+      );
+      const baseline: ValidationBaselineV1 = {
+        validationVersion: 1,
+        schemaVersion: 2,
+        identifierContractVersion: 1,
+        normalizationContractVersion: 1,
+        dateBasis: validation.dateBasis,
+        policyRevision: input.policy.revision,
+        archiveSha256: collection.sha256,
+        schemaManifestSha256: collection.archiveEvidence.schemaManifestSha256,
+        dataAsOf: validation.dataAsOf,
+        evidenceReference: input.policy.evidenceReference,
+        metrics,
+      };
+      await writeVerified(join(staging, 'baseline.json'), `${JSON.stringify(baseline)}\n`);
+      const entries = [
+        compact.manifestEntry,
+        { name: 'baseline.json', ...(await fileHash(join(staging, 'baseline.json'))) },
+      ];
+      await writeVerified(
+        join(staging, 'release.json'),
+        `${JSON.stringify({ version: 2, kind: 'validated-staging', dateBasis: validation.dateBasis, collectedAt: collection.fetchedAt, sourceDataAsOf: null, archiveSha256: collection.sha256, policyRevision: input.policy.revision, recordCount: metrics.total.recordCount, warnings: validation.diagnostics, entries })}\n`,
+      );
+      const all = [
+        ...entries,
+        ...compact.entries,
+        { name: 'release.json', ...(await fileHash(join(staging, 'release.json'))) },
+      ];
+      if (all.reduce((sum, e) => sum + e.byteLength, 0) > input.policy.maxJsonBytes)
+        throw new Error('Publication blocked: total_json_size_exceeded');
+      for (const e of all) {
+        const actual = await fileHash(join(staging, e.name));
+        if (actual.sha256 !== e.sha256 || actual.byteLength !== e.byteLength)
+          throw new Error('Staged publication bytes changed');
+      }
+      const lock = `${output}.lock`;
+      await mkdir(lock);
+      try {
+        await requireAbsent(output);
+        await rename(staging, output);
+      } finally {
+        await rmdir(lock);
+      }
+      return { outputDirectory: output, files: all.map((e) => e.name), metrics };
+    }
     const datasetPath = join(staging, 'dataset.json');
     const dataset = await open(datasetPath, 'wx');
     const datasetDigest = createHash('sha256');
@@ -447,63 +509,7 @@ async function processBoundedRelease(
       await rename(staging, output);
       return { outputDirectory: output, files: ['dataset.json', 'observation.json'], metrics };
     }
-    if (validation.kind !== 'accepted' || !input.policy)
-      throw new Error('Missing publication evidence');
-    const baseline: ValidationBaselineV1 = {
-      validationVersion: 1,
-      schemaVersion: 2,
-      identifierContractVersion: 1,
-      normalizationContractVersion: 1,
-      dateBasis: validation.dateBasis,
-      policyRevision: input.policy.revision,
-      archiveSha256: collection.sha256,
-      schemaManifestSha256: collection.archiveEvidence.schemaManifestSha256,
-      dataAsOf: validation.dataAsOf,
-      evidenceReference: input.policy.evidenceReference,
-      metrics,
-    };
-    await writeVerified(join(staging, 'baseline.json'), `${JSON.stringify(baseline)}\n`);
-    const entries = [];
-    for (const name of ['dataset.json', 'baseline.json'])
-      entries.push({ name, ...(await fileHash(join(staging, name))) });
-    await writeVerified(
-      join(staging, 'release.json'),
-      `${JSON.stringify({
-        version: 1,
-        kind: 'validated-staging',
-        dateBasis: validation.dateBasis,
-        collectedAt: collection.fetchedAt,
-        sourceDataAsOf: null,
-        archiveSha256: collection.sha256,
-        policyRevision: input.policy.revision,
-        recordCount: metrics.total.recordCount,
-        warnings: validation.diagnostics,
-        entries,
-      })}\n`,
-    );
-    const releaseInfo = await fileHash(join(staging, 'release.json'));
-    if (
-      entries.reduce((sum, entry) => sum + entry.byteLength, releaseInfo.byteLength) >
-      input.policy.maxJsonBytes
-    )
-      throw new Error('Publication blocked: total_json_size_exceeded');
-    // Recheck exact staged bytes before promotion, independently of the write path.
-    for (const entry of entries)
-      if ((await fileHash(join(staging, entry.name))).sha256 !== entry.sha256)
-        throw new Error('Staged publication bytes changed');
-    const lock = `${output}.lock`;
-    await mkdir(lock);
-    try {
-      await requireAbsent(output);
-      await rename(staging, output);
-    } finally {
-      await rmdir(lock);
-    }
-    return {
-      outputDirectory: output,
-      files: ['dataset.json', 'baseline.json', 'release.json'],
-      metrics,
-    };
+    throw new Error('Unsupported observation mode');
   } finally {
     await rm(work, { recursive: true, force: true });
   }

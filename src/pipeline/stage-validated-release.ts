@@ -1,3 +1,4 @@
+import { writeCompactDataset } from './write-compact-dataset.js';
 import { SOURCE_LANDING_URL } from './source-contract.js';
 import { createHash } from 'node:crypto';
 import { lstat, mkdir, mkdtemp, readFile, rename, rm, rmdir, writeFile } from 'node:fs/promises';
@@ -30,7 +31,7 @@ export function toDisplayRecord(record: TransformedLicenseRecordV2): DisplayReco
 }
 
 /** Internal staging package, not a public URL/share-identifier contract. */
-export function prepareValidatedRelease(input: ValidationInputV1) {
+function prepareDisplayRelease(input: ValidationInputV1) {
   const validation = validateLicenseRefreshV1(input);
   if (validation.kind !== 'accepted')
     throw new Error(
@@ -62,6 +63,15 @@ export function prepareValidatedRelease(input: ValidationInputV1) {
     evidenceReference: input.policy.evidenceReference,
     metrics: validation.metrics,
   };
+  return { dataset, baseline, validation };
+}
+
+/** Legacy in-memory reference oracle; never emitted by production staging. */
+export function prepareValidatedRelease(input: ValidationInputV1) {
+  const { dataset, baseline, validation } = prepareDisplayRelease(input);
+  if (!input.policy || input.collection.kind !== 'accepted')
+    throw new Error('Missing accepted publication evidence');
+  const records = dataset.records;
   const files: Record<string, Uint8Array> = {};
   const serialize = (name: string, value: unknown) => {
     const bytes = new TextEncoder().encode(`${JSON.stringify(value)}\n`);
@@ -96,7 +106,7 @@ export function prepareValidatedRelease(input: ValidationInputV1) {
 
 /** Create a new complete staging directory. Never replace a live directory or baseline. */
 export async function stageValidatedRelease(input: ValidationInputV1, outputDirectory: string) {
-  const files = prepareValidatedRelease(input);
+  const prepared = prepareDisplayRelease(input);
   const output = resolve(outputDirectory);
   try {
     await lstat(output);
@@ -106,12 +116,51 @@ export async function stageValidatedRelease(input: ValidationInputV1, outputDire
   }
   await mkdir(dirname(output), { recursive: true });
   const staging = await mkdtemp(join(dirname(output), `.${basename(output)}-`));
+  let emitted: string[] = [];
   try {
-    for (const [name, bytes] of Object.entries(files)) {
-      await writeFile(join(staging, name), bytes, { flag: 'wx' });
-      if (digest(await readFile(join(staging, name))) !== digest(bytes))
+    const { dataset, baseline, validation } = prepared;
+    if (
+      !input.policy ||
+      input.collection.kind !== 'accepted' ||
+      validation.dateBasis !== 'collection'
+    )
+      throw new Error('Compact publication requires collection-date evidence');
+    const { records, ...metadata } = dataset;
+    const compact = await writeCompactDataset(
+      {
+        archiveSha256: input.collection.sha256,
+        policyRevision: input.policy.revision,
+        recordCount: records.length,
+        metadata,
+      },
+      async function* () {
+        yield* records;
+      },
+      staging,
+    );
+    const baselineBytes = new TextEncoder().encode(`${JSON.stringify(baseline)}\n`);
+    await writeFile(join(staging, 'baseline.json'), baselineBytes, { flag: 'wx' });
+    const entries = [
+      compact.manifestEntry,
+      { name: 'baseline.json', sha256: digest(baselineBytes), byteLength: baselineBytes.length },
+    ];
+    const releaseBytes = new TextEncoder().encode(
+      `${JSON.stringify({ version: 2, kind: 'validated-staging', dateBasis: 'collection', collectedAt: input.collection.fetchedAt, sourceDataAsOf: null, archiveSha256: input.collection.sha256, policyRevision: input.policy.revision, recordCount: records.length, warnings: validation.diagnostics, entries })}\n`,
+    );
+    await writeFile(join(staging, 'release.json'), releaseBytes, { flag: 'wx' });
+    const all = [
+      ...entries,
+      ...compact.entries,
+      { name: 'release.json', byteLength: releaseBytes.length, sha256: digest(releaseBytes) },
+    ];
+    if (all.reduce((sum, e) => sum + e.byteLength, 0) > input.policy.maxJsonBytes)
+      throw new Error('Publication blocked: total_json_size_exceeded');
+    for (const e of all) {
+      const b = await readFile(join(staging, e.name));
+      if (b.length !== e.byteLength || digest(b) !== e.sha256)
         throw new Error('Staged publication bytes changed');
     }
+    emitted = all.map((e) => e.name);
     // A per-output lock prevents cooperating publishers racing on the same destination.
     const lock = `${output}.lock`;
     await mkdir(lock);
@@ -129,5 +178,5 @@ export async function stageValidatedRelease(input: ValidationInputV1, outputDire
   } finally {
     await rm(staging, { recursive: true, force: true });
   }
-  return { outputDirectory: output, files: Object.keys(files) };
+  return { outputDirectory: output, files: emitted };
 }

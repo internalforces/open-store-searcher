@@ -5,7 +5,7 @@ import { createReadStream, createWriteStream } from 'node:fs';
 import { Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 import { resolve, join, dirname, basename } from 'node:path';
-import { build } from 'vite';
+import { build, createServer } from 'vite';
 import preact from '@preact/preset-vite';
 
 const [stagingPath, outputPath] = process.argv.slice(2);
@@ -21,7 +21,7 @@ try {
 const releaseBytes = await readFile(join(stagingPath, 'release.json'));
 const release = JSON.parse(releaseBytes.toString('utf8'));
 if (
-  release.version !== 1 ||
+  ![1, 2].includes(release.version) ||
   release.kind !== 'validated-staging' ||
   release.dateBasis !== 'collection' ||
   release.sourceDataAsOf !== null
@@ -55,12 +55,27 @@ async function verifyOrCopy(entry, destination) {
   }
   if (size !== entry.byteLength || digest.digest('hex') !== entry.sha256)
     throw new Error('Staged release hash mismatch');
+  if (destination) {
+    const copied = createHash('sha256');
+    let copiedBytes = 0;
+    for await (const chunk of createReadStream(destination)) {
+      copied.update(chunk);
+      copiedBytes += chunk.length;
+    }
+    if (copiedBytes !== entry.byteLength || copied.digest('hex') !== entry.sha256)
+      throw new Error('Copied release hash mismatch');
+  }
 }
 if (!Array.isArray(release.entries) || release.entries.length !== 2)
   throw new Error('Incomplete release entries');
 for (const entry of release.entries) {
   if (
-    !['dataset.json', 'baseline.json'].includes(entry.name) ||
+    !(
+      entry.name === 'baseline.json' ||
+      (release.version === 1
+        ? entry.name === 'dataset.json'
+        : entry.name === `assets/compact-manifest-${entry.sha256}.json`)
+    ) ||
     files.has(entry.name) ||
     !Number.isSafeInteger(entry.byteLength) ||
     entry.byteLength <= 0 ||
@@ -70,7 +85,44 @@ for (const entry of release.entries) {
     throw new Error('Invalid release entry');
   files.set(entry.name, entry);
 }
-const datasetAsset = `assets/collected-dataset-${files.get('dataset.json').sha256}.json`;
+const datasetEntry = [...files.values()].find((e) => e.name !== 'baseline.json');
+if (!datasetEntry || !files.has('baseline.json')) throw new Error('Incomplete release entries');
+const datasetAsset =
+  release.version === 1
+    ? `assets/collected-dataset-${datasetEntry.sha256}.json`
+    : datasetEntry.name;
+let compactEntries = [];
+if (release.version === 2) {
+  const verifier = await createServer({
+    configFile: false,
+    appType: 'custom',
+    logLevel: 'error',
+    server: { middlewareMode: true, watch: null, ws: false },
+  });
+  try {
+    const { verifyCompactDirectory } = await verifier.ssrLoadModule(
+      '/src/pipeline/verify-compact-directory.ts',
+    );
+    const manifest = await verifyCompactDirectory(stagingPath, datasetEntry);
+    const { validateCompactReleaseBinding } = await verifier.ssrLoadModule(
+      '/src/shared/compact-data.ts',
+    );
+    validateCompactReleaseBinding(
+      manifest,
+      release,
+      JSON.parse(await readFile(join(stagingPath, 'baseline.json'), 'utf8')),
+    );
+    if (
+      manifest.archiveSha256 !== release.archiveSha256 ||
+      manifest.policyRevision !== release.policyRevision ||
+      manifest.recordCount !== release.recordCount
+    )
+      throw new Error('Compact release metadata mismatch');
+    compactEntries = manifest.entries;
+  } finally {
+    await verifier.close();
+  }
+}
 // Staging names are local inputs; deployed names must resolve to the actual published files.
 const deployedRelease = {
   ...release,
@@ -80,7 +132,7 @@ const deployedRelease = {
   })),
 };
 const deployedReleaseBytes = Buffer.from(`${JSON.stringify(deployedRelease)}\n`);
-const stagedBytes = release.entries.reduce(
+const stagedBytes = [...release.entries, ...compactEntries].reduce(
   (sum, entry) => sum + entry.byteLength,
   deployedReleaseBytes.length,
 );
@@ -112,7 +164,9 @@ try {
             fileName: datasetAsset,
             source: '',
           });
-          return `import { createPublicationLoader } from '/src/app/publication-loader.ts'; export const demoLoader = createPublicationLoader(import.meta.ROLLUP_FILE_URL_${asset});`;
+          return release.version === 1
+            ? `import { createPublicationLoader } from '/src/app/publication-loader.ts'; export const demoLoader = createPublicationLoader(import.meta.ROLLUP_FILE_URL_${asset});`
+            : `import { createCompactPublicationLoader } from '/src/app/compact-publication-loader.ts'; export const demoLoader = createCompactPublicationLoader(import.meta.ROLLUP_FILE_URL_${asset});`;
         },
       },
     ],
@@ -122,7 +176,8 @@ try {
   // before copying data; an over-budget candidate never becomes the requested site.
   requirePagesSize((await directoryBytes(candidate)) + stagedBytes);
   // Same deployment carries the baseline corresponding to its data, for operator recovery.
-  await verifyOrCopy(files.get('dataset.json'), join(candidate, datasetAsset));
+  await verifyOrCopy(datasetEntry, join(candidate, datasetAsset));
+  for (const entry of compactEntries) await verifyOrCopy(entry, join(candidate, entry.name));
   await verifyOrCopy(files.get('baseline.json'), join(candidate, 'baseline.json'));
   await writeFile(join(candidate, 'release.json'), deployedReleaseBytes, { flag: 'wx' });
 

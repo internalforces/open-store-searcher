@@ -132,3 +132,9 @@ focused GREEN and required full verification. Preserve historical evidence and k
 ## PR #21 descriptor-path follow-up — 2026-09-13
 
 Add a real-build assertion for every descriptor entry file/hash/size and verify the deployed reader against built files. Adapt baseline fixtures to published names, add invalid-path cases. Run RED; rewrite only the published descriptor name and size accounting; align reader path validation. Run focused GREEN and full verification; deliver to the already-open follow-up PR.
+
+## TASK-008 compact-delivery test plan
+
+Follow docs/superpowers/plans/2026-09-14-task-008-compact-delivery.md. Each implementation step
+starts with focused behavior tests, then integration/parity tests. Full verification follows
+focused clean runs. Record exact names/commands in status.md; missing evidence remains open.

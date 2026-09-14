@@ -381,3 +381,21 @@ PR #22 corrects comment 3999130863: deployed release.json now names the actual d
 asset, and the reader rejects stale staging/unsafe/unbound paths. Actual small-site build tests
 verify all descriptor file hashes and sizes. Production dataset size/browser feasibility remains
 unresolved; this descriptor correction cannot make the 2.44 GB dataset deployable.
+
+
+## TASK-008 compact delivery limitations — 2026-09-14
+
+The complete original now fits a functional static research site and loads/searches locally.
+Full-source desktop readiness still takes 48–49 seconds; warm HTTP cache did not prevent almost
+all 198 MB of gzip payload from being transferred again. Sampled browser-process-tree RSS reached
+4.56 GB, including old/new refresh overlap. These are local observations on a 16 GiB Mac, not mobile
+or hosted guarantees. Physical/mobile full-source readiness and memory remain unverified; the
+measured gzip payload alone needs at least 992 seconds at the existing 200,000 B/s lab throughput
+before protocol/CPU costs (arithmetic lower bound, not a measured mobile run).
+
+The pinned macOS full suite retains two native InfoZIP filename/stream failures in unchanged
+`unzip-archive.test.ts`. The recovered local Ubuntu 24.04 ARM64 container passes all 754 tests and the complete browser/
+accessibility suites with one worker. Default parallel WebKit produced two startup flakes; ten
+baseline repetitions did not reproduce them. Preserve that limitation and strict flaky handling.
+Hosted GitHub evidence remains unavailable; historical PR22 CI cannot certify this tree. Required
+policy/bootstrap baseline, 05/06 review, production quality and release gates remain unresolved.

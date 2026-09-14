@@ -14,12 +14,22 @@ the same unreviewed candidate. Missing configuration fails the refresh before an
 The reviewed configuration contains `policy` (`ValidationPolicyV1`), `previousReleaseUrl`
 (the deployed HTTPS `/release.json` URL), and explicit positive integer
 `maxEntryBytes`, `maxTotalRows`, `entryTimeoutMs` resource limits. It contains no credentials.
-Normal runs require exactly one `assets/collected-dataset-<sha256>.json` and one `baseline.json`
-deployed descriptor entry, each with a valid SHA-256 and positive safe integer byte length.
-The dataset path must contain its exact entry digest. Staging descriptors retain `dataset.json`;
-the builder rewrites that name to the existing emitted asset path only in the deployed descriptor. They read the matching baseline from
-the deployed release, check its byte hash and metadata,
-and reread the release descriptor to detect a concurrent replacement. Missing, oversized, malformed
+New accepted staging uses release descriptor version2 with exactly one
+`assets/compact-manifest-<sha256>.json` and one `baseline.json` entry. The manifest declares
+schema 2/identifier 1/normalization 1, archive and policy bindings, total count, ordered-ID digest,
+collection-date metadata, one shared-dictionary asset and contiguous paired search/evidence
+blocks. Every entry binds its role, row start/count, byte length and content-addressed SHA-256.
+Blocks contain at most8192 rows and8MiB; a dictionary cap selects a lossless local fallback.
+Exact raw values, null/empty distinctions, full IDs and original row order survive encoding.
+
+The builder verifies all staged and copied bytes, dictionary references, statuses, complete row
+ranges and global identities. It binds the descriptor's exact collection timestamp (Seoul date),
+manifest coverage and baseline date/count/contract versions/archive/policy before promotion.
+Research manifests may use policyRevision:null, but the publication binding rejects them.
+The manifest's public URL remains digest-addressed in both staging and deployment. The reader
+fetches release→manifest→baseline→release, checking hashes and bindings and rejecting concurrent
+replacement. Legacy version1 deployed descriptors remain readable for migration/recovery; new
+version2 output never includes the legacy dataset asset. Missing, oversized, malformed
 or mismatched deployed state fails without bootstrapping. For the initial run only, an explicitly
 reviewed `baseline` (`ValidationBaselineV1`, `dateBasis: collection`) may be supplied in config
 and selected with `--bootstrap` or the manual workflow's bootstrap input. Bootstrap probes
@@ -39,9 +49,9 @@ node scripts/build-publication.mjs NEW-CANDIDATE-DIRECTORY NEW-SITE-DIRECTORY
 The collector checks source/archive contracts. Every category is strictly decoded and parsed;
 the complete archive is hashed before and after ingestion. The staged validator keeps all
 quality gates and uses an explicitly matching collection-date baseline. An accepted staging
-directory contains the exact hashed dataset, next baseline and release descriptor. Existing
+directory contains the compact assets, next baseline and release descriptor. Existing
 directories are never overwritten. The build consumes the descriptor-bound bytes and emits
-a Vite-managed data asset with a relative URL. Baseline and release metadata accompany the
+digest-addressed data assets and a Worker loader with relative URLs. Baseline and release metadata accompany the
 site for recovery; no source archive, full input rows or credentials enter the public artifact.
 
 The daily attempt is 06:17 Asia/Seoul and may be delayed by GitHub. CI is read-only and cannot
@@ -90,3 +100,20 @@ The measured 2,439,358,850-byte snapshot is rejected. This guard does **not** ma
 snapshot deployable or repair whole-file browser loading. A reviewed compact/static delivery
 design, measured complete-site size and browser evidence remain required before publication.
 Dataset-level attribution uses the whole licensing portal; records retain category-specific sources.
+
+
+## Compact browser behavior and remaining gates
+
+A dedicated Worker fetches the full manifest-defined snapshot independently of search terms and
+clicks. It validates everything before readiness, owns search projections and complete ranked
+ordinal arrays, and materializes Top-3 plus the requested 20-record page only. Dictionary-level
+candidate flags reuse the existing bidirectional name, literal/numeric and address-relevance
+predicates. The entire ordinal space is visited; no candidate or result cap is introduced.
+The UI keeps the accepted Worker while a replacement loads; failure retains its data/search.
+No persistent browser database, backend, telemetry or query-dependent network request is added.
+
+Full-source desktop measurements and exact-round-trip evidence are in
+[compact verification](../reports/test-2026-09-14-compact-delivery.md). The functional research
+site fits the existing 1 GB limit, but the original production policy and baseline remain unapproved.
+Full-source initial readiness, memory requirements and physical/mobile performance are separate
+from the small shell-paint budget. Do not enable publication from these local measurements.

@@ -312,3 +312,23 @@ in [run 34747253199](https://github.com/internalforces/open-store-searcher/actio
 This supersedes the pending Ubuntu state above; both native unzip tests pass on the approved
 runner. The evidence follow-up changes documentation only. No independent release approval,
 production policy, merge of PR #22 or deployment is implied.
+
+
+## TASK-008 compact-delivery final test-quality status — 2026-09-14
+
+Broad Research → Plan → Implement workflow completed for the approved compact codec/producer/
+builder/reader/Worker/store/UI changes. Exact requirement-to-test mapping, production-source
+round-trip, complete search parity, actual browser measurements and limitations are recorded in
+`reports/test-2026-09-14-compact-delivery.md`. Independent review is Approved for code correctness;
+its reproducible source/adversarial comparisons and final lifecycle/binding checks are in the
+linked review report. No quality threshold, budget, test or release gate was weakened.
+
+Final macOS run:752/754 pass; two unchanged native InfoZIP failures. The supported-file coverage
+run passes 747 tests; actual full-source browser/failure/pagination checks pass. Existing e2e 68,
+a11y 20 and performance:check pass. The recovered existing Ubuntu 24.04/Node 24.19.0/npm 11.17.0
+container now passes all 754 tests, lint, format, types, coverage, build and quality checks.
+CI-declared browser prerequisites were installed and Ubuntu browser 68/a11y 20 pass with one
+worker. The first default-parallel WebKit run had two startup flakes and remains a failed strict
+run; no timeout, retry policy or assertion was weakened. Source/config/test hashes 150 match.
+Production/hosted/mobile readiness, reviewed quality baseline and 05/06 status-pair/release gates
+remain open. No overall TASK-008/009/010 completion, commit, push or deployment is claimed.
