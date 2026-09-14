@@ -997,3 +997,85 @@ The user explicitly requested commit and push of the thirteen reviewed correctio
 PR #21 on codex/task-009-010-publication. Earlier local-only notes describe preparation.
 Deliver the descriptor and observed-dataset binding fixes with their tests and evidence;
 current Ubuntu verification remains pending. No merge, deployment or GitHub message is authorized.
+
+
+## Fourth-review CI diagnosis — 2026-09-13
+
+At 7a1dd37, Ubuntu [Verify run 34746030961](https://github.com/internalforces/open-store-searcher/actions/runs/34746030961)
+passed npm run verify:full: 714 tests, 68 browser checks and 20 accessibility checks. This
+supersedes the fourth-review pending Ubuntu verification notes, including the two local Apple
+unzip failures; those tests passed on the approved runner. Independent release gates stay open.
+
+[Observe Seoul quality run 34746029824](https://github.com/internalforces/open-store-searcher/actions/runs/34746029824)
+failed before source collection in both attempt 1 and the diagnostic rerun (attempt 2).
+Both logged UND_ERR_CONNECT_TIMEOUT for file.localdata.go.kr:443 after 10000 ms, followed by
+observation-rejected / http_contract_changed / Provider probe request failed. The observation
+script, workflow and source probe are unchanged from successful a54a499. This demonstrates a
+runner-to-provider connection failure, not a descriptor/hash regression or proof of changed
+provider schema. It does not establish a provider-wide outage. No candidate or production policy
+was produced. No timeout, workflow, acceptance gate or implementation was changed. Further
+observation requires restored connectivity; do not retry indefinitely or waive evidence gates.
+
+Diagnosis records are local and uncommitted. No push or deployment occurred.
+
+
+## CI observation recovery — 2026-09-13
+
+On the user's explicit request to resolve the failed CI, one further diagnostic rerun used the
+unchanged 7a1dd37 commit and existing Ubuntu workflow. Attempt 3 of
+[run 34746029824](https://github.com/internalforces/open-store-searcher/actions/runs/34746029824/attempts/3)
+passed in 14m37s. PR #21 now reports both observe and verify as pass. No code, timeout,
+provider URL, workflow, retry loop, validation threshold or deployment setting was changed.
+
+The local approved probe returned limit 200 and range 206 with a 216,485,056-byte archive;
+the third hosted attempt then collected and processed all 195 categories, 2,940,404 rows and
+894,291,644 CSV bytes with zero parsing errors. The decoded final report matched its logged
+SHA-256 f05984f434ff5553d65e5c22b50bf657e8ec65238be9d7c57c3b144cdd8d3b60.
+All 195 entries are complete and their row sum matches the reported total. Archive SHA-256:
+edb4be5b859ef0a8eaca0cd2a96f58ac82911d3db59775ecf9417d9beabf87ce.
+Dataset: 2,439,752,287 bytes, SHA-256
+c66d90193e6045852b50e1555a00255a65c01cffb5384d314d0057e07b48fe19.
+Processing took 861,234 ms at 2,257,176 KiB peak Node RSS.
+
+This resolves this failed observation run, not all future provider-network reliability.
+Attempts 1/2 remain valid connection-timeout evidence; no permanent outage or code regression
+was established. Validation remains review_required and publicationApproved remains false.
+Production browser/hosting size, reviewed policy/baseline, independent review and release gates
+remain open. No new production data policy, publication or automatic retry behavior was introduced.
+
+
+## Authorized PR #21 merge and follow-up — 2026-09-13
+
+User explicitly requested merging PR #21 and creating a new PR before performing current review
+remediation. PR #21 merged at a33600f after both checks passed on 7a1dd37. The user directed the
+remaining finding to follow-up; this merge is not independent release approval or deployment.
+Reused this worktree on codex/pr21-release-descriptor-followup from origin/main, preserving local
+CI recovery documentation. Create a draft follow-up first, then address comment 3999130863.
+The descriptor must name the existing hash-addressed dataset file without introducing a duplicate
+multi-GB copy or changing the existing application data URL. All production/release gates remain.
+
+
+## PR #22 implementation — 2026-09-13
+
+Created draft PR #22 before implementation as requested. The builder now writes the actual
+hash-addressed dataset path in the deployed descriptor, and the deployed reader validates
+that exact digest-derived path. Public dataset URLs, staging format and data/baseline bytes
+are unchanged; no duplicate dataset is emitted. Real-build binding and unsafe-path regressions
+pass with all 158 focused pipeline tests. Pinned local verify:full passes lint/format/types and
+716 tests but fails the same two unchanged Apple unzip fixtures (718 total). Current Ubuntu
+proof follows delivery. See reports/review-2026-09-13-pr22.md. TASK-008 remains active/incomplete;
+no new production policy, workflow, deployment, independent approval or overall task closure.
+
+Separate local build, both search-quality checks, 68 browser checks and 20 accessibility checks
+passed. Final format and Git whitespace checks passed. Deliver implementation to PR #22 under
+the user's explicit follow-up authorization; no follow-up merge or deployment is authorized.
+
+
+## Ubuntu verification — 2026-09-13
+
+Implementation a192e737471e78619b5d0cf002b5bcf5ce36b6f2 passed Ubuntu npm run verify:full
+in [run 34747253199](https://github.com/internalforces/open-store-searcher/actions/runs/34747253199):
+718 tests, 68 browser checks and 20 accessibility checks. All configured coverage gates passed.
+This supersedes the pending Ubuntu state above; both native unzip tests pass on the approved
+runner. The evidence follow-up changes documentation only. No independent release approval,
+production policy, merge of PR #22 or deployment is implied.

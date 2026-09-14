@@ -207,3 +207,11 @@ FR-13: oversized descriptor and combined-site failures cannot promote a site or 
 output. Dataset-level source attribution covers the complete archive and category links remain
 unchanged. See [PR #21 review remediation](../reports/review-2026-09-13-pr21.md).
 Production size/browser feasibility and TASK-008/009/010 remain incomplete.
+
+
+## PR #22 bounded FR-13 follow-up
+
+The deployed descriptor now points to the actual digest-addressed dataset file. Real-build
+regression verifies each file/hash/length and baseline-reader consumption; path mismatch,
+absolute URL and traversal are rejected. Evidence: reports/review-2026-09-13-pr22.md.
+This advances AC-009-5 evidence without claiming hosted recovery or overall release completion.

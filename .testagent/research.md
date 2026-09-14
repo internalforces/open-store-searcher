@@ -138,3 +138,8 @@ valid hashes/sizes; reject absent/duplicate/extra/malformed entries before basel
 stream-verify observed dataset hash/size before server/browser creation; reject truncated,
 same-size altered, foreign, missing and malformed-binding data without creating a report;
 allow matching bytes and bind successful report evidence to the verified digest.
+
+
+## PR #21 descriptor-path follow-up — 2026-09-13
+
+Two production targets: build-publication.mjs and read-deployed-baseline.ts. The builder emits an immutable hashed asset but copies the staging descriptor unchanged. The reader now validates canonical staging names as if they were deployed paths. Reuse baseline fixtures and actual small-site build tests; specialized test generator tools remain unavailable. Requirements: descriptor entries resolve to actual output files with exact hashes/sizes; existing dataset URL and staging bytes are preserved; deployed reader accepts only the expected digest-derived path and baseline.json, independent of order, rejecting missing, duplicate, unbound and unsafe paths.

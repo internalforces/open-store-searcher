@@ -21,7 +21,11 @@ function fixture() {
         byteLength: Buffer.byteLength(bytes),
         sha256: createHash('sha256').update(bytes).digest('hex'),
       },
-      { name: 'dataset.json', byteLength: 1234, sha256: 'c'.repeat(64) },
+      {
+        name: `assets/collected-dataset-${'c'.repeat(64)}.json`,
+        byteLength: 1234,
+        sha256: 'c'.repeat(64),
+      },
     ],
   };
   const fetcher = vi
@@ -163,6 +167,10 @@ test.each([
   'fractional-bytes',
   'unsafe-bytes',
   'string-bytes',
+  'staging-path',
+  'wrong-digest-path',
+  'absolute-path',
+  'traversal-path',
 ])('rejects %s in the deployed descriptor before reading a baseline', async (kind) => {
   const { release } = fixture();
   const baseline = requireValue(release.entries[0]);
@@ -174,6 +182,13 @@ test.each([
   if (kind === 'duplicate-baseline') entries = [baseline, baseline];
   if (kind === 'extra-entry') entries.push({ ...dataset, name: 'other.json' });
   if (kind === 'unknown-entry') entries[1] = { ...dataset, name: 'other.json' };
+  const paths: Record<string, string> = {
+    'staging-path': 'dataset.json',
+    'wrong-digest-path': `assets/collected-dataset-${'d'.repeat(64)}.json`,
+    'absolute-path': `https://example.org/${dataset.name}`,
+    'traversal-path': `../${dataset.name}`,
+  };
+  if (kind in paths) entries[1] = { ...dataset, name: paths[kind] };
   if (kind === 'null-entry') entries[1] = null;
   if (kind === 'invalid-hash') entries[1] = { ...dataset, sha256: 'invalid' };
   const sizes: Record<string, unknown> = {

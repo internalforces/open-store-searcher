@@ -11,12 +11,13 @@ _Last updated: 2026-09-12_
 
 ## In Progress
 
-PR #21 review correction scope (user-authorized 2026-09-13): the fourth-review descriptor
-and observation binding corrections pass focused local tests. Full local verification has
-712 passes and two known Apple unzip failures; current Ubuntu verification is pending.
-Prior a54a499 passed Ubuntu 692/68/20. These are bounded corrections on the existing branch,
-not activation/completion of another task. Production hosting format remains unresolved;
-see [review evidence](../reports/review-2026-09-13-pr21.md).
+PR #21 was merged on explicit user instruction at a33600f. The user requested a new PR
+before addressing the current review. Bounded follow-up: comment 3999130863, align the deployed
+release descriptor with its existing hash-addressed dataset asset. Preserve dataset/baseline
+bytes, existing public asset URLs, staged input format and all publication/size gates. The bounded correction is complete in PR #22 at a192e73: Ubuntu full verification passed
+718 tests, 68 browser checks and 20 accessibility checks in run 34747253199. PR #22 remains
+a draft for review; production and independent release gates remain open.
+This is follow-up remediation on the existing worktree, not completion of TASK-008/009/010.
 
 TASK-008 is the sole active task for production observation and quality/bootstrap review,
 explicitly resumed by the user on 2026-09-12. Collection-date mode remains authoritative.

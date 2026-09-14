@@ -436,3 +436,22 @@ see [fourth-review evidence](../reports/review-2026-09-13-pr21.md#fourth-review-
 Local full verification still fails two unchanged Apple unzip fixtures (712 pass); current
 Ubuntu evidence and independent release gates remain open. This records bounded corrections,
 not overall TASK-008/009/010 completion. No commit/push or production browser rerun occurred.
+
+
+## PR #21 CI connection incident recovered — 2026-09-13
+
+On explicit user request, diagnostic attempt 3 of observation run 34746029824 passed at unchanged
+7a1dd37. Both observe and verify checks pass. Verified final report hash, all 195 complete categories,
+2,940,404 rows and zero parser errors. See CI observation recovery in the PR #21 review report.
+No implementation/workflow/timeout changes or publication occurred. Overall production/release
+acceptance is separate and remains incomplete; this records only recovery of the failed CI run.
+
+
+## PR #22 bounded descriptor-path correction — 2026-09-13
+
+After user-authorized PR #21 merge and creation of draft PR #22, implemented comment 3999130863
+at a192e73. Deployed descriptor entries resolve to actual hashed dataset/baseline files; strict
+reader path validation and real-build file/hash/size checks pass. Ubuntu verification passes
+718/68/20 in run 34747253199. See reports/review-2026-09-13-pr22.md. This completes bounded
+review remediation only; TASK-008/009/010, actual-data size/browser and independent release gates
+remain open. PR #22 remains a draft for review; no follow-up merge or deployment was requested.

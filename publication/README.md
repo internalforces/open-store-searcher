@@ -14,8 +14,10 @@ the same unreviewed candidate. Missing configuration fails the refresh before an
 The reviewed configuration contains `policy` (`ValidationPolicyV1`), `previousReleaseUrl`
 (the deployed HTTPS `/release.json` URL), and explicit positive integer
 `maxEntryBytes`, `maxTotalRows`, `entryTimeoutMs` resource limits. It contains no credentials.
-Normal runs require exactly one dataset.json and one baseline.json descriptor entry, each with
-a valid SHA-256 and positive safe integer byte length. They read the matching baseline from
+Normal runs require exactly one `assets/collected-dataset-<sha256>.json` and one `baseline.json`
+deployed descriptor entry, each with a valid SHA-256 and positive safe integer byte length.
+The dataset path must contain its exact entry digest. Staging descriptors retain `dataset.json`;
+the builder rewrites that name to the existing emitted asset path only in the deployed descriptor. They read the matching baseline from
 the deployed release, check its byte hash and metadata,
 and reread the release descriptor to detect a concurrent replacement. Missing, oversized, malformed
 or mismatched deployed state fails without bootstrapping. For the initial run only, an explicitly

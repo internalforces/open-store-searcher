@@ -292,3 +292,23 @@ UTF-8 length preservation for same-size edits, and exact verified hash/size in a
 No weak success-only assertions or uncovered requested behavior found in self-review. Full local
 verification reaches 712 passes and two unchanged Apple unzip failures; current Ubuntu proof is
 pending. Exact requirements/test names are in the fourth-review section of the PR #21 report.
+
+
+## PR #22 descriptor-path assertion review
+
+Focused 158 tests passed after four RED failures. Real-build regression reads and hashes each
+emitted descriptor entry, consumes the built descriptor through the actual deployed reader,
+checks unchanged staging names and rejects duplicate dataset output. Path corruption cases
+assert rejection before baseline requests. Existing size/integrity/preservation tests pass.
+Self-review found no missing requested behavior. Full current Ubuntu verification is pending;
+see reports/review-2026-09-13-pr22.md. No independent approval or production readiness claim.
+
+
+## Ubuntu verification — 2026-09-13
+
+Implementation a192e737471e78619b5d0cf002b5bcf5ce36b6f2 passed Ubuntu npm run verify:full
+in [run 34747253199](https://github.com/internalforces/open-store-searcher/actions/runs/34747253199):
+718 tests, 68 browser checks and 20 accessibility checks. All configured coverage gates passed.
+This supersedes the pending Ubuntu state above; both native unzip tests pass on the approved
+runner. The evidence follow-up changes documentation only. No independent release approval,
+production policy, merge of PR #22 or deployment is implied.
