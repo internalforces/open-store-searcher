@@ -1,0 +1,39 @@
+{
+  "recordCount": 2939947,
+  "source": {
+    "sha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+    "byteLength": 2439358850
+  },
+  "manifestSha256": "62268597c93c053feaa728dcb43e77d6bb1ff395ef815d51aef9eeac63a88943",
+  "results": [
+    {
+      "query": "강남구",
+      "completeSimilarCount": 322339,
+      "rankedFieldsSha256": "0bea25a441548607701e10fc12fb3c1501fbc98aca6826ea3c67b30f7d11694a",
+      "eligibleCount": 0,
+      "allFieldsEqual": true
+    },
+    {
+      "query": "스타벅스",
+      "completeSimilarCount": 1275,
+      "rankedFieldsSha256": "a90f12e97de5fa87682463b94ce569991f9c15efd5d1c2ff1e826c1ad008746f",
+      "eligibleCount": 0,
+      "allFieldsEqual": true
+    },
+    {
+      "query": "테헤란로 123",
+      "completeSimilarCount": 32248,
+      "rankedFieldsSha256": "4ba6721c30451b371995398428e2439381f71957d7383430b51920315dc86aa7",
+      "eligibleCount": 0,
+      "allFieldsEqual": true
+    },
+    {
+      "query": "龘靐齉爩",
+      "completeSimilarCount": 0,
+      "rankedFieldsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "eligibleCount": 0,
+      "allFieldsEqual": true
+    }
+  ],
+  "publicationApproved": false
+}

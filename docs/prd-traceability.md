@@ -215,3 +215,16 @@ The deployed descriptor now points to the actual digest-addressed dataset file. 
 regression verifies each file/hash/length and baseline-reader consumption; path mismatch,
 absolute URL and traversal are rejected. Evidence: reports/review-2026-09-13-pr22.md.
 This advances AC-009-5 evidence without claiming hosted recovery or overall release completion.
+
+
+## TASK-008 compact delivery evidence — 2026-09-14
+
+FR-02/03/07/12: Worker-owned projections, unchanged scoring and complete ranked references return
+Top-3/full counts/uncertainty and requested pages. Full-source district/name/address/absent oracle
+parity, source-corpus 100-query parity and lifecycle tests are linked in
+[compact verification](../reports/test-2026-09-14-compact-delivery.md).
+FR-08/14: exact raw status/date evidence, collection uncertainty and matching baseline dates persist.
+FR-13: manifest/block hashes, versions, references, complete ranges and global IDs fail closed;
+staging/build failures preserve prior-good output and copied-site size remains enforced.
+Privacy: query/page actions generate no data requests; no persistent database or service is added.
+Local source feasibility improves; TASK-008/009/010 and production/release acceptance remain open.

@@ -7,16 +7,22 @@ export function SearchResults({
   result,
   coverage,
   synthetic = false,
+  onPage,
+  busy = false,
 }: {
-  result: SearchResult<DisplayRecord>;
+  result: SearchResult<DisplayRecord> & { page?: number };
+  onPage?: (page: number) => void;
+  busy?: boolean;
   coverage: Coverage;
   synthetic?: boolean;
 }) {
-  const [page, setPage] = useState(0);
+  const [localPage, setLocalPage] = useState(0);
+  const page = result.page ?? localPage;
+  const setPage = (page: number) => (onPage ? onPage(page) : setLocalPage(page));
   const heading = useRef<HTMLHeadingElement>(null);
   const previousPage = useRef(0);
   const pageSize = 20;
-  const total = result.similarCandidates.length;
+  const total = result.similarCount;
   const lastPage = Math.max(0, Math.ceil(total / pageSize) - 1);
   const start = page * pageSize;
   useLayoutEffect(() => {
@@ -79,22 +85,26 @@ export function SearchResults({
                 {page + 1}/{lastPage + 1}페이지
               </p>
               <nav aria-label="유사 후보 페이지">
-                <button type="button" disabled={page === 0} onClick={() => setPage(0)}>
+                <button type="button" disabled={busy || page === 0} onClick={() => setPage(0)}>
                   처음 페이지
                 </button>
-                <button type="button" disabled={page === 0} onClick={() => setPage(page - 1)}>
+                <button
+                  type="button"
+                  disabled={busy || page === 0}
+                  onClick={() => setPage(page - 1)}
+                >
                   이전 페이지
                 </button>
                 <button
                   type="button"
-                  disabled={page === lastPage}
+                  disabled={busy || page === lastPage}
                   onClick={() => setPage(page + 1)}
                 >
                   다음 페이지
                 </button>
                 <button
                   type="button"
-                  disabled={page === lastPage}
+                  disabled={busy || page === lastPage}
                   onClick={() => setPage(lastPage)}
                 >
                   마지막 페이지
@@ -103,7 +113,10 @@ export function SearchResults({
             </div>
           )}
           <ul className="candidate-list" aria-labelledby="similar-heading">
-            {result.similarCandidates.slice(start, start + pageSize).map((match, index) => (
+            {(onPage
+              ? result.similarCandidates
+              : result.similarCandidates.slice(start, start + pageSize)
+            ).map((match, index) => (
               <li key={match.record.id} aria-posinset={start + index + 1} aria-setsize={total}>
                 <ResultCard
                   key={match.record.id}

@@ -1,3 +1,4 @@
+import { useCompactData } from './use-compact-data.js';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { DisplayDataset } from './display-data.js';
 import { prepareDisplayData } from './prepare-display-data.js';
@@ -7,6 +8,7 @@ export interface DisplayLoader {
   readonly sourceLabel: string;
   readonly sourceUrl: string | null;
   readonly kind: 'synthetic' | 'source';
+  readonly compactUrl?: string;
   /** Date semantics known before loading; never supplies a date or freshness evidence. */
   readonly dateBasis?: 'collection' | 'coverage';
   readonly load: (signal?: AbortSignal) => Promise<unknown>;
@@ -19,6 +21,8 @@ interface Snapshot {
 }
 
 export function useDisplayData(source: DisplayDataset | DisplayLoader) {
+  const compact = useCompactData('compactUrl' in source ? (source.compactUrl ?? null) : null);
+  const isCompact = 'compactUrl' in source && !!source.compactUrl;
   const initial = useMemo<Snapshot>(() => {
     if ('load' in source) return { source, prepared: null, phase: 'loading', loadedAt: null };
     try {
@@ -33,6 +37,7 @@ export function useDisplayData(source: DisplayDataset | DisplayLoader) {
   const current = snapshot.source === source ? snapshot : initial;
   // biome-ignore lint/correctness/useExhaustiveDependencies: attempt intentionally starts a new explicit retry.
   useEffect(() => {
+    if (isCompact) return;
     if (!('load' in source)) {
       setSnapshot(initial);
       return;
@@ -63,9 +68,19 @@ export function useDisplayData(source: DisplayDataset | DisplayLoader) {
       controller.abort();
       busy.current = false;
     };
-  }, [source, initial, attempt]);
+  }, [source, initial, attempt, isCompact]);
+  if (isCompact)
+    return {
+      ...compact,
+      prepared: compact.dataset
+        ? { dataset: compact.dataset, excludedCount: 0, index: undefined }
+        : null,
+    };
   return {
     ...current,
+    searchAvailable: !!current.prepared,
+    search: undefined,
+    page: undefined,
     reload: () => {
       if (!('load' in source) || busy.current) return;
       busy.current = true;

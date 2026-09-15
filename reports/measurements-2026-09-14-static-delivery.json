@@ -1,0 +1,244 @@
+{
+  "kind": "research-feasibility-package",
+  "productionApproved": false,
+  "productionSiteMeasured": false,
+  "source": {
+    "sha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+    "byteLength": 2439358850,
+    "recordCount": 2939947,
+    "orderedIdsSha256": "ae6597150d357ab703df0358c22d9a1b63334ec6c8f2015551cd5b87138acf34",
+    "adjacentDescendingPublicIds": 1469700
+  },
+  "variants": {
+    "tuples": {
+      "bytes": 1442830518,
+      "gzipBytes": 229978011,
+      "searchBytes": 606481661,
+      "evidenceBytes": 836348857
+    },
+    "dictionary-tuples": {
+      "bytes": 724908396,
+      "gzipBytes": 218774046,
+      "searchBytes": 509676371,
+      "evidenceBytes": 215232025
+    },
+    "dictionary-columns": {
+      "bytes": 713303684,
+      "gzipBytes": 202945621,
+      "searchBytes": 503814379,
+      "evidenceBytes": 209489305
+    }
+  },
+  "shared": {
+    "kind": "research-only-shared-evidence-profile",
+    "sourceSha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+    "fields": [
+      {
+        "field": "categoryName",
+        "selected": false,
+        "distinct": 172,
+        "localColumnBytes": 5912807,
+        "sharedCandidateBytes": 8942138,
+        "dictionaryEntriesBuilt": 172
+      },
+      {
+        "field": "businessTypes",
+        "selected": true,
+        "distinct": 8217,
+        "localColumnBytes": 12547692,
+        "sharedCandidateBytes": 10974049,
+        "dictionaryEntriesBuilt": 8217
+      },
+      {
+        "field": "rawStatus.operatingCode",
+        "selected": true,
+        "distinct": 6,
+        "localColumnBytes": 5895429,
+        "sharedCandidateBytes": 5887464,
+        "dictionaryEntriesBuilt": 6
+      },
+      {
+        "field": "rawStatus.operatingName",
+        "selected": true,
+        "distinct": 6,
+        "localColumnBytes": 5911646,
+        "sharedCandidateBytes": 5887537,
+        "dictionaryEntriesBuilt": 6
+      },
+      {
+        "field": "rawStatus.detailedCode",
+        "selected": false,
+        "distinct": 56,
+        "localColumnBytes": 5922555,
+        "sharedCandidateBytes": 8779119,
+        "dictionaryEntriesBuilt": 56
+      },
+      {
+        "field": "rawStatus.detailedName",
+        "selected": false,
+        "distinct": 61,
+        "localColumnBytes": 5926491,
+        "sharedCandidateBytes": 7212843,
+        "dictionaryEntriesBuilt": 61
+      },
+      {
+        "field": "processedStatus",
+        "selected": true,
+        "distinct": 4,
+        "localColumnBytes": 5905345,
+        "sharedCandidateBytes": 5887493,
+        "dictionaryEntriesBuilt": 4
+      },
+      {
+        "field": "lifecycle.licensedOn",
+        "selected": true,
+        "distinct": 20601,
+        "localColumnBytes": 28592039,
+        "sharedCandidateBytes": 15072184,
+        "dictionaryEntriesBuilt": 20601
+      },
+      {
+        "field": "lifecycle.licenseCancelledOn",
+        "selected": true,
+        "distinct": 4493,
+        "localColumnBytes": 6033513,
+        "sharedCandidateBytes": 6012748,
+        "dictionaryEntriesBuilt": 4493
+      },
+      {
+        "field": "lifecycle.suspendedFrom",
+        "selected": false,
+        "distinct": 4978,
+        "localColumnBytes": 6034606,
+        "sharedCandidateBytes": 8582225,
+        "dictionaryEntriesBuilt": 4978
+      },
+      {
+        "field": "lifecycle.suspendedThrough",
+        "selected": false,
+        "distinct": 3810,
+        "localColumnBytes": 6007927,
+        "sharedCandidateBytes": 8559664,
+        "dictionaryEntriesBuilt": 3810
+      },
+      {
+        "field": "lifecycle.reopenedOn",
+        "selected": false,
+        "distinct": 3205,
+        "localColumnBytes": 5975110,
+        "sharedCandidateBytes": 7779735,
+        "dictionaryEntriesBuilt": 3205
+      },
+      {
+        "field": "lifecycle.closedOn",
+        "selected": true,
+        "distinct": 14245,
+        "localColumnBytes": 22584274,
+        "sharedCandidateBytes": 11144047,
+        "dictionaryEntriesBuilt": 14245
+      },
+      {
+        "field": "lifecycle.sourceUpdatedAt",
+        "selected": false,
+        "distinct": 54731,
+        "localColumnBytes": 13172871,
+        "sharedCandidateBytes": 16348810,
+        "dictionaryEntriesBuilt": 54731
+      },
+      {
+        "field": "lifecycle.sourceLastModifiedAt",
+        "selected": false,
+        "distinct": 2313024,
+        "localColumnBytes": 61184581,
+        "sharedCandidateBytes": null,
+        "dictionaryEntriesBuilt": 0
+      },
+      {
+        "field": "sourceLabel",
+        "selected": true,
+        "distinct": 1,
+        "localColumnBytes": 5895331,
+        "sharedCandidateBytes": 5887811,
+        "dictionaryEntriesBuilt": 1
+      },
+      {
+        "field": "sourceUrl",
+        "selected": false,
+        "distinct": 172,
+        "localColumnBytes": 5922609,
+        "sharedCandidateBytes": 8945227,
+        "dictionaryEntriesBuilt": 172
+      }
+    ],
+    "evidenceBytes": 182877543,
+    "evidenceGzipBytes": 30886846,
+    "searchBytes": 503814379,
+    "totalDataBytes": 686691922,
+    "totalDataGzipBytes": 198292818,
+    "exactEvidenceValueComparisons": 49979099,
+    "elapsedMs": 15172,
+    "peakRssKiB": 284032
+  },
+  "index": {
+    "kind": "research-only-exact-postings-profile",
+    "source": {
+      "sha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+      "byteLength": 2439358850,
+      "recordCount": 2939947,
+      "orderedIdsSha256": "ae6597150d357ab703df0358c22d9a1b63334ec6c8f2015551cd5b87138acf34",
+      "adjacentDescendingPublicIds": 1469700
+    },
+    "rows": 2939947,
+    "elapsedMs": 39711,
+    "peakRssKiB": 1520464,
+    "indexes": [
+      {
+        "kind": "exact-name",
+        "distinct": 1691936,
+        "postings": 2938742,
+        "maxPosting": 1671,
+        "bytes": 67586541,
+        "gzipBytes": 24269249,
+        "sha256": "b66c578d8df5cb53a9288a0cfa4665a991f36d22c20d3b52640d90326c722301"
+      },
+      {
+        "kind": "exact-address-key",
+        "distinct": 2028222,
+        "postings": 5050106,
+        "maxPosting": 10486,
+        "bytes": 184624293,
+        "gzipBytes": 33819739,
+        "sha256": "5753b12ca7c6fc8d3af41a02b620be1553fc6bc5fedf0ec2ec23429b32c4fbc7"
+      }
+    ],
+    "completeRetrieval": false,
+    "substringStrategy": "No added substring postings; complete local scan remains required. Scanning distinct normalized keys can reduce repeated name comparisons without dropping containment in either direction; component-address relevance still needs a complete fallback."
+  },
+  "researchSiteBytes": 687009428,
+  "researchSiteFileCount": 727,
+  "shellBytes": 55211,
+  "manifestBytes": 118489,
+  "observationBytes": 143806,
+  "siteLimitBytes": 1000000000,
+  "remainingResearchSiteBytes": 312990572,
+  "siteWithOptionalExactIndexesBytes": 939220262,
+  "sourceHashRecheckedAfterProfiling": true,
+  "researchScriptHashes": {
+    ".testagent/static-delivery-research/index-profile.mjs": "23b41757078210e0050d94e5b90f73b7708c63243dbdc3cd178c8913df2f91d9",
+    ".testagent/static-delivery-research/profile.mjs": "b56cfd715b1e445dd04eb2d5f6e0668ff865f9abfda112d413b1580112e1cfdf",
+    ".testagent/static-delivery-research/shared-profile.mjs": "d8f83536bd22d6eb677e4d611c76d5d7c1d19cae79a8f3ecf7c6c165818ab58e",
+    ".testagent/static-delivery-research/package-evidence.py": "084c83d81d7c7792304a5d2e330c8c199b93e450e3396b8e2b8f72cd7bf29fa6"
+  },
+  "engineHashes": {
+    "src/search/search-candidates.ts": "736711b737a1f661c9a80b4e7a370affb7ff5b8b7e62153e0b53098a7adf5f5d",
+    "src/search/prepare-search-query.ts": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+    "src/search/compare-search-address.ts": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942"
+  },
+  "limitations": [
+    "Research site includes the existing demo shell and receipt, not a Worker-enabled production shell or accepted baseline.",
+    "Gzip totals are real gzipSync/createGzip outputs, not a measured Pages Content-Encoding or browser transfer.",
+    "No complete-source browser readiness, search latency, pagination or refresh overlap measurement before design approval.",
+    "Research scripts were formatted and local-variable names cleaned after execution; serialization/scoring behavior unchanged.",
+    "Shared-profile cardinality labels corrected to distinguish source cardinality from built dictionary entries; encoded files and measured sizes unchanged."
+  ]
+}

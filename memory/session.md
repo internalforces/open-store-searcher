@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-09-04_
+_Last updated: 2026-09-14_
 
 ## Current TASK-008 Session
 
@@ -1079,3 +1079,147 @@ in [run 34747253199](https://github.com/internalforces/open-store-searcher/actio
 This supersedes the pending Ubuntu state above; both native unzip tests pass on the approved
 runner. The evidence follow-up changes documentation only. No independent release approval,
 production policy, merge of PR #22 or deployment is implied.
+
+## Static delivery analysis — 2026-09-14
+
+User requested current-structure and remediation analysis only. Inspected producer, publication
+builder/descriptor, loader/preparation, candidate engine and pagination at e8f8c92. Confirmed
+whole-file JSON loading, duplicate publication index preparation, full scans and whole similar
+result retention. Proposed measured lossless compact JSON blocks, Worker-owned local search
+and complete retrieval semantics; no design or public contract was adopted. Details and
+acceptance sequence: reports/analysis-2026-09-14-static-delivery.md. Production compaction and
+performance remain unmeasured; quality/baseline gates remain independent. No tests, source,
+dependency, workflow or deployment changed. PR #22 was observed merged with successful CI
+in the preceding GitHub status assessment; earlier draft wording is superseded. TASK-008
+remains active; no task was completed, commit made or push performed by this analysis.
+
+
+## TASK-008 static delivery preparation — 2026-09-14
+
+User requested implementation after complete-source feasibility measurements and delivery-design
+approval. Reused task013-quality; verified PR #22 merged as 81a1441 and HEAD e8f8c92 is an
+ancestor with identical tracked contents. Preserved existing analysis/session changes and the
+original checkout. Inspected producer, builder, baseline reader, browser preparation and scoring.
+No complete Seoul dataset/archive was located in searched local paths; GitHub artifacts total
+is zero and the observation workflow does not upload the dataset. Asked for an accessible
+existing snapshot location. Recorded hashes remain historical, not locally verified.
+
+See reports/feasibility-2026-09-14-static-delivery.md for evidence, measurement protocol and
+coordinated migration boundaries. Format selection, actual profiling, Worker implementation and
+performance verification await source access and subsequent required design approval. No source
+or contract changes; no tests, commit, push or deployment. TASK-008 remains active/incomplete;
+TASK-009/010, status-pair review and all production/release gates remain open.
+
+User then directed a Git check. Fetched origin and inspected all reachable branches/history:
+no dataset.json/observation.json; only three fixture ZIPs; largest blob 835,016 bytes. GitHub
+releases are empty. The complete-source search fixture is not a complete Seoul dataset and
+was not substituted. Source access remains blocked; format selection remains unapproved.
+
+## Original snapshot transfer follow-up
+
+User supplied Gmail/Drive source links and approved the large-file download notice. Retrieved
+Downloads/observation.json (143806 bytes; SHA-256
+aea7b04eaa936be4b8eb08144bb92ef7f3875a780a278f517903927ccdbea302); its validation and
+dataset binding exactly match recorded evidence. Dataset download returned ERR_BLOCKED_BY_CLIENT;
+Browser policy also denied the download-status page. Requested user-completed download; no
+workaround or security setting change. Dataset hash and full-source measurements remain pending.
+TASK-008 stays active; implementation/design approval and TASK-009/010/release gates remain open.
+
+## TASK-008 full-source feasibility and proposed delivery design
+
+The user completed the dataset download. Verified the original 2,439,358,850-byte source SHA-256
+34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc before and after profiling.
+Full-source Node 24.19.0 research measurements compare tuples, local dictionary tuples/columns
+and selectively shared evidence dictionaries. Recommended candidate data: 686,691,922 bytes;
+actual gzip output: 198,292,818 bytes. Research site with current shell/manifest/observation:
+687,009,428 bytes. Optional exact postings add 252,210,834 bytes and do not prove completeness.
+
+Passed 8,819,841 exact record reconstructions, 49,979,099 shared evidence comparisons, unique
+full-ID/count checks, component hashes and original-order ID hashing. Original row order is not
+lexical public-ID order; preserve both original order and independent lexical ranking ties.
+Research memory/timings are not browser benchmarks. Mobile download remains a material constraint.
+
+Proposed design: docs/superpowers/specs/2026-09-14-task-008-compact-delivery-design.md. Evidence:
+reports/feasibility-2026-09-14-static-delivery.md and measurements-2026-09-14-static-delivery*.json.
+Only research scripts and English documentation added/updated; no production codec/Worker implemented.
+Required delivery/public-interface design approval is pending. TASK-008 remains active; TASK-009/010,
+05/06 review, baseline/quality and all release gates remain open. No commit/push/deployment.
+
+
+## TASK-008 authorized compact implementation — 2026-09-14
+
+The user explicitly approved continuation of the measured compact-delivery design. Implementation stays in
+`.worktrees/task013-quality` on `codex/pr21-release-descriptor-followup`; HEAD e8f8c92 has the same
+tracked tree as merged PR #22 / 81a1441. Existing edits remain intact. No commits, pushes, merges,
+deployments, dependency additions or repository-setting changes are authorized in this continuation.
+
+Implemented the bounded three-pass lossless codec, strict manifest/block validation, compact-v 2
+accepted staging and builder, matching deployed-baseline reader, Worker-owned search preparation,
+compact ranked references and visible-page UI protocol. Legacy observation bytes remain an oracle;
+new accepted sites contain only compact replacement assets. Dataset replacement keeps the accepted
+Worker until the entire new candidate validates and prepares. The release descriptor retains the
+exact collection timestamp; its validated Seoul date must equal manifest coverage and baseline date,
+and baseline/archive/policy/count bindings are checked together.
+
+Production codec research on the hash-verified original reconstructed all 2,939,947 records exactly,
+including raw evidence, full IDs and original order. Data plus manifest: 688,433,397 bytes, actual
+per-file gzip 198,433,476 bytes; conversion+readback/round-trip 168,269 ms; Node max RSS 750,764,032
+bytes. This is research with policyRevision=null, not a publication-approved baseline or release.
+Artifacts remain outside the repository at `/private/tmp/seoul-compact-production-20260914`.
+
+First complete-source browser experiment exposed timer-clamping and repeated scoring costs. It is
+superseded for final latency claims by the ongoing optimized rerun. Initial cold readiness 77.6 s,
+search 8–12 s, pagination 59 ms, and refresh-overlap browser-process-tree RSS 4.51 GB did not establish
+performance feasibility. No budget was relaxed. Worker scheduler yielding and a completeness-proven
+projection filter now reuse the oracle predicates and retain a full ordinal scan and complete ranks.
+
+Pinned Node 24.19.0/npm 11.17.0 unit+component 371 pass; standard browser 68 and accessibility 20 pass.
+The first full coverage run found two known native macOS InfoZIP failures and an application search
+announcement-count regression; the latter was fixed and focused tests pass. Final coverage and real
+browser measurements are ongoing. `.testagent/compact-review.md` records independent code review,
+source-corpus 100-query/695-page parity and additional conflicting/literal adversarial parity.
+
+TASK-008 remains active. TASK-009/010, 05/06 status-pair review, real quality policy/bootstrap baseline,
+Ubuntu verification of this uncommitted tree and all release gates remain incomplete. The earlier
+session's commit/push approvals concern historical work, not this continuation.
+
+
+### Final compact-delivery evidence
+
+Implementation and review are complete for the approved bounded scope. Full-source exact codec
+round-trip covers 2,939,947 rows. Complete-source district/name/address/absent search ranks match
+the old engine on every result and page. The optimized functional site is 688,506,488 bytes;
+observed desktop searches 241–494ms, initial readiness 48–49s, next page 52–57ms, and sampled
+browser-tree RSS maximum 4,555,177,984 bytes. Failed candidate refresh retained accepted search.
+
+Final macOS tests:752/754 pass, with two unchanged native InfoZIP failures; coverage excluding
+that seven-test file passes 747. Standard e2e 68, a11y 20, quality and performance budgets pass.
+The existing Ubuntu 24.04 ARM64 research container was recovered and an isolated source copy
+verified against 150 source/test/configuration hashes. Ubuntu lint/format/types/coverage/build/
+quality and all 754 tests pass. Default-parallel browser execution had two WebKit startup flakes;
+baseline 10 repetitions did not reproduce them. Same unchanged assertions with one worker pass
+all 68 browser and 20 accessibility tests. Strict flaky handling remains enabled, and the initial
+parallel failure is not erased or called a clean full-command pass. Hosted GitHub verification
+remains distinct. The container was returned to stopped state; its new test directory is retained.
+
+See reports/test-2026-09-14-compact-delivery.md and reports/review-2026-09-14-compact-delivery.md.
+No need to re-measure from synthetic fixtures or re-request design approval. TASK-008 remains
+active only for its separate production/mobile/hosted and policy/baseline/05/06/release gates;
+TASK-009/010 are not complete. No commit/push/merge/deploy/security-setting change occurred.
+
+
+### Compact-delivery PR preparation
+
+The user explicitly authorized commit, push and PR creation on 2026-09-14. The existing
+`.worktrees/task013-quality` worktree and all implementation changes are preserved on
+`codex/task-008-compact-delivery`. Fresh origin inspection confirms main is merged PR #22
+(`81a14418ede4158ffc2306dc862a01ca761c3f85`) and its tracked tree equals the prior branch HEAD.
+Before committing, all 150 source/test/configuration hashes matched the verified Ubuntu copy;
+`npm test` passed all 754 tests across 43 files again on pinned Node 24.19.0/npm 11.17.0.
+Prepare a draft PR against main with the measured readiness/memory and platform limitations.
+This delivery authorization does not close TASK-008/009/010 or authorize merge or deployment.
+
+Implementation commit `3779200` is pushed on `codex/task-008-compact-delivery`. Draft
+[PR #23](https://github.com/internalforces/open-store-searcher/pull/23) targets main and records
+the verification evidence and remaining limits. Hosted CI is pending at this handoff. The Ubuntu
+research container has been returned to its prior stopped state; the worktree is retained.

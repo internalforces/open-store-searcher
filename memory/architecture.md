@@ -352,3 +352,25 @@ entry name to its existing digest-addressed assets/collected-dataset-<sha256>.js
 accounts for the deployed descriptor size. The deployed reader accepts only this digest-bound
 path plus baseline.json. Public dataset URLs and payload bytes are unchanged; no duplicate
 asset is emitted. See reports/review-2026-09-13-pr22.md for real-build binding evidence.
+
+
+## TASK-008 compact delivery — accepted 2026-09-14
+
+Accepted staging now emits a release-v2 descriptor, matching baseline, digest-addressed manifest
+and lossless search/evidence JSON column blocks with bounded local/shared dictionaries. A shared
+codec connects the bounded producer, builder verifier, deployed-baseline reader and Worker loader.
+The existing external-sort/global validation and observation-only legacy oracle remain intact.
+The builder validates complete bindings and logical site size, checks copied bytes, and promotes
+only its own complete sibling candidate. New sites contain no legacy dataset replacement duplicate.
+
+`useCompactData` owns at most an accepted and candidate Worker. Worker-side loading performs all
+integrity/global-ID checks; `CompactSearch` owns the one projection preparation, complete ordinal
+ranks and page materialization. Query candidate flags are a completeness-proven superset of the
+unchanged scoring engine's non-null predicate; all ordinals are scanned. Scheduler yielding is
+feature-detected, with cancellable timer fallback. Worker/protocol generations and request IDs
+prevent obsolete results from replacing accepted data. Exact collection time stays in the release;
+its Seoul date is bound to manifest metadata and the versioned baseline.
+
+This changes delivery contracts under explicit user approval, without adding infrastructure,
+dependencies, status mappings, ID formats, browser databases or query/click-driven fetches.
+See docs/superpowers/specs/2026-09-14-task-008-compact-delivery-design.md and the verification report.

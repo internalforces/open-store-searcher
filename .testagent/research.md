@@ -143,3 +143,11 @@ allow matching bytes and bind successful report evidence to the verified digest.
 ## PR #21 descriptor-path follow-up — 2026-09-13
 
 Two production targets: build-publication.mjs and read-deployed-baseline.ts. The builder emits an immutable hashed asset but copies the staging descriptor unchanged. The reader now validates canonical staging names as if they were deployed paths. Reuse baseline fixtures and actual small-site build tests; specialized test generator tools remain unavailable. Requirements: descriptor entries resolve to actual output files with exact hashes/sizes; existing dataset URL and staging bytes are preserved; deployed reader accepts only the expected digest-derived path and baseline.json, independent of order, rejecting missing, duplicate, unbound and unsafe paths.
+
+## TASK-008 compact-delivery test research
+
+Broad scope: shared codec, bounded producer, builder/baseline reader, Worker store/client and UI.
+Existing Vitest unit/pipeline/component projects and Playwright browser/a11y matrix are authoritative.
+Preserve prior test records. Acceptance inventory: exact evidence/IDs/order/counts; missing/corrupt/
+mixed/incomplete blocks; global identity; prior-output and accepted-snapshot preservation; full
+search parity; stale/cancel/retry/crash; query-independent requests; full-source performance.

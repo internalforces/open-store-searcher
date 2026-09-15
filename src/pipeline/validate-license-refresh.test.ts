@@ -1,3 +1,5 @@
+import { loadCompactSnapshot } from '../shared/load-compact-data.js';
+import { columnValue, materializeRecord } from '../shared/compact-data.js';
 import { createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -27,6 +29,43 @@ import {
   type ValidationBaselineV1,
 } from './validate-license-refresh.js';
 
+async function stagedNames(directory: string): Promise<string[]> {
+  const entries = await readdir(directory, { withFileTypes: true });
+  return (
+    await Promise.all(
+      entries.map(async (entry) =>
+        entry.isDirectory()
+          ? (await stagedNames(join(directory, entry.name))).map((name) => `${entry.name}/${name}`)
+          : [entry.name],
+      ),
+    )
+  )
+    .flat()
+    .sort();
+}
+async function restoredDataset(directory: string) {
+  const descriptor = JSON.parse(await readFile(join(directory, 'release.json'), 'utf8'));
+  const entry = descriptor.entries.find((e: { name: string }) => e.name !== 'baseline.json');
+  const snapshot = await loadCompactSnapshot(
+    await readFile(join(directory, entry.name)),
+    entry.sha256,
+    (name) => readFile(join(directory, name)),
+  );
+  const search = snapshot.blocks.filter((b) => b.role === 'search');
+  const evidence = snapshot.blocks.filter((b) => b.role === 'evidence');
+  return {
+    ...snapshot.manifest.metadata,
+    records: search.flatMap((b, index) =>
+      Array.from({ length: b.count }, (_, row) =>
+        materializeRecord(
+          [...b.columns, ...requireValue(evidence[index]).columns].map((c) =>
+            columnValue(c, row, snapshot.dictionaries),
+          ),
+        ),
+      ),
+    ),
+  };
+}
 // TASK-008 synthetic rows and test-only limits. Update only with reviewed contract changes.
 const contract = parseArchiveContract(
   JSON.parse(
@@ -764,16 +803,13 @@ describe('TASK-009 collection-date publication', () => {
       const output = join(root, 'release');
       const input = collectedFixture();
       await stageValidatedRelease(input, output);
-      expect((await readdir(output)).sort()).toEqual([
-        'baseline.json',
-        'dataset.json',
-        'release.json',
-      ]);
-      const before = await readFile(join(output, 'dataset.json'));
+      expect((await readdir(output)).sort()).toEqual(['assets', 'baseline.json', 'release.json']);
+      const names = await stagedNames(output);
+      const before = await Promise.all(names.map((name) => readFile(join(output, name))));
       await expect(stageValidatedRelease(input, output)).rejects.toThrow('already exists');
       delete input.policy;
       await expect(stageValidatedRelease(input, output)).rejects.toThrow('Publication blocked');
-      expect(await readFile(join(output, 'dataset.json'))).toEqual(before);
+      expect(await Promise.all(names.map((name) => readFile(join(output, name))))).toEqual(before);
       expect(await readdir(root)).toEqual(['release']);
     } finally {
       await rm(root, { recursive: true, force: true });
@@ -801,12 +837,12 @@ describe('TASK-009 collection-date publication', () => {
       await promisify(execFile)(process.execPath, ['scripts/build-publication.mjs', output, site]);
       const assets = await readdir(join(site, 'assets'));
       const assetName = assets.find(
-        (name) => name.startsWith('collected-dataset-') && name.endsWith('.json'),
+        (name) => name.startsWith('compact-manifest-') && name.endsWith('.json'),
       );
       expect(assetName).toBeDefined();
       expect(
-        JSON.parse(await readFile(join(site, 'assets', requireValue(assetName)), 'utf8')).coverage
-          .kind,
+        JSON.parse(await readFile(join(site, 'assets', requireValue(assetName)), 'utf8')).metadata
+          .coverage.kind,
       ).toBe('collected');
       expect(assets.some((name) => name.startsWith('demo-'))).toBe(false);
       expect(await readFile(join(site, 'baseline.json'))).toEqual(
@@ -833,21 +869,21 @@ describe('TASK-009 collection-date publication', () => {
           deployedFetch,
         ),
       ).resolves.toEqual(JSON.parse(await readFile(join(site, 'baseline.json'), 'utf8')));
-      expect(deployedFetch).toHaveBeenCalledTimes(3);
+      expect(deployedFetch).toHaveBeenCalledTimes(4);
       expect(
         JSON.parse(await readFile(join(output, 'release.json'), 'utf8'))
           .entries.map((entry: { name: string }) => entry.name)
           .sort(),
-      ).toEqual(['baseline.json', 'dataset.json']);
+      ).toEqual([`assets/${assetName}`, 'baseline.json']);
       expect(await readdir(site)).not.toContain('dataset.json');
-      await writeFile(join(output, 'dataset.json'), '{}');
+      await writeFile(join(output, 'assets', requireValue(assetName)), '{}');
       await expect(
         promisify(execFile)(process.execPath, [
           'scripts/build-publication.mjs',
           output,
           join(root, 'tampered-site'),
         ]),
-      ).rejects.toThrow('hash mismatch');
+      ).rejects.toThrow(/hash mismatch|Invalid compact dataset/);
       expect(await readdir(root)).not.toContain('tampered-site');
     } finally {
       await rm(root, { recursive: true, force: true });
@@ -861,7 +897,8 @@ describe('TASK-009 collection-date publication', () => {
       await writeFile(join(root, 'known-good'), 'previous site');
       const hook = join(root, 'vite-hook.mjs');
       // Replace only Vite in this child; sparse output exercises the real builder size gate.
-      const fakeVite = `import { mkdir, open } from 'node:fs/promises';
+      const fakeVite = `export { createServer } from ${JSON.stringify(new URL('../../node_modules/vite/dist/node/index.js', import.meta.url).href)};
+        import { mkdir, open } from 'node:fs/promises';
         import { join } from 'node:path';
         export async function build(options) {
           await mkdir(options.build.outDir, { recursive: true });
@@ -991,25 +1028,25 @@ describe('TASK-008 bounded staged processing', () => {
         requireValue(input.baseline).metrics = requireValue(
           validateLicenseRefreshV1(input).metrics,
         );
-        const expected = prepareValidatedRelease(input);
+        const expected = await stageValidatedRelease(input, join(root, 'reference'));
         const result = await stageBoundedRelease(
           input,
           categories(input),
           join(root, 'candidate'),
           { batchRows },
         );
-        expect(result.files.sort()).toEqual(Object.keys(expected).sort());
+        expect(result.files.sort()).toEqual(expected.files.sort());
         expect(result.metrics).toEqual(validateLicenseRefreshV1(input).metrics);
         for (const name of result.files) {
           const actual = await readFile(join(result.outputDirectory, name), 'utf8');
           expect(JSON.parse(actual)).toEqual(
-            JSON.parse(new TextDecoder().decode(requireValue(expected[name]))),
+            JSON.parse(await readFile(join(root, 'reference', name), 'utf8')),
           );
         }
-        expect(await readdir(root)).toEqual(['candidate']);
+        expect((await readdir(root)).sort()).toEqual(['candidate', 'reference']);
         expect((await readdir(result.outputDirectory)).sort()).toEqual([
+          'assets',
           'baseline.json',
-          'dataset.json',
           'release.json',
         ]);
       });
@@ -1056,28 +1093,30 @@ describe('TASK-008 bounded staged processing', () => {
       const input = collectedInput();
       const longSourceText = 'synthetic-inert-source-text-'.repeat(650);
       for (const row of input.rows) row.values.데이터갱신시점 = longSourceText;
-      const expected = prepareValidatedRelease(input);
-      expect(requireValue(expected['dataset.json']).byteLength).toBeGreaterThan(2 * 1024 * 1024);
+      const oracle = prepareValidatedRelease(input);
+      const expected = await stageValidatedRelease(input, join(root, 'reference'));
+      expect(requireValue(oracle['dataset.json']).byteLength).toBeGreaterThan(2 * 1024 * 1024);
       const result = await stageBoundedRelease(input, categories(input), join(root, 'candidate'), {
         batchRows: 7,
       });
-      expect(result.files.sort()).toEqual(Object.keys(expected).sort());
+      expect(result.files.sort()).toEqual(expected.files.sort());
       for (const name of result.files) {
         const actual = await readFile(join(result.outputDirectory, name));
-        expect(actual.equals(Buffer.from(requireValue(expected[name])))).toBe(true);
+        expect(actual.equals(await readFile(join(root, 'reference', name)))).toBe(true);
       }
-      const dataset = JSON.parse(
-        await readFile(join(result.outputDirectory, 'dataset.json'), 'utf8'),
+      const dataset = await restoredDataset(result.outputDirectory);
+      expect(dataset).toEqual(
+        JSON.parse(new TextDecoder().decode(requireValue(oracle['dataset.json']))),
       );
       expect(dataset.records).toHaveLength(195);
       expect(
         dataset.records.every(
-          (record: { lifecycle: { sourceUpdatedAt: string } }) =>
+          (record: { lifecycle: { sourceUpdatedAt: string | null } }) =>
             record.lifecycle.sourceUpdatedAt === longSourceText,
         ),
       ).toBe(true);
       expect(result.metrics.total.recordCount).toBe(195);
-      expect(await readdir(root)).toEqual(['candidate']);
+      expect((await readdir(root)).sort()).toEqual(['candidate', 'reference']);
     });
   }, 30_000);
   test('rejects repeated identities separated by batches and removes staged output', async () => {
@@ -1101,18 +1140,15 @@ describe('TASK-008 bounded staged processing', () => {
         const input = collectedInput();
         const knownGood = join(root, 'known-good');
         await stageValidatedRelease(input, knownGood);
-        const before = await Promise.all(
-          ['dataset.json', 'baseline.json', 'release.json'].map((name) =>
-            readFile(join(knownGood, name)),
-          ),
-        );
+        const names = await stagedNames(knownGood);
+        const before = await Promise.all(names.map((name) => readFile(join(knownGood, name))));
         if (failure === 'missing-name quality') {
           requireValue(input.rows.at(-1)).values.사업장명 = null;
           requireValue(input.policy).total.maxMissingNameRate = 0;
         }
         if (failure === 'total JSON budget') {
           requireValue(input.policy).maxJsonBytes = Math.max(
-            ...Object.values(prepareValidatedRelease(input)).map((bytes) => bytes.length),
+            ...before.map((bytes) => bytes.length),
           );
         }
         async function* source() {
@@ -1129,11 +1165,7 @@ describe('TASK-008 bounded staged processing', () => {
           failure === 'late ingestion' ? 'late category read failed' : /Publication blocked/,
         );
         expect(await readdir(root)).toEqual(['known-good']);
-        const after = await Promise.all(
-          ['dataset.json', 'baseline.json', 'release.json'].map((name) =>
-            readFile(join(knownGood, name)),
-          ),
-        );
+        const after = await Promise.all(names.map((name) => readFile(join(knownGood, name))));
         expect(after).toEqual(before);
       });
     },
@@ -1144,11 +1176,12 @@ describe('TASK-008 bounded staged processing', () => {
       const input = collectedInput();
       const output = join(root, 'known-good');
       await stageValidatedRelease(input, output);
-      const before = await readFile(join(output, 'dataset.json'));
+      const names = await stagedNames(output);
+      const before = await Promise.all(names.map((name) => readFile(join(output, name))));
       await expect(
         stageBoundedRelease(input, categories(input), output, { batchRows: 7 }),
       ).rejects.toThrow('already exists');
-      expect(await readFile(join(output, 'dataset.json'))).toEqual(before);
+      expect(await Promise.all(names.map((name) => readFile(join(output, name))))).toEqual(before);
       expect(await readdir(root)).toEqual(['known-good']);
     });
   });
@@ -1230,7 +1263,7 @@ describe('TASK-008 bounded staged processing', () => {
         const input = collectedInput();
         const previous = join(root, 'known-good');
         await stageValidatedRelease(input, previous);
-        const names = ['dataset.json', 'baseline.json', 'release.json'];
+        const names = await stagedNames(previous);
         const before = await Promise.all(names.map((name) => readFile(join(previous, name))));
         const original = filesystem.writeFile;
         const writer = vi
@@ -1265,7 +1298,7 @@ describe('TASK-008 bounded staged processing', () => {
         const input = collectedInput();
         const previous = join(root, 'known-good');
         await stageValidatedRelease(input, previous);
-        const names = ['dataset.json', 'baseline.json', 'release.json'];
+        const names = await stagedNames(previous);
         const before = await Promise.all(names.map((name) => readFile(join(previous, name))));
         const originalWrite = filesystem.writeFile;
         const originalAppend = filesystem.appendFile;
@@ -1324,7 +1357,7 @@ describe('TASK-008 bounded staged processing', () => {
         const input = collectedInput();
         const previous = join(root, 'known-good');
         await stageValidatedRelease(input, previous);
-        const names = ['dataset.json', 'baseline.json', 'release.json'];
+        const names = await stagedNames(previous);
         const before = await Promise.all(names.map((name) => readFile(join(previous, name))));
         const original = filesystem.writeFile;
         let corrupted = false;

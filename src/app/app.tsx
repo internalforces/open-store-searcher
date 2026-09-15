@@ -1,4 +1,5 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
+import type { CompactPage } from './compact-worker-protocol.js';
 import { type SearchResult, searchCandidates } from '../search/search-candidates.js';
 import { CoverageClock } from './coverage-clock.js';
 import type { DisplayDataset, DisplayRecord } from './display-data.js';
@@ -28,12 +29,22 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
     : loader?.dateBasis === 'collection';
   const dateLabel = isCollection ? '수집일' : '데이터 기준일';
   const [draft, setDraft] = useState('');
+  const [searchBusy, setSearchBusy] = useState(false);
+  const [searchFailure, setSearchFailure] = useState(false);
+  const requestSequence = useRef(0);
+  const submissionSequence = useRef(0);
   const [submission, setSubmission] = useState<{
     sequence: number;
     dataset: DisplayDataset;
-    result: SearchResult<DisplayRecord>;
+    result: SearchResult<DisplayRecord> | CompactPage;
   } | null>(null);
   const index = loading.prepared?.index;
+  // biome-ignore lint/correctness/useExhaustiveDependencies: each accepted dataset invalidates pending UI work.
+  useEffect(() => {
+    requestSequence.current++;
+    setSearchBusy(false);
+    setSearchFailure(false);
+  }, [dataset]);
   // A new supplied dataset must never inherit results or coverage from the old one.
   const result = submission?.dataset === dataset ? submission.result : null;
   const error = result && !result.validation.ok ? result.validation.message : null;
@@ -65,14 +76,34 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             }}
             error={error}
             exampleQuery={dataset?.exampleQuery ?? ''}
-            disabled={!dataset}
+            disabled={!dataset || !loading.searchAvailable}
             onSubmit={() => {
-              if (!dataset || !index) return;
-              setSubmission((previous) => ({
-                sequence: (previous?.sequence ?? 0) + 1,
-                dataset,
-                result: searchCandidates(index, draft),
-              }));
+              if (!dataset || !loading.searchAvailable) return;
+              const sequence = ++requestSequence.current;
+              const submissionNumber = ++submissionSequence.current;
+              setSearchFailure(false);
+              if (loading.search) {
+                setSearchBusy(true);
+                void loading
+                  .search(draft)
+                  .then((result) => {
+                    if (requestSequence.current === sequence) {
+                      setSubmission({ sequence: submissionNumber, dataset, result });
+                      setSearchBusy(false);
+                    }
+                  })
+                  .catch(() => {
+                    if (requestSequence.current === sequence) {
+                      setSearchBusy(false);
+                      setSearchFailure(true);
+                    }
+                  });
+              } else if (index)
+                setSubmission({
+                  sequence: submissionNumber,
+                  dataset,
+                  result: searchCandidates(index, draft),
+                });
             }}
           />
           {result?.validation.ok && (
@@ -92,7 +123,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
           {loading.phase === 'error' && (
             <div role="alert" className="uncertainty">
               <p>
-                {dataset
+                {dataset && loading.searchAvailable
                   ? '데이터를 다시 불러오지 못했습니다. 이전 데이터로 계속 검색할 수 있습니다.'
                   : '데이터를 불러오지 못했습니다. 아직 사업체 상태를 확인할 수 없습니다.'}
               </p>
@@ -139,7 +170,13 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             </>
           )}
         </section>
+        {searchFailure && (
+          <p role="alert">
+            검색을 완료하지 못했습니다. 다시 검색하거나 데이터를 다시 불러와 주세요.
+          </p>
+        )}
         <p role="status" aria-live="polite" aria-atomic="true" className="result-summary">
+          {searchBusy ? '전체 데이터에서 검색하는 중입니다. ' : ''}
           {loading.phase === 'loading'
             ? dataset
               ? '데이터를 다시 불러오는 중입니다. 이전 데이터로 검색할 수 있습니다. '
@@ -167,6 +204,33 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             result={result}
             coverage={dataset.coverage}
             synthetic={isSynthetic}
+            {...(loading.page
+              ? {
+                  onPage: (page: number) => {
+                    if (searchBusy || !loading.searchAvailable || !loading.page) return;
+                    const sequence = ++requestSequence.current;
+                    setSearchBusy(true);
+                    setSearchFailure(false);
+                    void loading
+                      .page(page)
+                      .then((result) => {
+                        if (requestSequence.current === sequence) {
+                          setSubmission((previous) =>
+                            previous ? { ...previous, result } : previous,
+                          );
+                          setSearchBusy(false);
+                        }
+                      })
+                      .catch(() => {
+                        if (requestSequence.current === sequence) {
+                          setSearchBusy(false);
+                          setSearchFailure(true);
+                        }
+                      });
+                  },
+                  busy: searchBusy,
+                }
+              : {})}
           />
         )}
       </main>

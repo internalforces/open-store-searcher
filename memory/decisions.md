@@ -582,3 +582,19 @@ No new deployment architecture or source/status contract is adopted. The publica
 uses 1,000,000,000 logical bytes as a conservative enforcement of the documented Pages 1 GB
 hosting limit, separately from source-quality policy. A production format change remains an
 explicit architecture/public-interface approval gate in AGENTS.md.
+
+
+## TASK-008 compact contract approval — 2026-09-14
+
+The user approved the measured proposal by requesting continuation after the design was presented.
+Adopt versioned lossless local/shared dictionary columns, complete manifest bindings and a Worker
+local store. Preserve exact evidence/IDs/order/status/date uncertainty, bounded production and
+atomic last-good recovery. Public IDs do not change. Deploy no additional exact-key postings in
+this first format: measured optional postings cost 252,210,834 bytes and do not prove substring or
+broad-address completeness. Use proven projection flags and retain a complete ordinal scan.
+
+Measured production-codec output including manifest is 688,433,397 bytes, versus the verified
+2,439,358,850-byte original. The functional local site is 688,506,488 bytes without an accepted
+quality baseline. These measurements do not fabricate a baseline, waive performance budgets,
+close 05/06 review or authorize publication. Collection timestamp lives in the release descriptor;
+manifest coverage and baseline date must equal its validated Seoul calendar date.

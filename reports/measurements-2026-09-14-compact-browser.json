@@ -1,0 +1,903 @@
+{
+  "kind": "full-source-local-browser",
+  "publicationApproved": false,
+  "network": "loopback gzip; unthrottled desktop; warm HTTP cache",
+  "browser": "151.0.7922.34",
+  "completeSourceCount": 2939947,
+  "results": [
+    {
+      "mode": "cold",
+      "shellMs": 21.09787499999993,
+      "readyMs": 48352.815583999996,
+      "ready": {
+        "kind": "ready",
+        "at": 48332.30000001192,
+        "timings": {
+          "loadMs": 15768.199999988079,
+          "prepareMs": 32524.399999976158
+        },
+        "count": 2939947
+      },
+      "transferredBytes": 198460913,
+      "search": [
+        {
+          "query": "강남구",
+          "searchToVisibleMs": 493.53791600000113,
+          "kind": "page",
+          "at": 48841.59999996424,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 322339,
+          "networkRequests": 0,
+          "paginationMs": 52.03679099999863,
+          "paginationRequests": 0
+        },
+        {
+          "query": "스타벅스",
+          "searchToVisibleMs": 333.71270899999945,
+          "kind": "page",
+          "at": 49235.30000001192,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 1275,
+          "networkRequests": 0
+        },
+        {
+          "query": "테헤란로 123",
+          "searchToVisibleMs": 346.62370799999917,
+          "kind": "page",
+          "at": 49594.80000001192,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 32248,
+          "networkRequests": 0
+        },
+        {
+          "query": "zzzzzznonexistentzzzzzz",
+          "searchToVisibleMs": 241.76058299999568,
+          "kind": "page",
+          "at": 49837.39999997616,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 15,
+          "networkRequests": 0
+        }
+      ],
+      "failedRefreshRetained": true,
+      "refreshMs": 52503.678792
+    },
+    {
+      "mode": "warm",
+      "shellMs": 16.227375000002212,
+      "readyMs": 49463.369667000006,
+      "ready": {
+        "kind": "ready",
+        "at": 49455.10000002384,
+        "timings": {
+          "loadMs": 16867.5,
+          "prepareMs": 32543.899999976158
+        },
+        "count": 2939947
+      },
+      "transferredBytes": 198441850,
+      "search": [
+        {
+          "query": "강남구",
+          "searchToVisibleMs": 478.0940000000119,
+          "kind": "page",
+          "at": 49936.90000003576,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 322339,
+          "networkRequests": 0,
+          "paginationMs": 56.97345900000073,
+          "paginationRequests": 0
+        },
+        {
+          "query": "스타벅스",
+          "searchToVisibleMs": 317.28516699999454,
+          "kind": "page",
+          "at": 50315.80000001192,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 1275,
+          "networkRequests": 0
+        },
+        {
+          "query": "테헤란로 123",
+          "searchToVisibleMs": 330.61229100002674,
+          "kind": "page",
+          "at": 50651.10000002384,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 32248,
+          "networkRequests": 0
+        },
+        {
+          "query": "zzzzzznonexistentzzzzzz",
+          "searchToVisibleMs": 241.36449999999604,
+          "kind": "page",
+          "at": 50893.5,
+          "page": 0,
+          "eligibleCount": 0,
+          "similarCount": 15,
+          "networkRequests": 0
+        }
+      ]
+    }
+  ],
+  "peakBrowserTreeRssBytes": 4555177984,
+  "samples": [
+    {
+      "phase": "cold",
+      "rss": 150093824,
+      "at": 1789374082622
+    },
+    {
+      "phase": "cold",
+      "rss": 626229248,
+      "at": 1789374083621
+    },
+    {
+      "phase": "cold",
+      "rss": 904740864,
+      "at": 1789374084621
+    },
+    {
+      "phase": "cold",
+      "rss": 1085603840,
+      "at": 1789374085621
+    },
+    {
+      "phase": "cold",
+      "rss": 1340407808,
+      "at": 1789374086621
+    },
+    {
+      "phase": "cold",
+      "rss": 1347436544,
+      "at": 1789374087621
+    },
+    {
+      "phase": "cold",
+      "rss": 1581678592,
+      "at": 1789374088622
+    },
+    {
+      "phase": "cold",
+      "rss": 1823752192,
+      "at": 1789374089621
+    },
+    {
+      "phase": "cold",
+      "rss": 2154201088,
+      "at": 1789374090621
+    },
+    {
+      "phase": "cold",
+      "rss": 1926971392,
+      "at": 1789374091621
+    },
+    {
+      "phase": "cold",
+      "rss": 2144616448,
+      "at": 1789374092622
+    },
+    {
+      "phase": "cold",
+      "rss": 2375925760,
+      "at": 1789374093621
+    },
+    {
+      "phase": "cold",
+      "rss": 2587148288,
+      "at": 1789374094626
+    },
+    {
+      "phase": "cold",
+      "rss": 2674606080,
+      "at": 1789374095631
+    },
+    {
+      "phase": "cold",
+      "rss": 2767945728,
+      "at": 1789374096632
+    },
+    {
+      "phase": "cold",
+      "rss": 2333573120,
+      "at": 1789374097636
+    },
+    {
+      "phase": "cold",
+      "rss": 2411462656,
+      "at": 1789374098634
+    },
+    {
+      "phase": "cold",
+      "rss": 2446393344,
+      "at": 1789374099636
+    },
+    {
+      "phase": "cold",
+      "rss": 2484224000,
+      "at": 1789374100637
+    },
+    {
+      "phase": "cold",
+      "rss": 2513321984,
+      "at": 1789374101638
+    },
+    {
+      "phase": "cold",
+      "rss": 2553397248,
+      "at": 1789374102638
+    },
+    {
+      "phase": "cold",
+      "rss": 2583789568,
+      "at": 1789374103640
+    },
+    {
+      "phase": "cold",
+      "rss": 2618064896,
+      "at": 1789374104642
+    },
+    {
+      "phase": "cold",
+      "rss": 2660712448,
+      "at": 1789374105644
+    },
+    {
+      "phase": "cold",
+      "rss": 2685648896,
+      "at": 1789374106647
+    },
+    {
+      "phase": "cold",
+      "rss": 2712403968,
+      "at": 1789374107649
+    },
+    {
+      "phase": "cold",
+      "rss": 2738634752,
+      "at": 1789374108650
+    },
+    {
+      "phase": "cold",
+      "rss": 2784641024,
+      "at": 1789374109652
+    },
+    {
+      "phase": "cold",
+      "rss": 2820177920,
+      "at": 1789374110654
+    },
+    {
+      "phase": "cold",
+      "rss": 2845868032,
+      "at": 1789374111655
+    },
+    {
+      "phase": "cold",
+      "rss": 2902327296,
+      "at": 1789374112656
+    },
+    {
+      "phase": "cold",
+      "rss": 2934603776,
+      "at": 1789374113659
+    },
+    {
+      "phase": "cold",
+      "rss": 2959081472,
+      "at": 1789374114661
+    },
+    {
+      "phase": "cold",
+      "rss": 2991538176,
+      "at": 1789374115663
+    },
+    {
+      "phase": "cold",
+      "rss": 3017310208,
+      "at": 1789374116666
+    },
+    {
+      "phase": "cold",
+      "rss": 3046785024,
+      "at": 1789374117667
+    },
+    {
+      "phase": "cold",
+      "rss": 3132440576,
+      "at": 1789374118669
+    },
+    {
+      "phase": "cold",
+      "rss": 3151478784,
+      "at": 1789374119671
+    },
+    {
+      "phase": "cold",
+      "rss": 3200040960,
+      "at": 1789374120672
+    },
+    {
+      "phase": "cold",
+      "rss": 3231694848,
+      "at": 1789374121671
+    },
+    {
+      "phase": "cold",
+      "rss": 3251077120,
+      "at": 1789374122674
+    },
+    {
+      "phase": "cold",
+      "rss": 3279060992,
+      "at": 1789374123676
+    },
+    {
+      "phase": "cold",
+      "rss": 3299655680,
+      "at": 1789374124679
+    },
+    {
+      "phase": "cold",
+      "rss": 3322445824,
+      "at": 1789374125680
+    },
+    {
+      "phase": "cold",
+      "rss": 3354902528,
+      "at": 1789374126682
+    },
+    {
+      "phase": "cold",
+      "rss": 3378724864,
+      "at": 1789374127684
+    },
+    {
+      "phase": "cold",
+      "rss": 3464052736,
+      "at": 1789374128686
+    },
+    {
+      "phase": "cold",
+      "rss": 3491774464,
+      "at": 1789374129688
+    },
+    {
+      "phase": "cold",
+      "rss": 3518185472,
+      "at": 1789374130689
+    },
+    {
+      "phase": "cold:search",
+      "rss": 3632988160,
+      "at": 1789374131689
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3671195648,
+      "at": 1789374132690
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3931127808,
+      "at": 1789374133689
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4170203136,
+      "at": 1789374134689
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4271603712,
+      "at": 1789374135689
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4243652608,
+      "at": 1789374136689
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4452466688,
+      "at": 1789374137688
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4406525952,
+      "at": 1789374138690
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3424845824,
+      "at": 1789374139690
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3752591360,
+      "at": 1789374140689
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3535994880,
+      "at": 1789374141690
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3179708416,
+      "at": 1789374142690
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 2955919360,
+      "at": 1789374143701
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 2857697280,
+      "at": 1789374144690
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 2980331520,
+      "at": 1789374145694
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3068411904,
+      "at": 1789374146697
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4340137984,
+      "at": 1789374147699
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4160274432,
+      "at": 1789374148700
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4192305152,
+      "at": 1789374149703
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4229316608,
+      "at": 1789374150704
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4261838848,
+      "at": 1789374151705
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4297588736,
+      "at": 1789374152707
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4325883904,
+      "at": 1789374153710
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4366204928,
+      "at": 1789374154712
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4406001664,
+      "at": 1789374155715
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4433412096,
+      "at": 1789374156716
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4459659264,
+      "at": 1789374157719
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4483792896,
+      "at": 1789374158721
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 4268703744,
+      "at": 1789374159737
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3311697920,
+      "at": 1789374160736
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3165437952,
+      "at": 1789374161734
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3155558400,
+      "at": 1789374162735
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3215982592,
+      "at": 1789374163740
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3248242688,
+      "at": 1789374164760
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3286728704,
+      "at": 1789374165736
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3314122752,
+      "at": 1789374166739
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3339075584,
+      "at": 1789374167740
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3370090496,
+      "at": 1789374168740
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3399008256,
+      "at": 1789374169741
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3491856384,
+      "at": 1789374170741
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3514138624,
+      "at": 1789374171742
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3562110976,
+      "at": 1789374172745
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3580624896,
+      "at": 1789374173748
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3610935296,
+      "at": 1789374174749
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3629957120,
+      "at": 1789374175751
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3656351744,
+      "at": 1789374176755
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3674587136,
+      "at": 1789374177756
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3695362048,
+      "at": 1789374178759
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3778166784,
+      "at": 1789374179884
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3685629952,
+      "at": 1789374180772
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3700637696,
+      "at": 1789374181774
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3778510848,
+      "at": 1789374182776
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3796041728,
+      "at": 1789374183778
+    },
+    {
+      "phase": "refresh-overlap",
+      "rss": 3819175936,
+      "at": 1789374184780
+    },
+    {
+      "phase": "warm",
+      "rss": 4065525760,
+      "at": 1789374185781
+    },
+    {
+      "phase": "warm",
+      "rss": 4230561792,
+      "at": 1789374186781
+    },
+    {
+      "phase": "warm",
+      "rss": 4367089664,
+      "at": 1789374187782
+    },
+    {
+      "phase": "warm",
+      "rss": 4358897664,
+      "at": 1789374188780
+    },
+    {
+      "phase": "warm",
+      "rss": 4525621248,
+      "at": 1789374189781
+    },
+    {
+      "phase": "warm",
+      "rss": 4451729408,
+      "at": 1789374190781
+    },
+    {
+      "phase": "warm",
+      "rss": 4555177984,
+      "at": 1789374191781
+    },
+    {
+      "phase": "warm",
+      "rss": 1516060672,
+      "at": 1789374192789
+    },
+    {
+      "phase": "warm",
+      "rss": 1754316800,
+      "at": 1789374193781
+    },
+    {
+      "phase": "warm",
+      "rss": 1832140800,
+      "at": 1789374194781
+    },
+    {
+      "phase": "warm",
+      "rss": 2129166336,
+      "at": 1789374195786
+    },
+    {
+      "phase": "warm",
+      "rss": 2332704768,
+      "at": 1789374196781
+    },
+    {
+      "phase": "warm",
+      "rss": 2539503616,
+      "at": 1789374197784
+    },
+    {
+      "phase": "warm",
+      "rss": 2145992704,
+      "at": 1789374198797
+    },
+    {
+      "phase": "warm",
+      "rss": 2022490112,
+      "at": 1789374199788
+    },
+    {
+      "phase": "warm",
+      "rss": 2135195648,
+      "at": 1789374200822
+    },
+    {
+      "phase": "warm",
+      "rss": 2134605824,
+      "at": 1789374201791
+    },
+    {
+      "phase": "warm",
+      "rss": 2176204800,
+      "at": 1789374202791
+    },
+    {
+      "phase": "warm",
+      "rss": 2213642240,
+      "at": 1789374203793
+    },
+    {
+      "phase": "warm",
+      "rss": 2246213632,
+      "at": 1789374204795
+    },
+    {
+      "phase": "warm",
+      "rss": 2281783296,
+      "at": 1789374205797
+    },
+    {
+      "phase": "warm",
+      "rss": 2311192576,
+      "at": 1789374206799
+    },
+    {
+      "phase": "warm",
+      "rss": 2342862848,
+      "at": 1789374207802
+    },
+    {
+      "phase": "warm",
+      "rss": 2391097344,
+      "at": 1789374208804
+    },
+    {
+      "phase": "warm",
+      "rss": 2417541120,
+      "at": 1789374209807
+    },
+    {
+      "phase": "warm",
+      "rss": 2444591104,
+      "at": 1789374210810
+    },
+    {
+      "phase": "warm",
+      "rss": 2469019648,
+      "at": 1789374211811
+    },
+    {
+      "phase": "warm",
+      "rss": 2500444160,
+      "at": 1789374212812
+    },
+    {
+      "phase": "warm",
+      "rss": 2545106944,
+      "at": 1789374213814
+    },
+    {
+      "phase": "warm",
+      "rss": 2574401536,
+      "at": 1789374214817
+    },
+    {
+      "phase": "warm",
+      "rss": 2603499520,
+      "at": 1789374215818
+    },
+    {
+      "phase": "warm",
+      "rss": 2658729984,
+      "at": 1789374216821
+    },
+    {
+      "phase": "warm",
+      "rss": 2692890624,
+      "at": 1789374217822
+    },
+    {
+      "phase": "warm",
+      "rss": 2714615808,
+      "at": 1789374218823
+    },
+    {
+      "phase": "warm",
+      "rss": 2748579840,
+      "at": 1789374219824
+    },
+    {
+      "phase": "warm",
+      "rss": 2779348992,
+      "at": 1789374220823
+    },
+    {
+      "phase": "warm",
+      "rss": 2865250304,
+      "at": 1789374221825
+    },
+    {
+      "phase": "warm",
+      "rss": 2885369856,
+      "at": 1789374222826
+    },
+    {
+      "phase": "warm",
+      "rss": 2933899264,
+      "at": 1789374223828
+    },
+    {
+      "phase": "warm",
+      "rss": 2964799488,
+      "at": 1789374224831
+    },
+    {
+      "phase": "warm",
+      "rss": 2985525248,
+      "at": 1789374225833
+    },
+    {
+      "phase": "warm",
+      "rss": 3014033408,
+      "at": 1789374226835
+    },
+    {
+      "phase": "warm",
+      "rss": 3033677824,
+      "at": 1789374227837
+    },
+    {
+      "phase": "warm",
+      "rss": 3054583808,
+      "at": 1789374228840
+    },
+    {
+      "phase": "warm",
+      "rss": 3087269888,
+      "at": 1789374229841
+    },
+    {
+      "phase": "warm",
+      "rss": 3108503552,
+      "at": 1789374230843
+    },
+    {
+      "phase": "warm",
+      "rss": 3133816832,
+      "at": 1789374231845
+    },
+    {
+      "phase": "warm",
+      "rss": 3218997248,
+      "at": 1789374232847
+    },
+    {
+      "phase": "warm",
+      "rss": 3245047808,
+      "at": 1789374233850
+    },
+    {
+      "phase": "warm:search",
+      "rss": 3318284288,
+      "at": 1789374234852
+    },
+    {
+      "phase": "warm:search",
+      "rss": 3376414720,
+      "at": 1789374235854
+    }
+  ],
+  "siteBytes": 688506488
+}

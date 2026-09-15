@@ -1,0 +1,26 @@
+{
+  "kind": "production-codec-research-only",
+  "publicationApproved": false,
+  "node": "v24.19.0",
+  "platform": "darwin",
+  "source": {
+    "sha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+    "byteLength": 2439358850
+  },
+  "recordCount": 2939947,
+  "orderedIdsSha256": "ae6597150d357ab703df0358c22d9a1b63334ec6c8f2015551cd5b87138acf34",
+  "manifestEntry": {
+    "name": "assets/compact-manifest-62268597c93c053feaa728dcb43e77d6bb1ff395ef815d51aef9eeac63a88943.json",
+    "sha256": "62268597c93c053feaa728dcb43e77d6bb1ff395ef815d51aef9eeac63a88943",
+    "byteLength": 171764
+  },
+  "roleBytes": {
+    "search": 503811866,
+    "evidence": 183937992,
+    "dictionaries": 511775
+  },
+  "rawBytes": 688433397,
+  "gzipBytes": 198433476,
+  "elapsedMs": 168268.73333299998,
+  "peakRssBytes": 750764032
+}

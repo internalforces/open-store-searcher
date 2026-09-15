@@ -1,0 +1,35 @@
+{
+  "kind": "research-only-exact-postings-profile",
+  "source": {
+    "sha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+    "byteLength": 2439358850,
+    "recordCount": 2939947,
+    "orderedIdsSha256": "ae6597150d357ab703df0358c22d9a1b63334ec6c8f2015551cd5b87138acf34",
+    "adjacentDescendingPublicIds": 1469700
+  },
+  "rows": 2939947,
+  "elapsedMs": 39711,
+  "peakRssKiB": 1520464,
+  "indexes": [
+    {
+      "kind": "exact-name",
+      "distinct": 1691936,
+      "postings": 2938742,
+      "maxPosting": 1671,
+      "bytes": 67586541,
+      "gzipBytes": 24269249,
+      "sha256": "b66c578d8df5cb53a9288a0cfa4665a991f36d22c20d3b52640d90326c722301"
+    },
+    {
+      "kind": "exact-address-key",
+      "distinct": 2028222,
+      "postings": 5050106,
+      "maxPosting": 10486,
+      "bytes": 184624293,
+      "gzipBytes": 33819739,
+      "sha256": "5753b12ca7c6fc8d3af41a02b620be1553fc6bc5fedf0ec2ec23429b32c4fbc7"
+    }
+  ],
+  "completeRetrieval": false,
+  "substringStrategy": "No added substring postings; complete local scan remains required. Scanning distinct normalized keys can reduce repeated name comparisons without dropping containment in either direction; component-address relevance still needs a complete fallback."
+}
