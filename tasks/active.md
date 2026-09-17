@@ -11,7 +11,12 @@ _Last updated: 2026-09-17_
 
 ## In Progress
 
-TASK-008 operational verification is active on the user's 2026-09-16 request, with
+TASK-008 completion is active on the user's 2026-09-17 request. The user explicitly approved
+the exact category-bound reviewed-unverified 05/06 contract after the completion investigation.
+The bounded implementation is verified with unchanged display mapping and raw/unknown metrics,
+strict evidence/scope validation, 797/68/20 full checks and independent Reviewer approval. The approval does not
+select numeric quality limits, empty-category policy, an initial baseline, or publication.
+The previous operational verification began on the user's 2026-09-16 request, with
 parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.
 PR #23 merged as `bac6dce`; local implementation `da9e63c` has the same tracked tree.
 Its hosted Verify check passed. Compact delivery design and implementation are already approved;
@@ -19,7 +24,7 @@ earlier design-pending notes are historical. Reuse `.worktrees/task013-quality` 
 `codex/task-008-operational-verification`; preserve all other checkouts and untracked files.
 
 This continuation measured the existing complete-source implementation and prepared remaining
-quality decisions. It does not authorize policy adoption, status changes, repository protection,
+quality decisions. The historical evidence pass did not authorize policy adoption, status changes, repository protection,
 workflow dispatch, publication, commit, push, merge or release. TASK-009/010 remain paused.
 
 Acceptance for this bounded continuation (FR-02/03/08/12/13/14; performance NFR):
@@ -39,8 +44,9 @@ replaced by compact loading. Prior desktop observations show 48–49 s readiness
 post-load searches, with sampled browser-tree RSS up to 4.56 GB. These are not mobile guarantees.
 See [compact verification](../reports/test-2026-09-14-compact-delivery.md).
 
-Overall TASK-008 remains incomplete for quality policy/bootstrap, unknown-pair and empty-category
-review, and actual mobile/hosted acceptance. Original PRD access is resolved; collection-date mode
+Overall TASK-008 remains incomplete for quality policy/bootstrap, empty-category review,
+and the accumulated mobile/hosted acceptance gates. Exact reviewed-unverified pair acceptance is
+implemented and verified. Original PRD access is resolved; collection-date mode
 retains source coverage as an explicit warning rather than a fabricated coverage assertion. No production
 policy, source freshness, deployment approval or performance waiver has been inferred.
 
@@ -108,8 +114,8 @@ source coverage is still unverified under the approved collection-date interpret
 - Description: Validate complete staged inputs, identity/schema integrity, count and missing-value
   changes, aggregate-status drift, coverage dates, and JSON syntax/UTF-8 size.
 - Dependencies: Completed TASK-005, TASK-006, TASK-007; accepted ADR-009 through ADR-013.
-- Risks: Production quality limits, initial baseline and reviewed-unverified pair acceptance
-  remain unapproved. Source coverage is unverified under accepted collection-date operation.
+- Risks: Production quality limits, allowed-empty policy and initial baseline remain unapproved.
+  Source coverage is unverified under accepted collection-date operation.
   Original PRD access, complete parsing and the compact delivery contract are resolved.
 - Acceptance criteria:
   - [x] Inspect accepted contracts and produce a concrete design with a requirements/test matrix.
@@ -191,6 +197,29 @@ The bounded observations and review inputs are complete and independently Approv
 [review](../reports/review-2026-09-16-task-008-operations.md). TASK-008 stays active/incomplete:
 566.4 ms broad search exceeds the 500 ms target; slow complete loading remains impractical;
 physical-device/hosted readiness and final LCP are unverified. The exact 05/06 category-bound
-reviewed-unverified proposal is prepared but requires approval before implementation. Numeric
+reviewed-unverified proposal was approved on 2026-09-17 and its bounded implementation is verified. Numeric
 policy calibration, empty-category approval and initial baseline remain separate gates.
 No TASK-009/010 activation or deployment is implied. The prior source-PRD access blocker is closed.
+
+
+## Approved reviewed-unverified continuation — 2026-09-17
+
+Design: [reviewed-pair contract](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md).
+
+- [x] Obtain explicit approval of the exact 05/06/category acceptance contract.
+- [x] Prepare bounded test research/plan and observe expected failing regressions.
+- [x] Implement strict evidence-bound acknowledgment and configuration forwarding.
+- [x] Verify unchanged metrics, unverified display, other quality gates and staging preservation.
+- [x] Run pinned full verification and obtain independent Reviewer approval.
+
+This continuation does not approve numerical quality policy, the empty-category list,
+initial baseline, production acceptance, performance waiver or publication. TASK-008
+remains incomplete until its remaining accepted gates are met.
+
+Evidence: [verification](../reports/test-2026-09-17-task-008-reviewed-pairs.md),
+[independent review](../reports/review-2026-09-17-task-008-reviewed-pairs.md).
+All 161 focused tests and pinned full 797/68/20 checks pass. Aggregate-only replay removes
+68 pair diagnostics while preserving all metrics and policy/baseline review requirements.
+
+Remaining work and its ownership decision are recorded in the
+[TASK-008 completion plan](../reports/plan-2026-09-17-task-008-completion.md).

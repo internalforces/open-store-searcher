@@ -374,3 +374,13 @@ its Seoul date is bound to manifest metadata and the versioned baseline.
 This changes delivery contracts under explicit user approval, without adding infrastructure,
 dependencies, status mappings, ID formats, browser databases or query/click-driven fetches.
 See docs/superpowers/specs/2026-09-14-task-008-compact-delivery-design.md and the verification report.
+
+
+## TASK-008 reviewed-unverified acceptance — 2026-09-17
+
+The approved extension adds an explicit optional reviewed-pair contract at the shared staged
+validation boundary. A checked-in evidence-bound contract constrains callers to exact 05/06
+raw-pair/category scopes. Missing input retains legacy pair review; incompatible input rejects.
+Approved pairs suppress only their review diagnostic. The mapper, raw pair metrics, unknown
+counts, all other policy/baseline gates and public delivery formats remain unchanged.
+See `docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md`.

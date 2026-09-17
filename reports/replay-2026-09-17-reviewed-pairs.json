@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "kind": "reviewed-unverified-pairs-aggregate-replay",
+  "scope": "retained aggregate metrics only; no source-row replay",
+  "publicationApproved": false,
+  "adapterLimitation": {
+    "retainedReceiptOmittedTransientArchivePath": true,
+    "suppliedArchivePath": "/retained-aggregate-replay/no-source-archive",
+    "archiveFileRead": false,
+    "measurementSource": "retained validation.metrics"
+  },
+  "implementationSha256": {
+    ".testagent/replay-reviewed-pairs.mjs": "4ebde6e4febe3984c4420b9a2b8c79fdc27f726b2defc0be066231f8a8bf9757",
+    "src/pipeline/reviewed-unverified-pairs.ts": "d2c4a13dffa4a164332a3f672dc70902e45606e2962edcecee6038098f1d87f9",
+    "src/pipeline/refresh-validation-types.ts": "3e6b08a4a5c2bc4b8b36003457ddbda0fcc17523b2fb99378e176e97ab4195e0",
+    "src/pipeline/validate-license-refresh.ts": "919bbd5392c62ee97f91e88e1af892af165baa67c6871ac47347e206867a01bf"
+  },
+  "observation": {
+    "path": "reports/observation-2026-09-13-hosted-source.json.raw",
+    "sha256": "f05984f434ff5553d65e5c22b50bf657e8ec65238be9d7c57c3b144cdd8d3b60",
+    "archiveSha256": "edb4be5b859ef0a8eaca0cd2a96f58ac82911d3db59775ecf9417d9beabf87ce",
+    "recordCount": 2940404,
+    "unknownPairCount": 187222,
+    "unknownPairCategoryCount": 68,
+    "metricsSha256": "ba4fb5bcf1f440df6e94a77362d4d202d14052d751da741ad7f02d9566afb1bf"
+  },
+  "contract": {
+    "path": "src/pipeline/contracts/reviewed-unverified-pairs-v1.json",
+    "sha256": "84a16b491eefd39aa8e2b78390ec64ddc1796ceb21ebf73d85745c7b55a5282c"
+  },
+  "before": {
+    "kind": "review_required",
+    "diagnostics": {
+      "aggregate_pair_review_required": 68,
+      "baseline_review_required": 1,
+      "policy_review_required": 1,
+      "source_coverage_unverified": 1
+    }
+  },
+  "after": {
+    "kind": "review_required",
+    "diagnostics": {
+      "baseline_review_required": 1,
+      "policy_review_required": 1,
+      "source_coverage_unverified": 1
+    }
+  },
+  "assertions": {
+    "aggregatePairReviewDiagnosticsRemoved": 68,
+    "policyReviewPreserved": true,
+    "baselineReviewPreserved": true,
+    "sourceCoverageWarningPreserved": true,
+    "noUnexpectedDiagnostics": true,
+    "rawMetricsUnchanged": true
+  }
+}

@@ -598,3 +598,20 @@ Measured production-codec output including manifest is 688,433,397 bytes, versus
 quality baseline. These measurements do not fabricate a baseline, waive performance budgets,
 close 05/06 review or authorize publication. Collection timestamp lives in the release descriptor;
 manifest coverage and baseline date must equal its validated Seoul calendar date.
+
+
+## TASK-008 reviewed-unverified contract approval — 2026-09-17
+
+Status: Accepted; user explicitly approved the presented exact category-bound proposal.
+
+Permit validator acknowledgment of raw `05` / "제외/삭제/전출" in the 66 categories
+and raw `06` / "기타" in `15045089` and `15045092` enumerated in
+`reports/decision-inputs-2026-09-16-task-008-quality.json`. Preserve every record, raw pair,
+unknown-pair metric and "확인되지 않음" display status. New or mismatched spellings,
+partial pairs and occurrences outside the approved category scope still require review.
+Bind the exact contract to a revision, compatible validation/schema/mapping versions,
+schema-manifest hash, both source archive hashes, receipt hash and this human review reference.
+Reject malformed or incompatible contract input; never permit a caller-defined broader allowlist.
+Missing acknowledgment retains the previous review requirement. Existing reviewed numeric-policy
+and baseline gates remain mandatory. This is not approval of numerical limits, empty-category
+policy, bootstrap, performance waiver, deployment, commit, push or merge.

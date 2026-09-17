@@ -472,3 +472,20 @@ not ready at the observation limit, and physical-mobile/hosted readiness is unve
 05/06 acceptance, numeric quality policy, allowed empties and bootstrap baseline remain unapproved.
 TASK-008 stays active/incomplete; TASK-009/010 and release gates remain open. No product code,
 status mapping, workflow, dependency, commit, push, merge, deployment or handbook change occurred.
+
+
+## TASK-008 bounded reviewed-unverified contract — 2026-09-17
+
+Completed only the user-approved exact 05/06/category acceptance extension. Optional
+evidence-bound acknowledgment suppresses the exact known pair-review diagnostic; raw
+metrics and unverified display are retained. New/malformed/out-of-scope input remains
+blocked, and actual bounded staging/CLI tests preserve previous good output.
+
+Pinned full verification passes 797 Vitest, 68 browser and 20 accessibility tests.
+Independent Reviewer Approved after a separate 161-test run and retained aggregate replay.
+Evidence: [verification](../reports/test-2026-09-17-task-008-reviewed-pairs.md) and
+[review](../reports/review-2026-09-17-task-008-reviewed-pairs.md).
+
+Overall TASK-008 stays active/incomplete for reviewed numeric policy, empty-category
+policy, initial baseline and remaining operational acceptance. This entry completes only
+the bounded approved contract, not the task, milestone or release. No next task is activated.

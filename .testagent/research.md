@@ -151,3 +151,32 @@ Existing Vitest unit/pipeline/component projects and Playwright browser/a11y mat
 Preserve prior test records. Acceptance inventory: exact evidence/IDs/order/counts; missing/corrupt/
 mixed/incomplete blocks; global identity; prior-output and accepted-snapshot preservation; full
 search parity; stale/cancel/retry/crash; query-independent requests; full-source performance.
+
+
+## TASK-008 reviewed-unverified pair contract — 2026-09-17
+
+Scope: broad but bounded to pipeline acceptance and its staging/configuration integration.
+The user approved the exact 05/06/category contract; numeric limits, empty categories and
+bootstrap remain separate. Specialized generator/find-untested-sources/test-gap-analysis/
+assertion-quality tools and a local matching discovery script are unavailable (inventory checked);
+execute the same research/plan/implementation/assertion-review workflow with delegated workers.
+
+Inventory: refresh-validation-types.ts and validate-license-refresh.ts are covered through
+validate-license-refresh.test.ts (119 tests at the pre-change baseline). stage-bounded-release.ts
+and stage-validated-release.ts use that same real 195-category synthetic fixture and temporary
+directories. scripts/stage-refresh.mjs passes trusted config into the bounded path. A new
+reviewed-pair contract helper/artifact needs its own strict-boundary tests. Existing raw-pair
+metrics and status mapper must not change. Tests use pinned Vitest with offline synthetic rows;
+complete observation metrics may support research replay but cannot approve production policy.
+
+Acceptance checklist:
+- P01 exact approved 05/06 scopes pass the pair gate; all records remain unverified.
+- P02 new spelling/code/name, partial/null pairs, unlisted and cross-category pairs require review.
+- P03 missing contract preserves review; malformed, duplicate, sparse, extended or incompatible
+  revision/evidence/version/schema contracts cannot waive the gate.
+- P04 mixed approved/unapproved rows remain review-required; raw pairs and unknown counts remain
+  unchanged at category and total levels, including accepted cases.
+- P05 missing or invalid numeric policy/baseline and ordinary quality failures still block.
+- P06 actual staging/configuration forwarding preserves approved contract semantics; invalid
+  candidates never produce output or replace prior good bytes.
+- P07 focused RED/GREEN evidence, current full verification and independent assertion review.

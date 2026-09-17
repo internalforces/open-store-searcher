@@ -1278,3 +1278,79 @@ Deliver only the reviewed research harness, reports, exact raw observation, deci
 related task/memory/operator/traceability records on `codex/task-008-operational-verification`.
 Earlier no-commit/no-push statements describe preparation. This authorization does not approve
 policy adoption, TASK-008 completion, PR creation, merge, repository settings or deployment.
+
+
+## TASK-008 completion resumption — 2026-09-17
+
+The user requested completion of TASK-008 and explicitly requested subagents. Reused the
+clean existing `codex/task-008-operational-verification` worktree at `95c26a5`; preserved
+the original checkout and its untracked duplicate files. Independent read-only agents
+reviewed quality gates and acceptance ownership. The current exact category-bound 05/06
+reviewed-unverified proposal was presented for explicit human approval. No response,
+policy adoption, bootstrap approval, performance waiver or deployment permission is inferred.
+
+Fresh pinned Node 24.19.0/npm 11.17.0 verification:
+`node node_modules/vitest/vitest.mjs run src/pipeline/validate-license-refresh.test.ts`
+passed all 119 tests in 10.56 seconds. The retained Sep-13 receipt parses and its SHA-256
+remains `f05984f434ff5553d65e5c22b50bf657e8ec65238be9d7c57c3b144cdd8d3b60`.
+The decision input still explicitly says unapproved: 05 has 66 category scopes, 06 has two,
+and the proposed empty-category set has 23 IDs. `publication/config.json` remains absent.
+No product code or test changed; historical full-suite results are not presented as fresh runs.
+
+TASK-008 remains active/incomplete. ADR-014 requires reviewed policy and explicit initial
+baseline approval. The two retained daily observations do not establish calibrated normal
+variation. A subagent also located a Sep-04 historical observation on git ref `3c8f20b`;
+its compatibility and additional evidence are documented in
+`reports/research-2026-09-17-task-008-completion-gates.md`. This does not approve a baseline
+or establish safe production thresholds.
+The pending pair decision does not approve numeric limits, empty categories, bootstrap,
+mobile performance or publication. Preserve the prepared quality packet rather than
+regenerating observations as fabricated production limits. No new architectural decision,
+bug fix, dependency, commit, push, merge, workflow dispatch or deployment occurred.
+
+
+## TASK-008 approved reviewed-unverified implementation — 2026-09-17
+
+The user explicitly approved the exact 05/06/category contract presented in the previous
+turn. Implemented optional evidence-bound acknowledgment and strict immutable scope
+validation, without changing the mapper or raw metrics. Missing input retains legacy
+review; malformed contracts reject; new/mismatched/partial/unlisted pairs still require
+review. Ordinary policy, empty-category and baseline gates remain mandatory.
+
+Delegated implementation, aggregate-only replay and independent review. Test-first RED
+showed 16 expected failures; executable CLI forwarding had its own RED. Final focused
+161/161 passes, including real bounded staging and known-good preservation. The Reviewer
+Approved after its independent 161-test run; the discovered array-extra-key strictness
+defect was fixed and regression-tested. Aggregate replay removes 68 review diagnostics
+from retained 2,940,404-row metrics while preserving 187,222 unknown pairs, every metric,
+policy/baseline review and source-coverage uncertainty. No raw archive is read by replay.
+
+Started the local Docker app and reused the stopped Ubuntu research container with pinned
+Node 24.19.0/npm 11.17.0. Copied the unchanged-lockfile dependency tree and isolated source
+into `/work/task008-reviewed-pairs-20260917`. The first full attempt stopped at research
+helper formatting; corrected it and reran the entire default command. Final verify:full
+exited 0:797 Vitest,68 browser,20 accessibility tests, all required checks and coverage.
+155 transferred hashes plus the final helper match host/container; review/replay hashes
+still match. The container is returned to stopped state and evidence directories retained.
+
+See reports/test-2026-09-17-task-008-reviewed-pairs.md and independent review, replay and
+verification receipts. Only this approved continuation is complete; overall TASK-008 stays
+active for numerical calibration, empty-category/baseline approval and operational gates.
+No numeric policy, initial baseline, deployment configuration, public format, dependency,
+workflow, commit, push, merge, deployment or handbook change occurred.
+
+
+## TASK-008 reviewed-pair delivery authorization — 2026-09-17
+
+The user explicitly requested commit and push of the verified reviewed-unverified pair
+implementation and asked for the remaining TASK-008 completion work to be identified. Deliver
+the bounded implementation, tests, decision/specification, replay, verification/review evidence,
+task/memory/traceability updates, and completion plan on
+`codex/task-008-operational-verification`. No PR creation, merge, deployment, workflow dispatch,
+policy adoption, baseline selection, security-setting change or publication is authorized.
+
+The completion plan separates the original quality gates from later accumulated mobile/hosted
+gates. The shortest quality path is an approved calibration protocol, distinct daily complete
+observations, derived total/all-195 policy and empty-list review, policy-bound initial baseline,
+an accepted complete validation, and independent final review. An explicit scope decision is
+still needed before mobile/hosted release gates can be removed from TASK-008 or retained there.

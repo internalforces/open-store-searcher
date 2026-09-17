@@ -250,3 +250,15 @@ Worker CPU throttle coverage and physical/hosted performance remain unverified; 
 LCP is not a final-page LCP pass. The original PRD is now accessible and compared. The exact
 quality decision packet retains all unknown states and adopts no policy or baseline. Overall
 FR and release statuses remain open; these results do not authorize publication.
+
+
+## TASK-008 reviewed-unverified pair acceptance — 2026-09-17
+
+FR-04/07/13 and V06: the user-approved exact 05/06/category contract permits reviewed
+unverified literals without changing any display classification or raw/unknown metrics.
+Unlisted, partial or mismatched pairs still require review; malformed contracts reject.
+The actual staging/configuration path preserves other validation gates and prior good bytes.
+See [design](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md) and
+[verification](../reports/test-2026-09-17-task-008-reviewed-pairs.md).
+This bounded change does not mark a whole FR, TASK-008 or release complete. Numerical
+policy, allowed empties, baseline and overall operational acceptance remain open.

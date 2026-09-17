@@ -118,3 +118,21 @@ Full-source desktop measurements and exact-round-trip evidence are in
 site fits the existing 1 GB limit, but the original production policy and baseline remain unapproved.
 Full-source initial readiness, memory requirements and physical/mobile performance are separate
 from the small shell-paint budget. Do not enable publication from these local measurements.
+
+
+## Reviewed-unverified aggregate pairs
+
+On 2026-09-17 the user approved exact category-bound acknowledgment of raw 05/06 pairs
+while keeping all affected records displayed as "확인되지 않음". The optional
+`reviewedUnverifiedPairs` config field must contain the complete approved artifact at
+`src/pipeline/contracts/reviewed-unverified-pairs-v1.json`. Omitting it preserves the
+previous pair-review gate; malformed, modified or incompatible contracts reject. This is
+not a generic caller-defined allowlist. Copy the complete artifact only into a separately
+reviewed operator configuration; do not fill numeric limits or bootstrap from test fixtures.
+
+The exact code/name/category combinations are the maximum acknowledged scope. New spellings,
+partial values and pairs outside that scope continue to require review. Counts and raw pairs
+remain in metrics and undergo ordinary policy comparisons. This approval supplies neither
+quality thresholds nor initial baseline/empty-category approval, and creates no production
+config or deployment permission. See the
+[approved contract](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md).

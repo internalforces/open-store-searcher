@@ -51,6 +51,24 @@ export interface ValidationPolicyV1 {
   categories: Record<string, MetricLimitsV1>;
   allowedEmptyCategories: string[];
 }
+export interface ReviewedUnverifiedPairsContractV1 {
+  version: 1;
+  revision: string;
+  validationVersion: 1;
+  schemaVersion: 2;
+  statusMappingVersion: 1;
+  schemaManifestSha256: string;
+  evidence: {
+    archiveSha256s: [string, string];
+    observationReceiptSha256: string;
+    reviewReference: string;
+  };
+  pairs: Array<{
+    code: string;
+    name: string;
+    categoryIds: string[];
+  }>;
+}
 export interface ValidationBaselineV1 {
   /** Omitted on historical coverage baselines. Never compare different date bases. */
   dateBasis?: 'coverage' | 'collection';
@@ -86,6 +104,7 @@ export interface ValidationInputV1 {
   permissionManifest: PermissionManifest;
   rows: StagedLicenseRowV1[];
   ingestion: IngestionCategoryV1[];
+  reviewedUnverifiedPairs?: ReviewedUnverifiedPairsContractV1;
   policy?: ValidationPolicyV1;
   baseline?: ValidationBaselineV1;
   coverage?: CoverageAssertionV1;

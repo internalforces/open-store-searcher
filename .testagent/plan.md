@@ -138,3 +138,28 @@ Add a real-build assertion for every descriptor entry file/hash/size and verify 
 Follow docs/superpowers/plans/2026-09-14-task-008-compact-delivery.md. Each implementation step
 starts with focused behavior tests, then integration/parity tests. Full verification follows
 focused clean runs. Record exact names/commands in status.md; missing evidence remains open.
+
+
+## TASK-008 reviewed-unverified pair plan — 2026-09-17
+
+Approved interface: optional `ValidationInputV1.reviewedUnverifiedPairs` carrying the exact
+checked-in versioned/evidence-bound contract; config forwards the same object. Missing input
+preserves legacy review, malformed/incompatible input rejects. The allowlist is a maximum
+permitted scope, not a requirement that every approved pair occur in every candidate.
+Object key order does not change semantic validity. Mapper and raw metrics stay unchanged.
+
+| Acceptance | Planned executable case |
+|---|---|
+| P01 | accepts the exact reviewed 05/06 category scopes without changing unverified metrics; accepts sparse approved occurrences |
+| P02 | exact code/name/spelling/missing-cell/unlisted-category rejection matrix |
+| P03 | missing input review plus malformed/sparse/duplicate/extended/version/revision/evidence/schema contract matrix |
+| P04 | keeps mixed reviewed and unreviewed pairs in review; compare all raw/unknown metrics and unverified candidate values |
+| P05 | preserves policy and baseline gates with reviewed pairs; ordinary count/rate gates remain |
+| P06 | staged exact-contract round trip; missing/bad-pair nonpromotion and previous good bytes preserved; executable config forwarding |
+| P07 | focused tests must fail before implementing then pass; pinned full verification; independent test-gap/assertion review |
+
+Implementation worker owns source/scripts/tests and the checked-in contract artifact. Parent owns
+shared documentation, test artifacts, environment and final full verification. Independent review
+will inspect exact scopes against the separately retained decision-input evidence, mutation
+resistance and no unintended numeric-policy/bootstrap permission. No real production policy is
+created and no network-dependent source test is introduced.

@@ -427,3 +427,14 @@ ValidationPolicyV1 cannot accept the observed 05/06 rows. The exact category-bou
 requires human approval before implementation; it preserves display statuses and all evidence.
 Only two changed-archive observations exist in this packet, insufficient to infer numeric drift
 limits. Original PRD access is resolved. Quality policy/bootstrap and hosted release remain open.
+
+
+## TASK-008 reviewed-unverified contract disposition — 2026-09-17
+
+The user approved exact category-bound 05/06 acknowledgment; implementation keeps raw pairs,
+unknown counts and unverified display states. Explicit matching contract input resolves only
+the known pair-review diagnostic. It cannot waive new pairs, arbitrary categories, numeric
+policy or baseline approval. The prior statement that no acceptance contract exists is
+historical. Numeric calibration, reviewed empty-category policy and baseline remain open.
+The array extra-property strictness issue found during independent review was fixed with
+a regression; no unrelated security policy or dependency change was made.
