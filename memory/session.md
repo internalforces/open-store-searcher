@@ -1392,3 +1392,10 @@ The first transfer also copied macOS AppleDouble `._*` metadata, causing 44 non-
 errors while all 797 real tests passed; removing only those transfer artifacts from the isolated
 container copy produced the clean passing run. Repository format, lint, and whitespace checks
 also pass; lint retains five existing informational suggestions.
+
+Committed and pushed the calibration-waiting transition as `49a5c99`, then created PR #24,
+`Validate reviewed status pairs and begin TASK-008 calibration`, against `main`:
+https://github.com/internalforces/open-store-searcher/pull/24. The PR contains the operational
+evidence, reviewed-unverified contract and tests, first current calibration observation, approved
+completion protocol, and waiting-state records. The worktree remains available for review fixes.
+No merge, deployment, repository setting, policy, baseline, or publication action occurred.
