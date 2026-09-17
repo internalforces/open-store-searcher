@@ -447,3 +447,30 @@ category-count decrease and the repeated 23-category empty set. Its -1 suspended
 retained as a correction signal. This still supplies only three observed transitions and cannot
 justify a production policy. Numeric limits, allowed empties, and the initial baseline remain
 open until the interval completes and the derived proposal receives explicit approval.
+
+
+## TASK-019 actual Actions review — 2026-09-17
+
+Fresh authenticated settings and immutable upstream evidence reconfirm the previously reported
+publication gaps. SEC-ACTIONS-01 (Medium): github-pages environment/reviewer restriction and
+main protection/rulesets are absent. SEC-ACTIONS-02 (Low): the pinned Pages upload composite
+invokes mutable actions/upload-artifact@v4. Publication remains disabled; no external-PR
+privilege escalation is claimed. Proposed exact upload replacement and concrete settings are in
+[Actions review](../reports/security-2026-09-17-task-019-actions.md). Owner: Security Reviewer /
+Release Manager, with Implementer for an approved workflow patch. Security acceptance remains
+open pending explicit approval and remediation/disposition. Recovery retention and hosted
+failure/reconciliation evidence remain TASK-009/010/021 gates. No new risk acceptance was made.
+
+
+## TASK-019 remediation follow-up — 2026-09-17
+
+SEC-ACTIONS-02 is corrected on codex/task-019-actions-review with a directly pinned upload action;
+default-branch adoption still requires review/merge. SEC-ACTIONS-01 is partially remediated:
+main protection is applied and verified, while the required deployment reviewer identity is
+pending user input. Only internalforces is currently listed as a collaborator; enforced PR
+approval prevents self-authored merges without another eligible approver. No automatic bypass
+or weaker review policy was adopted.
+
+Verification limitation: unchanged Linux Info-ZIP tests fail on macOS (795 pass, two fail), and
+Docker Desktop cannot start the approved Ubuntu environment. Full verification, actual Linux
+packaging checks and final review remain open. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).

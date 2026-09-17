@@ -361,7 +361,7 @@ below reconstructs that scope using [the security prompt](../prompts/security.md
 | [x] | AC-019-5 / Section 14.4 | Review dependency advisories, licenses and lockfile integrity. | [Saved audit response](../reports/security-2026-09-09-task-019-audit.json), evidence JSON lock inventory and [304-version license report](../reports/dependency-licenses-2026-09-09.md). Complete as of the recorded review; release recheck required. |
 | [x] | AC-019-6 / Section 14.4 | Assess existing downloaded-file controls and record production limitations. | Assessment, “Malicious provider archive” row: bounds, hashes, archive/schema checks and existing pipeline tests reviewed. Live Linux and complete production ingestion remain unverified under TASK-009/021. |
 | [x] | AC-019-7 / verification | Preserve full verification and reviewed-source identity. | [Verification transcript](../reports/security-2026-09-09-task-019-verify.txt): pinned verify:full passed 598 Vitest, 68 browser and 20 accessibility tests; evidence JSON contains 53 source hashes. [PR remediation](../reports/review-2026-09-10-pr20.md) records the subsequent full rerun. |
-| [ ] | AC-019-8 / Section 14.4 | Review actual Actions permissions, triggers, action pinning, credentials and artifact trust. | Evidence JSON records an empty workflow inventory; the assessment marks this unavailable, not passed. No workflow exists at the reviewed commit and no approved exemption was found. Retained in [TASK-019 backlog](backlog.md#task-019-unfinished-actions-criterion); Security Reviewer / Release Manager must complete it with TASK-010 before TASK-021 release acceptance. |
+| [ ] | AC-019-8 / Section 14.4 | Review actual Actions permissions, triggers, action pinning, credentials and artifact trust. | [2026-09-17 Actions review](../reports/security-2026-09-17-task-019-actions.md) records actual workflows, immutable action evidence and authenticated repository settings. Review performed; [authorized remediation](../reports/security-2026-09-17-task-019-remediation.md) applies main protection and fixes the upload pin in the branch. Overall TASK-019 remains active for deployment reviewer/environment setup, Ubuntu verification and final review; no release waiver. |
 
 Completion disposition corrected on 2026-09-11: only AC-019-1 through AC-019-7 are complete
 within the stated evidence boundaries. Overall TASK-019 remains incomplete/deferred until
@@ -489,3 +489,13 @@ Evidence: [verification](../reports/test-2026-09-17-task-008-reviewed-pairs.md) 
 Overall TASK-008 stays active/incomplete for reviewed numeric policy, empty-category
 policy, initial baseline and remaining operational acceptance. This entry completes only
 the bounded approved contract, not the task, milestone or release. No next task is activated.
+
+
+## TASK-019 bounded Actions review performed — 2026-09-17
+
+Completed the user-requested AC-019-8 investigation against dddc61a and verified identical
+workflow/script/lockfile bytes on remote main 73edf04. Fresh API and upstream evidence confirms
+one Medium protection gap, one Low transitive action pinning gap and one recovery limitation.
+See [report](../reports/security-2026-09-17-task-019-actions.md). Only review work is complete:
+overall TASK-019 remains active, its acceptance unchecked and its findings unresolved. No
+security changes, repository settings, deployment, commit, push or independent approval occurred.

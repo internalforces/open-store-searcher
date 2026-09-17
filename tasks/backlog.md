@@ -7,13 +7,12 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-09-04_
+_Last updated: 2026-09-17_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
-| TASK-019 | Complete deferred Actions security review (AC-019-8) after TASK-010 provides workflows | High | M3 | M | FR-12, Section 14.4 |
 | TASK-020 | Write setup, deployment, source, disclaimer, contribution, code-of-conduct, and security-reporting docs | High | M3 | M | Section 17, Section 20 |
 | TASK-021 | Run full P0 traceability and v1.0 release-candidate verification | High | M3 | L | FR-01 through FR-14, Section 17 |
 | TASK-022 | Design and implement identifier-based share URLs | Medium | M4 | M | FR-15 |
@@ -34,8 +33,8 @@ TASK-026 recurs after milestone implementation, testing, and review. TASK-020 re
 TASK-008 is awaiting its approved 30-Seoul-calendar-day evidence interval and does not occupy the
 single active implementation slot between daily observations. TASK-009/010 remain dependent on
 the reviewed policy and baseline and must not resume yet. Independent backlog work may proceed on
-a separate branch. TASK-019 AC-019-8 is the next eligible bounded task because the Actions
-workflows now exist for read-only review; any security fix, settings change, deployment, or release
+a separate branch. TASK-019 AC-019-8 was the next eligible bounded task and is now active because
+the Actions workflows exist for read-only review; any security fix, settings change, deployment, or release
 still requires its existing explicit approval.
 
 ## Size Guide
@@ -75,10 +74,10 @@ historical. Production measurements/data gates remain required for release; no n
 
 ## TASK-019 unfinished Actions criterion
 
-The bounded current-application assessment is complete; overall TASK-019 is deferred/incomplete.
-[Acceptance criterion AC-019-8](completed.md#task-019-acceptance-criteria-and-evidence) remains
-unchecked because actual workflows and repository settings were unavailable, with no recorded
-approval to waive this criterion. Security Reviewer / Release Manager must inspect permissions,
-triggers, action pinning, credentials and artifact trust when TASK-010 provides the workflow,
-record evidence, and retain TASK-021's release gate until review passes. This restores unfinished
-scope rather than activating infrastructure work. TASK-008 remains explicitly on hold.
+TASK-019 was activated by explicit user request on 2026-09-17; see [active task](active.md).
+The actual workflow/settings review is performed and documented in the
+[Actions report](../reports/security-2026-09-17-task-019-actions.md), superseding the historical
+missing-workflow evidence. The user subsequently authorized remediation: main protection is configured and the upload
+pin is fixed in the branch. AC-019-8 remains open for deployment reviewer/environment setup,
+Ubuntu verification and final review. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
+TASK-008 continues its approved calibration interval. TASK-020 remains unactivated.

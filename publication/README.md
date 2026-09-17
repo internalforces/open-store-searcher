@@ -136,3 +136,14 @@ remain in metrics and undergo ordinary policy comparisons. This approval supplie
 quality thresholds nor initial baseline/empty-category approval, and creates no production
 config or deployment permission. See the
 [approved contract](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md).
+
+
+## TASK-019 security remediation state — 2026-09-17
+
+The task branch now uses audited Linux tar packaging plus a directly SHA-pinned upload-artifact
+action, retaining the github-pages artifact contract. Main protection was applied with required
+GitHub Actions verify and reviewed PRs, including administrators. The deployment environment
+remains unconfigured while the required reviewer identity is pending; publication remains disabled.
+The sole listed collaborator cannot approve their own PR under the enforced policy.
+See [remediation and verification limits](../reports/security-2026-09-17-task-019-remediation.md).
+Do not treat branch delivery, main protection or static packaging equivalence as deployment approval.
