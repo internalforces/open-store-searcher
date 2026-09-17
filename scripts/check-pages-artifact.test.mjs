@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtemp, mkdir, writeFile, readFile, symlink, link, rm } from 'node:fs/promises';
+import { link, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
@@ -11,10 +11,10 @@ const workflow = await readFile(
   'utf8',
 );
 const blocks = [
-  ...workflow.matchAll(/      - name: Package accepted Pages artifact\n([\s\S]*?)(?=      - |$)/g),
+  ...workflow.matchAll(/ {6}- name: Package accepted Pages artifact\n([\s\S]*?)(?= {6}- |$)/g),
 ];
 assert.equal(blocks.length, 1, 'Expected exactly one Pages packaging step');
-assert.match(blocks[0][1], /^        shell: bash$/m);
+assert.match(blocks[0][1], /^ {8}shell: bash$/m);
 const body = blocks[0][1].split('        run: |\n');
 assert.equal(body.length, 2, 'Expected a literal packaging script');
 assert.ok(body[1].trim());
