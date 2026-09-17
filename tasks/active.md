@@ -30,6 +30,10 @@ is applied and read back. The deployment reviewer identity remains pending user 
 Local full verification stops at two existing Linux Info-ZIP tests on macOS; Ubuntu Docker
 startup is unavailable. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
 AC-019-8 acceptance remains open for the environment, Ubuntu verification and final review.
+The latest user request authorizes PR creation and non-publishing preparation up to approval,
+replacing the interrupted self-approval request. PR #25 is open; read-only Ubuntu CI and actual
+Pages packaging fixture checks are pending. See [preflight](../reports/deployment-2026-09-17-preflight.md).
+The calibration interval and policy/baseline gates still prevent a concrete production candidate.
 
 ## Awaiting time-bound evidence
 

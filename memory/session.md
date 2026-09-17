@@ -1451,3 +1451,19 @@ Commit/push of review records, the one workflow patch and updated evidence is au
 codex/task-019-actions-review. TASK-019 remains active for reviewer identity/environment,
 Ubuntu verification and final review. No merge, workflow dispatch, publication or policy/baseline
 change is authorized. Other worktrees and TASK-008 calibration are preserved.
+
+
+## TASK-019 PR and pre-approval preparation — 2026-09-17
+
+The user replaced the interrupted self-approval request with PR creation and deployment work
+up to approval. Created PR #25 against main at f66315d, triggering ordinary read-only Ubuntu CI.
+No self-approval, merge or deployment was attempted. Added four offline actual-shell Pages
+packaging cases to the Verify job, covering root/nested/hidden bytes, metadata exclusion,
+materialized links, missing input and dangling-link rejection. The GNU tar requirement is explicit;
+no assertion or platform skip was weakened. No token, hosted upload or real provider data is used.
+
+Prepared reports/deployment-2026-09-17-preflight.md with precise settings and the prerequisite
+sequence. Deployment reviewer identity, approved 30-day calibration, reviewed numeric policy/
+empty-list/baseline, accepted production candidate and release/recovery evidence remain open.
+This is not represented as a ready-to-approve deployment. Publication config/flag remain absent.
+New test/workflow/evidence changes are within the authorized security preparation and delivery.
