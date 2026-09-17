@@ -27,7 +27,7 @@ fixture artifact only; it is never uploaded or deployed.
 |---|---|---|
 | Main branch protection | Applied/read back | Required GitHub Actions verify/App 15368, current base, one PR approval, last-push approval, administrator enforcement and no force push/deletion. |
 | Upload action immutability | Implemented in PR | Merge reviewed PR after required checks and approval. Not yet the default-branch workflow. |
-| Ubuntu full verification and actual tar fixture checks | Awaiting latest PR run | Record the exact successful head SHA, run and packaging cases; do not reuse an earlier-head result as final evidence. |
+| Ubuntu full verification and actual tar fixture checks | Full suite passed at 9b13b08; final packaging rerun pending | Run 35222505500 passes the full suite and three packaging cases. Dangling-link nonzero exit is correct; the test is corrected to accept the observed GNU tar diagnostic. The final head must pass all four cases. |
 | PR approval/merge | Pending | No self-approval attempted. Main currently requires another eligible reviewer; only internalforces is listed as a collaborator. |
 | Deployment environment | Pending reviewer identity | The proposed settings below must be completed and read back. |
 | Source calibration | In progress, approved 30-Seoul-calendar-day interval from 2026-09-17 | Retain distinct observations and failures under TASK-008. This request does not shorten the interval. |
@@ -73,3 +73,14 @@ No source archive, quality threshold, empty-category acceptance or initial basel
 
 Approval is not requested now because the concrete production candidate and its policy evidence
 are not ready. Existing TASK-008 calibration continues; TASK-019 remains the sole active task.
+
+
+## Hosted verification checkpoint
+
+[Ubuntu run 35222505500](https://github.com/internalforces/open-store-searcher/actions/runs/35222505500)
+passes the unchanged full application verification at 9b13b08. It reproduces one test-oracle
+mismatch: dangling-link packaging correctly returns nonzero but GNU tar reports
+`File removed before we read it` rather than `Cannot stat`/`No such file`. The correction retains
+the mandatory nonzero exit and accepts this observed diagnostic; it does not alter tar behavior,
+turn failure into success, or skip a test. The earlier regex lint findings are also corrected.
+The final run/check conclusion is recorded on PR #25; this checkpoint is not a final-head pass.

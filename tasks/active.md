@@ -27,9 +27,11 @@ Review performed: one Medium protection-setting gap, one Low transitive mutable-
 and one informational recovery limitation. See [Actions review](../reports/security-2026-09-17-task-019-actions.md).
 Authorized remediation: the branch now directly pins the upload action; actual main protection
 is applied and read back. The deployment reviewer identity remains pending user input.
-Local full verification stops at two existing Linux Info-ZIP tests on macOS; Ubuntu Docker
-startup is unavailable. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
-AC-019-8 acceptance remains open for the environment, Ubuntu verification and final review.
+Historical local verification failed two Linux Info-ZIP tests on macOS and Docker was unavailable.
+PR #25 hosted Ubuntu run 35222505500 passes the full suite at 9b13b08. Final packaging test
+verification is pending after correcting a diagnostic expectation; the mandatory nonzero exit
+remains. See [preflight](../reports/deployment-2026-09-17-preflight.md).
+AC-019-8 acceptance remains open for the environment, final-head checks and final review.
 The latest user request authorizes PR creation and non-publishing preparation up to approval,
 replacing the interrupted self-approval request. PR #25 is open; read-only Ubuntu CI and actual
 Pages packaging fixture checks are pending. See [preflight](../reports/deployment-2026-09-17-preflight.md).

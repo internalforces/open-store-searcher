@@ -1467,3 +1467,15 @@ sequence. Deployment reviewer identity, approved 30-day calibration, reviewed nu
 empty-list/baseline, accepted production candidate and release/recovery evidence remain open.
 This is not represented as a ready-to-approve deployment. Publication config/flag remain absent.
 New test/workflow/evidence changes are within the authorized security preparation and delivery.
+
+
+## TASK-019 hosted preparation verification — 2026-09-17
+
+PR #25 is open and main was merged into the task branch solely to satisfy the up-to-date-base
+check; no task branch was merged into main. Hosted run 35222256576 caught two regex lint warnings
+in the added packaging test; corrected them and verified local lint/format. Hosted Ubuntu run
+35222505500 at 9b13b08 passes the full application suite. Three packaging cases pass; dangling-link
+packaging correctly fails but the diagnostic assertion did not include GNU tar's observed
+"File removed before we read it". Corrected only that oracle while retaining nonzero exit.
+The final run is required before claiming full packaging verification; PR #25 records its result.
+Deployment remains blocked on the protected reviewer, quality policy/baseline and release evidence.

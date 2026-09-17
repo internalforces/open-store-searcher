@@ -118,5 +118,5 @@ test('Pages package fails on a dangling link rather than silently omitting it', 
   await symlink('missing.txt', join(site, 'dangling.txt'));
   const result = pack();
   assert.notEqual(result.status, 0);
-  assert.match(result.stderr, /Cannot stat|No such file/);
+  assert.match(result.stderr, /Cannot stat|No such file|File removed before we read it/);
 });
