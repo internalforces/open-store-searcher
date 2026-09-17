@@ -1,0 +1,641 @@
+{
+  "version": 1,
+  "kind": "task-008-quality-decision-inputs",
+  "preparedDate": "2026-09-16",
+  "approvalStatus": "unapproved",
+  "publicationApproved": false,
+  "purpose": "Exact review inputs only; this file is not a validation policy, baseline, mapping, or publication configuration.",
+  "restrictions": [
+    "Do not use these observations to invent numeric production thresholds.",
+    "Do not remap, drop, or infer detailed meaning for raw aggregate pairs 05 or 06.",
+    "Do not treat repeated emptiness as provider proof that a category must remain empty.",
+    "A human-approved validator acceptance contract, policy, and baseline remain required."
+  ],
+  "evidence": {
+    "sourcePrd": {
+      "path": "/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md",
+      "sha256": "33f3bcb2f0c9f7e03b7edb5acdffe8cad054b0716fa578ed3be5eef8495b91b7",
+      "byteLength": 21377
+    },
+    "archiveContract": {
+      "path": "src/pipeline/contracts/seoul-archive-contract.json",
+      "fileSha256": "7cd8ce23032b491a4d9859c2cf50d7fa7505ea94c63523cb44bcb5e4242388ec",
+      "schemaManifestSha256": "6254a2b3d6626c41f625bb98d79399bdd40318632ce0d54561a997fdd039ceb6",
+      "categoryCount": 195
+    },
+    "observations": [
+      {
+        "collectionDate": "2026-09-12",
+        "path": "reports/observation-2026-09-12-bounded-source.json",
+        "fileSha256": "da216ef720da5ed84a2ead65c477f1ba4eda877ee541f50c0c240f8858a210d8",
+        "archiveSha256": "e2eeb1a868a2bfb94dbc9d193dae74707c0e27e38230376d5ad105e174a69faa",
+        "datasetSha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+        "recordCount": 2939947,
+        "validationKind": "review_required",
+        "publicationApproved": false
+      },
+      {
+        "collectionDate": "2026-09-13",
+        "path": "reports/observation-2026-09-13-hosted-source.json.raw",
+        "receiptSha256": "f05984f434ff5553d65e5c22b50bf657e8ec65238be9d7c57c3b144cdd8d3b60",
+        "githubRunUrl": "https://github.com/internalforces/open-store-searcher/actions/runs/34746029824",
+        "commit": "7a1dd37ed0647707f3965a5ac49be9b7fce1d1f8",
+        "archiveSha256": "edb4be5b859ef0a8eaca0cd2a96f58ac82911d3db59775ecf9417d9beabf87ce",
+        "datasetSha256": "c66d90193e6045852b50e1555a00255a65c01cffb5384d314d0057e07b48fe19",
+        "recordCount": 2940404,
+        "validationKind": "review_required",
+        "publicationApproved": false
+      }
+    ]
+  },
+  "observedTransition": {
+    "recordCount20260912": 2939947,
+    "recordCount20260913": 2940404,
+    "recordCountDelta": 457,
+    "increasedCategoryCount": 41,
+    "decreasedCategoryCount": 0,
+    "unchangedCategoryCount": 154,
+    "limitation": "One all-positive daily transition does not establish safe production drift limits."
+  },
+  "reviewedUnverifiedPairCandidates": [
+    {
+      "code": "05",
+      "name": "제외/삭제/전출",
+      "displayStatus": "확인되지 않음",
+      "categoryCount": 66,
+      "count20260912": 187150,
+      "count20260913": 187199,
+      "categoryScopeUnchanged": true,
+      "categories": [
+        {
+          "categoryId": "15006679",
+          "entryName": "기타_상조업.csv",
+          "count20260912": 14,
+          "count20260913": 14
+        },
+        {
+          "categoryId": "15006706",
+          "entryName": "건강_의료유사업.csv",
+          "count20260912": 4,
+          "count20260913": 4
+        },
+        {
+          "categoryId": "15006741",
+          "entryName": "문화_시내순환관광업.csv",
+          "count20260912": 2,
+          "count20260913": 2
+        },
+        {
+          "categoryId": "15044952",
+          "entryName": "생활_방문판매업.csv",
+          "count20260912": 3337,
+          "count20260913": 3337
+        },
+        {
+          "categoryId": "15044954",
+          "entryName": "자원환경_환경전문공사업.csv",
+          "count20260912": 89,
+          "count20260913": 89
+        },
+        {
+          "categoryId": "15044955",
+          "entryName": "자원환경_환경측정대행업.csv",
+          "count20260912": 41,
+          "count20260913": 41
+        },
+        {
+          "categoryId": "15044956",
+          "entryName": "자원환경_배출가스전문정비사업자(확인검사대행자).csv",
+          "count20260912": 4,
+          "count20260913": 4
+        },
+        {
+          "categoryId": "15044957",
+          "entryName": "자원환경_대기오염물질배출시설설치사업장.csv",
+          "count20260912": 375,
+          "count20260913": 375
+        },
+        {
+          "categoryId": "15044958",
+          "entryName": "자원환경_제재업.csv",
+          "count20260912": 2,
+          "count20260913": 2
+        },
+        {
+          "categoryId": "15044959",
+          "entryName": "자원환경_원목생산업.csv",
+          "count20260912": 4,
+          "count20260913": 4
+        },
+        {
+          "categoryId": "15044960",
+          "entryName": "자원환경_목재수입유통업.csv",
+          "count20260912": 76,
+          "count20260913": 76
+        },
+        {
+          "categoryId": "15044969",
+          "entryName": "기타_승강기유지관리업체.csv",
+          "count20260912": 8,
+          "count20260913": 8
+        },
+        {
+          "categoryId": "15044970",
+          "entryName": "기타_승강기제조및수입업체.csv",
+          "count20260912": 8,
+          "count20260913": 8
+        },
+        {
+          "categoryId": "15044987",
+          "entryName": "자원환경_고압가스업.csv",
+          "count20260912": 6,
+          "count20260913": 6
+        },
+        {
+          "categoryId": "15044996",
+          "entryName": "문화_국내외여행업.csv",
+          "count20260912": 3568,
+          "count20260913": 3568
+        },
+        {
+          "categoryId": "15044997",
+          "entryName": "문화_종합여행업.csv",
+          "count20260912": 3907,
+          "count20260913": 3909
+        },
+        {
+          "categoryId": "15044998",
+          "entryName": "문화_국내여행업.csv",
+          "count20260912": 1088,
+          "count20260913": 1088
+        },
+        {
+          "categoryId": "15045000",
+          "entryName": "문화_비디오물제작업.csv",
+          "count20260912": 2654,
+          "count20260913": 2654
+        },
+        {
+          "categoryId": "15045002",
+          "entryName": "문화_비디오물배급업.csv",
+          "count20260912": 315,
+          "count20260913": 315
+        },
+        {
+          "categoryId": "15045005",
+          "entryName": "문화_영화상영업.csv",
+          "count20260912": 86,
+          "count20260913": 86
+        },
+        {
+          "categoryId": "15045006",
+          "entryName": "문화_영화제작업.csv",
+          "count20260912": 1642,
+          "count20260913": 1643
+        },
+        {
+          "categoryId": "15045007",
+          "entryName": "문화_영화수입업.csv",
+          "count20260912": 412,
+          "count20260913": 413
+        },
+        {
+          "categoryId": "15045009",
+          "entryName": "문화_영화배급업.csv",
+          "count20260912": 572,
+          "count20260913": 573
+        },
+        {
+          "categoryId": "15045011",
+          "entryName": "자원환경_단독정화조-오수처리시설설계시공업.csv",
+          "count20260912": 53,
+          "count20260913": 53
+        },
+        {
+          "categoryId": "15045020",
+          "entryName": "문화_음반및음악영상물제작업.csv",
+          "count20260912": 469,
+          "count20260913": 469
+        },
+        {
+          "categoryId": "15045021",
+          "entryName": "문화_온라인음악서비스제공업.csv",
+          "count20260912": 28,
+          "count20260913": 28
+        },
+        {
+          "categoryId": "15045023",
+          "entryName": "문화_음반및음악영상물배급업.csv",
+          "count20260912": 136,
+          "count20260913": 136
+        },
+        {
+          "categoryId": "15045024",
+          "entryName": "건강_의원.csv",
+          "count20260912": 797,
+          "count20260913": 798
+        },
+        {
+          "categoryId": "15045025",
+          "entryName": "건강_병원.csv",
+          "count20260912": 12,
+          "count20260913": 12
+        },
+        {
+          "categoryId": "15045027",
+          "entryName": "건강_산후조리업.csv",
+          "count20260912": 3,
+          "count20260913": 3
+        },
+        {
+          "categoryId": "15045028",
+          "entryName": "건강_안경업.csv",
+          "count20260912": 75,
+          "count20260913": 75
+        },
+        {
+          "categoryId": "15045029",
+          "entryName": "건강_치과기공소.csv",
+          "count20260912": 278,
+          "count20260913": 279
+        },
+        {
+          "categoryId": "15045030",
+          "entryName": "건강_부속의료기관.csv",
+          "count20260912": 3,
+          "count20260913": 3
+        },
+        {
+          "categoryId": "15045032",
+          "entryName": "건강_의료기기판매(임대)업.csv",
+          "count20260912": 6878,
+          "count20260913": 6879
+        },
+        {
+          "categoryId": "15045033",
+          "entryName": "건강_의료기기수리업.csv",
+          "count20260912": 172,
+          "count20260913": 172
+        },
+        {
+          "categoryId": "15045035",
+          "entryName": "자원환경_소독업.csv",
+          "count20260912": 437,
+          "count20260913": 437
+        },
+        {
+          "categoryId": "15045045",
+          "entryName": "생활_체육도장업.csv",
+          "count20260912": 16,
+          "count20260913": 16
+        },
+        {
+          "categoryId": "15045048",
+          "entryName": "생활_체력단련장업.csv",
+          "count20260912": 14,
+          "count20260913": 14
+        },
+        {
+          "categoryId": "15045049",
+          "entryName": "식품_축산물운반업.csv",
+          "count20260912": 38,
+          "count20260913": 38
+        },
+        {
+          "categoryId": "15045057",
+          "entryName": "기타_인쇄사.csv",
+          "count20260912": 487,
+          "count20260913": 487
+        },
+        {
+          "categoryId": "15045058",
+          "entryName": "기타_출판사.csv",
+          "count20260912": 14231,
+          "count20260913": 14233
+        },
+        {
+          "categoryId": "15045059",
+          "entryName": "생활_전화권유판매업.csv",
+          "count20260912": 1128,
+          "count20260913": 1128
+        },
+        {
+          "categoryId": "15045060",
+          "entryName": "생활_통신판매업.csv",
+          "count20260912": 136463,
+          "count20260913": 136497
+        },
+        {
+          "categoryId": "15045061",
+          "entryName": "자원환경_저수조청소업.csv",
+          "count20260912": 81,
+          "count20260913": 81
+        },
+        {
+          "categoryId": "15045062",
+          "entryName": "자원환경_쓰레기종량제봉투판매업.csv",
+          "count20260912": 47,
+          "count20260913": 47
+        },
+        {
+          "categoryId": "15045063",
+          "entryName": "자원환경_분뇨수집운반업.csv",
+          "count20260912": 21,
+          "count20260913": 21
+        },
+        {
+          "categoryId": "15045064",
+          "entryName": "자원환경_건설폐기물처리업.csv",
+          "count20260912": 7,
+          "count20260913": 7
+        },
+        {
+          "categoryId": "15045068",
+          "entryName": "자원환경_가축분뇨배출시설관리업(사업장).csv",
+          "count20260912": 1,
+          "count20260913": 1
+        },
+        {
+          "categoryId": "15045069",
+          "entryName": "문화_청소년게임제공업.csv",
+          "count20260912": 2,
+          "count20260913": 2
+        },
+        {
+          "categoryId": "15045070",
+          "entryName": "문화_게임물배급업.csv",
+          "count20260912": 728,
+          "count20260913": 729
+        },
+        {
+          "categoryId": "15045073",
+          "entryName": "문화_인터넷컴퓨터게임시설제공업.csv",
+          "count20260912": 3,
+          "count20260913": 3
+        },
+        {
+          "categoryId": "15045074",
+          "entryName": "문화_게임물제작업.csv",
+          "count20260912": 1191,
+          "count20260913": 1192
+        },
+        {
+          "categoryId": "15045075",
+          "entryName": "자원환경_계량기수입업.csv",
+          "count20260912": 8,
+          "count20260913": 8
+        },
+        {
+          "categoryId": "15045076",
+          "entryName": "자원환경_계량기증명업.csv",
+          "count20260912": 6,
+          "count20260913": 6
+        },
+        {
+          "categoryId": "15045077",
+          "entryName": "자원환경_계량기제조업.csv",
+          "count20260912": 8,
+          "count20260913": 8
+        },
+        {
+          "categoryId": "15045078",
+          "entryName": "자원환경_계량기수리업.csv",
+          "count20260912": 10,
+          "count20260913": 10
+        },
+        {
+          "categoryId": "15045099",
+          "entryName": "문화_국제회의기획업.csv",
+          "count20260912": 413,
+          "count20260913": 413
+        },
+        {
+          "categoryId": "15045101",
+          "entryName": "기타_유료직업소개소.csv",
+          "count20260912": 1569,
+          "count20260913": 1569
+        },
+        {
+          "categoryId": "15045102",
+          "entryName": "기타_무료직업소개소.csv",
+          "count20260912": 129,
+          "count20260913": 129
+        },
+        {
+          "categoryId": "15045107",
+          "entryName": "생활_당구장업.csv",
+          "count20260912": 5,
+          "count20260913": 5
+        },
+        {
+          "categoryId": "15045112",
+          "entryName": "문화_대중문화예술기획업.csv",
+          "count20260912": 1769,
+          "count20260913": 1772
+        },
+        {
+          "categoryId": "15045116",
+          "entryName": "자원환경_수질오염원설치시설(기타).csv",
+          "count20260912": 173,
+          "count20260913": 173
+        },
+        {
+          "categoryId": "15101546",
+          "entryName": "동물_사료제조업.csv",
+          "count20260912": 10,
+          "count20260913": 10
+        },
+        {
+          "categoryId": "15101549",
+          "entryName": "식품_축산판매업.csv",
+          "count20260912": 961,
+          "count20260913": 961
+        },
+        {
+          "categoryId": "15101550",
+          "entryName": "식품_축산가공업.csv",
+          "count20260912": 16,
+          "count20260913": 16
+        },
+        {
+          "categoryId": "15101551",
+          "entryName": "식품_식육포장처리업.csv",
+          "count20260912": 60,
+          "count20260913": 60
+        }
+      ]
+    },
+    {
+      "code": "06",
+      "name": "기타",
+      "displayStatus": "확인되지 않음",
+      "categoryCount": 2,
+      "count20260912": 23,
+      "count20260913": 23,
+      "categoryScopeUnchanged": true,
+      "categories": [
+        {
+          "categoryId": "15045089",
+          "entryName": "문화_테마파크업(기타).csv",
+          "count20260912": 21,
+          "count20260913": 21
+        },
+        {
+          "categoryId": "15045092",
+          "entryName": "문화_일반테마파크업.csv",
+          "count20260912": 2,
+          "count20260913": 2
+        }
+      ]
+    }
+  ],
+  "emptyCategoryCandidates": {
+    "count": 23,
+    "exactSetUnchanged": true,
+    "categories": [
+      {
+        "categoryId": "15006727",
+        "entryName": "기타_국제물류주선업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15044963",
+        "entryName": "생활_의료기관세탁물처리업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15044965",
+        "entryName": "문화_관광펜션업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15044988",
+        "entryName": "자원환경_전력기술설계업체.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15044989",
+        "entryName": "자원환경_전력기술감리업체.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15044993",
+        "entryName": "자원환경_일반도시가스업체.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045012",
+        "entryName": "식품_옹기류제조업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045019",
+        "entryName": "문화_음반물제작업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045022",
+        "entryName": "문화_음반물배급업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045031",
+        "entryName": "건강_응급환자이송업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045040",
+        "entryName": "생활_등록체육시설업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045041",
+        "entryName": "생활_승마장업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045043",
+        "entryName": "생활_스키장.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045051",
+        "entryName": "동물_부화업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045053",
+        "entryName": "동물_도축업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045055",
+        "entryName": "식품_집유업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045056",
+        "entryName": "동물_가축인공수정소.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045065",
+        "entryName": "자원환경_환경관리대행기관.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045083",
+        "entryName": "문화_관광궤도업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045114",
+        "entryName": "문화_지방문화원.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15045115",
+        "entryName": "자원환경_급수공사대행업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15101548",
+        "entryName": "동물_종축업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      },
+      {
+        "categoryId": "15113628",
+        "entryName": "문화_농어촌민박업.csv",
+        "recordCount20260912": 0,
+        "recordCount20260913": 0
+      }
+    ]
+  },
+  "requiredHumanDecisions": [
+    "Whether exact category-bound 05 and 06 pairs may be acknowledged by validation while remaining displayed as unverified.",
+    "Whether the repeated 23-category empty set is sufficient for the initial allowed-empty review.",
+    "Which complete observation is the initial collection-date baseline after a production policy is independently calibrated and approved."
+  ]
+}

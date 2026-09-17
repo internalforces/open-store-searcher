@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-09-14_
+_Last updated: 2026-09-17_
 
 ## Summary
 
@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 active; full-source compact delivery and Worker search implemented and measured; production quality, mobile/hosted and release gates remain open
+- Phase: TASK-008 operational evidence collected; PR #23 merged and hosted Verify passed; broad mobile-emulated search exceeds target and quality acceptance remains unapproved
 - Next milestone: M1 — resolve TASK-008 production coverage, policy/baseline, and PRD evidence gates
 - Overall health: 🟡 Caution — staged collection-date publication is implemented; real-data quality configuration, hosted execution/recovery and independent review remain unverified
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`

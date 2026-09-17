@@ -1223,3 +1223,58 @@ Implementation commit `3779200` is pushed on `codex/task-008-compact-delivery`. 
 [PR #23](https://github.com/internalforces/open-store-searcher/pull/23) targets main and records
 the verification evidence and remaining limits. Hosted CI is pending at this handoff. The Ubuntu
 research container has been returned to its prior stopped state; the worktree is retained.
+
+
+## TASK-008 operational verification activation — 2026-09-16
+
+User requested activation/execution of the next task and use of subagents. Reused the existing
+worktree; fetched origin and confirmed `da9e63c` has the same tracked tree as merged main
+`bac6dce` (PR #23). Created local branch `codex/task-008-operational-verification` without
+creating another worktree. The working checkout was clean; the original checkout's untracked
+files were preserved. Hosted Verify succeeded for PR #23; prior pending notes are historical.
+
+TASK-008 remains the only active task. Delegated independent quality and hosted evidence
+reviews plus bounded actual-source mobile emulation. Existing delivery approval is reused;
+no redesign, policy/mapping adoption, hosted publication or security changes are included.
+Parent owns shared task/memory/traceability updates. No commit/push/merge/deployment authorized.
+
+
+## TASK-008 operational evidence finalization — 2026-09-17
+
+User requested continuation. Three delegated evidence streams completed: merged-main hosted
+CI/settings inspection, actual-source mobile-emulated measurements, and exact quality/bootstrap
+review inputs. Original PRD access is resolved. The unmodified raw Sep-13 observation is retained
+as `.json.raw` so formatting cannot change its source SHA-256; decision inputs remain unapproved.
+The reviewer independently checked source hashes/category arithmetic and identified the mislabeled
+post-search LCP field. The delivered harness/JSON now use postSearchLatestObservedLcpMs without
+changing the measured value; finite shell-window LCP is not a final LCP pass.
+
+Measured Sep-16 results: 154.1 ms shell primary, 49.24 s full readiness, 566.4 ms broad district
+search (target exceeded), 383.5/349.5 ms name/address searches, 69.1 ms next page, zero query/page
+requests and 2.956 GB sampled browser-tree RSS. Slow 200,000 B/s loading is censored not-ready at
+60 s. Worker CPU throttle coverage, physical-device performance and Pages delivery are unverified.
+The measurement ran after the parent's 119-test validator suite passed and exited. Two setup
+attempts were interrupted and excluded; their limitations are retained in the performance report.
+
+Exact merged code passed hosted 755/68/20. Scoped harness/JSON Biome checks, Node syntax, 25 local
+report-link targets, three JSON payload parses, receipt hash preservation and Git whitespace
+checks pass. Application/dependency/workflow files match HEAD. No new policy, mapping, publication
+config, architecture decision, commit, push, merge or deployment occurred. TASK-008 remains active
+for unresolved performance/quality acceptance; TASK-009/010 remain paused. Independent final
+review is being finalized separately; no release approval follows from this evidence pass.
+
+
+Final independent review Approved the bounded evidence packet on 2026-09-17 with no remaining
+actionable findings; see reports/review-2026-09-16-task-008-operations.md. Repository lint and
+format checks exit 0 (five existing lint infos only). This closes this evidence-gathering
+continuation, not overall TASK-008. The exact reviewed-unverified pair proposal, calibrated
+policy/baseline and practical mobile/hosted acceptance remain pending. Work is local/uncommitted.
+
+
+## TASK-008 operational evidence delivery authorization — 2026-09-17
+
+The user explicitly requested commit and push of the completed operational evidence packet.
+Deliver only the reviewed research harness, reports, exact raw observation, decision inputs and
+related task/memory/operator/traceability records on `codex/task-008-operational-verification`.
+Earlier no-commit/no-push statements describe preparation. This authorization does not approve
+policy adoption, TASK-008 completion, PR creation, merge, repository settings or deployment.

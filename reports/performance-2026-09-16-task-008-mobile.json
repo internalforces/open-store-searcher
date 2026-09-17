@@ -1,0 +1,3114 @@
+{
+  "schemaVersion": 1,
+  "kind": "task-008-full-source-mobile-emulation",
+  "recordedAt": "2026-09-16T10:20:47.873Z",
+  "publicationApproved": false,
+  "gitHead": "da9e63c864a45e2073f75f27aa32ef8370258e85",
+  "source": {
+    "sha256": "34ac368f16a578b3af96cd083d73efe698d7b3ec01f400b5162e37a42f6b85cc",
+    "byteLength": 2439358850
+  },
+  "compactAssets": {
+    "manifest": {
+      "name": "assets/compact-manifest-62268597c93c053feaa728dcb43e77d6bb1ff395ef815d51aef9eeac63a88943.json",
+      "sha256": "62268597c93c053feaa728dcb43e77d6bb1ff395ef815d51aef9eeac63a88943",
+      "byteLength": 171764
+    },
+    "entryCount": 719,
+    "fileCount": 720,
+    "verifiedBytes": 688433397,
+    "verification": "Every manifest and entry byte length and SHA-256 verified before build/browser launch."
+  },
+  "provenance": {
+    "harnessSha256Before": "3388b582ae3813d0c4250cf3de1854d3b4f47d2404319e45e523d81adfd1e9bb",
+    "harnessSha256After": "3388b582ae3813d0c4250cf3de1854d3b4f47d2404319e45e523d81adfd1e9bb",
+    "relevantTreeCleanBefore": true,
+    "relevantTreeCleanAfter": true,
+    "builtCode": [
+      {
+        "path": "index.html",
+        "byteLength": 405,
+        "sha256": "718b3117f9c03dc2407c3c8c78b7793705084fadf9e190c1cefbd4192f86777b"
+      },
+      {
+        "path": "assets/compact-search.worker-zG16gCmW.js",
+        "byteLength": 21176,
+        "sha256": "2c494a4e8f01128234122f063c5c7eace8f11eb933c57f208db60bfd55bb400a"
+      },
+      {
+        "path": "assets/index-CqGxh383.css",
+        "byteLength": 5505,
+        "sha256": "ee1755d4fd3b2e9147536e7bca3ce6f6116a8dbf8bd611f31c3e0c47bc7fb461"
+      },
+      {
+        "path": "assets/index-DSzkbW0L.js",
+        "byteLength": 46158,
+        "sha256": "b149e745a6f5f84da90dd9f41330c3296948511dc94a69eef16992fbf5a94830"
+      }
+    ]
+  },
+  "environment": {
+    "node": "v24.19.0",
+    "browser": "151.0.7922.34",
+    "platform": "darwin",
+    "release": "25.6.0",
+    "cpu": "Apple M3",
+    "logicalCpus": 8,
+    "memoryBytes": 17179869184,
+    "device": "Playwright Pixel 5 viewport/device emulation",
+    "pageCpuThrottlingRate": 4,
+    "workerCpuThrottleCoverage": "not established; CDP rate was attached to the page target"
+  },
+  "budgets": {
+    "shellPrimaryAndLcpMs": 2500,
+    "postLoadSearchAndPagingMs": 500
+  },
+  "methodology": {
+    "serving": "loopback HTTP with dynamic gzip; fresh contexts",
+    "shell": "laid-out heading and input plus two animation frames; LCP has a fixed 1,000 ms noninteractive shell window",
+    "search": "submit/page message, laid-out results and two animation frames; excludes typing and pixel presentation",
+    "memory": "one-second browser process-tree RSS sum; may double-count shared pages and is not JS heap or device memory",
+    "slowNetwork": "server-side aggregate compressed-body throttle at 200,000 B/s; observation censored at 60 seconds"
+  },
+  "fullLoad": {
+    "status": "ready",
+    "shell": {
+      "primaryMs": 154.0999999642372,
+      "firstPaintMs": 24,
+      "firstContentfulPaintMs": 108,
+      "shellWindowLcpMs": 108
+    },
+    "ready": {
+      "at": 49238.39999997616,
+      "version": 1,
+      "generation": 1,
+      "request": 0,
+      "kind": "ready",
+      "metadata": {
+        "sourceLabel": "행정안전부",
+        "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do",
+        "coverage": {
+          "kind": "collected",
+          "date": "2026-09-12"
+        },
+        "exampleQuery": ""
+      },
+      "recordCount": 2939947,
+      "manifestHash": "62268597c93c053feaa728dcb43e77d6bb1ff395ef815d51aef9eeac63a88943",
+      "timings": {
+        "loadMs": 15503.600000023842,
+        "prepareMs": 33604.19999998808
+      }
+    },
+    "postSearchLatestObservedLcpMs": 50348,
+    "searches": [
+      {
+        "searchToPaintOpportunityMs": 566.3999999761581,
+        "message": {
+          "at": 49791.89999997616,
+          "version": 1,
+          "generation": 1,
+          "request": 1,
+          "kind": "page",
+          "result": {
+            "page": 0,
+            "validation": {
+              "ok": true,
+              "original": "강남구",
+              "normalized": "강남구",
+              "nameKey": "강남구",
+              "addressKey": "강남구",
+              "addressTokens": ["강남구"]
+            },
+            "topMatches": [],
+            "similarCandidates": [
+              {
+                "record": {
+                  "id": "0000385596414af40ceb47f57d50b2ca6084da5467dbf297595ef85e0df13014",
+                  "name": "세븐일레븐(도곡스타점)",
+                  "roadAddress": "서울특별시 강남구 남부순환로***길 *, 지상*층 (도곡동)",
+                  "parcelAddress": "서울특별시 강남구 도곡동 ***-** 지상*층 ",
+                  "categoryName": "식품_건강기능식품일반판매업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2015-01-22",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2021-12-27",
+                    "sourceUpdatedAt": "2026-04-26 22:32:32",
+                    "sourceLastModifiedAt": "2021-12-27 15:34:14"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15044985/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "000093d81815fbaf71d080aa0e805322b5b58842dce9be692f2d0dd1d34568bc",
+                  "name": "연세퍼스트구강내과치과의원",
+                  "roadAddress": "서울특별시 강남구 강남대로 354, 혜천빌딩 7층 3호 (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 831 혜천빌딩",
+                  "categoryName": "건강_의원.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "치과의원"
+                    },
+                    {
+                      "sourceField": "의료기관종별명",
+                      "value": "치과의원"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "13",
+                    "detailedName": "영업중"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2022-04-20",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-05-10 22:07:59",
+                    "sourceLastModifiedAt": "2022-04-29 02:43:24"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045024/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0000da771bc8902e466d3fd159d74cc66a8b2eabdc48e743272e0dd869d0cbe3",
+                  "name": "슬로패밀리(한시적)",
+                  "roadAddress": "서울특별시 강남구 테헤란로 517, 현대백화점 지하1층 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 159-7 현대백화점 ",
+                  "categoryName": "식품_즉석판매제조가공업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "즉석판매제조가공업"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2022-12-19",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2023-01-05",
+                    "sourceUpdatedAt": "2026-04-28 22:33:53",
+                    "sourceLastModifiedAt": "2023-01-06 04:15:09"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15044977/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "00017a522a6850cddd652a4e6c9dd308de507ec10c119578c1d07951f2f9337a",
+                  "name": "주식회사 다다인터내셔널",
+                  "roadAddress": "서울특별시 강남구 역삼로**길 **, ***호 (대치동)",
+                  "parcelAddress": "서울특별시 강남구 대치동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "기타"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업처리"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2018-09-13",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2023-06-05",
+                    "sourceUpdatedAt": "2026-01-14 15:53:49",
+                    "sourceLastModifiedAt": "2023-06-05 17:48:20"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0001da91f6635b7aed0a9abc4bd24fcce2b1cf35168e64e5e36fb5ef8ff82259",
+                  "name": "둥지식당",
+                  "roadAddress": "",
+                  "parcelAddress": "서울특별시 강남구 논현동 111-28 ",
+                  "categoryName": "식품_일반음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "한식"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "1990-07-10",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "1992-12-31",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2001-09-27 00:00:00"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0001ed017e1466b47aebd844f7d08e44a2239a371aa67f3b850bfcb0c5ab5f67",
+                  "name": "(주)히어솔루션즈코리아",
+                  "roadAddress": "서울특별시 강남구 테헤란로*길 *, KG Tower (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***-* KG Tower ",
+                  "categoryName": "기타_출판사.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "15",
+                    "detailedName": "전출"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2008-09-18",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2022-10-18",
+                    "sourceUpdatedAt": "2026-04-29 22:41:06",
+                    "sourceLastModifiedAt": "2022-10-18 14:18:50"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045058/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "000207bb9edcf9a9d64a44596aed3d61b92bafe7b573db0cb31d7bb23be8753c",
+                  "name": "주식회사 피플케어",
+                  "roadAddress": "서울특별시 강남구 영동대로 ***, 트레이드타워 **층 ****호 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***-* 트레이드타워 ",
+                  "categoryName": "식품_건강기능식품일반판매업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2025-01-22",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-04-26 22:33:37",
+                    "sourceLastModifiedAt": "2025-01-22 15:34:20"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15044985/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0002b87b2ad6c2d33f2332f0dd78a47d8bd4de7555fbdf0f96e3c4d39df470d6",
+                  "name": "떼부짱",
+                  "roadAddress": "서울특별시 강남구 논현로175길 25 (신사동,다보빌딩1층)",
+                  "parcelAddress": "서울특별시 강남구 신사동 577-0 다보빌딩1층 ",
+                  "categoryName": "식품_일반음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "한식"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2003-07-10",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2021-10-28",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2021-10-28 11:08:00"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0002e0283e1688bbe4709196157848df1448cfa418177a5b997af29d36ac72e4",
+                  "name": "마이컵 바이 유일닭강정(한시적)",
+                  "roadAddress": "서울특별시 강남구 도곡로 401, 롯데백화점 지하1층 식품관 일부호 (대치동)",
+                  "parcelAddress": "서울특별시 강남구 대치동 937 롯데백화점 ",
+                  "categoryName": "식품_일반음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "기타"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2026-03-05",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2026-03-19",
+                    "sourceUpdatedAt": "2026-03-21 22:17:53",
+                    "sourceLastModifiedAt": "2026-03-20 04:15:10"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "00033702d3e56b61d5d02ec6f500ab84b137b4ee7bd39e742e876062ea6f6026",
+                  "name": "드림테크",
+                  "roadAddress": "",
+                  "parcelAddress": "서울특별시 강남구 역삼동  ***-** 르메이르오피스텔***",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "-"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "04",
+                    "operatingName": "취소/말소/만료/정지/중지",
+                    "detailedCode": "04",
+                    "detailedName": "직권취소"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2001-12-22",
+                    "licenseCancelledOn": "2007-12-26",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-01-14 14:33:09",
+                    "sourceLastModifiedAt": "2008-02-21 00:00:00"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "000339040952440b5d60271d9a3a2f9393147dd40a500d3730984c84a344c499",
+                  "name": "주식회사 더나인",
+                  "roadAddress": "서울특별시 강남구 봉은사로 ***, JK타워 **층 (논현동)",
+                  "parcelAddress": "서울특별시 강남구 논현동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "의류/패션/잡화/뷰티"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "정상영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2023-02-14",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-01-14 16:12:16",
+                    "sourceLastModifiedAt": "2023-02-14 13:33:58"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "000363052b70dfe8fee629f1e99456a0cd672d6753123bb3d3858f37a74f6677",
+                  "name": "(주)창비",
+                  "roadAddress": "서울특별시 강남구 논현로***길 **  (신사동,나우빌딩 *층)",
+                  "parcelAddress": "서울특별시 강남구 신사동 ***-** 나우빌딩 *층 ",
+                  "categoryName": "문화_영화배급업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "13",
+                    "detailedName": "영업중"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2010-05-26",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-05-01 22:37:13",
+                    "sourceLastModifiedAt": "2010-05-26 11:45:55"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045009/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0003a93fd9ae0e4eb65dcfdd5ced8381a4e14610a0c261f70a792ffcd0a92df1",
+                  "name": "인베스트리크루",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **-*, *층 B***호 삼성타워 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업처리"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2022-07-27",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2023-10-06",
+                    "sourceUpdatedAt": "2026-01-14 16:08:19",
+                    "sourceLastModifiedAt": "2023-10-06 19:18:05"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "00040fc1ed2a356a29df6c31946b4912b4a6b2259a1dde3f835cd3d00c58ca17",
+                  "name": "(주)베지그린프로덕션",
+                  "roadAddress": "서울특별시 강남구 논현로**길 **-** (개포동)",
+                  "parcelAddress": "서울특별시 강남구 개포동 ****-* 디오빌***호 ",
+                  "categoryName": "문화_비디오물배급업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "13",
+                    "detailedName": "영업중"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2012-04-16",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-03-26 22:39:41",
+                    "sourceLastModifiedAt": "2012-04-16 10:16:24"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045002/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "00043b96c76f34abd9e3242c13999b26a5f734db593acb409035f8be511da3b0",
+                  "name": "잇커피",
+                  "roadAddress": "서울특별시 강남구 논현로28길 33, 101호 (도곡동)",
+                  "parcelAddress": "서울특별시 강남구 도곡동 517-18 101호",
+                  "categoryName": "식품_일반음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "전통찻집"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2011-06-23",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2014-04-07",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2012-08-07 11:37:16"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "000475c09bf34161e1b16cd496a6b567b430c78272b35b874da1dd1f31f1110e",
+                  "name": "동양금고",
+                  "roadAddress": "서울특별시 강남구 논현로 519 (역삼동,비바체빌딩1층)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 641번지 8호 비바체빌딩1층",
+                  "categoryName": "기타_담배소매업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "2",
+                    "detailedName": "폐업처리"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2009-02-06",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2010-10-12",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2010-10-12 18:24:22"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045104/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0004ef0936ef3cb8755b483a4fb92a8b2bf2fd75e5140befb8ae3521eb7f064a",
+                  "name": "(주)토지뉴스",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **, ***호 (대치동, 명진빌딩)",
+                  "parcelAddress": "서울특별시 강남구 대치동 ***-* 명진빌딩 ***호",
+                  "categoryName": "기타_출판사.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2015-06-18",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2018-09-17",
+                    "sourceUpdatedAt": "2026-04-29 22:42:32",
+                    "sourceLastModifiedAt": "2018-09-17 20:01:32"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045058/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0004f49bc50799e0f39dfa50ee212d42da66f9c4d45e2c03f80a3d98cc77d98a",
+                  "name": "메리지니몰",
+                  "roadAddress": "서울특별시 강남구 선릉로**길 **, ***호 (대치동)",
+                  "parcelAddress": "서울특별시 강남구 대치동 ***-** ",
+                  "categoryName": "식품_건강기능식품일반판매업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2025-12-09",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-04-26 22:33:44",
+                    "sourceLastModifiedAt": "2025-12-09 17:16:31"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15044985/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "00054a95123f78b5455fad5fafa710cd33d18518757c95b7c64dbe6322890035",
+                  "name": "건강한세상앞선치과병원",
+                  "roadAddress": "서울특별시 강남구 테헤란로87길 36, 도심공항타워 3층 (삼성동)",
+                  "parcelAddress": "",
+                  "categoryName": "건강_병원.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "치과병원"
+                    },
+                    {
+                      "sourceField": "의료기관종별명",
+                      "value": "치과병원"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "13",
+                    "detailedName": "영업중"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2001-07-19",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-03-10 22:01:51",
+                    "sourceLastModifiedAt": "2024-09-20 11:02:14"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045025/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              },
+              {
+                "record": {
+                  "id": "0005917df74213456e3138df384cc04e9ca17facd6b085fbf6204643a35e4486",
+                  "name": "떡볶이먹고가(한시적)",
+                  "roadAddress": "서울특별시 강남구 영동대로 513, 코엑스 k-pop광장 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 159 코엑스 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "기타 휴게음식점"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2024-09-23",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2024-09-30",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2024-09-30 13:09:07"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "partial",
+                "reasons": ["name:none", "address:partial", "ambiguous_query"]
+              }
+            ],
+            "eligibleCount": 0,
+            "similarCount": 322339,
+            "primaryMatch": null,
+            "ambiguousTop": false,
+            "diagnostics": {
+              "invalidRecordCount": 0,
+              "duplicateIdRecordCount": 0
+            }
+          }
+        },
+        "query": "강남구",
+        "networkRequests": 0,
+        "pagination": {
+          "pageToPaintOpportunityMs": 69.10000002384186,
+          "networkRequests": 0
+        }
+      },
+      {
+        "searchToPaintOpportunityMs": 383.5,
+        "message": {
+          "at": 50298.59999996424,
+          "version": 1,
+          "generation": 1,
+          "request": 3,
+          "kind": "page",
+          "result": {
+            "page": 0,
+            "validation": {
+              "ok": true,
+              "original": "스타벅스",
+              "normalized": "스타벅스",
+              "nameKey": "스타벅스",
+              "addressKey": "스타벅스",
+              "addressTokens": ["스타벅스"]
+            },
+            "topMatches": [],
+            "similarCandidates": [
+              {
+                "record": {
+                  "id": "000ae3597e2a3d10593072501b44dcb832074e60fdc0e2ac9b73ab330a71c51d",
+                  "name": "스타벅스 태평로점",
+                  "roadAddress": "서울특별시 중구 세종대로 72 (태평로2가,1층)",
+                  "parcelAddress": "서울특별시 중구 태평로2가 69-7 1층 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2002-04-11",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-07-15 22:48:00",
+                    "sourceLastModifiedAt": "2026-07-14 16:29:20"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "00422a20687924cde3899e1f877ab06ae8a5e8fbc27cc7b229eb67bea0aa0498",
+                  "name": "에렉스에프앤비(주)스타벅스코엑스점",
+                  "roadAddress": "서울특별시 강남구 영동대로 511 (삼성동,코엑스몰내 L7)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 159-0 코엑스몰내 L7 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "다방"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2000-11-09",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2014-01-14",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2013-12-11 11:05:08"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "00b6360201007da4c8edef562df075b900ef2e6f782fea76b3b469d1558f6e8e",
+                  "name": "스타벅스 명동미래",
+                  "roadAddress": "서울특별시 중구 명동7길 8 (명동1가,,53-10지상2층)",
+                  "parcelAddress": "서울특별시 중구 명동1가 48-2 ,53-10지상2층 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2010-02-18",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2020-09-24",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2020-09-24 15:20:05"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "0141fba851e938b237982d0d1e6d68b2d10793ee9ef9b0b703fe8d6b4f814ce4",
+                  "name": "스타",
+                  "roadAddress": "",
+                  "parcelAddress": "서울특별시 송파구 방이동 산 163-10 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "다방"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "1991-01-07",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "1999-08-20",
+                    "sourceUpdatedAt": "2026-03-10 22:31:49",
+                    "sourceLastModifiedAt": "2003-05-21 00:00:00"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "01d2e9fed1a40619437d86ec3cde9b1138ff0e876894f8f49a3919ec9913efe3",
+                  "name": "스타벅스커피 강남에비뉴",
+                  "roadAddress": "서울특별시 서초구 서초대로77길 62, B102~B105호 (서초동)",
+                  "parcelAddress": "서울특별시 서초구 서초동 1303-16 B102~B105호 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2013-03-18",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-05-07 22:35:06",
+                    "sourceLastModifiedAt": "2023-02-20 13:42:25"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "023170cdf449f1178dbafeb692dd130c50c3751ef14bbe5f68e44a77b97d785e",
+                  "name": "스타벅스 리저브광화문",
+                  "roadAddress": "서울특별시 종로구 세종대로 178, KT 광화문 빌딩 West 1층 101-1호 (세종로)",
+                  "parcelAddress": "서울특별시 종로구 세종로 100 KT 광화문 빌딩 West ",
+                  "categoryName": "식품_일반음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "기타"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2025-08-06",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-07-15 22:47:50",
+                    "sourceLastModifiedAt": "2025-08-25 17:38:37"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": [
+                  "name:partial",
+                  "address:none",
+                  "ambiguous_record_address",
+                  "name_only_or_literal_evidence"
+                ]
+              },
+              {
+                "record": {
+                  "id": "023508bd102bd707b3d160fecb8f95fb3ed60c2d230823c8e2ff9fdc7e2353e7",
+                  "name": "스타",
+                  "roadAddress": "서울특별시 송파구 백제고분로33길 11  (석촌동)",
+                  "parcelAddress": "서울특별시 송파구 석촌동 11-20 ",
+                  "categoryName": "문화_노래연습장업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "1998-03-10",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2011-02-24",
+                    "sourceUpdatedAt": "2026-03-26 22:33:44",
+                    "sourceLastModifiedAt": "2011-02-24 15:07:56"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045109/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "026e23428e752394277c753379732c8b07f7b3d2bd1ab061d247ae48c37022d0",
+                  "name": "스타벅스커피 명동입구",
+                  "roadAddress": "서울특별시 중구 남대문로 68-1 (명동2가, 명동2가 85-6 (2층,3층))",
+                  "parcelAddress": "서울특별시 중구 명동2가 85-5 명동2가 85-6 (2층,3층) ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2015-11-23",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2025-04-25",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2025-04-25 13:20:30"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": [
+                  "name:partial",
+                  "address:none",
+                  "ambiguous_record_address",
+                  "name_only_or_literal_evidence"
+                ]
+              },
+              {
+                "record": {
+                  "id": "0292784e6f3035515507005262cd949a0f19037d422e1182fb7af35809d863b4",
+                  "name": "스타벅스 포포인츠 명동",
+                  "roadAddress": "서울특별시 중구 삼일대로10길 36, 1층 (저동2가)",
+                  "parcelAddress": "서울특별시 중구 저동2가 89 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2021-07-05",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-07-21 22:48:01",
+                    "sourceLastModifiedAt": "2021-07-05 14:57:01"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "02e2fac393ace9044846f1655ac34d5843110ff4ac32bd7b2a1c0978ca402698",
+                  "name": "스타벅스 코엑스 별마당점",
+                  "roadAddress": "서울특별시 강남구 영동대로 513, 코엑스 지하1층 B107호 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 159 코엑스 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2020-04-13",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-07-14 22:18:01",
+                    "sourceLastModifiedAt": "2020-04-13 14:29:15"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "032a8187e180ccc8b44c465d643ccdd959c56184864cf451ec5a82308c7a18f4",
+                  "name": "스타",
+                  "roadAddress": "서울특별시 강남구 도산대로102길 5, 지1층 (청담동)",
+                  "parcelAddress": "서울특별시 강남구 청담동 53-1 지층 ",
+                  "categoryName": "식품_일반음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "경양식"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2014-01-15",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2022-06-02 12:50:03"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045016/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "0337a7cafd09e3fcc5b19ce3e13efc8707ab9ddcc97f39c5d94ac1a2c3da28ad",
+                  "name": "스타벅스 가산퍼블릭점",
+                  "roadAddress": "서울특별시 금천구 디지털로 178, B동 1층 M145호 (가산동)",
+                  "parcelAddress": "서울특별시 금천구 가산동 60-26 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2024-07-26",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-05-01 22:36:36",
+                    "sourceLastModifiedAt": "2024-07-26 10:27:14"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "03aa8a7ea99873b7978d5134af8087563f19ee57b0015dd48c06e5a005538594",
+                  "name": "스타벅스커피 학동사거리점",
+                  "roadAddress": "서울특별시 강남구 도산대로 328, 1층 (논현동)",
+                  "parcelAddress": "서울특별시 강남구 논현동 93-2 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "기타 휴게음식점"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2015-09-09",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-07-14 22:18:01",
+                    "sourceLastModifiedAt": "2019-05-10 11:59:46"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "03bbecbdf7f55cded17cd0ea32e74ae2f918329e53da467b41a66d3179d75041",
+                  "name": "스타벅스 월계역점",
+                  "roadAddress": "서울특별시 노원구 초안산로2라길 26, 월계센트럴아이파크 상가 1층 104,105,106호 (월계동)",
+                  "parcelAddress": "서울특별시 노원구 월계동 633-31 1층 104,105,106호 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2020-02-13",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-07-21 22:18:00",
+                    "sourceLastModifiedAt": "2022-03-08 10:00:25"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "03fdeffa6eb361326922cb3351cb8168a4154d4854b5958a8453be6363184172",
+                  "name": "스타",
+                  "roadAddress": "서울특별시 동대문구 한천로40길 7, 지하1층 (장안동)",
+                  "parcelAddress": "서울특별시 동대문구 장안동 109-19 지하1층 ",
+                  "categoryName": "문화_노래연습장업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2001-11-16",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2023-10-18",
+                    "sourceUpdatedAt": "2026-05-10 22:33:56",
+                    "sourceLastModifiedAt": "2023-10-18 18:05:18"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045109/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "040a3395bca9f7cce38884afbdf8800b87b81b8b468a5478562347b54e8e44ee",
+                  "name": "스타벅스 서울극장점",
+                  "roadAddress": "",
+                  "parcelAddress": "서울특별시 종로구 관수동 59-7 (서울극장 1층) ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2008-10-23",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2021-11-25",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2021-11-25 17:04:03"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "04166dcfcc70e5cb442f214133dd7de62598b65ac8d1eeeb31e4034b0cd5efc9",
+                  "name": "스타벅스 발산역 5번출구점",
+                  "roadAddress": "서울특별시 강서구 강서로52길 43, 101호 (내발산동, DH647)",
+                  "parcelAddress": "서울특별시 강서구 내발산동 647 DH647 101호",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2023-09-21",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-04-30 22:33:30",
+                    "sourceLastModifiedAt": "2024-11-05 10:59:44"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "045c9c4ae3b257005a072e66eb3f931883a663856d382d600af98e4d77a691fb",
+                  "name": "스타",
+                  "roadAddress": "서울특별시 동작구 성대로 36  (상도동)",
+                  "parcelAddress": "서울특별시 동작구 상도동 256-36 ",
+                  "categoryName": "생활_당구장업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "1998-05-13",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2000-01-26",
+                    "sourceUpdatedAt": "2026-04-29 22:32:44",
+                    "sourceLastModifiedAt": "2003-04-18 11:54:21"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045107/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "04645300804e941adfe0d1ab74853e70f44c05ba2676a18036d46e3e72335a56",
+                  "name": "스타벅스 을지로내외빌딩R점",
+                  "roadAddress": "서울특별시 중구 을지로 51 (을지로2가, 내외빌딩 1층 )",
+                  "parcelAddress": "서울특별시 중구 을지로2가 6 내외빌딩 1층 ",
+                  "categoryName": "식품_휴게음식점.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "커피숍"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "02",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2017-04-06",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "2024-03-27",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2024-03-27 13:40:08"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15006730/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              },
+              {
+                "record": {
+                  "id": "049e0778b05ecc2b9d4beb6c962be0e28ccec4f31db5090a9029a9bc81806cc0",
+                  "name": "스타",
+                  "roadAddress": "",
+                  "parcelAddress": "서울특별시 성북구 하월곡동 77-15 ",
+                  "categoryName": "문화_노래연습장업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "1999-07-05",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2001-03-29",
+                    "sourceUpdatedAt": "2026-03-26 22:33:11",
+                    "sourceLastModifiedAt": "2003-04-18 14:23:41"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045109/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "partial",
+                "addressMatch": "none",
+                "reasons": ["name:partial", "address:none", "name_only_or_literal_evidence"]
+              }
+            ],
+            "eligibleCount": 0,
+            "similarCount": 1275,
+            "primaryMatch": null,
+            "ambiguousTop": false,
+            "diagnostics": {
+              "invalidRecordCount": 0,
+              "duplicateIdRecordCount": 0
+            }
+          }
+        },
+        "query": "스타벅스",
+        "networkRequests": 0
+      },
+      {
+        "searchToPaintOpportunityMs": 349.5,
+        "message": {
+          "at": 50685.39999997616,
+          "version": 1,
+          "generation": 1,
+          "request": 4,
+          "kind": "page",
+          "result": {
+            "page": 0,
+            "validation": {
+              "ok": true,
+              "original": "테헤란로 123",
+              "normalized": "테헤란로 123",
+              "nameKey": "테헤란로 123",
+              "addressKey": "테헤란로 123",
+              "addressTokens": ["테헤란로", "123"]
+            },
+            "topMatches": [],
+            "similarCandidates": [
+              {
+                "record": {
+                  "id": "0001ed017e1466b47aebd844f7d08e44a2239a371aa67f3b850bfcb0c5ab5f67",
+                  "name": "(주)히어솔루션즈코리아",
+                  "roadAddress": "서울특별시 강남구 테헤란로*길 *, KG Tower (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***-* KG Tower ",
+                  "categoryName": "기타_출판사.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "15",
+                    "detailedName": "전출"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2008-09-18",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2022-10-18",
+                    "sourceUpdatedAt": "2026-04-29 22:41:06",
+                    "sourceLastModifiedAt": "2022-10-18 14:18:50"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045058/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "0003a93fd9ae0e4eb65dcfdd5ced8381a4e14610a0c261f70a792ffcd0a92df1",
+                  "name": "인베스트리크루",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **-*, *층 B***호 삼성타워 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업처리"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2022-07-27",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2023-10-06",
+                    "sourceUpdatedAt": "2026-01-14 16:08:19",
+                    "sourceLastModifiedAt": "2023-10-06 19:18:05"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "0004ef0936ef3cb8755b483a4fb92a8b2bf2fd75e5140befb8ae3521eb7f064a",
+                  "name": "(주)토지뉴스",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **, ***호 (대치동, 명진빌딩)",
+                  "parcelAddress": "서울특별시 강남구 대치동 ***-* 명진빌딩 ***호",
+                  "categoryName": "기타_출판사.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2015-06-18",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2018-09-17",
+                    "sourceUpdatedAt": "2026-04-29 22:42:32",
+                    "sourceLastModifiedAt": "2018-09-17 20:01:32"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045058/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "000b0c146e5d12df78599d1b60c3ae6c4aa1647a3b61a40568b20777b8ecda2c",
+                  "name": "주식회사 바이오펫",
+                  "roadAddress": "서울특별시 강남구 테헤란로 ***, 아남타워빌딩 ***호 (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***번지 **호 아남타워빌딩",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰 기타"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "05",
+                    "detailedName": "타시군구이관"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2016-11-17",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2020-05-26",
+                    "sourceUpdatedAt": "2026-01-14 15:40:55",
+                    "sourceLastModifiedAt": "2020-05-26 17:24:47"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "000e1046d1d489a21ea9c33621ea076d547d0ff163786be5ff057e71de55d3e4",
+                  "name": "곰설",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **, 디아이타워 ***호 (대치동)",
+                  "parcelAddress": "서울특별시 강남구 대치동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰 교육/도서/완구/오락 가전 컴퓨터/사무용품 가구/수납용품 건강/식품 의류/패션/잡화/뷰티 자동차/자동차용품"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "정상영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2021-07-29",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-01-14 16:01:06",
+                    "sourceLastModifiedAt": "2021-07-29 09:07:01"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "00133929503513a441365e599795e3929e2fdd424743d1c3ac565cdb539047b6",
+                  "name": "(주)코리아세븐 롯데캐논점",
+                  "roadAddress": "서울특별시 강남구 테헤란로 *** (삼성동, 캐논케이타워)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***번지 **호",
+                  "categoryName": "건강_의료기기판매(임대)업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2014-11-19",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "2019-10-23",
+                    "sourceUpdatedAt": "2026-05-02 22:04:40",
+                    "sourceLastModifiedAt": "2019-10-24 16:26:55"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045032/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "00149681d6f0959114a912227f8e0218070d18b463598ed1eeea634996ffc5ef",
+                  "name": "모락한의원",
+                  "roadAddress": "서울특별시 강남구 테헤란로 ***, **층 (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***번지 **호",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "기타"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "04",
+                    "operatingName": "취소/말소/만료/정지/중지",
+                    "detailedCode": "07",
+                    "detailedName": "직권말소"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2014-12-31",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-01-14 15:19:57",
+                    "sourceLastModifiedAt": "2020-12-19 12:35:59"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "0014ccca1fa5923120855b0fb5e2d86a55c4983e4399c605d4fa0e263d6aee81",
+                  "name": "주식회사 스노우피크코리아",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 * (역삼동,메모빌딩*층)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***번지 **호 메모빌딩*층",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "-"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "05",
+                    "detailedName": "타시군구이관"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2011-04-25",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2013-04-19",
+                    "sourceUpdatedAt": "2026-01-14 15:04:45",
+                    "sourceLastModifiedAt": "2013-04-19 10:33:50"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "0016599021f4a2ba575a45658b396bfc9cd29e59eafc00ae3eb94d4704fe1d9b",
+                  "name": "주식회사 브이에이치디자인",
+                  "roadAddress": "서울특별시 강남구 테헤란로 ***, *층 삼성빌딩 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***-* 삼성빌딩",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "의류/패션/잡화/뷰티"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "05",
+                    "detailedName": "타시군구이관"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2013-01-19",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2024-08-12",
+                    "sourceUpdatedAt": "2026-01-14 15:13:50",
+                    "sourceLastModifiedAt": "2024-08-12 15:49:48"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "00169d90e089df730cf3ac576af6e12f1fe13c7f076ad86c5f1fcf946d5512e4",
+                  "name": "에스아이212",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **, 디아이타워 ***호 (대치동)",
+                  "parcelAddress": "서울특별시 강남구 대치동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "05",
+                    "detailedName": "타시군구이관"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2021-11-25",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2022-02-21",
+                    "sourceUpdatedAt": "2026-01-14 16:03:21",
+                    "sourceLastModifiedAt": "2022-02-21 14:48:10"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "001c33de9f6e1569af63d122c19f745bdcb70cf3c8844f90076be06357d5b83b",
+                  "name": "포레누아게임즈 주식회사 (Foret Noire Games Inc.)",
+                  "roadAddress": "서울특별시 강남구 테헤란로 ***, *층 ***호 (삼성동, 현대타워)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***-** 현대타워",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "기타"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "05",
+                    "detailedName": "타시군구이관"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2024-10-16",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2026-08-20",
+                    "sourceUpdatedAt": "2026-08-21 22:18:46",
+                    "sourceLastModifiedAt": "2026-08-20 15:31:22"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "002768471024481843f7793fd2ec79b4ac0c8c09ffdd5e8a27ae1678f2be4870",
+                  "name": "허브플러스",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **, *층 (역삼동, 락상빌딩)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***번지 *호",
+                  "categoryName": "생활_방문판매업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "04",
+                    "operatingName": "취소/말소/만료/정지/중지",
+                    "detailedCode": "07",
+                    "detailedName": "직권말소"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2016-07-26",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2019-12-30 17:47:12"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15044952/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "0027e069db1cf862c8991a87f8a226436adcb6576e02e48e8cd1f0e8c81dd990",
+                  "name": "주식회사 소프트네트",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **, ***호 (역삼동, 역삼현대벤쳐텔)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***-* ",
+                  "categoryName": "문화_게임물제작업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "13",
+                    "detailedName": "영업중"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2017-09-18",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2025-12-15 16:15:28",
+                    "sourceLastModifiedAt": "2017-09-18 07:44:06"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045074/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "00295de6cc9181f3dc8dbc762938a7ff9694ad9d25dfc95cdc5a3cea97c26033",
+                  "name": "유한회사 환바행(Huanbarheng Co.,Ltd)",
+                  "roadAddress": "서울특별시 강남구 테헤란로*길 **-**, *층 ****호 (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰 의류/패션/잡화/뷰티"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "정상영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2024-03-21",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-01-14 16:21:02",
+                    "sourceLastModifiedAt": "2024-03-21 14:48:08"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "003963c18435a0b5c96938bf18f3a2413b691ca3d0ea4251726cd7d372110cc3",
+                  "name": "투페이스 (TWOFACE)",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 ** (역삼동)",
+                  "parcelAddress": "",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰 의류/패션/잡화/뷰티"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업처리"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2012-10-09",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2013-01-22",
+                    "sourceUpdatedAt": "2026-01-14 15:10:51",
+                    "sourceLastModifiedAt": "2013-01-22 12:40:55"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "003e02634d355001ebfabcc762331a57aa2b6701fe33f4f9f535d26fc973e28b",
+                  "name": "지에스25 역삼르네상스점",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 *, 지상*층 (역삼동, MeMo빌딩)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***-** MeMo빌딩 지상*층 ",
+                  "categoryName": "식품_건강기능식품일반판매업.csv",
+                  "businessTypes": [],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2014-04-15",
+                    "licenseCancelledOn": null,
+                    "suspendedFrom": null,
+                    "suspendedThrough": null,
+                    "reopenedOn": null,
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-04-26 22:32:23",
+                    "sourceLastModifiedAt": "2017-09-06 10:52:15"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15044985/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "00402f4c19dc8288ff9697693c062a8ec79288df562bdee20ed998274fed226c",
+                  "name": "UK 컴퍼니(UK company)",
+                  "roadAddress": "서울특별시 강남구 테헤란로*길 *, *층 (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***번지 *호",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "03",
+                    "operatingName": "폐업",
+                    "detailedCode": "03",
+                    "detailedName": "폐업처리"
+                  },
+                  "processedStatus": "폐업",
+                  "lifecycle": {
+                    "licensedOn": "2016-11-04",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2017-12-28",
+                    "sourceUpdatedAt": "2026-01-14 15:30:50",
+                    "sourceLastModifiedAt": "2017-12-28 10:01:54"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "00408e8e02799f8a3d35c45be24498680ace1b9e00bd0f6c70a412da9ef7c276",
+                  "name": "에스더블유 네트웍스(SW networks)",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **, 베첼하우스 제*동 제비***호 (역삼동)",
+                  "parcelAddress": "서울특별시 강남구 역삼동 ***번지 **호",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "의류/패션/잡화/뷰티"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "정상영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2019-10-07",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-01-14 15:45:24",
+                    "sourceLastModifiedAt": "2019-10-08 12:53:31"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "004114aa3aa35454bcd0502190771881622f1956f41f8bdb7f98af2f2f5947d4",
+                  "name": "체인커머스",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 **-*, *층 B***호 (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***-**",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "종합몰"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "05",
+                    "operatingName": "제외/삭제/전출",
+                    "detailedCode": "05",
+                    "detailedName": "타시군구이관"
+                  },
+                  "processedStatus": "확인되지 않음",
+                  "lifecycle": {
+                    "licensedOn": "2022-08-24",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "2024-12-26",
+                    "sourceUpdatedAt": "2026-01-14 16:17:43",
+                    "sourceLastModifiedAt": "2024-12-26 13:53:56"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              },
+              {
+                "record": {
+                  "id": "00448138fcf5cf411192d2bf268a2888b2c8e3416505b1471485313c61ec35ba",
+                  "name": "가온",
+                  "roadAddress": "서울특별시 강남구 테헤란로**길 ** (삼성동)",
+                  "parcelAddress": "서울특별시 강남구 삼성동 ***번지 **호",
+                  "categoryName": "생활_통신판매업.csv",
+                  "businessTypes": [
+                    {
+                      "sourceField": "업태구분명",
+                      "value": "의류/패션/잡화/뷰티"
+                    }
+                  ],
+                  "rawStatus": {
+                    "operatingCode": "01",
+                    "operatingName": "영업/정상",
+                    "detailedCode": "01",
+                    "detailedName": "정상영업"
+                  },
+                  "processedStatus": "행정상 영업",
+                  "lifecycle": {
+                    "licensedOn": "2010-08-10",
+                    "licenseCancelledOn": "",
+                    "suspendedFrom": "",
+                    "suspendedThrough": "",
+                    "reopenedOn": "",
+                    "closedOn": "",
+                    "sourceUpdatedAt": "2026-01-14 15:01:54",
+                    "sourceLastModifiedAt": "2010-08-11 16:04:36"
+                  },
+                  "sourceLabel": "행정안전부",
+                  "sourceUrl": "https://www.data.go.kr/data/15045060/fileData.do"
+                },
+                "score": 0,
+                "confidence": "low",
+                "nameMatch": "none",
+                "addressMatch": "none",
+                "reasons": ["name:none", "address:none"]
+              }
+            ],
+            "eligibleCount": 0,
+            "similarCount": 32248,
+            "primaryMatch": null,
+            "ambiguousTop": false,
+            "diagnostics": {
+              "invalidRecordCount": 0,
+              "duplicateIdRecordCount": 0
+            }
+          }
+        },
+        "query": "테헤란로 123",
+        "networkRequests": 0
+      }
+    ],
+    "pageTargetMetrics": {
+      "Timestamp": 473150.152039,
+      "AudioHandlers": 0,
+      "AudioWorkletProcessors": 0,
+      "Documents": 1,
+      "Frames": 1,
+      "JSEventListeners": 113,
+      "LayoutObjects": 5719,
+      "MediaKeySessions": 0,
+      "MediaKeys": 0,
+      "Nodes": 8164,
+      "Resources": 2,
+      "ContextLifecycleStateObservers": 5,
+      "V8PerContextDatas": 2,
+      "WorkerGlobalScopes": 1,
+      "UACSSResources": 0,
+      "RTCPeerConnections": 0,
+      "ResourceFetchers": 2,
+      "AdSubframes": 0,
+      "DetachedScriptStates": 0,
+      "ArrayBufferContents": 1094,
+      "LayoutCount": 18,
+      "RecalcStyleCount": 25,
+      "LayoutDuration": 0.152473,
+      "RecalcStyleDuration": 0.023494,
+      "DevToolsCommandDuration": 0.085569,
+      "ScriptDuration": 0.080396,
+      "V8CompileDuration": 0,
+      "TaskDuration": 0.964901,
+      "TaskOtherDuration": 0.622969,
+      "ThreadTime": 38.664713,
+      "ProcessTime": 83.102859,
+      "JSHeapUsedSize": 4424424,
+      "JSHeapTotalSize": 9830400,
+      "FirstMeaningfulPaint": 473099.512374,
+      "DomContentLoaded": 473099.462177,
+      "NavigationStart": 473099.408277
+    }
+  },
+  "slowNetwork": {
+    "status": "censored-not-ready",
+    "censoredAtMs": 60003.25075000001,
+    "shell": {
+      "primaryMs": 243.69999998807907,
+      "firstPaintMs": 48,
+      "firstContentfulPaintMs": 200,
+      "shellWindowLcpMs": 200
+    },
+    "releasedGzipBodyBytes": 11900204,
+    "requestsStarted": 48,
+    "requestsCompleted": 47
+  },
+  "serverEvidence": [
+    {
+      "mode": "full-unthrottled",
+      "bytesPerSecond": null,
+      "bodyBytesReleased": 198460975,
+      "requests": 724,
+      "completed": 724
+    },
+    {
+      "mode": "slow-censored",
+      "bytesPerSecond": 200000,
+      "bodyBytesReleased": 11900204,
+      "requests": 48,
+      "completed": 47
+    }
+  ],
+  "processMemory": {
+    "peakBrowserTreeRssBytes": 2955870208,
+    "samples": [
+      {
+        "phase": "startup",
+        "rssBytes": 141000704,
+        "at": "2026-09-16T10:18:56.930Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 581484544,
+        "at": "2026-09-16T10:18:57.930Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 808747008,
+        "at": "2026-09-16T10:18:58.931Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 997015552,
+        "at": "2026-09-16T10:18:59.930Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 1230290944,
+        "at": "2026-09-16T10:19:00.931Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 1251786752,
+        "at": "2026-09-16T10:19:01.931Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 1481736192,
+        "at": "2026-09-16T10:19:02.931Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 1692581888,
+        "at": "2026-09-16T10:19:03.930Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2005237760,
+        "at": "2026-09-16T10:19:04.932Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 1775206400,
+        "at": "2026-09-16T10:19:05.931Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2011332608,
+        "at": "2026-09-16T10:19:06.931Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2244608000,
+        "at": "2026-09-16T10:19:07.932Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2449522688,
+        "at": "2026-09-16T10:19:08.931Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2650882048,
+        "at": "2026-09-16T10:19:09.933Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2681552896,
+        "at": "2026-09-16T10:19:10.940Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2101313536,
+        "at": "2026-09-16T10:19:11.937Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2247311360,
+        "at": "2026-09-16T10:19:12.937Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2281865216,
+        "at": "2026-09-16T10:19:13.938Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2318024704,
+        "at": "2026-09-16T10:19:14.938Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2349694976,
+        "at": "2026-09-16T10:19:15.939Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2387017728,
+        "at": "2026-09-16T10:19:16.940Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2416066560,
+        "at": "2026-09-16T10:19:17.943Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2450243584,
+        "at": "2026-09-16T10:19:18.945Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2491744256,
+        "at": "2026-09-16T10:19:19.946Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2516598784,
+        "at": "2026-09-16T10:19:20.947Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2543370240,
+        "at": "2026-09-16T10:19:21.950Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2567405568,
+        "at": "2026-09-16T10:19:22.953Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2613166080,
+        "at": "2026-09-16T10:19:23.955Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2647425024,
+        "at": "2026-09-16T10:19:24.956Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2672984064,
+        "at": "2026-09-16T10:19:25.959Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2728558592,
+        "at": "2026-09-16T10:19:26.961Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2753282048,
+        "at": "2026-09-16T10:19:27.960Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2785607680,
+        "at": "2026-09-16T10:19:28.963Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2807922688,
+        "at": "2026-09-16T10:19:29.963Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2841722880,
+        "at": "2026-09-16T10:19:30.964Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2872246272,
+        "at": "2026-09-16T10:19:31.964Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2955870208,
+        "at": "2026-09-16T10:19:32.974Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2638233600,
+        "at": "2026-09-16T10:19:33.973Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2199388160,
+        "at": "2026-09-16T10:19:35.016Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2212839424,
+        "at": "2026-09-16T10:19:35.973Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2230370304,
+        "at": "2026-09-16T10:19:36.974Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2250686464,
+        "at": "2026-09-16T10:19:37.980Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2283667456,
+        "at": "2026-09-16T10:19:38.980Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2303410176,
+        "at": "2026-09-16T10:19:39.980Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2326757376,
+        "at": "2026-09-16T10:19:40.981Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2367340544,
+        "at": "2026-09-16T10:19:41.983Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2393014272,
+        "at": "2026-09-16T10:19:42.982Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2478489600,
+        "at": "2026-09-16T10:19:43.985Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2506358784,
+        "at": "2026-09-16T10:19:44.984Z"
+      },
+      {
+        "phase": "full-load",
+        "rssBytes": 2532982784,
+        "at": "2026-09-16T10:19:45.986Z"
+      },
+      {
+        "phase": "search:스타벅스",
+        "rssBytes": 2822668288,
+        "at": "2026-09-16T10:19:46.989Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 286474240,
+        "at": "2026-09-16T10:19:47.985Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 346193920,
+        "at": "2026-09-16T10:19:48.986Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 348520448,
+        "at": "2026-09-16T10:19:49.988Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 360660992,
+        "at": "2026-09-16T10:19:50.988Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 368836608,
+        "at": "2026-09-16T10:19:51.990Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 379928576,
+        "at": "2026-09-16T10:19:52.991Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 380452864,
+        "at": "2026-09-16T10:19:53.993Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 386482176,
+        "at": "2026-09-16T10:19:54.994Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 387366912,
+        "at": "2026-09-16T10:19:55.995Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 390004736,
+        "at": "2026-09-16T10:19:56.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 396099584,
+        "at": "2026-09-16T10:19:57.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 398835712,
+        "at": "2026-09-16T10:19:58.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 400687104,
+        "at": "2026-09-16T10:19:59.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 404848640,
+        "at": "2026-09-16T10:20:00.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 405618688,
+        "at": "2026-09-16T10:20:01.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 407355392,
+        "at": "2026-09-16T10:20:02.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 407011328,
+        "at": "2026-09-16T10:20:03.997Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 408961024,
+        "at": "2026-09-16T10:20:04.999Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 414154752,
+        "at": "2026-09-16T10:20:05.999Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 415514624,
+        "at": "2026-09-16T10:20:07.002Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 417447936,
+        "at": "2026-09-16T10:20:08.006Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 422625280,
+        "at": "2026-09-16T10:20:09.006Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 425410560,
+        "at": "2026-09-16T10:20:10.010Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 426557440,
+        "at": "2026-09-16T10:20:11.010Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 417939456,
+        "at": "2026-09-16T10:20:12.011Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 420888576,
+        "at": "2026-09-16T10:20:13.011Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 421806080,
+        "at": "2026-09-16T10:20:14.011Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 429457408,
+        "at": "2026-09-16T10:20:15.011Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 432652288,
+        "at": "2026-09-16T10:20:16.011Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 433471488,
+        "at": "2026-09-16T10:20:17.011Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 440745984,
+        "at": "2026-09-16T10:20:18.014Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 444497920,
+        "at": "2026-09-16T10:20:19.014Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 432406528,
+        "at": "2026-09-16T10:20:20.015Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 441188352,
+        "at": "2026-09-16T10:20:21.016Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 440303616,
+        "at": "2026-09-16T10:20:22.018Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 441745408,
+        "at": "2026-09-16T10:20:23.022Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 447512576,
+        "at": "2026-09-16T10:20:24.020Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 451313664,
+        "at": "2026-09-16T10:20:25.021Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 453017600,
+        "at": "2026-09-16T10:20:26.023Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 454574080,
+        "at": "2026-09-16T10:20:27.025Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 457211904,
+        "at": "2026-09-16T10:20:28.027Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 458620928,
+        "at": "2026-09-16T10:20:29.029Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 462471168,
+        "at": "2026-09-16T10:20:30.030Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 465207296,
+        "at": "2026-09-16T10:20:31.030Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 466796544,
+        "at": "2026-09-16T10:20:32.031Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 473710592,
+        "at": "2026-09-16T10:20:33.031Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 476708864,
+        "at": "2026-09-16T10:20:34.032Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 479723520,
+        "at": "2026-09-16T10:20:35.032Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 481067008,
+        "at": "2026-09-16T10:20:36.032Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 481935360,
+        "at": "2026-09-16T10:20:37.032Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 487489536,
+        "at": "2026-09-16T10:20:38.033Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 488734720,
+        "at": "2026-09-16T10:20:39.035Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 490684416,
+        "at": "2026-09-16T10:20:40.037Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 495697920,
+        "at": "2026-09-16T10:20:41.038Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 498253824,
+        "at": "2026-09-16T10:20:42.041Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 499073024,
+        "at": "2026-09-16T10:20:43.043Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 494452736,
+        "at": "2026-09-16T10:20:44.044Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 496959488,
+        "at": "2026-09-16T10:20:45.046Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 497860608,
+        "at": "2026-09-16T10:20:46.049Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 503595008,
+        "at": "2026-09-16T10:20:47.050Z"
+      },
+      {
+        "phase": "slow-network",
+        "rssBytes": 214958080,
+        "at": "2026-09-16T10:20:47.858Z"
+      }
+    ]
+  },
+  "errors": []
+}

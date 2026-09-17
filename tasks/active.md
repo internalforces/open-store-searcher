@@ -7,44 +7,42 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-09-12_
+_Last updated: 2026-09-17_
 
 ## In Progress
 
-PR #22 is merged as `81a1441`; the reused worktree at `e8f8c92` is its head ancestor
-and has an identical tracked tree. The user requested static delivery and Worker-owned search
-improvements within TASK-008 on 2026-09-14. The user supplied and downloaded the original dataset; hash/byte verification passed.
-Complete-source profiling and exact round-trip measurements are complete. The proposed shared/local
-column format contains 686,691,922 data bytes; the measured research site is 687,009,428 bytes.
-A coordinated delivery/Worker design awaits explicit approval before production implementation.
-Browser readiness, memory, full-result equivalence and latency gates remain pending; no production
-performance result or quality policy is inferred.
-See [feasibility preparation](../reports/feasibility-2026-09-14-static-delivery.md).
-Preserve the pre-existing analysis/session edits. TASK-009/010 remain paused and incomplete.
+TASK-008 operational verification is active on the user's 2026-09-16 request, with
+parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.
+PR #23 merged as `bac6dce`; local implementation `da9e63c` has the same tracked tree.
+Its hosted Verify check passed. Compact delivery design and implementation are already approved;
+earlier design-pending notes are historical. Reuse `.worktrees/task013-quality` on
+`codex/task-008-operational-verification`; preserve all other checkouts and untracked files.
 
-TASK-008 is the sole active task for production observation and quality/bootstrap review,
-explicitly resumed by the user on 2026-09-12. Collection-date mode remains authoritative.
-Use the existing approved Ubuntu collector/parser to obtain aggregate observations before
-proposing thresholds; no synthetic bootstrap, automatic policy approval or deployment.
-TASK-009/010 are paused while this prerequisite is resolved, then resume sequentially.
+This continuation measured the existing complete-source implementation and prepared remaining
+quality decisions. It does not authorize policy adoption, status changes, repository protection,
+workflow dispatch, publication, commit, push, merge or release. TASK-009/010 remain paused.
 
-Decoder prerequisites are resolved. The re-requested Ubuntu parser observation succeeded on
-attempt 3 of run 34692888618 at c3c474a: all 195 categories, 2,939,947 rows, 894,143,343 CSV
-bytes and zero parser errors. Its 5,063,428 KiB peak RSS still reflects whole-category row arrays.
-The successful inventory is in reports/observation-2026-09-12-parser-inventory.json.
+Acceptance for this bounded continuation (FR-02/03/08/12/13/14; performance NFR):
 
-The production memory refactor now uses a strict row iterator, bounded transformation batches,
-disk-backed global identity/collision checks, external merge serialization and streamed site
-asset copying. Reference-output parity and failure-preservation tests pass. Final-code local
-replay completed all 2,939,947 rows, global checks and exact serialization with
-a 2,048 MiB heap (1,822,576 KiB peak Node RSS; 22.49 minutes). The 2.44 GB dataset crashes the
-current Chromium whole-file loader. Status pairs 05/06 require review for 187,173 rows in 68
-categories; no policy/baseline is fabricated. Evidence: reports/test-2026-09-12-bounded-source.md.
-The existing read-only Ubuntu observation now uses the same bounded path. Run 34695738766
-at fbb2d65 completed the full source in 910,348 ms at 2,265,876 KiB peak Node RSS, with exact
-local dataset/validation parity and unchanged runner memory configuration. Full Ubuntu CI
-34695740858 passes 668 unit, 68 browser and 20 accessibility checks at that commit.
-Browser delivery redesign, quality review and publication/release gates remain open.
+- [x] Reconcile merged implementation, hosted CI and active-task state.
+- [x] Verify source/asset provenance and measure the actual compact application under explicit
+      mobile-emulated conditions, preserving failed/censored outcomes and physical-device limits.
+- [x] Assess actual hosted prerequisites separately from ordinary CI; identify unresolved gates.
+- [x] Produce an evidence-bound quality/status/empty-category and bootstrap decision packet.
+- [x] Independently review reports and update remaining acceptance gates without claiming release.
+
+The user resumed TASK-008 on 2026-09-12 and approved compact delivery on 2026-09-14.
+Collection-date mode remains authoritative; source coverage is unverified. Complete-source
+processing and lossless compact conversion cover 2,939,947 records. The functional research
+site is 688,506,488 bytes; the old 2.44 GB single-file loader crash is historical and has been
+replaced by compact loading. Prior desktop observations show 48–49 s readiness and 241–494 ms
+post-load searches, with sampled browser-tree RSS up to 4.56 GB. These are not mobile guarantees.
+See [compact verification](../reports/test-2026-09-14-compact-delivery.md).
+
+Overall TASK-008 remains incomplete for quality policy/bootstrap, unknown-pair and empty-category
+review, and actual mobile/hosted acceptance. Original PRD access is resolved; collection-date mode
+retains source coverage as an explicit warning rather than a fabricated coverage assertion. No production
+policy, source freshness, deployment approval or performance waiver has been inferred.
 
 ## Paused publication work
 
@@ -110,15 +108,19 @@ source coverage is still unverified under the approved collection-date interpret
 - Description: Validate complete staged inputs, identity/schema integrity, count and missing-value
   changes, aggregate-status drift, coverage dates, and JSON syntax/UTF-8 size.
 - Dependencies: Completed TASK-005, TASK-006, TASK-007; accepted ADR-009 through ADR-013.
-- Risks: Source PRD unavailable on this host; production row parser, source-cut evidence,
-  baseline/calibrated limits, and public JSON schema are not yet available.
+- Risks: Production quality limits, initial baseline and reviewed-unverified pair acceptance
+  remain unapproved. Source coverage is unverified under accepted collection-date operation.
+  Original PRD access, complete parsing and the compact delivery contract are resolved.
 - Acceptance criteria:
   - [x] Inspect accepted contracts and produce a concrete design with a requirements/test matrix.
   - [x] Separate sourced freshness facts from unsupported ZIP-date and row-timestamp inference.
   - [x] Obtain approval of ADR-014 and the date-only seven-day warning convention.
   - [x] Implement the staged validator and freshness/JSON helpers with offline test-first evidence.
   - [ ] Resolve production coverage evidence and reviewed thresholds/baseline without defaults.
-  - [ ] Obtain source PRD or explicit direction to use current traceability as the design baseline.
+  ADR-016 resolves the operational date basis using collection dates with unverified source
+  coverage; reviewed thresholds/baseline and exact-pair acceptance still remain open.
+  - [x] Obtain source PRD or explicit direction to use current traceability as the design baseline.
+  The original PRD is accessible and compared on 2026-09-16; see the quality decision packet.
   - [x] Pass focused tests, coverage, and pinned full verification.
   - [x] Obtain independent Reviewer approval of the staged implementation.
 - Verification commands: Focused Vitest unit/pipeline runs, `npm run test:coverage`,
@@ -154,7 +156,7 @@ source coverage is still unverified under the approved collection-date interpret
 - Verification commands:
 - Results and evidence:
 
-## TASK-008 compact delivery continuation — approval boundary
+## Historical compact delivery continuation — bounded implementation complete
 
 - [x] Reuse the existing worktree and verify its relationship to merged PR #22.
 - [x] Obtain and hash-verify the complete original source.
@@ -174,9 +176,21 @@ Compact-delivery implementation and local verification are documented in
 [verification](../reports/test-2026-09-14-compact-delivery.md) and the independent review. The
 production-codec exact round-trip covers 2,939,947 records; the functional research site is 688.5 MB.
 Two desktop observations show 241–494 ms searches after 48–49 s readiness; mobile/hosted readiness
-and memory are unverified. Hosted verification, reviewed policy/baseline, 05/06 review
-and all overall TASK-008/009/010/release acceptance remain open. No completed-task entry added.
+and memory are unverified. The previously pending ordinary hosted Verify check passed for PR #23. Actual hosted delivery,
+reviewed policy/baseline, 05/06 review and overall TASK-008/009/010/release acceptance remain open. No completed-task entry added.
 
 Local Ubuntu 24.04 verification passes 754 tests and the browser 68/accessibility 20 suites with
 one worker. The initial default-parallel WebKit flakes remain a documented limitation; no flaky
 policy or assertion was weakened. These local results do not close any production release gate.
+
+
+## Operational evidence disposition — 2026-09-17
+
+See the [operational report](../reports/verification-2026-09-16-task-008-operations.md).
+The bounded observations and review inputs are complete and independently Approved; see
+[review](../reports/review-2026-09-16-task-008-operations.md). TASK-008 stays active/incomplete:
+566.4 ms broad search exceeds the 500 ms target; slow complete loading remains impractical;
+physical-device/hosted readiness and final LCP are unverified. The exact 05/06 category-bound
+reviewed-unverified proposal is prepared but requires approval before implementation. Numeric
+policy calibration, empty-category approval and initial baseline remain separate gates.
+No TASK-009/010 activation or deployment is implied. The prior source-PRD access blocker is closed.
