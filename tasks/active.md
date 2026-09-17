@@ -16,7 +16,12 @@ the exact category-bound reviewed-unverified 05/06 contract after the completion
 The bounded implementation is verified with unchanged display mapping and raw/unknown metrics,
 strict evidence/scope validation, 797/68/20 full checks and independent Reviewer approval. The approval does not
 select numeric quality limits, empty-category policy, an initial baseline, or publication.
-The previous operational verification began on the user's 2026-09-16 request, with
+The user then instructed execution of the recorded completion plan, selecting its recommended
+original TASK-008 ownership and activating the 30-Seoul-calendar-day calibration from 2026-09-17.
+The first current observation is complete at 2,941,453 rows across all 195 categories; its distinct
+archive is retained outside Git. Daily non-publishing observation is scheduled. Derived numeric
+policy, the empty-category list, and the initial baseline still require explicit approval after
+the interval. The previous operational verification began on the user's 2026-09-16 request, with
 parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.
 PR #23 merged as `bac6dce`; local implementation `da9e63c` has the same tracked tree.
 Its hosted Verify check passed. Compact delivery design and implementation are already approved;
@@ -44,9 +49,11 @@ replaced by compact loading. Prior desktop observations show 48–49 s readiness
 post-load searches, with sampled browser-tree RSS up to 4.56 GB. These are not mobile guarantees.
 See [compact verification](../reports/test-2026-09-14-compact-delivery.md).
 
-Overall TASK-008 remains incomplete for quality policy/bootstrap, empty-category review,
-and the accumulated mobile/hosted acceptance gates. Exact reviewed-unverified pair acceptance is
-implemented and verified. Original PRD access is resolved; collection-date mode
+Overall TASK-008 remains incomplete for the approved calibration interval, quality
+policy/bootstrap, empty-category review, accepted validation, and final review. Exact
+reviewed-unverified pair acceptance is implemented and verified. Mobile/hosted performance and
+release gates remain open under their existing owner tasks and no longer block TASK-008 under the
+approved ownership decision. Original PRD access is resolved; collection-date mode
 retains source coverage as an explicit warning rather than a fabricated coverage assertion. No production
 policy, source freshness, deployment approval or performance waiver has been inferred.
 
@@ -124,9 +131,12 @@ source coverage is still unverified under the approved collection-date interpret
   - [x] Implement the staged validator and freshness/JSON helpers with offline test-first evidence.
   - [ ] Resolve production coverage evidence and reviewed thresholds/baseline without defaults.
   ADR-016 resolves the operational date basis using collection dates with unverified source
-  coverage; reviewed thresholds/baseline and exact-pair acceptance still remain open.
+  coverage; reviewed thresholds/baseline remain open and exact-pair acceptance is complete.
   - [x] Obtain source PRD or explicit direction to use current traceability as the design baseline.
   The original PRD is accessible and compared on 2026-09-16; see the quality decision packet.
+  - [x] Approve and activate a distinct-archive 30-Seoul-calendar-day calibration protocol.
+  - [ ] Complete the interval, derive and explicitly approve the policy/empty list/baseline,
+        obtain an accepted complete validation, and complete independent final review.
   - [x] Pass focused tests, coverage, and pinned full verification.
   - [x] Obtain independent Reviewer approval of the staged implementation.
 - Verification commands: Focused Vitest unit/pipeline runs, `npm run test:coverage`,
@@ -194,9 +204,10 @@ policy or assertion was weakened. These local results do not close any productio
 
 See the [operational report](../reports/verification-2026-09-16-task-008-operations.md).
 The bounded observations and review inputs are complete and independently Approved; see
-[review](../reports/review-2026-09-16-task-008-operations.md). TASK-008 stays active/incomplete:
-566.4 ms broad search exceeds the 500 ms target; slow complete loading remains impractical;
-physical-device/hosted readiness and final LCP are unverified. The exact 05/06 category-bound
+[review](../reports/review-2026-09-16-task-008-operations.md). Under the later approved ownership
+decision, the 566.4 ms broad search, slow complete loading, physical-device/hosted readiness, and
+final LCP remain open with their performance/release owner tasks rather than TASK-008. The exact
+05/06 category-bound
 reviewed-unverified proposal was approved on 2026-09-17 and its bounded implementation is verified. Numeric
 policy calibration, empty-category approval and initial baseline remain separate gates.
 No TASK-009/010 activation or deployment is implied. The prior source-PRD access blocker is closed.

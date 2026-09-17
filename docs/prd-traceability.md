@@ -262,3 +262,16 @@ See [design](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md) an
 [verification](../reports/test-2026-09-17-task-008-reviewed-pairs.md).
 This bounded change does not mark a whole FR, TASK-008 or release complete. Numerical
 policy, allowed empties, baseline and overall operational acceptance remain open.
+
+## TASK-008 quality calibration activated — 2026-09-17
+
+FR-08/13/14: the user selected the completion plan's recommended ownership and activated its
+30-Seoul-calendar-day distinct-archive calibration protocol. The first current complete
+observation covers all 195 categories and 2,941,453 rows. It retains the same 23 empty categories,
+no category-count decrease, and a one-row suspended-status correction from 2026-09-13. See the
+[calibration receipt](../reports/calibration-2026-09-17-task-008.md) and
+[complete observation](../reports/observation-2026-09-17-bounded-source.json).
+
+This evidence does not select numeric limits, approve empty categories, establish a baseline,
+publish data, or close an FR. Those review gates remain open until the interval and independent
+final review complete.

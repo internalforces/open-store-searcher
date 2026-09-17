@@ -615,3 +615,19 @@ Reject malformed or incompatible contract input; never permit a caller-defined b
 Missing acknowledgment retains the previous review requirement. Existing reviewed numeric-policy
 and baseline gates remain mandatory. This is not approval of numerical limits, empty-category
 policy, bootstrap, performance waiver, deployment, commit, push or merge.
+
+## TASK-008 calibration protocol and ownership — 2026-09-17
+
+Status: Accepted by the user's instruction to complete TASK-008 according to the recorded plan.
+
+Use the plan's recommended ownership: TASK-008 closes after its original staged-quality,
+calibrated-policy, baseline, accepted-validation, and independent-review gates. Keep mobile
+performance, Pages publication/recovery, repository settings, and 30-day release reliability
+with their existing owner tasks.
+
+Run a conservative 30-Seoul-calendar-day calibration beginning 2026-09-17. Retain distinct
+complete daily archives outside Git, all 195 metrics, hashes, failures, timing, connectivity,
+decreases, and source corrections. Identical archive bytes do not count as independent
+observations. This protocol does not pre-approve derived numeric limits, the 23 empty-category
+candidates, the initial baseline, publication, deployment, or security settings. ADR-014's
+explicit policy and baseline review gates remain unchanged.

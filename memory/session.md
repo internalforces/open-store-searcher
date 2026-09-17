@@ -1354,3 +1354,23 @@ gates. The shortest quality path is an approved calibration protocol, distinct d
 observations, derived total/all-195 policy and empty-list review, policy-bound initial baseline,
 an accepted complete validation, and independent final review. An explicit scope decision is
 still needed before mobile/hosted release gates can be removed from TASK-008 or retained there.
+
+
+## TASK-008 calibration activated — 2026-09-17
+
+The user instructed execution of the recorded completion plan. This selects the recommended
+original TASK-008 ownership and activates the proposed 30-Seoul-calendar-day calibration from
+2026-09-17; it does not approve unseen policy values, empty categories, or a baseline.
+
+Recovered the existing Ubuntu 24.04 research container with Node 24.19.0/npm 11.17.0 and ran the
+clean pushed commit `e5ba5c6`. The complete non-publishing observation processed 195 categories
+and 2,941,453 rows in 518,641 ms at 2,352,400 KiB peak Node RSS. Archive
+`98e4a29352a4a6e39ddf58e50730ba1d2294dd402a88e96c2de34c32f388bf02` is distinct and retained
+outside Git. Against 2026-09-13, rows increased by 1,049 across 58 categories with no category
+decrease; the same 23 are empty. A one-row suspended-status decrease is retained as a correction
+signal. Missing-name and missing-both-address counts remain 29 and zero.
+
+Committed evidence is `reports/observation-2026-09-17-bounded-source.json` plus the calibration
+report. The daily 09:00 local heartbeat `task-008-30-day-quality-calibration` preserves archives,
+metrics and failures without publication, stays quiet on routine success, and prepares the
+policy/empty/baseline proposal after the interval before pausing for explicit approval.

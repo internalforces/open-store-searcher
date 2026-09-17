@@ -438,3 +438,12 @@ policy or baseline approval. The prior statement that no acceptance contract exi
 historical. Numeric calibration, reviewed empty-category policy and baseline remain open.
 The array extra-property strictness issue found during independent review was fixed with
 a regression; no unrelated security policy or dependency change was made.
+
+## TASK-008 calibration interval — 2026-09-17
+
+The recommended ownership and 30-Seoul-calendar-day protocol are approved and active. The first
+current observation is complete and distinct: 2,941,453 rows across all 195 categories, with no
+category-count decrease and the repeated 23-category empty set. Its -1 suspended-status delta is
+retained as a correction signal. This still supplies only three observed transitions and cannot
+justify a production policy. Numeric limits, allowed empties, and the initial baseline remain
+open until the interval completes and the derived proposal receives explicit approval.

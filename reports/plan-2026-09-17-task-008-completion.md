@@ -8,7 +8,9 @@ Harness Version: 1.1
 # TASK-008 Completion Plan
 
 Date: 2026-09-17. Status: the reviewed-unverified 05/06 contract is implemented,
-fully verified, and independently Approved. Overall TASK-008 remains incomplete.
+fully verified, and independently Approved. The recommended ownership and 30-Seoul-calendar-day
+calibration protocol are now active. Overall TASK-008 remains incomplete until the interval,
+policy/baseline approvals, accepted replay, and final review finish.
 
 ## Current closed gates
 
@@ -50,6 +52,20 @@ fully verified, and independently Approved. Overall TASK-008 remains incomplete.
 7. **Obtain independent final review.** Review the policy derivation, empty list, baseline,
    accepted result, source hashes, configuration, and verification evidence. Only then can the
    original TASK-008 quality acceptance criterion be checked and the task moved to completed.
+
+## Execution checkpoint — 2026-09-17
+
+- [x] Recommended original TASK-008 ownership selected by the user's instruction to execute this
+      plan. Mobile/hosted release evidence stays with its existing owner tasks.
+- [x] Conservative 30-Seoul-calendar-day protocol activated from 2026-09-17.
+- [x] First current observation completed: distinct archive
+      `98e4a29352a4a6e39ddf58e50730ba1d2294dd402a88e96c2de34c32f388bf02`, all 195 categories,
+      2,941,453 rows, no category-count decrease, and one retained display-status correction.
+- [x] Daily 09:00 local heartbeat created as `task-008-30-day-quality-calibration`; source archives
+      remain outside Git and publication is prohibited.
+- [ ] Complete the approved interval and derive the full evidence-bound policy proposal.
+- [ ] Obtain explicit policy, allowed-empty, and initial-baseline approval.
+- [ ] Run accepted validation, failure preservation, and independent final review.
 
 ## Scope ownership decision
 
