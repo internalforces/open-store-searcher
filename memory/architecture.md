@@ -384,3 +384,13 @@ raw-pair/category scopes. Missing input retains legacy pair review; incompatible
 Approved pairs suppress only their review diagnostic. The mapper, raw pair metrics, unknown
 counts, all other policy/baseline gates and public delivery formats remain unchanged.
 See `docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md`.
+
+
+## Actions hardening continuation — 2026-09-17
+
+The TASK-019 branch replaces the Pages upload composite with equivalent fixed-path Linux tar
+packaging and a directly SHA-pinned actions/upload-artifact v4.6.2. Artifact name/format,
+retention, failure behavior and prepare/deploy privilege separation remain unchanged.
+Actual main protection now requires the GitHub Actions verify check and reviewed PRs, including
+administrators. Deployment environment reviewer selection/configuration remains pending;
+publication stays disabled. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).

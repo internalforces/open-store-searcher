@@ -1399,3 +1399,55 @@ https://github.com/internalforces/open-store-searcher/pull/24. The PR contains t
 evidence, reviewed-unverified contract and tests, first current calibration observation, approved
 completion protocol, and waiting-state records. The worktree remains available for review fixes.
 No merge, deployment, repository setting, policy, baseline, or publication action occurred.
+
+
+## TASK-019 Actions review activated and performed — 2026-09-17
+
+The user explicitly activated TASK-019 and requested AC-019-8 review. Reused the clean existing
+worktree on a new local codex/task-019-actions-review branch from dddc61a. Fresh read-only API
+inspection confirms PR #24 merged and remote main at 73edf04; all three workflows, three called
+scripts and lockfile match the review base. No other workflow exists in the complete remote tree.
+
+Reviewed triggers, shell/env inputs, least privilege, all action pins including the nested
+composite, credentials/OIDC masking and same-run artifact selection. Retained authenticated
+settings, immutable upstream code, executable bundle contexts and SHA-256 evidence. One Medium
+finding confirms absent deployment environment/main protection; one Low finding confirms the
+nested upload-artifact@v4 reference. Recovery evidence is an informational limitation. Publication
+config/enable flag remain absent; no active deployment bypass or external-PR escalation claimed.
+
+Evidence: reports/security-2026-09-17-task-019-actions.md and its companion evidence JSON.
+Review performed, but AC-019-8 security acceptance remains unchecked and overall TASK-019 stays
+active awaiting approved remediation/disposition. TASK-008 observation continues; TASK-009/010
+and release gates remain unchanged. No independent second review was delegated or claimed.
+No workflow, product code, dependency, security setting, secret, publication policy or baseline
+was changed. No dispatch, commit, push, merge or deployment occurred in this pass.
+
+Verification covers all three parsed YAML documents (duplicate keys/aliases rejected), eight
+direct full-SHA uses, 16 expression-free shell blocks, local/upstream hashes, report links,
+formatting and Git whitespace. No fresh application suite or dependency CVE audit is claimed.
+
+
+## TASK-019 authorized remediation and delivery — 2026-09-17
+
+The user explicitly authorized security fixes, settings changes, commit and push. Replaced the
+Pages composite with equivalent Linux tar packaging and the reviewed upload-artifact v4.6.2 SHA.
+Applied main protection: GitHub Actions verify/App 15368, strict current-base checks, one PR
+approval, stale-review dismissal, last-push approval, administrator enforcement, resolved threads,
+no force push/deletion. The first API payload was rejected with 422; corrected checks-only input
+succeeded and fresh API readback verifies the state. Original read-only evidence stays immutable.
+
+The only listed collaborator is internalforces. Requested the required deployment reviewer
+identity asynchronously, explaining the self-review/sole-maintainer restrictions; no answer has
+been received in this preparation pass. No deployment environment/reviewer was invented.
+Main protection deliberately requires another eligible approver before self-authored PR merges.
+
+Pinned macOS verify:full passes 795 tests and fails the two unchanged Linux Info-ZIP integrations;
+Ubuntu Docker startup/restart timeouts prevent the required runner rerun and actual GNU tar fixture
+execution. Static shell-token equivalence and workflow trust-boundary checks pass. Separate build
+and search-quality checks pass. No full-suite, hosted upload or independent approval is claimed.
+Reports: security-2026-09-17-task-019-remediation.md and companion evidence JSON.
+
+Commit/push of review records, the one workflow patch and updated evidence is authorized on
+codex/task-019-actions-review. TASK-019 remains active for reviewer identity/environment,
+Ubuntu verification and final review. No merge, workflow dispatch, publication or policy/baseline
+change is authorized. Other worktrees and TASK-008 calibration are preserved.

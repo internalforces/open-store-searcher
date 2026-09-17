@@ -275,3 +275,23 @@ no category-count decrease, and a one-row suspended-status correction from 2026-
 This evidence does not select numeric limits, approve empty categories, establish a baseline,
 publish data, or close an FR. Those review gates remain open until the interval and independent
 final review complete.
+
+
+## TASK-019 actual Actions review — 2026-09-17
+
+FR-12 / Section 14.4 / AC-019-8 now have actual workflow, upstream dependency and authenticated
+repository-setting evidence in the [Actions review](../reports/security-2026-09-17-task-019-actions.md)
+and [receipt](../reports/security-2026-09-17-task-019-actions-evidence.json). This supersedes the
+historical missing-workflow limitation. Review is performed, but security acceptance remains
+open for SEC-ACTIONS-01/02. No deployment/environment approval, risk waiver, current dependency
+advisory clearance or overall TASK-019 completion is asserted. FR-13 and TASK-009/010/021 retain
+quality policy/baseline, protected publication, hosted recovery and release gates.
+
+
+## TASK-019 authorized remediation — 2026-09-17
+
+FR-12 / Section 14.4 / AC-019-8: the direct upload-action pin is corrected in the task branch and
+actual main protection is configured/read back. [Remediation evidence](../reports/security-2026-09-17-task-019-remediation.md)
+retains the pending deployment reviewer/environment, unsuccessful full local verification due to
+Linux Info-ZIP tests on macOS, and unavailable Ubuntu Docker rerun. Acceptance remains open;
+no successful hosted artifact publication/recovery or independent approval is inferred.

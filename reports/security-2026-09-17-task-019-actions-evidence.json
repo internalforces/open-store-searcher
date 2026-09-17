@@ -1,0 +1,309 @@
+{
+  "observedAt": "2026-09-17T08:58:16.455876+00:00",
+  "reviewedCommit": "dddc61a4b2521ddfbd3782916980efe8c1264bc5",
+  "settings": {
+    "repository": {
+      "endpoint": "repos/internalforces/open-store-searcher",
+      "exit_code": 0,
+      "response": {
+        "archived": false,
+        "default_branch": "main",
+        "full_name": "internalforces/open-store-searcher",
+        "permissions": {
+          "admin": true,
+          "maintain": true,
+          "pull": true,
+          "push": true,
+          "triage": true
+        },
+        "visibility": "public"
+      },
+      "error": ""
+    },
+    "environments": {
+      "endpoint": "repos/internalforces/open-store-searcher/environments",
+      "exit_code": 0,
+      "response": {
+        "total_count": 0,
+        "environments": []
+      },
+      "error": ""
+    },
+    "rulesets": {
+      "endpoint": "repos/internalforces/open-store-searcher/rulesets?includes_parents=true",
+      "exit_code": 0,
+      "response": [],
+      "error": ""
+    },
+    "main_protection": {
+      "endpoint": "repos/internalforces/open-store-searcher/branches/main/protection",
+      "exit_code": 1,
+      "response": {
+        "message": "Branch not protected",
+        "documentation_url": "https://docs.github.com/rest/branches/branch-protection#get-branch-protection",
+        "status": "404"
+      },
+      "error": "gh: Branch not protected (HTTP 404)"
+    },
+    "pages": {
+      "endpoint": "repos/internalforces/open-store-searcher/pages",
+      "exit_code": 1,
+      "response": {
+        "message": "Not Found",
+        "documentation_url": "https://docs.github.com/rest/pages/pages#get-a-apiname-pages-site",
+        "status": "404"
+      },
+      "error": "gh: Not Found (HTTP 404)"
+    },
+    "actions_permissions": {
+      "endpoint": "repos/internalforces/open-store-searcher/actions/permissions",
+      "exit_code": 0,
+      "response": {
+        "enabled": true,
+        "allowed_actions": "all",
+        "sha_pinning_required": false
+      },
+      "error": ""
+    },
+    "workflow_permissions": {
+      "endpoint": "repos/internalforces/open-store-searcher/actions/permissions/workflow",
+      "exit_code": 0,
+      "response": {
+        "default_workflow_permissions": "read",
+        "can_approve_pull_request_reviews": false
+      },
+      "error": ""
+    },
+    "fork_approval": {
+      "endpoint": "repos/internalforces/open-store-searcher/actions/permissions/fork-pr-contributor-approval",
+      "exit_code": 0,
+      "response": {
+        "approval_policy": "first_time_contributors"
+      },
+      "error": ""
+    },
+    "publication_flag": {
+      "endpoint": "repos/internalforces/open-store-searcher/actions/variables/PAGES_PUBLICATION_ENABLED",
+      "exit_code": 1,
+      "response": {
+        "message": "Not Found",
+        "documentation_url": "https://docs.github.com/rest/actions/variables#get-a-repository-variable",
+        "status": "404"
+      },
+      "error": "gh: Not Found (HTTP 404)"
+    },
+    "main_revision": {
+      "endpoint": "repos/internalforces/open-store-searcher/git/ref/heads/main",
+      "exit_code": 0,
+      "response": "73edf04bb45a371e3a9fe7b4b38220e1a625d4ca",
+      "error": ""
+    },
+    "pr24": {
+      "endpoint": "repos/internalforces/open-store-searcher/pulls/24",
+      "exit_code": 0,
+      "response": {
+        "base_sha": "bac6dcef84c9a9fbd2ecf9fb0734114ca4a7d975",
+        "head_sha": "dddc61a4b2521ddfbd3782916980efe8c1264bc5",
+        "merged": true,
+        "number": 24,
+        "state": "closed"
+      },
+      "error": ""
+    }
+  },
+  "sha256": {
+    ".github/workflows/verify.yml": "e3363a6fb9626db60662342b56eaec6bcc8828c10b36da01910865eabcf378d4",
+    ".github/workflows/refresh.yml": "84e182ad78984e0bc678350a95b1ca7c44d862b49b20a1aca49017f39cdf7778",
+    ".github/workflows/observe-quality.yml": "80805051c1cab514b850cff3de4f988321ca64cdef55bdec8cefa980b1516c56",
+    "scripts/stage-refresh.mjs": "34a4da4e756688fcb685ba5583e04a839c584e7949dc7d83b246fef33ca3464e",
+    "scripts/build-publication.mjs": "4878f21ee50c5c7b5bee8020771727fda3e610d7e226c8bdce7dbb95ce85111c",
+    "scripts/observe-seoul-quality.mjs": "e55e29d0633c0ae8d4a39eaf12d118fc342e7d398e902648e3fe05463e6809e3",
+    "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89",
+    "src/pipeline/read-deployed-baseline.ts": "90f7e3cd66f8e0b8ebb1ec210261bbb1d27facfaf138d76b454e47886095b6b7",
+    "src/pipeline/verify-compact-directory.ts": "64f856263c0a74bea0e6f1fcfe5c0310dd554851f1e0d48c57190a40778d0653",
+    "src/pipeline/collect-seoul-archive.ts": "3f2131785386b606ca6786ed03bbd287b9591ff88d0618276337550fcd120cf5",
+    "src/pipeline/stage-bounded-release.ts": "fa6f39e6ed8a9f385f560facd30d95320ef2db83548acbe556fd1f9d473461ad",
+    "src/shared/compact-data.ts": "762bdefcbe61fd9aceafad7e48461defd8a4f74e4dbc41d4ab1eb612c84fda83"
+  },
+  "publicationConfigPresent": false,
+  "upstream": [
+    {
+      "endpoint": "repos/actions/checkout/contents/action.yml?ref=08c6903cd8c0fde910a37f88322edcfb5dd907a8",
+      "sha256": "11b63452f6e43ffb5ab8bfdaaafb8a915b354318e3ad9bce4eb0686b9e380f90",
+      "text": "name: 'Checkout'\r\ndescription: 'Checkout a Git repository at a particular version'\r\ninputs:\r\n  repository:\r\n    description: 'Repository name with owner. For example, actions/checkout'\r\n    default: ${{ github.repository }}\r\n  ref:\r\n    description: >\r\n      The branch, tag or SHA to checkout. When checking out the repository that\r\n      triggered a workflow, this defaults to the reference or SHA for that\r\n      event.  Otherwise, uses the default branch.\r\n  token:\r\n    description: >\r\n      Personal access token (PAT) used to fetch the repository. The PAT is configured\r\n      with the local git config, which enables your scripts to run authenticated git\r\n      commands. The post-job step removes the PAT.\r\n\r\n\r\n      We recommend using a service account with the least permissions necessary.\r\n      Also when generating a new PAT, select the least scopes necessary.\r\n\r\n\r\n      [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)\r\n    default: ${{ github.token }}\r\n  ssh-key:\r\n    description: >\r\n      SSH key used to fetch the repository. The SSH key is configured with the local\r\n      git config, which enables your scripts to run authenticated git commands.\r\n      The post-job step removes the SSH key.\r\n\r\n\r\n      We recommend using a service account with the least permissions necessary.\r\n\r\n\r\n      [Learn more about creating and using\r\n      encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)\r\n  ssh-known-hosts:\r\n    description: >\r\n      Known hosts in addition to the user and global host key database. The public\r\n      SSH keys for a host may be obtained using the utility `ssh-keyscan`. For example,\r\n      `ssh-keyscan github.com`. The public key for github.com is always implicitly added.\r\n  ssh-strict:\r\n    description: >\r\n      Whether to perform strict host key checking. When true, adds the options `StrictHostKeyChecking=yes`\r\n      and `CheckHostIP=no` to the SSH command line. Use the input `ssh-known-hosts` to\r\n      configure additional hosts.\r\n    default: true\r\n  ssh-user:\r\n    description: >\r\n      The user to use when connecting to the remote SSH host. By default 'git' is used.\r\n    default: git\r\n  persist-credentials:\r\n    description: 'Whether to configure the token or SSH key with the local git config'\r\n    default: true\r\n  path:\r\n    description: 'Relative path under $GITHUB_WORKSPACE to place the repository'\r\n  clean:\r\n    description: 'Whether to execute `git clean -ffdx && git reset --hard HEAD` before fetching'\r\n    default: true\r\n  filter:\r\n    description: >\r\n      Partially clone against a given filter.\r\n      Overrides sparse-checkout if set.\r\n    default: null\r\n  sparse-checkout:\r\n    description: >\r\n      Do a sparse checkout on given patterns.\r\n      Each pattern should be separated with new lines.\r\n    default: null\r\n  sparse-checkout-cone-mode:\r\n    description: >\r\n      Specifies whether to use cone-mode when doing a sparse checkout.\r\n    default: true\r\n  fetch-depth:\r\n    description: 'Number of commits to fetch. 0 indicates all history for all branches and tags.'\r\n    default: 1\r\n  fetch-tags:\r\n    description: 'Whether to fetch tags, even if fetch-depth > 0.'\r\n    default: false\r\n  show-progress:\r\n    description: 'Whether to show progress status output when fetching.'\r\n    default: true\r\n  lfs:\r\n    description: 'Whether to download Git-LFS files'\r\n    default: false\r\n  submodules:\r\n    description: >\r\n      Whether to checkout submodules: `true` to checkout submodules or `recursive` to\r\n      recursively checkout submodules.\r\n\r\n\r\n      When the `ssh-key` input is not provided, SSH URLs beginning with `git@github.com:` are\r\n      converted to HTTPS.\r\n    default: false\r\n  set-safe-directory:\r\n    description: Add repository path as safe.directory for Git global config by running `git config --global --add safe.directory <path>`\r\n    default: true\r\n  github-server-url:\r\n    description: The base URL for the GitHub instance that you are trying to clone from, will use environment defaults to fetch from the same instance that the workflow is running from unless specified. Example URLs are https://github.com or https://my-ghes-server.example.com\r\n    required: false\r\noutputs:\r\n  ref:\r\n    description: 'The branch, tag or SHA that was checked out'\r\n  commit:\r\n    description: 'The commit SHA that was checked out'\r\nruns:\r\n  using: node24\r\n  main: dist/index.js\r\n  post: dist/index.js\r\n"
+    },
+    {
+      "endpoint": "repos/actions/setup-node/contents/action.yml?ref=a0853c24544627f65ddf259abe73b1d18a591444",
+      "sha256": "ecb4d4624961e84f02739e223d2e947f2e95c28407d7b811ee71caf118d7ba09",
+      "text": "name: 'Setup Node.js environment'\ndescription: 'Setup a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH.'\nauthor: 'GitHub'\ninputs:\n  always-auth:\n    description: 'Set always-auth in npmrc.'\n    default: 'false'\n  node-version:\n    description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'\n  node-version-file:\n    description: 'File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.'\n  architecture:\n    description: 'Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.'\n  check-latest:\n    description: 'Set this option if you want the action to check for the latest available version that satisfies the version spec.'\n    default: false\n  registry-url:\n    description: 'Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.'\n  scope:\n    description: 'Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).'\n  token:\n    description: Used to pull node distributions from node-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.\n    default: ${{ github.server_url == 'https://github.com' && github.token || '' }}\n  cache:\n    description: 'Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.'\n  package-manager-cache:\n    description: 'Set to false to disable automatic caching based on the package manager field in package.json. By default, caching is enabled if the package manager field is present.'\n    default: true\n  cache-dependency-path:\n    description: 'Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.'\n  mirror:\n    description: 'Used to specify an alternative mirror to downlooad Node.js binaries from'\n  mirror-token:\n    description: 'The token used as Authorization header when fetching from the mirror'\n# TODO: add input to control forcing to pull from cloud or dist.\n#       escape valve for someone having issues or needing the absolute latest which isn't cached yet\noutputs:\n  cache-hit: \n    description: 'A boolean value to indicate if a cache was hit.'\n  node-version:\n    description: 'The installed node version.'\nruns:\n  using: 'node24'\n  main: 'dist/setup/index.js'\n  post: 'dist/cache-save/index.js'\n  post-if: success()\n"
+    },
+    {
+      "endpoint": "repos/actions/upload-pages-artifact/contents/action.yml?ref=56afc609e74202658d3ffba0e8f6dda462b719fa",
+      "sha256": "7c93bf9e88f1d495ffdbaf860fd9d6a5e75db9550a38ecbd44c6b53dfb2dbf22",
+      "text": "name: \"Upload GitHub Pages artifact\"\ndescription: \"A composite action that prepares your static assets to be deployed to GitHub Pages\"\nauthor: \"GitHub\"\ninputs:\n  name:\n    description: 'Artifact name'\n    required: false\n    default: 'github-pages'\n  path:\n    description: \"Path of the directory containing the static assets.\"\n    required: true\n    default: \"_site/\"\n  retention-days:\n    description: \"Duration after which artifact will expire in days.\"\n    required: false\n    default: \"1\"\noutputs:\n  artifact_id:\n    description: \"The ID of the artifact that was uploaded.\"\n    value: ${{ steps.upload-artifact.outputs.artifact-id }}\nruns:\n  using: composite\n  steps:\n    - name: Archive artifact\n      shell: sh\n      if: runner.os == 'Linux'\n      run: |\n        echo ::group::Archive artifact\n        tar \\\n          --dereference --hard-dereference \\\n          --directory \"$INPUT_PATH\" \\\n          -cvf \"$RUNNER_TEMP/artifact.tar\" \\\n          --exclude=.git \\\n          --exclude=.github \\\n          .\n        echo ::endgroup::\n      env:\n        INPUT_PATH: ${{ inputs.path }}\n\n    # Switch to gtar (GNU tar instead of bsdtar which is the default in the MacOS runners so we can use --hard-dereference)\n    - name: Archive artifact\n      shell: sh\n      if: runner.os == 'macOS'\n      run: |\n        echo ::group::Archive artifact\n        gtar \\\n          --dereference --hard-dereference \\\n          --directory \"$INPUT_PATH\" \\\n          -cvf \"$RUNNER_TEMP/artifact.tar\" \\\n          --exclude=.git \\\n          --exclude=.github \\\n          .\n        echo ::endgroup::\n      env:\n        INPUT_PATH: ${{ inputs.path }}\n\n    # Massage the paths for Windows only\n    - name: Archive artifact\n      shell: bash\n      if: runner.os == 'Windows'\n      run: |\n        echo ::group::Archive artifact\n        tar \\\n          --dereference --hard-dereference \\\n          --directory \"$INPUT_PATH\" \\\n          -cvf \"$RUNNER_TEMP\\artifact.tar\" \\\n          --exclude=.git \\\n          --exclude=.github \\\n          --force-local \\\n          \".\"\n        echo ::endgroup::\n      env:\n        INPUT_PATH: ${{ inputs.path }}\n\n    - name: Upload artifact\n      id: upload-artifact\n      uses: actions/upload-artifact@v4\n      with:\n        name: ${{ inputs.name }}\n        path: ${{ runner.temp }}/artifact.tar\n        retention-days: ${{ inputs.retention-days }}\n        if-no-files-found: error\n"
+    },
+    {
+      "endpoint": "repos/actions/deploy-pages/contents/action.yml?ref=d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e",
+      "sha256": "0ff88ca222c067f34d29b7078bd0c387b7efedcd14d17ad794aef1c4224f900f",
+      "text": "name: 'Deploy GitHub Pages site'\ndescription: 'A GitHub Action to deploy an artifact as a GitHub Pages site'\nauthor: 'GitHub'\nruns:\n  using: 'node20'\n  main: 'dist/index.js'\ninputs:\n  token:\n    description: 'GitHub token'\n    default: ${{ github.token }}\n    required: true\n  timeout:\n    description: 'Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)'\n    required: false\n    default: '600000'\n  error_count:\n    description: 'Maximum number of status report errors before cancelling a deployment (default: 10)'\n    required: false\n    default: '10'\n  reporting_interval:\n    description: 'Time in milliseconds between two deployment status report (default: 5 seconds)'\n    required: false\n    default: '5000'\n  artifact_name:\n    description: 'Name of the artifact to deploy'\n    required: false\n    default: 'github-pages'\n  preview:\n    description: 'Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)'\n    required: false\n    default: 'false'\noutputs:\n  page_url:\n    description: 'URL to deployed GitHub Pages'\n"
+    },
+    {
+      "endpoint": "repos/actions/deploy-pages/contents/src/internal/api-client.js?ref=d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e",
+      "sha256": "3696f6887732928e80b81c93a95e917cf3af3c7a1d17bc7a0ad7bd133a955c10",
+      "text": "const core = require('@actions/core')\nconst github = require('@actions/github')\nconst { DefaultArtifactClient } = require('@actions/artifact')\nconst { RequestError } = require('@octokit/request-error')\nconst HttpStatusMessages = require('http-status-messages')\n\nfunction wrapTwirpResponseLikeOctokit(twirpResponse, requestOptions) {\n  // Specific response shape aligned with Octokit\n  const response = {\n    url: requestOptions.url,\n    status: 200,\n    headers: {\n      ...requestOptions.headers\n    },\n    data: twirpResponse\n  }\n  return response\n}\n\n// Mimic the errors thrown by Octokit for consistency.\nfunction wrapTwirpErrorLikeOctokit(twirpError, requestOptions) {\n  const rawErrorMsg = twirpError?.message || twirpError?.toString() || ''\n  const statusCodeMatch = rawErrorMsg.match(/Failed request: \\((?<statusCode>\\d+)\\)/)\n  const statusCode = statusCodeMatch?.groups?.statusCode ?? 500\n\n  // Try to provide the best error message\n  const errorMsg =\n    rawErrorMsg ||\n    // Fallback to the HTTP status message based on the status code\n    HttpStatusMessages[statusCode] ||\n    // Or if the status code is unexpected...\n    `Unknown error (${statusCode})`\n\n  // RequestError is an Octokit-specific class\n  return new RequestError(errorMsg, statusCode, {\n    response: {\n      url: requestOptions.url,\n      status: statusCode,\n      headers: {\n        ...requestOptions.headers\n      },\n      data: rawErrorMsg ? { message: rawErrorMsg } : ''\n    },\n    request: requestOptions\n  })\n}\n\nfunction getArtifactsServiceOrigin() {\n  const resultsUrl = process.env.ACTIONS_RESULTS_URL\n  return resultsUrl ? new URL(resultsUrl).origin : ''\n}\n\nasync function getArtifactMetadata({ artifactName }) {\n  const artifactClient = new DefaultArtifactClient()\n\n  // Primarily for debugging purposes, accuracy is not critical\n  const requestOptions = {\n    method: 'POST',\n    url: `${getArtifactsServiceOrigin()}/twirp/github.actions.results.api.v1.ArtifactService/ListArtifacts`,\n    headers: {\n      'content-type': 'application/json'\n    },\n    body: {}\n  }\n\n  try {\n    core.info(`Fetching artifact metadata for \"${artifactName}\" in this workflow run`)\n\n    let response\n    try {\n      const twirpResponse = await artifactClient.listArtifacts()\n      response = wrapTwirpResponseLikeOctokit(twirpResponse, requestOptions)\n    } catch (twirpError) {\n      core.error('Listing artifact metadata failed', twirpError)\n      const octokitError = wrapTwirpErrorLikeOctokit(twirpError, requestOptions)\n      throw octokitError\n    }\n\n    const filteredArtifacts = response.data.artifacts.filter(artifact => artifact.name === artifactName)\n\n    const artifactCount = filteredArtifacts.length\n    core.debug(`List artifact count: ${artifactCount}`)\n\n    if (artifactCount === 0) {\n      throw new Error(\n        `No artifacts named \"${artifactName}\" were found for this workflow run. Ensure artifacts are uploaded with actions/upload-artifact@v4 or later.`\n      )\n    } else if (artifactCount > 1) {\n      throw new Error(\n        `Multiple artifacts named \"${artifactName}\" were unexpectedly found for this workflow run. Artifact count is ${artifactCount}.`\n      )\n    }\n\n    const artifact = filteredArtifacts[0]\n    core.debug(`Artifact: ${JSON.stringify(artifact)}`)\n\n    if (!artifact.size) {\n      core.warning('Artifact size was not found. Unable to verify if artifact size exceeds the allowed size.')\n    }\n\n    return artifact\n  } catch (error) {\n    core.error(\n      'Fetching artifact metadata failed. Is githubstatus.com reporting issues with API requests, Pages, or Actions? Please re-run the deployment at a later time.',\n      error\n    )\n    throw error\n  }\n}\n\nasync function createPagesDeployment({ githubToken, artifactId, buildVersion, idToken, isPreview = false }) {\n  const octokit = github.getOctokit(githubToken)\n\n  const payload = {\n    artifact_id: artifactId,\n    pages_build_version: buildVersion,\n    oidc_token: idToken\n  }\n  if (isPreview === true) {\n    payload.preview = true\n  }\n  core.info(`Creating Pages deployment with payload:\\n${JSON.stringify(payload, null, '\\t')}`)\n\n  try {\n    const response = await octokit.request('POST /repos/{owner}/{repo}/pages/deployments', {\n      owner: github.context.repo.owner,\n      repo: github.context.repo.repo,\n      ...payload\n    })\n\n    return response.data\n  } catch (error) {\n    core.error('Creating Pages deployment failed', error)\n    throw error\n  }\n}\n\nasync function getPagesDeploymentStatus({ githubToken, deploymentId }) {\n  const octokit = github.getOctokit(githubToken)\n\n  core.info('Getting Pages deployment status...')\n  try {\n    const response = await octokit.request('GET /repos/{owner}/{repo}/pages/deployments/{deploymentId}', {\n      owner: github.context.repo.owner,\n      repo: github.context.repo.repo,\n      deploymentId\n    })\n\n    return response.data\n  } catch (error) {\n    core.error('Getting Pages deployment status failed', error)\n    throw error\n  }\n}\n\nasync function cancelPagesDeployment({ githubToken, deploymentId }) {\n  const octokit = github.getOctokit(githubToken)\n\n  core.info('Canceling Pages deployment...')\n  try {\n    const response = await octokit.request('POST /repos/{owner}/{repo}/pages/deployments/{deploymentId}/cancel', {\n      owner: github.context.repo.owner,\n      repo: github.context.repo.repo,\n      deploymentId\n    })\n\n    return response.data\n  } catch (error) {\n    core.error('Canceling Pages deployment failed', error)\n    throw error\n  }\n}\n\nmodule.exports = {\n  getArtifactMetadata,\n  createPagesDeployment,\n  getPagesDeploymentStatus,\n  cancelPagesDeployment\n}\n"
+    },
+    {
+      "endpoint": "repos/actions/deploy-pages/contents/src/internal/deployment.js?ref=d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e",
+      "sha256": "6bd249b3f83a2c1bf1e3cbdb7fa9e6065c4cbfca970e824192b8978ab169815a",
+      "text": "const core = require('@actions/core')\n\n// All variables we need from the runtime are loaded here\nconst getContext = require('./context')\nconst {\n  getArtifactMetadata,\n  createPagesDeployment,\n  getPagesDeploymentStatus,\n  cancelPagesDeployment\n} = require('./api-client')\n\nconst temporaryErrorStatus = {\n  unknown_status: 'Unable to get deployment status.',\n  not_found: 'Deployment not found.',\n  deployment_attempt_error: 'Deployment temporarily failed, a retry will be automatically scheduled...'\n}\n\nconst finalErrorStatus = {\n  deployment_failed: 'Deployment failed, try again later.',\n  deployment_perms_error: 'Deployment failed. Please ensure that the file permissions are correct.',\n  deployment_content_failed:\n    'Artifact could not be deployed. Please ensure the content does not contain any hard links, symlinks and total size is less than 10GB.',\n  deployment_cancelled: 'Deployment cancelled.',\n  deployment_lost: 'Deployment failed to report final status.'\n}\n\nconst MAX_TIMEOUT = 600000\nconst ONE_GIGABYTE = 1073741824\nconst SIZE_LIMIT_DESCRIPTION = '1 GB'\n\nclass Deployment {\n  constructor() {\n    const context = getContext()\n    this.repositoryNwo = context.repositoryNwo\n    this.buildVersion = context.buildVersion\n    this.buildActor = context.buildActor\n    this.actionsId = context.actionsId\n    this.githubToken = context.githubToken\n    this.workflowRun = context.workflowRun\n    this.deploymentInfo = null\n    this.githubApiUrl = context.githubApiUrl\n    this.githubServerUrl = context.githubServerUrl\n    this.artifactName = context.artifactName\n    this.isPreview = context.isPreview === true\n    this.timeout = MAX_TIMEOUT\n    this.startTime = null\n  }\n\n  // Call GitHub api to fetch artifacts matching the provided name and deploy to GitHub Pages\n  // by creating a deployment with that artifact id\n  async create(idToken) {\n    if (Number(core.getInput('timeout')) > MAX_TIMEOUT) {\n      core.warning(\n        `Warning: timeout value is greater than the allowed maximum - timeout set to the maximum of ${MAX_TIMEOUT} milliseconds.`\n      )\n    }\n\n    const timeoutInput = Number(core.getInput('timeout'))\n    this.timeout = !timeoutInput || timeoutInput <= 0 ? MAX_TIMEOUT : Math.min(timeoutInput, MAX_TIMEOUT)\n\n    try {\n      core.debug(`Actor: ${this.buildActor}`)\n      core.debug(`Action ID: ${this.actionsId}`)\n      core.debug(`Actions Workflow Run ID: ${this.workflowRun}`)\n\n      const artifactData = await getArtifactMetadata({ artifactName: this.artifactName })\n\n      if (artifactData?.size > ONE_GIGABYTE) {\n        core.warning(\n          `Uploaded artifact size of ${artifactData?.size} bytes exceeds the allowed size of ${SIZE_LIMIT_DESCRIPTION}. Deployment might fail.`\n        )\n      }\n\n      const deployment = await createPagesDeployment({\n        githubToken: this.githubToken,\n        artifactId: artifactData.id,\n        buildVersion: this.buildVersion,\n        idToken,\n        isPreview: this.isPreview\n      })\n\n      if (deployment) {\n        this.deploymentInfo = {\n          ...deployment,\n          id: deployment.id || deployment.status_url?.split('/')?.pop() || this.buildVersion,\n          pending: true\n        }\n        this.startTime = Date.now()\n      }\n\n      core.info(`Created deployment for ${this.buildVersion}, ID: ${this.deploymentInfo?.id}`)\n\n      core.debug(JSON.stringify(deployment))\n\n      return deployment\n    } catch (error) {\n      core.error(error.stack)\n\n      // build customized error message based on server response\n      if (error.response) {\n        let errorMessage = `Failed to create deployment (status: ${error.status}) with build version ${this.buildVersion}.`\n        if (error.response.headers['x-github-request-id']) {\n          errorMessage += ` Request ID ${error.response.headers['x-github-request-id']}`\n        }\n        if (error.status === 400) {\n          errorMessage += ` Responded with: ${error.message}`\n        } else if (error.status === 403) {\n          errorMessage += ' Ensure GITHUB_TOKEN has permission \"pages: write\".'\n        } else if (error.status === 404) {\n          const pagesSettingsUrl = `${this.githubServerUrl}/${this.repositoryNwo}/settings/pages`\n          errorMessage += ` Ensure GitHub Pages has been enabled: ${pagesSettingsUrl}`\n          // If using GHES, add a special note about compatibility\n          if (new URL(this.githubServerUrl).hostname.toLowerCase() !== 'github.com') {\n            errorMessage +=\n              '\\nNote: This action version may not yet support GitHub Enterprise Server, please check the compatibility table.'\n          }\n        } else if (error.status >= 500) {\n          errorMessage +=\n            ' Server error, is githubstatus.com reporting a Pages outage? Please re-run the deployment at a later time.'\n        }\n        throw new Error(errorMessage)\n      } else {\n        // istanbul ignore next\n        throw error\n      }\n    }\n  }\n\n  // Poll the deployment endpoint for status\n  async check() {\n    // Don't attempt to check status if no deployment was created\n    if (!this.deploymentInfo) {\n      core.setFailed(temporaryErrorStatus.not_found)\n      return\n    }\n    if (this.deploymentInfo.pending !== true) {\n      core.setFailed(temporaryErrorStatus.unknown_status)\n      return\n    }\n\n    const deploymentId = this.deploymentInfo.id || this.buildVersion\n    const reportingInterval = Number(core.getInput('reporting_interval'))\n    const maxErrorCount = Number(core.getInput('error_count'))\n\n    let errorCount = 0\n\n    // Time in milliseconds between two deployment status report when status errored, default 0.\n    let errorReportingInterval = 0\n    let deployment = null\n    let errorStatus = 0\n\n    /*eslint no-constant-condition: [\"error\", { \"checkLoops\": false }]*/\n    while (true) {\n      // Handle reporting interval\n      await new Promise(resolve => setTimeout(resolve, reportingInterval + errorReportingInterval))\n\n      // Check status\n      try {\n        deployment = await getPagesDeploymentStatus({\n          githubToken: this.githubToken,\n          deploymentId\n        })\n\n        if (deployment.status === 'succeed') {\n          core.info('Reported success!')\n          core.setOutput('status', 'succeed')\n          this.deploymentInfo.pending = false\n          break\n        } else if (finalErrorStatus[deployment.status]) {\n          // Fall into permanent error, it may be caused by ongoing incident, malicious deployment content, exhausted automatic retry times, invalid artifact, etc.\n          core.setFailed(finalErrorStatus[deployment.status])\n          this.deploymentInfo.pending = false\n          break\n        } else if (temporaryErrorStatus[deployment.status]) {\n          // A temporary error happened, will query the status again\n          core.warning(temporaryErrorStatus[deployment.status])\n        } else {\n          core.info('Current status: ' + deployment.status)\n        }\n\n        // reset the error reporting interval once get the proper status back.\n        errorReportingInterval = 0\n      } catch (error) {\n        core.error(error.stack)\n\n        // build customized error message based on server response\n        if (error.response) {\n          errorStatus = error.status || error.response.status\n\n          errorCount++\n\n          // set the maximum error reporting interval greater than 15 sec but below 30 sec.\n          if (errorReportingInterval < 1000 * 15) {\n            errorReportingInterval = (errorReportingInterval << 1) | 1\n          }\n        }\n      }\n\n      if (errorCount >= maxErrorCount) {\n        core.error('Too many errors, aborting!')\n        core.setFailed('Failed with status code: ' + errorStatus)\n\n        // Explicitly cancel the deployment\n        await this.cancel()\n        return\n      }\n\n      // Handle timeout\n      if (Date.now() - this.startTime >= this.timeout) {\n        core.error('Timeout reached, aborting!')\n        core.setFailed('Timeout reached, aborting!')\n\n        // Explicitly cancel the deployment\n        await this.cancel()\n        return\n      }\n    }\n  }\n\n  async cancel() {\n    // Don't attempt to cancel if no deployment was created\n    if (!this.deploymentInfo || this.deploymentInfo.pending !== true) {\n      core.debug('No deployment to cancel')\n      return\n    }\n\n    // Cancel the deployment\n    try {\n      const deploymentId = this.deploymentInfo.id || this.buildVersion\n      await cancelPagesDeployment({\n        githubToken: this.githubToken,\n        deploymentId\n      })\n      core.info(`Canceled deployment with ID ${deploymentId}`)\n\n      this.deploymentInfo.pending = false\n    } catch (error) {\n      core.setFailed(error)\n      if (error.response?.data) {\n        core.error(JSON.stringify(error.response.data))\n      }\n    }\n  }\n}\n\nmodule.exports = { Deployment, MAX_TIMEOUT, ONE_GIGABYTE, SIZE_LIMIT_DESCRIPTION }\n"
+    }
+  ],
+  "mainComparison": {
+    ".github/workflows/verify.yml": {
+      "sha256": "e3363a6fb9626db60662342b56eaec6bcc8828c10b36da01910865eabcf378d4",
+      "matchesReviewed": true
+    },
+    ".github/workflows/refresh.yml": {
+      "sha256": "84e182ad78984e0bc678350a95b1ca7c44d862b49b20a1aca49017f39cdf7778",
+      "matchesReviewed": true
+    },
+    ".github/workflows/observe-quality.yml": {
+      "sha256": "80805051c1cab514b850cff3de4f988321ca64cdef55bdec8cefa980b1516c56",
+      "matchesReviewed": true
+    },
+    "scripts/stage-refresh.mjs": {
+      "sha256": "34a4da4e756688fcb685ba5583e04a839c584e7949dc7d83b246fef33ca3464e",
+      "matchesReviewed": true
+    },
+    "scripts/build-publication.mjs": {
+      "sha256": "4878f21ee50c5c7b5bee8020771727fda3e610d7e226c8bdce7dbb95ce85111c",
+      "matchesReviewed": true
+    },
+    "scripts/observe-seoul-quality.mjs": {
+      "sha256": "e55e29d0633c0ae8d4a39eaf12d118fc342e7d398e902648e3fe05463e6809e3",
+      "matchesReviewed": true
+    },
+    "package-lock.json": {
+      "sha256": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89",
+      "matchesReviewed": true
+    }
+  },
+  "mainWorkflowInventory": [
+    ".github/workflows/observe-quality.yml",
+    ".github/workflows/refresh.yml",
+    ".github/workflows/verify.yml"
+  ],
+  "mainTreeTruncated": false,
+  "deployBundle": {
+    "endpoint": "repos/actions/deploy-pages/contents/dist/index.js?ref=d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e",
+    "sha256": "6640631c2de7d3efe25fa06413f980f7e00f6d85994fa8275f2b1f468877b715",
+    "byteLength": 5587460,
+    "observations": {
+      "artifactClient.listArtifacts()": [
+        {
+          "line": 148666,
+          "context": "    let response\n    try {\n      const twirpResponse = await artifactClient.listArtifacts()\n      response = wrapTwirpResponseLikeOctokit(twirpResponse, requestOptions)\n    } catch (twirpError) {"
+        }
+      ],
+      "filteredArtifacts.length": [
+        {
+          "line": 148676,
+          "context": "    const filteredArtifacts = response.data.artifacts.filter(artifact => artifact.name === artifactName)\n\n    const artifactCount = filteredArtifacts.length\n    core.debug(`List artifact count: ${artifactCount}`)\n"
+        }
+      ],
+      "core.getIDToken()": [
+        {
+          "line": 151156,
+          "context": "  let idToken = ''\n  try {\n    idToken = await core.getIDToken()\n  } catch (error) {\n    console.log(error)"
+        }
+      ],
+      "setSecret(id_token)": [
+        {
+          "line": 7034,
+          "context": "                core_1.debug(`ID token url is ${id_token_url}`);\n                const id_token = yield OidcClient.getCall(id_token_url);\n                core_1.setSecret(id_token);\n                return id_token;\n            }"
+        }
+      ],
+      "Creating Pages deployment with payload": [
+        {
+          "line": 148717,
+          "context": "    payload.preview = true\n  }\n  core.info(`Creating Pages deployment with payload:\\n${JSON.stringify(payload, null, '\\t')}`)\n\n  try {"
+        }
+      ]
+    }
+  },
+  "proposedUploadArtifactPin": {
+    "html_url": "https://github.com/actions/upload-artifact/commit/ea165f8d65b6e75b540449e92b4886f43607fa02",
+    "sha": "ea165f8d65b6e75b540449e92b4886f43607fa02"
+  },
+  "workflowStructuralReview": {
+    ".github/workflows/observe-quality.yml": {
+      "triggers": ["push"],
+      "jobs": {
+        "observe": {
+          "permissions": {
+            "contents": "read"
+          },
+          "runner": "ubuntu-24.04",
+          "actions": [
+            "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8",
+            "actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444"
+          ],
+          "run_blocks": 3
+        }
+      },
+      "duplicateKeys": false,
+      "aliases": false,
+      "expressionsInRun": 0
+    },
+    ".github/workflows/refresh.yml": {
+      "triggers": ["schedule", "workflow_dispatch"],
+      "jobs": {
+        "prepare": {
+          "permissions": {
+            "contents": "read"
+          },
+          "runner": "ubuntu-24.04",
+          "actions": [
+            "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8",
+            "actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+            "actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa"
+          ],
+          "run_blocks": 8
+        },
+        "deploy": {
+          "permissions": {
+            "contents": "read",
+            "pages": "write",
+            "id-token": "write"
+          },
+          "runner": "ubuntu-24.04",
+          "actions": ["actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e"],
+          "run_blocks": 1
+        }
+      },
+      "duplicateKeys": false,
+      "aliases": false,
+      "expressionsInRun": 0
+    },
+    ".github/workflows/verify.yml": {
+      "triggers": ["pull_request", "push"],
+      "jobs": {
+        "verify": {
+          "permissions": {
+            "contents": "read"
+          },
+          "runner": "ubuntu-24.04",
+          "actions": [
+            "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8",
+            "actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444"
+          ],
+          "run_blocks": 4
+        }
+      },
+      "duplicateKeys": false,
+      "aliases": false,
+      "expressionsInRun": 0
+    }
+  },
+  "yamlParser": "Ruby Psych 3.1.0; YAML 1.1 literal on normalized from boolean key true"
+}

@@ -9,11 +9,33 @@ Harness Version: 1.1
 
 _Last updated: 2026-09-17_
 
+## In Progress — TASK-019 Actions security review
+
+Activated by the user on 2026-09-17. Owner: Security Reviewer. Scope: AC-019-8 / FR-12 /
+Section 14.4. Review the actual workflows, action dependency chain, repository/environment
+settings, credentials and artifact trust at `dddc61a` on `codex/task-019-actions-review`.
+TASK-008 continues its approved observation interval without occupying this implementation slot.
+The user subsequently authorized the reported security fixes, repository settings changes,
+commit and push on 2026-09-17. Deployment, merge and workflow dispatch remain unauthorized.
+
+- [x] Capture current read-only repository settings and immutable workflow evidence.
+- [x] Review triggers, injection, permissions, action pins, credentials and artifact trust.
+- [x] Record findings, concrete remedies and acceptance disposition without waiving release gates.
+- [x] Verify report evidence and update task, session and traceability records.
+
+Review performed: one Medium protection-setting gap, one Low transitive mutable-action gap,
+and one informational recovery limitation. See [Actions review](../reports/security-2026-09-17-task-019-actions.md).
+Authorized remediation: the branch now directly pins the upload action; actual main protection
+is applied and read back. The deployment reviewer identity remains pending user input.
+Local full verification stops at two existing Linux Info-ZIP tests on macOS; Ubuntu Docker
+startup is unavailable. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
+AC-019-8 acceptance remains open for the environment, Ubuntu verification and final review.
+
 ## Awaiting time-bound evidence
 
-No implementation task is active. TASK-008 is paused between scheduled daily observations under
-the single-active-task rule, so one independent task may be activated after this delivery branch
-is opened for review. TASK-008 completion remains authorized by the user's 2026-09-17 request.
+TASK-019 is the sole active task. TASK-008 is paused between scheduled daily observations under
+the single-active-task rule; its delivered observation branch was merged through PR #24.
+TASK-008 completion remains authorized by the user's 2026-09-17 request.
 The user explicitly approved
 the exact category-bound reviewed-unverified 05/06 contract after the completion investigation.
 The bounded implementation is verified with unchanged display mapping and raw/unknown metrics,
@@ -98,7 +120,7 @@ review is still absent. The user explicitly resumed calibration; deployment and 
 approval remain separate. No overall task was moved to completed.
 
 TASK-019's bounded application assessment completed on
-2026-09-09; overall TASK-019 remains deferred/incomplete for AC-019-8, the actual Actions review.
+2026-09-09; overall TASK-019 is active/incomplete for AC-019-8 security acceptance after the 2026-09-17 Actions review.
 See its [acceptance checklist](completed.md#task-019-acceptance-criteria-and-evidence) and
 [unfinished criterion](backlog.md#task-019-unfinished-actions-criterion).
 See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).

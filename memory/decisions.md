@@ -631,3 +631,14 @@ decreases, and source corrections. Identical archive bytes do not count as indep
 observations. This protocol does not pre-approve derived numeric limits, the 23 empty-category
 candidates, the initial baseline, publication, deployment, or security settings. ADR-014's
 explicit policy and baseline review gates remain unchanged.
+
+
+## Approved TASK-019 security settings — 2026-09-17
+
+The user authorized the reported security fixes, GitHub settings changes, commit and push.
+Implemented the proposed direct immutable upload action and main protection with a one-review
+PR requirement, strict GitHub Actions verify check (App 15368), stale-review dismissal, latest-push
+approval, administrator enforcement, resolved conversations and no force push/deletion.
+The environment reviewer identity remains a pending operating decision; no identity or self-review
+exception is assumed. No publication approval, release waiver, quality policy or baseline follows
+from this authorization. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
