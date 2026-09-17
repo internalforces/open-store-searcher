@@ -29,6 +29,15 @@ _Last updated: 2026-09-04_
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 remains the separate M3 deliverable for public setup, deployment, contribution, policy, and release documentation.
 
+## TASK-008 calibration waiting disposition — 2026-09-17
+
+TASK-008 is awaiting its approved 30-Seoul-calendar-day evidence interval and does not occupy the
+single active implementation slot between daily observations. TASK-009/010 remain dependent on
+the reviewed policy and baseline and must not resume yet. Independent backlog work may proceed on
+a separate branch. TASK-019 AC-019-8 is the next eligible bounded task because the Actions
+workflows now exist for read-only review; any security fix, settings change, deployment, or release
+still requires its existing explicit approval.
+
 ## Size Guide
 
 | Size | Expected effort |

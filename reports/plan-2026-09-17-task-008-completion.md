@@ -11,6 +11,8 @@ Date: 2026-09-17. Status: the reviewed-unverified 05/06 contract is implemented,
 fully verified, and independently Approved. The recommended ownership and 30-Seoul-calendar-day
 calibration protocol are now active. Overall TASK-008 remains incomplete until the interval,
 policy/baseline approvals, accepted replay, and final review finish.
+TASK-008 occupies no active implementation slot between observations; unrelated work may proceed
+on a separate branch while the scheduled evidence collector runs.
 
 ## Current closed gates
 

@@ -1374,3 +1374,21 @@ Committed evidence is `reports/observation-2026-09-17-bounded-source.json` plus 
 report. The daily 09:00 local heartbeat `task-008-30-day-quality-calibration` preserves archives,
 metrics and failures without publication, stays quiet on routine success, and prepares the
 policy/empty/baseline proposal after the interval before pausing for explicit approval.
+
+
+## TASK-008 calibration waiting and PR authorization — 2026-09-17
+
+The user approved moving TASK-008 out of the active implementation slot while the 30-day
+observation automation continues, and explicitly requested a pull request. `tasks/active.md` now
+records TASK-008 as awaiting time-bound evidence. TASK-009/010 remain blocked on the reviewed
+policy and baseline. TASK-019 AC-019-8 is recorded as the next eligible independent bounded task,
+but is not activated or mixed into this delivery branch. Commit, push, and PR creation for this
+state transition and the already verified TASK-008 branch are authorized; merge and deployment
+remain outside this request.
+
+Fresh PR-gate verification copied the current working tree into the retained Ubuntu 24.04
+container and ran `npm test` with Node.js 24.19.0/npm 11.17.0: 44 test files and 797 tests passed.
+The first transfer also copied macOS AppleDouble `._*` metadata, causing 44 non-product parse
+errors while all 797 real tests passed; removing only those transfer artifacts from the isolated
+container copy produced the clean passing run. Repository format, lint, and whitespace checks
+also pass; lint retains five existing informational suggestions.

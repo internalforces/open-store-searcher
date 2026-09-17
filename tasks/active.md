@@ -9,9 +9,12 @@ Harness Version: 1.1
 
 _Last updated: 2026-09-17_
 
-## In Progress
+## Awaiting time-bound evidence
 
-TASK-008 completion is active on the user's 2026-09-17 request. The user explicitly approved
+No implementation task is active. TASK-008 is paused between scheduled daily observations under
+the single-active-task rule, so one independent task may be activated after this delivery branch
+is opened for review. TASK-008 completion remains authorized by the user's 2026-09-17 request.
+The user explicitly approved
 the exact category-bound reviewed-unverified 05/06 contract after the completion investigation.
 The bounded implementation is verified with unchanged display mapping and raw/unknown metrics,
 strict evidence/scope validation, 797/68/20 full checks and independent Reviewer approval. The approval does not
@@ -102,10 +105,11 @@ See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).
 No actionable vulnerability was confirmed in current code; production and Actions review gates
 remain open for TASK-009/010/021. TASK-020 remains in backlog and is not activated.
 
-## Active prerequisite — incomplete
+## Awaiting prerequisite evidence — incomplete
 
 The 2026-09-08 hold was lifted by the user's explicit resumption request on 2026-09-12.
-Preserve the previous implementation and evidence. Production observation/review is active;
+Preserve the previous implementation and evidence. Scheduled production observation/review
+continues without an active implementation slot;
 source coverage is still unverified under the approved collection-date interpretation.
 
 
@@ -116,7 +120,7 @@ source coverage is still unverified under the approved collection-date interpret
 - Milestone: M1
 - Size: L
 - Related requirements: FR-08, FR-13, FR-14; data-quality and freshness NFRs
-- Status: Staged implementation and full verification passed; production evidence gates remain open
+- Status: Staged implementation and full verification passed; awaiting the approved calibration interval
 - Authorization: User requested execution of TASK-008 on 2026-09-04.
 - Description: Validate complete staged inputs, identity/schema integrity, count and missing-value
   changes, aggregate-status drift, coverage dates, and JSON syntax/UTF-8 size.
