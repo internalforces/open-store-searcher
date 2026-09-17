@@ -228,3 +228,50 @@ FR-13: manifest/block hashes, versions, references, complete ranges and global I
 staging/build failures preserve prior-good output and copied-site size remains enforced.
 Privacy: query/page actions generate no data requests; no persistent database or service is added.
 Local source feasibility improves; TASK-008/009/010 and production/release acceptance remain open.
+
+
+## TASK-008 operational verification — 2026-09-16
+
+FR-02/03/08/12/13/14 and performance NFR: the user activated a bounded continuation covering
+actual-source mobile emulation, read-only hosted prerequisites and a quality/bootstrap decision
+packet. [Operational evidence](../reports/verification-2026-09-16-task-008-operations.md) links
+the separate streams. PR #23 is merged; ordinary hosted `verify:full` passes on its identical
+merged tree (755 Vitest, 68 browser, 20 accessibility checks). This supersedes ordinary hosted
+CI-pending notes for compact implementation; it does not certify a hosted full-source release.
+No requirement or milestone is marked Done. Production performance, quality policy/baseline,
+status-pair review, source evidence disposition and TASK-009/010 publication/recovery remain open.
+
+
+### Operational evidence result — 2026-09-17
+
+The linked actual-source run records 49.24 s readiness, 566.4 ms broad search (target exceeded),
+2.956 GB sampled browser-tree RSS and a censored not-ready slow-network observation at 60 s.
+Worker CPU throttle coverage and physical/hosted performance remain unverified; shell-window
+LCP is not a final-page LCP pass. The original PRD is now accessible and compared. The exact
+quality decision packet retains all unknown states and adopts no policy or baseline. Overall
+FR and release statuses remain open; these results do not authorize publication.
+
+
+## TASK-008 reviewed-unverified pair acceptance — 2026-09-17
+
+FR-04/07/13 and V06: the user-approved exact 05/06/category contract permits reviewed
+unverified literals without changing any display classification or raw/unknown metrics.
+Unlisted, partial or mismatched pairs still require review; malformed contracts reject.
+The actual staging/configuration path preserves other validation gates and prior good bytes.
+See [design](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md) and
+[verification](../reports/test-2026-09-17-task-008-reviewed-pairs.md).
+This bounded change does not mark a whole FR, TASK-008 or release complete. Numerical
+policy, allowed empties, baseline and overall operational acceptance remain open.
+
+## TASK-008 quality calibration activated — 2026-09-17
+
+FR-08/13/14: the user selected the completion plan's recommended ownership and activated its
+30-Seoul-calendar-day distinct-archive calibration protocol. The first current complete
+observation covers all 195 categories and 2,941,453 rows. It retains the same 23 empty categories,
+no category-count decrease, and a one-row suspended-status correction from 2026-09-13. See the
+[calibration receipt](../reports/calibration-2026-09-17-task-008.md) and
+[complete observation](../reports/observation-2026-09-17-bounded-source.json).
+
+This evidence does not select numeric limits, approve empty categories, establish a baseline,
+publish data, or close an FR. Those review gates remain open until the interval and independent
+final review complete.

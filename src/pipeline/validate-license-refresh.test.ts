@@ -22,6 +22,9 @@ import {
 import * as transformer from './transform-license-records.js';
 import { serializeTransformationForInternalTest } from './transform-license-records.js';
 import { validateJsonBytesV1 } from './validate-json-bytes.js';
+import approvedReviewedPairs from './contracts/reviewed-unverified-pairs-v1.json' with {
+  type: 'json',
+};
 import {
   validateLicenseRefreshV1,
   type ValidationInputV1,
@@ -211,6 +214,116 @@ function codes(result: ReturnType<typeof validateLicenseRefreshV1>) {
 function syncCounts(input: ValidationInputV1) {
   for (const entry of input.ingestion)
     entry.rowCount = input.rows.filter((row) => row.categoryFileDataId === entry.fileDataId).length;
+}
+const approved05Categories = [
+  '15006679',
+  '15006706',
+  '15006741',
+  '15044952',
+  '15044954',
+  '15044955',
+  '15044956',
+  '15044957',
+  '15044958',
+  '15044959',
+  '15044960',
+  '15044969',
+  '15044970',
+  '15044987',
+  '15044996',
+  '15044997',
+  '15044998',
+  '15045000',
+  '15045002',
+  '15045005',
+  '15045006',
+  '15045007',
+  '15045009',
+  '15045011',
+  '15045020',
+  '15045021',
+  '15045023',
+  '15045024',
+  '15045025',
+  '15045027',
+  '15045028',
+  '15045029',
+  '15045030',
+  '15045032',
+  '15045033',
+  '15045035',
+  '15045045',
+  '15045048',
+  '15045049',
+  '15045057',
+  '15045058',
+  '15045059',
+  '15045060',
+  '15045061',
+  '15045062',
+  '15045063',
+  '15045064',
+  '15045068',
+  '15045069',
+  '15045070',
+  '15045073',
+  '15045074',
+  '15045075',
+  '15045076',
+  '15045077',
+  '15045078',
+  '15045099',
+  '15045101',
+  '15045102',
+  '15045107',
+  '15045112',
+  '15045116',
+  '15101546',
+  '15101549',
+  '15101550',
+  '15101551',
+] as const;
+const approved06Categories = ['15045089', '15045092'] as const;
+function reviewedUnverifiedPairsFixture(): Record<string, unknown> {
+  return {
+    version: 1,
+    revision: 'task-008-reviewed-unverified-pairs-2026-09-17',
+    validationVersion: 1,
+    schemaVersion: 2,
+    statusMappingVersion: 1,
+    schemaManifestSha256: schemaHash,
+    evidence: {
+      archiveSha256s: [
+        'e2eeb1a868a2bfb94dbc9d193dae74707c0e27e38230376d5ad105e174a69faa',
+        'edb4be5b859ef0a8eaca0cd2a96f58ac82911d3db59775ecf9417d9beabf87ce',
+      ],
+      observationReceiptSha256: 'f05984f434ff5553d65e5c22b50bf657e8ec65238be9d7c57c3b144cdd8d3b60',
+      reviewReference:
+        'memory/decisions.md#task-008-reviewed-unverified-contract-approval--2026-09-17',
+    },
+    pairs: [
+      { code: '05', name: '제외/삭제/전출', categoryIds: [...approved05Categories] },
+      { code: '06', name: '기타', categoryIds: [...approved06Categories] },
+    ],
+  };
+}
+function setReviewedUnverifiedPairs(
+  input: ValidationInputV1,
+  value = reviewedUnverifiedPairsFixture(),
+) {
+  (input as unknown as { reviewedUnverifiedPairs: unknown }).reviewedUnverifiedPairs = value;
+}
+function setAggregatePair(
+  input: ValidationInputV1,
+  categoryId: string,
+  code: unknown,
+  name: unknown,
+) {
+  const row = requireValue(
+    input.rows.find((candidate) => candidate.categoryFileDataId === categoryId),
+  );
+  row.values.영업상태코드 = code as string | null;
+  row.values.영업상태명 = name as string | null;
 }
 describe('TASK-008 staged validation', () => {
   test('requires explicit bootstrap review before accepting a complete synthetic candidate', () => {
@@ -416,6 +529,251 @@ describe('TASK-008 staged validation', () => {
       expect(codes(result)).toContain('aggregate_pair_review_required');
       expect(result.metrics?.total.statusCounts['확인되지 않음']).toBe(1);
     }
+  });
+  test('accepts the exact reviewed 05/06 category scopes without changing unverified metrics', () => {
+    const input = acceptedFixture();
+    setReviewedUnverifiedPairs(input);
+    for (const id of approved05Categories) setAggregatePair(input, id, '05', '제외/삭제/전출');
+    for (const id of approved06Categories) setAggregatePair(input, id, '06', '기타');
+
+    const result = validateLicenseRefreshV1(input);
+
+    expect(result.kind).toBe('accepted');
+    expect(result.metrics?.total.unknownPairCount).toBe(68);
+    expect(result.metrics?.total.statusCounts['확인되지 않음']).toBe(68);
+    expect(result.metrics?.total.aggregatePairs).toEqual(
+      expect.arrayContaining([
+        { code: '05', name: '제외/삭제/전출', count: 66 },
+        { code: '06', name: '기타', count: 2 },
+      ]),
+    );
+    expect(codes(result)).not.toContain('aggregate_pair_review_required');
+    if (result.kind !== 'accepted') throw new Error('Expected accepted reviewed-pair candidate');
+    const record05 = requireValue(
+      result.candidate.records.find(
+        (record) => record.identity.source.categoryFileDataId === approved05Categories[0],
+      ),
+    );
+    expect(record05.rawStatus).toEqual(
+      expect.objectContaining({ operatingCode: '05', operatingName: '제외/삭제/전출' }),
+    );
+    expect(record05.processedStatus).toBe('확인되지 않음');
+  });
+  test('accepts sparse occurrences inside the reviewed pair permission ceiling', () => {
+    const input = acceptedFixture();
+    setReviewedUnverifiedPairs(input);
+    setAggregatePair(input, approved05Categories[0], '05', '제외/삭제/전출');
+    setAggregatePair(input, approved06Categories[0], '06', '기타');
+
+    const result = validateLicenseRefreshV1(input);
+
+    expect(result.kind).toBe('accepted');
+    expect(result.metrics?.total.unknownPairCount).toBe(2);
+    expect(result.metrics?.total.statusCounts['확인되지 않음']).toBe(2);
+  });
+  test.each([
+    ['05 spelling', approved05Categories[0], '05', '제외/삭제/전출 '],
+    ['05 code mismatch', approved05Categories[0], '06', '제외/삭제/전출'],
+    ['05 name mismatch', approved05Categories[0], '05', '기타'],
+    ['05 partial code', approved05Categories[0], null, '제외/삭제/전출'],
+    ['05 partial name', approved05Categories[0], '05', null],
+    ['05 unlisted category', '15045089', '05', '제외/삭제/전출'],
+    ['06 unlisted category', approved05Categories[0], '06', '기타'],
+    ['new pair', approved05Categories[0], '99', 'new'],
+  ])('keeps %s under explicit aggregate-pair review', (_case, id, code, name) => {
+    const input = acceptedFixture();
+    setReviewedUnverifiedPairs(input);
+    setAggregatePair(input, id, code, name);
+
+    const result = validateLicenseRefreshV1(input);
+
+    expect(result.kind).toBe('review_required');
+    expect(codes(result)).toContain('aggregate_pair_review_required');
+    expect(result.metrics?.categories[id]?.unknownPairCount).toBe(1);
+  });
+  test('keeps mixed reviewed and unreviewed rows in review while preserving raw metrics', () => {
+    const input = acceptedFixture();
+    setReviewedUnverifiedPairs(input);
+    setAggregatePair(input, approved05Categories[0], '05', '제외/삭제/전출');
+    setAggregatePair(input, approved05Categories[1], '99', 'new');
+
+    const result = validateLicenseRefreshV1(input);
+
+    expect(result.kind).toBe('review_required');
+    expect(result.metrics?.total.unknownPairCount).toBe(2);
+    expect(result.metrics?.total.statusCounts['확인되지 않음']).toBe(2);
+    expect(result.metrics?.total.aggregatePairs).toEqual(
+      expect.arrayContaining([
+        { code: '05', name: '제외/삭제/전출', count: 1 },
+        { code: '99', name: 'new', count: 1 },
+      ]),
+    );
+    expect(
+      result.diagnostics.filter((item) => item.code === 'aggregate_pair_review_required'),
+    ).toEqual([expect.objectContaining({ categoryId: approved05Categories[1], actual: 1 })]);
+  });
+  test('counts only unreviewed rows when reviewed and new pairs share a category', () => {
+    const input = acceptedFixture();
+    setReviewedUnverifiedPairs(input);
+    const id = approved05Categories[0];
+    setAggregatePair(input, id, '05', '제외/삭제/전출');
+    const unreviewed = structuredClone(
+      requireValue(input.rows.find((row) => row.categoryFileDataId === id)),
+    );
+    unreviewed.values.관리번호 = 'unreviewed-same-category';
+    unreviewed.values.영업상태코드 = '99';
+    unreviewed.values.영업상태명 = 'new';
+    input.rows.push(unreviewed);
+    syncCounts(input);
+
+    const result = validateLicenseRefreshV1(input);
+
+    expect(result.metrics?.categories[id]?.unknownPairCount).toBe(2);
+    expect(
+      result.diagnostics.filter((item) => item.code === 'aggregate_pair_review_required'),
+    ).toEqual([expect.objectContaining({ categoryId: id, actual: 1 })]);
+  });
+  test('accepts the reviewed contract when no approved pair occurs', () => {
+    const input = acceptedFixture();
+    setReviewedUnverifiedPairs(input);
+
+    expect(validateLicenseRefreshV1(input).kind).toBe('accepted');
+  });
+  test('preserves legacy review when the approved contract is absent', () => {
+    const input = acceptedFixture();
+    setAggregatePair(input, approved05Categories[0], '05', '제외/삭제/전출');
+
+    expect(codes(validateLicenseRefreshV1(input))).toContain('aggregate_pair_review_required');
+  });
+  test.each([
+    ['missing field', (contract: Record<string, unknown>) => delete contract.revision],
+    [
+      'extra field',
+      (contract: Record<string, unknown>) => Object.assign(contract, { extra: true }),
+    ],
+    ['unknown revision', (contract: Record<string, unknown>) => (contract.revision = 'unknown')],
+    ['validation version', (contract: Record<string, unknown>) => (contract.validationVersion = 2)],
+    ['schema version', (contract: Record<string, unknown>) => (contract.schemaVersion = 3)],
+    ['mapping version', (contract: Record<string, unknown>) => (contract.statusMappingVersion = 2)],
+    [
+      'schema hash',
+      (contract: Record<string, unknown>) => (contract.schemaManifestSha256 = 'f'.repeat(64)),
+    ],
+    [
+      'review evidence',
+      (contract: Record<string, unknown>) => {
+        (contract.evidence as Record<string, unknown>).reviewReference = 'unapproved';
+      },
+    ],
+    [
+      'archive evidence',
+      (contract: Record<string, unknown>) => {
+        ((contract.evidence as Record<string, unknown>).archiveSha256s as string[]).pop();
+      },
+    ],
+    [
+      'duplicate category',
+      (contract: Record<string, unknown>) => {
+        const pairs = contract.pairs as Array<{ categoryIds: string[] }>;
+        requireValue(pairs[0]).categoryIds.push(requireValue(pairs[0]).categoryIds[0] as string);
+      },
+    ],
+    [
+      'sparse pair array',
+      (contract: Record<string, unknown>) => {
+        delete (contract.pairs as unknown[])[0];
+      },
+    ],
+    [
+      'extended category',
+      (contract: Record<string, unknown>) => {
+        const pairs = contract.pairs as Array<{ categoryIds: string[] }>;
+        requireValue(pairs[0]).categoryIds.push('15045089');
+      },
+    ],
+    [
+      'array extension property',
+      (contract: Record<string, unknown>) => {
+        Object.assign(contract.pairs as unknown[], { extra: true });
+      },
+    ],
+  ])('rejects a %s reviewed-unverified contract', (_case, mutate) => {
+    const input = acceptedFixture();
+    const contract = reviewedUnverifiedPairsFixture();
+    mutate(contract);
+    setReviewedUnverifiedPairs(input, contract);
+    setAggregatePair(input, approved05Categories[0], '05', '제외/삭제/전출');
+
+    const result = validateLicenseRefreshV1(input);
+
+    expect(result.kind).toBe('rejected');
+    expect(codes(result)).toContain('invalid_reviewed_unverified_pairs_contract');
+  });
+  test.each([null, false, 1, 'approved', [], {}])(
+    'rejects non-contract reviewed-unverified input %j even without unknown rows',
+    (contract) => {
+      const input = acceptedFixture();
+      setReviewedUnverifiedPairs(input, contract as Record<string, unknown>);
+
+      const result = validateLicenseRefreshV1(input);
+
+      expect(result.kind).toBe('rejected');
+      expect(codes(result)).toContain('invalid_reviewed_unverified_pairs_contract');
+    },
+  );
+  test('does not let caller mutation broaden the immutable approved scope', () => {
+    const first = acceptedFixture();
+    const callerContract = reviewedUnverifiedPairsFixture();
+    setReviewedUnverifiedPairs(first, callerContract);
+    expect(validateLicenseRefreshV1(first).kind).toBe('accepted');
+    const callerPairs = callerContract.pairs as Array<{ categoryIds: string[] }>;
+    requireValue(callerPairs[0]).categoryIds.push('15045089');
+
+    const second = acceptedFixture();
+    setReviewedUnverifiedPairs(second, reviewedUnverifiedPairsFixture());
+    setAggregatePair(second, '15045089', '05', '제외/삭제/전출');
+    const result = validateLicenseRefreshV1(second);
+
+    expect(result.kind).toBe('review_required');
+    expect(codes(result)).toContain('aggregate_pair_review_required');
+  });
+  test('freezes the shared checked-in contract against module mutation', () => {
+    expect(() => approvedReviewedPairs.pairs[0]?.categoryIds.push('15045089')).toThrow(TypeError);
+  });
+  test('accepts semantically identical contract objects with different key order', () => {
+    const input = acceptedFixture();
+    const source = reviewedUnverifiedPairsFixture();
+    const reordered = Object.fromEntries(Object.entries(source).reverse());
+    reordered.evidence = Object.fromEntries(
+      Object.entries(source.evidence as Record<string, unknown>).reverse(),
+    );
+    reordered.pairs = (source.pairs as Array<Record<string, unknown>>).map((pair) =>
+      Object.fromEntries(Object.entries(pair).reverse()),
+    );
+    setReviewedUnverifiedPairs(input, reordered);
+    setAggregatePair(input, approved05Categories[0], '05', '제외/삭제/전출');
+
+    expect(validateLicenseRefreshV1(input).kind).toBe('accepted');
+  });
+  test('reviewed pairs do not waive missing policy or baseline and ordinary quality failures', () => {
+    const input = acceptedFixture();
+    setReviewedUnverifiedPairs(input);
+    setAggregatePair(input, approved05Categories[0], '05', '제외/삭제/전출');
+    delete input.policy;
+    delete input.baseline;
+    let result = validateLicenseRefreshV1(input);
+    expect(result.kind).toBe('review_required');
+    expect(codes(result)).toEqual(
+      expect.arrayContaining(['policy_review_required', 'baseline_review_required']),
+    );
+
+    const limited = acceptedFixture();
+    setReviewedUnverifiedPairs(limited);
+    setAggregatePair(limited, approved05Categories[0], '05', '제외/삭제/전출');
+    requireValue(limited.policy).total.maxStatusShareChange['확인되지 않음'] = 0;
+    result = validateLicenseRefreshV1(limited);
+    expect(result.kind).toBe('rejected');
+    expect(codes(result)).toContain('status_share_change_exceeded');
   });
   test.each([0.99, 1])('checks status share in percentage points at limit %f', (limit) => {
     const input = acceptedFixture();
@@ -985,6 +1343,102 @@ describe('TASK-009 collection-date publication', () => {
       await rm(root, { recursive: true, force: true });
     }
   });
+  test('stages an exact reviewed pair and preserves prior bytes when a bad pair blocks promotion', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'task008-reviewed-stage-'));
+    try {
+      const valid = collectedFixture();
+      setReviewedUnverifiedPairs(valid);
+      setAggregatePair(valid, approved05Categories[0], '05', '제외/삭제/전출');
+      const knownGood = join(root, 'known-good');
+      await stageValidatedRelease(valid, knownGood);
+      const dataset = await restoredDataset(knownGood);
+      const reviewedRecord = requireValue(
+        dataset.records.find((record) => record.rawStatus.operatingCode === '05'),
+      );
+      expect(reviewedRecord).toMatchObject({
+        rawStatus: { operatingCode: '05', operatingName: '제외/삭제/전출' },
+        processedStatus: '확인되지 않음',
+      });
+      const names = await stagedNames(knownGood);
+      const before = await Promise.all(names.map((name) => readFile(join(knownGood, name))));
+
+      const invalid = collectedFixture();
+      setReviewedUnverifiedPairs(invalid);
+      setAggregatePair(invalid, approved05Categories[0], '05', '제외/삭제/전출 ');
+      await expect(stageValidatedRelease(invalid, join(root, 'candidate'))).rejects.toThrow(
+        'Publication blocked',
+      );
+
+      expect(await readdir(root)).toEqual(['known-good']);
+      expect(await Promise.all(names.map((name) => readFile(join(knownGood, name))))).toEqual(
+        before,
+      );
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+  test('forwards the reviewed-unverified contract through the executable refresh command', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'task008-reviewed-cli-'));
+    try {
+      const archive = join(root, 'archive.zip');
+      const marker = join(root, 'forwarded.json');
+      const config = join(root, 'config.json');
+      const hook = join(root, 'vite-hook.mjs');
+      await writeFile(archive, 'synthetic archive');
+      const archiveSha256 = createHash('sha256').update('synthetic archive').digest('hex');
+      await writeFile(
+        config,
+        JSON.stringify({
+          previousReleaseUrl: 'https://example.com/release.json',
+          maxEntryBytes: 1,
+          maxTotalRows: 1,
+          entryTimeoutMs: 1,
+          policy: { maxJsonBytes: 1 },
+          reviewedUnverifiedPairs: reviewedUnverifiedPairsFixture(),
+        }),
+      );
+      const fakeVite = `
+        import { writeFile } from 'node:fs/promises';
+        export async function createServer() {
+          return {
+            async ssrLoadModule(specifier) {
+              if (specifier.endsWith('/read-deployed-baseline.ts'))
+                return { readDeployedBaseline: async () => ({ dateBasis: 'collection', archiveSha256: '${'a'.repeat(64)}' }) };
+              if (specifier.endsWith('/collect-seoul-archive.ts'))
+                return { collectSeoulArchive: async () => ({ kind: 'accepted', change: 'changed', archivePath: ${JSON.stringify(archive)}, sha256: ${JSON.stringify(archiveSha256)} }) };
+              if (specifier.endsWith('/collector-types.ts')) return { DEFAULT_COLLECTOR_LIMITS: {} };
+              if (specifier.endsWith('/unzip-archive.ts')) return { runProcess() {}, UTF8_UNZIP_OPTIONS: [] };
+              if (specifier.endsWith('/parse-license-csv.ts')) return { iterateLicenseCsv() {} };
+              if (specifier.endsWith('/stage-bounded-release.ts'))
+                return { stageBoundedRelease: async (input) => writeFile(${JSON.stringify(marker)}, JSON.stringify(input.reviewedUnverifiedPairs)) };
+              throw new Error('Unexpected module: ' + specifier);
+            },
+            async close() {},
+          };
+        }`;
+      await writeFile(
+        hook,
+        `import { registerHooks } from 'node:module';
+        registerHooks({ resolve(specifier, context, nextResolve) {
+          if (specifier === 'vite' && context.parentURL?.endsWith('/scripts/stage-refresh.mjs'))
+            return { url: 'data:text/javascript,' + encodeURIComponent(${JSON.stringify(fakeVite)}), shortCircuit: true };
+          return nextResolve(specifier, context);
+        } });`,
+      );
+
+      await promisify(execFile)(process.execPath, [
+        '--import',
+        hook,
+        'scripts/stage-refresh.mjs',
+        config,
+        join(root, 'candidate'),
+      ]);
+
+      expect(JSON.parse(await readFile(marker, 'utf8'))).toEqual(reviewedUnverifiedPairsFixture());
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('TASK-008 bounded staged processing', () => {
@@ -1049,6 +1503,56 @@ describe('TASK-008 bounded staged processing', () => {
           'baseline.json',
           'release.json',
         ]);
+      });
+    },
+    30_000,
+  );
+  test('stages reviewed pairs through the bounded production path with raw metrics intact', async () => {
+    await isolated(async (root) => {
+      const input = collectedInput();
+      setReviewedUnverifiedPairs(input);
+      setAggregatePair(input, approved05Categories[0], '05', '제외/삭제/전출');
+
+      const result = await stageBoundedRelease(input, categories(input), join(root, 'candidate'), {
+        batchRows: 7,
+      });
+
+      expect(result.metrics.total.unknownPairCount).toBe(1);
+      expect(result.metrics.total.statusCounts['확인되지 않음']).toBe(1);
+      const dataset = await restoredDataset(result.outputDirectory);
+      expect(
+        dataset.records.find((record) => record.rawStatus.operatingCode === '05'),
+      ).toMatchObject({
+        rawStatus: { operatingCode: '05', operatingName: '제외/삭제/전출' },
+        processedStatus: '확인되지 않음',
+      });
+    });
+  }, 30_000);
+  test.each(['missing', 'invalid'] as const)(
+    'bounded staging preserves known-good bytes when the reviewed contract is %s',
+    async (mode) => {
+      await isolated(async (root) => {
+        const knownGoodInput = collectedInput();
+        const knownGood = join(root, 'known-good');
+        await stageBoundedRelease(knownGoodInput, categories(knownGoodInput), knownGood, {
+          batchRows: 7,
+        });
+        const names = await stagedNames(knownGood);
+        const before = await Promise.all(names.map((name) => readFile(join(knownGood, name))));
+        const candidate = collectedInput();
+        setAggregatePair(candidate, approved05Categories[0], '05', '제외/삭제/전출');
+        if (mode === 'invalid') setReviewedUnverifiedPairs(candidate, { version: 1 });
+
+        await expect(
+          stageBoundedRelease(candidate, categories(candidate), join(root, 'candidate'), {
+            batchRows: 7,
+          }),
+        ).rejects.toThrow('Publication blocked');
+
+        expect(await readdir(root)).toEqual(['known-good']);
+        expect(await Promise.all(names.map((name) => readFile(join(knownGood, name))))).toEqual(
+          before,
+        );
       });
     },
     30_000,

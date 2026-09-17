@@ -455,3 +455,37 @@ reader path validation and real-build file/hash/size checks pass. Ubuntu verific
 718/68/20 in run 34747253199. See reports/review-2026-09-13-pr22.md. This completes bounded
 review remediation only; TASK-008/009/010, actual-data size/browser and independent release gates
 remain open. PR #22 remains a draft for review; no follow-up merge or deployment was requested.
+
+
+## TASK-008 bounded operational evidence continuation — 2026-09-17
+
+Completed the user-requested evidence pass with three delegated streams and independent Approved
+review: actual-source mobile emulation, exact merged hosted CI/settings inspection, and
+hash-bound quality/bootstrap decision inputs. Original PRD access is resolved. Current validator
+119 tests pass; exact merged hosted CI passes 755/68/20. Local lint, format, harness syntax,
+structured evidence and link checks pass. See
+[operational report](../reports/verification-2026-09-16-task-008-operations.md) and
+[independent review](../reports/review-2026-09-16-task-008-operations.md).
+
+This is bounded evidence completion only. Broad search exceeds 500 ms, slow full loading remains
+not ready at the observation limit, and physical-mobile/hosted readiness is unverified. Exact
+05/06 acceptance, numeric quality policy, allowed empties and bootstrap baseline remain unapproved.
+TASK-008 stays active/incomplete; TASK-009/010 and release gates remain open. No product code,
+status mapping, workflow, dependency, commit, push, merge, deployment or handbook change occurred.
+
+
+## TASK-008 bounded reviewed-unverified contract — 2026-09-17
+
+Completed only the user-approved exact 05/06/category acceptance extension. Optional
+evidence-bound acknowledgment suppresses the exact known pair-review diagnostic; raw
+metrics and unverified display are retained. New/malformed/out-of-scope input remains
+blocked, and actual bounded staging/CLI tests preserve previous good output.
+
+Pinned full verification passes 797 Vitest, 68 browser and 20 accessibility tests.
+Independent Reviewer Approved after a separate 161-test run and retained aggregate replay.
+Evidence: [verification](../reports/test-2026-09-17-task-008-reviewed-pairs.md) and
+[review](../reports/review-2026-09-17-task-008-reviewed-pairs.md).
+
+Overall TASK-008 stays active/incomplete for reviewed numeric policy, empty-category
+policy, initial baseline and remaining operational acceptance. This entry completes only
+the bounded approved contract, not the task, milestone or release. No next task is activated.

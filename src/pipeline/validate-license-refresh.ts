@@ -9,6 +9,10 @@ import {
 } from './collector-types.js';
 import { measureValidationMetrics, validValidationMetrics } from './refresh-validation-metrics.js';
 import {
+  unreviewedUnknownPairCount,
+  validReviewedUnverifiedPairsContract,
+} from './reviewed-unverified-pairs.js';
+import {
   VALIDATION_STATUSES,
   compareText,
   count,
@@ -35,6 +39,7 @@ export type {
   ValidationInputV1,
   ValidationPolicyV1,
   ValidationBaselineV1,
+  ReviewedUnverifiedPairsContractV1,
   ValidationResultV1,
 } from './refresh-validation-types.js';
 function finite(value: unknown): value is number {
@@ -463,6 +468,12 @@ export function validateMeasuredRefresh<T>(
     .digest('hex');
   if (schemaHash !== collection.archiveEvidence.schemaManifestSha256)
     return reject('schema_hash_mismatch');
+  const reviewedUnverifiedPairsActive = input.reviewedUnverifiedPairs !== undefined;
+  if (
+    reviewedUnverifiedPairsActive &&
+    !validReviewedUnverifiedPairsContract(input.reviewedUnverifiedPairs, schemaHash)
+  )
+    return reject('invalid_reviewed_unverified_pairs_contract');
   const ids = archive.entries.map((e) => e.fileDataId).sort(compareText);
   let transformed: T;
   try {
@@ -479,15 +490,21 @@ export function validateMeasuredRefresh<T>(
       code: 'empty_refresh',
       severity: 'rejection',
     });
-  for (const id of ids)
-    if (requireValue(metrics.categories[id]).unknownPairCount > 0)
+  for (const id of ids) {
+    const unreviewedCount = unreviewedUnknownPairCount(
+      id,
+      requireValue(metrics.categories[id]),
+      reviewedUnverifiedPairsActive,
+    );
+    if (unreviewedCount > 0)
       add({
         code: 'aggregate_pair_review_required',
         severity: 'review',
         categoryId: id,
         metric: 'unknownPairCount',
-        actual: requireValue(metrics.categories[id]).unknownPairCount,
+        actual: unreviewedCount,
       });
+  }
   const policyStatus = policyState(input.policy, ids);
   const policy = policyStatus === 'valid' ? (input.policy as ValidationPolicyV1) : null;
   if (policy) policyRevision = policy.revision;

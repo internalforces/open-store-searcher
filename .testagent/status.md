@@ -332,3 +332,24 @@ worker. The first default-parallel WebKit run had two startup flakes and remains
 run; no timeout, retry policy or assertion was weakened. Source/config/test hashes 150 match.
 Production/hosted/mobile readiness, reviewed quality baseline and 05/06 status-pair/release gates
 remain open. No overall TASK-008/009/010 completion, commit, push or deployment is claimed.
+
+
+## TASK-008 reviewed-unverified pair contract — 2026-09-17
+
+Broad workflow complete for P01-P07: research/plan recorded before implementation; RED
+16 feature failures plus separate executable CLI forwarding failure; focused GREEN161/161;
+independent Reviewer Approved and reran161/161. Final default Ubuntu verify:full exits0
+with797 Vitest/68 browser/20 accessibility checks. Global coverage92.72/91.09/95.36/94.44
+(statements/branches/functions/lines), status mapper100% throughout. No checks weakened.
+
+Exact requirement-to-test names are recorded in reports/test-2026-09-17-task-008-reviewed-pairs.md.
+Reviewer gap/assertion analysis covers full/sparse/zero scopes, malformed/extended/immutable
+contracts, same/cross-category mixing, raw record/metrics preservation, all other quality
+gates, real bounded and legacy staging, known-good bytes, cleanup and executable CLI forwarding.
+A discovered array-extra-property validation gap was reproduced, fixed and reverified.
+The replay helper now hashes metrics before execution and supplies independent clones,
+so shared-reference mutation cannot make its preservation assertions tautological.
+
+Specialized gap/assertion tools were unavailable; the independent reviewer supplied those
+checks explicitly in reports/review-2026-09-17-task-008-reviewed-pairs.md. No production
+threshold, empty-list or baseline was invented; overall TASK-008 remains incomplete.

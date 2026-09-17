@@ -399,3 +399,51 @@ accessibility suites with one worker. Default parallel WebKit produced two start
 baseline repetitions did not reproduce them. Preserve that limitation and strict flaky handling.
 Hosted GitHub evidence remains unavailable; historical PR22 CI cannot certify this tree. Required
 policy/bootstrap baseline, 05/06 review, production quality and release gates remain unresolved.
+
+
+## TASK-008 operational gate reconciliation — 2026-09-16
+
+Ordinary hosted CI is now verified: merged main `bac6dce` has the same tree as PR #23 head
+`da9e63c` and passes 755/68/20 in run 34971716730. Earlier hosted-CI-pending notes are historical.
+This does not resolve actual full-source mobile/CDN or public recovery evidence. The latest
+scheduled refresh stops at absent reviewed `publication/config.json`, before collection and
+publication; no Pages site, protected environment or deployed baseline is available.
+See [hosted assessment](../reports/verification-2026-09-16-task-008-hosted.md).
+
+
+### Actual-source mobile-emulated result and quality contract gap
+
+The 2026-09-16 full-source run on current `da9e63c` measured 49.24 s readiness, 566.4 ms broad
+district search (500 ms target exceeded), and 2.956 GB sampled browser-tree RSS. Page CPU was
+throttled 4x; Worker CPU coverage was not established. A 200,000 B/s aggregate gzip observation
+remained not ready at 60 s. Finite-window shell paint is separate from the retained late LCP
+entry and complete readiness. See [measurement](../reports/performance-2026-09-16-task-008-mobile.md).
+Performance Engineer / Implementer own further profiling and relevant target-device verification.
+No product, privacy, completeness or performance budget was changed.
+
+The validator unconditionally requires review for any positive unknownPairCount, so current
+ValidationPolicyV1 cannot accept the observed 05/06 rows. The exact category-bound
+[reviewed-unverified proposal](../reports/research-2026-09-16-task-008-quality-gates.md)
+requires human approval before implementation; it preserves display statuses and all evidence.
+Only two changed-archive observations exist in this packet, insufficient to infer numeric drift
+limits. Original PRD access is resolved. Quality policy/bootstrap and hosted release remain open.
+
+
+## TASK-008 reviewed-unverified contract disposition — 2026-09-17
+
+The user approved exact category-bound 05/06 acknowledgment; implementation keeps raw pairs,
+unknown counts and unverified display states. Explicit matching contract input resolves only
+the known pair-review diagnostic. It cannot waive new pairs, arbitrary categories, numeric
+policy or baseline approval. The prior statement that no acceptance contract exists is
+historical. Numeric calibration, reviewed empty-category policy and baseline remain open.
+The array extra-property strictness issue found during independent review was fixed with
+a regression; no unrelated security policy or dependency change was made.
+
+## TASK-008 calibration interval — 2026-09-17
+
+The recommended ownership and 30-Seoul-calendar-day protocol are approved and active. The first
+current observation is complete and distinct: 2,941,453 rows across all 195 categories, with no
+category-count decrease and the repeated 23-category empty set. Its -1 suspended-status delta is
+retained as a correction signal. This still supplies only three observed transitions and cannot
+justify a production policy. Numeric limits, allowed empties, and the initial baseline remain
+open until the interval completes and the derived proposal receives explicit approval.

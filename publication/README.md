@@ -5,9 +5,9 @@ criteria hold. The UI says "데이터 수집일" and explicitly states that sour
 unverified. The date is the completed archive collection instant converted to Asia/Seoul.
 Source ZIP dates, row dates and build time never become a claimed source coverage date.
 
-The user resumed quality review on 2026-09-12. `config.json` remains absent until complete
-CP949-capable source observation and baseline/policy review pass; see the
-[decoder prerequisite](../reports/research-2026-09-12-quality-resumption.md). Do not copy the
+The user resumed quality review on 2026-09-12. Complete CP949-capable source observation and
+compact conversion now pass; `config.json` remains absent pending reviewed quality policy and
+bootstrap baseline. See the [compact evidence](../reports/test-2026-09-14-compact-delivery.md). Do not copy the
 synthetic test policy/baseline into it, waive unknown-status review, or auto-bootstrap from
 the same unreviewed candidate. Missing configuration fails the refresh before any publication.
 
@@ -74,12 +74,13 @@ research remains deferred; collection-date support does not claim its completion
 Staging processes source rows in batches and stores identity, collision and sort intermediates
 in its owned temporary directory. All categories and global quality gates must finish before
 publication output appears. Disk buckets have explicit ceilings and fail closed on skew/overflow.
-The builder streams the hashed single dataset asset; this does not prove whole-file browser
-loading is practical. Parser observation and browser measurements cannot authorize a baseline.
+The current builder verifies and copies manifest-bound compact assets. The earlier legacy
+single-file browser observation remains historical evidence. Neither parser observation nor
+browser measurements authorize a baseline.
 
 `measure-bounded-source.mjs` is a local research adapter requiring the exact successful Ubuntu
 observation hash; Python ZIP extraction there is diagnostic only. Production continues using
-the approved Ubuntu Info-ZIP collector. `measure-source-browser.mjs` exercises the current
+the approved Ubuntu Info-ZIP collector. `measure-source-browser.mjs` exercises the legacy single-file
 publication loader and the hook's second preparation pass on a local real-data research file.
 The browser laboratory verifies the dataset byte length and SHA-256 against observation.json
 before starting its server/browser, and includes that digest in its report. Keep research inputs
@@ -96,9 +97,9 @@ baseline and release metadata before copying and promotion. Only a complete chec
 site becomes the requested new output; failures remove its temporary candidate. This is a hosting
 constraint independent of reviewed data-quality budgets.
 
-The measured 2,439,358,850-byte snapshot is rejected. This guard does **not** make the real
-snapshot deployable or repair whole-file browser loading. A reviewed compact/static delivery
-design, measured complete-site size and browser evidence remain required before publication.
+The legacy 2,439,358,850-byte representation exceeds this gate. PR #23 implements the approved
+compact format; the measured functional research site is 688,506,488 bytes. Final accepted-site
+accounting, quality policy/baseline and mobile/hosted performance remain required before publication.
 Dataset-level attribution uses the whole licensing portal; records retain category-specific sources.
 
 
@@ -117,3 +118,21 @@ Full-source desktop measurements and exact-round-trip evidence are in
 site fits the existing 1 GB limit, but the original production policy and baseline remain unapproved.
 Full-source initial readiness, memory requirements and physical/mobile performance are separate
 from the small shell-paint budget. Do not enable publication from these local measurements.
+
+
+## Reviewed-unverified aggregate pairs
+
+On 2026-09-17 the user approved exact category-bound acknowledgment of raw 05/06 pairs
+while keeping all affected records displayed as "확인되지 않음". The optional
+`reviewedUnverifiedPairs` config field must contain the complete approved artifact at
+`src/pipeline/contracts/reviewed-unverified-pairs-v1.json`. Omitting it preserves the
+previous pair-review gate; malformed, modified or incompatible contracts reject. This is
+not a generic caller-defined allowlist. Copy the complete artifact only into a separately
+reviewed operator configuration; do not fill numeric limits or bootstrap from test fixtures.
+
+The exact code/name/category combinations are the maximum acknowledged scope. New spellings,
+partial values and pairs outside that scope continue to require review. Counts and raw pairs
+remain in metrics and undergo ordinary policy comparisons. This approval supplies neither
+quality thresholds nor initial baseline/empty-category approval, and creates no production
+config or deployment permission. See the
+[approved contract](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md).

@@ -110,6 +110,7 @@ try {
       collection,
       archiveContract,
       permissionManifest,
+      reviewedUnverifiedPairs: config.reviewedUnverifiedPairs,
       policy: config.policy,
       baseline,
       now: new Date().toISOString(),
