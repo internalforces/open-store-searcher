@@ -295,3 +295,20 @@ actual main protection is configured/read back. [Remediation evidence](../report
 retains the pending deployment reviewer/environment, unsuccessful full local verification due to
 Linux Info-ZIP tests on macOS, and unavailable Ubuntu Docker rerun. Acceptance remains open;
 no successful hosted artifact publication/recovery or independent approval is inferred.
+
+
+## TASK-019 final Actions acceptance — 2026-09-18
+
+AC-019-8 is accepted and TASK-019 is complete within its recorded review scope. PR #25 merged
+as 32c1809; its final head d459110 passed Ubuntu full verification and all four actual packaging
+fixtures. Reviewed workflows/scripts/lockfile match remote main. The user explicitly retained
+main required approvals=0 and last-push approval=false, and authorized deployment self-review.
+Created github-pages with internalforces as required reviewer, main branch-only policy and
+administrator bypass disabled; fresh API readback verifies all settings. Risk acceptance and
+exact evidence are in the [final review](../reports/security-2026-09-18-task-019-final.md).
+Earlier active/pending-environment/final-head notes are superseded. Historical application/CVE
+assessments remain dated; no new whole-application or independent second review is claimed.
+No implementation task is active; TASK-020 remains unactivated. TASK-008 calibration and
+TASK-009/010/021 production, publication/recovery and release gates remain open. Only authorized
+environment settings and local documentation changed; no source change, commit, push, merge,
+workflow dispatch, deployment, publication enablement or handbook access occurred in this pass.

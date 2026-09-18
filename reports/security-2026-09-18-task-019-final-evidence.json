@@ -1,0 +1,664 @@
+{
+  "observedAt": "2026-09-18T01:37:00.437683+00:00",
+  "localHead": "d4591106b96ccbd996f2c6f52a28e9ac023c0462",
+  "pullRequest": {
+    "headRefOid": "d4591106b96ccbd996f2c6f52a28e9ac023c0462",
+    "mergeCommit": {
+      "oid": "32c1809d68d4227541cee46596d834e72072de61"
+    },
+    "mergedAt": "2026-09-17T13:47:24Z",
+    "state": "MERGED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-09-17T12:49:31Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/internalforces/open-store-searcher/actions/runs/35222990361/job/105207473104",
+        "name": "verify",
+        "startedAt": "2026-09-17T12:45:55Z",
+        "status": "COMPLETED",
+        "workflowName": "Verify"
+      }
+    ],
+    "url": "https://github.com/internalforces/open-store-searcher/pull/25"
+  },
+  "run": {
+    "conclusion": "success",
+    "headSha": "d4591106b96ccbd996f2c6f52a28e9ac023c0462",
+    "jobs": [
+      {
+        "completedAt": "2026-09-17T12:49:31Z",
+        "conclusion": "success",
+        "databaseId": 105207473104,
+        "name": "verify",
+        "startedAt": "2026-09-17T12:45:55Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-09-17T12:45:56Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-09-17T12:45:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:45:57Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8",
+            "number": 2,
+            "startedAt": "2026-09-17T12:45:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:46:03Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+            "number": 3,
+            "startedAt": "2026-09-17T12:45:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:46:05Z",
+            "conclusion": "success",
+            "name": "Run npm install --global npm@11.17.0",
+            "number": 4,
+            "startedAt": "2026-09-17T12:46:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:46:08Z",
+            "conclusion": "success",
+            "name": "Run npm ci",
+            "number": 5,
+            "startedAt": "2026-09-17T12:46:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:46:48Z",
+            "conclusion": "success",
+            "name": "Run npx --no-install playwright install --with-deps",
+            "number": 6,
+            "startedAt": "2026-09-17T12:46:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:49:29Z",
+            "conclusion": "success",
+            "name": "Run npm run verify:full",
+            "number": 7,
+            "startedAt": "2026-09-17T12:46:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:49:29Z",
+            "conclusion": "success",
+            "name": "Verify Pages artifact packaging without publication",
+            "number": 8,
+            "startedAt": "2026-09-17T12:49:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:49:29Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+            "number": 15,
+            "startedAt": "2026-09-17T12:49:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:49:29Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8",
+            "number": 16,
+            "startedAt": "2026-09-17T12:49:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-17T12:49:30Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "startedAt": "2026-09-17T12:49:29Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/internalforces/open-store-searcher/actions/runs/35222990361/job/105207473104"
+      }
+    ],
+    "url": "https://github.com/internalforces/open-store-searcher/actions/runs/35222990361"
+  },
+  "environments": {
+    "total_count": 0,
+    "environments": []
+  },
+  "mainProtection": {
+    "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection",
+    "required_status_checks": {
+      "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_status_checks",
+      "strict": true,
+      "contexts": ["verify"],
+      "contexts_url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_status_checks/contexts",
+      "checks": [
+        {
+          "context": "verify",
+          "app_id": 15368
+        }
+      ]
+    },
+    "required_pull_request_reviews": {
+      "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_pull_request_reviews",
+      "dismiss_stale_reviews": true,
+      "require_code_owner_reviews": false,
+      "require_last_push_approval": false,
+      "required_approving_review_count": 0
+    },
+    "required_signatures": {
+      "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_signatures",
+      "enabled": false
+    },
+    "enforce_admins": {
+      "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/enforce_admins",
+      "enabled": true
+    },
+    "required_linear_history": {
+      "enabled": false
+    },
+    "allow_force_pushes": {
+      "enabled": false
+    },
+    "allow_deletions": {
+      "enabled": false
+    },
+    "block_creations": {
+      "enabled": false
+    },
+    "required_conversation_resolution": {
+      "enabled": true
+    },
+    "lock_branch": {
+      "enabled": false
+    },
+    "allow_fork_syncing": {
+      "enabled": false
+    }
+  },
+  "rulesets": [],
+  "workflowPermissions": {
+    "default_workflow_permissions": "read",
+    "can_approve_pull_request_reviews": false
+  },
+  "variableNames": {
+    "names": []
+  },
+  "collaborators": [
+    {
+      "id": 81242244,
+      "login": "internalforces",
+      "role_name": "admin"
+    }
+  ],
+  "mainTreeSha": "32c1809d68d4227541cee46596d834e72072de61",
+  "reviewedFiles": [
+    {
+      "path": ".github/workflows/verify.yml",
+      "sha256": "f2803068a7c29834114971ec9048bf2aa143b8c61ad235cf3a4e2c088b64ad12",
+      "gitBlob": "68891358f9d03a77aaa990f437610d2d041eb7ee",
+      "matchesRemoteMain": true
+    },
+    {
+      "path": ".github/workflows/refresh.yml",
+      "sha256": "4d1b8ee5c8fd411b27486c775df8b1b887ad79b89373f7fc224f0e1848474f16",
+      "gitBlob": "3b5eafffd6c63368ad5811685d660b02a379ee43",
+      "matchesRemoteMain": true
+    },
+    {
+      "path": ".github/workflows/observe-quality.yml",
+      "sha256": "80805051c1cab514b850cff3de4f988321ca64cdef55bdec8cefa980b1516c56",
+      "gitBlob": "7487089564cfdca7a41597e87c467274ccfd426b",
+      "matchesRemoteMain": true
+    },
+    {
+      "path": "scripts/stage-refresh.mjs",
+      "sha256": "34a4da4e756688fcb685ba5583e04a839c584e7949dc7d83b246fef33ca3464e",
+      "gitBlob": "2cb31c00b03429e66a8a34599817616b7d19429f",
+      "matchesRemoteMain": true
+    },
+    {
+      "path": "scripts/build-publication.mjs",
+      "sha256": "4878f21ee50c5c7b5bee8020771727fda3e610d7e226c8bdce7dbb95ce85111c",
+      "gitBlob": "5c49e623bf796276a86ae8d2607cb7cf0f18a0b6",
+      "matchesRemoteMain": true
+    },
+    {
+      "path": "scripts/check-pages-artifact.test.mjs",
+      "sha256": "94cf281c3acf55f7b58b2ec8feb17ec9524eafa8dfc33d0a6c55ab434cf4e3f1",
+      "gitBlob": "442b96ff2c99d46cbc17650a247f8ccf04156e70",
+      "matchesRemoteMain": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89",
+      "gitBlob": "f5251b2f635b92e0a50423fae1f3d8ef1a561633",
+      "matchesRemoteMain": true
+    }
+  ],
+  "workflowInventory": [
+    ".github/workflows/observe-quality.yml",
+    ".github/workflows/refresh.yml",
+    ".github/workflows/verify.yml"
+  ],
+  "publicationConfigPresent": false,
+  "authorization": {
+    "date": "2026-09-18",
+    "policy": "User explicitly permits deployment self-review and accepts main required approvals=0 / last-push approval=false for solo maintenance. Required deployment reviewer is authenticated sole collaborator internalforces. No deployment authorized."
+  },
+  "authorizedEnvironmentSetup": [
+    {
+      "method": "PUT",
+      "endpoint": "repos/internalforces/open-store-searcher/environments/github-pages",
+      "exitCode": 0,
+      "response": {
+        "id": 22192346371,
+        "node_id": "EN_kwDOT-E1m88AAAAFKsRVAw",
+        "name": "github-pages",
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/environments/github-pages",
+        "html_url": "https://github.com/internalforces/open-store-searcher/deployments/activity_log?environments_filter=github-pages",
+        "created_at": "2026-09-18T01:37:49Z",
+        "updated_at": "2026-09-18T01:37:49Z",
+        "can_admins_bypass": true,
+        "protection_rules": [
+          {
+            "id": 65940185,
+            "node_id": "GA_kwDOT-E1m84D7irZ",
+            "type": "required_reviewers",
+            "prevent_self_review": false,
+            "reviewers": [
+              {
+                "type": "User",
+                "reviewer": {
+                  "login": "internalforces",
+                  "id": 81242244,
+                  "node_id": "MDQ6VXNlcjgxMjQyMjQ0",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/81242244?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/internalforces",
+                  "html_url": "https://github.com/internalforces",
+                  "followers_url": "https://api.github.com/users/internalforces/followers",
+                  "following_url": "https://api.github.com/users/internalforces/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/internalforces/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/internalforces/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/internalforces/subscriptions",
+                  "organizations_url": "https://api.github.com/users/internalforces/orgs",
+                  "repos_url": "https://api.github.com/users/internalforces/repos",
+                  "events_url": "https://api.github.com/users/internalforces/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/internalforces/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": false
+                }
+              }
+            ]
+          },
+          {
+            "id": 65940186,
+            "node_id": "GA_kwDOT-E1m84D7ira",
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      },
+      "error": ""
+    },
+    {
+      "method": "POST",
+      "endpoint": "repos/internalforces/open-store-searcher/environments/github-pages/deployment-branch-policies",
+      "exitCode": 0,
+      "response": {
+        "id": 60294393,
+        "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MDI5NDM5Mw==",
+        "name": "main",
+        "type": "branch"
+      },
+      "error": ""
+    },
+    {
+      "method": "GET",
+      "endpoint": "repos/internalforces/open-store-searcher/environments/github-pages",
+      "exitCode": 0,
+      "response": {
+        "id": 22192346371,
+        "node_id": "EN_kwDOT-E1m88AAAAFKsRVAw",
+        "name": "github-pages",
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/environments/github-pages",
+        "html_url": "https://github.com/internalforces/open-store-searcher/deployments/activity_log?environments_filter=github-pages",
+        "created_at": "2026-09-18T01:37:49Z",
+        "updated_at": "2026-09-18T01:37:49Z",
+        "can_admins_bypass": true,
+        "protection_rules": [
+          {
+            "id": 65940185,
+            "node_id": "GA_kwDOT-E1m84D7irZ",
+            "type": "required_reviewers",
+            "prevent_self_review": false,
+            "reviewers": [
+              {
+                "type": "User",
+                "reviewer": {
+                  "login": "internalforces",
+                  "id": 81242244,
+                  "node_id": "MDQ6VXNlcjgxMjQyMjQ0",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/81242244?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/internalforces",
+                  "html_url": "https://github.com/internalforces",
+                  "followers_url": "https://api.github.com/users/internalforces/followers",
+                  "following_url": "https://api.github.com/users/internalforces/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/internalforces/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/internalforces/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/internalforces/subscriptions",
+                  "organizations_url": "https://api.github.com/users/internalforces/orgs",
+                  "repos_url": "https://api.github.com/users/internalforces/repos",
+                  "events_url": "https://api.github.com/users/internalforces/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/internalforces/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": false
+                }
+              }
+            ]
+          },
+          {
+            "id": 65940186,
+            "node_id": "GA_kwDOT-E1m84D7ira",
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      },
+      "error": ""
+    },
+    {
+      "method": "GET",
+      "endpoint": "repos/internalforces/open-store-searcher/environments/github-pages/deployment-branch-policies",
+      "exitCode": 0,
+      "response": {
+        "total_count": 1,
+        "branch_policies": [
+          {
+            "id": 60294393,
+            "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MDI5NDM5Mw==",
+            "name": "main",
+            "type": "branch"
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "method": "PUT",
+      "endpoint": "repos/internalforces/open-store-searcher/environments/github-pages",
+      "exitCode": 0,
+      "response": {
+        "id": 22192346371,
+        "node_id": "EN_kwDOT-E1m88AAAAFKsRVAw",
+        "name": "github-pages",
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/environments/github-pages",
+        "html_url": "https://github.com/internalforces/open-store-searcher/deployments/activity_log?environments_filter=github-pages",
+        "created_at": "2026-09-18T01:37:49Z",
+        "updated_at": "2026-09-18T01:38:07Z",
+        "can_admins_bypass": false,
+        "protection_rules": [
+          {
+            "id": 65940185,
+            "node_id": "GA_kwDOT-E1m84D7irZ",
+            "type": "required_reviewers",
+            "prevent_self_review": false,
+            "reviewers": [
+              {
+                "type": "User",
+                "reviewer": {
+                  "login": "internalforces",
+                  "id": 81242244,
+                  "node_id": "MDQ6VXNlcjgxMjQyMjQ0",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/81242244?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/internalforces",
+                  "html_url": "https://github.com/internalforces",
+                  "followers_url": "https://api.github.com/users/internalforces/followers",
+                  "following_url": "https://api.github.com/users/internalforces/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/internalforces/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/internalforces/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/internalforces/subscriptions",
+                  "organizations_url": "https://api.github.com/users/internalforces/orgs",
+                  "repos_url": "https://api.github.com/users/internalforces/repos",
+                  "events_url": "https://api.github.com/users/internalforces/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/internalforces/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": false
+                }
+              }
+            ]
+          },
+          {
+            "id": 65940186,
+            "node_id": "GA_kwDOT-E1m84D7ira",
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      },
+      "error": ""
+    },
+    {
+      "method": "GET",
+      "endpoint": "repos/internalforces/open-store-searcher/environments/github-pages",
+      "exitCode": 0,
+      "response": {
+        "id": 22192346371,
+        "node_id": "EN_kwDOT-E1m88AAAAFKsRVAw",
+        "name": "github-pages",
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/environments/github-pages",
+        "html_url": "https://github.com/internalforces/open-store-searcher/deployments/activity_log?environments_filter=github-pages",
+        "created_at": "2026-09-18T01:37:49Z",
+        "updated_at": "2026-09-18T01:38:07Z",
+        "can_admins_bypass": false,
+        "protection_rules": [
+          {
+            "id": 65940185,
+            "node_id": "GA_kwDOT-E1m84D7irZ",
+            "type": "required_reviewers",
+            "prevent_self_review": false,
+            "reviewers": [
+              {
+                "type": "User",
+                "reviewer": {
+                  "login": "internalforces",
+                  "id": 81242244,
+                  "node_id": "MDQ6VXNlcjgxMjQyMjQ0",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/81242244?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/internalforces",
+                  "html_url": "https://github.com/internalforces",
+                  "followers_url": "https://api.github.com/users/internalforces/followers",
+                  "following_url": "https://api.github.com/users/internalforces/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/internalforces/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/internalforces/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/internalforces/subscriptions",
+                  "organizations_url": "https://api.github.com/users/internalforces/orgs",
+                  "repos_url": "https://api.github.com/users/internalforces/repos",
+                  "events_url": "https://api.github.com/users/internalforces/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/internalforces/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": false
+                }
+              }
+            ]
+          },
+          {
+            "id": 65940186,
+            "node_id": "GA_kwDOT-E1m84D7ira",
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      },
+      "error": ""
+    }
+  ],
+  "staticVerification": {
+    "workflowCount": 3,
+    "pinnedUses": 8,
+    "expressionFreeRunBlocks": 18,
+    "result": "PASS",
+    "parserVersion": "2.6.1",
+    "nodeVersion": "v22.22.3"
+  },
+  "hostedVerificationSummary": [
+    "verify\tRun npm run verify:full\t2026-09-17T12:48:12.9744553Z ^[[2m Test Files ^[[22m ^[[1m^[[32m44 passed^[[39m^[[22m^[[90m (44)^[[39m",
+    "verify\tRun npm run verify:full\t2026-09-17T12:49:06.4866469Z   68 passed (50.9s)",
+    "verify\tRun npm run verify:full\t2026-09-17T12:49:29.4367274Z   20 passed (22.3s)",
+    "verify\tVerify Pages artifact packaging without publication\t2026-09-17T12:49:29.6276675Z \u2139 tests 4",
+    "verify\tVerify Pages artifact packaging without publication\t2026-09-17T12:49:29.6277988Z \u2139 pass 4",
+    "verify\tVerify Pages artifact packaging without publication\t2026-09-17T12:49:29.6278467Z \u2139 fail 0"
+  ],
+  "finalReadback": {
+    "observedAt": "2026-09-18T01:41:15.992649+00:00",
+    "environment": {
+      "id": 22192346371,
+      "node_id": "EN_kwDOT-E1m88AAAAFKsRVAw",
+      "name": "github-pages",
+      "url": "https://api.github.com/repos/internalforces/open-store-searcher/environments/github-pages",
+      "html_url": "https://github.com/internalforces/open-store-searcher/deployments/activity_log?environments_filter=github-pages",
+      "created_at": "2026-09-18T01:37:49Z",
+      "updated_at": "2026-09-18T01:38:07Z",
+      "can_admins_bypass": false,
+      "protection_rules": [
+        {
+          "id": 65940185,
+          "node_id": "GA_kwDOT-E1m84D7irZ",
+          "type": "required_reviewers",
+          "prevent_self_review": false,
+          "reviewers": [
+            {
+              "type": "User",
+              "reviewer": {
+                "login": "internalforces",
+                "id": 81242244,
+                "node_id": "MDQ6VXNlcjgxMjQyMjQ0",
+                "avatar_url": "https://avatars.githubusercontent.com/u/81242244?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/internalforces",
+                "html_url": "https://github.com/internalforces",
+                "followers_url": "https://api.github.com/users/internalforces/followers",
+                "following_url": "https://api.github.com/users/internalforces/following{/other_user}",
+                "gists_url": "https://api.github.com/users/internalforces/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/internalforces/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/internalforces/subscriptions",
+                "organizations_url": "https://api.github.com/users/internalforces/orgs",
+                "repos_url": "https://api.github.com/users/internalforces/repos",
+                "events_url": "https://api.github.com/users/internalforces/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/internalforces/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              }
+            }
+          ]
+        },
+        {
+          "id": 65940186,
+          "node_id": "GA_kwDOT-E1m84D7ira",
+          "type": "branch_policy"
+        }
+      ],
+      "deployment_branch_policy": {
+        "protected_branches": false,
+        "custom_branch_policies": true
+      }
+    },
+    "branchPolicies": {
+      "total_count": 1,
+      "branch_policies": [
+        {
+          "id": 60294393,
+          "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MDI5NDM5Mw==",
+          "name": "main",
+          "type": "branch"
+        }
+      ]
+    },
+    "mainProtection": {
+      "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection",
+      "required_status_checks": {
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_status_checks",
+        "strict": true,
+        "contexts": ["verify"],
+        "contexts_url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_status_checks/contexts",
+        "checks": [
+          {
+            "context": "verify",
+            "app_id": 15368
+          }
+        ]
+      },
+      "required_pull_request_reviews": {
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_pull_request_reviews",
+        "dismiss_stale_reviews": true,
+        "require_code_owner_reviews": false,
+        "require_last_push_approval": false,
+        "required_approving_review_count": 0
+      },
+      "required_signatures": {
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/required_signatures",
+        "enabled": false
+      },
+      "enforce_admins": {
+        "url": "https://api.github.com/repos/internalforces/open-store-searcher/branches/main/protection/enforce_admins",
+        "enabled": true
+      },
+      "required_linear_history": {
+        "enabled": false
+      },
+      "allow_force_pushes": {
+        "enabled": false
+      },
+      "allow_deletions": {
+        "enabled": false
+      },
+      "block_creations": {
+        "enabled": false
+      },
+      "required_conversation_resolution": {
+        "enabled": true
+      },
+      "lock_branch": {
+        "enabled": false
+      },
+      "allow_fork_syncing": {
+        "enabled": false
+      }
+    },
+    "repositoryVariableNames": {
+      "names": []
+    },
+    "environmentVariableNames": {
+      "names": []
+    },
+    "assertions": "PASS"
+  }
+}

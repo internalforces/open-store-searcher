@@ -7,39 +7,20 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-09-17_
+_Last updated: 2026-09-18_
 
-## In Progress — TASK-019 Actions security review
+## In Progress
 
-Activated by the user on 2026-09-17. Owner: Security Reviewer. Scope: AC-019-8 / FR-12 /
-Section 14.4. Review the actual workflows, action dependency chain, repository/environment
-settings, credentials and artifact trust at `dddc61a` on `codex/task-019-actions-review`.
-TASK-008 continues its approved observation interval without occupying this implementation slot.
-The user subsequently authorized the reported security fixes, repository settings changes,
-commit and push on 2026-09-17. Deployment, merge and workflow dispatch remain unauthorized.
-
-- [x] Capture current read-only repository settings and immutable workflow evidence.
-- [x] Review triggers, injection, permissions, action pins, credentials and artifact trust.
-- [x] Record findings, concrete remedies and acceptance disposition without waiving release gates.
-- [x] Verify report evidence and update task, session and traceability records.
-
-Review performed: one Medium protection-setting gap, one Low transitive mutable-action gap,
-and one informational recovery limitation. See [Actions review](../reports/security-2026-09-17-task-019-actions.md).
-Authorized remediation: the branch now directly pins the upload action; actual main protection
-is applied and read back. The deployment reviewer identity remains pending user input.
-Historical local verification failed two Linux Info-ZIP tests on macOS and Docker was unavailable.
-PR #25 hosted Ubuntu run 35222505500 passes the full suite at 9b13b08. Final packaging test
-verification is pending after correcting a diagnostic expectation; the mandatory nonzero exit
-remains. See [preflight](../reports/deployment-2026-09-17-preflight.md).
-AC-019-8 acceptance remains open for the environment, final-head checks and final review.
-The latest user request authorizes PR creation and non-publishing preparation up to approval,
-replacing the interrupted self-approval request. PR #25 is open; read-only Ubuntu CI and actual
-Pages packaging fixture checks are pending. See [preflight](../reports/deployment-2026-09-17-preflight.md).
-The calibration interval and policy/baseline gates still prevent a concrete production candidate.
+No implementation task is active. TASK-019 / AC-019-8 completed on 2026-09-18 after final-head
+Ubuntu verification, merged immutable upload remediation and authenticated settings review.
+The user accepted solo-maintainer PR approval count zero and deployment self-review;
+`github-pages` requires internalforces, forbids administrator bypass and allows only branch main.
+See [final Actions review](../reports/security-2026-09-18-task-019-final.md).
+TASK-020 is next eligible work, not activated. Production/release gates remain open.
 
 ## Awaiting time-bound evidence
 
-TASK-019 is the sole active task. TASK-008 is paused between scheduled daily observations under
+TASK-008 remains between scheduled daily observations under
 the single-active-task rule; its delivered observation branch was merged through PR #24.
 TASK-008 completion remains authorized by the user's 2026-09-17 request.
 The user explicitly approved
@@ -126,7 +107,7 @@ review is still absent. The user explicitly resumed calibration; deployment and 
 approval remain separate. No overall task was moved to completed.
 
 TASK-019's bounded application assessment completed on
-2026-09-09; overall TASK-019 is active/incomplete for AC-019-8 security acceptance after the 2026-09-17 Actions review.
+2026-09-09; overall TASK-019 is complete after AC-019-8 acceptance on 2026-09-18.
 See its [acceptance checklist](completed.md#task-019-acceptance-criteria-and-evidence) and
 [unfinished criterion](backlog.md#task-019-unfinished-actions-criterion).
 See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).

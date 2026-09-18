@@ -642,3 +642,16 @@ approval, administrator enforcement, resolved conversations and no force push/de
 The environment reviewer identity remains a pending operating decision; no identity or self-review
 exception is assumed. No publication approval, release waiver, quality policy or baseline follows
 from this authorization. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
+
+
+## Accepted solo-maintainer Actions policy — 2026-09-18
+
+The user explicitly instructed deployment self-review to be allowed and selected retention of
+main's current zero-required-review policy with risk acceptance. This supersedes the 2026-09-17
+one-review/latest-push and prevent-self-review proposal. Preserve strict GitHub Actions verify,
+administrator enforcement, resolved conversations and no force push/deletion. Require a manual
+github-pages environment review by internalforces, permit self-review, disable administrator
+bypass and restrict to branch main only (not tags). The owner accepts the absence of independent
+human separation and corresponding single-account compromise/error risk. This decision does not
+authorize an actual deployment, publication enablement, quality policy, baseline or release.
+See [applied settings and final review](../reports/security-2026-09-18-task-019-final.md).

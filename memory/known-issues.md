@@ -474,3 +474,14 @@ or weaker review policy was adopted.
 Verification limitation: unchanged Linux Info-ZIP tests fail on macOS (795 pass, two fail), and
 Docker Desktop cannot start the approved Ubuntu environment. Full verification, actual Linux
 packaging checks and final review remain open. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
+
+
+## TASK-019 findings disposition — 2026-09-18
+
+SEC-ACTIONS-02 is resolved by merged PR #25 and passing final-head Ubuntu packaging checks.
+SEC-ACTIONS-01 is closed with applied environment protections and explicit solo-maintainer risk
+acceptance: zero required PR approvals and deployment self-review allowed. Manual deployment
+review, main-only branch policy and disabled administrator bypass are verified. See
+[final review](../reports/security-2026-09-18-task-019-final.md). No unresolved Actions finding
+blocks AC-019-8; revisit the accepted risk if collaborators/trust boundaries change. Existing
+production/mobile, quality-policy/baseline, hosted publication/recovery and release gates remain.

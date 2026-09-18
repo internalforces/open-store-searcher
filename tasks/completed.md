@@ -361,7 +361,7 @@ below reconstructs that scope using [the security prompt](../prompts/security.md
 | [x] | AC-019-5 / Section 14.4 | Review dependency advisories, licenses and lockfile integrity. | [Saved audit response](../reports/security-2026-09-09-task-019-audit.json), evidence JSON lock inventory and [304-version license report](../reports/dependency-licenses-2026-09-09.md). Complete as of the recorded review; release recheck required. |
 | [x] | AC-019-6 / Section 14.4 | Assess existing downloaded-file controls and record production limitations. | Assessment, “Malicious provider archive” row: bounds, hashes, archive/schema checks and existing pipeline tests reviewed. Live Linux and complete production ingestion remain unverified under TASK-009/021. |
 | [x] | AC-019-7 / verification | Preserve full verification and reviewed-source identity. | [Verification transcript](../reports/security-2026-09-09-task-019-verify.txt): pinned verify:full passed 598 Vitest, 68 browser and 20 accessibility tests; evidence JSON contains 53 source hashes. [PR remediation](../reports/review-2026-09-10-pr20.md) records the subsequent full rerun. |
-| [ ] | AC-019-8 / Section 14.4 | Review actual Actions permissions, triggers, action pinning, credentials and artifact trust. | [2026-09-17 Actions review](../reports/security-2026-09-17-task-019-actions.md) records actual workflows, immutable action evidence and authenticated repository settings. Review performed; [authorized remediation](../reports/security-2026-09-17-task-019-remediation.md) applies main protection and fixes the upload pin in the branch. Overall TASK-019 remains active for deployment reviewer/environment setup, Ubuntu verification and final review; no release waiver. |
+| [x] | AC-019-8 / Section 14.4 | Review actual Actions permissions, triggers, action pinning, credentials and artifact trust. | [Final Actions review](../reports/security-2026-09-18-task-019-final.md): PR #25 merged; final-head Ubuntu full suite and four packaging cases pass; environment/reviewer/main-branch restrictions and administrator bypass block read back. User explicitly accepts zero PR approvals and deployment self-review. TASK-019 complete within dated review scope; production/release gates remain open. |
 
 Completion disposition corrected on 2026-09-11: only AC-019-1 through AC-019-7 are complete
 within the stated evidence boundaries. Overall TASK-019 remains incomplete/deferred until
@@ -499,3 +499,20 @@ one Medium protection gap, one Low transitive action pinning gap and one recover
 See [report](../reports/security-2026-09-17-task-019-actions.md). Only review work is complete:
 overall TASK-019 remains active, its acceptance unchecked and its findings unresolved. No
 security changes, repository settings, deployment, commit, push or independent approval occurred.
+
+
+## TASK-019 final Actions acceptance — 2026-09-18
+
+AC-019-8 is accepted and TASK-019 is complete within its recorded review scope. PR #25 merged
+as 32c1809; its final head d459110 passed Ubuntu full verification and all four actual packaging
+fixtures. Reviewed workflows/scripts/lockfile match remote main. The user explicitly retained
+main required approvals=0 and last-push approval=false, and authorized deployment self-review.
+Created github-pages with internalforces as required reviewer, main branch-only policy and
+administrator bypass disabled; fresh API readback verifies all settings. Risk acceptance and
+exact evidence are in the [final review](../reports/security-2026-09-18-task-019-final.md).
+Earlier active/pending-environment/final-head notes are superseded. Historical application/CVE
+assessments remain dated; no new whole-application or independent second review is claimed.
+No implementation task is active; TASK-020 remains unactivated. TASK-008 calibration and
+TASK-009/010/021 production, publication/recovery and release gates remain open. Only authorized
+environment settings and local documentation changed; no source change, commit, push, merge,
+workflow dispatch, deployment, publication enablement or handbook access occurred in this pass.
