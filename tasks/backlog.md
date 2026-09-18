@@ -33,9 +33,8 @@ TASK-026 recurs after milestone implementation, testing, and review. TASK-020 re
 TASK-008 is awaiting its approved 30-Seoul-calendar-day evidence interval and does not occupy the
 single active implementation slot between daily observations. TASK-009/010 remain dependent on
 the reviewed policy and baseline and must not resume yet. Independent backlog work may proceed on
-a separate branch. TASK-019 AC-019-8 was the next eligible bounded task and is now active because
-the Actions workflows exist for read-only review; any security fix, settings change, deployment, or release
-still requires its existing explicit approval.
+a separate branch. TASK-019 AC-019-8 subsequently completed on 2026-09-18. TASK-020 is now the next eligible
+independent task; deployment and release retain their explicit approval gates.
 
 ## Size Guide
 
@@ -72,12 +71,8 @@ All 24 search and 16 applicable page-navigation groups pass 500 ms. Earlier foll
 historical. Production measurements/data gates remain required for release; no next task activated.
 
 
-## TASK-019 unfinished Actions criterion
+## TASK-019 Actions criterion closed — 2026-09-18
 
-TASK-019 was activated by explicit user request on 2026-09-17; see [active task](active.md).
-The actual workflow/settings review is performed and documented in the
-[Actions report](../reports/security-2026-09-17-task-019-actions.md), superseding the historical
-missing-workflow evidence. The user subsequently authorized remediation: main protection is configured and the upload
-pin is fixed in the branch. AC-019-8 remains open for deployment reviewer/environment setup,
-Ubuntu verification and final review. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
-TASK-008 continues its approved calibration interval. TASK-020 remains unactivated.
+AC-019-8 is accepted; see [final review](../reports/security-2026-09-18-task-019-final.md).
+TASK-020 is the next eligible independent task and is not activated. TASK-008 observation
+continues; TASK-009/010 remain dependent on reviewed policy and baseline.
