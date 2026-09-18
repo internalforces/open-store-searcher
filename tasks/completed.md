@@ -363,11 +363,13 @@ below reconstructs that scope using [the security prompt](../prompts/security.md
 | [x] | AC-019-7 / verification | Preserve full verification and reviewed-source identity. | [Verification transcript](../reports/security-2026-09-09-task-019-verify.txt): pinned verify:full passed 598 Vitest, 68 browser and 20 accessibility tests; evidence JSON contains 53 source hashes. [PR remediation](../reports/review-2026-09-10-pr20.md) records the subsequent full rerun. |
 | [x] | AC-019-8 / Section 14.4 | Review actual Actions permissions, triggers, action pinning, credentials and artifact trust. | [Final Actions review](../reports/security-2026-09-18-task-019-final.md): PR #25 merged; final-head Ubuntu full suite and four packaging cases pass; environment/reviewer/main-branch restrictions and administrator bypass block read back. User explicitly accepts zero PR approvals and deployment self-review. TASK-019 complete within dated review scope; production/release gates remain open. |
 
-Completion disposition corrected on 2026-09-11: only AC-019-1 through AC-019-7 are complete
-within the stated evidence boundaries. Overall TASK-019 remains incomplete/deferred until
-AC-019-8 has actual workflow and repository-setting evidence and review. No workflow work is
-activated, no permission change is authorized, and TASK-008 remains on hold. The earlier
-unqualified completion statements describe the historical bounded assessment, not a waiver.
+Completion disposition corrected on 2026-09-11: only AC-019-1 through AC-019-7 were complete
+within the stated evidence boundaries at that time, and overall TASK-019 remained
+incomplete/deferred until AC-019-8 had actual workflow and repository-setting evidence and
+review. That correction is superseded by the AC-019-8 row above: TASK-019 is complete as of
+2026-09-18 within its recorded review scope. The earlier unqualified completion statements before
+2026-09-11 still describe only the historical bounded assessment, not a waiver of the Actions
+review that has since been completed.
 
 
 ## PR #20 review remediation — 2026-09-10
