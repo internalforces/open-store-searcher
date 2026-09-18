@@ -65,6 +65,9 @@ on a separate branch while the scheduled evidence collector runs.
       2,941,453 rows, no category-count decrease, and one retained display-status correction.
 - [x] Daily 09:00 local heartbeat created as `task-008-30-day-quality-calibration`; source archives
       remain outside Git and publication is prohibited.
+- [x] Second distinct current observation completed on 2026-09-18: all 195 categories and
+      2,941,941 rows. Retain one category-count decrease and nine category-level status
+      corrections for review; do not infer policy limits from them yet.
 - [ ] Complete the approved interval and derive the full evidence-bound policy proposal.
 - [ ] Obtain explicit policy, allowed-empty, and initial-baseline approval.
 - [ ] Run accepted validation, failure preservation, and independent final review.

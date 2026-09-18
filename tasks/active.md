@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-09-17_
+_Last updated: 2026-09-18_
 
 ## In Progress — TASK-019 Actions security review
 
@@ -49,15 +49,18 @@ strict evidence/scope validation, 797/68/20 full checks and independent Reviewer
 select numeric quality limits, empty-category policy, an initial baseline, or publication.
 The user then instructed execution of the recorded completion plan, selecting its recommended
 original TASK-008 ownership and activating the 30-Seoul-calendar-day calibration from 2026-09-17.
-The first current observation is complete at 2,941,453 rows across all 195 categories; its distinct
-archive is retained outside Git. Daily non-publishing observation is scheduled. Derived numeric
+Two distinct current observations are complete. The 2026-09-18 observation contains 2,941,941
+rows across all 195 categories; its archive is retained outside Git. Its transition retains one
+category-count decrease and nine category-level status corrections for calibration review. Daily
+non-publishing observation remains scheduled. Derived numeric
 policy, the empty-category list, and the initial baseline still require explicit approval after
 the interval. The previous operational verification began on the user's 2026-09-16 request, with
 parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.
 PR #23 merged as `bac6dce`; local implementation `da9e63c` has the same tracked tree.
 Its hosted Verify check passed. Compact delivery design and implementation are already approved;
-earlier design-pending notes are historical. Reuse `.worktrees/task013-quality` on
-`codex/task-008-operational-verification`; preserve all other checkouts and untracked files.
+earlier design-pending notes are historical. Scheduled calibration evidence uses the isolated
+`.worktrees/task008-calibration` checkout on `codex/task-008-calibration`; preserve all other
+checkouts and untracked files.
 
 This continuation measured the existing complete-source implementation and prepared remaining
 quality decisions. The historical evidence pass did not authorize policy adoption, status changes, repository protection,
