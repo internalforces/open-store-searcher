@@ -1550,3 +1550,22 @@ checks passed. The independent 2026-09-18 documentation approval remains recorde
 independent review is claimed. Deliver only the twenty TASK-020 documentation/template files
 and task/evidence updates. TASK-008 calibration and TASK-009/010/021 gates remain open.
 No merge, deployment, publication enablement, workflow dispatch, or release is part of this delivery.
+
+
+## PR 27 review follow-up — 2026-09-19
+
+Automated PR review raised three P1 findings on `codex/task-020-public-docs`. Fixed all three in
+this worktree: `tasks/completed.md` previously claimed no handbook file changed even though the
+same task's second commit rewrote `handbook/ko/README.md` (42 additions, 35 deletions) as an
+authorized Korean counterpart to the root README — corrected the record to state the change and
+note it fell outside the 2026-09-18 review's scope, which excluded `handbook/ko/**`. Translated
+the root README's Korean handbook-link sentence to English per the harness language policy. Added
+`.github/ISSUE_TEMPLATE/security_contact.yml`, a minimal dropdown-based form, so a reporter can
+follow SECURITY.md's minimal-issue instruction while blank issues stay disabled; the issue chooser
+now offers three forms plus the SECURITY.md contact link.
+
+Ran `npm run lint`, `npm run format:check`, `npm run typecheck`, and `npm run build` locally on
+macOS (not the pinned Ubuntu container) with the locally available Node.js 22.22.3/npm 10.9.8, not
+the project's pinned Node.js 24.19.0/npm 11.17.0; all passed. No independent re-review is claimed
+for this follow-up. No dependency, workflow, production configuration, deployment, merge, or
+release changed.

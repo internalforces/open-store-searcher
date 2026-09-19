@@ -525,17 +525,31 @@ workflow dispatch, deployment, publication enablement or handbook access occurre
 User activated and requested execution of TASK-020. Added the public README; development,
 data/safety/privacy and deployment/recovery guides; contribution policy; code of conduct;
 security-reporting policy; two issue forms and their configuration; and a pull-request template.
-The documentation accurately labels the default build as synthetic, collection date as distinct
-from source coverage, production publication as disabled, hosted recovery as unaccepted, and all
-TASK-008/009/010/021 gates as open. The documentation index and FR-09/12 traceability were updated.
+As explicit handbook work for this task, also rewrote `handbook/ko/README.md` as a Korean-language
+counterpart to the root README, linked from it. The documentation accurately labels the default
+build as synthetic, collection date as distinct from source coverage, production publication as
+disabled, hosted recovery as unaccepted, and all TASK-008/009/010/021 gates as open. The
+documentation index and FR-09/12 traceability were updated.
 
 Pinned Ubuntu 24.04 `verify:full` passed 797 Vitest tests, 68 browser checks and 20 accessibility
 tests. Formatting, lint, typecheck, build, 41 local Markdown targets, three YAML files and Git
 whitespace checks passed. Independent Reviewer Approved after two verification-guidance findings
-were corrected. Evidence: [verification](../reports/test-2026-09-18-task-020.md) and
+were corrected. That review's scope excluded `handbook/ko/**`, so the handbook rewrite above was
+not covered by it. Evidence: [verification](../reports/test-2026-09-18-task-020.md) and
 [review](../reports/review-2026-09-18-task-020.md).
 
 No application source, test, dependency, workflow, publication configuration, production data,
-repository setting, deployment, release, commit, push, or handbook file changed. TASK-020 is
-complete; production publication, release-candidate verification, and milestone handbook gates
-remain separate.
+repository setting, deployment, release, commit, or push occurred outside this authorized
+documentation pass. TASK-020 is complete; production publication, release-candidate verification,
+and milestone handbook gates remain separate.
+
+### PR 27 review follow-up — 2026-09-19
+
+Addressed three P1 findings from automated PR review: corrected this record's inaccurate claim
+that no handbook file changed (above); translated the root README's Korean handbook-link sentence
+to English per the harness language policy (`README.md`); and added a dedicated minimal
+security-contact issue form (`.github/ISSUE_TEMPLATE/security_contact.yml`) so a reporter can
+follow SECURITY.md's minimal-issue instruction with blank issues disabled. Ran `npm run lint`,
+`npm run format:check`, `npm run typecheck`, and `npm run build` locally on macOS with the locally
+available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js 24.19.0/npm 11.17.0; all
+passed. No dependency, workflow, or production configuration changed.

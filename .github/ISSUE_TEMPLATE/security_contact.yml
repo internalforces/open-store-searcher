@@ -1,0 +1,45 @@
+name: Security contact request
+description: Request a private channel for a suspected vulnerability. Do not include exploit details, credentials, tokens, personal data, or a proof of concept.
+title: "[Security]: request private contact"
+labels:
+  - security
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form only to request a private reporting channel, per [SECURITY.md](https://github.com/internalforces/open-store-searcher/blob/main/SECURITY.md). Do not describe the vulnerability, include exploit details, credentials, tokens, personal data, or a working proof of concept here. Full details are shared only after a private channel is established.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Broad component
+      description: Select the general area affected. Do not name specific files, endpoints, or exploit details.
+      options:
+        - Browser search / UI
+        - Data pipeline / collection
+        - Build / dependency supply chain
+        - GitHub Actions / deployment workflow
+        - Repository / account access
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact category
+      description: Select the general category of impact. Do not describe exploitation steps.
+      options:
+        - Data exposure / privacy
+        - Data integrity / tampering
+        - Availability / denial of service
+        - Supply chain / dependency compromise
+        - Unauthorized access
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I have not included exploit details, credentials, tokens, personal data, or a proof of concept in this issue.
+          required: true
