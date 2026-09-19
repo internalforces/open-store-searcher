@@ -1607,3 +1607,27 @@ documentation-only change. Confirmed by temporarily relocating the untracked fil
 typecheck, which then showed only the pre-existing `iconv-lite` gap; the files were restored to
 their original paths afterward. Lint and format:check passed outright. No application source,
 test, dependency, workflow, or production configuration changed.
+
+## PR 27 review follow-up round 4 — 2026-09-19
+
+Reviewed the latest findings against `2e807b6` and corrected both:
+
+- Comment `4052415496`: narrowed `tasks/active.md` to the dated original independent review
+  scope. It explicitly excludes the handbook, the later README correction, security-contact
+  form, and subsequent documentation corrections from any independent final-head approval claim.
+- Comment `4052415499`: reconciled `publication/README.md` with the final TASK-019 review and
+  saved settings receipt from 2026-09-18. Both the earlier settings paragraph and the final
+  status section now distinguish historical missing protections from the configured reviewer,
+  main-only environment policy, disabled administrator bypass, and accepted self-review policy.
+  The operator contract links back to the deployment runbook and requires settings readback
+  before use. Production configuration, publication and release gates remain open.
+
+This is documentation-only remediation under the user's explicit review/fix/commit/push request.
+No application, test, dependency, workflow, repository setting or deployment changed. No new
+architecture or policy decision was made, and no independent re-review is asserted. Earlier
+full-suite evidence remains historical; application tests were not rerun for these prose changes.
+Validation: local Markdown target and changed-anchor checks, review-scope/settings assertions,
+`npm run lint`, `npm run format:check`, and `git diff --check` passed. Local inspection used
+Node.js 22.22.3/npm 10.9.8, not the pinned application runtime. The previously recorded local
+`iconv-lite` typecheck gap is outside this documentation correction; no new typecheck result is
+claimed. Only these four documentation/task-record files are included in the delivery.

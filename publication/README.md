@@ -62,12 +62,14 @@ protected `github-pages` environment approval and the existing release gates are
 Neither this flag nor YAML alone proves that repository/environment controls are configured.
 
 Hosted PR CI passed the complete approved Ubuntu verification suite; see
-[run evidence](../reports/test-2026-09-12-publication-hosted.md). No hosted refresh, Pages setting
-change, deployment, public recovery exercise or thirty-day reliability verification has occurred.
-The [settings assessment](../reports/security-2026-09-12-publication-settings.md) records missing
-environment/branch protection and a transitive mutable action reference for review.
-TASK-009/010 remain incomplete for those gates. Source coverage
-research remains deferred; collection-date support does not claim its completion.
+[run evidence](../reports/test-2026-09-12-publication-hosted.md). The
+[2026-09-12 settings assessment](../reports/security-2026-09-12-publication-settings.md) is
+historical: its missing protections and mutable action reference are superseded by the
+[2026-09-18 final Actions review](../reports/security-2026-09-18-task-019-final.md) and the
+security state below. No hosted refresh, deployment, public recovery exercise or thirty-day
+reliability verification is established by those checks. TASK-009/010 remain incomplete for
+production acceptance and hosted publication/recovery. Source coverage research remains
+deferred; collection-date support does not claim its completion.
 
 ## Bounded staging and research replay
 
@@ -138,12 +140,26 @@ config or deployment permission. See the
 [approved contract](../docs/superpowers/specs/2026-09-17-task-008-reviewed-pairs.md).
 
 
-## TASK-019 security remediation state — 2026-09-17
+## TASK-019 security state — verified 2026-09-18
 
-The task branch now uses audited Linux tar packaging plus a directly SHA-pinned upload-artifact
-action, retaining the github-pages artifact contract. Main protection was applied with required
-GitHub Actions verify and reviewed PRs, including administrators. The deployment environment
-remains unconfigured while the required reviewer identity is pending; publication remains disabled.
-The sole listed collaborator cannot approve their own PR under the enforced policy.
-See [remediation and verification limits](../reports/security-2026-09-17-task-019-remediation.md).
-Do not treat branch delivery, main protection or static packaging equivalence as deployment approval.
+This section supersedes the 2026-09-17 remediation status. The merged workflow uses audited
+Linux tar packaging and a directly SHA-pinned upload-artifact action, retaining the github-pages
+artifact contract. The [final Actions review](../reports/security-2026-09-18-task-019-final.md)
+and its [settings receipt](../reports/security-2026-09-18-task-019-final-evidence.json) record:
+
+- Main requires strict GitHub Actions `verify`, enforces administrators and conversation
+  resolution, and prohibits force pushes and deletion. Required PR approvals are `0` and
+  `require_last_push_approval=false` under the explicitly accepted solo-maintainer policy.
+- The `github-pages` environment is configured with required reviewer `internalforces`,
+  `prevent_self_review=false`, and `can_admins_bypass=false`. Its only custom deployment policy
+  allows branch `main`; no tag rule exists.
+- Self-review retains manual approval but does not provide independent human separation.
+  The user explicitly accepted that operating risk; it is not approval for any deployment.
+- `publication/config.json` and `PAGES_PUBLICATION_ENABLED` remain absent in the recorded
+  evidence. Publication remains disabled and no deployment was dispatched or approved.
+
+Re-read repository and environment settings before any approved operation; this dated receipt
+is not a live settings guarantee. TASK-019's Actions criterion is accepted, while calibration,
+quality policy, empty-category list, baseline, accepted candidate, hosted/mobile performance,
+publication/recovery and release gates remain open. Follow the
+[deployment and recovery runbook](../docs/deployment.md) for those prerequisites.

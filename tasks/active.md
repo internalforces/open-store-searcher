@@ -7,13 +7,19 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-09-19_
 
 ## In Progress
 
-No implementation task is active. TASK-020 completed on 2026-09-18 with pinned Ubuntu full
-verification and independent Approved documentation review. TASK-008 remains between scheduled
-daily observations; TASK-009/010 production publication and TASK-021 release gates remain open.
+No implementation task is active. TASK-020 delivered its original documentation on 2026-09-18
+with pinned Ubuntu full verification and an independent Approved review of the scope listed in
+[the documentation review](../reports/review-2026-09-18-task-020.md). That review excludes the
+Korean handbook and predates the follow-up README correction and minimal security-contact issue
+form. Those PR follow-ups and subsequent documentation corrections received local verification
+only; no independent final-head approval is claimed. See
+[completion and follow-up evidence](completed.md#pr-27-review-follow-up-round-4--2026-09-19).
+TASK-008 remains between scheduled daily observations; TASK-009/010 production publication and
+TASK-021 release gates remain open.
 TASK-021 is not eligible until its production and release prerequisites are satisfied.
 
 ## Awaiting time-bound evidence
