@@ -567,3 +567,17 @@ follow-up. Ran `npm run lint`, `npm run format:check`, and `npm run typecheck` l
 with the locally available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js
 24.19.0/npm 11.17.0; all passed. No application source, test, dependency, workflow, or production
 configuration changed.
+
+### PR 27 review follow-up round 3 — 2026-09-19
+
+Addressed one further finding from automated PR review, raised against the round-2 fix commit.
+`memory/project.md`'s TASK-020 entry still stated the public documentation was "added and
+independently reviewed" as a single claim covering security-reporting and issue documentation,
+but the 2026-09-18 review's recorded scope predates the round-1 `security_contact.yml` form and
+README correction. Narrowed that entry to say the review covered everything except those two
+follow-up items, which pass local verification only, consistent with the wording already used in
+`docs/prd-traceability.md` and `memory/session.md`. Ran `npm run lint`, `npm run format:check`,
+and `npm run typecheck` locally on macOS with the locally available Node.js 22.22.3/npm 10.9.8,
+not the project's pinned Node.js 24.19.0/npm 11.17.0; lint and format:check passed, and typecheck
+showed only the pre-existing, already-documented `iconv-lite` module gap unrelated to this change.
+No application source, test, dependency, workflow, or production configuration changed.

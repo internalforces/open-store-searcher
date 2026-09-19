@@ -295,9 +295,12 @@ TASK-009/010 remain incomplete. See reports/test-2026-09-12-cp949.md.
 
 ## TASK-020 public documentation complete — 2026-09-18
 
-User activated and requested TASK-020 execution. Added and independently reviewed the public
-product/setup, development/testing, data/safety/privacy, deployment/recovery, contribution,
-conduct, security-reporting, issue and pull-request documentation. Pinned Ubuntu full verification
-passes 797/68/20; documentation links, YAML, formatting, lint, types, build and whitespace pass.
-The default remains synthetic and production publication/recovery/release gates remain explicit.
-No active implementation task remains; TASK-008 calibration continues and TASK-021 is gated.
+User activated and requested TASK-020 execution. Added the public product/setup,
+development/testing, data/safety/privacy, deployment/recovery, contribution, conduct,
+security-reporting, issue and pull-request documentation. The 2026-09-18 independent review
+covered all of it except the later minimal security-contact issue form and the round-1 README
+correction, which pass local verification only; no independent re-review is claimed for them
+(see `docs/prd-traceability.md`). Pinned Ubuntu full verification passes 797/68/20; documentation
+links, YAML, formatting, lint, types, build and whitespace pass. The default remains synthetic and
+production publication/recovery/release gates remain explicit. No active implementation task
+remains; TASK-008 calibration continues and TASK-021 is gated.

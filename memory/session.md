@@ -1586,3 +1586,24 @@ Ran `npm run lint`, `npm run format:check`, and `npm run typecheck` locally on m
 locally available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js 24.19.0/npm
 11.17.0; all passed. No application source, test, dependency, workflow, or production
 configuration changed.
+
+
+## PR 27 review follow-up round 3 — 2026-09-19
+
+Automated PR review raised one more finding against the round-2 fix commit. `memory/project.md`'s
+TASK-020 entry — the current-state snapshot every agent loads second, right after `AGENTS.md` —
+still said the public documentation was "added and independently reviewed" as one claim spanning
+security-reporting and issue documentation. That overstates the 2026-09-18 review's recorded scope,
+which predates the round-1 `security_contact.yml` form and README correction. Narrowed the entry
+to say the review covered everything except those two follow-up items, which pass local
+verification only, matching the wording already corrected in `docs/prd-traceability.md` and this
+file's round-2 entry above.
+
+Ran `npm run lint`, `npm run format:check`, and `npm run typecheck` locally on macOS with the
+locally available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js 24.19.0/npm
+11.17.0. Typecheck initially reported errors from untracked duplicate `" 2"`-suffixed files and
+a pending `iconv-lite` module gap already present in the working tree; both are unrelated to this
+documentation-only change. Confirmed by temporarily relocating the untracked files and rerunning
+typecheck, which then showed only the pre-existing `iconv-lite` gap; the files were restored to
+their original paths afterward. Lint and format:check passed outright. No application source,
+test, dependency, workflow, or production configuration changed.
