@@ -1,5 +1,10 @@
 # Pre-approval deployment preparation
 
+Current status: superseded in part by the [2026-09-18 final Actions review](security-2026-09-18-task-019-final.md).
+PR #25 is merged, final Ubuntu checks pass and the protected environment is configured.
+The user approved solo-maintainer self-review; production candidate and deployment gates remain open.
+The following records the historical pre-approval checkpoint.
+
 Date: 2026-09-17. Related work: TASK-019 / AC-019-8, TASK-009/010/021 / FR-13.
 The user's latest request is to create the PR and prepare deployment work up to approval.
 It replaces the interrupted self-approval request. No PR approval, merge, deployment approval,
