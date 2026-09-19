@@ -116,8 +116,9 @@ See its [acceptance checklist](completed.md#task-019-acceptance-criteria-and-evi
 [closed Actions criterion](backlog.md#task-019-actions-criterion-closed--2026-09-18).
 See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).
 No actionable vulnerability was confirmed in current code; production and Actions review gates
-remain open for TASK-009/010/021. The earlier TASK-020 backlog state is superseded by the active
-task above.
+remain open for TASK-009/010/021. The earlier TASK-020 backlog state is superseded by its
+[completion record](completed.md#task-020-public-documentation--2026-09-18).
+No implementation task is active; the review-scope limits in the In Progress section still apply.
 
 ## Awaiting prerequisite evidence — incomplete
 

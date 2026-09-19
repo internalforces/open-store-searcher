@@ -605,3 +605,22 @@ Validation: local Markdown target and changed-anchor checks, review-scope/settin
 Node.js 22.22.3/npm 10.9.8, not the pinned application runtime. The previously recorded local
 `iconv-lite` typecheck gap is outside this documentation correction; no new typecheck result is
 claimed. Only these four documentation/task-record files are included in the delivery.
+
+### PR 27 review follow-up round 5 — 2026-09-19
+
+Reviewed both findings against `c157617` under the user's review/fix/commit/push request:
+
+- `4052445931`: replaced the stale TASK-020 "active task above" reference in `tasks/active.md`
+  with its completed-task record. Explicitly retained the absence of an active implementation
+  task and the existing independent-review scope limits.
+- `4052445932`: added the `handbook/ko/**` Korean-language exception to `CONTRIBUTING.md`,
+  with a link to the constitution's language/access boundaries and the handbook's explanatory,
+  non-authoritative role. No handbook content was accessed or changed.
+
+Validation: Markdown file targets and the completion anchor, assertions for both requested
+corrections, repository lint/format checks and Git whitespace checks passed. Local tooling:
+Node.js 22.22.3/npm 10.9.8. This four-file prose-only correction does not change application,
+test, dependency, workflow, security policy or deployment settings; no application tests or
+independent re-review were run. Prior full-suite evidence remains dated and scoped as recorded.
+No new decision or unresolved implementation issue was introduced; existing production and
+release gates remain open.

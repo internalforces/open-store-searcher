@@ -25,7 +25,10 @@ or real user search terms in issues, tests, commits, screenshots, or pull reques
 5. Update public documentation, traceability, and operational evidence when their claims change.
 6. Open a pull request using the repository template and wait for required checks and review.
 
-Use English for source, comments, public technical documentation, task records, and reports.
+Use English for source, comments, public technical documentation, task records, and reports,
+except for the human-facing handbook under `handbook/ko/**`, which must remain in Korean.
+The handbook is explanatory material, not an implementation specification or source of truth;
+follow the language and access boundaries in [AGENTS.md](AGENTS.md).
 Preserve exact Korean product strings where their spelling is part of the behavior.
 
 ## Safety requirements
