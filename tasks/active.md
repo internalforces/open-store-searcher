@@ -11,12 +11,10 @@ _Last updated: 2026-09-18_
 
 ## In Progress
 
-No implementation task is active. TASK-019 / AC-019-8 completed on 2026-09-18 after final-head
-Ubuntu verification, merged immutable upload remediation and authenticated settings review.
-The user accepted solo-maintainer PR approval count zero and deployment self-review;
-`github-pages` requires internalforces, forbids administrator bypass and allows only branch main.
-See [final Actions review](../reports/security-2026-09-18-task-019-final.md).
-TASK-020 is next eligible work, not activated. Production/release gates remain open.
+No implementation task is active. TASK-020 completed on 2026-09-18 with pinned Ubuntu full
+verification and independent Approved documentation review. TASK-008 remains between scheduled
+daily observations; TASK-009/010 production publication and TASK-021 release gates remain open.
+TASK-021 is not eligible until its production and release prerequisites are satisfied.
 
 ## Awaiting time-bound evidence
 
@@ -112,7 +110,8 @@ See its [acceptance checklist](completed.md#task-019-acceptance-criteria-and-evi
 [closed Actions criterion](backlog.md#task-019-actions-criterion-closed--2026-09-18).
 See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).
 No actionable vulnerability was confirmed in current code; production and Actions review gates
-remain open for TASK-009/010/021. TASK-020 remains in backlog and is not activated.
+remain open for TASK-009/010/021. The earlier TASK-020 backlog state is superseded by the active
+task above.
 
 ## Awaiting prerequisite evidence — incomplete
 

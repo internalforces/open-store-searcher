@@ -1515,3 +1515,38 @@ supply or approve invented numerical policy/baseline values or waive failed vali
 enable publication or dispatch the workflow merely to reproduce its known missing-config failure.
 No merge, tag, workflow dispatch or deployment occurs in this delivery pass. TASK-019 stays
 complete; production gates remain open under TASK-008/009/010/021.
+
+
+## TASK-020 activation and completion — 2026-09-18
+
+The user activated and requested execution of the next eligible public-documentation task. Created
+`codex/task-020-public-docs` from the clean TASK-019 review checkout and added the root README;
+development, data/safety/privacy and deployment/recovery guides; contribution, conduct and
+security policies; two issue forms/configuration; and the pull-request template. Updated the
+documentation index, FR-09/12 traceability and task records. No handbook content was accessed.
+
+Fresh authenticated readback confirmed GitHub private vulnerability reporting is disabled, so the
+security guide uses a minimal public contact request without vulnerability details. Independent
+Reviewer Approved after correcting Ubuntu/Info-ZIP and unconditional `verify:full` guidance.
+Ubuntu 24.04 pinned full verification passes 797 Vitest, 68 browser and 20 accessibility tests;
+links, YAML, formatting, lint, typecheck, build and whitespace checks pass. Evidence is in
+reports/test-2026-09-18-task-020.md and reports/review-2026-09-18-task-020.md.
+
+TASK-020 is complete. No application/test/dependency/workflow/configuration, production data,
+remote setting, deployment, commit, push, merge or release changed. TASK-008 calibration and
+TASK-009/010/021 production/recovery/release gates remain open; no next task is activated.
+
+
+## TASK-020 authorized delivery — 2026-09-19
+
+The user requested delivery of the completed TASK-020 public documentation through commit,
+push, and PR creation. Reused `codex/task-020-public-docs` in `.worktrees/task013-quality`;
+its pre-documentation tracked tree matches fetched `origin/main`, despite equivalent commits
+having different IDs. No other checkout or untracked work was altered.
+
+Fresh pinned Ubuntu `npm run verify:full` exited 0 with 797 Vitest tests, 68 browser checks,
+and 20 accessibility tests. Inline local links, all three issue YAML files, and whitespace
+checks passed. The independent 2026-09-18 documentation approval remains recorded; no new
+independent review is claimed. Deliver only the twenty TASK-020 documentation/template files
+and task/evidence updates. TASK-008 calibration and TASK-009/010/021 gates remain open.
+No merge, deployment, publication enablement, workflow dispatch, or release is part of this delivery.

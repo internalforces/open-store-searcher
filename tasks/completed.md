@@ -518,3 +518,24 @@ No implementation task is active; TASK-020 remains unactivated. TASK-008 calibra
 TASK-009/010/021 production, publication/recovery and release gates remain open. Only authorized
 environment settings and local documentation changed; no source change, commit, push, merge,
 workflow dispatch, deployment, publication enablement or handbook access occurred in this pass.
+
+
+## TASK-020 public documentation — 2026-09-18
+
+User activated and requested execution of TASK-020. Added the public README; development,
+data/safety/privacy and deployment/recovery guides; contribution policy; code of conduct;
+security-reporting policy; two issue forms and their configuration; and a pull-request template.
+The documentation accurately labels the default build as synthetic, collection date as distinct
+from source coverage, production publication as disabled, hosted recovery as unaccepted, and all
+TASK-008/009/010/021 gates as open. The documentation index and FR-09/12 traceability were updated.
+
+Pinned Ubuntu 24.04 `verify:full` passed 797 Vitest tests, 68 browser checks and 20 accessibility
+tests. Formatting, lint, typecheck, build, 41 local Markdown targets, three YAML files and Git
+whitespace checks passed. Independent Reviewer Approved after two verification-guidance findings
+were corrected. Evidence: [verification](../reports/test-2026-09-18-task-020.md) and
+[review](../reports/review-2026-09-18-task-020.md).
+
+No application source, test, dependency, workflow, publication configuration, production data,
+repository setting, deployment, release, commit, push, or handbook file changed. TASK-020 is
+complete; production publication, release-candidate verification, and milestone handbook gates
+remain separate.
