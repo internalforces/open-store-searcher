@@ -57,6 +57,8 @@ The detailed operator sequence and open gates are in [Deployment and recovery](d
 The data source, schema, status rules, date interpretation, and reuse terms are in
 [Data, safety, and privacy](docs/data-and-safety.md).
 
+한국어 안내는 [한국어 README](handbook/ko/README.md)에서 볼 수 있습니다.
+
 ## Contributing and security
 
 Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and
