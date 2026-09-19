@@ -553,3 +553,17 @@ follow SECURITY.md's minimal-issue instruction with blank issues disabled. Ran `
 `npm run format:check`, `npm run typecheck`, and `npm run build` locally on macOS with the locally
 available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js 24.19.0/npm 11.17.0; all
 passed. No dependency, workflow, or production configuration changed.
+
+### PR 27 review follow-up round 2 — 2026-09-19
+
+Addressed two further findings from automated PR review, raised against the round-1 fix commit.
+Checked the `roadmap.md:47` M3 documentation checkbox, since TASK-020 already delivered the setup,
+deployment, data-source, disclaimer, contribution, code-of-conduct, and security-reporting
+documentation it describes. Narrowed the Documentation row in `docs/prd-traceability.md` so it no
+longer implies the 2026-09-18 independent review covered the round-1 README correction or the
+later minimal security-contact issue form; both received local verification only, matching
+`memory/session.md`'s existing statement that no independent re-review is claimed for the round-1
+follow-up. Ran `npm run lint`, `npm run format:check`, and `npm run typecheck` locally on macOS
+with the locally available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js
+24.19.0/npm 11.17.0; all passed. No application source, test, dependency, workflow, or production
+configuration changed.

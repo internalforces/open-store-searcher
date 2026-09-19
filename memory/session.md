@@ -1569,3 +1569,20 @@ macOS (not the pinned Ubuntu container) with the locally available Node.js 22.22
 the project's pinned Node.js 24.19.0/npm 11.17.0; all passed. No independent re-review is claimed
 for this follow-up. No dependency, workflow, production configuration, deployment, merge, or
 release changed.
+
+
+## PR 27 review follow-up round 2 — 2026-09-19
+
+Automated PR review raised two more findings against the round-1 fix commit. `roadmap.md:47`
+still left the M3 documentation checkbox unchecked although TASK-020 already delivered that exact
+deliverable, so checked it. `docs/prd-traceability.md`'s Documentation row claimed the 2026-09-18
+independent review covered all TASK-020 issue documents, but that review's recorded scope
+(`reports/review-2026-09-18-task-020.md`) covers only the two issue forms that existed at the
+time, not the round-1 `security_contact.yml` addition or README correction — narrowed the row to
+say the follow-up README correction and the security-contact form passed local verification only,
+consistent with this file's existing "no independent re-review is claimed" statement above.
+
+Ran `npm run lint`, `npm run format:check`, and `npm run typecheck` locally on macOS with the
+locally available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js 24.19.0/npm
+11.17.0; all passed. No application source, test, dependency, workflow, or production
+configuration changed.

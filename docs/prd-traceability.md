@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-09-19_
 
 ## Usage Rules
 
@@ -61,7 +61,7 @@ production source-cut/policy evidence and TASK-009 last-known-good publication/r
 | Privacy | Zero collection of search terms or behavior | TASK-019, 021 | TASK-019 static/runtime review complete; production and Actions checks retained for release. | Verified (current application); release pending |
 | Safety | Zero missing-result-to-closed or new-code auto-mappings | TASK-007, 013, 021 | TASK-007 exact-pair and empty-stage regressions pass; search and release gates remain pending | In progress |
 | Recovery | Preserve last known-good data after validation failure | TASK-009, 010, 021 | Failure-injection tests | Planned |
-| Documentation | Public setup, deployment, source, disclaimer, and milestone handbook review | TASK-020, 021, 025, 026 | TASK-020 public README, development, data/safety, deployment/recovery, contribution, conduct, security, issue and PR documents pass [verification](../reports/test-2026-09-18-task-020.md) and [independent review](../reports/review-2026-09-18-task-020.md). Later milestone handbook and TASK-021 release checks remain open. | TASK-020 complete; release gates pending |
+| Documentation | Public setup, deployment, source, disclaimer, and milestone handbook review | TASK-020, 021, 025, 026 | TASK-020 public README, development, data/safety, deployment/recovery, contribution, conduct, security, PR template, and the two issue forms reviewed on 2026-09-18 pass [verification](../reports/test-2026-09-18-task-020.md) and [independent review](../reports/review-2026-09-18-task-020.md). The follow-up README correction and the later minimal security-contact issue form pass local verification only ([tasks/completed.md](../tasks/completed.md)); no independent re-review is claimed for them. Later milestone handbook and TASK-021 release checks remain open. | TASK-020 complete; release gates pending |
 
 ## Human Handbook Governance
 
