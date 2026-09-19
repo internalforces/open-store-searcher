@@ -7,16 +7,20 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-09-19_
 
 ## In Progress
 
-No implementation task is active. TASK-019 / AC-019-8 completed on 2026-09-18 after final-head
-Ubuntu verification, merged immutable upload remediation and authenticated settings review.
-The user accepted solo-maintainer PR approval count zero and deployment self-review;
-`github-pages` requires internalforces, forbids administrator bypass and allows only branch main.
-See [final Actions review](../reports/security-2026-09-18-task-019-final.md).
-TASK-020 is next eligible work, not activated. Production/release gates remain open.
+No implementation task is active. TASK-020 delivered its original documentation on 2026-09-18
+with pinned Ubuntu full verification and an independent Approved review of the scope listed in
+[the documentation review](../reports/review-2026-09-18-task-020.md). That review excludes the
+Korean handbook and predates the follow-up README correction and minimal security-contact issue
+form. Those PR follow-ups and subsequent documentation corrections received local verification
+only; no independent final-head approval is claimed. See
+[completion and follow-up evidence](completed.md#pr-27-review-follow-up-round-4--2026-09-19).
+TASK-008 remains between scheduled daily observations; TASK-009/010 production publication and
+TASK-021 release gates remain open.
+TASK-021 is not eligible until its production and release prerequisites are satisfied.
 
 ## Awaiting time-bound evidence
 
@@ -112,7 +116,9 @@ See its [acceptance checklist](completed.md#task-019-acceptance-criteria-and-evi
 [closed Actions criterion](backlog.md#task-019-actions-criterion-closed--2026-09-18).
 See the [TASK-019 security report](../reports/security-2026-09-09-task-019.md).
 No actionable vulnerability was confirmed in current code; production and Actions review gates
-remain open for TASK-009/010/021. TASK-020 remains in backlog and is not activated.
+remain open for TASK-009/010/021. The earlier TASK-020 backlog state is superseded by its
+[completion record](completed.md#task-020-public-documentation--2026-09-18).
+No implementation task is active; the review-scope limits in the In Progress section still apply.
 
 ## Awaiting prerequisite evidence — incomplete
 

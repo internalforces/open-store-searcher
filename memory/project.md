@@ -16,7 +16,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-019 complete with accepted solo-maintainer policy; TASK-020 next, not activated
+- Phase: TASK-020 public documentation complete; TASK-008 calibration and production/release gates remain open
 - Next milestone: M1 — reviewed data policy/baseline and publication/recovery gates remain open
 - Overall health: 🟡 Caution — Actions review and protected environment verified; TASK-008 calibration and production/recovery/release gates remain open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
@@ -291,3 +291,16 @@ CP949 update (2026-09-12): user-approved strict decoder is implemented and Ubunt
 verification passes. Actual 127-category observation hit the 6144 MiB heap; complete bounded
 inventory attempts then failed at provider connection. Production quality/bootstrap and
 TASK-009/010 remain incomplete. See reports/test-2026-09-12-cp949.md.
+
+
+## TASK-020 public documentation complete — 2026-09-18
+
+User activated and requested TASK-020 execution. Added the public product/setup,
+development/testing, data/safety/privacy, deployment/recovery, contribution, conduct,
+security-reporting, issue and pull-request documentation. The 2026-09-18 independent review
+covered all of it except the later minimal security-contact issue form and the round-1 README
+correction, which pass local verification only; no independent re-review is claimed for them
+(see `docs/prd-traceability.md`). Pinned Ubuntu full verification passes 797/68/20; documentation
+links, YAML, formatting, lint, types, build and whitespace pass. The default remains synthetic and
+production publication/recovery/release gates remain explicit. No active implementation task
+remains; TASK-008 calibration continues and TASK-021 is gated.
