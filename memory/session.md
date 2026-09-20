@@ -1684,3 +1684,29 @@ test, dependency, workflow, security policy or deployment settings; no applicati
 independent re-review were run. Prior full-suite evidence remains dated and scoped as recorded.
 No new decision or unresolved implementation issue was introduced; existing production and
 release gates remain open.
+
+
+## Calibration status check and authorized delivery — 2026-09-20
+
+The user requested a current-work assessment, calibration status check, completion assessment,
+and then a written summary with commit/push. Reused the clean isolated calibration checkout on
+`codex/task-008-calibration` at `fe81399`; the GitHub branch matched the local head.
+
+The bounded status check is complete. All four daily observations from September 17 through 20
+exist, cover 195 categories, and retain distinct archives. Recomputed archive/report/log hashes
+passed all 12 comparisons. September 19 collection occurred at 14:15 KST; its delay cause was
+not investigated. Existing receipts retain count/status decreases and no new out-of-scope
+reviewed raw-status pairs. The daily automation remains ACTIVE at 09:00.
+
+The scheduled Pages refresh failed at the reviewed-quality-configuration prerequisite and
+skipped deployment; daily non-publishing observation nevertheless completed. Overall TASK-008
+remains incomplete. October 16 is day 30, followed by evidence assessment, explicit policy/empty
+list/baseline approval, accepted validation and independent final review. No task was moved to
+completed and no architecture, source/status rule, application code or automation changed.
+
+See [the status-check report](../reports/review-2026-09-20-calibration-status.md). Delivery scope
+is only this report and session entry, under the user's explicit commit/push instruction.
+No merge or deployment is included. Application tests were not rerun for this prose-only change.
+
+Delivery checks passed: local report-link resolution, repository lint (five pre-existing
+informational suggestions), formatting, and Git whitespace validation.
