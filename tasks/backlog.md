@@ -7,13 +7,12 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-09-17_
+_Last updated: 2026-09-18_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
 | TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
-| TASK-020 | Write setup, deployment, source, disclaimer, contribution, code-of-conduct, and security-reporting docs | High | M3 | M | Section 17, Section 20 |
 | TASK-021 | Run full P0 traceability and v1.0 release-candidate verification | High | M3 | L | FR-01 through FR-14, Section 17 |
 | TASK-022 | Design and implement identifier-based share URLs | Medium | M4 | M | FR-15 |
 | TASK-023 | Improve candidate-list keyboard navigation | Medium | M4 | M | FR-16 |
@@ -26,15 +25,16 @@ _Last updated: 2026-09-17_
 2. Keep TASK-008 through TASK-010 sequential so each data contract is tested before its consumer.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 
-TASK-026 recurs after milestone implementation, testing, and review. TASK-020 remains the separate M3 deliverable for public setup, deployment, contribution, policy, and release documentation.
+TASK-026 recurs after milestone implementation, testing, and review. TASK-020 public documentation
+completed on 2026-09-18; TASK-021 retains release-candidate documentation verification.
 
 ## TASK-008 calibration waiting disposition — 2026-09-17
 
 TASK-008 is awaiting its approved 30-Seoul-calendar-day evidence interval and does not occupy the
 single active implementation slot between daily observations. TASK-009/010 remain dependent on
 the reviewed policy and baseline and must not resume yet. Independent backlog work may proceed on
-a separate branch. TASK-019 AC-019-8 subsequently completed on 2026-09-18. TASK-020 is now the next eligible
-independent task; deployment and release retain their explicit approval gates.
+a separate branch. TASK-019 AC-019-8 and TASK-020 subsequently completed on 2026-09-18.
+Deployment and release retain their explicit approval gates.
 
 ## Size Guide
 
@@ -74,5 +74,5 @@ historical. Production measurements/data gates remain required for release; no n
 ## TASK-019 Actions criterion closed — 2026-09-18
 
 AC-019-8 is accepted; see [final review](../reports/security-2026-09-18-task-019-final.md).
-TASK-020 is the next eligible independent task and is not activated. TASK-008 observation
-continues; TASK-009/010 remain dependent on reviewed policy and baseline.
+TASK-020 subsequently completed with public documentation, full verification, and independent
+review. TASK-008 observation continues; TASK-009/010 remain dependent on reviewed policy and baseline.

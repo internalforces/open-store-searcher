@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # roadmap.md — open-store-searcher Roadmap
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-09-19_
 
 ## Goal
 
@@ -44,7 +44,7 @@ Deliver a zero-cost, open-source static dashboard that lets users search Seoul-l
 
 - [ ] Verify at least 90% Top-3 recall, 500 ms search, and a 300 KB bundle target.
 - [ ] Test mobile, desktop, keyboard, accessibility, and Pages subpaths.
-- [ ] Write setup, deployment, data-source, disclaimer, contribution, code-of-conduct, and security-reporting documentation.
+- [x] Write setup, deployment, data-source, disclaimer, contribution, code-of-conduct, and security-reporting documentation.
 - [ ] Pass every P0 traceability item and PRD release criterion.
 - [ ] Create the v1.0 tag and deploy to GitHub Pages after human approval.
 - [ ] Review the complete Korean human handbook against the release candidate and pass human language review.

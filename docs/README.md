@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Documentation Index
 
-_Last updated: 2026-08-20_
+_Last updated: 2026-09-18_
 
 ## Source Requirements
 
@@ -34,14 +34,24 @@ The source PRD is the source of truth for product requirements. This harness tur
 - `superpowers/specs/2026-08-18-korean-human-handbook-design.md`: approved design for a Korean human-facing handbook that is excluded from implementation context
 - `superpowers/plans/2026-08-18-korean-human-handbook.md`: implementation plan for the handbook boundary, workflow, and Pre-M0 baseline
 
+## Public Documentation
+
+- `../README.md`: product purpose, safety summary, current release state, and quick start
+- `development.md`: pinned setup, commands, repository layout, and verification workflow
+- `data-and-safety.md`: source permission, public schema, status/date interpretation, privacy, and disclaimer
+- `deployment.md`: publication prerequisites, approved deployment sequence, failure handling, and recovery limits
+- `../CONTRIBUTING.md`: contribution workflow and safety requirements
+- `../CODE_OF_CONDUCT.md`: community participation and enforcement expectations
+- `../SECURITY.md`: supported version and vulnerability-reporting process
+- `../.github/ISSUE_TEMPLATE/`: safe bug and feature-request intake
+- `../.github/pull_request_template.md`: requirements, safety, and verification checklist
+
 All harness documents must be written in English under the policy in `../AGENTS.md`.
 
 The implemented `../handbook/ko/` tree is human-facing explanatory documentation, not harness content or implementation evidence. Implementation roles must not load it. The Documenter may access it only during an authorized milestone-close pass or after an explicit human request.
 
-## User Documentation to Add During Implementation
+## Remaining Documentation Gates
 
-- Root README and setup/local-development guide
-- Data source, terms-of-use, and schema documentation
-- Deployment and recovery runbook
-- Disclaimer, privacy, and security-reporting policies
-- CONTRIBUTING, CODE_OF_CONDUCT, and issue and pull request templates
+- Update operational claims when TASK-008 calibration and TASK-009/010 publication gates close.
+- Complete TASK-021 release-candidate documentation verification.
+- Run the separate TASK-026 Korean handbook review at the applicable milestone close.

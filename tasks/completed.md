@@ -518,3 +518,109 @@ No implementation task is active; TASK-020 remains unactivated. TASK-008 calibra
 TASK-009/010/021 production, publication/recovery and release gates remain open. Only authorized
 environment settings and local documentation changed; no source change, commit, push, merge,
 workflow dispatch, deployment, publication enablement or handbook access occurred in this pass.
+
+
+## TASK-020 public documentation — 2026-09-18
+
+User activated and requested execution of TASK-020. Added the public README; development,
+data/safety/privacy and deployment/recovery guides; contribution policy; code of conduct;
+security-reporting policy; two issue forms and their configuration; and a pull-request template.
+As explicit handbook work for this task, also rewrote `handbook/ko/README.md` as a Korean-language
+counterpart to the root README, linked from it. The documentation accurately labels the default
+build as synthetic, collection date as distinct from source coverage, production publication as
+disabled, hosted recovery as unaccepted, and all TASK-008/009/010/021 gates as open. The
+documentation index and FR-09/12 traceability were updated.
+
+Pinned Ubuntu 24.04 `verify:full` passed 797 Vitest tests, 68 browser checks and 20 accessibility
+tests. Formatting, lint, typecheck, build, 41 local Markdown targets, three YAML files and Git
+whitespace checks passed. Independent Reviewer Approved after two verification-guidance findings
+were corrected. That review's scope excluded `handbook/ko/**`, so the handbook rewrite above was
+not covered by it. Evidence: [verification](../reports/test-2026-09-18-task-020.md) and
+[review](../reports/review-2026-09-18-task-020.md).
+
+No application source, test, dependency, workflow, publication configuration, production data,
+repository setting, deployment, release, commit, or push occurred outside this authorized
+documentation pass. TASK-020 is complete; production publication, release-candidate verification,
+and milestone handbook gates remain separate.
+
+### PR 27 review follow-up — 2026-09-19
+
+Addressed three P1 findings from automated PR review: corrected this record's inaccurate claim
+that no handbook file changed (above); translated the root README's Korean handbook-link sentence
+to English per the harness language policy (`README.md`); and added a dedicated minimal
+security-contact issue form (`.github/ISSUE_TEMPLATE/security_contact.yml`) so a reporter can
+follow SECURITY.md's minimal-issue instruction with blank issues disabled. Ran `npm run lint`,
+`npm run format:check`, `npm run typecheck`, and `npm run build` locally on macOS with the locally
+available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js 24.19.0/npm 11.17.0; all
+passed. No dependency, workflow, or production configuration changed.
+
+### PR 27 review follow-up round 2 — 2026-09-19
+
+Addressed two further findings from automated PR review, raised against the round-1 fix commit.
+Checked the `roadmap.md:47` M3 documentation checkbox, since TASK-020 already delivered the setup,
+deployment, data-source, disclaimer, contribution, code-of-conduct, and security-reporting
+documentation it describes. Narrowed the Documentation row in `docs/prd-traceability.md` so it no
+longer implies the 2026-09-18 independent review covered the round-1 README correction or the
+later minimal security-contact issue form; both received local verification only, matching
+`memory/session.md`'s existing statement that no independent re-review is claimed for the round-1
+follow-up. Ran `npm run lint`, `npm run format:check`, and `npm run typecheck` locally on macOS
+with the locally available Node.js 22.22.3/npm 10.9.8, not the project's pinned Node.js
+24.19.0/npm 11.17.0; all passed. No application source, test, dependency, workflow, or production
+configuration changed.
+
+### PR 27 review follow-up round 3 — 2026-09-19
+
+Addressed one further finding from automated PR review, raised against the round-2 fix commit.
+`memory/project.md`'s TASK-020 entry still stated the public documentation was "added and
+independently reviewed" as a single claim covering security-reporting and issue documentation,
+but the 2026-09-18 review's recorded scope predates the round-1 `security_contact.yml` form and
+README correction. Narrowed that entry to say the review covered everything except those two
+follow-up items, which pass local verification only, consistent with the wording already used in
+`docs/prd-traceability.md` and `memory/session.md`. Ran `npm run lint`, `npm run format:check`,
+and `npm run typecheck` locally on macOS with the locally available Node.js 22.22.3/npm 10.9.8,
+not the project's pinned Node.js 24.19.0/npm 11.17.0; lint and format:check passed, and typecheck
+showed only the pre-existing, already-documented `iconv-lite` module gap unrelated to this change.
+No application source, test, dependency, workflow, or production configuration changed.
+
+### PR 27 review follow-up round 4 — 2026-09-19
+
+Reviewed the latest findings against `2e807b6` and corrected both:
+
+- Comment `4052415496`: narrowed `tasks/active.md` to the dated original independent review
+  scope. It explicitly excludes the handbook, the later README correction, security-contact
+  form, and subsequent documentation corrections from any independent final-head approval claim.
+- Comment `4052415499`: reconciled `publication/README.md` with the final TASK-019 review and
+  saved settings receipt from 2026-09-18. Both the earlier settings paragraph and the final
+  status section now distinguish historical missing protections from the configured reviewer,
+  main-only environment policy, disabled administrator bypass, and accepted self-review policy.
+  The operator contract links back to the deployment runbook and requires settings readback
+  before use. Production configuration, publication and release gates remain open.
+
+This is documentation-only remediation under the user's explicit review/fix/commit/push request.
+No application, test, dependency, workflow, repository setting or deployment changed. No new
+architecture or policy decision was made, and no independent re-review is asserted. Earlier
+full-suite evidence remains historical; application tests were not rerun for these prose changes.
+Validation: local Markdown target and changed-anchor checks, review-scope/settings assertions,
+`npm run lint`, `npm run format:check`, and `git diff --check` passed. Local inspection used
+Node.js 22.22.3/npm 10.9.8, not the pinned application runtime. The previously recorded local
+`iconv-lite` typecheck gap is outside this documentation correction; no new typecheck result is
+claimed. Only these four documentation/task-record files are included in the delivery.
+
+### PR 27 review follow-up round 5 — 2026-09-19
+
+Reviewed both findings against `c157617` under the user's review/fix/commit/push request:
+
+- `4052445931`: replaced the stale TASK-020 "active task above" reference in `tasks/active.md`
+  with its completed-task record. Explicitly retained the absence of an active implementation
+  task and the existing independent-review scope limits.
+- `4052445932`: added the `handbook/ko/**` Korean-language exception to `CONTRIBUTING.md`,
+  with a link to the constitution's language/access boundaries and the handbook's explanatory,
+  non-authoritative role. No handbook content was accessed or changed.
+
+Validation: Markdown file targets and the completion anchor, assertions for both requested
+corrections, repository lint/format checks and Git whitespace checks passed. Local tooling:
+Node.js 22.22.3/npm 10.9.8. This four-file prose-only correction does not change application,
+test, dependency, workflow, security policy or deployment settings; no application tests or
+independent re-review were run. Prior full-suite evidence remains dated and scoped as recorded.
+No new decision or unresolved implementation issue was introduced; existing production and
+release gates remain open.
