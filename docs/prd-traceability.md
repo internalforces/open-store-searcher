@@ -277,6 +277,24 @@ publish data, or close an FR. Those review gates remain open until the interval 
 final review complete.
 
 
+## TASK-008 quality calibration daily evidence — 2026-09-18 to 2026-09-21
+
+FR-08/13/14: four further non-publishing daily observations extend the 30-Seoul-calendar-day
+calibration interval opened 2026-09-17. Each covers all 195 categories with a distinct archive
+hash and retains category-level status corrections, and one category-count decrease on 2026-09-18,
+for review. See receipts for [2026-09-18](../reports/calibration-2026-09-18-task-008.md),
+[2026-09-19](../reports/calibration-2026-09-19-task-008.md),
+[2026-09-20](../reports/calibration-2026-09-20-task-008.md), and
+[2026-09-21](../reports/calibration-2026-09-21-task-008.md). The
+[2026-09-20 status check](../reports/review-2026-09-20-calibration-status.md) independently
+recomputes all four archives', reports', and logs' SHA-256 hashes and confirms the scheduled
+refresh's publication failure is separate from these observations.
+
+This evidence does not select numeric limits, approve empty categories, establish a baseline,
+publish data, or close an FR. Those review gates remain open until the interval and independent
+final review complete.
+
+
 ## TASK-019 actual Actions review — 2026-09-17
 
 FR-12 / Section 14.4 / AC-019-8 now have actual workflow, upstream dependency and authenticated

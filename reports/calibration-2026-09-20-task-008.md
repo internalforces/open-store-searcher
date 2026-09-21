@@ -22,7 +22,7 @@ status corrections are retained for review.
 | Archive bytes | 216,671,171 |
 | Complete categories | 195 |
 | Parsed rows | 2,942,802 |
-| Validation result | `review_required` (the research observation omits operator policy and baseline configuration) |
+| Validation result | `review_required` (68 `aggregate_pair_review_required` diagnostics from the missing reviewed-unverified-pair contract, plus omitted operator policy and baseline configuration, and unverified source coverage) |
 | Dataset SHA-256 | `ab742c2128387f2943573b8cfcdb3ace48249cfaeb9ebef604d0f07e13c1a9e1` |
 | Dataset bytes | 2,441,813,622 |
 | Elapsed time | 515,502 ms |

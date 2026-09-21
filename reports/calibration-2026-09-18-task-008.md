@@ -22,7 +22,7 @@ decrease and nine category-level status corrections are retained for review.
 | Archive bytes | 216,600,173 |
 | Complete categories | 195 |
 | Parsed rows | 2,941,941 |
-| Validation result | `review_required` (the research observation omits operator policy and baseline configuration) |
+| Validation result | `review_required` (68 `aggregate_pair_review_required` diagnostics from the missing reviewed-unverified-pair contract, plus omitted operator policy and baseline configuration, and unverified source coverage) |
 | Dataset SHA-256 | `84dbca5ac40b12106305db4633dc28a8bf6041527e7f1d0bbcd3ebe1be7f4bd4` |
 | Dataset bytes | 2,441,071,810 |
 | Elapsed time | 503,974 ms |
@@ -40,7 +40,9 @@ with SHA-256 `ac109e938d0512ad1bf3fdae25b111a0107b66677c362d3cc4da6d1839d6792f`.
 ## Transition from 2026-09-17
 
 The archive bytes and dataset bytes are distinct from the previous observation. Total rows
-increased by 488. Forty category metrics changed and the same 23 categories remain empty.
+increased by 488. Forty-six category metrics changed in policy-relevant fields (of which forty
+had a row-count change; the other six have unchanged totals but an administratively-operating-to-
+closed status-count shift), and the same 23 categories remain empty.
 Missing names remain 29 and missing-both-addresses remain zero. Total display-status deltas are
 +268 administratively operating, +2 suspended, +170 closed, and +48 unverified.
 

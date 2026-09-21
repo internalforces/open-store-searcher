@@ -22,7 +22,7 @@ status corrections are retained for review.
 | Archive bytes | 216,625,612 |
 | Complete categories | 195 |
 | Parsed rows | 2,942,404 |
-| Validation result | `review_required` (the research observation omits operator policy and baseline configuration) |
+| Validation result | `review_required` (68 `aggregate_pair_review_required` diagnostics from the missing reviewed-unverified-pair contract, plus omitted operator policy and baseline configuration, and unverified source coverage) |
 | Dataset SHA-256 | `1bc950745af257f8b0053475ae7feed4575bd39443fcb378be980d0e1ba5a251` |
 | Dataset bytes | 2,441,471,767 |
 | Elapsed time | 629,765 ms |
@@ -51,9 +51,11 @@ calibration. Administratively operating counts decreased in these 28 categories:
 `15045009`, `15045017`, `15045020`, `15045021`, `15045023`, `15045032`, `15045034`,
 `15045057`, `15045066`, `15045073`, `15045079`, `15045081`, `15045089`, `15045103`,
 `15045104`, `15045107`, `15045116`, `15101549`, `15101550`, `15107029`, and `15107032`.
-Category `15045072` changed one closed row to administratively operating, and category `15045109`
-changed one unverified row to administratively operating. No limit, status rule, or baseline is
-selected from these corrections.
+Category `15045072` shows closed -1 and administratively operating +1; category `15045109` shows
+unverified -1 and administratively operating +1. These are aggregate count deltas, not confirmed
+row-level conversions: the committed observation retains category-level counts only, not record
+identity, so a deletion paired with an unrelated addition would produce the same deltas. No limit,
+status rule, or baseline is selected from these corrections.
 
 Unknown-pair rows increased by 58 to 187,454. All remain within the approved 68 exact
 05/06 pair/category scopes; no new, missing, or out-of-scope reviewed pair appeared.

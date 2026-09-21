@@ -22,7 +22,7 @@ status corrections are retained for review.
 | Archive bytes | 216,674,694 |
 | Complete categories | 195 |
 | Parsed rows | 2,942,809 |
-| Validation result | `review_required` (the research observation omits operator policy and baseline configuration) |
+| Validation result | `review_required` (68 `aggregate_pair_review_required` diagnostics from the missing reviewed-unverified-pair contract, plus omitted operator policy and baseline configuration, and unverified source coverage) |
 | Dataset SHA-256 | `7823fa93ab79cbffea2a9048930df7dd1633792d5e7d90f9493dbbd20e441ad8` |
 | Dataset bytes | 2,441,819,666 |
 | Elapsed time | 536,230 ms |
@@ -45,12 +45,14 @@ categories remain empty. Missing names remain 29 and missing-both-addresses rema
 display-status deltas are -10 administratively operating, +1 suspended, +16 closed, and zero
 unverified.
 
-Three categories contain negative display-status transitions that must remain visible during
-calibration. Category `15044960` changed one administratively operating row to suspended;
-category `15044977` changed eight administratively operating rows to closed; and category
-`15045016` changed six administratively operating rows to closed. Other additions offset five of
-these decreases at the total level. No limit, status rule, or baseline is selected from the
-corrections.
+Three categories contain negative display-status count deltas that must remain visible during
+calibration. Category `15044960` shows administratively operating -1 and suspended +1; category
+`15044977` shows administratively operating -8 and closed +8; and category `15045016` shows
+administratively operating -6 and closed +6. These are aggregate count deltas, not confirmed
+row-level conversions: the committed observation retains category-level counts only, not record
+identity, so a deletion paired with an unrelated addition would produce the same deltas. Other
+additions offset five of these decreases at the total level. No limit, status rule, or baseline is
+selected from the corrections.
 
 Unknown-pair rows remain 187,498. All remain within the approved 68 exact 05/06 pair/category
 scopes; no new, missing, or out-of-scope reviewed pair appeared.
