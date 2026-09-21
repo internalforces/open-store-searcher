@@ -7,7 +7,53 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-09-14_
+_Last updated: 2026-09-21_
+
+## TASK-008 Daily Calibration — 2026-09-21
+
+The fifth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`1c652bb`. It parsed 2,942,809 rows across all 195 categories from archive
+`b91012e54cd62a500fac6194f81ee25cfe8d98f5193515174207ce6d678170f5`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-20, total rows increased by
+seven, no category total decreased, and three categories contain negative display-status
+transitions that are retained for calibration review. All 187,498 unknown-pair rows remain inside
+the approved exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or
+deployment was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-20
+
+The fourth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`eda7ebd`. It parsed 2,942,802 rows across all 195 categories from archive
+`a516963f2b591b4eb09ade634ac8f4bd86336009ac31a5610a6d98ae32f28113`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-19, total rows increased by 398,
+no category total decreased, and 20 categories contain negative display-status transitions that
+are retained for calibration review. All 187,498 unknown-pair rows remain inside the approved
+exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-19
+
+The third distinct current observation completed through the bounded Ubuntu 24.04 path at
+`22b6cb4`. It parsed 2,942,404 rows across all 195 categories from archive
+`cfd7058f5b3fb1c752fabf94e8bc17e74ceb3c12bbbb5a3f2cfcda0ac881d16f`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-18, total rows increased by 463,
+no category total decreased, and 30 categories contain negative display-status transitions that
+are retained for calibration review. All 187,454 unknown-pair rows remain inside the approved
+exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-18
+
+The second distinct current observation completed through the bounded Ubuntu 24.04 path at
+`32c1809`. It parsed 2,941,941 rows across all 195 categories from archive
+`b183ddd70db99508bd01c34bf00ab41612a9378ab8189b4bf2e2ca7ac8d1d729`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-17, total rows increased by 488,
+category `15045026` decreased by one row, and nine categories contain administratively operating
+decreases. All 187,396 unknown-pair rows remain inside the approved exact 68-scope contract.
+No policy, allowed-empty list, baseline, publication, or deployment was accepted. Continue the
+approved non-publishing interval from the isolated `codex/task-008-calibration` branch; retain the
+decrease and status corrections for the final evidence-bound proposal and review.
 
 ## Current TASK-008 Session
 
@@ -1650,3 +1696,29 @@ test, dependency, workflow, security policy or deployment settings; no applicati
 independent re-review were run. Prior full-suite evidence remains dated and scoped as recorded.
 No new decision or unresolved implementation issue was introduced; existing production and
 release gates remain open.
+
+
+## Calibration status check and authorized delivery — 2026-09-20
+
+The user requested a current-work assessment, calibration status check, completion assessment,
+and then a written summary with commit/push. Reused the clean isolated calibration checkout on
+`codex/task-008-calibration` at `fe81399`; the GitHub branch matched the local head.
+
+The bounded status check is complete. All four daily observations from September 17 through 20
+exist, cover 195 categories, and retain distinct archives. Recomputed archive/report/log hashes
+passed all 12 comparisons. September 19 collection occurred at 14:15 KST; its delay cause was
+not investigated. Existing receipts retain count/status decreases and no new out-of-scope
+reviewed raw-status pairs. The daily automation remains ACTIVE at 09:00.
+
+The scheduled Pages refresh failed at the reviewed-quality-configuration prerequisite and
+skipped deployment; daily non-publishing observation nevertheless completed. Overall TASK-008
+remains incomplete. October 16 is day 30, followed by evidence assessment, explicit policy/empty
+list/baseline approval, accepted validation and independent final review. No task was moved to
+completed and no architecture, source/status rule, application code or automation changed.
+
+See [the status-check report](../reports/review-2026-09-20-calibration-status.md). Delivery scope
+is only this report and session entry, under the user's explicit commit/push instruction.
+No merge or deployment is included. Application tests were not rerun for this prose-only change.
+
+Delivery checks passed: local report-link resolution, repository lint (five pre-existing
+informational suggestions), formatting, and Git whitespace validation.
