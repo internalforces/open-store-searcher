@@ -77,6 +77,9 @@ on a separate branch while the scheduled evidence collector runs.
 - [x] Fifth distinct current observation completed on 2026-09-21: all 195 categories and
       2,942,809 rows. No category total decreased; retain three category-level status corrections
       for review without inferring policy limits.
+- [x] Sixth distinct current observation completed on 2026-09-22: all 195 categories and
+      2,942,813 rows. No category total decreased; retain three category-level status corrections
+      for review without inferring policy limits.
 - [ ] Complete the approved interval and derive the full evidence-bound policy proposal.
 - [ ] Obtain explicit policy, allowed-empty, and initial-baseline approval.
 - [ ] Run accepted validation, failure preservation, and independent final review.

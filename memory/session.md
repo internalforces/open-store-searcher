@@ -7,7 +7,18 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-09-21_
+_Last updated: 2026-09-22_
+
+## TASK-008 Daily Calibration — 2026-09-22
+
+The sixth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`a514790`. It parsed 2,942,813 rows across all 195 categories from archive
+`4499866d702a449eef6478f2221d45f35ecaa36c23164e789a8a39eb1ea0d7d1`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-21, total rows increased by four,
+no category total decreased, and three categories contain negative display-status transitions
+that are retained for calibration review. All 187,498 unknown-pair rows remain inside the approved
+exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
 
 ## TASK-008 Daily Calibration — 2026-09-21
 
