@@ -131,6 +131,7 @@ Preserve the previous implementation and evidence. Scheduled production observat
 continues without an active implementation slot;
 source coverage is still unverified under the approved collection-date interpretation.
 
+
 ### TASK-008: Validate staged refreshes and freshness evidence
 
 - Owner: Planner / Researcher for remaining production evidence; staged implementation verified
@@ -152,10 +153,10 @@ source coverage is still unverified under the approved collection-date interpret
   - [x] Obtain approval of ADR-014 and the date-only seven-day warning convention.
   - [x] Implement the staged validator and freshness/JSON helpers with offline test-first evidence.
   - [ ] Resolve production coverage evidence and reviewed thresholds/baseline without defaults.
-        ADR-016 resolves the operational date basis using collection dates with unverified source
-        coverage; reviewed thresholds/baseline remain open and exact-pair acceptance is complete.
+  ADR-016 resolves the operational date basis using collection dates with unverified source
+  coverage; reviewed thresholds/baseline remain open and exact-pair acceptance is complete.
   - [x] Obtain source PRD or explicit direction to use current traceability as the design baseline.
-        The original PRD is accessible and compared on 2026-09-16; see the quality decision packet.
+  The original PRD is accessible and compared on 2026-09-16; see the quality decision packet.
   - [x] Approve and activate a distinct-archive 30-Seoul-calendar-day calibration protocol.
   - [ ] Complete the interval, derive and explicitly approve the policy/empty list/baseline,
         obtain an accepted complete validation, and complete independent final review.
@@ -209,6 +210,7 @@ source coverage is still unverified under the approved collection-date interpret
 
 Design: [compact delivery proposal](../docs/superpowers/specs/2026-09-14-task-008-compact-delivery-design.md).
 
+
 Compact-delivery implementation and local verification are documented in
 [verification](../reports/test-2026-09-14-compact-delivery.md) and the independent review. The
 production-codec exact round-trip covers 2,939,947 records; the functional research site is 688.5 MB.
@@ -219,6 +221,7 @@ reviewed policy/baseline, 05/06 review and overall TASK-008/009/010/release acce
 Local Ubuntu 24.04 verification passes 754 tests and the browser 68/accessibility 20 suites with
 one worker. The initial default-parallel WebKit flakes remain a documented limitation; no flaky
 policy or assertion was weakened. These local results do not close any production release gate.
+
 
 ## Operational evidence disposition — 2026-09-17
 
@@ -231,6 +234,7 @@ final LCP remain open with their performance/release owner tasks rather than TAS
 reviewed-unverified proposal was approved on 2026-09-17 and its bounded implementation is verified. Numeric
 policy calibration, empty-category approval and initial baseline remain separate gates.
 No TASK-009/010 activation or deployment is implied. The prior source-PRD access blocker is closed.
+
 
 ## Approved reviewed-unverified continuation — 2026-09-17
 
