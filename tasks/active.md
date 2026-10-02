@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-09-30_
+_Last updated: 2026-10-02_
 
 ## In Progress
 
@@ -34,11 +34,11 @@ strict evidence/scope validation, 797/68/20 full checks and independent Reviewer
 select numeric quality limits, empty-category policy, an initial baseline, or publication.
 The user then instructed execution of the recorded completion plan, selecting its recommended
 original TASK-008 ownership and activating the 30-Seoul-calendar-day calibration from 2026-09-17.
-Twelve distinct current observations are complete. The 2026-09-30 observation contains 2,945,093
+Thirteen distinct current observations are complete. The 2026-10-02 observation contains 2,946,138
 rows across all 195 categories; its archive is retained outside Git. No observation completed on
-2026-09-25 or 2026-09-29 because those scheduled turns ended before collection began; no provider
-failure is inferred. The latest transition has no category-count decrease and retains 19
-category/status decreases plus eight collision-metric decreases for calibration review. Daily
+2026-09-25, 2026-09-29, or 2026-10-01 because those scheduled turns ended before collection began;
+no provider failure is inferred. The latest transition has no category-count decrease and retains
+31 category/status decreases plus four collision-group decreases for calibration review. Daily
 non-publishing observation remains scheduled. Derived numeric
 policy, the empty-category list, and the initial baseline still require explicit approval after
 the interval. The previous operational verification began on the user's 2026-09-16 request, with
