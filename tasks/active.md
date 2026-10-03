@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-10-02_
+_Last updated: 2026-10-03_
 
 ## In Progress
 
@@ -39,7 +39,9 @@ rows across all 195 categories; its archive is retained outside Git. No observat
 2026-09-25, 2026-09-29, or 2026-10-01 because those scheduled turns ended before collection began;
 no provider failure is inferred. The latest transition has no category-count decrease and retains
 31 category/status decreases plus four collision-group decreases for calibration review. Daily
-non-publishing observation remains scheduled. Derived numeric
+non-publishing observation remains scheduled. The 2026-10-03 attempt was rejected before archive
+acceptance because the declared response length disagreed with range evidence; no retry, complete
+observation, publication, or known-good replacement occurred. Derived numeric
 policy, the empty-category list, and the initial baseline still require explicit approval after
 the interval. The previous operational verification began on the user's 2026-09-16 request, with
 parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.
