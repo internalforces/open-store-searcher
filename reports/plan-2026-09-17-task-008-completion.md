@@ -105,6 +105,8 @@ on a separate branch while the scheduled evidence collector runs.
 - [x] The 2026-10-03 bounded attempt was rejected before archive acceptance because the declared
       full-response length disagreed with range evidence. Preserve the `transfer_incomplete`
       failure; it does not count as a distinct observation and was not retried in the same turn.
+- [x] The 2026-10-04 bounded attempt repeated the same pre-acceptance `transfer_incomplete`
+      rejection. Preserve the second failure; no same-turn retry or distinct observation exists.
 - [ ] Complete the approved interval and derive the full evidence-bound policy proposal.
 - [ ] Obtain explicit policy, allowed-empty, and initial-baseline approval.
 - [ ] Run accepted validation, failure preservation, and independent final review.
