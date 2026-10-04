@@ -82,13 +82,15 @@ on a separate branch while the scheduled evidence collector runs.
       for review without inferring policy limits.
 - [x] Seventh distinct current observation completed on 2026-09-23: all 195 categories and
       2,943,368 rows. No category total decreased; retain 23 category-level status corrections
-      for review without inferring policy limits.
+      plus two collision-group decreases for review without inferring policy limits.
 - [x] Eighth distinct current observation completed on 2026-09-24: all 195 categories and
       2,943,885 rows. No category total decreased; retain 13 category-level status corrections
-      for review without inferring policy limits.
+      plus five collision-group decreases and one collision-record decrease for review without
+      inferring policy limits.
 - [x] Ninth distinct current observation completed on 2026-09-26: all 195 categories and
       2,944,343 rows. No category total decreased; retain 12 category-level status corrections
-      for review without inferring policy limits. No observation was completed on 2026-09-25;
+      plus two collision-group decreases and one collision-record decrease for review without
+      inferring policy limits. No observation was completed on 2026-09-25;
       preserve that calendar-day gap without attributing a provider failure.
 - [x] Tenth distinct current observation completed on 2026-09-27: all 195 categories and
       2,944,349 rows. No category total decreased; retain four category-level status corrections

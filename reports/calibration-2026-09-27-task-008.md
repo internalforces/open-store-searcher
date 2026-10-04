@@ -15,6 +15,7 @@ status corrections are retained for review.
 | Item                        | Value                                                                                         |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
 | Source commit               | `16b0f4d6cfb191128653288eb86edfeffe1941c2`                                                    |
+| Retained implementation anchor | `a51479097c910862e0e63b3ed6d1e7e7fa477a85` |
 | Runtime                     | Ubuntu 24.04; Node.js 24.19.0; npm 11.17.0; Debian InfoZIP 6.00                               |
 | Collection instant          | `2026-09-27T00:01:48.074Z`                                                                    |
 | Provider modified date      | `2026-09-27`                                                                                  |
@@ -29,6 +30,8 @@ status corrections are retained for review.
 | Peak Node RSS               | 2,358,916 KiB                                                                                 |
 | Observation receipt SHA-256 | `137982cb272edfc99db63174e5f84b4e49ea2f53f212120363ee8d3d029d9e75`                            |
 | Committed JSON SHA-256      | `4c77708846cd48f156ca0e1b5774526365291cfcaf0596cbcd9ec18dded2a894`                            |
+
+Implementation provenance: [retained implementation binding](calibration-2026-10-04-implementation-binding.md).
 
 The full report is `reports/observation-2026-09-27-bounded-source.json`. The distinct source archive
 is retained outside Git at

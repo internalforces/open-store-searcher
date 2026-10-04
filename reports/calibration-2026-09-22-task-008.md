@@ -15,6 +15,7 @@ status corrections are retained for review.
 | Item | Value |
 |---|---|
 | Source commit | `a51479097c910862e0e63b3ed6d1e7e7fa477a85` |
+| Retained implementation anchor | `a51479097c910862e0e63b3ed6d1e7e7fa477a85` |
 | Runtime | Ubuntu 24.04; Node.js 24.19.0; npm 11.17.0; Debian InfoZIP 6.00 |
 | Collection instant | `2026-09-22T00:03:36.857Z` |
 | Provider modified date | `2026-09-22` |
@@ -30,6 +31,8 @@ status corrections are retained for review.
 | Observation receipt SHA-256 | `596a72cd83cf2319f98eec58e573585df2f5a5aed21d6e27a5df519eb8e0f189` |
 | Committed JSON SHA-256 | `e657e0bb75b5ec2cf561cc0c3e84f30936d7097389b586390f2706e968d1e2de` |
 
+Implementation provenance: [retained implementation binding](calibration-2026-10-04-implementation-binding.md).
+
 The full report is `reports/observation-2026-09-22-bounded-source.json`. The distinct source archive
 is retained outside Git at
 `/Users/sonmyeong-gwan/Documents/open-store-searcher-task008-calibration/archives/4499866d702a449eef6478f2221d45f35ecaa36c23164e789a8a39eb1ea0d7d1.zip`.
@@ -40,8 +43,8 @@ with SHA-256 `18838783f7e6aa259784dc71b730994834f5aa175099fbd52ed433e3033573bc`.
 ## Transition from 2026-09-21
 
 The archive bytes and dataset bytes are distinct from the previous observation. Total rows
-increased by four. Six category metrics changed, no category total decreased, and the same 23
-categories remain empty. Missing names remain 29 and missing-both-addresses remain zero. Total
+increased by four. Seven categories changed across all recorded metrics. No category total decreased,
+and the same 23 categories remain empty. Missing names remain 29 and missing-both-addresses remain zero. Total
 display-status deltas are -121 administratively operating, zero suspended, +125 closed, and zero
 unverified.
 

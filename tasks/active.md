@@ -42,7 +42,10 @@ no provider failure is inferred. The latest transition has no category-count dec
 non-publishing observation remains scheduled. The 2026-10-03 attempt was rejected before archive
 acceptance because the declared response length disagreed with range evidence; no retry, complete
 observation, publication, or known-good replacement occurred. The 2026-10-04 attempt repeated the
-same bounded rejection and was also not retried. Derived numeric
+same bounded rejection and was also not retried. The repeated acquisition blocker is tracked as
+[ISS-003](../memory/known-issues.md#iss-003-repeated-transfer_incomplete-calibration-rejection);
+[FR-08/13/14 evidence](../docs/prd-traceability.md#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-04)
+includes all eight new observations, three pre-collection gaps, and both failed attempts. Derived numeric
 policy, the empty-category list, and the initial baseline still require explicit approval after
 the interval. The previous operational verification began on the user's 2026-09-16 request, with
 parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.

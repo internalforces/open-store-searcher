@@ -15,6 +15,7 @@ decreases and four collision-group decreases are retained for review.
 | Item                        | Value                                                                                         |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
 | Source commit               | `2a28952`                                                                                     |
+| Retained implementation anchor | `a51479097c910862e0e63b3ed6d1e7e7fa477a85` |
 | Runtime                     | Ubuntu 24.04; Node.js 24.19.0; npm 11.17.0; Debian InfoZIP 6.00                               |
 | Collection instant          | `2026-10-02T12:57:09.778Z`                                                                    |
 | Provider modified date      | `2026-10-02`                                                                                  |
@@ -29,6 +30,8 @@ decreases and four collision-group decreases are retained for review.
 | Peak Node RSS               | 2,364,176 KiB                                                                                 |
 | Observation receipt SHA-256 | `75fdfdc60616053d36a261684154b92d4832d7cd3831a5d6a3f6c4ac7c1b0e86`                            |
 | Committed JSON SHA-256      | `637db8e4b481b119afd68f486d232bba3292884bc7ba09f9f053ff69846838f2`                            |
+
+Implementation provenance: [retained implementation binding](calibration-2026-10-04-implementation-binding.md).
 
 The full report is `reports/observation-2026-10-02-bounded-source.json`. The distinct source archive
 is retained outside Git at

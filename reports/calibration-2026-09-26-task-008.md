@@ -8,13 +8,14 @@ Harness Version: 1.1
 # TASK-008 Calibration Observation — 2026-09-26
 
 Status: complete non-publishing observation; calibration remains in progress; 12 category-level
-status corrections are retained for review.
+status corrections and collision decreases are retained for review.
 
 ## Observation receipt
 
 | Item                        | Value                                                                                         |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
 | Source commit               | `118d10f7ac2b1c42d370b69798ef6d81ed828f97`                                                    |
+| Retained implementation anchor | `a51479097c910862e0e63b3ed6d1e7e7fa477a85` |
 | Runtime                     | Ubuntu 24.04; Node.js 24.19.0; npm 11.17.0; Debian InfoZIP 6.00                               |
 | Collection instant          | `2026-09-26T14:20:54.376Z`                                                                    |
 | Provider modified date      | `2026-09-26`                                                                                  |
@@ -29,6 +30,8 @@ status corrections are retained for review.
 | Peak Node RSS               | 2,315,832 KiB                                                                                 |
 | Observation receipt SHA-256 | `c552d29e570d4463918f58ba5d906cb36f42432c40112eb6526b0b339418c203`                            |
 | Committed JSON SHA-256      | `a72e5c14fe3ba414f44fefc728503e82e63b86cb46e098fa05c1930cdb11b3fc`                            |
+
+Implementation provenance: [retained implementation binding](calibration-2026-10-04-implementation-binding.md).
 
 The full report is `reports/observation-2026-09-26-bounded-source.json`. The distinct source archive
 is retained outside Git at
@@ -47,8 +50,8 @@ before collection began; no provider or connectivity failure was observed. This 
 therefore spans two Seoul calendar days.
 
 The archive bytes and dataset bytes are distinct from the previous observation. Total rows
-increased by 458. Forty-six categories changed, no category total decreased, and the same 23
-categories remain empty. Missing names remain 29 and missing-both-addresses remain zero. Total
+increased by 458. Fifty-one categories changed across all recorded metrics. No category total decreased,
+and the same 23 categories remain empty. Missing names remain 29 and missing-both-addresses remain zero. Total
 display-status deltas are +200 administratively operating, -1 suspended, +210 closed, and +49
 unverified.
 
@@ -57,6 +60,11 @@ calibration. Administratively operating counts decreased in categories `15006730
 `15044964`, `15044972`, `15044977`, `15044985`, `15045038`, `15045079`,
 `15045104`, `15045109`, and `15101546`. Category `15045024` has one fewer suspended
 row. No limit, status rule, or baseline is selected from these corrections.
+
+Collision metrics changed in 46 categories: total collision groups increased by 344 and
+collision records by 434. Collision-group counts decreased by three in `15044973` (18,113 to
+18,110) and one in `15045109` (13,639 to 13,638); collision-record counts decreased by one in
+`15045097` (387 to 386). All three decreases remain separate calibration review evidence.
 
 Unknown-pair rows increased by 36 to 187,653. All remain within the approved 68 exact
 05/06 pair/category scopes; no new, missing, or out-of-scope reviewed pair appeared.

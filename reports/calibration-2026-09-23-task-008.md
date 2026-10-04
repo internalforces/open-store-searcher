@@ -8,13 +8,14 @@ Harness Version: 1.1
 # TASK-008 Calibration Observation — 2026-09-23
 
 Status: complete non-publishing observation; calibration remains in progress; 23 category-level
-status corrections are retained for review.
+status corrections and collision decreases are retained for review.
 
 ## Observation receipt
 
 | Item | Value |
 |---|---|
 | Source commit | `0ad74d998dccdf84ae7a5729d363aba5bdf01579` |
+| Retained implementation anchor | `a51479097c910862e0e63b3ed6d1e7e7fa477a85` |
 | Runtime | Ubuntu 24.04; Node.js 24.19.0; npm 11.17.0; Debian InfoZIP 6.00 |
 | Collection instant | `2026-09-23T12:16:36.418Z` |
 | Provider modified date | `2026-09-23` |
@@ -30,6 +31,8 @@ status corrections are retained for review.
 | Observation receipt SHA-256 | `4fa6ed4a638f47dbfae3d50d4cb40a49e690be6ade896c77acd1d44fcf03886d` |
 | Committed JSON SHA-256 | `20fa72bb2192406a06f0278d4ab26ca5f9027e98bbea8f52c17b0319b011f01a` |
 
+Implementation provenance: [retained implementation binding](calibration-2026-10-04-implementation-binding.md).
+
 The full report is `reports/observation-2026-09-23-bounded-source.json`. The distinct source archive
 is retained outside Git at
 `/Users/sonmyeong-gwan/Documents/open-store-searcher-task008-calibration/archives/09f4b26d7bdb67f140cfb2428bbf41833945276dc98988033aa2419306a9c784.zip`.
@@ -40,8 +43,8 @@ with SHA-256 `bdf56438b34ed50a2fad46236c716e89fd3254b6e3766fce41e17911a56d8b92`.
 ## Transition from 2026-09-22
 
 The archive bytes and dataset bytes are distinct from the previous observation. Total rows
-increased by 555. Fifty-three category metrics changed, no category total decreased, and the same
-23 categories remain empty. Missing names remain 29 and missing-both-addresses remain zero. Total
+increased by 555. Fifty-eight categories changed across all recorded metrics. No category total decreased,
+and the same 23 categories remain empty. Missing names remain 29 and missing-both-addresses remain zero. Total
 display-status deltas are +217 administratively operating, -2 suspended, +267 closed, and +73
 unverified.
 
@@ -52,6 +55,11 @@ during calibration. Administratively operating counts decreased in categories `1
 `15045073`, `15045101`, `15045104`, `15045109`, and `15101549`. Suspended counts decreased in
 categories `15045035` and `15045060`; category `15006697` changed one closed row to
 administratively operating. No limit, status rule, or baseline is selected from these corrections.
+
+Collision metrics changed in 48 categories: total collision groups increased by 421 and
+collision records by 577. The aggregate increase includes collision-group decreases of two in
+`15006697` (13,176 to 13,174) and one in `15045024` (20,120 to 20,119). No collision-record
+count decreased. These decreases remain separate calibration review evidence.
 
 Unknown-pair rows increased by 70 to 187,568. All remain within the approved 68 exact
 05/06 pair/category scopes; no new, missing, or out-of-scope reviewed pair appeared.

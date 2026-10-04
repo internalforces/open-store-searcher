@@ -9,6 +9,33 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-04_
 
+## PR #29 review remediation — 2026-10-04
+
+The user requested review assessment, corrections, commit and push. Reused the clean
+`.worktrees/task008-calibration` checkout at `9a64996`; preserved all other worktrees and files.
+Addressed the four review comments within calibration documentation (FR-08/13/14): recomputed
+all changed-category metrics, restored omitted collision decreases in the 2026-09-23/24/26
+receipts and corresponding handoff/plan summaries, extended traceability through the eight new
+observations and two failures, and opened ISS-003 with owner, workaround limits and resolution
+target. The adjacent 2026-09-22 all-metric category count is corrected from six to seven.
+
+GitHub's actual PR commit list and parent readback retain all source commits as ancestors, so the
+squash-history claim in comment `4175812152` does not describe the remote branch. Nevertheless,
+all ten new attempt receipts now also bind to the byte-identical observation inputs retained in
+main at `a51479097c910862e0e63b3ed6d1e7e7fa477a85`; a linked provenance report makes this
+binding inspectable after any future squash merge without rewriting historical source refs.
+
+Verification passed: four all-metric category counts and eleven collision decreases, eight
+committed JSON hashes, ten source/anchor comparisons across seven inputs, 41 added Markdown
+links/anchors, lint, format and whitespace checks. Local tooling: macOS Node.js 22.22.3/npm
+10.9.8 and Python 3. Lint retains five pre-existing informational suggestions. Verification and
+per-comment disposition: [PR #29 review report](../reports/review-2026-10-04-pr29.md).
+Application code, tests, dependencies, workflows, source/status rules, policy, baseline and
+production data are unchanged. No source acquisition retry or failure diagnosis was performed;
+ISS-003 remains open. TASK-008 is incomplete; no completed-task, architecture or new policy
+record is added. Existing publication/recovery/release approval gates remain open. No independent
+re-review or application full-suite rerun is claimed for this documentation-only follow-up.
+
 ## TASK-008 Calibration Failure — 2026-10-04
 
 The bounded Ubuntu 24.04 attempt at `98d5d2a` repeated the 2026-10-03
@@ -86,7 +113,9 @@ The ninth distinct current observation completed through the bounded Ubuntu 24.0
 complete execution log remain outside Git. No observation completed on 2026-09-25 because that
 scheduled turn ended before collection began, so the comparison with 2026-09-24 spans two Seoul
 calendar days. Total rows increased by 458, no category total decreased, and 12 category/status
-counts have negative transitions retained for calibration review. All 187,653 unknown-pair rows
+counts have negative transitions retained for calibration review.
+Retain two collision-group decreases and one collision-record decrease; 51 categories changed
+across all metrics. All 187,653 unknown-pair rows
 remain inside the approved exact 68-scope contract. No policy, allowed-empty list, baseline,
 publication, or deployment was accepted. Continue the approved non-publishing interval from
 `codex/task-008-calibration`.
@@ -98,7 +127,9 @@ The eighth distinct current observation completed through the bounded Ubuntu 24.
 `0d32f2d718525a7b5bc27b9737b36b226601c1adfe83a4e38a9f2aa2ed91e49f`; the verified archive and
 complete execution log remain outside Git. Compared with 2026-09-23, total rows increased by 517,
 no category total decreased, and 13 categories contain negative display-status transitions that
-are retained for calibration review. All 187,617 unknown-pair rows remain inside the approved
+are retained for calibration review.
+Retain five collision-group decreases and one collision-record decrease; 59 categories changed
+across all metrics. All 187,617 unknown-pair rows remain inside the approved
 exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
 accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
 
@@ -109,7 +140,9 @@ The seventh distinct current observation completed through the bounded Ubuntu 24
 `09f4b26d7bdb67f140cfb2428bbf41833945276dc98988033aa2419306a9c784`; the verified archive and
 complete execution log remain outside Git. Compared with 2026-09-22, total rows increased by 555,
 no category total decreased, and 23 categories contain negative display-status transitions that
-are retained for calibration review. All 187,568 unknown-pair rows remain inside the approved
+are retained for calibration review.
+Retain collision-group decreases of two in `15006697` and one in `15045024`; 58 categories
+changed across all metrics. All 187,568 unknown-pair rows remain inside the approved
 exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
 accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
 

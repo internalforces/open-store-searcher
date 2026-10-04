@@ -15,6 +15,7 @@ complete observation was produced and calibration remains in progress.
 | Item                  | Value                                                              |
 | --------------------- | ------------------------------------------------------------------ |
 | Source commit         | `98d5d2a194856d4b99172af71c714f81995c71c5`                         |
+| Retained implementation anchor | `a51479097c910862e0e63b3ed6d1e7e7fa477a85` |
 | Runtime               | Ubuntu 24.04; Node.js 24.19.0; npm 11.17.0; Debian InfoZIP 6.00    |
 | Attempt log time      | `2026-10-04T09:02:04+0900`                                         |
 | Result                | `observation-rejected`                                             |
@@ -24,6 +25,8 @@ complete observation was produced and calibration remains in progress.
 | Accepted archive      | none                                                               |
 | Publication approved  | no                                                                 |
 | Execution log SHA-256 | `5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075` |
+
+Implementation provenance: [retained implementation binding](calibration-2026-10-04-implementation-binding.md).
 
 The complete 126-byte execution log is retained outside Git at
 `/Users/sonmyeong-gwan/Documents/open-store-searcher-task008-calibration/logs/2026-10-04-observation.log`.
