@@ -11,9 +11,10 @@ Related requirements: FR-08/13/14; approved TASK-008 calibration protocol.
 
 ## Retained anchor and scope
 
-All ten PR #29 attempt receipts retain their original source-commit reference and additionally
-bind their observation implementation to `a51479097c910862e0e63b3ed6d1e7e7fa477a85`, the
-PR #28 merge already retained in `main`. Every input below is byte-identical between that anchor,
+All eleven attempt receipts from 2026-09-22 through 2026-10-06 retain their original
+source-commit reference and additionally bind their observation implementation to
+`a51479097c910862e0e63b3ed6d1e7e7fa477a85`, the PR #28 merge already retained in `main`.
+Every input below is byte-identical between that anchor,
 every recorded source commit, and PR #29 head `9a64996776b0759c20f3f207fd3ead18c39e6997`.
 A clone of main can therefore inspect the observation implementation even after a later squash
 merge removes the calibration branch. Original execution commits identify the historical run;
@@ -58,6 +59,7 @@ retaining this code does not prove provider freshness, production acceptance, or
 | 2026-10-02 | `2a28952311e1ea31a25f87a0ee7002f3ed91303e` | Identical |
 | 2026-10-03 | `ecf2083ab64600e3a3533fb6f715f602702d5c6f` | Identical |
 | 2026-10-04 | `98d5d2a194856d4b99172af71c714f81995c71c5` | Identical |
+| 2026-10-06 | `3f85b4344770070c1bae39115c77f01ff2ee5000` | Identical |
 
 ## Reproduction
 
@@ -83,3 +85,4 @@ with the retained full commit above and `PATH` with a listed input.
 Validation on 2026-10-04: the retained-anchor ancestry check passed; all ten source comparisons
 and the reviewed-head comparison were empty; all seven listed Git object IDs matched.
 No source archive, production dataset, dependency, runtime configuration or workflow changed.
+The 2026-10-06 source comparison was also empty for all seven inputs.

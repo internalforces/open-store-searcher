@@ -7,14 +7,14 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-10-04_
+_Last updated: 2026-10-06_
 
 ## Active Bugs
 
 | ID | Severity | Description | Found | Owner |
 |---|---|---|---|---|
 | ISS-001 | High | macOS bundled Info-ZIP and Homebrew Info-ZIP 6.00_8 transform UTF-8 Korean filenames in the official Seoul ZIP inventory, so the exact schema contract cannot be accepted locally | 2026-08-28 | Architect / Implementer |
-| ISS-003 | Medium | Two consecutive bounded calibration attempts rejected the response-length/range-evidence mismatch with `transfer_incomplete`; latest complete observation remains 2026-10-02 | 2026-10-03 | Researcher / Debugger |
+| ISS-003 | Medium | Two consecutive bounded calibration attempts rejected the response-length/range-evidence mismatch with `transfer_incomplete`; collection resumed on 2026-10-06 but the historical cause remains undiagnosed | 2026-10-03 | Researcher / Debugger |
 
 ## Technical Debt and Unresolved Risks
 
@@ -63,7 +63,8 @@ human approval; production status-distribution validation remains TASK-008.
 
 ### ISS-003: repeated transfer_incomplete calibration rejection
 
-- Status: Open; repeated on 2026-10-03 and 2026-10-04. No successful recovery is recorded.
+- Status: Open for root-cause disposition; repeated on 2026-10-03 and 2026-10-04, followed by a
+  complete bounded observation on 2026-10-06.
 - Severity: Medium
 - Found: 2026-10-03
 - Owner: Researcher / Debugger; Implementer only if an approved code change becomes necessary.
@@ -77,10 +78,10 @@ human approval; production status-distribution validation remains TASK-008.
   in provider updates, transfer infrastructure or another cause. No source failure is inferred
   from the separate pre-collection gaps on 2026-09-25, 2026-09-29 and 2026-10-01.
 - Impact: Two scheduled attempts contribute no complete observation to the approved calibration
-  interval; the latest complete evidence remains 2026-10-02. Publication and known-good data
-  were untouched. Continued failures may limit the final policy proposal's evidence.
-- Temporary workaround: No verified acquisition workaround exists. Preserve both failures and
-  the latest complete evidence; use only the next scheduled bounded non-publishing attempt
+  interval. Publication and known-good data were untouched. The 2026-10-06 success restores
+  current collection evidence but does not explain the prior mismatches.
+- Temporary workaround: No acquisition workaround was used or verified. Preserve both failures
+  and the latest complete evidence; continue only scheduled bounded non-publishing attempts
   under the existing protocol. Do not retry within the same turn, relax size checks, accept
   partial data, change source delivery, or fabricate observations.
 - Resolution target: Diagnose/dispose of the repeated mismatch before the 2026-10-16 interval
