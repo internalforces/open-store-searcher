@@ -11,7 +11,7 @@ Related requirements: FR-08/13/14; approved TASK-008 calibration protocol.
 
 ## Retained anchor and scope
 
-All eleven attempt receipts from 2026-09-22 through 2026-10-06 retain their original
+All twelve attempt receipts from 2026-09-22 through 2026-10-07 retain their original
 source-commit reference and additionally bind their observation implementation to
 `a51479097c910862e0e63b3ed6d1e7e7fa477a85`, the PR #28 merge already retained in `main`.
 Every input below is byte-identical between that anchor,
@@ -60,6 +60,7 @@ retaining this code does not prove provider freshness, production acceptance, or
 | 2026-10-03 | `ecf2083ab64600e3a3533fb6f715f602702d5c6f` | Identical |
 | 2026-10-04 | `98d5d2a194856d4b99172af71c714f81995c71c5` | Identical |
 | 2026-10-06 | `3f85b4344770070c1bae39115c77f01ff2ee5000` | Identical |
+| 2026-10-07 | `2e9d133a43f97a729f1a1e302276285590e3284b` | Identical |
 
 ## Reproduction
 
@@ -86,3 +87,4 @@ Validation on 2026-10-04: the retained-anchor ancestry check passed; all ten sou
 and the reviewed-head comparison were empty; all seven listed Git object IDs matched.
 No source archive, production dataset, dependency, runtime configuration or workflow changed.
 The 2026-10-06 source comparison was also empty for all seven inputs.
+The 2026-10-07 source comparison was also empty for all seven inputs.

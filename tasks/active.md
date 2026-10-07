@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-10-06_
+_Last updated: 2026-10-07_
 
 ## In Progress
 
@@ -34,12 +34,12 @@ strict evidence/scope validation, 797/68/20 full checks and independent Reviewer
 select numeric quality limits, empty-category policy, an initial baseline, or publication.
 The user then instructed execution of the recorded completion plan, selecting its recommended
 original TASK-008 ownership and activating the 30-Seoul-calendar-day calibration from 2026-09-17.
-Fourteen distinct current observations are complete. The 2026-10-06 observation contains 2,947,214
+Fifteen distinct current observations are complete. The 2026-10-07 observation contains 2,947,215
 rows across all 195 categories; its archive is retained outside Git. No observation completed on
 2026-09-25, 2026-09-29, 2026-10-01, or 2026-10-05 because those scheduled turns ended before
 collection began; no provider failure is inferred. The latest transition has no category-count
-decrease and retains 33 category/status, five collision-group, and three collision-record
-decreases for calibration review. Daily non-publishing observation remains scheduled. The
+decrease and retains four operating-to-closed source corrections for calibration review. No
+collision metric decreased. Daily non-publishing observation remains scheduled. The
 2026-10-03 attempt was rejected before archive
 acceptance because the declared response length disagreed with range evidence; no retry, complete
 observation, publication, or known-good replacement occurred. The 2026-10-04 attempt repeated the
@@ -47,7 +47,7 @@ same bounded rejection and was also not retried. Collection resumed successfully
 while the historical cause remains unresolved under
 [ISS-003](../memory/known-issues.md#iss-003-repeated-transfer_incomplete-calibration-rejection);
 [FR-08/13/14 evidence](../docs/prd-traceability.md#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-06)
-includes nine further observations, four pre-collection gaps, and both failed attempts. Derived numeric
+includes ten further observations, four pre-collection gaps, and both failed attempts. Derived numeric
 policy, the empty-category list, and the initial baseline still require explicit approval after
 the interval. The previous operational verification began on the user's 2026-09-16 request, with
 parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.

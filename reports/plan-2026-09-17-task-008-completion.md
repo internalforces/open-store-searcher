@@ -112,6 +112,8 @@ on a separate branch while the scheduled evidence collector runs.
 - [x] Fourteenth distinct current observation completed on 2026-10-06: all 195 categories and
       2,947,214 rows with a distinct archive; preserve 33 category/status, five collision-group,
       and three collision-record decreases for review. No observation completed on 2026-10-05.
+- [x] Fifteenth distinct current observation completed on 2026-10-07: all 195 categories and
+      2,947,215 rows with a distinct archive; preserve four operating-to-closed source corrections.
 - [ ] Complete the approved interval and derive the full evidence-bound policy proposal.
 - [ ] Obtain explicit policy, allowed-empty, and initial-baseline approval.
 - [ ] Run accepted validation, failure preservation, and independent final review.
