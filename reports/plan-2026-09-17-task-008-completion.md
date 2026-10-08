@@ -77,6 +77,46 @@ on a separate branch while the scheduled evidence collector runs.
 - [x] Fifth distinct current observation completed on 2026-09-21: all 195 categories and
       2,942,809 rows. No category total decreased; retain three category-level status corrections
       for review without inferring policy limits.
+- [x] Sixth distinct current observation completed on 2026-09-22: all 195 categories and
+      2,942,813 rows. No category total decreased; retain three category-level status corrections
+      for review without inferring policy limits.
+- [x] Seventh distinct current observation completed on 2026-09-23: all 195 categories and
+      2,943,368 rows. No category total decreased; retain 23 category-level status corrections
+      plus two collision-group decreases for review without inferring policy limits.
+- [x] Eighth distinct current observation completed on 2026-09-24: all 195 categories and
+      2,943,885 rows. No category total decreased; retain 13 category-level status corrections
+      plus five collision-group decreases and one collision-record decrease for review without
+      inferring policy limits.
+- [x] Ninth distinct current observation completed on 2026-09-26: all 195 categories and
+      2,944,343 rows. No category total decreased; retain 12 category-level status corrections
+      plus two collision-group decreases and one collision-record decrease for review without
+      inferring policy limits. No observation was completed on 2026-09-25;
+      preserve that calendar-day gap without attributing a provider failure.
+- [x] Tenth distinct current observation completed on 2026-09-27: all 195 categories and
+      2,944,349 rows. No category total decreased; retain four category-level status corrections
+      for review without inferring policy limits.
+- [x] Eleventh distinct current observation completed on 2026-09-28: all 195 categories and
+      2,944,355 rows. No category total decreased; retain three category-level status corrections
+      and one collision-record decrease for review without inferring policy limits.
+- [x] Twelfth distinct current observation completed on 2026-09-30: all 195 categories and
+      2,945,093 rows. No category total decreased; retain 19 category/status decreases and eight
+      collision-metric decreases for review. No observation was completed on 2026-09-29.
+- [x] Thirteenth distinct current observation completed on 2026-10-02: all 195 categories and
+      2,946,138 rows. No category total decreased; retain 31 category/status decreases and four
+      collision-group decreases for review. No observation was completed on 2026-10-01.
+- [x] The 2026-10-03 bounded attempt was rejected before archive acceptance because the declared
+      full-response length disagreed with range evidence. Preserve the `transfer_incomplete`
+      failure; it does not count as a distinct observation and was not retried in the same turn.
+- [x] The 2026-10-04 bounded attempt repeated the same pre-acceptance `transfer_incomplete`
+      rejection. Preserve the second failure; no same-turn retry or distinct observation exists.
+- [x] Fourteenth distinct current observation completed on 2026-10-06: all 195 categories and
+      2,947,214 rows with a distinct archive; preserve 33 category/status, five collision-group,
+      and three collision-record decreases for review. No observation completed on 2026-10-05.
+- [x] Fifteenth distinct current observation completed on 2026-10-07: all 195 categories and
+      2,947,215 rows with a distinct archive; preserve four operating-to-closed source corrections.
+- [x] Sixteenth distinct current observation completed on 2026-10-08: all 195 categories and
+      2,947,874 rows with a distinct archive; preserve 21 category/status, four collision-group,
+      and two collision-record decreases for review.
 - [ ] Complete the approved interval and derive the full evidence-bound policy proposal.
 - [ ] Obtain explicit policy, allowed-empty, and initial-baseline approval.
 - [ ] Run accepted validation, failure preservation, and independent final review.

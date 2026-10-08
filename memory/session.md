@@ -7,7 +7,194 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-09-21_
+_Last updated: 2026-10-08_
+
+## TASK-008 Calibration Observation — 2026-10-08
+
+The sixteenth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`e74e65d`, covering all 195 categories and 2,947,874 rows. The distinct archive SHA-256 is
+`9e3690f17227bdd5bbe77a6432f688de8dc7a07d06c5bf2e06d29b3ed907a22b`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-10-07, total rows increased by 659
+and no category total decreased. Retain 21 category/status decreases, four collision-group
+decreases, and two collision-record decreases for calibration review. All 187,982 unknown-pair
+rows remain inside the approved exact 68-scope contract, and the same 23 categories remain empty.
+No policy, allowed-empty list, baseline, publication, deployment, or known-good replacement was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Calibration Observation — 2026-10-07
+
+The fifteenth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`2e9d133`, covering all 195 categories and 2,947,215 rows. The distinct archive SHA-256 is
+`07be68e7fa906a79db07f0f084d9bf80331052674ef84f45716274af804a0aa3`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-10-06, total rows increased by one
+and no category total or collision metric decreased. Four categories retain paired
+operating-to-closed corrections totaling 65 rows. All 187,924 unknown-pair rows remain inside the
+approved exact 68-scope contract, and the same 23 categories remain empty. No policy,
+allowed-empty list, baseline, publication, deployment, or known-good replacement was accepted.
+Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Calibration Observation — 2026-10-06
+
+The fourteenth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`3f85b43`, covering all 195 categories and 2,947,214 rows. The distinct archive SHA-256 is
+`1da388068282355367fbe79f883a5902dda6f02a422e9b58801f538305c47a5b`; the verified archive and
+complete execution log remain outside Git. No observation completed on 2026-10-05 because that
+scheduled turn ended before collection began. Compared with the latest complete observation on
+2026-10-02, total rows increased by 1,076 and no category total decreased. Retain 33
+category/status decreases, five collision-group decreases, and three collision-record decreases
+for calibration review. All 187,924 unknown-pair rows remain inside the approved exact 68-scope
+contract, and the same 23 categories remain empty. This later success does not establish the
+historical cause of the two `transfer_incomplete` failures; ISS-003 remains open for disposition.
+No policy, allowed-empty list, baseline, publication, deployment, or known-good replacement was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## PR #29 review remediation — 2026-10-04
+
+The user requested review assessment, corrections, commit and push. Reused the clean
+`.worktrees/task008-calibration` checkout at `9a64996`; preserved all other worktrees and files.
+Addressed the four review comments within calibration documentation (FR-08/13/14): recomputed
+all changed-category metrics, restored omitted collision decreases in the 2026-09-23/24/26
+receipts and corresponding handoff/plan summaries, extended traceability through the eight new
+observations and two failures, and opened ISS-003 with owner, workaround limits and resolution
+target. The adjacent 2026-09-22 all-metric category count is corrected from six to seven.
+
+GitHub's actual PR commit list and parent readback retain all source commits as ancestors, so the
+squash-history claim in comment `4175812152` does not describe the remote branch. Nevertheless,
+all ten new attempt receipts now also bind to the byte-identical observation inputs retained in
+main at `a51479097c910862e0e63b3ed6d1e7e7fa477a85`; a linked provenance report makes this
+binding inspectable after any future squash merge without rewriting historical source refs.
+
+Verification passed: four all-metric category counts and eleven collision decreases, eight
+committed JSON hashes, ten source/anchor comparisons across seven inputs, 41 added Markdown
+links/anchors, lint, format and whitespace checks. Local tooling: macOS Node.js 22.22.3/npm
+10.9.8 and Python 3. Lint retains five pre-existing informational suggestions. Verification and
+per-comment disposition: [PR #29 review report](../reports/review-2026-10-04-pr29.md).
+Application code, tests, dependencies, workflows, source/status rules, policy, baseline and
+production data are unchanged. No source acquisition retry or failure diagnosis was performed;
+ISS-003 remains open. TASK-008 is incomplete; no completed-task, architecture or new policy
+record is added. Existing publication/recovery/release approval gates remain open. No independent
+re-review or application full-suite rerun is claimed for this documentation-only follow-up.
+
+## TASK-008 Calibration Failure — 2026-10-04
+
+The bounded Ubuntu 24.04 attempt at `98d5d2a` repeated the 2026-10-03
+`transfer_incomplete` rejection before archive acceptance: the full response's declared length
+disagreed with range evidence. The complete failure log is retained outside Git with SHA-256
+`5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075`. No archive, category
+metrics, dataset, or distinct observation was accepted, and no retry was made during this turn.
+The 2026-10-02 observation remains the latest complete evidence. No policy, baseline,
+source/status rule, publication, deployment, or known-good replacement changed. Continue the
+approved non-publishing interval while retaining both consecutive failures for review.
+
+## TASK-008 Calibration Failure — 2026-10-03
+
+The bounded Ubuntu 24.04 attempt at `ecf2083` was rejected with `transfer_incomplete` before
+archive acceptance because the full response's declared length disagreed with range evidence. The
+complete failure log is retained outside Git with SHA-256
+`5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075`. No archive, category
+metrics, dataset, or distinct observation was accepted, and no retry was made during this turn.
+The 2026-10-02 observation remains the latest complete evidence. No policy, baseline, source/status
+rule, publication, deployment, or known-good replacement changed. Continue the approved
+non-publishing interval from `codex/task-008-calibration` while retaining this failure for review.
+
+## TASK-008 Daily Calibration — 2026-10-02
+
+The thirteenth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`2a28952`. It parsed 2,946,138 rows across all 195 categories from archive
+`c0793ce2ad9a894c98b667a7e1ab91649ec76e8fcca536fce4440999386f202a`; the verified archive and
+complete execution log remain outside Git. No observation completed on 2026-10-01, so the
+comparison with 2026-09-30 spans two Seoul calendar days. Total rows increased by 1,045, no
+category total decreased, and 31 category/status decreases plus four collision-group decreases
+are retained for calibration review. All 187,825 unknown-pair rows remain inside the approved
+exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-30
+
+The twelfth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`af35de1`. It parsed 2,945,093 rows across all 195 categories from archive
+`99353e0184580da5b5ce0da9338b12116c16ecf4488cc6c72be8de574d27d9b6`; the verified archive and
+complete execution log remain outside Git. No observation completed on 2026-09-29, so the
+comparison with 2026-09-28 spans two Seoul calendar days. Total rows increased by 738, no category
+total decreased, and 19 category/status decreases plus eight collision-metric decreases are
+retained for calibration review. All 187,714 unknown-pair rows remain inside the approved exact
+68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-28
+
+The eleventh distinct current observation completed through the bounded Ubuntu 24.04 path at
+`eb3b8b6`. It parsed 2,944,355 rows across all 195 categories from archive
+`1d6d5b5ab83b03f0d8176b8cc7c9787b00e65febc1eee9a4a984b59a38f3cfb5`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-27, total rows increased by six,
+no category total decreased, three categories contain administratively operating decreases, and
+category `15045016` has one fewer collision record. All 187,653 unknown-pair rows remain inside
+the approved exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or
+deployment was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-27
+
+The tenth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`16b0f4d`. It parsed 2,944,349 rows across all 195 categories from archive
+`33401d00c2c86a1e8624fc3eada1bc9345a01e9a816b260ded528a5eee81fc8f`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-26, total rows increased by six,
+no category total decreased, and four categories contain administratively operating decreases
+retained for calibration review. All 187,653 unknown-pair rows remain inside the approved exact
+68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-26
+
+The ninth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`118d10f`. It parsed 2,944,343 rows across all 195 categories from archive
+`2e3dc3acd818938056ee1dca438bffaffb58a1490994976e99b1fe9b738ec49c`; the verified archive and
+complete execution log remain outside Git. No observation completed on 2026-09-25 because that
+scheduled turn ended before collection began, so the comparison with 2026-09-24 spans two Seoul
+calendar days. Total rows increased by 458, no category total decreased, and 12 category/status
+counts have negative transitions retained for calibration review.
+Retain two collision-group decreases and one collision-record decrease; 51 categories changed
+across all metrics. All 187,653 unknown-pair rows
+remain inside the approved exact 68-scope contract. No policy, allowed-empty list, baseline,
+publication, or deployment was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-24
+
+The eighth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`1482b49`. It parsed 2,943,885 rows across all 195 categories from archive
+`0d32f2d718525a7b5bc27b9737b36b226601c1adfe83a4e38a9f2aa2ed91e49f`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-23, total rows increased by 517,
+no category total decreased, and 13 categories contain negative display-status transitions that
+are retained for calibration review.
+Retain five collision-group decreases and one collision-record decrease; 59 categories changed
+across all metrics. All 187,617 unknown-pair rows remain inside the approved
+exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-23
+
+The seventh distinct current observation completed through the bounded Ubuntu 24.04 path at
+`0ad74d9`. It parsed 2,943,368 rows across all 195 categories from archive
+`09f4b26d7bdb67f140cfb2428bbf41833945276dc98988033aa2419306a9c784`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-22, total rows increased by 555,
+no category total decreased, and 23 categories contain negative display-status transitions that
+are retained for calibration review.
+Retain collision-group decreases of two in `15006697` and one in `15045024`; 58 categories
+changed across all metrics. All 187,568 unknown-pair rows remain inside the approved
+exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Daily Calibration — 2026-09-22
+
+The sixth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`a514790`. It parsed 2,942,813 rows across all 195 categories from archive
+`4499866d702a449eef6478f2221d45f35ecaa36c23164e789a8a39eb1ea0d7d1`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-09-21, total rows increased by four,
+no category total decreased, and three categories contain negative display-status transitions
+that are retained for calibration review. All 187,498 unknown-pair rows remain inside the approved
+exact 68-scope contract. No policy, allowed-empty list, baseline, publication, or deployment was
+accepted. Continue the approved non-publishing interval from `codex/task-008-calibration`.
 
 ## TASK-008 Daily Calibration — 2026-09-21
 
