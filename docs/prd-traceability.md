@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-10-09_
+_Last updated: 2026-10-10_
 
 ## Usage Rules
 
@@ -27,13 +27,13 @@ _Last updated: 2026-10-09_
 | FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 accepted: implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review passed; TASK-014 result-card UI is verified TASK-014 evidence: TASK-014 U01 literal raw aggregate/detail evidence and inert HTML component tests passed; production integration remains pending. | In progress |
 | FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 accepted: lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schemas, and missing-value tests passed; TASK-014 UI is verified; production integration remains pending TASK-014 evidence: TASK-014 U02 both original addresses, categories, all eight lifecycle fields and missing-value rendering passed. PR #15 R2–R5 regressions: reports/review-2026-09-06-pr15.md. | In progress |
 | FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | `reports/test-2026-09-04-task-007.md`: unknown, partial, contradictory, whitespace, Unicode and empty-stage regressions pass; TASK-012 conflict/ambiguity/name-only separation passes S04–S08 in reports/test-2026-09-05-task-012.md; TASK-014 basic UX is verified; TASK-015 recovery remains pending TASK-014 evidence: TASK-014 U05 conflict/tie/low/medium/empty separation passed; TASK-015 recovery UX remains pending. TASK-015 recovery and actionable empty/low-confidence UI: reports/test-2026-09-07-task-015.md (T15-02/05/06/07). No missing-result or conflict status reclassification. | In progress |
-| FR-08 | Data as-of date | TASK-008, 014 | Accepted ADR-014; `reports/test-2026-09-04-task-008.md` V08–V09 verify archive-bound coverage and reject unsupported timestamps; production evidence pending; TASK-014 UI is verified TASK-014 evidence: TASK-014 U03 synthetic/verified/unavailable page/card coverage rendering passed; production source-cut evidence remains pending. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-09). | In progress |
+| FR-08 | Data as-of date | TASK-008, 014 | Accepted ADR-014; `reports/test-2026-09-04-task-008.md` V08–V09 verify archive-bound coverage and reject unsupported timestamps; production evidence pending; TASK-014 UI is verified TASK-014 evidence: TASK-014 U03 synthetic/verified/unavailable page/card coverage rendering passed; production source-cut evidence remains pending. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-10). | In progress |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; TASK-014 U04 verifies persistent page/card provenance and disclaimer; TASK-020 adds reviewed public source/safety documentation. Production publication remains pending. | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | [URL encoding, protected new-tab navigation and full verification](../reports/test-2026-09-07-task-016.md); [independent Approved review](../reports/review-2026-09-07-task-016.md) | Complete (Naver compatibility limitation accepted) |
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | TASK-017: 320/768/1280px doubled-text reflow, long queries, visible candidate headings and native Chrome200% inspection; see [verification](../reports/test-2026-09-08-task-017.md) in the delivery revision. | Verified; TASK-017 complete |
 | FR-12 | No collection of personal or usage data | TASK-019, 020 | Current-code and Actions security reviews are complete; see the [application review](../reports/security-2026-09-09-task-019.md) and [final Actions review](../reports/security-2026-09-18-task-019-final.md). TASK-020 independently reviewed documentation covers browser-only query handling and the external-map click boundary. | Verified (current application, Actions, and public documentation); release pending |
-| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending TASK-015 internal UI preserves the accepted dataset/results after loader or presentation-validation failure (T15-03/06); reports/test-2026-09-07-task-015.md. TASK-008 production evidence and TASK-009/010 atomic publication/workflow gates remain open. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-09). | In progress |
-| FR-14 | Warn at seven Seoul calendar days or older | TASK-008, 014, 015 | Current user-approved ADR-015 boundary is age >= 7. PR #15 R1 UI tests cover days 6/7/8, Seoul midnight, focus/visibility and unavailable/rejected dates; reports/review-2026-09-06-pr15.md. V1 historical pipeline semantics remain unchanged; full recovery and production evidence stay gated. TASK-015 preserves >=7 Seoul-day warnings and separates actual browser load time from coverage (T15-03/04/08); reports/test-2026-09-07-task-015.md. Existing PR15 6/7/8-day and clock regressions remain. Production coverage is still gated. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-09). | In progress |
+| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending TASK-015 internal UI preserves the accepted dataset/results after loader or presentation-validation failure (T15-03/06); reports/test-2026-09-07-task-015.md. TASK-008 production evidence and TASK-009/010 atomic publication/workflow gates remain open. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-10). | In progress |
+| FR-14 | Warn at seven Seoul calendar days or older | TASK-008, 014, 015 | Current user-approved ADR-015 boundary is age >= 7. PR #15 R1 UI tests cover days 6/7/8, Seoul midnight, focus/visibility and unavailable/rejected dates; reports/review-2026-09-06-pr15.md. V1 historical pipeline semantics remain unchanged; full recovery and production evidence stay gated. TASK-015 preserves >=7 Seoul-day warnings and separates actual browser load time from coverage (T15-03/04/08); reports/test-2026-09-07-task-015.md. Existing PR15 6/7/8-day and clock regressions remain. Production coverage is still gated. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-10). | In progress |
 
 TASK-008's FR-13 validation contract is recorded in
 `docs/superpowers/specs/2026-09-04-task-008-validation-design.md` and
@@ -295,11 +295,11 @@ publish data, or close an FR. Those review gates remain open until the interval 
 final review complete.
 
 
-## TASK-008 quality calibration daily evidence — 2026-09-22 to 2026-10-09
+## TASK-008 quality calibration daily evidence — 2026-09-22 to 2026-10-10
 
-FR-08/13/14: eleven further complete, distinct-archive, non-publishing observations extend the
-approved interval to sixteen observations beginning 2026-09-17. All eleven cover 195 categories;
-the latest complete observation on 2026-10-08 contains 2,947,874 rows. Receipts retain source,
+FR-08/13/14: twelve further complete, distinct-archive, non-publishing observations extend the
+approved interval to seventeen observations beginning 2026-09-17. All twelve cover 195 categories;
+the latest complete observation on 2026-10-10 contains 2,949,032 rows. Receipts retain source,
 collection date, archive/dataset/log hashes, status corrections and collision decreases. The
 2026-09-23/24/26 summaries now include every collision decrease and count changed categories
 across all recorded metrics. The adjacent 2026-09-22 summary likewise counts all metrics.
@@ -317,6 +317,7 @@ across all recorded metrics. The adjacent 2026-09-22 summary likewise counts all
 | 2026-10-06 | [Receipt](../reports/calibration-2026-10-06-task-008.md) | [Observation JSON](../reports/observation-2026-10-06-bounded-source.json) |
 | 2026-10-07 | [Receipt](../reports/calibration-2026-10-07-task-008.md) | [Observation JSON](../reports/observation-2026-10-07-bounded-source.json) |
 | 2026-10-08 | [Receipt](../reports/calibration-2026-10-08-task-008.md) | [Observation JSON](../reports/observation-2026-10-08-bounded-source.json) |
+| 2026-10-10 | [Receipt](../reports/calibration-2026-10-10-task-008.md) | [Observation JSON](../reports/observation-2026-10-10-bounded-source.json) |
 
 No observation completed on 2026-09-25, 2026-09-29, 2026-10-01, or 2026-10-05 because the
 scheduled turns ended before collection began; those gaps do not establish provider failures. The bounded
@@ -327,7 +328,8 @@ counts as a distinct observation. Collection resumed successfully on 2026-10-06 
 2026-10-08, but the [same rejection recurred on 2026-10-09](../reports/calibration-2026-10-09-task-008.md).
 The third failed attempt also accepted no archive and does not count as an observation. The issue is tracked as
 [ISS-003](../memory/known-issues.md#iss-003-repeated-transfer_incomplete-calibration-rejection).
-All fourteen receipts additionally use a [retained implementation binding](../reports/calibration-2026-10-04-implementation-binding.md).
+Collection resumed on 2026-10-10 without establishing the recurring mismatch's cause. All fifteen
+receipts additionally use a [retained implementation binding](../reports/calibration-2026-10-04-implementation-binding.md).
 
 FR-08/14: `sourceDataAsOf` remains null; provider modified dates and collection instants do not
 establish a source as-of date or source freshness. FR-13: all three failed attempts accepted no

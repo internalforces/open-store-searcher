@@ -7,14 +7,14 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-10-09_
+_Last updated: 2026-10-10_
 
 ## Active Bugs
 
 | ID | Severity | Description | Found | Owner |
 |---|---|---|---|---|
 | ISS-001 | High | macOS bundled Info-ZIP and Homebrew Info-ZIP 6.00_8 transform UTF-8 Korean filenames in the official Seoul ZIP inventory, so the exact schema contract cannot be accepted locally | 2026-08-28 | Architect / Implementer |
-| ISS-003 | Medium | Three bounded calibration attempts rejected the response-length/range-evidence mismatch with `transfer_incomplete`; the failure recurred on 2026-10-09 after three successful days | 2026-10-03 | Researcher / Debugger |
+| ISS-003 | Medium | Three bounded calibration attempts rejected the response-length/range-evidence mismatch with `transfer_incomplete`; collection resumed on 2026-10-10 but the recurring cause remains undiagnosed | 2026-10-03 | Researcher / Debugger |
 
 ## Technical Debt and Unresolved Risks
 
@@ -64,7 +64,8 @@ human approval; production status-distribution validation remains TASK-008.
 ### ISS-003: repeated transfer_incomplete calibration rejection
 
 - Status: Open; repeated on 2026-10-03 and 2026-10-04, followed by complete observations on
-  2026-10-06 through 2026-10-08, then recurred on 2026-10-09.
+  2026-10-06 through 2026-10-08, recurred on 2026-10-09, and was followed by a complete
+  observation on 2026-10-10.
 - Severity: Medium
 - Found: 2026-10-03
 - Owner: Researcher / Debugger; Implementer only if an approved code change becomes necessary.
