@@ -7,7 +7,18 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-08_
+_Last updated: 2026-10-09_
+
+## TASK-008 Calibration Failure — 2026-10-09
+
+The bounded Ubuntu 24.04 attempt at `c52c1c2` repeated the 2026-10-03/04
+`transfer_incomplete` rejection before archive acceptance: the full response's declared length
+disagreed with range evidence. The complete 126-byte failure log is retained outside Git with
+SHA-256 `5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075`, identical to the two
+prior failure logs. No archive, category metrics, dataset, or distinct observation was accepted,
+and no retry was made. The 2026-10-08 observation remains the latest complete evidence. No
+policy, baseline, source/status rule, publication, deployment, or known-good replacement changed.
+Continue the approved non-publishing interval while retaining this recurrence for review.
 
 ## TASK-008 Calibration Observation — 2026-10-08
 

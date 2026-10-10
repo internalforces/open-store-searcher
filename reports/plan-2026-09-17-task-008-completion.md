@@ -117,6 +117,8 @@ on a separate branch while the scheduled evidence collector runs.
 - [x] Sixteenth distinct current observation completed on 2026-10-08: all 195 categories and
       2,947,874 rows with a distinct archive; preserve 21 category/status, four collision-group,
       and two collision-record decreases for review.
+- [x] The 2026-10-09 bounded attempt repeated the pre-acceptance `transfer_incomplete` rejection
+      after three successful days. Preserve the third failure; no retry or distinct observation exists.
 - [ ] Complete the approved interval and derive the full evidence-bound policy proposal.
 - [ ] Obtain explicit policy, allowed-empty, and initial-baseline approval.
 - [ ] Run accepted validation, failure preservation, and independent final review.
