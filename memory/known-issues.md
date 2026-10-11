@@ -75,14 +75,14 @@ human approval; production status-distribution validation remains TASK-008.
   logs have SHA-256 `5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075`.
 - Observed trigger: The full response's declared archive size disagreed with the immediately
   preceding range evidence; the collector returned `observation-rejected` / `transfer_incomplete`
-  before archive acceptance. Neither attempt produced an archive, dataset or category metrics.
+  before archive acceptance. None of the three attempts produced an archive, dataset or category metrics.
 - Root cause: Undiagnosed. The receipts establish the length mismatch, not whether it originated
   in provider updates, transfer infrastructure or another cause. No source failure is inferred
   from the separate pre-collection gaps on 2026-09-25, 2026-09-29 and 2026-10-01.
 - Impact: Three scheduled attempts contribute no complete observation to the approved calibration
   interval. Publication and known-good data were untouched. The intervening successful
   observations do not explain the recurring mismatch.
-- Temporary workaround: No acquisition workaround was used or verified. Preserve both failures
+- Temporary workaround: No acquisition workaround was used or verified. Preserve all three failures
   and the latest complete evidence; continue only scheduled bounded non-publishing attempts
   under the existing protocol. Do not retry within the same turn, relax size checks, accept
   partial data, change source delivery, or fabricate observations.

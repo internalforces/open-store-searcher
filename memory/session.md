@@ -9,6 +9,20 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-11_
 
+## PR #30 review remediation — 2026-10-11
+
+The user authorized review remediation, commit/push, resolution of addressed threads, and merge.
+Reviewed comment `4240630439` against `edbdfce4134284583d73e394b809d1aed7101859` and
+corrected ISS-003's stale two-attempt wording. Its observed-trigger statement now covers all
+three rejected attempts, and its temporary workaround explicitly preserves all three failures
+(2026-10-03, 2026-10-04, and 2026-10-09) for the interval-completion evidence packet.
+
+This correction concerns FR-08/13/14 evidence retention. It does not resolve the underlying
+transfer mismatch or complete TASK-008. No production policy, allowed-empty list, baseline,
+source/status rule, application code, dependency, workflow, or deployment changed.
+Verification and independent review are recorded in
+[the PR #30 review report](../reports/review-2026-10-11-pr30.md).
+
 ## TASK-008 Complete Duplicate-Archive Observation — 2026-10-11
 
 The bounded Ubuntu 24.04 path completed all 195 categories and 2,949,032 rows at `24d81d0`.
