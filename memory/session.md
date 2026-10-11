@@ -7,7 +7,59 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-08_
+_Last updated: 2026-10-11_
+
+## PR #30 review remediation — 2026-10-11
+
+The user authorized review remediation, commit/push, resolution of addressed threads, and merge.
+Reviewed comment `4240630439` against `edbdfce4134284583d73e394b809d1aed7101859` and
+corrected ISS-003's stale two-attempt wording. Its observed-trigger statement now covers all
+three rejected attempts, and its temporary workaround explicitly preserves all three failures
+(2026-10-03, 2026-10-04, and 2026-10-09) for the interval-completion evidence packet.
+
+This correction concerns FR-08/13/14 evidence retention. It does not resolve the underlying
+transfer mismatch or complete TASK-008. No production policy, allowed-empty list, baseline,
+source/status rule, application code, dependency, workflow, or deployment changed.
+Verification and independent review are recorded in
+[the PR #30 review report](../reports/review-2026-10-11-pr30.md).
+
+## TASK-008 Complete Duplicate-Archive Observation — 2026-10-11
+
+The bounded Ubuntu 24.04 path completed all 195 categories and 2,949,032 rows at `24d81d0`.
+The archive SHA-256 is
+`7658ac7c27aa5a35698a946f4f4deafdea31f86f949277ab75a351030f5f77a6`, byte-identical to
+2026-10-10, so the approved protocol retains the complete receipt without increasing the
+seventeen-distinct-observation count. Stable entry evidence, all category metrics, validation
+diagnostics, the 23 empty categories, and the exact 68 reviewed 05/06 scopes match 2026-10-10;
+no metric changed or decreased. The keyed archive and complete execution log remain outside Git.
+No policy, allowed-empty list, baseline, publication, deployment, source/status rule, or
+known-good replacement was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
+
+## TASK-008 Calibration Observation — 2026-10-10
+
+The seventeenth distinct current observation completed through the bounded Ubuntu 24.04 path at
+`902ec3d`, covering all 195 categories and 2,949,032 rows. The distinct archive SHA-256 is
+`7658ac7c27aa5a35698a946f4f4deafdea31f86f949277ab75a351030f5f77a6`; the verified archive and
+complete execution log remain outside Git. The 2026-10-09 attempt produced no observation, so the
+comparison with 2026-10-08 spans two Seoul calendar days. Total rows increased by 1,158 and no
+category total decreased. Retain 19 category/status and three collision-group decreases for
+calibration review; no collision-record count decreased. All 188,096 unknown-pair rows remain
+inside the approved exact 68-scope contract, and the same 23 categories remain empty. This
+success does not establish the recurring transfer mismatch's cause. No policy, allowed-empty
+list, baseline, publication, deployment, or known-good replacement was accepted. Continue the
+approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Calibration Failure — 2026-10-09
+
+The bounded Ubuntu 24.04 attempt at `c52c1c2` repeated the 2026-10-03/04
+`transfer_incomplete` rejection before archive acceptance: the full response's declared length
+disagreed with range evidence. The complete 126-byte failure log is retained outside Git with
+SHA-256 `5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075`, identical to the two
+prior failure logs. No archive, category metrics, dataset, or distinct observation was accepted,
+and no retry was made. The 2026-10-08 observation remains the latest complete evidence. No
+policy, baseline, source/status rule, publication, deployment, or known-good replacement changed.
+Continue the approved non-publishing interval while retaining this recurrence for review.
 
 ## TASK-008 Calibration Observation — 2026-10-08
 
