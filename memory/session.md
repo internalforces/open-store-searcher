@@ -7,7 +7,20 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-10_
+_Last updated: 2026-10-11_
+
+## TASK-008 Complete Duplicate-Archive Observation — 2026-10-11
+
+The bounded Ubuntu 24.04 path completed all 195 categories and 2,949,032 rows at `24d81d0`.
+The archive SHA-256 is
+`7658ac7c27aa5a35698a946f4f4deafdea31f86f949277ab75a351030f5f77a6`, byte-identical to
+2026-10-10, so the approved protocol retains the complete receipt without increasing the
+seventeen-distinct-observation count. Stable entry evidence, all category metrics, validation
+diagnostics, the 23 empty categories, and the exact 68 reviewed 05/06 scopes match 2026-10-10;
+no metric changed or decreased. The keyed archive and complete execution log remain outside Git.
+No policy, allowed-empty list, baseline, publication, deployment, source/status rule, or
+known-good replacement was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
 
 ## TASK-008 Calibration Observation — 2026-10-10
 
