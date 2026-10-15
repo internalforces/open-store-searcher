@@ -7,7 +7,21 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-14_
+_Last updated: 2026-10-15_
+
+## TASK-008 Calibration Observation — 2026-10-15
+
+The twenty-first distinct current observation and twenty-second complete receipt completed
+through the bounded Ubuntu 24.04 path at `a937464`, covering all 195 categories and 2,950,403
+rows. The distinct archive SHA-256 is
+`f83b990a62e21e6ea232899c98a2ac3cca32141061b08a18eb03935b245a6b4d`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-10-14, total rows increased by 624
+and no category total decreased. Retain fifteen category/status, nine collision-group, and one
+collision-record decrease for calibration review. All 188,231 unknown-pair rows remain inside
+the approved exact 68-scope contract, and the same 23 categories remain empty. No policy,
+allowed-empty list, baseline, publication, deployment, source/status rule, or known-good
+replacement was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
 
 ## TASK-008 Calibration Observation — 2026-10-14
 
