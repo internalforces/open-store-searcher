@@ -7,7 +7,29 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-15_
+_Last updated: 2026-10-16_
+
+## TASK-008 Calibration Interval Complete — 2026-10-16
+
+The twenty-second distinct observation and twenty-third complete receipt completed through the
+bounded Ubuntu 24.04 path at `49a1b9b`, covering all 195 categories and 2,951,024 rows. The
+distinct archive SHA-256 is
+`c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352`; the verified archive and
+complete log remain outside Git. Compared with 2026-10-15, total rows increased by 621 and no
+category total decreased. Retain 23 category/status, five collision-group, and two
+collision-record decreases for review. All 188,307 unknown-pair rows remain inside the approved
+exact 68-scope contract, and the same 23 categories remain empty.
+
+The approved interval from 2026-09-17 through 2026-10-16 is complete with 23 complete receipts,
+22 distinct archives, 21 distinct transitions, one duplicate receipt, four pre-collection gaps,
+and three retained `transfer_incomplete` failures. Two non-publishing compact staging
+measurements completed with 690,967,459 and 691,143,712 JSON bytes.
+
+The [approval packet](../reports/calibration-2026-10-16-approval-packet.md) presents one complete
+`ValidationPolicyV1` proposal, exact 23-ID allowed-empty candidate list, and the strongest
+compatible 2026-10-16 initial-baseline candidate. They remain unapproved; no policy, baseline,
+publication, deployment, source/status rule, or known-good replacement was adopted. The daily
+automation is paused pending explicit human approval.
 
 ## TASK-008 Calibration Observation — 2026-10-15
 
