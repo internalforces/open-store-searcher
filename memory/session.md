@@ -7,7 +7,32 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-16_
+_Last updated: 2026-10-17_
+
+## Current PR 31 readiness continuation — 2026-10-17
+
+The user's "pr 생성 후 리뷰 내용 검토 후 수정 처리 배포 가능상태로 만들어라" now authorizes
+draft PR creation, review corrections, verification and branch delivery. Created
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31) from
+`codex/task-008-policy-adoption-local`; earlier no-PR/no-hosted-CI statements below are historical.
+Implementation `b9bc659` has a real passing hosted Verify run39002989647:813 tests/44 files,
+68 browser,20 accessibility and4 packaging checks. No remote review comments/threads or merge
+conflicts were present at readback. Independent full-diff review has no blocking finding;
+its low-severity local-account-path observation is corrected in five added calibration reports.
+
+Actual full-data production build succeeds privately:730 files/691,233,971 bytes; all726 accepted
+files match the built files and remain unchanged after output-refusal failure. Exact workflow GNU
+tar packaging and unpacking reproduce the full built inventory. No upload/deployment occurred.
+See [readiness](../reports/readiness-2026-10-17-pr31.md) and
+[independent review](../reports/review-2026-10-17-pr31-readiness.md). Final delivery must read back
+passing Verify on the exact follow-up commit, plus remote review/conflict state.
+
+Code readiness remains separate from actual data deployment: publication/config.json absent,
+Pages/enablement API404, new source acquisition still rejected by ISS-003, production resource/
+bootstrap/recovery and physical/mobile/hosted release acceptance open. Collection-date mode
+continues with explicit null source coverage; it does not imply freshness. No merge/auto-merge,
+publish/deploy, recurring collection, credentials or security-setting change is authorized.
+The original checkout, unrelated work and private archives/logs remain preserved.
 
 ## TASK-008 Calibration Interval Complete — 2026-10-16
 

@@ -1,5 +1,17 @@
 # Collection-date publication
 
+## PR 31 non-publishing readiness — 2026-10-17
+
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31) delivers the adopted local
+configuration and bounded ISS-003 client repair. Actual full-data production build and exact
+workflow packaging/unpacking pass locally with all726 accepted-file hashes preserved; hosted
+implementation CI passes813/68/20/4 checks. See the
+[current readiness matrix](../reports/readiness-2026-10-17-pr31.md) and
+[independent full-diff review](../reports/review-2026-10-17-pr31-readiness.md).
+This does not enable publication: `config.json` remains absent, ISS-003 is still Open upstream,
+and production configuration, hosted recovery/performance and release gates remain separate.
+The draft PR and local artifact are not a deployment or authority to change publication controls.
+
 ## Local quality adoption — 2026-10-16
 
 The user delegated the decision to dot, which adopted the exact October 16 proposal in

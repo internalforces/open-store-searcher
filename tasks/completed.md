@@ -679,3 +679,21 @@ representations and left zero staged files. Historical backend attribution and o
 freshness are unverified. No accepted archive, publication/recovery, recurring collection or
 release is inferred. Hosted CI does not run for this branch under the unchanged main/PR-only
 workflow; no PR or settings change was used to manufacture a run.
+
+## PR 31 review and local readiness preparation — 2026-10-17
+
+The later user request authorizes draft PR creation, review/fixes and branch delivery. Created
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31), superseding the earlier
+no-PR checkpoint above. Actual implementation-head hosted Verify passes813/68/20/4; independent
+full43-file review finds no blocker and independently verifies199 targeted tests and all calibration
+formulas/hashes. Corrected its low-severity absolute local-user-path finding in five added reports,
+preserving all archive/log hashes. No remote comments/threads or merge conflict at inspection.
+
+Actual private production build passes on retained2,951,024-row staging:730 site files,
+691,233,971 bytes; all726 accepted-file hashes match. Existing-output failure preserves the site
+and staging; exact workflow GNU tar/unpack inventories match. See
+[readiness](../reports/readiness-2026-10-17-pr31.md) and
+[independent review](../reports/review-2026-10-17-pr31-readiness.md). Final pushed documentation
+HEAD requires its own passing Verify readback before handoff. This does not close ISS-003
+upstream or TASK-009/010/021 production, hosted/mobile performance, recovery and release gates.
+No merge, auto-merge, deployment/publication, schedule resume or security/credential change.

@@ -9,6 +9,19 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-17_
 
+## Current PR 31 delivery continuation — 2026-10-17
+
+The user now authorizes PR creation, review/fixes and evidenced readiness. This supersedes the
+earlier no-PR restriction below for this delivery only. Draft
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31) has passing implementation
+CI813/68/20/4, no merge conflict or remote review thread at inspection and independent full-diff
+review with no blocker. Five newly added reports' absolute local-user paths are sanitized.
+Actual private production build/package verifies all726 source files,730 site files and byte/hash
+identity after failure and unpacking. See [current readiness](../reports/readiness-2026-10-17-pr31.md).
+Final follow-up HEAD CI/readback is required before handoff. No new implementation task is
+activated; code delivery does not close production/recovery/mobile/hosted/release gates or ISS-003
+upstream. No merge, auto-merge, publication/deployment, collection resume or security change.
+
 ## Current ISS-003 continuation — 2026-10-17
 
 The user's new commit/push and ISS-003 fix request authorized bounded collector diagnosis,
