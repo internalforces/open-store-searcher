@@ -7,7 +7,52 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-10-11_
+_Last updated: 2026-10-17_
+
+## Current PR 31 delivery continuation — 2026-10-17
+
+The user now authorizes PR creation, review/fixes and evidenced readiness. This supersedes the
+earlier no-PR restriction below for this delivery only. Draft
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31) has passing implementation
+CI813/68/20/4, no merge conflict or remote review thread at inspection and independent full-diff
+review with no blocker. Five newly added reports' absolute local-user paths are sanitized.
+Actual private production build/package verifies all726 source files,730 site files and byte/hash
+identity after failure and unpacking. See [current readiness](../reports/readiness-2026-10-17-pr31.md).
+Final follow-up HEAD CI/readback is required before handoff. No new implementation task is
+activated; code delivery does not close production/recovery/mobile/hosted/release gates or ISS-003
+upstream. No merge, auto-merge, publication/deployment, collection resume or security change.
+
+## Current ISS-003 continuation — 2026-10-17
+
+The user's new commit/push and ISS-003 fix request authorized bounded collector diagnosis,
+regression-tested recovery, source-freshness investigation and independent review. Client repair
+passes 813/68/20 plus four packaging checks; final independent review is **Approved** in
+[the issue review](../reports/review-2026-10-17-iss-003.md). Client implementation is complete;
+remaining ISS-003 work is blocked on provider consistency/attestation, not an active code task. ISS-003 remains Open upstream because
+both live attempts still disagreed; no new archive or source-freshness claim is accepted.
+The previously completed TASK-008 quality acceptance below stays complete. No PR, merge, publication, deployment,
+recurring collection or security/credential change is authorized. Exact range/full byte equality
+and all quality gates must remain strict; no successful fetch may masquerade as source freshness.
+
+## Current local continuation — 2026-10-17
+
+TASK-008's original local staged-quality scope is complete under the approved ownership boundary.
+Exact delegated policy adoption, complete retained-archive validation and failure preservation are
+verified, with an independent **Approved** verdict and no blocking findings in
+[the scoped review](../reports/review-2026-10-17-task-008-policy-adoption.md).
+See [decision](../memory/decisions.md#task-008-delegated-policy-decision--2026-10-16),
+[verification](../reports/test-2026-10-17-task-008-policy-adoption.md), and
+[aggregate evidence](../reports/validation-2026-10-17-task-008-adoption.json).
+The exact three inputs remain in `publication/validation-config.json`. Full replay accepted
+195 categories / 2,951,024 rows / 691,143,712 JSON bytes under the unchanged 691,319,965 ceiling;
+726 accepted files remain unchanged after failure injection and recovery rehash.
+Earlier unapproved/incomplete calibration statements below are historical and superseded for
+these local quality gates. See [the completed record](completed.md#task-008-local-staged-quality-acceptance--2026-10-17).
+No implementation task is active and no new task is activated. `publication/config.json` remains absent; TASK-009/010/021, ISS-003,
+publication/recovery, physical/mobile/hosted performance and milestone/release gates remain open.
+The calibration automation stays paused; no original checkout or unrelated work was changed.
+
+## Historical task state before the delegated continuation
 
 ## In Progress
 
@@ -34,28 +79,33 @@ strict evidence/scope validation, 797/68/20 full checks and independent Reviewer
 select numeric quality limits, empty-category policy, an initial baseline, or publication.
 The user then instructed execution of the recorded completion plan, selecting its recommended
 original TASK-008 ownership and activating the 30-Seoul-calendar-day calibration from 2026-09-17.
-Seventeen distinct current observations are complete. The complete 2026-10-11 receipt contains
-2,949,032 rows across all 195 categories, but its archive bytes are identical to 2026-10-10, so
-the approved protocol does not count it as an independent observation. The archive is retained
-outside Git under its verified content hash. No observation completed on
+Twenty-two distinct current observations and twenty-three complete receipts are preserved. The
+2026-10-16 observation contains 2,951,024 rows across all 195 categories and uses a distinct
+archive; the 2026-10-11 archive remains excluded from the independent count because it is
+byte-identical to 2026-10-10. All archives are retained outside Git under verified content
+hashes. No observation completed on
 2026-09-25, 2026-09-29, 2026-10-01, or 2026-10-05 because those scheduled turns ended before
-collection began; no provider failure is inferred. No metric changed or decreased in the latest
-complete duplicate-archive receipt. The preceding distinct transition retains 19 category/status
-and three collision-group decreases for calibration review; no collision-record count decreased.
-Daily non-publishing observation remains scheduled. The
+collection began; no provider failure is inferred. The latest transition has no category-total
+decrease and retains 23 category/status, five collision-group, and two collision-record decreases
+for calibration review.
+The approved 30-Seoul-calendar-day interval is complete. The automation is paused after
+presenting the exact policy, allowed-empty, and initial-baseline proposal for human approval. The
 2026-10-03 attempt was rejected before archive
 acceptance because the declared response length disagreed with range evidence; no retry, complete
 observation, publication, or known-good replacement occurred. The 2026-10-04 attempt repeated the
 same bounded rejection and was also not retried. Collection resumed successfully on 2026-10-06,
 continued through 2026-10-08, then the same bounded rejection recurred on 2026-10-09 without a
-retry or accepted archive. Collection resumed on 2026-10-10 and produced the same complete
-archive again on 2026-10-11, but the recurring cause remains unresolved under
+retry or accepted archive. Collection resumed on 2026-10-10, produced the same complete archive
+again on 2026-10-11, and produced distinct archives on 2026-10-12 through 2026-10-16, but the
+recurring cause remains unresolved under
 [ISS-003](../memory/known-issues.md#iss-003-repeated-transfer_incomplete-calibration-rejection);
-[FR-08/13/14 evidence](../docs/prd-traceability.md#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-11)
-includes twelve further distinct observations, one complete duplicate-archive receipt, four
-pre-collection gaps, and all three failed attempts. Derived numeric
-policy, the empty-category list, and the initial baseline still require explicit approval after
-the interval. The previous operational verification began on the user's 2026-09-16 request, with
+[FR-08/13/14 evidence](../docs/prd-traceability.md#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16)
+includes seventeen further distinct observations, one complete duplicate-archive receipt, four
+pre-collection gaps, and all three failed attempts. The
+[completion approval packet](../reports/calibration-2026-10-16-approval-packet.md) contains one
+complete derived policy, the exact 23 allowed-empty candidates, and the strongest 2026-10-16
+initial-baseline candidate. All three remain unapproved. The previous operational verification
+began on the user's 2026-09-16 request, with
 parallel subagents for quality evidence, hosted evidence and mobile-emulated measurement.
 PR #23 merged as `bac6dce`; local implementation `da9e63c` has the same tracked tree.
 Its hosted Verify check passed. Compact delivery design and implementation are already approved;

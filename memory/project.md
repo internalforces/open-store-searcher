@@ -16,9 +16,9 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-020 public documentation complete; TASK-008 calibration and production/release gates remain open
-- Next milestone: M1 — reviewed data policy/baseline and publication/recovery gates remain open
-- Overall health: 🟡 Caution — Actions review and protected environment verified; TASK-008 calibration and production/recovery/release gates remain open
+- Phase: TASK-008 local staged-quality acceptance complete; TASK-009/010/021 production and release gates remain open
+- Next milestone: M1 — publication/recovery and milestone handbook gates remain open
+- Overall health: 🟡 Caution — local quality accepted; production performance/recovery/release gates remain open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -304,3 +304,27 @@ correction, which pass local verification only; no independent re-review is clai
 links, YAML, formatting, lint, types, build and whitespace pass. The default remains synthetic and
 production publication/recovery/release gates remain explicit. No active implementation task
 remains; TASK-008 calibration continues and TASK-021 is gated.
+
+
+## TASK-008 delegated local adoption — 2026-10-16
+
+The user delegated the decision to dot, which selected the exact complete October 16 policy,
+23-ID allowed-empty list and initial baseline from commit `fd6f79f`. The isolated local branch
+`codex/task-008-policy-adoption-local` stores them in `publication/validation-config.json` and
+uses `.testagent/replay-adopted-policy.mjs` for retained-archive verification. This supersedes
+historical unapproved-policy statements only for these exact local inputs. The machine-readable
+proposal remains unchanged as historical evidence. Complete replay and failure-preservation evidence are recovered and freshly rehashed; final
+independent review is Approved with no blocking findings; no deployment or source-freshness claim follows. `publication/config.json`
+remains absent, recurring observation stays paused and TASK-009/010/021 remain open.
+
+
+## ISS-003 client mitigation; upstream remains open — 2026-10-17
+
+The user authorized commit/push of the reviewed adoption and bounded ISS-003 repair. Adoption is
+pushed as28f43c3 on the isolated work branch. Current diagnostics reproduce incompatible provider
+range/full lengths217,307,219 and217,356,588, including with no-store. Added one fresh acquisition
+retry only for valid pre-body mismatches, retained numeric evidence and cancellation safeguards;
+all equality/quality gates remain unchanged. Final pinned checks pass813/68/20 plus4 packaging
+checks. The actual two-attempt collection still rejects and leaves zero staged files, so ISS-003
+and original source freshness stay open. No PR, deployment, recurring collection or security change
+occurred. See reports/test-2026-10-17-iss-003.md and the independent issue review.

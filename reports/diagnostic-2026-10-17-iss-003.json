@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "issue": "ISS-003",
+  "status": "client-mitigation-verified-upstream-inconsistency-open",
+  "publicationApproved": false,
+  "sourceDataAsOf": null,
+  "historicalFailureEvidence": {
+    "dates": ["2026-10-03", "2026-10-04", "2026-10-09"],
+    "eachLogBytes": 126,
+    "eachLogSha256": "5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075",
+    "numericHeadersRetained": false
+  },
+  "defaultHeaderDiagnostic": {
+    "capturedAt": "2026-10-17T04:16:29.452Z",
+    "requests": [
+      {
+        "kind": "limit",
+        "status": 200,
+        "headers": {
+          "content-type": null,
+          "content-length": null,
+          "content-range": null,
+          "content-encoding": null,
+          "etag": null,
+          "last-modified": null,
+          "date": "Sat, 17 Oct 2026 04:16:29 GMT",
+          "age": null,
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "vary": null
+        }
+      },
+      {
+        "kind": "range",
+        "status": 206,
+        "headers": {
+          "content-type": "application/zip;charset=UTF-8",
+          "content-length": "1",
+          "content-range": "bytes 0-0/217356588",
+          "content-encoding": null,
+          "etag": null,
+          "last-modified": null,
+          "date": "Sat, 17 Oct 2026 04:16:29 GMT",
+          "age": null,
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "vary": null
+        },
+        "bodyBytes": 1
+      },
+      {
+        "kind": "full-headers-only",
+        "status": 200,
+        "headers": {
+          "content-type": "application/zip;charset=UTF-8",
+          "content-length": "217307219",
+          "content-range": null,
+          "content-encoding": null,
+          "etag": null,
+          "last-modified": null,
+          "date": "Sat, 17 Oct 2026 04:16:29 GMT",
+          "age": null,
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "vary": null
+        }
+      }
+    ]
+  },
+  "noStoreHeaderDiagnostic": {
+    "capturedAt": "2026-10-17T04:16:52.381Z",
+    "requests": [
+      {
+        "kind": "limit",
+        "status": 200,
+        "headers": {
+          "content-type": null,
+          "content-length": null,
+          "content-range": null,
+          "content-encoding": null,
+          "etag": null,
+          "last-modified": null,
+          "date": "Sat, 17 Oct 2026 04:16:52 GMT",
+          "age": null,
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "vary": null
+        }
+      },
+      {
+        "kind": "range",
+        "status": 206,
+        "headers": {
+          "content-type": "application/zip;charset=UTF-8",
+          "content-length": "1",
+          "content-range": "bytes 0-0/217307219",
+          "content-encoding": null,
+          "etag": null,
+          "last-modified": null,
+          "date": "Sat, 17 Oct 2026 04:16:52 GMT",
+          "age": null,
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "vary": null
+        },
+        "bodyBytes": 1
+      },
+      {
+        "kind": "full-headers-only",
+        "status": 200,
+        "headers": {
+          "content-type": "application/zip;charset=UTF-8",
+          "content-length": "217356588",
+          "content-range": null,
+          "content-encoding": null,
+          "etag": null,
+          "last-modified": null,
+          "date": "Sat, 17 Oct 2026 04:16:52 GMT",
+          "age": null,
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "vary": null
+        }
+      }
+    ]
+  },
+  "boundedLiveCollector": {
+    "kind": "rejected",
+    "code": "transfer_incomplete",
+    "message": "Declared archive size disagrees with range evidence.",
+    "fetchedAt": "2026-10-17T04:20:27.970Z",
+    "lengthMismatches": [
+      {
+        "expectedBytes": 217307219,
+        "declaredBytes": 217356588
+      },
+      {
+        "expectedBytes": 217356588,
+        "declaredBytes": 217307219
+      }
+    ],
+    "sourceDataAsOf": null,
+    "publicationApproved": false,
+    "elapsedMs": 410
+  },
+  "liveStagingFilesAfterRejection": 0,
+  "freshnessMetadataAttempt": {
+    "capturedAt": "2026-10-17T04:19:34.143Z",
+    "url": "https://file.localdata.go.kr/file/general_restaurants/info",
+    "status": 302,
+    "contentType": "text/html",
+    "bodyBytes": 140,
+    "sha256": "4aa9db2a9bf5e1d690b2e7459fab5109a0a76ba681fbe06cc3f4d3273f860c41",
+    "metadata": {
+      "title": " 302 Found ",
+      "isoDates": []
+    }
+  },
+  "officialFreshnessSource": "https://www.data.go.kr/data/15045016/fileData.do",
+  "officialFreshnessDisposition": "Generic daily/D-2 guidance and catalog modification date do not bind a particular Seoul archive hash, timezone, or complete195-category source cut.",
+  "clientPolicy": {
+    "maxAcquisitionAttempts": 2,
+    "retryCondition": "valid in-bounds pre-body range/full length mismatch after successful non-aborted body cancellation",
+    "ordinaryFailuresRetried": false,
+    "byteEqualityOrQualityLimitsRelaxed": false
+  },
+  "hostedCiDisposition": "The unchanged Verify workflow runs on main pushes or pull requests only. Work-branch push creates no run; no PR or workflow/settings change is authorized.",
+  "retainedArchiveFreshnessEvidence": {
+    "archiveSha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+    "fileCount": 195,
+    "csvFileCount": 195,
+    "nonCsvFileCount": 0,
+    "entryModifiedDates": ["2026-10-16"],
+    "sourceCoverageVerified": false,
+    "interpretation": "Entry modification dates are serialization metadata, not an archive-bound source-coverage attestation."
+  },
+  "finalVerification": {
+    "runtime": "Ubuntu 24.04 / Node.js 24.19.0 / npm 11.17.0",
+    "exitCode": 0,
+    "focusedTests": 38,
+    "addedRegressions": 16,
+    "testFiles": 44,
+    "automatedTests": 813,
+    "browserTests": 68,
+    "accessibilityTests": 20,
+    "packagingTests": 4,
+    "coveragePercent": {
+      "statements": 92.79,
+      "branches": 91.33,
+      "functions": 95.36,
+      "lines": 94.47
+    },
+    "fullLogSha256": "0c248100c469fb6b2964de22a1331d386bb15ecd6bce70650858624f634ec978",
+    "focusedLogSha256": "4713dc6d966b05509dc59b7d61a6c30d26abae4a13f0bfe6cc9facf7b8be13f5",
+    "redLogSha256": "60ba52c24498e311ba6e3eccd5f98e1350f6a46d0e0274ab1aea75384e47bb88",
+    "timeoutRedLogSha256": "8ead9c71d539538bb30fe57d43baf0ce3a19ea21f1aa220b9c620734ba70aa33"
+  }
+}

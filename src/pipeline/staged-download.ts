@@ -1,19 +1,25 @@
 import { createHash, randomUUID } from 'node:crypto';
+import type { FileHandle } from 'node:fs/promises';
 import { open, realpath, rename, rm } from 'node:fs/promises';
 import { isAbsolute, relative, resolve, sep } from 'node:path';
-import type { FileHandle } from 'node:fs/promises';
 import type {
   CollectorLimits,
   CollectorRejectionCode,
   FetchLike,
   SourceEvidence,
+  TransferLengthMismatchEvidence,
 } from './collector-types.js';
 import { isCanonicalUtc } from './collector-types.js';
 import { createProviderHeaders, isAllowedProviderUrl } from './source-contract.js';
 
 export type StagedDownloadResult =
   | { kind: 'accepted'; archivePath: string; sha256: string; byteLength: number }
-  | { kind: 'rejected'; code: CollectorRejectionCode; message: string };
+  | {
+      kind: 'rejected';
+      code: CollectorRejectionCode;
+      message: string;
+      lengthMismatch?: TransferLengthMismatchEvidence;
+    };
 
 export interface DownloadOptions {
   fetchImpl: FetchLike;
@@ -125,15 +131,41 @@ export async function downloadArchiveToStaging(
       );
     }
     const declaredLength = response.headers.get('content-length');
+    const declaredBytes = declaredLength === null ? null : Number(declaredLength);
     if (
       declaredLength !== null &&
-      Number(declaredLength) !== options.sourceEvidence.expectedBytes
+      declaredBytes !== null &&
+      (!/^\d+$/.test(declaredLength) ||
+        !Number.isSafeInteger(declaredBytes) ||
+        declaredBytes < options.limits.minArchiveBytes ||
+        declaredBytes > options.limits.maxArchiveBytes)
     ) {
       return cancelAndReject(
         response,
         'transfer_incomplete',
-        'Declared archive size disagrees with range evidence.',
+        'Declared archive size is invalid or outside approved bounds.',
       );
+    }
+    if (declaredBytes !== null && declaredBytes !== options.sourceEvidence.expectedBytes) {
+      // No bytes or staging file have been consumed. A fresh bounded acquisition may retry
+      // only after this response is successfully cancelled; equality is never waived.
+      try {
+        await response.body.cancel();
+      } catch {
+        return reject('transfer_incomplete', 'Archive response body cancellation failed.');
+      }
+      if (signal.aborted) {
+        return reject(
+          'transfer_incomplete',
+          'Archive transfer was aborted during response cancellation.',
+        );
+      }
+      return {
+        kind: 'rejected',
+        code: 'transfer_incomplete',
+        message: 'Declared archive size disagrees with range evidence.',
+        lengthMismatch: { expectedBytes: options.sourceEvidence.expectedBytes, declaredBytes },
+      };
     }
     handle = await open(partPath, 'wx');
     const writeHandle = handle;

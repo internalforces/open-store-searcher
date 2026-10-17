@@ -7,7 +7,13 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-10-17_
+
+TASK-008's original local staged-quality scope is complete with independent Approved review;
+see [the completed record](completed.md#task-008-local-staged-quality-acceptance--2026-10-17).
+This supersedes historical calibration-waiting notes below. No new task is activated. TASK-009/010
+retain their production configuration/publication/recovery gates, and TASK-021 retains release
+prerequisites. Recurring calibration stays paused; no publication or deployment is authorized.
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
@@ -21,7 +27,7 @@ _Last updated: 2026-09-18_
 
 ## Recommended Start Order
 
-1. TASK-008 was activated on 2026-09-04 by the user's execution request; see tasks/active.md and proposed ADR-014.
+1. TASK-008 local validation is complete; consult tasks/active.md and tasks/completed.md before any separately authorized continuation.
 2. Keep TASK-008 through TASK-010 sequential so each data contract is tested before its consumer.
 3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
 

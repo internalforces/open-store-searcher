@@ -655,3 +655,42 @@ bypass and restrict to branch main only (not tags). The owner accepts the absenc
 human separation and corresponding single-account compromise/error risk. This decision does not
 authorize an actual deployment, publication enablement, quality policy, baseline or release.
 See [applied settings and final review](../reports/security-2026-09-18-task-019-final.md).
+
+
+## TASK-008 delegated policy decision — 2026-10-16
+
+Status: Adopted locally under the user's explicit delegation to dot. The user's exact instruction was
+"open-store-searcher 결정해". Dot selected the conservative, complete proposal at
+`fd6f79f1be1cff31f04ef679394ec7b4b76260ad`; this is not a claim that the user personally stated
+or explicitly approved each numeric threshold verbatim.
+
+Adopt `ValidationPolicyV1` revision `task-008-calibration-2026-10-16-v1-proposed`, its exact
+23-ID `allowedEmptyCategories`, and `initialBaselineCandidate.baseline` from
+`reports/task-008-validation-policy-proposal-2026-10-16.json` without changing any value,
+revision or evidence reference. The `-proposed` suffix is retained for exact identity.
+Canonical policy SHA-256: `090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff`.
+Canonical baseline SHA-256: `9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183`.
+
+`publication/validation-config.json` contains those complete objects and the unchanged previously
+approved reviewed-unverified-pair contract. It is local non-publishing quality configuration.
+`publication/config.json` remains absent; no deployed URL or production resource settings are
+invented, and no scheduled collection is resumed. The replay uses existing observation resource
+ceilings only. Remote branch heads and latest PR/issues had no superseding decision at inspection.
+
+The 79 nonempty categories with no observed movement retain zero count-change tolerance. The
+691,319,965-byte JSON ceiling remains supported by one compact transition. ISS-003 is unresolved;
+collection date is not source-data freshness. Publication, deployment, hosted recovery, physical
+mobile/performance and release acceptance remain separate gates. See the local verification report.
+
+
+## ISS-003 bounded coherent-acquisition recovery — 2026-10-17
+
+The user's explicit commit/push and ISS-003 fix request authorizes this bounded client repair.
+Keep the exact approved source URLs, byte-equality contract, all size/hash/ZIP/schema/quality
+limits and collection-date uncertainty. Permit at most one fresh limit/range/full transaction
+only after a valid in-bounds pre-body header mismatch whose body was successfully cancelled
+without abort. Do not retry ordinary HTTP, body, size, cancellation or permission failures.
+Preserve numeric mismatch history through recovered success or final rejection; do not log
+cookies, credentials, request bodies or source records. No cache workaround was adopted because
+no-store reproduced the mismatch. Provider-internal and historical attribution remain unproven.
+The persistent live mismatch and original freshness uncertainty stay open, with no false closure.

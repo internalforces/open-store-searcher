@@ -7,10 +7,11 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
-_Last updated: 2026-09-04_
+_Last updated: 2026-10-17_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
+| TASK-008 | Local staged-quality validation and calibrated policy acceptance | 2026-10-17 | Implementer / Tester / Independent Reviewer | Exact delegated October 16 policy, 23-ID empty list and baseline; full retained-archive replay and 726-file failure preservation; 797/68/20 checks and independent Approved review. Publication/recovery, performance and release remain separate. |
 | TASK-017 | Responsive, keyboard and screen-reader search flow | 2026-09-08 | Implementer / Tester / Reviewer | Approved implementation 1acf77f pushed; 561 Vitest, 56 browser checks, 18 accessibility tests / 22 zero-violation axe scans; seven user-assisted VoiceOver cases passed. Evidence: [test](../reports/test-2026-09-08-task-017.md), [VoiceOver](../reports/voiceover-2026-09-08-task-017.md), [review](../reports/review-2026-09-08-task-017.md). FR-16 enhanced selection remains TASK-023. |
 | TASK-015 | Implement empty-result, low-confidence, loading-failure and stale-data recovery UX | 2026-09-07 | Implementer / Tester | User-approved bounded design; internal synthetic loader/retry, usable-data preservation, malformed/duplicate exclusion, truthful dates and uncertainty guidance. Pinned full verification: 522 tests, 28 browser checks, 14 zero-violation axe scans; independent Reviewer Approved. Evidence: .worktrees/task013-quality/reports/test-2026-09-07-task-015.md and review-2026-09-07-task-015.md. Production integration remains gated. |
 | TASK-014 | Implement initial search page and evidence cards | 2026-09-06 | Implementer / Tester | Approved design; four-status/raw/date/source UI, local search, synthetic provenance and responsive tests. Pinned full verification: 478 tests, 20 browser, 6 a11y; independent Reviewer Approved. Evidence in .worktrees/task013-quality/reports/test-2026-09-06-task-014.md and review-2026-09-06-task-014.md. Production integration remains gated. |
@@ -624,3 +625,75 @@ test, dependency, workflow, security policy or deployment settings; no applicati
 independent re-review were run. Prior full-suite evidence remains dated and scoped as recorded.
 No new decision or unresolved implementation issue was introduced; existing production and
 release gates remain open.
+
+
+## TASK-008 local staged-quality acceptance — 2026-10-17
+
+Complete within the 2026-09-17 approved ownership boundary: staged-quality implementation,
+30-Seoul-calendar-day calibration, exact delegated policy/empty-list/baseline adoption, accepted
+complete validation, failure preservation and independent final review. The user delegated the
+choice to dot; dot selected the unchanged conservative proposal at `fd6f79f`. No verbatim numeric
+human approval is asserted. Exact revision: `task-008-calibration-2026-10-16-v1-proposed`.
+
+- [x] Preserve the approved staged implementation, status rules and source/collection-date boundary.
+- [x] Complete the approved calibration interval with distinct archives, gaps and failures retained.
+- [x] Adopt the complete 195-category policy, exact 23-ID allowed-empty list and October 16 baseline.
+- [x] Accept all 2,951,024 retained-source rows under unchanged limits: 726 JSON files,
+      691,143,712 bytes, 176,253 bytes below the 691,319,965-byte ceiling.
+- [x] Reject incomplete ingestion and existing-output replacement; verify cleanup and unchanged
+      hashes for all 726 accepted files, including a fresh recovery rehash.
+- [x] Verify all required checks: 797 tests, 68 browser checks, 20 accessibility tests.
+- [x] Obtain independent **Approved** final review with no blocking findings.
+
+Evidence: [verification](../reports/test-2026-10-17-task-008-policy-adoption.md),
+[aggregate receipt](../reports/validation-2026-10-17-task-008-adoption.json),
+[independent review](../reports/review-2026-10-17-task-008-policy-adoption.md), and
+[delegated decision](../memory/decisions.md#task-008-delegated-policy-decision--2026-10-16).
+
+The replay was recovered after the connection interruption without duplicate ingestion. Raw
+archives, datasets, per-file inventory and logs remain outside Git. No authoritative deployed
+baseline was replaced. `publication/config.json` stays absent. ISS-003, unverified original
+source freshness, 79 nonempty zero-tolerance categories and one-transition size evidence remain
+explicit. No task/milestone/release completion beyond this local TASK-008 scope is inferred;
+TASK-009/010/021, publication/recovery and hosted/mobile performance stay open. No handbook was
+accessed, and the separate milestone handbook/language gate remains open. Changes remain local
+and uncommitted; no delivery, automation, credentials or security settings were changed.
+
+
+## ISS-003 client mitigation and diagnostic repair — 2026-10-17
+
+Completed only the client repair authorized by the user's commit/push and ISS-003 request:
+validated numeric pre-body mismatch evidence, one fresh bounded acquisition retry, cancellation/
+timeout safeguards and preserved failure history. No equality, byte, hash, ZIP, schema or policy
+gate was relaxed. Source URLs/status rules/dependencies/workflows remain unchanged.
+
+Sixteen regressions pass within38 focused tests; final pinned verification passes813 automated,
+68 browser,20 accessibility and4 packaging tests. Independent review is **Approved**, with its
+cancellation-timeout finding fixed and no blocking code issue remaining.
+[Verification](../reports/test-2026-10-17-iss-003.md),
+[sanitized evidence](../reports/diagnostic-2026-10-17-iss-003.json),
+[independent review](../reports/review-2026-10-17-iss-003.md).
+
+ISS-003 itself remains Open upstream: the one live invocation still rejected both incompatible
+representations and left zero staged files. Historical backend attribution and original source
+freshness are unverified. No accepted archive, publication/recovery, recurring collection or
+release is inferred. Hosted CI does not run for this branch under the unchanged main/PR-only
+workflow; no PR or settings change was used to manufacture a run.
+
+## PR 31 review and local readiness preparation — 2026-10-17
+
+The later user request authorizes draft PR creation, review/fixes and branch delivery. Created
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31), superseding the earlier
+no-PR checkpoint above. Actual implementation-head hosted Verify passes813/68/20/4; independent
+full43-file review finds no blocker and independently verifies199 targeted tests and all calibration
+formulas/hashes. Corrected its low-severity absolute local-user-path finding in five added reports,
+preserving all archive/log hashes. No remote comments/threads or merge conflict at inspection.
+
+Actual private production build passes on retained2,951,024-row staging:730 site files,
+691,233,971 bytes; all726 accepted-file hashes match. Existing-output failure preserves the site
+and staging; exact workflow GNU tar/unpack inventories match. See
+[readiness](../reports/readiness-2026-10-17-pr31.md) and
+[independent review](../reports/review-2026-10-17-pr31-readiness.md). Final pushed documentation
+HEAD requires its own passing Verify readback before handoff. This does not close ISS-003
+upstream or TASK-009/010/021 production, hosted/mobile performance, recovery and release gates.
+No merge, auto-merge, deployment/publication, schedule resume or security/credential change.

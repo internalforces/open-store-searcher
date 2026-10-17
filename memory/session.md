@@ -7,7 +7,109 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-11_
+_Last updated: 2026-10-17_
+
+## Current PR 31 readiness continuation — 2026-10-17
+
+The user's "pr 생성 후 리뷰 내용 검토 후 수정 처리 배포 가능상태로 만들어라" now authorizes
+draft PR creation, review corrections, verification and branch delivery. Created
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31) from
+`codex/task-008-policy-adoption-local`; earlier no-PR/no-hosted-CI statements below are historical.
+Implementation `b9bc659` has a real passing hosted Verify run39002989647:813 tests/44 files,
+68 browser,20 accessibility and4 packaging checks. No remote review comments/threads or merge
+conflicts were present at readback. Independent full-diff review has no blocking finding;
+its low-severity local-account-path observation is corrected in five added calibration reports.
+
+Actual full-data production build succeeds privately:730 files/691,233,971 bytes; all726 accepted
+files match the built files and remain unchanged after output-refusal failure. Exact workflow GNU
+tar packaging and unpacking reproduce the full built inventory. No upload/deployment occurred.
+See [readiness](../reports/readiness-2026-10-17-pr31.md) and
+[independent review](../reports/review-2026-10-17-pr31-readiness.md). Final delivery must read back
+passing Verify on the exact follow-up commit, plus remote review/conflict state.
+
+Code readiness remains separate from actual data deployment: publication/config.json absent,
+Pages/enablement API404, new source acquisition still rejected by ISS-003, production resource/
+bootstrap/recovery and physical/mobile/hosted release acceptance open. Collection-date mode
+continues with explicit null source coverage; it does not imply freshness. No merge/auto-merge,
+publish/deploy, recurring collection, credentials or security-setting change is authorized.
+The original checkout, unrelated work and private archives/logs remain preserved.
+
+## TASK-008 Calibration Interval Complete — 2026-10-16
+
+The twenty-second distinct observation and twenty-third complete receipt completed through the
+bounded Ubuntu 24.04 path at `49a1b9b`, covering all 195 categories and 2,951,024 rows. The
+distinct archive SHA-256 is
+`c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352`; the verified archive and
+complete log remain outside Git. Compared with 2026-10-15, total rows increased by 621 and no
+category total decreased. Retain 23 category/status, five collision-group, and two
+collision-record decreases for review. All 188,307 unknown-pair rows remain inside the approved
+exact 68-scope contract, and the same 23 categories remain empty.
+
+The approved interval from 2026-09-17 through 2026-10-16 is complete with 23 complete receipts,
+22 distinct archives, 21 distinct transitions, one duplicate receipt, four pre-collection gaps,
+and three retained `transfer_incomplete` failures. Two non-publishing compact staging
+measurements completed with 690,967,459 and 691,143,712 JSON bytes.
+
+The [approval packet](../reports/calibration-2026-10-16-approval-packet.md) presents one complete
+`ValidationPolicyV1` proposal, exact 23-ID allowed-empty candidate list, and the strongest
+compatible 2026-10-16 initial-baseline candidate. They remain unapproved; no policy, baseline,
+publication, deployment, source/status rule, or known-good replacement was adopted. The daily
+automation is paused pending explicit human approval.
+
+## TASK-008 Calibration Observation — 2026-10-15
+
+The twenty-first distinct current observation and twenty-second complete receipt completed
+through the bounded Ubuntu 24.04 path at `a937464`, covering all 195 categories and 2,950,403
+rows. The distinct archive SHA-256 is
+`f83b990a62e21e6ea232899c98a2ac3cca32141061b08a18eb03935b245a6b4d`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-10-14, total rows increased by 624
+and no category total decreased. Retain fifteen category/status, nine collision-group, and one
+collision-record decrease for calibration review. All 188,231 unknown-pair rows remain inside
+the approved exact 68-scope contract, and the same 23 categories remain empty. No policy,
+allowed-empty list, baseline, publication, deployment, source/status rule, or known-good
+replacement was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
+
+## TASK-008 Calibration Observation — 2026-10-14
+
+The twentieth distinct current observation and twenty-first complete receipt completed through
+the bounded Ubuntu 24.04 path at `be687fa`, covering all 195 categories and 2,949,779 rows. The
+distinct archive SHA-256 is
+`3ff2af414cde232179212e5eb1fbece87a170496f4822f0b1226330d7eeb9425`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-10-13, total rows increased by 693
+and no category total decreased. Retain fourteen category/status, two collision-group, and one
+collision-record decrease for calibration review. All 188,172 unknown-pair rows remain inside
+the approved exact 68-scope contract, and the same 23 categories remain empty. No policy,
+allowed-empty list, baseline, publication, deployment, source/status rule, or known-good
+replacement was accepted. Continue the approved non-publishing interval from
+`codex/task-008-calibration`.
+
+## TASK-008 Calibration Observation — 2026-10-13
+
+The nineteenth distinct current observation and twentieth complete receipt completed through the
+bounded Ubuntu 24.04 path at `786c242`, covering all 195 categories and 2,949,086 rows. The
+distinct archive SHA-256 is
+`7eb7904f62554e8989973e5b4bd4dfe931bf53454c0a3a392c8634d98bedfe5d`; the verified archive and
+complete execution log remain outside Git. Compared with 2026-10-12, total rows increased by 19
+and no category total or collision metric decreased. Retain six category/status decreases for
+calibration review. All 188,096 unknown-pair rows remain inside the approved exact 68-scope
+contract, and the same 23 categories remain empty. No policy, allowed-empty list, baseline,
+publication, deployment, source/status rule, or known-good replacement was accepted. Continue
+the approved non-publishing interval from `codex/task-008-calibration`.
+
+## TASK-008 Calibration Observation — 2026-10-12
+
+The eighteenth distinct current observation and nineteenth complete receipt completed through
+the bounded Ubuntu 24.04 path at `eca8448`, covering all 195 categories and 2,949,067 rows. The
+distinct archive SHA-256 is
+`a78f74e257076f3c639a3d4cb6b76f2f503c9cbc970e32e602e50cc6cf5b3710`; the verified archive and
+complete execution log remain outside Git. Compared with the duplicate-archive 2026-10-11
+receipt, total rows increased by 35 and no category total decreased. Retain six category/status
+and one collision-group decrease for calibration review; no collision-record count decreased.
+All 188,096 unknown-pair rows remain inside the approved exact 68-scope contract, and the same
+23 categories remain empty. No policy, allowed-empty list, baseline, publication, deployment,
+source/status rule, or known-good replacement was accepted. Continue the approved
+non-publishing interval from `codex/task-008-calibration`.
 
 ## PR #30 review remediation — 2026-10-11
 
@@ -1961,3 +2063,100 @@ No merge or deployment is included. Application tests were not rerun for this pr
 
 Delivery checks passed: local report-link resolution, repository lint (five pre-existing
 informational suggestions), formatting, and Git whitespace validation.
+
+
+## TASK-008 delegated adoption and recovered verification — 2026-10-16/17
+
+The user delegated the decision to dot with the exact instruction "open-store-searcher 결정해".
+Dot selected the complete conservative October 16 policy/23-ID empty list/initial-baseline proposal
+at `fd6f79f1be1cff31f04ef679394ec7b4b76260ad`; no verbatim numeric human approval is invented.
+The October 17 resumption instruction kept the same local-only scope. Main and all existing
+worktrees/unrelated untracked files were preserved. Work is in the isolated clone under the
+October 16 task directory on `codex/task-008-policy-adoption-local`, uncommitted at the cited base.
+
+Installed exact nested objects plus the previously approved pair contract in
+`publication/validation-config.json`. The separate workflow `publication/config.json` remains
+absent. The retained October 16 archive was replayed with unchanged policy, original collection
+instant, approved parser/stager and existing research resource ceilings. Ubuntu 24.04 / Node
+24.19.0 / npm 11.17.0 checks pass 797 automated tests, 68 browser checks and 20 accessibility tests;
+initial metadata/lint failure was corrected before the equivalent split full check set passed.
+
+The execution connection disconnected during replay. On the user's resumption, recovered its
+completed receipt without duplicate ingestion: 195 categories, 2,951,024 rows, 726 JSON files,
+691,143,712 bytes, 176,253 bytes below the exact cap. Metrics equal the reviewed initial baseline.
+Incomplete-stream and existing-output attempts were rejected with no failed candidate/temp output;
+all 726 accepted file hashes remain unchanged. A fresh October 17 recovery audit rehashed every
+artifact and the retained archive and exited 0. The log connection lost stdout; the durable
+receipt plus recovery audit bind acceptance instead. No fresh source collection was performed.
+
+[Verification](../reports/test-2026-10-17-task-008-policy-adoption.md) and
+[aggregate receipt](../reports/validation-2026-10-17-task-008-adoption.json) contain hashes and
+limits. Raw data, per-file inventory and logs stay local outside Git. Independent final review
+is Approved with no blocking findings and is recorded separately in
+[review](../reports/review-2026-10-17-task-008-policy-adoption.md).
+
+The 79 nonempty zero-tolerance categories, one-transition size evidence, null source freshness
+and unresolved ISS-003 remain explicit. Prior source-date claims are not inferred from collection
+or replay. TASK-009/010/021, hosted/mobile performance, publication/recovery, milestone handbook
+and release gates remain open. No push, PR, merge, publish, deploy, recurring collection resumption,
+credential, settings, dependency, workflow or product-source change occurred. The task-specific
+container remains running for evidence retention; the replay process has finished.
+
+Final disposition: TASK-008's original local staged-quality scope is moved to completed under the
+approved ownership boundary. No implementation task is active. Later production/release tasks
+remain unactivated and incomplete. Final lint, formatting, exact configuration identity, local
+Markdown targets and Git whitespace checks pass. No product code changed after the verified full
+check set; no duplicate full-source replay or redundant full-suite execution was needed.
+
+
+## Authorized adoption delivery and ISS-003 continuation — 2026-10-17
+
+The user now requested "커밋 푸시 하고 iss-003 미확인 문제 해결해". This explicitly authorizes
+logical commits and a push of the independently reviewed local adoption branch, followed by
+bounded diagnosis, fixes, regression tests and independent review of ISS-003. It supersedes the
+prior local-only delivery restriction for commits/push only. PR creation, merge, publication,
+deployment, recurring collection and security/credential changes remain outside scope.
+Before delivery, reviewed the exact 17-file diff and new files for raw datasets/logs, credentials,
+large outputs and personal identifiers; removed the newly added absolute local-user path from
+the public verification report. Original private artifacts remain local outside Git. Historical
+"uncommitted/no push" statements describe the earlier local acceptance, before this authorization.
+
+
+## ISS-003 reproduction and bounded client repair — 2026-10-17
+
+Delivered the independently reviewed local adoption as commit `28f43c3` to
+`github/codex/task-008-policy-adoption-local` under the new explicit authorization. The original
+local origin and unrelated checkouts remain preserved; no PR or merge was created.
+
+Read only the three issue-specific historical failure logs. Their numeric headers are absent.
+Current default and no-store header-only diagnostics reproduce incompatible range/full lengths
+217,307,219 and 217,356,588 in opposite directions. No ETag/Last-Modified is supplied; no-store
+is not a remedy and an internal provider/cache/load-balancer cause is not proven. Added strict
+numeric diagnostic preservation and one fresh bounded acquisition retry for pre-body mismatches
+only. All equality, size, hash, ZIP and195-category checks remain; no policy or source URL changed.
+Independent review identified a cancellation-timeout edge; added a failing regression and a
+combined-signal check before allowing retry. Existing TypeScript library settings are preserved.
+
+One live collector invocation still rejected both mismatches in410ms and left zero staged files.
+This verifies safe persistent-failure handling, not provider recovery. No live archive or source
+freshness was accepted. The official general-restaurant page's daily/D-2 guidance and catalog
+modified date do not bind all195 Seoul categories to this archive. The info endpoint redirected.
+ISS-003 remains open upstream; collection time is not substituted for coverage.
+
+The unchanged Verify workflow runs only on main pushes and pull requests. Readback for28f43c3
+shows no check runs or Actions runs on this work branch. No PR, workflow edit, dispatch-capability
+change or fabricated CI result is used to manufacture hosted verification. Final local pinned
+verification and independent review are recorded in the issue report before the next push.
+
+Final source verification after the review correction exits0:38 focused tests, typecheck,
+813 full tests/44 files,68 browser checks,20 accessibility checks and4 packaging tests. Coverage
+is92.79% statements/91.33% branches/95.36% functions/94.47% lines. The initial Mac launcher
+could not write through a shared Vite dependency symlink; all reported test evidence is pinned
+Ubuntu. Earlier full runs are superseded by iss003-full-final.log. Raw files stay local; aggregate
+results and SHA-256 values are in the issue report. No acquisition was repeated to chase success.
+
+Independent final review approved the bounded client fix and diagnostics, recording its timeout
+finding as resolved with the failing/passing regression. No blocking implementation issue remains.
+The Open upstream/source-freshness state is deliberate and evidence-bound; no false closure is
+recorded. After the public-output scan and whitespace/format/lint checks, deliver this repair as
+its own logical commit and read back the exact remote HEAD/check status. No PR or settings change.
