@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "kind": "task-008-local-adoption-verification",
+  "baseCommit": "fd6f79f1be1cff31f04ef679394ec7b4b76260ad",
+  "publicationApproved": false,
+  "replayedCollectionDate": "2026-10-16",
+  "recoveryVerifiedDate": "2026-10-17",
+  "replay": {
+    "kind": "accepted-offline-replay",
+    "publicationApproved": false,
+    "sourceDataAsOf": null,
+    "collectedAt": "2026-10-16T01:52:52.043Z",
+    "archive": {
+      "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+      "byteLength": 217307219
+    },
+    "policyRevision": "task-008-calibration-2026-10-16-v1-proposed",
+    "policySha256": "090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff",
+    "initialBaselineSha256": "9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183",
+    "categoryCount": 195,
+    "totalRows": 2951024,
+    "jsonFileCount": 726,
+    "totalJsonBytes": 691143712,
+    "maxJsonBytes": 691319965,
+    "sizeHeadroom": 176253,
+    "warnings": [
+      {
+        "code": "source_coverage_unverified",
+        "severity": "warning"
+      }
+    ],
+    "release": {
+      "sha256": "a85001ee0bca4be2fef7d667d3fe0e78e4ac2334a318353168a9f80655652190",
+      "byteLength": 703
+    },
+    "nextBaseline": {
+      "sha256": "e44f4733f7d9551c92f5114a75b7d1377aa2800484c4128656d11e511b3aa399",
+      "byteLength": 135035
+    },
+    "artifactInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+    "failurePreservation": {
+      "incompleteStreamRejected": true,
+      "existingOutputRejected": true,
+      "rejectedOutputAbsent": true,
+      "temporaryCandidatesAbsent": true,
+      "acceptedFilesRehashed": 726,
+      "beforeInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+      "afterInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0"
+    },
+    "elapsedMs": 740884
+  },
+  "recoveryAudit": {
+    "kind": "recovered-replay-verified",
+    "auditedAt": "2026-10-17T04:09:09.898Z",
+    "categoryCount": 195,
+    "totalRows": 2951024,
+    "jsonFileCount": 726,
+    "totalJsonBytes": 691143712,
+    "sizeHeadroom": 176253,
+    "artifactInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+    "receipt": {
+      "sha256": "0a875fb1ef47f513be94f019d6e8186538423d78ec9a761b08d481d561f3fd12",
+      "byteLength": 1565
+    },
+    "privateInventory": {
+      "sha256": "a67c5b24cdb7f5d58706c2d294f63102ae5ae6c54e9d5a8b510f6d1c7665b8de",
+      "byteLength": 157042
+    },
+    "release": {
+      "sha256": "a85001ee0bca4be2fef7d667d3fe0e78e4ac2334a318353168a9f80655652190",
+      "byteLength": 703
+    },
+    "nextBaseline": {
+      "sha256": "e44f4733f7d9551c92f5114a75b7d1377aa2800484c4128656d11e511b3aa399",
+      "byteLength": 135035
+    },
+    "archive": {
+      "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+      "byteLength": 217307219
+    },
+    "policySha256": "090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff",
+    "initialBaselineSha256": "9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183",
+    "failurePreservation": {
+      "incompleteStreamRejected": true,
+      "existingOutputRejected": true,
+      "rejectedOutputAbsent": true,
+      "temporaryCandidatesAbsent": true,
+      "acceptedFilesRehashed": 726,
+      "beforeInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+      "afterInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0"
+    }
+  },
+  "repositoryChecks": {
+    "runtime": {
+      "os": "Ubuntu 24.04",
+      "node": "24.19.0",
+      "npm": "11.17.0",
+      "unzip": "Debian Info-ZIP 6.00"
+    },
+    "commands": [
+      {
+        "command": "npm run verify",
+        "exitCode": 0,
+        "testFiles": 44,
+        "tests": 797,
+        "validatorTests": 161
+      },
+      {
+        "command": "npm run test:e2e:full -- --workers=1",
+        "exitCode": 0,
+        "tests": 68
+      },
+      {
+        "command": "npm run test:a11y -- --workers=1",
+        "exitCode": 0,
+        "tests": 20
+      }
+    ],
+    "coveragePercent": {
+      "statements": 92.72,
+      "branches": 91.09,
+      "functions": 95.36,
+      "lines": 94.44
+    },
+    "verifyLogSha256": "882663619461ef1ba65bc162c8fe98f03b25ffaa39f264736dd07fe9d2b5f782",
+    "browsersLogSha256": "60a4e82e4bb88a4529b35f84ed1147283eb9ec33c4f708f4117da35bbcf2321f"
+  },
+  "limitsRetained": [
+    "79 nonempty categories retain zero absolute/relative count-change tolerance.",
+    "The compact JSON size ceiling uses one observed transition.",
+    "ISS-003 remains undiagnosed; offline replay does not exercise transfer.",
+    "Collection date is not original source freshness."
+  ],
+  "independentReviewReference": "reports/review-2026-10-17-task-008-policy-adoption.md"
+}

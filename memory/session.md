@@ -2038,3 +2038,60 @@ No merge or deployment is included. Application tests were not rerun for this pr
 
 Delivery checks passed: local report-link resolution, repository lint (five pre-existing
 informational suggestions), formatting, and Git whitespace validation.
+
+
+## TASK-008 delegated adoption and recovered verification — 2026-10-16/17
+
+The user delegated the decision to dot with the exact instruction "open-store-searcher 결정해".
+Dot selected the complete conservative October 16 policy/23-ID empty list/initial-baseline proposal
+at `fd6f79f1be1cff31f04ef679394ec7b4b76260ad`; no verbatim numeric human approval is invented.
+The October 17 resumption instruction kept the same local-only scope. Main and all existing
+worktrees/unrelated untracked files were preserved. Work is in the isolated clone under the
+October 16 task directory on `codex/task-008-policy-adoption-local`, uncommitted at the cited base.
+
+Installed exact nested objects plus the previously approved pair contract in
+`publication/validation-config.json`. The separate workflow `publication/config.json` remains
+absent. The retained October 16 archive was replayed with unchanged policy, original collection
+instant, approved parser/stager and existing research resource ceilings. Ubuntu 24.04 / Node
+24.19.0 / npm 11.17.0 checks pass 797 automated tests, 68 browser checks and 20 accessibility tests;
+initial metadata/lint failure was corrected before the equivalent split full check set passed.
+
+The execution connection disconnected during replay. On the user's resumption, recovered its
+completed receipt without duplicate ingestion: 195 categories, 2,951,024 rows, 726 JSON files,
+691,143,712 bytes, 176,253 bytes below the exact cap. Metrics equal the reviewed initial baseline.
+Incomplete-stream and existing-output attempts were rejected with no failed candidate/temp output;
+all 726 accepted file hashes remain unchanged. A fresh October 17 recovery audit rehashed every
+artifact and the retained archive and exited 0. The log connection lost stdout; the durable
+receipt plus recovery audit bind acceptance instead. No fresh source collection was performed.
+
+[Verification](../reports/test-2026-10-17-task-008-policy-adoption.md) and
+[aggregate receipt](../reports/validation-2026-10-17-task-008-adoption.json) contain hashes and
+limits. Raw data, per-file inventory and logs stay local outside Git. Independent final review
+is Approved with no blocking findings and is recorded separately in
+[review](../reports/review-2026-10-17-task-008-policy-adoption.md).
+
+The 79 nonempty zero-tolerance categories, one-transition size evidence, null source freshness
+and unresolved ISS-003 remain explicit. Prior source-date claims are not inferred from collection
+or replay. TASK-009/010/021, hosted/mobile performance, publication/recovery, milestone handbook
+and release gates remain open. No push, PR, merge, publish, deploy, recurring collection resumption,
+credential, settings, dependency, workflow or product-source change occurred. The task-specific
+container remains running for evidence retention; the replay process has finished.
+
+Final disposition: TASK-008's original local staged-quality scope is moved to completed under the
+approved ownership boundary. No implementation task is active. Later production/release tasks
+remain unactivated and incomplete. Final lint, formatting, exact configuration identity, local
+Markdown targets and Git whitespace checks pass. No product code changed after the verified full
+check set; no duplicate full-source replay or redundant full-suite execution was needed.
+
+
+## Authorized adoption delivery and ISS-003 continuation — 2026-10-17
+
+The user now requested "커밋 푸시 하고 iss-003 미확인 문제 해결해". This explicitly authorizes
+logical commits and a push of the independently reviewed local adoption branch, followed by
+bounded diagnosis, fixes, regression tests and independent review of ISS-003. It supersedes the
+prior local-only delivery restriction for commits/push only. PR creation, merge, publication,
+deployment, recurring collection and security/credential changes remain outside scope.
+Before delivery, reviewed the exact 17-file diff and new files for raw datasets/logs, credentials,
+large outputs and personal identifiers; removed the newly added absolute local-user path from
+the public verification report. Original private artifacts remain local outside Git. Historical
+"uncommitted/no push" statements describe the earlier local acceptance, before this authorization.

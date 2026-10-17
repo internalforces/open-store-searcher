@@ -520,3 +520,18 @@ review, main-only branch policy and disabled administrator bypass are verified. 
 [final review](../reports/security-2026-09-18-task-019-final.md). No unresolved Actions finding
 blocks AC-019-8; revisit the accepted risk if collaborators/trust boundaries change. Existing
 production/mobile, quality-policy/baseline, hosted publication/recovery and release gates remain.
+
+
+## TASK-008 adoption limits retained — 2026-10-16
+
+The exact locally adopted policy does not resolve ISS-003. Offline replay of retained bytes does
+not exercise or diagnose the three response-length/range transfer failures; their cause remains
+unresolved. No unrelated historical private log was investigated.
+
+The observed envelope is conservative, not a confidence interval: 79 nonempty categories retain
+zero absolute/relative count-change tolerance, first population of an empty category still needs
+review, and the 691,319,965-byte compact ceiling rests on one observed transition. Any future
+rejection requires evidence and a separate decision; no threshold was silently relaxed. The
+October 16 collection date supplies no original source freshness. Hosted/mobile performance,
+publication/recovery and release evidence remain with their existing owners. This continuation
+only adopts the linked local quality inputs and verifies them without publishing.

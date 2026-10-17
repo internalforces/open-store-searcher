@@ -7,7 +7,27 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-10-16_
+_Last updated: 2026-10-17_
+
+## Current local continuation — 2026-10-17
+
+TASK-008's original local staged-quality scope is complete under the approved ownership boundary.
+Exact delegated policy adoption, complete retained-archive validation and failure preservation are
+verified, with an independent **Approved** verdict and no blocking findings in
+[the scoped review](../reports/review-2026-10-17-task-008-policy-adoption.md).
+See [decision](../memory/decisions.md#task-008-delegated-policy-decision--2026-10-16),
+[verification](../reports/test-2026-10-17-task-008-policy-adoption.md), and
+[aggregate evidence](../reports/validation-2026-10-17-task-008-adoption.json).
+The exact three inputs remain in `publication/validation-config.json`. Full replay accepted
+195 categories / 2,951,024 rows / 691,143,712 JSON bytes under the unchanged 691,319,965 ceiling;
+726 accepted files remain unchanged after failure injection and recovery rehash.
+Earlier unapproved/incomplete calibration statements below are historical and superseded for
+these local quality gates. See [the completed record](completed.md#task-008-local-staged-quality-acceptance--2026-10-17).
+No implementation task is active and no new task is activated. `publication/config.json` remains absent; TASK-009/010/021, ISS-003,
+publication/recovery, physical/mobile/hosted performance and milestone/release gates remain open.
+The calibration automation stays paused; no original checkout or unrelated work was changed.
+
+## Historical task state before the delegated continuation
 
 ## In Progress
 

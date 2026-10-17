@@ -1,5 +1,25 @@
 # Collection-date publication
 
+## Local quality adoption — 2026-10-16
+
+The user delegated the decision to dot, which adopted the exact October 16 proposal in
+`validation-config.json`: complete policy, 23 allowed-empty IDs, initial collection-date baseline,
+and the already approved reviewed-pair contract. See the
+[decision](../memory/decisions.md#task-008-delegated-policy-decision--2026-10-16).
+This file supplies the local replay adapter; the workflow still requires the separate absent
+`publication/config.json`. No deployed URL, production resource settings or publication enablement
+is supplied by this change. The original proposal remains an immutable historical artifact.
+The dated sections below describe earlier production holds, not the status of these adopted local
+quality inputs. All deployment, hosted recovery, performance and release gates remain separate.
+
+The complete retained-archive replay accepted 195 categories and 2,951,024 rows under every exact
+policy gate; all 726 files remain unchanged after failure injection and a fresh recovery rehash.
+See [verification](../reports/test-2026-10-17-task-008-policy-adoption.md) and
+[scoped final review](../reports/review-2026-10-17-task-008-policy-adoption.md). A future production
+operation still needs separate reviewed URL/resource configuration and deployment authorization.
+
+## Historical publication context
+
 The user authorized collection-date operation on 2026-09-12 while retaining the real-data
 criteria hold. The UI says "데이터 수집일" and explicitly states that source coverage is
 unverified. The date is the completed archive collection instant converted to Asia/Seoul.

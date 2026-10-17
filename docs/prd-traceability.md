@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-10-16_
+_Last updated: 2026-10-17_
 
 ## Usage Rules
 
@@ -388,3 +388,25 @@ No implementation task is active; TASK-020 remains unactivated. TASK-008 calibra
 TASK-009/010/021 production, publication/recovery and release gates remain open. Only authorized
 environment settings and local documentation changed; no source change, commit, push, merge,
 workflow dispatch, deployment, publication enablement or handbook access occurred in this pass.
+
+
+## TASK-008 exact local policy adoption — 2026-10-17
+
+FR-08/13/14: the user delegated the decision to dot, which adopted the complete exact October 16
+policy, its 23 allowed-empty IDs and initial collection-date baseline. Configuration and revision
+bindings are in `publication/validation-config.json`; all 195 category limits remain unchanged.
+The complete retained-archive replay accepted 2,951,024 rows, 726 JSON files and 691,143,712 bytes
+under the unchanged 691,319,965-byte cap. Every measured metric equals the reviewed baseline.
+Original collection instant and unverified source coverage remain explicit.
+
+[Verification](../reports/test-2026-10-17-task-008-policy-adoption.md),
+[aggregate evidence](../reports/validation-2026-10-17-task-008-adoption.json) and
+[scoped independent review](../reports/review-2026-10-17-task-008-policy-adoption.md) supersede
+historical pending-policy/empty/baseline/accepted-validation statements for the local TASK-008
+scope, with the independent Approved verdict. Incomplete-stream rejection, existing-output
+refusal, cleanup and all 726 prior-file hashes are verified. The 797/68/20 full check set passes;
+the existing validator failure matrix remains unchanged.
+
+No overall FR-13 production publication/recovery, FR-08 source freshness, performance, M1 handbook
+or release-completion claim follows. Those requirements retain their current overall status and
+owner tasks. TASK-009/010/021 and ISS-003 remain open. No handbook was accessed or modified.
