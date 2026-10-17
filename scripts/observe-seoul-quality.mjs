@@ -147,6 +147,7 @@ try {
         kind: 'observation-rejected',
         code: collection.code,
         message: collection.message,
+        ...(collection.lengthMismatches ? { lengthMismatches: collection.lengthMismatches } : {}),
       }),
     );
     process.exitCode = 1;

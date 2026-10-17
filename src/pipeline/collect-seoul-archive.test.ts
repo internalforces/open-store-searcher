@@ -1,8 +1,8 @@
 import { expect, test, vi } from 'vitest';
 import type { ArchiveContract } from './archive-contract.js';
 import { createSeoulCollector } from './collect-seoul-archive.js';
-import { DEFAULT_COLLECTOR_LIMITS } from './collector-types.js';
 import type { ArchiveEvidence, PermissionManifest, SourceEvidence } from './collector-types.js';
+import { DEFAULT_COLLECTOR_LIMITS } from './collector-types.js';
 import type { ArchiveInspectionResult } from './inspect-archive.js';
 import type { SourceProbeResult } from './probe-source.js';
 import type { StagedDownloadResult } from './staged-download.js';
@@ -136,3 +136,112 @@ test('removes the staged archive after inspection rejection', async () => {
   });
   expect(injected.cleanupRejectedDownload).toHaveBeenCalledWith('/tmp/staged/source.zip');
 });
+
+const mismatch = { expectedBytes: 4, declaredBytes: 5 };
+const mismatchResult = {
+  kind: 'rejected' as const,
+  code: 'transfer_incomplete' as const,
+  message: 'Declared archive size disagrees with range evidence.',
+  lengthMismatch: mismatch,
+};
+
+test('recovers once from a pre-body length mismatch using a fresh probe and retains failure evidence', async () => {
+  const injected = dependencies();
+  const fresh = { ...sourceEvidence, expectedBytes: 5 };
+  injected.probeSource
+    .mockResolvedValueOnce({ kind: 'accepted', evidence: sourceEvidence })
+    .mockResolvedValueOnce({ kind: 'accepted', evidence: fresh });
+  injected.downloadArchive.mockResolvedValueOnce(mismatchResult).mockResolvedValueOnce({
+    kind: 'accepted',
+    archivePath: '/tmp/staged/source.zip',
+    sha256: 'new-digest',
+    byteLength: 5,
+  });
+  const result = await createSeoulCollector(injected)(options);
+  expect(result).toMatchObject({
+    kind: 'accepted',
+    byteLength: 5,
+    sourceEvidence: fresh,
+    lengthMismatches: [mismatch],
+  });
+  expect(injected.probeSource).toHaveBeenCalledTimes(2);
+  expect(injected.downloadArchive).toHaveBeenCalledTimes(2);
+  expect(injected.downloadArchive).toHaveBeenNthCalledWith(
+    2,
+    expect.objectContaining({ sourceEvidence: fresh }),
+  );
+  expect(injected.inspectArchive).toHaveBeenCalledOnce();
+  expect(injected.cleanupRejectedDownload).not.toHaveBeenCalled();
+});
+
+test('rejects a second pre-body mismatch without a third attempt or archive inspection', async () => {
+  const injected = dependencies();
+  injected.downloadArchive.mockResolvedValue(mismatchResult);
+  const result = await createSeoulCollector(injected)(options);
+  expect(result).toMatchObject({
+    kind: 'rejected',
+    code: 'transfer_incomplete',
+    lengthMismatches: [mismatch, mismatch],
+  });
+  expect(injected.probeSource).toHaveBeenCalledTimes(2);
+  expect(injected.downloadArchive).toHaveBeenCalledTimes(2);
+  expect(injected.inspectArchive).not.toHaveBeenCalled();
+});
+
+test('retains mismatch history when the fresh probe is denied without retrying the denial', async () => {
+  const injected = dependencies();
+  injected.downloadArchive.mockResolvedValueOnce(mismatchResult);
+  injected.probeSource
+    .mockResolvedValueOnce({ kind: 'accepted', evidence: sourceEvidence })
+    .mockResolvedValueOnce({ kind: 'rejected', code: 'download_limit_denied', message: 'denied' });
+  expect(await createSeoulCollector(injected)(options)).toMatchObject({
+    kind: 'rejected',
+    code: 'download_limit_denied',
+    lengthMismatches: [mismatch],
+  });
+  expect(injected.probeSource).toHaveBeenCalledTimes(2);
+  expect(injected.downloadArchive).toHaveBeenCalledOnce();
+});
+
+test('retains mismatch history and cleans a recovered archive when inspection fails', async () => {
+  const injected = dependencies();
+  injected.downloadArchive.mockResolvedValueOnce(mismatchResult);
+  injected.inspectArchive.mockResolvedValueOnce({
+    kind: 'rejected',
+    code: 'archive_corrupt',
+    message: 'corrupt',
+  });
+  expect(await createSeoulCollector(injected)(options)).toMatchObject({
+    kind: 'rejected',
+    code: 'archive_corrupt',
+    lengthMismatches: [mismatch],
+  });
+  expect(injected.cleanupRejectedDownload).toHaveBeenCalledWith('/tmp/staged/source.zip');
+});
+
+test('does not retry a mismatch after cancellation', async () => {
+  const injected = dependencies();
+  const controller = new AbortController();
+  injected.downloadArchive.mockImplementationOnce(async () => {
+    controller.abort();
+    return mismatchResult;
+  });
+  expect(
+    await createSeoulCollector(injected)({ ...options, signal: controller.signal }),
+  ).toMatchObject({ kind: 'rejected', lengthMismatches: [mismatch] });
+  expect(injected.probeSource).toHaveBeenCalledOnce();
+  expect(injected.downloadArchive).toHaveBeenCalledOnce();
+  expect(injected.inspectArchive).not.toHaveBeenCalled();
+});
+
+test.each(['transfer_incomplete', 'download_limit_denied', 'http_contract_changed'] as const)(
+  'does not retry %s without explicit pre-body mismatch evidence',
+  async (code) => {
+    const injected = dependencies();
+    injected.downloadArchive.mockResolvedValueOnce({ kind: 'rejected', code, message: 'failure' });
+    expect(await createSeoulCollector(injected)(options)).toMatchObject({ kind: 'rejected', code });
+    expect(injected.probeSource).toHaveBeenCalledOnce();
+    expect(injected.downloadArchive).toHaveBeenCalledOnce();
+    expect(injected.inspectArchive).not.toHaveBeenCalled();
+  },
+);

@@ -2095,3 +2095,43 @@ Before delivery, reviewed the exact 17-file diff and new files for raw datasets/
 large outputs and personal identifiers; removed the newly added absolute local-user path from
 the public verification report. Original private artifacts remain local outside Git. Historical
 "uncommitted/no push" statements describe the earlier local acceptance, before this authorization.
+
+
+## ISS-003 reproduction and bounded client repair — 2026-10-17
+
+Delivered the independently reviewed local adoption as commit `28f43c3` to
+`github/codex/task-008-policy-adoption-local` under the new explicit authorization. The original
+local origin and unrelated checkouts remain preserved; no PR or merge was created.
+
+Read only the three issue-specific historical failure logs. Their numeric headers are absent.
+Current default and no-store header-only diagnostics reproduce incompatible range/full lengths
+217,307,219 and 217,356,588 in opposite directions. No ETag/Last-Modified is supplied; no-store
+is not a remedy and an internal provider/cache/load-balancer cause is not proven. Added strict
+numeric diagnostic preservation and one fresh bounded acquisition retry for pre-body mismatches
+only. All equality, size, hash, ZIP and195-category checks remain; no policy or source URL changed.
+Independent review identified a cancellation-timeout edge; added a failing regression and a
+combined-signal check before allowing retry. Existing TypeScript library settings are preserved.
+
+One live collector invocation still rejected both mismatches in410ms and left zero staged files.
+This verifies safe persistent-failure handling, not provider recovery. No live archive or source
+freshness was accepted. The official general-restaurant page's daily/D-2 guidance and catalog
+modified date do not bind all195 Seoul categories to this archive. The info endpoint redirected.
+ISS-003 remains open upstream; collection time is not substituted for coverage.
+
+The unchanged Verify workflow runs only on main pushes and pull requests. Readback for28f43c3
+shows no check runs or Actions runs on this work branch. No PR, workflow edit, dispatch-capability
+change or fabricated CI result is used to manufacture hosted verification. Final local pinned
+verification and independent review are recorded in the issue report before the next push.
+
+Final source verification after the review correction exits0:38 focused tests, typecheck,
+813 full tests/44 files,68 browser checks,20 accessibility checks and4 packaging tests. Coverage
+is92.79% statements/91.33% branches/95.36% functions/94.47% lines. The initial Mac launcher
+could not write through a shared Vite dependency symlink; all reported test evidence is pinned
+Ubuntu. Earlier full runs are superseded by iss003-full-final.log. Raw files stay local; aggregate
+results and SHA-256 values are in the issue report. No acquisition was repeated to chase success.
+
+Independent final review approved the bounded client fix and diagnostics, recording its timeout
+finding as resolved with the failing/passing regression. No blocking implementation issue remains.
+The Open upstream/source-freshness state is deliberate and evidence-bound; no false closure is
+recorded. After the public-output scan and whitespace/format/lint checks, deliver this repair as
+its own logical commit and read back the exact remote HEAD/check status. No PR or settings change.

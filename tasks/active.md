@@ -9,6 +9,18 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-17_
 
+## Current ISS-003 continuation — 2026-10-17
+
+The user's new commit/push and ISS-003 fix request authorized bounded collector diagnosis,
+regression-tested recovery, source-freshness investigation and independent review. Client repair
+passes 813/68/20 plus four packaging checks; final independent review is **Approved** in
+[the issue review](../reports/review-2026-10-17-iss-003.md). Client implementation is complete;
+remaining ISS-003 work is blocked on provider consistency/attestation, not an active code task. ISS-003 remains Open upstream because
+both live attempts still disagreed; no new archive or source-freshness claim is accepted.
+The previously completed TASK-008 quality acceptance below stays complete. No PR, merge, publication, deployment,
+recurring collection or security/credential change is authorized. Exact range/full byte equality
+and all quality gates must remain strict; no successful fetch may masquerade as source freshness.
+
 ## Current local continuation — 2026-10-17
 
 TASK-008's original local staged-quality scope is complete under the approved ownership boundary.

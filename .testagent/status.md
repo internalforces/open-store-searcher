@@ -353,3 +353,33 @@ so shared-reference mutation cannot make its preservation assertions tautologica
 Specialized gap/assertion tools were unavailable; the independent reviewer supplied those
 checks explicitly in reports/review-2026-09-17-task-008-reviewed-pairs.md. No production
 threshold, empty-list or baseline was invented; overall TASK-008 remains incomplete.
+
+
+## ISS-003 final regression quality review — 2026-10-17
+
+Broad bounded Research → Plan → Implement workflow complete inline; specialized generator,
+source-pairing, test-gap and assertion-quality tools were unavailable. Existing historical entries
+were preserved. Paired files are staged-download/test and collect-seoul-archive/test; internal
+collector-types carries numeric evidence and the observation CLI forwards it.
+
+RED: 7 failures /29 passes against original implementation; additional timeout regression failed
+before the review correction. GREEN:38 focused tests and typecheck pass. Final pinned full command
+exits0:813 tests/44 files,68 browser,20 accessibility and4 packaging checks. Coverage92.79/91.33/
+95.36/94.47 statements/branches/functions/lines. Exact test-name requirement mapping and log hashes
+are in reports/test-2026-10-17-iss-003.md and diagnostic-2026-10-17-iss-003.json.
+
+Assertion audit: tests require a new probe evidence object, exact two-attempt bound, explicit
+numeric history, no third transaction, no unsafe-header/cancellation retry, absence of partial
+files and unchanged prior bytes. Inspection rejection requires cleanup of the recovered archive.
+The independent reviewer found cancellation completing after the internal inactivity deadline
+could still emit retryable evidence; a meaningful fake-timer regression reproduced this and the
+combined-signal check fixes it. No weak assertion, skipped test or threshold waiver was added.
+
+One real invocation still rejected both provider mismatches and left zero staged files. This is
+not upstream recovery. Original source freshness and provider-internal/historical attribution
+remain unverified. Independent final review is recorded separately; no issue closure is inferred
+from client mitigation. No raw dataset/log, credential or personal identifier is committed.
+
+Independent final verdict: Approved for bounded client mitigation/diagnostics, with the timeout
+finding resolved and no blocking source issue. See reports/review-2026-10-17-iss-003.md. This is
+not provider recovery, source-freshness verification or hosted CI success.

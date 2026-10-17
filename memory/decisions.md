@@ -681,3 +681,16 @@ The 79 nonempty categories with no observed movement retain zero count-change to
 691,319,965-byte JSON ceiling remains supported by one compact transition. ISS-003 is unresolved;
 collection date is not source-data freshness. Publication, deployment, hosted recovery, physical
 mobile/performance and release acceptance remain separate gates. See the local verification report.
+
+
+## ISS-003 bounded coherent-acquisition recovery — 2026-10-17
+
+The user's explicit commit/push and ISS-003 fix request authorizes this bounded client repair.
+Keep the exact approved source URLs, byte-equality contract, all size/hash/ZIP/schema/quality
+limits and collection-date uncertainty. Permit at most one fresh limit/range/full transaction
+only after a valid in-bounds pre-body header mismatch whose body was successfully cancelled
+without abort. Do not retry ordinary HTTP, body, size, cancellation or permission failures.
+Preserve numeric mismatch history through recovered success or final rejection; do not log
+cookies, credentials, request bodies or source records. No cache workaround was adopted because
+no-store reproduced the mismatch. Provider-internal and historical attribution remain unproven.
+The persistent live mismatch and original freshness uncertainty stay open, with no false closure.

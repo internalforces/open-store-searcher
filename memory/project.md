@@ -316,3 +316,15 @@ historical unapproved-policy statements only for these exact local inputs. The m
 proposal remains unchanged as historical evidence. Complete replay and failure-preservation evidence are recovered and freshly rehashed; final
 independent review is Approved with no blocking findings; no deployment or source-freshness claim follows. `publication/config.json`
 remains absent, recurring observation stays paused and TASK-009/010/021 remain open.
+
+
+## ISS-003 client mitigation; upstream remains open — 2026-10-17
+
+The user authorized commit/push of the reviewed adoption and bounded ISS-003 repair. Adoption is
+pushed as28f43c3 on the isolated work branch. Current diagnostics reproduce incompatible provider
+range/full lengths217,307,219 and217,356,588, including with no-store. Added one fresh acquisition
+retry only for valid pre-body mismatches, retained numeric evidence and cancellation safeguards;
+all equality/quality gates remain unchanged. Final pinned checks pass813/68/20 plus4 packaging
+checks. The actual two-attempt collection still rejects and leaves zero staged files, so ISS-003
+and original source freshness stay open. No PR, deployment, recurring collection or security change
+occurred. See reports/test-2026-10-17-iss-003.md and the independent issue review.

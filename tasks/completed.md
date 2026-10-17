@@ -658,3 +658,24 @@ explicit. No task/milestone/release completion beyond this local TASK-008 scope 
 TASK-009/010/021, publication/recovery and hosted/mobile performance stay open. No handbook was
 accessed, and the separate milestone handbook/language gate remains open. Changes remain local
 and uncommitted; no delivery, automation, credentials or security settings were changed.
+
+
+## ISS-003 client mitigation and diagnostic repair — 2026-10-17
+
+Completed only the client repair authorized by the user's commit/push and ISS-003 request:
+validated numeric pre-body mismatch evidence, one fresh bounded acquisition retry, cancellation/
+timeout safeguards and preserved failure history. No equality, byte, hash, ZIP, schema or policy
+gate was relaxed. Source URLs/status rules/dependencies/workflows remain unchanged.
+
+Sixteen regressions pass within38 focused tests; final pinned verification passes813 automated,
+68 browser,20 accessibility and4 packaging tests. Independent review is **Approved**, with its
+cancellation-timeout finding fixed and no blocking code issue remaining.
+[Verification](../reports/test-2026-10-17-iss-003.md),
+[sanitized evidence](../reports/diagnostic-2026-10-17-iss-003.json),
+[independent review](../reports/review-2026-10-17-iss-003.md).
+
+ISS-003 itself remains Open upstream: the one live invocation still rejected both incompatible
+representations and left zero staged files. Historical backend attribution and original source
+freshness are unverified. No accepted archive, publication/recovery, recurring collection or
+release is inferred. Hosted CI does not run for this branch under the unchanged main/PR-only
+workflow; no PR or settings change was used to manufacture a run.

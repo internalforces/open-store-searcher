@@ -410,3 +410,17 @@ the existing validator failure matrix remains unchanged.
 No overall FR-13 production publication/recovery, FR-08 source freshness, performance, M1 handbook
 or release-completion claim follows. Those requirements retain their current overall status and
 owner tasks. TASK-009/010/021 and ISS-003 remain open. No handbook was accessed or modified.
+
+
+## ISS-003 bounded client recovery — 2026-10-17
+
+FR-08/13/14: current source range/full representation inconsistency is reproduced; historical
+numeric attribution remains unavailable. Strict equality/size/hash/ZIP/schema checks remain.
+A single fresh acquisition retry after a valid pre-body mismatch and successful non-aborted
+cancellation is regression-tested, with numeric evidence retained on success or rejection.
+Final pinned813/68/20 plus4 packaging checks pass. The real two-attempt check still rejects
+and leaves zero staged files; no provider recovery or freshness assertion is inferred.
+[Issue verification](../reports/test-2026-10-17-iss-003.md),
+[sanitized evidence](../reports/diagnostic-2026-10-17-iss-003.json), and
+[independent review](../reports/review-2026-10-17-iss-003.md) preserve the upstream/source-freshness
+blocker. No overall requirement, publication/recovery or release gate is closed by mitigation.

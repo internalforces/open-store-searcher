@@ -163,3 +163,17 @@ shared documentation, test artifacts, environment and final full verification. I
 will inspect exact scopes against the separately retained decision-input evidence, mutation
 resistance and no unintended numeric-policy/bootstrap permission. No real production policy is
 created and no network-dependent source test is introduced.
+
+
+## ISS-003 regression plan — 2026-10-17
+
+1. RED: downloader mismatch returns numeric evidence, awaits body cancellation, consumes no bytes
+   and leaves only prior known-good bytes. Malformed/out-of-bounds Content-Length is not retryable.
+2. RED: collector recovers once with a fresh probe evidence object, stops after repeated mismatch,
+   preserves history on reprobe denial and inspection failure, and refuses retry after abort.
+3. GREEN: add internal numeric mismatch evidence and a two-attempt acquisition loop; retry only
+   a pre-body in-bounds mismatch, retain all existing strict byte/ZIP/schema checks. No source
+   URL, policy, threshold, status mapping, credential, workflow or security setting changes.
+4. Run narrow tests and coverage, one bounded real collector validation, then full pinned
+   verification and independent implementation/assertion review. Record exact test names/results
+   in `.testagent/status.md` and the public aggregate-only issue report.
