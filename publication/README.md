@@ -6,8 +6,14 @@ unverified. The date is the completed archive collection instant converted to As
 Source ZIP dates, row dates and build time never become a claimed source coverage date.
 
 The user resumed quality review on 2026-09-12. Complete CP949-capable source observation and
-compact conversion now pass; `config.json` remains absent pending reviewed quality policy and
-bootstrap baseline. See the [compact evidence](../reports/test-2026-09-14-compact-delivery.md). Do not copy the
+compact conversion now pass. On 2026-10-18 the user approved the exact calibrated policy,
+23 allowed-empty IDs and 2026-10-16 initial baseline as conservative initial criteria. They are
+installed in [`validation-config.json`](validation-config.json), which is used only for the
+non-publishing TASK-008 acceptance replay. The workflow's `config.json` remains absent pending
+TASK-009/010 operational/publication review. The immutable proposal and exact approval are
+recorded in the [approval packet](../reports/calibration-2026-10-16-approval-packet.md) and
+[decision record](../memory/decisions.md#task-008-conservative-initial-quality-policy-approved--2026-10-18).
+See the [compact evidence](../reports/test-2026-09-14-compact-delivery.md). Do not copy the
 synthetic test policy/baseline into it, waive unknown-status review, or auto-bootstrap from
 the same unreviewed candidate. Missing configuration fails the refresh before any publication.
 
@@ -159,7 +165,9 @@ and its [settings receipt](../reports/security-2026-09-18-task-019-final-evidenc
   evidence. Publication remains disabled and no deployment was dispatched or approved.
 
 Re-read repository and environment settings before any approved operation; this dated receipt
-is not a live settings guarantee. TASK-019's Actions criterion is accepted, while calibration,
-quality policy, empty-category list, baseline, accepted candidate, hosted/mobile performance,
-publication/recovery and release gates remain open. Follow the
+is not a live settings guarantee. TASK-019's Actions criterion is accepted. The calibration
+interval is complete and the policy, empty-category list and initial baseline were explicitly
+approved on 2026-10-18. TASK-008 final validation/review is complete with independent Approved acceptance; see
+[verification](../reports/test-2026-10-18-task-008-final.md).
+hosted/mobile performance, publication/recovery and release gates remain open. Follow the
 [deployment and recovery runbook](../docs/deployment.md) for those prerequisites.

@@ -7,6 +7,14 @@ Harness Version: 1.1
 
 # TASK-008 Calibration Completion Approval Packet — 2026-10-16
 
+Adoption update — 2026-10-18: the user explicitly approved all three exact inputs below as
+conservative initial criteria and requested the remaining non-publishing validation and final
+review. See the [decision record](../memory/decisions.md#task-008-conservative-initial-quality-policy-approved--2026-10-18)
+and [`publication/validation-config.json`](../publication/validation-config.json). The original
+proposal wording and machine-readable `proposal-unapproved` artifact are preserved as historical
+evidence; they are not the current adoption status. The exact canonical objects and their
+revision strings are unchanged. Publication and deployment remain separate gates.
+
 Status: the approved 30-Seoul-calendar-day interval is complete. Every object below is a proposal.
 Nothing in this packet adopts a policy, approves an empty category, establishes a baseline,
 publishes data, replaces known-good data, changes a source/status rule, or authorizes deployment.

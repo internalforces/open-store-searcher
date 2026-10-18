@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-10-18_
 
 ## Summary
 
@@ -16,9 +16,9 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-020 public documentation complete; TASK-008 calibration and production/release gates remain open
-- Next milestone: M1 — reviewed data policy/baseline and publication/recovery gates remain open
-- Overall health: 🟡 Caution — Actions review and protected environment verified; TASK-008 calibration and production/recovery/release gates remain open
+- Phase: TASK-008 complete with approved conservative quality inputs, fresh full-source validation and independent final approval
+- Next milestone: M1 — TASK-009 then TASK-010 publication/recovery; no next task active
+- Overall health: 🟡 Caution — exact conservative policy approved; publication/recovery, production performance and release gates remain open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -304,3 +304,17 @@ correction, which pass local verification only; no independent re-review is clai
 links, YAML, formatting, lint, types, build and whitespace pass. The default remains synthetic and
 production publication/recovery/release gates remain explicit. No active implementation task
 remains; TASK-008 calibration continues and TASK-021 is gated.
+
+
+## Current priority — TASK-008 final acceptance, 2026-10-18
+
+The user approved all three exact calibration inputs as conservative initial criteria: numeric
+policy, 23 allowed-empty IDs and the 2026-10-16 baseline. `publication/validation-config.json`
+contains the exact approved objects and unchanged reviewed-pair/resource inputs; the separate
+workflow configuration remains absent. Original proposal/revision strings remain historical and
+unchanged. A fresh pinned Ubuntu complete-source replay passes all 195 categories and 2,951,024
+rows, producing 726 JSON files totaling 691,143,712 bytes under the 691,319,965-byte maximum.
+Interruption, existing-output and approved-count failure checks preserve all accepted file hashes.
+Pinned full verification passed 797/68/20 and independent final review Approved with no
+actionable findings. TASK-008 is complete and no implementation task is active. TASK-009/010 remain
+paused; no publication, hosted recovery, mobile acceptance, push, merge or release is implied.

@@ -2038,3 +2038,44 @@ No merge or deployment is included. Application tests were not rerun for this pr
 
 Delivery checks passed: local report-link resolution, repository lint (five pre-existing
 informational suggestions), formatting, and Git whitespace validation.
+
+
+## TASK-008 final acceptance resumed — 2026-10-18
+
+The user explicitly approved all three exact 2026-10-16 proposal inputs as conservative initial
+criteria and requested remaining validation and independent final review. Reusing the clean
+`.worktrees/task008-calibration` checkout at `fd6f79f` on `codex/task-008-calibration`.
+Installed `publication/validation-config.json` with the exact canonical policy and baseline,
+existing approved reviewed-pair contract, and previously observed resource ceilings. The policy
+revision suffix remains unchanged to preserve exact approved identity. Publication entry-point
+configuration remains absent. No new application behavior, dependency, workflow, source/status
+rule, remote setting, deployment, push or merge is authorized by this continuation.
+
+Execution ledger: approval/configuration recorded; fresh full-source replay, failure preservation,
+pinned full verification and independent final review are pending. Retained older container
+artifacts belong to earlier work; current acceptance will use new isolated run directories and
+fresh evidence rather than claim an old run as current verification.
+
+
+## TASK-008 final quality acceptance complete — 2026-10-18
+
+Completed the explicitly approved continuation in the existing calibration worktree. Exact
+approved policy/baseline canonical hashes remain unchanged; the validation-only configuration
+contains no deployment URL. Fresh pinned Ubuntu raw replay accepts 195 categories/2,951,024 rows
+with exact baseline metrics, 726 JSON files/691,143,712 bytes and only source-coverage uncertainty.
+Archive hashes match before/after. Interrupted input, existing-output and all-category-empty
+count failure preserve the complete accepted inventory and leave no rejected/temporary output.
+
+Fresh exact `npm run verify:full` passes 797 tests, 68 four-browser checks and 20 accessibility
+tests at default concurrency with strict flaky policy unchanged. All 156 product/test/tooling
+fingerprints match current files. Initial helper-injection consistency failures and concurrent
+Firefox/WebKit midnight-test failures remain disclosed; no product/test changes were needed.
+Post-evidence lint, formatting, types, Markdown targets and whitespace checks passed.
+
+Independent final Reviewer Approved with no actionable findings after reproducing all numeric
+limits, observation/log/source hashes, baseline provenance, actual-validator numeric replays,
+726 artifact hashes and bound full-suite evidence. Moved TASK-008 to completed and reconciled
+active/project/traceability/operator records. No next task is active. TASK-009/010 publication/
+recovery, TASK-018/021 performance/release and milestone handbook gates remain open. ISS-003 and
+conservative future-rejection limitations remain recorded. No handbook access, commit, push,
+merge, workflow dispatch, publication enablement, deployment, tag or release occurred.

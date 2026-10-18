@@ -7,11 +7,16 @@ deployment still requires human approval under the project constitution.
 
 The production path is intentionally disabled. `publication/config.json` and the repository
 variable `PAGES_PUBLICATION_ENABLED` are absent. The `github-pages` environment is protected and
-limited to `main`, but no production candidate has been accepted or deployed.
+limited to `main` in the dated settings receipt. The approved 2026-10-16 source now passes local
+offline TASK-008 staging; no hosted publication or deployment has been accepted or performed.
 
-The 30-Seoul-calendar-day calibration begun on 2026-09-17, its derived quality policy,
-allowed-empty category list, initial baseline, accepted full-source candidate, hosted/mobile
-performance, recovery exercise, and release verification remain open gates.
+The 30-Seoul-calendar-day calibration from 2026-09-17 through 2026-10-16 is complete. The
+user approved its exact derived quality policy, 23 allowed-empty IDs and 2026-10-16 initial
+baseline on 2026-10-18. [`publication/validation-config.json`](../publication/validation-config.json)
+records those inputs for non-publishing TASK-008 acceptance only; it is not the workflow entry
+point and contains no deployment URL. TASK-008 is complete after fresh full-source/full-suite verification and independent Approved
+[final review](../reports/review-2026-10-18-task-008-final.md). Operational configuration, hosted/mobile performance,
+publication/recovery and release verification remain separate gates.
 
 ## Architecture
 

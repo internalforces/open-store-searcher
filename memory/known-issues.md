@@ -520,3 +520,16 @@ review, main-only branch policy and disabled administrator bypass are verified. 
 [final review](../reports/security-2026-09-18-task-019-final.md). No unresolved Actions finding
 blocks AC-019-8; revisit the accepted risk if collaborators/trust boundaries change. Existing
 production/mobile, quality-policy/baseline, hosted publication/recovery and release gates remain.
+
+
+## TASK-008 conservative initial policy limitations — 2026-10-18
+
+The user explicitly approved the observed-envelope quality policy, exact 23 allowed-empty
+categories and 2026-10-16 baseline. Historical missing-policy/baseline notes above are superseded
+for TASK-008. This approval accepts conservative rejections rather than inventing tolerance:
+79 nonempty categories have zero count-change allowance, first population of an empty baseline
+requires review, and the compact JSON ceiling has only 176,253 bytes of observed headroom.
+Normal growth/correction may therefore block a refresh. Future relaxation requires evidence and
+explicit approval; failed candidates must preserve prior accepted bytes. These criteria do not
+establish provider freshness, reliable future acceptance, mobile performance or hosted recovery.
+ISS-003 remains open; no collector rule or cause was changed/inferred during this adoption.

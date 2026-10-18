@@ -394,3 +394,15 @@ retention, failure behavior and prepare/deploy privilege separation remain uncha
 Actual main protection now requires the GitHub Actions verify check and reviewed PRs, including
 administrators. Deployment environment reviewer selection/configuration remains pending;
 publication stays disabled. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
+
+
+## TASK-008 approved quality configuration — 2026-10-18
+
+`publication/validation-config.json` stores the exact user-approved observed-envelope policy,
+23 allowed-empty category IDs, 2026-10-16 collection-date baseline, existing reviewed-unverified
+contract and unchanged observation resource ceilings. It has no public URL or credentials and
+is consumed only by the offline acceptance adapter `.testagent/replay-adopted-policy.mjs`.
+The production workflow still requires the separate `publication/config.json`; its absence
+keeps publication preparation gated. Future operational configuration must preserve approved
+objects and undergo TASK-009/010 review. No producer/consumer, status, identifier, delivery,
+workflow-permission or infrastructure contract changed.

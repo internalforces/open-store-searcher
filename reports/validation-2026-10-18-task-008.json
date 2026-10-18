@@ -1,0 +1,69 @@
+{
+  "kind": "accepted-offline-replay",
+  "executedAt": "2026-10-18T11:54:08.436Z",
+  "validationNow": "2026-10-18T12:00:00.000Z",
+  "environment": {
+    "platform": "linux",
+    "architecture": "arm64",
+    "node": "v24.19.0"
+  },
+  "implementationSha256": {
+    ".testagent/replay-adopted-policy.mjs": "5c6efcca37acb3db5a9cf6f80ad840f1a4220031d888de184cc08e5adb297ecb",
+    "src/pipeline/stage-bounded-release.ts": "fa6f39e6ed8a9f385f560facd30d95320ef2db83548acbe556fd1f9d473461ad",
+    "src/pipeline/validate-license-refresh.ts": "919bbd5392c62ee97f91e88e1af892af165baa67c6871ac47347e206867a01bf",
+    "src/pipeline/parse-license-csv.ts": "86186c2e809951b958457dd0864fc1413ceeeb92f041b94168e3c7fc8ec0537e",
+    "src/pipeline/write-compact-dataset.ts": "d74ed8f11fb5f4da214b38f914dd256d9347d39a2792082d8e0d80a7a637e910",
+    "src/pipeline/contracts/seoul-archive-contract.json": "7cd8ce23032b491a4d9859c2cf50d7fa7505ea94c63523cb44bcb5e4242388ec",
+    "src/pipeline/contracts/reviewed-unverified-pairs-v1.json": "84a16b491eefd39aa8e2b78390ec64ddc1796ceb21ebf73d85745c7b55a5282c",
+    "reports/source-permission-manifest-2026-08-28.json": "4b47b0296c34c0bd3b7c2ee88448ffe2cf5c40f90b99a8c8c8b46b3cf5c8f023",
+    "publication/validation-config.json": "034cdeb26e5db44d6c04d07a6bb8198208f1ab922763e324bbba485149d8940b",
+    "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89"
+  },
+  "validationKind": "accepted",
+  "missingPolicyKind": "review_required",
+  "zeroChangeCategoryRejection": {
+    "categoryId": "15006668",
+    "kind": "rejected"
+  },
+  "publicationApproved": false,
+  "sourceDataAsOf": null,
+  "collectedAt": "2026-10-16T01:52:52.043Z",
+  "archive": {
+    "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+    "byteLength": 217307219
+  },
+  "policyRevision": "task-008-calibration-2026-10-16-v1-proposed",
+  "policySha256": "090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff",
+  "initialBaselineSha256": "9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183",
+  "categoryCount": 195,
+  "totalRows": 2951024,
+  "jsonFileCount": 726,
+  "totalJsonBytes": 691143712,
+  "maxJsonBytes": 691319965,
+  "sizeHeadroom": 176253,
+  "warnings": [
+    {
+      "code": "source_coverage_unverified",
+      "severity": "warning"
+    }
+  ],
+  "release": {
+    "sha256": "a85001ee0bca4be2fef7d667d3fe0e78e4ac2334a318353168a9f80655652190",
+    "byteLength": 703
+  },
+  "nextBaseline": {
+    "sha256": "e44f4733f7d9551c92f5114a75b7d1377aa2800484c4128656d11e511b3aa399",
+    "byteLength": 135035
+  },
+  "artifactInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+  "failurePreservation": {
+    "incompleteStreamRejected": true,
+    "existingOutputRejected": true,
+    "rejectedOutputAbsent": true,
+    "temporaryCandidatesAbsent": true,
+    "acceptedFilesRehashed": 726,
+    "beforeInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+    "afterInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0"
+  },
+  "elapsedMs": 701823
+}

@@ -655,3 +655,24 @@ bypass and restrict to branch main only (not tags). The owner accepts the absenc
 human separation and corresponding single-account compromise/error risk. This decision does not
 authorize an actual deployment, publication enablement, quality policy, baseline or release.
 See [applied settings and final review](../reports/security-2026-09-18-task-019-final.md).
+
+
+## TASK-008 conservative initial quality policy approved — 2026-10-18
+
+The user approved the exact three inputs in `reports/calibration-2026-10-16-approval-packet.md`:
+`ValidationPolicyV1` revision `task-008-calibration-2026-10-16-v1-proposed`, its exact 23-ID
+allowed-empty list, and the 2026-10-16 initial baseline (195 categories, 2,951,024 records).
+Canonical SHA-256 values remain `090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff`
+(policy) and `9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183` (baseline).
+
+Ruling: preserve the exact approved revision, including `-proposed`, and retain the immutable
+historical proposal artifact; adoption is recorded separately. Renaming would change both
+approved objects and their hashes. Use `publication/validation-config.json` for non-publishing
+acceptance; enabling the workflow entry point remains TASK-009/010 work.
+
+The user accepts conservative initial gating: 79 nonempty categories reject any count change,
+first population of an empty baseline requires review, and the compact-size budget has only
+176,253 bytes of observed headroom. Limits are an observed envelope, not a confidence interval
+or source-freshness assurance. Future changes require evidence and explicit approval. Collection
+date remains the only approved date basis; source coverage is unverified. No publication or
+release approval is implied.

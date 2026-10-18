@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-10-18_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
@@ -21,9 +21,11 @@ _Last updated: 2026-09-18_
 
 ## Recommended Start Order
 
-1. TASK-008 was activated on 2026-09-04 by the user's execution request; see tasks/active.md and proposed ADR-014.
-2. Keep TASK-008 through TASK-010 sequential so each data contract is tested before its consumer.
-3. Use M1's validated fixtures and schema to implement M2 search and UI in traceable units rather than parallel implementation.
+1. TASK-008 completed on 2026-10-18 with exact approved quality inputs, full-source accepted
+   validation, failure preservation, pinned full checks and independent Approved final review.
+2. Resume TASK-009, then TASK-010 sequentially; operational configuration, hosted publication/
+   recovery and action-time deployment approval remain required. No next task is active.
+3. Keep TASK-021 gated on production/performance/publication/recovery and remaining release criteria.
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 public documentation
 completed on 2026-09-18; TASK-021 retains release-candidate documentation verification.
@@ -76,3 +78,12 @@ historical. Production measurements/data gates remain required for release; no n
 AC-019-8 is accepted; see [final review](../reports/security-2026-09-18-task-019-final.md).
 TASK-020 subsequently completed with public documentation, full verification, and independent
 review. TASK-008 observation continues; TASK-009/010 remain dependent on reviewed policy and baseline.
+
+
+## TASK-008 final acceptance — 2026-10-18
+
+The historical calibration-waiting disposition is superseded. The exact quality policy, 23-ID
+empty list and initial baseline are approved and TASK-008 is complete; see
+[completion](completed.md#task-008-final-quality-acceptance--2026-10-18).
+TASK-009/010 may now be resumed sequentially, but are not activated here. Validation-only config
+is separate from the still-absent workflow config; no deployment/publication is authorized.
