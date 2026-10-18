@@ -752,3 +752,17 @@ Future normal movement may reject under the explicitly accepted conservative ini
 79 nonempty categories allow zero count change and only 176,253 compact bytes of headroom remain.
 ISS-003 stays open; the fail-closed collector is unchanged. TASK-009/010 remain incomplete and
 unactivated; TASK-018/021 retain performance/release gates. No handbook/milestone closure occurs.
+
+
+## PR32 local review remediation — 2026-10-18
+
+The user authorized fixes/push/reverification of all four PR32 findings. Direct adopted resource
+limits, an explicit hash/size-bound audit archive, severity-correct rejection reporting and
+committed active-task context are implemented. New18-case adapter regressions pass, and fresh
+actual preservation audit keeps all726 accepted files unchanged with no failed/temporary output.
+Independent review is Approved for the bounded local repair; see
+[verification](../reports/test-2026-10-18-pr32-remediation.md),
+[corrected aggregate receipt](../reports/preservation-2026-10-18-pr32-remediation.json), and
+[review](../reports/review-2026-10-18-pr32-remediation.md). Final pinned checks pass831/68/20 plus
+four packaging cases; exact pushed-head hosted CI/readback is required before handoff. The approved configuration is byte-identical;
+no production task, merge/auto-merge, publication/deployment, collection resume or settings change.

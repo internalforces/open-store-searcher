@@ -427,3 +427,14 @@ The production workflow still requires the separate `publication/config.json`; i
 keeps publication preparation gated. Future operational configuration must preserve approved
 objects and undergo TASK-009/010 review. No producer/consumer, status, identifier, delivery,
 workflow-permission or infrastructure contract changed.
+
+
+## PR32 local evidence adapter corrections — 2026-10-18
+
+The replay reads and validates resource ceilings directly from adopted validation-config.json;
+no historical observation fallback remains. The private audit CLI requires REPLAY-ROOT and
+SOURCE-ARCHIVE, binds the archive to prior receipt/baseline hash and size, and verifies unchanged
+bytes after rejection injection. It compares actual staging error codes with structured actual
+validator diagnostics and records only rejection severity under reasonCodes, retaining warnings
+separately. These are internal evidence adapters, not a new production/public interface. All
+quality objects, resource numbers, processing modules and the separate publication hold remain.

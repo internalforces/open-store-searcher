@@ -1,0 +1,51 @@
+{
+  "kind": "pr32-review-remediation-verification",
+  "executedAt": "2026-10-18T23:40:43.500432+00:00",
+  "reviewedInitialHead": "2801d8e89fbe371fdc9e6e3e91383603065c1298",
+  "baseMainCommit": "c521467f4b31375e6fc19284ea9c22dd1b37e38c",
+  "runtime": {
+    "os": "Ubuntu24.04",
+    "node": "24.19.0",
+    "npm": "11.17.0"
+  },
+  "command": "npm run verify:full && node --test scripts/check-pages-artifact.test.mjs",
+  "exitCode": 0,
+  "automatedTests": 831,
+  "testFiles": 45,
+  "browserChecks": 68,
+  "accessibilityChecks": 20,
+  "packagingChecks": 4,
+  "adapterRegressions": 18,
+  "coverage": {
+    "statements": 92.79,
+    "branches": 91.33,
+    "functions": 95.36,
+    "lines": 94.47
+  },
+  "resourceLimits": {
+    "maxEntryBytes": 536870912,
+    "maxTotalRows": 3000000,
+    "entryTimeoutMs": 120000
+  },
+  "configurationByteIdenticalToInitialPrHead": true,
+  "configurationSha256": "f3feafd8d37d30e859b7797fe753277d2091cb7383009e035dff60edb76987f1",
+  "inputSha256": {
+    ".testagent/replay-adopted-policy.mjs": "0b461876cb189a7e3d3b3e68ca9153cae146b04c66e5b1e196a6d2eacac254fa",
+    ".testagent/audit-adopted-release.mjs": "82d3c4fdc3744475f91d89f9b865a8d06bd1b88cecd9355170d9c19b46e55dac",
+    "src/pipeline/adopted-validation-adapters.test.ts": "17405a8ff8078dc552e2e534d36bd2433daa543a56e7604ab3bc1bed80ca44db",
+    "publication/validation-config.json": "f3feafd8d37d30e859b7797fe753277d2091cb7383009e035dff60edb76987f1",
+    "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89"
+  },
+  "fullLogSha256": "2e3490a563749ecc712bfd24e052beb135b71c38bd5aa952c9b30e93b15ea830",
+  "initialRegressionRedLogSha256": "f026ac1804ef29fc53f6905f6a25d7d0acfaa1700f62e0e02bbc5670f834deb4",
+  "finalRegressionGreenLogSha256": "a874d75f3f7afd10b04b995fabad27de74d99c5c726496afaf1ace990d19efb8",
+  "preservationReceiptSha256": "4130c38b10ce7b46bffb4855f27fa236b3d4d313acd0ea12f472a234ad0f3f61",
+  "freshPreservationAudit": true,
+  "freshCompleteRawReplay": false,
+  "newSourceCollection": false,
+  "sourceDataAsOf": null,
+  "publicationApproved": false,
+  "mergeExecuted": false,
+  "deploymentExecuted": false,
+  "finalHostedCi": "Read exact final pushed HEAD through PR checks after delivery; this local receipt does not preclaim it."
+}

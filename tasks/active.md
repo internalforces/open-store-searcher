@@ -19,9 +19,18 @@ validation; local failure-preservation checks; pinned full verification; and ind
 [verification report](../reports/test-2026-10-18-task-008-final.md) and
 [final review](../reports/review-2026-10-18-task-008-final.md).
 
-The fresh evidence is in the existing `.worktrees/task008-calibration` checkout
-on `codex/task-008-calibration`. Preserve other checkouts and untracked work. No commit, push,
-merge, workflow dispatch, publication, deployment, tag or release occurred in this continuation.
+The evidence is committed in PR #32 on `codex/task-008-calibration`: original acceptance record
+`2be9077de3b04f34e17e9297d43d86f099289993` and merged-main reconciliation
+`2801d8e89fbe371fdc9e6e3e91383603065c1298`. Use the repository-relative reports above and the
+[delivery record](../reports/delivery-2026-10-18-task-008.md), not a host-local checkout path.
+Preserve unrelated checkouts and work. The current user-approved continuation addresses PR #32's
+four review findings, adds regressions and fresh preservation verification, then commits/pushes
+and checks the exact final-head CI. Current evidence:
+[review verification](../reports/test-2026-10-18-pr32-remediation.md),
+[corrected preservation receipt](../reports/preservation-2026-10-18-pr32-remediation.json),
+[independent review](../reports/review-2026-10-18-pr32-remediation.md).
+It does not activate TASK-009/010 or authorize merge,
+auto-merge, workflow dispatch, publication/deployment, recurring collection or security changes.
 
 ## Next eligible work — TASK-009, then TASK-010
 

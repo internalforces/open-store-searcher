@@ -550,3 +550,16 @@ Normal growth/correction may therefore block a refresh. Future relaxation requir
 explicit approval; failed candidates must preserve prior accepted bytes. These criteria do not
 establish provider freshness, reliable future acceptance, mobile performance or hosted recovery.
 ISS-003 remains open; no collector rule or cause was changed/inferred during this adoption.
+
+
+## PR32 evidence-adapter review findings repaired — 2026-10-18
+
+Four P2 review findings are repaired locally: historical resource-limit fallback, host-fixed
+audit archive path, warning-as-rejection summary and stale active-task checkout/delivery context.
+New18-case regressions cover actual CLI wiring and preservation-report refusal on binding,
+mutation, diagnostic mismatch or cleanup failure; a fresh actual726-file audit verifies the real
+bytes unchanged. The old receipt is retained as historical evidence of its classification bug,
+with a new corrected receipt and explicit supersession. See
+[verification](../reports/test-2026-10-18-pr32-remediation.md). These local harness repairs do not
+resolve ISS-003 upstream or source freshness, relax calibrated policy, enable publication, or
+close operational/recovery/physical/mobile/hosted performance and release limits.

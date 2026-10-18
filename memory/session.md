@@ -7,7 +7,39 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-17_
+_Last updated: 2026-10-18_
+
+## Current PR 32 review remediation — 2026-10-18
+
+The user explicitly instructed the parent to proceed after its offer to fix/push/reverify PR32.
+Read actual remote head2801d8e and basec521467 (PR31 already merged), original checkout/worktree
+state and the four review threads. The original PR32 checkout is clean; unrelated main duplicates
+remain untouched. Reused the clean isolated workspace on local `codex/pr32-review-fixes`, tracking
+the PR branch; original branch refs/checkouts are preserved. No repository `.agents` skill applies.
+
+All four findings are valid. Replay now directly enforces and records the unchanged adopted
+config ceilings536870912/3000000/120000; audit accepts an explicit relocated archive, binds
+hash/size before and after, and uses structured actual validator severity while verifying the
+actual staging rejection's code set. Only rejections enter reasonCodes; source uncertainty remains
+a warning. Active-task context points to committed reports/revisions, not a local checkout.
+Regressions reproduce seven failures before repair; final18 cases and typecheck pass. Independent
+review reruns18 and the real validator/stager empty-category comparison with no blocker.
+
+Fresh actual audit on a private independent copy verifies all726 accepted files unchanged,
+693 diagnostics with four rejection codes and one separate source-coverage warning, no rejected
+candidate or temporary output, and the relocated archive's unchanged c90758c2 hash. New aggregate
+receipt supersedes the old historical warning-as-reason classification without rewriting its
+original execution. Policy/config is byte-identical; current resource ceilings equal the original
+observation ceilings and the processing code is unchanged, so no duplicate complete replay or new
+collection/freshness claim is made. See
+[verification](../reports/test-2026-10-18-pr32-remediation.md),
+[fresh receipt](../reports/preservation-2026-10-18-pr32-remediation.json) and
+[review](../reports/review-2026-10-18-pr32-remediation.md).
+
+Pinned final full checks pass 831/68/20 plus four packaging cases. Exact final-head hosted CI
+readback is still required after push before handoff. No merge/auto-merge,
+publication/deployment, workflow dispatch, recurring collection, credential or security change.
+ISS-003/source coverage and operational/performance/recovery/release gates remain open.
 
 ## Current PR 31 readiness continuation — 2026-10-17
 

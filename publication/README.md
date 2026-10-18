@@ -1,5 +1,26 @@
 # Collection-date publication
 
+## PR 32 review corrections — 2026-10-18
+
+Local replay now enforces the exact three positive integer ceilings from `validation-config.json`
+directly. Historical observation resource limits are provenance, not runtime fallback values.
+The preservation audit requires the same explicitly selected archive and verifies its receipt/
+baseline hash and size before injection and unchanged bytes afterward:
+
+```text
+node .testagent/replay-adopted-policy.mjs SOURCE-ARCHIVE NEW-REPLAY-ROOT
+node .testagent/audit-adopted-release.mjs REPLAY-ROOT SOURCE-ARCHIVE
+```
+
+Both commands are private, non-publishing operations. The audit records structured actual
+validator severity and compares the staging rejection's codes before issuing a receipt; only
+rejections enter `reasonCodes`, with `source_coverage_unverified` kept as a warning. The
+[fresh review verification](../reports/test-2026-10-18-pr32-remediation.md) and
+[corrected preservation receipt](../reports/preservation-2026-10-18-pr32-remediation.json)
+supersede the prior audit's warning-as-reason classification. The old receipt remains historical.
+The exact policy, baseline, 23-ID list and resource numbers are unchanged. PR31 has merged; PR32
+review delivery does not enable publication or close ISS-003, source-freshness or release gates.
+
 ## PR 31 non-publishing readiness — 2026-10-17
 
 [PR31](https://github.com/internalforces/open-store-searcher/pull/31) delivers the adopted local

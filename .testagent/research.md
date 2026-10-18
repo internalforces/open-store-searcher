@@ -200,3 +200,23 @@ non-sensitive numeric mismatch evidence; allow at most one fresh probe+download 
 pre-body valid in-bounds length mismatch only; reject persistent mismatch; never retry malformed
 headers, out-of-bounds lengths, body failures, HTTP errors or cancellation; preserve known-good
 data and partial cleanup; preserve mismatch history on recovered success and later rejection.
+
+
+## PR 32 review regressions — 2026-10-18
+
+Scope: broad but bounded to the replay and preservation-audit CLIs, plus active-task context.
+Requirements (exact review requests): "Exercise the resource limits from the adopted config";
+"Accept the replay archive path in the audit"; "Exclude warnings from rejection reason codes";
+"Record committed evidence instead of a local worktree". Both scripts currently execute at import;
+existing Vitest pipeline tests can import their actual modules with mocked Vite/process/filesystem
+collaborators. No raw dataset, network or large archive is required for regressions. The audit
+currently loses severity by splitting an exception string; obtain structured zero-row validation
+diagnostics and verify the actual staging rejection agrees before recording severity summaries.
+The archive supplied to the audit must match baseline/receipt hash and byte length before failure
+injection. Historical private layout must not be required. Preserve the prior complete receipts.
+
+Tool discovery found no code-testing-generator, find-untested-sources, test-gap-analysis or
+assertion-quality tools. Execute research/plan/test-first/quality review inline. Pair both
+.testagent/*.mjs adapters with src/pipeline/adopted-validation-adapters.test.ts so regressions
+run in the unchanged pipeline/CI project. The single active continuation is PR32 remediation;
+no production task, release, settings change or new tolerance is authorized.

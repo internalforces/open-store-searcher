@@ -7,6 +7,13 @@ Harness Version: 1.1
 
 # TASK-008 final quality acceptance — 2026-10-18
 
+PR32 review correction: this report's command and preservation classification below describe
+the historical pre-review run. The current audit requires an explicit source-archive argument;
+the warning-as-reason error in the old preservation receipt is superseded by the
+[fresh correction report](test-2026-10-18-pr32-remediation.md) and
+[new receipt](preservation-2026-10-18-pr32-remediation.json). Historical hashes/timestamps remain
+unchanged; no corrected-script execution is fabricated for the earlier receipt.
+
 Delivery provenance update: this report's raw replay and 797/68/20 suite bind the independently
 reviewed pre-integration tree preserved in commit `2be9077`. A later fetch found merged PR #31
 (`c521467`), including earlier adoption and collector mitigation. Those main changes are retained.

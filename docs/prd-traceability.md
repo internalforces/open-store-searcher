@@ -453,3 +453,15 @@ TASK-008 final disposition: **Complete**, independently Approved on 2026-10-18. 
 [final review](../reports/review-2026-10-18-task-008-final.md). This supersedes earlier TASK-008
 waiting/incomplete status only. FR-08/13/14 and freshness/reliability release acceptance retain
 source-uncertainty, hosted/publication/recovery and operational evidence boundaries above.
+
+
+## PR32 validation-evidence review repairs — 2026-10-18
+
+FR-08/13/14: the replay now directly uses the exact adopted config resource ceilings, and the
+preservation audit binds an explicitly supplied archive hash/size and separates actual rejection
+severity from source-coverage warnings. The actual validator and staging code sets must agree.
+The [fresh audit](../reports/preservation-2026-10-18-pr32-remediation.json) rehashes all726 accepted
+files unchanged and supersedes only the old receipt's warning-as-reason classification. Historical
+raw-replay receipts stay historical. See [regressions and verification](../reports/test-2026-10-18-pr32-remediation.md)
+and [independent review](../reports/review-2026-10-18-pr32-remediation.md). No policy, original
+collection date, status rule, source-coverage assertion or production/release acceptance changed.
