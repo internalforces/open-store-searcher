@@ -35,9 +35,9 @@ Implementation provenance: [retained implementation binding](calibration-2026-10
 
 The full report is `reports/observation-2026-10-14-bounded-source.json`. The distinct source
 archive is retained outside Git at
-`/Users/sonmyeong-gwan/Documents/open-store-searcher-task008-calibration/archives/3ff2af414cde232179212e5eb1fbece87a170496f4822f0b1226330d7eeb9425.zip`.
+`<local-calibration-root>/archives/3ff2af414cde232179212e5eb1fbece87a170496f4822f0b1226330d7eeb9425.zip`.
 The complete 279,684-byte execution log is retained at
-`/Users/sonmyeong-gwan/Documents/open-store-searcher-task008-calibration/logs/2026-10-14-observation.log`
+`<local-calibration-root>/logs/2026-10-14-observation.log`
 with SHA-256 `88fcf5f8708553c50492827b57b60ec849694fb400182a6ba6b51461b32bee27`.
 
 ## Transition from 2026-10-13

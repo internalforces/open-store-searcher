@@ -2,7 +2,12 @@ import { readFile, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import type { ArchiveContract } from './archive-contract.js';
 import { parseArchiveContract } from './archive-contract.js';
-import type { CollectionResult, CollectorOptions, PermissionManifest } from './collector-types.js';
+import type {
+  CollectionResult,
+  CollectorOptions,
+  PermissionManifest,
+  TransferLengthMismatchEvidence,
+} from './collector-types.js';
 import { isCanonicalUtc } from './collector-types.js';
 import type { ArchiveInspectionResult, InspectionOptions } from './inspect-archive.js';
 import { inspectArchive } from './inspect-archive.js';
@@ -38,8 +43,15 @@ function rejection(
     { kind: 'rejected' }
   >,
   fetchedAt: string,
+  lengthMismatches: TransferLengthMismatchEvidence[] = [],
 ): CollectionResult {
-  return { ...result, fetchedAt };
+  return {
+    kind: result.kind,
+    code: result.code,
+    message: result.message,
+    fetchedAt,
+    ...(lengthMismatches.length ? { lengthMismatches } : {}),
+  };
 }
 
 export function createSeoulCollector(dependencies: CollectorDependencies) {
@@ -80,22 +92,36 @@ export function createSeoulCollector(dependencies: CollectorDependencies) {
         fetchedAt: options.fetchedAt,
       };
     }
-    const probe = await dependencies.probeSource({
-      fetchImpl: fetch,
-      limits: options.limits,
-      ...(options.signal ? { signal: options.signal } : {}),
-    });
-    if (probe.kind === 'rejected') return rejection(probe, options.fetchedAt);
-    const download = await dependencies.downloadArchive({
-      fetchImpl: fetch,
-      repositoryRoot,
-      stagingRoot: options.stagingRoot,
-      sourceEvidence: probe.evidence,
-      fetchedAt: options.fetchedAt,
-      limits: options.limits,
-      ...(options.signal ? { signal: options.signal } : {}),
-    });
-    if (download.kind === 'rejected') return rejection(download, options.fetchedAt);
+    const lengthMismatches: TransferLengthMismatchEvidence[] = [];
+    let probe: Extract<SourceProbeResult, { kind: 'accepted' }>;
+    let download: Extract<StagedDownloadResult, { kind: 'accepted' }>;
+    for (let attempt = 0; ; attempt++) {
+      const nextProbe = await dependencies.probeSource({
+        fetchImpl: fetch,
+        limits: options.limits,
+        ...(options.signal ? { signal: options.signal } : {}),
+      });
+      if (nextProbe.kind === 'rejected')
+        return rejection(nextProbe, options.fetchedAt, lengthMismatches);
+      const nextDownload = await dependencies.downloadArchive({
+        fetchImpl: fetch,
+        repositoryRoot,
+        stagingRoot: options.stagingRoot,
+        sourceEvidence: nextProbe.evidence,
+        fetchedAt: options.fetchedAt,
+        limits: options.limits,
+        ...(options.signal ? { signal: options.signal } : {}),
+      });
+      if (nextDownload.kind === 'rejected') {
+        if (nextDownload.lengthMismatch) lengthMismatches.push(nextDownload.lengthMismatch);
+        // At most one new limit/range/full transaction, and never retry a body/HTTP failure.
+        if (attempt === 0 && nextDownload.lengthMismatch && !options.signal?.aborted) continue;
+        return rejection(nextDownload, options.fetchedAt, lengthMismatches);
+      }
+      probe = nextProbe;
+      download = nextDownload;
+      break;
+    }
     let inspection: ArchiveInspectionResult;
     try {
       inspection = await dependencies.inspectArchive({
@@ -115,7 +141,7 @@ export function createSeoulCollector(dependencies: CollectorDependencies) {
     }
     if (inspection.kind === 'rejected') {
       await dependencies.cleanupRejectedDownload(download.archivePath);
-      return rejection(inspection, options.fetchedAt);
+      return rejection(inspection, options.fetchedAt, lengthMismatches);
     }
     return {
       kind: 'accepted',
@@ -124,6 +150,7 @@ export function createSeoulCollector(dependencies: CollectorDependencies) {
       sha256: download.sha256,
       byteLength: download.byteLength,
       fetchedAt: options.fetchedAt,
+      ...(lengthMismatches.length ? { lengthMismatches } : {}),
       sourceEvidence: probe.evidence,
       archiveEvidence: inspection.evidence,
     };

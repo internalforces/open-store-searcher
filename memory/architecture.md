@@ -396,6 +396,27 @@ administrators. Deployment environment reviewer selection/configuration remains 
 publication stays disabled. See [remediation](../reports/security-2026-09-17-task-019-remediation.md).
 
 
+## Local reviewed-quality configuration — 2026-10-17
+
+`publication/validation-config.json` holds the exact adopted policy, initial baseline and existing
+approved reviewed-pair contract for the offline `.testagent/replay-adopted-policy.mjs` adapter.
+The adapter reuses existing parsing/validation/staging modules and retains the original collection
+instant; it adds no live collector or public interface. All datasets/logs stay outside Git.
+The workflow's separate `publication/config.json` stays absent. No URL, resource-policy, deployment,
+loader, source-delivery, status-mapping, dependency or security architecture change is introduced.
+See [verification](../reports/test-2026-10-17-task-008-policy-adoption.md).
+
+
+## Bounded acquisition mismatch evidence — 2026-10-17
+
+The internal collector may perform one fresh limit/range/full transaction after a valid in-bounds
+pre-body length mismatch only. Cancellation must finish successfully without a combined-signal
+abort before retry is permitted. Collection results optionally carry a bounded numeric mismatch
+history; the observation CLI retains it. Source URL/delivery format, status rules, data-quality
+limits, credentials and publication architecture remain unchanged. Persistent mismatch still
+rejects; diagnostics do not establish source freshness. See the ISS-003 issue report.
+
+
 ## TASK-008 approved quality configuration — 2026-10-18
 
 `publication/validation-config.json` stores the exact user-approved observed-envelope policy,

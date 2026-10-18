@@ -79,11 +79,17 @@ export interface CollectorOptions {
   limits: CollectorLimits;
 }
 
+export interface TransferLengthMismatchEvidence {
+  expectedBytes: number;
+  declaredBytes: number;
+}
+
 export type RejectedResult = {
   kind: 'rejected';
   code: CollectorRejectionCode;
   message: string;
   fetchedAt: string;
+  lengthMismatches?: TransferLengthMismatchEvidence[];
 };
 
 export type CollectionResult =
@@ -94,6 +100,7 @@ export type CollectionResult =
       sha256: string;
       byteLength: number;
       fetchedAt: string;
+      lengthMismatches?: TransferLengthMismatchEvidence[];
       sourceEvidence: SourceEvidence;
       archiveEvidence: ArchiveEvidence;
     }

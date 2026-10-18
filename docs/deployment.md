@@ -3,7 +3,19 @@
 This runbook describes the reviewed GitHub Pages path. It does not authorize a deployment. Every
 deployment still requires human approval under the project constitution.
 
-## Current state
+## Current local state — 2026-10-17
+
+The three linked October 16 quality inputs were adopted under the user's delegation to dot and
+accepted in a complete local retained-archive replay with verified failure preservation. See
+[local verification](../reports/test-2026-10-17-task-008-policy-adoption.md) and
+[scoped independent review](../reports/review-2026-10-17-task-008-policy-adoption.md).
+`publication/validation-config.json` supplies those exact local inputs. The separate
+`publication/config.json` remains absent; no production URL/resource settings, publication,
+deployment, bootstrap/recovery exercise or security-setting change is authorized by this work.
+The dated settings below remain historical receipts rather than a current settings readback.
+No release or milestone gate is closed by local quality validation alone.
+
+## Historical state before local adoption
 
 The production path is intentionally disabled. `publication/config.json` and the repository
 variable `PAGES_PUBLICATION_ENABLED` are absent. The `github-pages` environment is protected and

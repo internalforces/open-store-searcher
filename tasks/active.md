@@ -11,14 +11,15 @@ _Last updated: 2026-10-18_
 
 ## In Progress
 
-No implementation task is active. TASK-008 completed on 2026-10-18 after explicit approval of
+No implementation task is active. TASK-008 was already complete in merged PR #31; its quality
+acceptance was independently reconfirmed on 2026-10-18 after explicit approval of
 its exact conservative policy, 23 allowed-empty IDs and initial baseline; fresh complete-source
 validation; local failure-preservation checks; pinned full verification; and independent
 **Approved** final review. See the [completed task](completed.md#task-008-final-quality-acceptance--2026-10-18),
 [verification report](../reports/test-2026-10-18-task-008-final.md) and
 [final review](../reports/review-2026-10-18-task-008-final.md).
 
-The implementation and evidence are in the existing `.worktrees/task008-calibration` checkout
+The fresh evidence is in the existing `.worktrees/task008-calibration` checkout
 on `codex/task-008-calibration`. Preserve other checkouts and untracked work. No commit, push,
 merge, workflow dispatch, publication, deployment, tag or release occurred in this continuation.
 
@@ -63,3 +64,13 @@ no handbook was accessed or changed during this work.
 TASK-019 and TASK-020 remain complete within their recorded review scope. The original TASK-020
 review excludes the Korean handbook and predates README/security-contact follow-ups; those
 later follow-ups have local verification only, not independent final-head approval.
+
+
+## Retained merged-main collector state
+
+PR #31 merged as `c521467` before this delivery. Its bounded ISS-003 client recovery and numeric
+diagnostics remain intact. The provider inconsistency is reproduced and remains open upstream;
+strict equality/size/hash/ZIP/schema gates remain unchanged. See the
+[issue review](../reports/review-2026-10-17-iss-003.md) and
+[PR #31 readiness](../reports/readiness-2026-10-17-pr31.md). This continuation adds fresh local
+quality evidence and does not undo the prior adoption, client mitigation or independent reviews.

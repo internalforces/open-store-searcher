@@ -16,9 +16,9 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 complete with approved conservative quality inputs, fresh full-source validation and independent final approval
+- Phase: TASK-008 local staged-quality acceptance complete; TASK-009/010/021 production and release gates remain open
 - Next milestone: M1 — TASK-009 then TASK-010 publication/recovery; no next task active
-- Overall health: 🟡 Caution — exact conservative policy approved; publication/recovery, production performance and release gates remain open
+- Overall health: 🟡 Caution — local quality accepted; production performance/recovery/release gates remain open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Technical Summary
@@ -306,6 +306,30 @@ production publication/recovery/release gates remain explicit. No active impleme
 remains; TASK-008 calibration continues and TASK-021 is gated.
 
 
+## TASK-008 delegated local adoption — 2026-10-16
+
+The user delegated the decision to dot, which selected the exact complete October 16 policy,
+23-ID allowed-empty list and initial baseline from commit `fd6f79f`. The isolated local branch
+`codex/task-008-policy-adoption-local` stores them in `publication/validation-config.json` and
+uses `.testagent/replay-adopted-policy.mjs` for retained-archive verification. This supersedes
+historical unapproved-policy statements only for these exact local inputs. The machine-readable
+proposal remains unchanged as historical evidence. Complete replay and failure-preservation evidence are recovered and freshly rehashed; final
+independent review is Approved with no blocking findings; no deployment or source-freshness claim follows. `publication/config.json`
+remains absent, recurring observation stays paused and TASK-009/010/021 remain open.
+
+
+## ISS-003 client mitigation; upstream remains open — 2026-10-17
+
+The user authorized commit/push of the reviewed adoption and bounded ISS-003 repair. Adoption is
+pushed as28f43c3 on the isolated work branch. Current diagnostics reproduce incompatible provider
+range/full lengths217,307,219 and217,356,588, including with no-store. Added one fresh acquisition
+retry only for valid pre-body mismatches, retained numeric evidence and cancellation safeguards;
+all equality/quality gates remain unchanged. Final pinned checks pass813/68/20 plus4 packaging
+checks. The actual two-attempt collection still rejects and leaves zero staged files, so ISS-003
+and original source freshness stay open. No PR, deployment, recurring collection or security change
+occurred. See reports/test-2026-10-17-iss-003.md and the independent issue review.
+
+
 ## Current priority — TASK-008 final acceptance, 2026-10-18
 
 The user approved all three exact calibration inputs as conservative initial criteria: numeric
@@ -318,3 +342,13 @@ Interruption, existing-output and approved-count failure checks preserve all acc
 Pinned full verification passed 797/68/20 and independent final review Approved with no
 actionable findings. TASK-008 is complete and no implementation task is active. TASK-009/010 remain
 paused; no publication, hosted recovery, mobile acceptance, push, merge or release is implied.
+
+
+## Current delivery reconciliation — 2026-10-18
+
+A fresh fetch discovered merged PR #31 (`c521467`), which already adopted the same canonical
+quality objects and added reviewed bounded ISS-003 client recovery. The current delivery
+preserves those changes and adds fresh October 18 quality-replay/preservation evidence.
+The earlier 797/68/20 evidence is explicitly the pre-integration `fd6f79f` product snapshot;
+current integrated delivery verification is recorded separately. Source freshness/ISS-003
+upstream and hosted/performance/publication/recovery/release gates remain open.

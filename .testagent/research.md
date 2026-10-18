@@ -180,3 +180,23 @@ Acceptance checklist:
 - P06 actual staging/configuration forwarding preserves approved contract semantics; invalid
   candidates never produce output or replace prior good bytes.
 - P07 focused RED/GREEN evidence, current full verification and independent assertion review.
+
+
+## ISS-003 bounded retry research — 2026-10-17
+
+Broad bounded module set: `staged-download.ts` → existing paired test; `collect-seoul-archive.ts`
+→ existing paired test; `collector-types.ts` supplies internal evidence types. Existing Vitest
+pipeline project, vi mocks, small ZIP byte fixtures and isolated temporary directories apply.
+Specialized generator/find-untested-sources/test-gap/assertion-quality tools are unavailable
+(tool inventory checked once); execute Research → Plan → Implement/review inline.
+
+The three historical 126-byte failures preserve no numeric headers. Current header-only evidence
+reproduces two incompatible representations, 217,307,219 and 217,356,588 bytes, in both directions
+with default and no-store requests. Missing ETag/Last-Modified prevents version pinning. No-store
+is not a verified remedy. Provider-internal cache/load balancing is not proven.
+
+Requirements: preserve exact range/full equality, byte/min/max/hash/ZIP/schema checks; retain
+non-sensitive numeric mismatch evidence; allow at most one fresh probe+download pair after a
+pre-body valid in-bounds length mismatch only; reject persistent mismatch; never retry malformed
+headers, out-of-bounds lengths, body failures, HTTP errors or cancellation; preserve known-good
+data and partial cleanup; preserve mismatch history on recovered success and later rejection.

@@ -14,7 +14,7 @@ _Last updated: 2026-10-16_
 | ID | Severity | Description | Found | Owner |
 |---|---|---|---|---|
 | ISS-001 | High | macOS bundled Info-ZIP and Homebrew Info-ZIP 6.00_8 transform UTF-8 Korean filenames in the official Seoul ZIP inventory, so the exact schema contract cannot be accepted locally | 2026-08-28 | Architect / Implementer |
-| ISS-003 | Medium | Three bounded calibration attempts rejected the response-length/range-evidence mismatch with `transfer_incomplete`; complete collection resumed on 2026-10-10 through 2026-10-16, but the recurring cause remains undiagnosed | 2026-10-03 | Researcher / Debugger |
+| ISS-003 | Medium | Provider range/full representation inconsistency reproduced; bounded client recovery and numeric diagnostics added, but the live two-attempt check still rejects and upstream cause remains open | 2026-10-03 | Researcher / Debugger |
 
 ## Technical Debt and Unresolved Risks
 
@@ -63,37 +63,39 @@ human approval; production status-distribution validation remains TASK-008.
 
 ### ISS-003: repeated transfer_incomplete calibration rejection
 
-- Status: Open; repeated on 2026-10-03 and 2026-10-04, followed by complete observations on
-  2026-10-06 through 2026-10-08, recurred on 2026-10-09, and was followed by complete
-  observations on 2026-10-10 through 2026-10-16. The 2026-10-11 receipt reused identical archive
-  bytes; 2026-10-12 through 2026-10-16 produced distinct archives. The interval-completion packet
-  retains the unresolved historical cause.
-- Severity: Medium
-- Found: 2026-10-03
-- Owner: Researcher / Debugger; Implementer only if an approved code change becomes necessary.
-- Evidence: [2026-10-03 receipt](../reports/calibration-2026-10-03-task-008.md) and
-  [2026-10-04 receipt](../reports/calibration-2026-10-04-task-008.md), plus the
-  [2026-10-09 recurrence](../reports/calibration-2026-10-09-task-008.md). All three complete 126-byte
-  logs have SHA-256 `5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075`.
-- Observed trigger: The full response's declared archive size disagreed with the immediately
-  preceding range evidence; the collector returned `observation-rejected` / `transfer_incomplete`
-  before archive acceptance. None of the three attempts produced an archive, dataset or category metrics.
-- Root cause: Undiagnosed. The receipts establish the length mismatch, not whether it originated
-  in provider updates, transfer infrastructure or another cause. No source failure is inferred
-  from the separate pre-collection gaps on 2026-09-25, 2026-09-29 and 2026-10-01.
-- Impact: Three scheduled attempts contribute no complete observation to the approved calibration
-  interval. Publication and known-good data were untouched. The intervening successful
-  observations do not explain the recurring mismatch.
-- Temporary workaround: No acquisition workaround was used or verified. Preserve all three failures
-  and the latest complete evidence; continue only scheduled bounded non-publishing attempts
-  under the existing protocol. Do not retry within the same turn, relax size checks, accept
-  partial data, change source delivery, or fabricate observations.
-- Resolution target: Diagnose/dispose of the repeated mismatch before the 2026-10-16 interval
-  assessment (TASK-008). Capture available range/full-response evidence within existing bounds
-  and record a later complete observation with matched lengths, or retain the issue as unresolved
-  in the approval packet if acquisition does not recover. Successful collection alone does not
-  establish the historical cause. Source-contract changes retain their human approval gate.
-- Related requirements: FR-08/13/14; separate TASK-010/021 reliability gates remain open.
+- Status: **Open upstream; client mitigation and diagnostic gap addressed.** Current range/full
+  representation inconsistency was reproduced on 2026-10-17. The bounded live check still
+  rejected both attempts, so no provider recovery or new accepted archive is claimed.
+- Severity: Medium. Found: 2026-10-03. Owner: Researcher / Debugger / Implementer.
+- Historical evidence: the 2026-10-03, 2026-10-04 and 2026-10-09 attempts each retained only a
+  126-byte rejection log, SHA-256 `5abed7ee788809bcd8fa39e81786e2df6962e8cad2a7ff058b62c1ebe0254075`.
+  They contain the generic mismatch message, not numeric headers or server identity. Successful
+  later collections do not establish the historical cause. Existing dated receipts remain intact.
+- Reproduction: the same approved public archive endpoint reports 217,356,588 bytes in range
+  evidence and 217,307,219 in full-response headers; a no-store diagnostic reverses those sizes.
+  Both replies are ZIP responses, with no ETag or Last-Modified. Cache bypass is not a remedy.
+  Two incompatible representations across requests are directly observed; provider-internal
+  cache/load-balancer/deployment attribution is not proven, nor retroactively asserted for October.
+- Client fix: retain sanitized numeric mismatch evidence. Retry at most once with a fresh limit,
+  range and full-response transaction, only after a valid in-bounds pre-body mismatch and successful
+  non-aborted cancellation. Persistent mismatch, malformed/out-of-bounds length, body/HTTP failure
+  or cancellation still rejects. Exact byte equality, min/max, hash, ZIP and category checks remain.
+  Observation rejection output now preserves mismatch history instead of dropping it.
+- Actual validation: one non-publishing live collector invocation rejected two opposing mismatches
+  in 410 ms and left zero staged files. Previous accepted data was not touched. Deterministic
+  regressions verify successful transient recovery and all bounded failure/cleanup cases.
+- Remaining action: obtain coherent provider representations or a provider-supported immutable
+  version/coverage attestation, then revalidate within bounds. Do not waive equality or label this
+  issue resolved on a successful unrelated collection. No provider contact/message was sent.
+- Source freshness: generic daily/D-2 portal guidance does not bind a particular Seoul archive,
+  timezone and complete 195-category source cut. The info endpoint returned a redirect, not an
+  attestation. Original source freshness remains unverified; collection time is not substituted.
+- Evidence: [diagnosis and verification](../reports/test-2026-10-17-iss-003.md),
+  [sanitized diagnostics](../reports/diagnostic-2026-10-17-iss-003.json), and
+  [independent review](../reports/review-2026-10-17-iss-003.md).
+- Scope: the user's October 17 fix request supersedes the historical no-retry calibration rule
+  only for this bounded client recovery. Recurring calibration remains paused. TASK-009/010/021,
+  source freshness, publication/recovery and release gates remain open.
 
 ## Resolved
 
@@ -520,6 +522,21 @@ review, main-only branch policy and disabled administrator bypass are verified. 
 [final review](../reports/security-2026-09-18-task-019-final.md). No unresolved Actions finding
 blocks AC-019-8; revisit the accepted risk if collaborators/trust boundaries change. Existing
 production/mobile, quality-policy/baseline, hosted publication/recovery and release gates remain.
+
+
+## TASK-008 adoption limits retained — 2026-10-16
+
+The exact locally adopted policy does not resolve ISS-003. Offline replay of retained bytes does
+not exercise or diagnose the three response-length/range transfer failures; their cause remains
+unresolved. No unrelated historical private log was investigated.
+
+The observed envelope is conservative, not a confidence interval: 79 nonempty categories retain
+zero absolute/relative count-change tolerance, first population of an empty category still needs
+review, and the 691,319,965-byte compact ceiling rests on one observed transition. Any future
+rejection requires evidence and a separate decision; no threshold was silently relaxed. The
+October 16 collection date supplies no original source freshness. Hosted/mobile performance,
+publication/recovery and release evidence remain with their existing owners. This continuation
+only adopts the linked local quality inputs and verifies them without publishing.
 
 
 ## TASK-008 conservative initial policy limitations — 2026-10-18

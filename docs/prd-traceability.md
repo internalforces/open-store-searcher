@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-10-16_
+_Last updated: 2026-10-17_
 
 ## Usage Rules
 
@@ -27,18 +27,18 @@ _Last updated: 2026-10-16_
 | FR-05 | Raw status evidence | TASK-006, 014 | TASK-006 accepted: implementation and synthetic tests preserve raw operating/detailed code/name pairs without mapping; pinned verification and independent review passed; TASK-014 result-card UI is verified TASK-014 evidence: TASK-014 U01 literal raw aggregate/detail evidence and inert HTML component tests passed; production integration remains pending. | In progress |
 | FR-06 | Basic information and dates | TASK-006, 014 | TASK-006 accepted: lossless display/lifecycle fields, search-only normalization, full-digest internal identifiers, representative schemas, and missing-value tests passed; TASK-014 UI is verified; production integration remains pending TASK-014 evidence: TASK-014 U02 both original addresses, categories, all eight lifecycle fields and missing-value rendering passed. PR #15 R2–R5 regressions: reports/review-2026-09-06-pr15.md. | In progress |
 | FR-07 | Fail-safe uncertainty handling | TASK-007, 012, 015 | `reports/test-2026-09-04-task-007.md`: unknown, partial, contradictory, whitespace, Unicode and empty-stage regressions pass; TASK-012 conflict/ambiguity/name-only separation passes S04–S08 in reports/test-2026-09-05-task-012.md; TASK-014 basic UX is verified; TASK-015 recovery remains pending TASK-014 evidence: TASK-014 U05 conflict/tie/low/medium/empty separation passed; TASK-015 recovery UX remains pending. TASK-015 recovery and actionable empty/low-confidence UI: reports/test-2026-09-07-task-015.md (T15-02/05/06/07). No missing-result or conflict status reclassification. | In progress |
-| FR-08 | Data as-of date | TASK-008, 014 | Accepted ADR-014; `reports/test-2026-09-04-task-008.md` V08–V09 verify archive-bound coverage and reject unsupported timestamps; TASK-008 collection-date quality acceptance completed on 2026-10-18; TASK-014 UI is verified TASK-014 evidence: TASK-014 U03 synthetic/verified/unavailable page/card coverage rendering passed; production source-cut evidence remains pending. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
+| FR-08 | Data as-of date | TASK-008, 014 | Accepted ADR-014; `reports/test-2026-09-04-task-008.md` V08–V09 verify archive-bound coverage and reject unsupported timestamps; production evidence pending; TASK-014 UI is verified TASK-014 evidence: TASK-014 U03 synthetic/verified/unavailable page/card coverage rendering passed; production source-cut evidence remains pending. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
 | FR-09 | Always-accessible source and disclaimer | TASK-004, 014, 020 | ADR-009 approves a candidate; the source-contract report and `reports/source-permission-manifest-2026-08-28.json` verify permission and provenance across 195 categories; TASK-014 U04 verifies persistent page/card provenance and disclaimer; TASK-020 adds reviewed public source/safety documentation. Production publication remains pending. | In progress |
 | FR-10 | Naver and Kakao search links | TASK-016 | [URL encoding, protected new-tab navigation and full verification](../reports/test-2026-09-07-task-016.md); [independent Approved review](../reports/review-2026-09-07-task-016.md) | Complete (Naver compatibility limitation accepted) |
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | TASK-017: 320/768/1280px doubled-text reflow, long queries, visible candidate headings and native Chrome200% inspection; see [verification](../reports/test-2026-09-08-task-017.md) in the delivery revision. | Verified; TASK-017 complete |
 | FR-12 | No collection of personal or usage data | TASK-019, 020 | Current-code and Actions security reviews are complete; see the [application review](../reports/security-2026-09-09-task-019.md) and [final Actions review](../reports/security-2026-09-18-task-019-final.md). TASK-020 independently reviewed documentation covers browser-only query handling and the external-map click boundary. | Verified (current application, Actions, and public documentation); release pending |
-| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending TASK-015 internal UI preserves the accepted dataset/results after loader or presentation-validation failure (T15-03/06); reports/test-2026-09-07-task-015.md. TASK-008 quality acceptance completed on 2026-10-18; TASK-009/010 atomic publication/workflow gates remain open. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
+| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending TASK-015 internal UI preserves the accepted dataset/results after loader or presentation-validation failure (T15-03/06); reports/test-2026-09-07-task-015.md. TASK-008 production evidence and TASK-009/010 atomic publication/workflow gates remain open. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
 | FR-14 | Warn at seven Seoul calendar days or older | TASK-008, 014, 015 | Current user-approved ADR-015 boundary is age >= 7. PR #15 R1 UI tests cover days 6/7/8, Seoul midnight, focus/visibility and unavailable/rejected dates; reports/review-2026-09-06-pr15.md. V1 historical pipeline semantics remain unchanged; full recovery and production evidence stay gated. TASK-015 preserves >=7 Seoul-day warnings and separates actual browser load time from coverage (T15-03/04/08); reports/test-2026-09-07-task-015.md. Existing PR15 6/7/8-day and clock regressions remain. Production coverage is still gated. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
 
 TASK-008's FR-13 validation contract is recorded in
 `docs/superpowers/specs/2026-09-04-task-008-validation-design.md` and
 `reports/test-2026-09-04-task-008.md`. Synthetic V01–V13 verification and full gates passed;
-TASK-008 production-quality policy/baseline and accepted full-source staging completed on 2026-10-18. Source coverage remains explicitly unverified under approved collection-date operation; TASK-009/010 hosted publication/recovery remain open.
+production source-cut/policy evidence and TASK-009 last-known-good publication/recovery remain open.
 
 ## P1 Functional Requirements
 
@@ -388,6 +388,42 @@ No implementation task is active; TASK-020 remains unactivated. TASK-008 calibra
 TASK-009/010/021 production, publication/recovery and release gates remain open. Only authorized
 environment settings and local documentation changed; no source change, commit, push, merge,
 workflow dispatch, deployment, publication enablement or handbook access occurred in this pass.
+
+
+## TASK-008 exact local policy adoption — 2026-10-17
+
+FR-08/13/14: the user delegated the decision to dot, which adopted the complete exact October 16
+policy, its 23 allowed-empty IDs and initial collection-date baseline. Configuration and revision
+bindings are in `publication/validation-config.json`; all 195 category limits remain unchanged.
+The complete retained-archive replay accepted 2,951,024 rows, 726 JSON files and 691,143,712 bytes
+under the unchanged 691,319,965-byte cap. Every measured metric equals the reviewed baseline.
+Original collection instant and unverified source coverage remain explicit.
+
+[Verification](../reports/test-2026-10-17-task-008-policy-adoption.md),
+[aggregate evidence](../reports/validation-2026-10-17-task-008-adoption.json) and
+[scoped independent review](../reports/review-2026-10-17-task-008-policy-adoption.md) supersede
+historical pending-policy/empty/baseline/accepted-validation statements for the local TASK-008
+scope, with the independent Approved verdict. Incomplete-stream rejection, existing-output
+refusal, cleanup and all 726 prior-file hashes are verified. The 797/68/20 full check set passes;
+the existing validator failure matrix remains unchanged.
+
+No overall FR-13 production publication/recovery, FR-08 source freshness, performance, M1 handbook
+or release-completion claim follows. Those requirements retain their current overall status and
+owner tasks. TASK-009/010/021 and ISS-003 remain open. No handbook was accessed or modified.
+
+
+## ISS-003 bounded client recovery — 2026-10-17
+
+FR-08/13/14: current source range/full representation inconsistency is reproduced; historical
+numeric attribution remains unavailable. Strict equality/size/hash/ZIP/schema checks remain.
+A single fresh acquisition retry after a valid pre-body mismatch and successful non-aborted
+cancellation is regression-tested, with numeric evidence retained on success or rejection.
+Final pinned813/68/20 plus4 packaging checks pass. The real two-attempt check still rejects
+and leaves zero staged files; no provider recovery or freshness assertion is inferred.
+[Issue verification](../reports/test-2026-10-17-iss-003.md),
+[sanitized evidence](../reports/diagnostic-2026-10-17-iss-003.json), and
+[independent review](../reports/review-2026-10-17-iss-003.md) preserve the upstream/source-freshness
+blocker. No overall requirement, publication/recovery or release gate is closed by mitigation.
 
 
 ## TASK-008 approved production quality inputs and final replay — 2026-10-18

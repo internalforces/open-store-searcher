@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, readdir, rm, stat } from 'node:fs/promises';
+import { mkdtemp, readdir, readFile, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, test, vi } from 'vitest';
@@ -314,4 +314,114 @@ describe('downloadArchiveToStaging', () => {
     ).resolves.toMatchObject({ kind: 'rejected', code: 'transfer_incomplete' });
     expect(await readdir(root)).toEqual([]);
   });
+});
+
+test('retains numeric pre-body mismatch evidence without consuming bytes or replacing known-good data', async () => {
+  const root = await stagingRoot();
+  const { writeFile } = await import('node:fs/promises');
+  const previous = join(root, 'known-good.zip');
+  await writeFile(previous, 'previous accepted bytes');
+  const cancel = vi.fn(async () => undefined);
+  const response = new Response(new ReadableStream({ cancel }, { highWaterMark: 0 }), {
+    status: 200,
+    headers: { 'content-length': '5' },
+  });
+  const result = await downloadArchiveToStaging(options(root, response, 4));
+  expect(result).toMatchObject({
+    kind: 'rejected',
+    code: 'transfer_incomplete',
+    lengthMismatch: { expectedBytes: 4, declaredBytes: 5 },
+  });
+  expect(cancel).toHaveBeenCalledOnce();
+  expect(await readdir(root)).toEqual(['known-good.zip']);
+  expect(await readFile(previous, 'utf8')).toBe('previous accepted bytes');
+});
+
+test.each(['4e0', 'not-a-number', '9007199254740992', '3', '536870913'])(
+  'does not mark malformed or out-of-bounds declared length %s as retryable',
+  async (length) => {
+    const root = await stagingRoot();
+    const cancel = vi.fn(async () => undefined);
+    const response = new Response(
+      new ReadableStream(
+        {
+          cancel,
+          pull(controller) {
+            controller.close();
+          },
+        },
+        { highWaterMark: 0 },
+      ),
+      {
+        status: 200,
+        headers: { 'content-length': length },
+      },
+    );
+    const result = await downloadArchiveToStaging(options(root, response, 4));
+    expect(result).toMatchObject({ kind: 'rejected', code: 'transfer_incomplete' });
+    expect(result).not.toHaveProperty('lengthMismatch');
+    expect(cancel).toHaveBeenCalledOnce();
+    expect(await readdir(root)).toEqual([]);
+  },
+);
+
+test('does not allow mismatch recovery when cancellation of the rejected response fails', async () => {
+  const root = await stagingRoot();
+  const cancel = vi.fn(async () => {
+    throw new Error('cancel failed');
+  });
+  const result = await downloadArchiveToStaging(
+    options(
+      root,
+      new Response(new ReadableStream({ cancel }, { highWaterMark: 0 }), {
+        status: 200,
+        headers: { 'content-length': '5' },
+      }),
+    ),
+  );
+  expect(result).toMatchObject({
+    kind: 'rejected',
+    code: 'transfer_incomplete',
+    message: 'Archive response body cancellation failed.',
+  });
+  expect(result).not.toHaveProperty('lengthMismatch');
+  expect(cancel).toHaveBeenCalledOnce();
+  expect(await readdir(root)).toEqual([]);
+});
+
+test('does not allow mismatch recovery after inactivity timeout during cancellation', async () => {
+  vi.useFakeTimers();
+  const root = await stagingRoot();
+  let markStarted: () => void = () => undefined;
+  let finishCancellation: () => void = () => undefined;
+  const started = new Promise<void>((resolve) => {
+    markStarted = resolve;
+  });
+  const finish = new Promise<void>((resolve) => {
+    finishCancellation = resolve;
+  });
+  const response = new Response(
+    new ReadableStream(
+      {
+        cancel() {
+          markStarted();
+          return finish;
+        },
+      },
+      { highWaterMark: 0 },
+    ),
+    { status: 200, headers: { 'content-length': '5' } },
+  );
+  const input = options(root, response);
+  const pending = downloadArchiveToStaging({
+    ...input,
+    limits: { ...input.limits, downloadInactivityTimeoutMs: 10 },
+  });
+  await started;
+  await vi.advanceTimersByTimeAsync(11);
+  finishCancellation();
+  const result = await pending;
+  expect(result).toMatchObject({ kind: 'rejected', code: 'transfer_incomplete' });
+  expect(result).not.toHaveProperty('lengthMismatch');
+  expect(await readdir(root)).toEqual([]);
 });

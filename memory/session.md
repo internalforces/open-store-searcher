@@ -7,7 +7,32 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-16_
+_Last updated: 2026-10-17_
+
+## Current PR 31 readiness continuation — 2026-10-17
+
+The user's "pr 생성 후 리뷰 내용 검토 후 수정 처리 배포 가능상태로 만들어라" now authorizes
+draft PR creation, review corrections, verification and branch delivery. Created
+[PR31](https://github.com/internalforces/open-store-searcher/pull/31) from
+`codex/task-008-policy-adoption-local`; earlier no-PR/no-hosted-CI statements below are historical.
+Implementation `b9bc659` has a real passing hosted Verify run39002989647:813 tests/44 files,
+68 browser,20 accessibility and4 packaging checks. No remote review comments/threads or merge
+conflicts were present at readback. Independent full-diff review has no blocking finding;
+its low-severity local-account-path observation is corrected in five added calibration reports.
+
+Actual full-data production build succeeds privately:730 files/691,233,971 bytes; all726 accepted
+files match the built files and remain unchanged after output-refusal failure. Exact workflow GNU
+tar packaging and unpacking reproduce the full built inventory. No upload/deployment occurred.
+See [readiness](../reports/readiness-2026-10-17-pr31.md) and
+[independent review](../reports/review-2026-10-17-pr31-readiness.md). Final delivery must read back
+passing Verify on the exact follow-up commit, plus remote review/conflict state.
+
+Code readiness remains separate from actual data deployment: publication/config.json absent,
+Pages/enablement API404, new source acquisition still rejected by ISS-003, production resource/
+bootstrap/recovery and physical/mobile/hosted release acceptance open. Collection-date mode
+continues with explicit null source coverage; it does not imply freshness. No merge/auto-merge,
+publish/deploy, recurring collection, credentials or security-setting change is authorized.
+The original checkout, unrelated work and private archives/logs remain preserved.
 
 ## TASK-008 Calibration Interval Complete — 2026-10-16
 
@@ -2040,6 +2065,103 @@ Delivery checks passed: local report-link resolution, repository lint (five pre-
 informational suggestions), formatting, and Git whitespace validation.
 
 
+## TASK-008 delegated adoption and recovered verification — 2026-10-16/17
+
+The user delegated the decision to dot with the exact instruction "open-store-searcher 결정해".
+Dot selected the complete conservative October 16 policy/23-ID empty list/initial-baseline proposal
+at `fd6f79f1be1cff31f04ef679394ec7b4b76260ad`; no verbatim numeric human approval is invented.
+The October 17 resumption instruction kept the same local-only scope. Main and all existing
+worktrees/unrelated untracked files were preserved. Work is in the isolated clone under the
+October 16 task directory on `codex/task-008-policy-adoption-local`, uncommitted at the cited base.
+
+Installed exact nested objects plus the previously approved pair contract in
+`publication/validation-config.json`. The separate workflow `publication/config.json` remains
+absent. The retained October 16 archive was replayed with unchanged policy, original collection
+instant, approved parser/stager and existing research resource ceilings. Ubuntu 24.04 / Node
+24.19.0 / npm 11.17.0 checks pass 797 automated tests, 68 browser checks and 20 accessibility tests;
+initial metadata/lint failure was corrected before the equivalent split full check set passed.
+
+The execution connection disconnected during replay. On the user's resumption, recovered its
+completed receipt without duplicate ingestion: 195 categories, 2,951,024 rows, 726 JSON files,
+691,143,712 bytes, 176,253 bytes below the exact cap. Metrics equal the reviewed initial baseline.
+Incomplete-stream and existing-output attempts were rejected with no failed candidate/temp output;
+all 726 accepted file hashes remain unchanged. A fresh October 17 recovery audit rehashed every
+artifact and the retained archive and exited 0. The log connection lost stdout; the durable
+receipt plus recovery audit bind acceptance instead. No fresh source collection was performed.
+
+[Verification](../reports/test-2026-10-17-task-008-policy-adoption.md) and
+[aggregate receipt](../reports/validation-2026-10-17-task-008-adoption.json) contain hashes and
+limits. Raw data, per-file inventory and logs stay local outside Git. Independent final review
+is Approved with no blocking findings and is recorded separately in
+[review](../reports/review-2026-10-17-task-008-policy-adoption.md).
+
+The 79 nonempty zero-tolerance categories, one-transition size evidence, null source freshness
+and unresolved ISS-003 remain explicit. Prior source-date claims are not inferred from collection
+or replay. TASK-009/010/021, hosted/mobile performance, publication/recovery, milestone handbook
+and release gates remain open. No push, PR, merge, publish, deploy, recurring collection resumption,
+credential, settings, dependency, workflow or product-source change occurred. The task-specific
+container remains running for evidence retention; the replay process has finished.
+
+Final disposition: TASK-008's original local staged-quality scope is moved to completed under the
+approved ownership boundary. No implementation task is active. Later production/release tasks
+remain unactivated and incomplete. Final lint, formatting, exact configuration identity, local
+Markdown targets and Git whitespace checks pass. No product code changed after the verified full
+check set; no duplicate full-source replay or redundant full-suite execution was needed.
+
+
+## Authorized adoption delivery and ISS-003 continuation — 2026-10-17
+
+The user now requested "커밋 푸시 하고 iss-003 미확인 문제 해결해". This explicitly authorizes
+logical commits and a push of the independently reviewed local adoption branch, followed by
+bounded diagnosis, fixes, regression tests and independent review of ISS-003. It supersedes the
+prior local-only delivery restriction for commits/push only. PR creation, merge, publication,
+deployment, recurring collection and security/credential changes remain outside scope.
+Before delivery, reviewed the exact 17-file diff and new files for raw datasets/logs, credentials,
+large outputs and personal identifiers; removed the newly added absolute local-user path from
+the public verification report. Original private artifacts remain local outside Git. Historical
+"uncommitted/no push" statements describe the earlier local acceptance, before this authorization.
+
+
+## ISS-003 reproduction and bounded client repair — 2026-10-17
+
+Delivered the independently reviewed local adoption as commit `28f43c3` to
+`github/codex/task-008-policy-adoption-local` under the new explicit authorization. The original
+local origin and unrelated checkouts remain preserved; no PR or merge was created.
+
+Read only the three issue-specific historical failure logs. Their numeric headers are absent.
+Current default and no-store header-only diagnostics reproduce incompatible range/full lengths
+217,307,219 and 217,356,588 in opposite directions. No ETag/Last-Modified is supplied; no-store
+is not a remedy and an internal provider/cache/load-balancer cause is not proven. Added strict
+numeric diagnostic preservation and one fresh bounded acquisition retry for pre-body mismatches
+only. All equality, size, hash, ZIP and195-category checks remain; no policy or source URL changed.
+Independent review identified a cancellation-timeout edge; added a failing regression and a
+combined-signal check before allowing retry. Existing TypeScript library settings are preserved.
+
+One live collector invocation still rejected both mismatches in410ms and left zero staged files.
+This verifies safe persistent-failure handling, not provider recovery. No live archive or source
+freshness was accepted. The official general-restaurant page's daily/D-2 guidance and catalog
+modified date do not bind all195 Seoul categories to this archive. The info endpoint redirected.
+ISS-003 remains open upstream; collection time is not substituted for coverage.
+
+The unchanged Verify workflow runs only on main pushes and pull requests. Readback for28f43c3
+shows no check runs or Actions runs on this work branch. No PR, workflow edit, dispatch-capability
+change or fabricated CI result is used to manufacture hosted verification. Final local pinned
+verification and independent review are recorded in the issue report before the next push.
+
+Final source verification after the review correction exits0:38 focused tests, typecheck,
+813 full tests/44 files,68 browser checks,20 accessibility checks and4 packaging tests. Coverage
+is92.79% statements/91.33% branches/95.36% functions/94.47% lines. The initial Mac launcher
+could not write through a shared Vite dependency symlink; all reported test evidence is pinned
+Ubuntu. Earlier full runs are superseded by iss003-full-final.log. Raw files stay local; aggregate
+results and SHA-256 values are in the issue report. No acquisition was repeated to chase success.
+
+Independent final review approved the bounded client fix and diagnostics, recording its timeout
+finding as resolved with the failing/passing regression. No blocking implementation issue remains.
+The Open upstream/source-freshness state is deliberate and evidence-bound; no false closure is
+recorded. After the public-output scan and whitespace/format/lint checks, deliver this repair as
+its own logical commit and read back the exact remote HEAD/check status. No PR or settings change.
+
+
 ## TASK-008 final acceptance resumed — 2026-10-18
 
 The user explicitly approved all three exact 2026-10-16 proposal inputs as conservative initial
@@ -2079,3 +2201,38 @@ active/project/traceability/operator records. No next task is active. TASK-009/0
 recovery, TASK-018/021 performance/release and milestone handbook gates remain open. ISS-003 and
 conservative future-rejection limitations remain recorded. No handbook access, commit, push,
 merge, workflow dispatch, publication enablement, deployment, tag or release occurred.
+
+
+## TASK-008 authorized delivery and merged-main reconciliation — 2026-10-18
+
+The user requested commit, push and PR creation. Created `2be9077` to preserve all independently
+reviewed October 18 changes. Fresh fetch revealed that PR #31 had already merged as `c521467`,
+including the prior exact local policy adoption and bounded ISS-003 client recovery. Integrated
+that main history without reverting any production/script/test change. Documentation conflicts
+preserve prior decisions, issues, completed tasks and verification before adding the new dated
+confirmation. TASK-008 remains complete; no next task or deployment is activated.
+
+The approved canonical policy/baseline and parsed local configuration remain identical to the
+reviewed October 18 inputs. The merged-main JSON spelling is retained to avoid irrelevant numeric
+formatting churn; three explicit observation-resource ceilings remain local-only. Historical
+October 18 replay/full-suite receipts bind the pre-integration `2be9077` tree. Current integrated
+full verification and independent delivery review will be recorded separately before pushing.
+The PR excludes production source/test/dependency/workflow changes relative to current main.
+
+
+Integrated delivery verification passed the exact pinned `npm run verify:full`: 813 tests,
+68 browser checks and 20 accessibility tests at default concurrency with unchanged flaky policy.
+All 156 current product/test/tooling fingerprints match; producer/parser/validator/codec paths
+remain byte-identical to the complete raw replay. The original 797-test receipts retain their
+pre-integration scope. Current delivery evidence is in
+`reports/verification-2026-10-18-task-008-delivery.json` and
+`reports/delivery-2026-10-18-task-008.md`. The formatting-only initial integrated attempt is
+retained separately. Final delivery review and push/PR readback follow; no merge to main or
+deployment is included.
+
+
+Independent integrated delivery review is **Approved** with no actionable findings; see
+`reports/review-2026-10-18-task-008-delivery.md`. Current parsed configuration, canonical inputs,
+nine raw-replay byte bindings, all 156 current product/test/tooling fingerprints and 813/68/20
+log bindings pass. Final record lint/format/typecheck and whitespace checks pass. The user has
+explicitly authorized pushing this branch and creating a PR; no main merge/deployment is included.

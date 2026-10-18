@@ -7,6 +7,14 @@ Harness Version: 1.1
 
 # TASK-008 final quality acceptance — 2026-10-18
 
+Delivery provenance update: this report's raw replay and 797/68/20 suite bind the independently
+reviewed pre-integration tree preserved in commit `2be9077`. A later fetch found merged PR #31
+(`c521467`), including earlier adoption and collector mitigation. Those main changes are retained.
+The five producer/validator/parser/codec input hashes remain identical, so the complete offline
+raw replay remains applicable to that unchanged path; the later integrated full suite is recorded
+separately. Raw configuration JSON spelling changed during merge, but the complete parsed object,
+exact canonical approved policy/baseline and local resource values remain identical.
+
 Status: TASK-008 complete; fresh complete-source/full-suite verification passed and independent final review Approved.
 Related requirements: FR-08, FR-13, FR-14; quality/freshness NFRs under accepted collection-date
 operation. TASK-009/010 publication/recovery and TASK-018/021 performance/release remain separate.

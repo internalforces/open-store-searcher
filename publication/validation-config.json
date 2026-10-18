@@ -10,13 +10,13 @@
       "maxCount": 2952182,
       "maxAbsoluteCountChange": 1158,
       "maxRelativeCountChange": 0.000392825474,
-      "maxMissingNameRate": 9.859074e-6,
-      "maxMissingBothAddressRate": 0.0,
+      "maxMissingNameRate": 0.000009859074,
+      "maxMissingBothAddressRate": 0,
       "maxStatusShareChange": {
         "행정상 영업": 0.000102338285,
-        "휴업": 1.288694e-6,
-        "폐업": 9.1661403e-5,
-        "확인되지 않음": 1.2010517e-5
+        "휴업": 0.000001288694,
+        "폐업": 0.000091661403,
+        "확인되지 않음": 0.000012010517
       }
     },
     "categories": {
@@ -25,14 +25,14 @@
         "minCount": 93,
         "maxCount": 93,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15006679": {
@@ -40,14 +40,14 @@
         "minCount": 148,
         "maxCount": 148,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15006697": {
@@ -56,13 +56,13 @@
         "maxCount": 13141,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000152276535,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000245174113,
-          "휴업": 7.6909332e-5,
+          "휴업": 0.000076909332,
           "폐업": 0.000248447195,
-          "확인되지 않음": 5.007877e-6
+          "확인되지 않음": 0.000005007877
         }
       },
       "15006700": {
@@ -70,14 +70,14 @@
         "minCount": 8,
         "maxCount": 8,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15006706": {
@@ -85,14 +85,14 @@
         "minCount": 605,
         "maxCount": 605,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15006727": {
@@ -100,14 +100,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15006730": {
@@ -116,13 +116,13 @@
         "maxCount": 147816,
         "maxAbsoluteCountChange": 70,
         "maxRelativeCountChange": 0.000474717882,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000349345219,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000349345219,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15006741": {
@@ -130,14 +130,14 @@
         "minCount": 6,
         "maxCount": 6,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.166666666667,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.166666666667,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044950": {
@@ -146,12 +146,12 @@
         "maxCount": 2674,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000374251498,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001870557427,
-          "휴업": 0.0,
-          "폐업": 0.0,
+          "휴업": 0,
+          "폐업": 0,
           "확인되지 않음": 0.001870557427
         }
       },
@@ -161,13 +161,13 @@
         "maxCount": 35544,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.000112593594,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 8.4445196e-5,
-          "휴업": 5.6296797e-5,
-          "폐업": 8.4411931e-5,
-          "확인되지 않음": 4.3510999e-5
+          "행정상 영업": 0.000084445196,
+          "휴업": 0.000056296797,
+          "폐업": 0.000084411931,
+          "확인되지 않음": 0.000043510999
         }
       },
       "15044953": {
@@ -176,13 +176,13 @@
         "maxCount": 2897,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000345542502,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000329309763,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000322983769,
-          "확인되지 않음": 6.325994e-6
+          "확인되지 않음": 0.000006325994
         }
       },
       "15044954": {
@@ -190,14 +190,14 @@
         "minCount": 662,
         "maxCount": 662,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001510574019,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.001510574019,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044955": {
@@ -206,11 +206,11 @@
         "maxCount": 286,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.003521126761,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001816160119,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000976031629,
           "확인되지 않음": 0.000840128491
         }
@@ -220,14 +220,14 @@
         "minCount": 147,
         "maxCount": 147,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044957": {
@@ -236,12 +236,12 @@
         "maxCount": 5579,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000358808755,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000897021888,
-          "휴업": 1.415673e-6,
-          "폐업": 7.6768086e-5,
+          "휴업": 0.000001415673,
+          "폐업": 0.000076768086,
           "확인되지 않음": 0.000897021888
         }
       },
@@ -251,11 +251,11 @@
         "maxCount": 25,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.095238095239,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.033126293996,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.024844720497,
           "확인되지 않음": 0.008281573499
         }
@@ -265,14 +265,14 @@
         "minCount": 23,
         "maxCount": 23,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044960": {
@@ -280,9 +280,9 @@
         "minCount": 663,
         "maxCount": 663,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.006033182504,
           "휴업": 0.001508295626,
@@ -295,14 +295,14 @@
         "minCount": 1913,
         "maxCount": 1913,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000522739154,
           "휴업": 0.000522739154,
           "폐업": 0.001045478307,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044962": {
@@ -310,14 +310,14 @@
         "minCount": 270,
         "maxCount": 270,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044963": {
@@ -325,14 +325,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044964": {
@@ -341,13 +341,13 @@
         "maxCount": 15366,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000130199857,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.0001953125,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.0001953125,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044965": {
@@ -355,14 +355,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044966": {
@@ -371,13 +371,13 @@
         "maxCount": 9457,
         "maxAbsoluteCountChange": 36,
         "maxRelativeCountChange": 0.003851091143,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000680151505,
           "휴업": 0.000102881947,
           "폐업": 0.000749780853,
-          "확인되지 않음": 7.8657908e-5
+          "확인되지 않음": 0.000078657908
         }
       },
       "15044967": {
@@ -386,8 +386,8 @@
         "maxCount": 1034,
         "maxAbsoluteCountChange": 9,
         "maxRelativeCountChange": 0.008982035929,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001634712771,
           "휴업": 0.001001001002,
@@ -401,13 +401,13 @@
         "maxCount": 7194,
         "maxAbsoluteCountChange": 7,
         "maxRelativeCountChange": 0.000976017848,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000594121465,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000594121465,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044969": {
@@ -415,14 +415,14 @@
         "minCount": 358,
         "maxCount": 358,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044970": {
@@ -430,14 +430,14 @@
         "minCount": 78,
         "maxCount": 78,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044971": {
@@ -446,13 +446,13 @@
         "maxCount": 988,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.001014198783,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000353479617,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000353479617,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044972": {
@@ -461,13 +461,13 @@
         "maxCount": 8975,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.000446279148,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000669418722,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000669418722,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044973": {
@@ -476,13 +476,13 @@
         "maxCount": 17112,
         "maxAbsoluteCountChange": 158,
         "maxRelativeCountChange": 0.009453718663,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000428639808,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000428639808,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044974": {
@@ -490,14 +490,14 @@
         "minCount": 143,
         "maxCount": 143,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044975": {
@@ -506,13 +506,13 @@
         "maxCount": 5777,
         "maxAbsoluteCountChange": 3,
         "maxRelativeCountChange": 0.000520381614,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000640282301,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000640282301,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044976": {
@@ -521,13 +521,13 @@
         "maxCount": 10915,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000183351669,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000183301256,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000183301256,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044977": {
@@ -536,13 +536,13 @@
         "maxCount": 156937,
         "maxAbsoluteCountChange": 106,
         "maxRelativeCountChange": 0.000677061045,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000567230542,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000567230542,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044978": {
@@ -551,13 +551,13 @@
         "maxCount": 19860,
         "maxAbsoluteCountChange": 17,
         "maxRelativeCountChange": 0.000860149768,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000264714721,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000264714721,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044979": {
@@ -566,13 +566,13 @@
         "maxCount": 1965,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000509683996,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000509683996,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000509683996,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044980": {
@@ -580,14 +580,14 @@
         "minCount": 417,
         "maxCount": 417,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044981": {
@@ -596,13 +596,13 @@
         "maxCount": 7470,
         "maxAbsoluteCountChange": 8,
         "maxRelativeCountChange": 0.001074546676,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000511907179,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000511907179,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044982": {
@@ -610,14 +610,14 @@
         "minCount": 51,
         "maxCount": 51,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044983": {
@@ -625,14 +625,14 @@
         "minCount": 68343,
         "maxCount": 68378,
         "maxAbsoluteCountChange": 4,
-        "maxRelativeCountChange": 5.8524881e-5,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0.000058524881,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 8.894079e-5,
-          "휴업": 0.0,
-          "폐업": 8.894079e-5,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0.00008894079,
+          "휴업": 0,
+          "폐업": 0.00008894079,
+          "확인되지 않음": 0
         }
       },
       "15044984": {
@@ -641,13 +641,13 @@
         "maxCount": 2512,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000398406375,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000530732507,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000530732507,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044985": {
@@ -656,13 +656,13 @@
         "maxCount": 116477,
         "maxAbsoluteCountChange": 47,
         "maxRelativeCountChange": 0.000404506374,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 7.6700718e-5,
-          "휴업": 0.0,
-          "폐업": 7.6700718e-5,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0.000076700718,
+          "휴업": 0,
+          "폐업": 0.000076700718,
+          "확인되지 않음": 0
         }
       },
       "15044986": {
@@ -670,14 +670,14 @@
         "minCount": 363,
         "maxCount": 363,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044987": {
@@ -686,11 +686,11 @@
         "maxCount": 2955,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000339098,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000524843633,
-          "휴업": 3.678352e-6,
+          "휴업": 0.000003678352,
           "폐업": 0.000529208715,
           "확인되지 않음": 6.89691e-7
         }
@@ -700,14 +700,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044989": {
@@ -715,14 +715,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044991": {
@@ -731,13 +731,13 @@
         "maxCount": 845,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.001187648457,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000765995964,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000765995964,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15044992": {
@@ -745,14 +745,14 @@
         "minCount": 23,
         "maxCount": 23,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044993": {
@@ -760,14 +760,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044994": {
@@ -775,14 +775,14 @@
         "minCount": 1,
         "maxCount": 1,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044995": {
@@ -790,14 +790,14 @@
         "minCount": 728,
         "maxCount": 728,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15044996": {
@@ -806,11 +806,11 @@
         "maxCount": 13631,
         "maxAbsoluteCountChange": 6,
         "maxRelativeCountChange": 0.000440917108,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000112197233,
-          "휴업": 1.651739e-6,
+          "휴업": 0.000001651739,
           "폐업": 0.000150078729,
           "확인되지 않음": 0.000109339376
         }
@@ -821,11 +821,11 @@
         "maxCount": 11925,
         "maxAbsoluteCountChange": 13,
         "maxRelativeCountChange": 0.001094276095,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000483013917,
-          "휴업": 4.416485e-6,
+          "휴업": 0.000004416485,
           "폐업": 0.000619575952,
           "확인되지 않음": 0.000269893928
         }
@@ -836,13 +836,13 @@
         "maxCount": 5444,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000183789745,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000183789745,
           "휴업": 5.4036e-7,
           "폐업": 0.000183789745,
-          "확인되지 않음": 6.5045765e-5
+          "확인되지 않음": 0.000065045765
         }
       },
       "15044999": {
@@ -850,14 +850,14 @@
         "minCount": 34,
         "maxCount": 34,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045000": {
@@ -866,11 +866,11 @@
         "maxCount": 13039,
         "maxAbsoluteCountChange": 8,
         "maxRelativeCountChange": 0.000615195325,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000283051944,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000145341761,
           "확인되지 않음": 0.000167524235
         }
@@ -880,14 +880,14 @@
         "minCount": 39,
         "maxCount": 39,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045002": {
@@ -896,11 +896,11 @@
         "maxCount": 1652,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.001214329084,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001215066829,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000222393805,
           "확인되지 않음": 0.001215066829
         }
@@ -910,14 +910,14 @@
         "minCount": 1347,
         "maxCount": 1347,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000742390498,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000742390498,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045004": {
@@ -925,14 +925,14 @@
         "minCount": 1366,
         "maxCount": 1366,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045005": {
@@ -940,14 +940,14 @@
         "minCount": 481,
         "maxCount": 481,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00207900208,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.00207900208,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045006": {
@@ -956,8 +956,8 @@
         "maxCount": 7436,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.000539374326,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000449490187,
           "휴업": 1.45384e-7,
@@ -971,11 +971,11 @@
         "maxCount": 1827,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000548245615,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000548245615,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000548245615,
           "확인되지 않음": 0.000548245615
         }
@@ -985,14 +985,14 @@
         "minCount": 942,
         "maxCount": 942,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.007430997877,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.007430997877,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045009": {
@@ -1001,11 +1001,11 @@
         "maxCount": 2472,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.001626016261,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000613715553,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000406669378,
           "확인되지 않음": 0.000430260797
         }
@@ -1015,14 +1015,14 @@
         "minCount": 156,
         "maxCount": 156,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045011": {
@@ -1030,14 +1030,14 @@
         "minCount": 746,
         "maxCount": 746,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045012": {
@@ -1045,14 +1045,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045013": {
@@ -1061,13 +1061,13 @@
         "maxCount": 1055,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000950570343,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00123312354,
           "휴업": 0.001023691138,
           "폐업": 0.000949667617,
-          "확인되지 않음": 1.0832711e-5
+          "확인되지 않음": 0.000010832711
         }
       },
       "15045014": {
@@ -1076,11 +1076,11 @@
         "maxCount": 958,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.001046025105,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00095858309,
-          "휴업": 2.186051e-6,
+          "휴업": 0.000002186051,
           "폐업": 0.000504977637,
           "확인되지 않음": 0.000451419403
         }
@@ -1090,14 +1090,14 @@
         "minCount": 34,
         "maxCount": 34,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045016": {
@@ -1106,13 +1106,13 @@
         "maxCount": 540219,
         "maxAbsoluteCountChange": 183,
         "maxRelativeCountChange": 0.000339147018,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000165563246,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000165563246,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045017": {
@@ -1120,14 +1120,14 @@
         "minCount": 11616,
         "maxCount": 11616,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 8.6088155e-5,
-          "휴업": 0.0,
-          "폐업": 8.6088155e-5,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0.000086088155,
+          "휴업": 0,
+          "폐업": 0.000086088155,
+          "확인되지 않음": 0
         }
       },
       "15045018": {
@@ -1136,13 +1136,13 @@
         "maxCount": 4994,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.00020036065,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000400721299,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000400721299,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045019": {
@@ -1150,14 +1150,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045020": {
@@ -1166,11 +1166,11 @@
         "maxCount": 3325,
         "maxAbsoluteCountChange": 5,
         "maxRelativeCountChange": 0.001515151516,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000802056091,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000545299775,
           "확인되지 않음": 0.000607164542
         }
@@ -1180,13 +1180,13 @@
         "minCount": 119,
         "maxCount": 119,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.01680672269,
-          "휴업": 0.0,
-          "폐업": 0.0,
+          "휴업": 0,
+          "폐업": 0,
           "확인되지 않음": 0.01680672269
         }
       },
@@ -1195,14 +1195,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045023": {
@@ -1211,11 +1211,11 @@
         "maxCount": 818,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.002463054188,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001231527094,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000502293606,
           "확인되지 않음": 0.001231527094
         }
@@ -1226,13 +1226,13 @@
         "maxCount": 37724,
         "maxAbsoluteCountChange": 10,
         "maxRelativeCountChange": 0.00026535757,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000159809577,
-          "휴업": 5.3423494e-5,
+          "휴업": 0.000053423494,
           "폐업": 0.000108191499,
-          "확인되지 않음": 2.5166918e-5
+          "확인되지 않음": 0.000025166918
         }
       },
       "15045025": {
@@ -1240,14 +1240,14 @@
         "minCount": 930,
         "maxCount": 930,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001075268818,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.001075268818,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045026": {
@@ -1256,11 +1256,11 @@
         "maxCount": 96,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.01052631579,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001343784995,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000783874581,
           "확인되지 않음": 0.000559910415
         }
@@ -1270,14 +1270,14 @@
         "minCount": 244,
         "maxCount": 244,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045028": {
@@ -1286,8 +1286,8 @@
         "maxCount": 4915,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000407581007,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000407166124,
           "휴업": 1.66055e-7,
@@ -1301,11 +1301,11 @@
         "maxCount": 2540,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000788954636,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000551085124,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000597008885,
           "확인되지 않음": 0.000302427428
         }
@@ -1315,14 +1315,14 @@
         "minCount": 146,
         "maxCount": 146,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.006849315069,
           "휴업": 0.006849315069,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045031": {
@@ -1330,14 +1330,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045032": {
@@ -1346,13 +1346,13 @@
         "maxCount": 70426,
         "maxAbsoluteCountChange": 30,
         "maxRelativeCountChange": 0.00042664543,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00011892678,
-          "휴업": 1.4400066e-5,
+          "휴업": 0.000014400066,
           "폐업": 0.000136337829,
-          "확인되지 않음": 5.466256e-5
+          "확인되지 않음": 0.00005466256
         }
       },
       "15045033": {
@@ -1361,13 +1361,13 @@
         "maxCount": 1470,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000681198911,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000389057785,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000308834905,
-          "확인되지 않음": 8.0222881e-5
+          "확인되지 않음": 0.000080222881
         }
       },
       "15045034": {
@@ -1376,13 +1376,13 @@
         "maxCount": 18095,
         "maxAbsoluteCountChange": 9,
         "maxRelativeCountChange": 0.000498118221,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000492507891,
           "휴업": 2.47999e-7,
           "폐업": 0.000496169466,
-          "확인되지 않음": 6.337733e-6
+          "확인되지 않음": 0.000006337733
         }
       },
       "15045035": {
@@ -1391,8 +1391,8 @@
         "maxCount": 3830,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.00104821803,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00078410873,
           "휴업": 0.000266026669,
@@ -1406,12 +1406,12 @@
         "maxCount": 22477,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.000178181657,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 9.8257318e-5,
-          "휴업": 4.4458121e-5,
-          "폐업": 9.8031521e-5,
+          "행정상 영업": 0.000098257318,
+          "휴업": 0.000044458121,
+          "폐업": 0.000098031521,
           "확인되지 않음": 2.14266e-7
         }
       },
@@ -1421,13 +1421,13 @@
         "maxCount": 99936,
         "maxAbsoluteCountChange": 32,
         "maxRelativeCountChange": 0.000320711981,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 9.06603e-5,
-          "휴업": 0.0,
-          "폐업": 9.06603e-5,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0.0000906603,
+          "휴업": 0,
+          "폐업": 0.0000906603,
+          "확인되지 않음": 0
         }
       },
       "15045038": {
@@ -1436,13 +1436,13 @@
         "maxCount": 15642,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000127901772,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000137566388,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000137566388,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045039": {
@@ -1450,14 +1450,14 @@
         "minCount": 225,
         "maxCount": 225,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045040": {
@@ -1465,14 +1465,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045041": {
@@ -1480,14 +1480,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045042": {
@@ -1495,14 +1495,14 @@
         "minCount": 75,
         "maxCount": 75,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045043": {
@@ -1510,14 +1510,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045044": {
@@ -1525,14 +1525,14 @@
         "minCount": 44,
         "maxCount": 44,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045045": {
@@ -1541,13 +1541,13 @@
         "maxCount": 5730,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000349895032,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000255805199,
           "휴업": 3.67152e-7,
           "폐업": 0.000270014901,
-          "확인되지 않음": 2.8087062e-5
+          "확인되지 않음": 0.000028087062
         }
       },
       "15045046": {
@@ -1555,14 +1555,14 @@
         "minCount": 1,
         "maxCount": 1,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045047": {
@@ -1570,14 +1570,14 @@
         "minCount": 264,
         "maxCount": 264,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.003787878788,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.003787878788,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045048": {
@@ -1586,8 +1586,8 @@
         "maxCount": 7346,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.000545107659,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000545330607,
           "휴업": 5.19716e-7,
@@ -1601,11 +1601,11 @@
         "maxCount": 591,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.00169779287,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00169779287,
-          "휴업": 2.877616e-6,
+          "휴업": 0.000002877616,
           "폐업": 0.00169779287,
           "확인되지 않음": 0.000187044978
         }
@@ -1616,13 +1616,13 @@
         "maxCount": 2243,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000894054538,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000447227192,
           "휴업": 0.000443034172,
           "폐업": 0.000495144094,
-          "확인되지 않음": 2.395859e-6
+          "확인되지 않음": 0.000002395859
         }
       },
       "15045051": {
@@ -1630,14 +1630,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045052": {
@@ -1646,13 +1646,13 @@
         "maxCount": 817,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.001230012301,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000524341853,
-          "휴업": 3.022144e-6,
+          "휴업": 0.000003022144,
           "폐업": 0.000494120421,
-          "확인되지 않음": 2.719929e-5
+          "확인되지 않음": 0.00002719929
         }
       },
       "15045053": {
@@ -1660,14 +1660,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045054": {
@@ -1675,14 +1675,14 @@
         "minCount": 1,
         "maxCount": 1,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045055": {
@@ -1690,14 +1690,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045056": {
@@ -1705,14 +1705,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045057": {
@@ -1721,11 +1721,11 @@
         "maxCount": 5425,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000184569953,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000184535893,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000184535893,
           "확인되지 않음": 0.000184467811
         }
@@ -1736,13 +1736,13 @@
         "maxCount": 84111,
         "maxAbsoluteCountChange": 31,
         "maxRelativeCountChange": 0.000369104743,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 9.019295e-5,
+          "행정상 영업": 0.00009019295,
           "휴업": 5.7112e-8,
-          "폐업": 6.0863443e-5,
-          "확인되지 않음": 4.9387644e-5
+          "폐업": 0.000060863443,
+          "확인되지 않음": 0.000049387644
         }
       },
       "15045059": {
@@ -1751,8 +1751,8 @@
         "maxCount": 9945,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000201227488,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000301871604,
           "휴업": 5.87024e-7,
@@ -1766,13 +1766,13 @@
         "maxCount": 950957,
         "maxAbsoluteCountChange": 489,
         "maxRelativeCountChange": 0.000515234179,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000124429561,
-          "휴업": 2.944755e-6,
-          "폐업": 7.2185207e-5,
-          "확인되지 않음": 5.6106538e-5
+          "휴업": 0.000002944755,
+          "폐업": 0.000072185207,
+          "확인되지 않음": 0.000056106538
         }
       },
       "15045061": {
@@ -1781,11 +1781,11 @@
         "maxCount": 1598,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.001254705145,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000627746391,
-          "휴업": 2.358469e-6,
+          "휴업": 0.000002358469,
           "폐업": 0.000627746391,
           "확인되지 않음": 0.000539303089
         }
@@ -1796,13 +1796,13 @@
         "maxCount": 4288,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000233317779,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000164416378,
           "휴업": 2.72123e-7,
           "폐업": 0.000167572998,
-          "확인되지 않음": 2.884498e-6
+          "확인되지 않음": 0.000002884498
         }
       },
       "15045063": {
@@ -1810,14 +1810,14 @@
         "minCount": 159,
         "maxCount": 159,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045064": {
@@ -1825,14 +1825,14 @@
         "minCount": 510,
         "maxCount": 510,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045065": {
@@ -1840,14 +1840,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045066": {
@@ -1856,13 +1856,13 @@
         "maxCount": 213,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.004739336493,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.004739336493,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.004739336493,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045067": {
@@ -1870,14 +1870,14 @@
         "minCount": 4,
         "maxCount": 4,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045068": {
@@ -1885,14 +1885,14 @@
         "minCount": 20,
         "maxCount": 20,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.05,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.05,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045069": {
@@ -1901,11 +1901,11 @@
         "maxCount": 4223,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.00095102235,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000702762596,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000453825155,
           "확인되지 않음": 0.000248937442
         }
@@ -1916,11 +1916,11 @@
         "maxCount": 4192,
         "maxAbsoluteCountChange": 4,
         "maxRelativeCountChange": 0.000959923207,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000353728595,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000239693193,
           "확인되지 않음": 0.000193564957
         }
@@ -1930,14 +1930,14 @@
         "minCount": 10205,
         "maxCount": 10209,
         "maxAbsoluteCountChange": 1,
-        "maxRelativeCountChange": 9.798158e-5,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0.00009798158,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 9.798158e-5,
-          "휴업": 0.0,
-          "폐업": 7.5470871e-5,
-          "확인되지 않음": 9.798158e-5
+          "행정상 영업": 0.00009798158,
+          "휴업": 0,
+          "폐업": 0.000075470871,
+          "확인되지 않음": 0.00009798158
         }
       },
       "15045072": {
@@ -1946,13 +1946,13 @@
         "maxCount": 4653,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000430477831,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000292017341,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000215331611,
-          "확인되지 않음": 8.5484303e-5
+          "확인되지 않음": 0.000085484303
         }
       },
       "15045073": {
@@ -1960,14 +1960,14 @@
         "minCount": 16850,
         "maxCount": 16858,
         "maxAbsoluteCountChange": 1,
-        "maxRelativeCountChange": 5.934366e-5,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0.00005934366,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 6.8519497e-5,
+          "행정상 영업": 0.000068519497,
           "휴업": 3.522e-9,
-          "폐업": 9.0110533e-5,
-          "확인되지 않음": 3.7746226e-5
+          "폐업": 0.000090110533,
+          "확인되지 않음": 0.000037746226
         }
       },
       "15045074": {
@@ -1976,11 +1976,11 @@
         "maxCount": 8182,
         "maxAbsoluteCountChange": 22,
         "maxRelativeCountChange": 0.002705361535,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.0007808069,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.00045188894,
           "확인되지 않음": 0.000328917961
         }
@@ -1990,14 +1990,14 @@
         "minCount": 77,
         "maxCount": 77,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045076": {
@@ -2005,14 +2005,14 @@
         "minCount": 70,
         "maxCount": 70,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045077": {
@@ -2020,14 +2020,14 @@
         "minCount": 45,
         "maxCount": 45,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045078": {
@@ -2035,14 +2035,14 @@
         "minCount": 113,
         "maxCount": 113,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045079": {
@@ -2051,13 +2051,13 @@
         "maxCount": 3620,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000276395799,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001381978994,
           "휴업": 8.40109e-7,
           "폐업": 0.001381978994,
-          "확인되지 않음": 2.5279638e-5
+          "확인되지 않음": 0.000025279638
         }
       },
       "15045080": {
@@ -2065,14 +2065,14 @@
         "minCount": 2,
         "maxCount": 2,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045081": {
@@ -2081,13 +2081,13 @@
         "maxCount": 11585,
         "maxAbsoluteCountChange": 5,
         "maxRelativeCountChange": 0.000432451134,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00022379893,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.00022379893,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045082": {
@@ -2096,13 +2096,13 @@
         "maxCount": 3996,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000250563769,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000208259165,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000208259165,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045083": {
@@ -2110,14 +2110,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045084": {
@@ -2125,14 +2125,14 @@
         "minCount": 6,
         "maxCount": 6,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045085": {
@@ -2141,13 +2141,13 @@
         "maxCount": 570,
         "maxAbsoluteCountChange": 3,
         "maxRelativeCountChange": 0.005347593583,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001175712065,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.001109341222,
-          "확인되지 않음": 6.6370843e-5
+          "확인되지 않음": 0.000066370843
         }
       },
       "15045086": {
@@ -2155,14 +2155,14 @@
         "minCount": 3,
         "maxCount": 3,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045087": {
@@ -2170,14 +2170,14 @@
         "minCount": 3,
         "maxCount": 3,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045088": {
@@ -2185,14 +2185,14 @@
         "minCount": 5,
         "maxCount": 5,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045089": {
@@ -2201,11 +2201,11 @@
         "maxCount": 794,
         "maxAbsoluteCountChange": 3,
         "maxRelativeCountChange": 0.003861003862,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.002618552619,
-          "휴업": 4.950005e-6,
+          "휴업": 0.000004950005,
           "폐업": 0.002400752401,
           "확인되지 않음": 0.001270648031
         }
@@ -2215,14 +2215,14 @@
         "minCount": 1,
         "maxCount": 1,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045091": {
@@ -2230,14 +2230,14 @@
         "minCount": 6,
         "maxCount": 6,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045092": {
@@ -2245,14 +2245,14 @@
         "minCount": 112,
         "maxCount": 112,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.008928571429,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.008928571429,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045093": {
@@ -2260,14 +2260,14 @@
         "minCount": 1,
         "maxCount": 1,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045094": {
@@ -2275,14 +2275,14 @@
         "minCount": 33,
         "maxCount": 33,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045095": {
@@ -2290,14 +2290,14 @@
         "minCount": 228,
         "maxCount": 228,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045096": {
@@ -2305,14 +2305,14 @@
         "minCount": 2,
         "maxCount": 2,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045097": {
@@ -2320,14 +2320,14 @@
         "minCount": 496,
         "maxCount": 496,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.002016129033,
           "휴업": 0.002016129033,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045098": {
@@ -2335,14 +2335,14 @@
         "minCount": 32,
         "maxCount": 32,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045099": {
@@ -2351,11 +2351,11 @@
         "maxCount": 1632,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000615006151,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000613496933,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.000613496933,
           "확인되지 않음": 0.000451710111
         }
@@ -2365,14 +2365,14 @@
         "minCount": 5,
         "maxCount": 5,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045101": {
@@ -2381,11 +2381,11 @@
         "maxCount": 12661,
         "maxAbsoluteCountChange": 5,
         "maxRelativeCountChange": 0.000395507041,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000236173572,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.00025775859,
           "확인되지 않음": 0.000100754692
         }
@@ -2395,14 +2395,14 @@
         "minCount": 857,
         "maxCount": 857,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045103": {
@@ -2410,14 +2410,14 @@
         "minCount": 564,
         "maxCount": 564,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001773049646,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.001773049646,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045104": {
@@ -2427,12 +2427,12 @@
         "maxAbsoluteCountChange": 12,
         "maxRelativeCountChange": 0.000125591326,
         "maxMissingNameRate": 0.000104728492,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000130704626,
-          "휴업": 1.0500464e-5,
-          "폐업": 9.3121505e-5,
-          "확인되지 않음": 7.9767701e-5
+          "휴업": 0.000010500464,
+          "폐업": 0.000093121505,
+          "확인되지 않음": 0.000079767701
         }
       },
       "15045105": {
@@ -2440,14 +2440,14 @@
         "minCount": 296,
         "maxCount": 296,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045106": {
@@ -2455,14 +2455,14 @@
         "minCount": 1417,
         "maxCount": 1417,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045107": {
@@ -2471,13 +2471,13 @@
         "maxCount": 14043,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.00014246029,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000213690434,
           "휴업": 7.1023e-8,
           "폐업": 0.000213690434,
-          "확인되지 않음": 1.4072532e-5
+          "확인되지 않음": 0.000014072532
         }
       },
       "15045108": {
@@ -2485,14 +2485,14 @@
         "minCount": 414,
         "maxCount": 414,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045109": {
@@ -2501,8 +2501,8 @@
         "maxCount": 12808,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000156201188,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000328210335,
           "휴업": 3.6593e-8,
@@ -2515,14 +2515,14 @@
         "minCount": 75,
         "maxCount": 75,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045111": {
@@ -2530,14 +2530,14 @@
         "minCount": 3,
         "maxCount": 3,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045112": {
@@ -2546,8 +2546,8 @@
         "maxCount": 8118,
         "maxAbsoluteCountChange": 13,
         "maxRelativeCountChange": 0.001606524963,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00069085715,
           "휴업": 0.000119708445,
@@ -2560,14 +2560,14 @@
         "minCount": 65,
         "maxCount": 65,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045114": {
@@ -2575,14 +2575,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045115": {
@@ -2590,14 +2590,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15045116": {
@@ -2606,13 +2606,13 @@
         "maxCount": 10626,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000188323918,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000223429596,
           "휴업": 1.773e-8,
           "폐업": 0.000244986025,
-          "확인되지 않음": 9.4135367e-5
+          "확인되지 않음": 0.000094135367
         }
       },
       "15045117": {
@@ -2621,13 +2621,13 @@
         "maxCount": 66,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.015625,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.002884615385,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.002884615385,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15045118": {
@@ -2635,14 +2635,14 @@
         "minCount": 134,
         "maxCount": 134,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15096255": {
@@ -2650,14 +2650,14 @@
         "minCount": 35,
         "maxCount": 35,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15096257": {
@@ -2665,14 +2665,14 @@
         "minCount": 10737,
         "maxCount": 10743,
         "maxAbsoluteCountChange": 1,
-        "maxRelativeCountChange": 9.3127212e-5,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0.000093127212,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.00018623708,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.00018623708,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15101543": {
@@ -2681,13 +2681,13 @@
         "maxCount": 4911,
         "maxAbsoluteCountChange": 7,
         "maxRelativeCountChange": 0.00143207856,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000616016428,
           "휴업": 5.85119e-7,
           "폐업": 0.000616016428,
-          "확인되지 않음": 2.925595e-6
+          "확인되지 않음": 0.000002925595
         }
       },
       "15101544": {
@@ -2696,13 +2696,13 @@
         "maxCount": 202,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.005025125629,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.003542713568,
           "휴업": 0.000100502513,
           "폐업": 0.003391959799,
-          "확인되지 않음": 5.0251257e-5
+          "확인되지 않음": 0.000050251257
         }
       },
       "15101545": {
@@ -2710,14 +2710,14 @@
         "minCount": 13,
         "maxCount": 13,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15101546": {
@@ -2726,13 +2726,13 @@
         "maxCount": 2524,
         "maxAbsoluteCountChange": 3,
         "maxRelativeCountChange": 0.001195219124,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000397772475,
-          "휴업": 3.804916e-6,
+          "휴업": 0.000003804916,
           "폐업": 0.000397772475,
-          "확인되지 않음": 1.4744049e-5
+          "확인되지 않음": 0.000014744049
         }
       },
       "15101548": {
@@ -2740,14 +2740,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15101549": {
@@ -2755,14 +2755,14 @@
         "minCount": 42004,
         "maxCount": 42046,
         "maxAbsoluteCountChange": 4,
-        "maxRelativeCountChange": 9.5215425e-5,
+        "maxRelativeCountChange": 0.000095215425,
         "maxMissingNameRate": 0.000452294801,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 9.7699863e-5,
+          "행정상 영업": 0.000097699863,
           "휴업": 5.2125e-8,
           "폐업": 0.000105939092,
-          "확인되지 않음": 8.9049123e-5
+          "확인되지 않음": 0.000089049123
         }
       },
       "15101550": {
@@ -2770,14 +2770,14 @@
         "minCount": 1533,
         "maxCount": 1533,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.002609262884,
           "휴업": 0.000652315721,
           "폐업": 0.003261578605,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15101551": {
@@ -2785,14 +2785,14 @@
         "minCount": 1794,
         "maxCount": 1794,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001114827202,
           "휴업": 0.000557413601,
           "폐업": 0.001114827202,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15101552": {
@@ -2800,14 +2800,14 @@
         "minCount": 75,
         "maxCount": 75,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.040000000001,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.04,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15101553": {
@@ -2816,13 +2816,13 @@
         "maxCount": 353,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.00284900285,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001011719762,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.001011719762,
-          "확인되지 않음": 0.0
+          "확인되지 않음": 0
         }
       },
       "15106987": {
@@ -2831,13 +2831,13 @@
         "maxCount": 1492,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.00067114094,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000520798168,
-          "휴업": 4.051153e-6,
+          "휴업": 0.000004051153,
           "폐업": 0.000501892789,
-          "확인되지 않음": 1.4854227e-5
+          "확인되지 않음": 0.000014854227
         }
       },
       "15106988": {
@@ -2846,13 +2846,13 @@
         "maxCount": 189,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.005376344087,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.002903800817,
-          "휴업": 0.0,
+          "휴업": 0,
           "폐업": 0.002875050314,
-          "확인되지 않음": 2.8750504e-5
+          "확인되지 않음": 0.000028750504
         }
       },
       "15107028": {
@@ -2861,13 +2861,13 @@
         "maxCount": 1228,
         "maxAbsoluteCountChange": 3,
         "maxRelativeCountChange": 0.002483443709,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.001294015674,
           "휴업": 0.000853453344,
           "폐업": 0.001244797962,
-          "확인되지 않음": 1.6405904e-5
+          "확인되지 않음": 0.000016405904
         }
       },
       "15107029": {
@@ -2876,13 +2876,13 @@
         "maxCount": 1383,
         "maxAbsoluteCountChange": 1,
         "maxRelativeCountChange": 0.000724637682,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000724637682,
           "휴업": 5.2472e-7,
           "폐업": 0.000724637682,
-          "확인되지 않음": 6.296635e-6
+          "확인되지 않음": 0.000006296635
         }
       },
       "15107030": {
@@ -2890,14 +2890,14 @@
         "minCount": 4372,
         "maxCount": 4372,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15107031": {
@@ -2905,14 +2905,14 @@
         "minCount": 50,
         "maxCount": 50,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       },
       "15107032": {
@@ -2921,13 +2921,13 @@
         "maxCount": 2480,
         "maxAbsoluteCountChange": 2,
         "maxRelativeCountChange": 0.000807754443,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
           "행정상 영업": 0.000404203719,
-          "휴업": 1.629852e-6,
+          "휴업": 0.000001629852,
           "폐업": 0.000404203719,
-          "확인되지 않음": 6.519407e-6
+          "확인되지 않음": 0.000006519407
         }
       },
       "15113628": {
@@ -2935,14 +2935,14 @@
         "minCount": 0,
         "maxCount": 0,
         "maxAbsoluteCountChange": 0,
-        "maxRelativeCountChange": 0.0,
-        "maxMissingNameRate": 0.0,
-        "maxMissingBothAddressRate": 0.0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
         "maxStatusShareChange": {
-          "행정상 영업": 0.0,
-          "휴업": 0.0,
-          "폐업": 0.0,
-          "확인되지 않음": 0.0
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
         }
       }
     },
