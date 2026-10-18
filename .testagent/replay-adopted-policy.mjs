@@ -8,6 +8,8 @@ import { createServer } from 'vite';
 const [archivePath, root] = process.argv.slice(2);
 assert(archivePath && root && process.argv.length === 4);
 const config = JSON.parse(await readFile('publication/validation-config.json', 'utf8'));
+for (const field of ['maxEntryBytes', 'maxTotalRows', 'entryTimeoutMs'])
+  assert(Number.isSafeInteger(config[field]) && config[field] > 0, `Invalid adopted ${field}`);
 const proposal = JSON.parse(
   await readFile('reports/task-008-validation-policy-proposal-2026-10-16.json', 'utf8'),
 );
@@ -80,8 +82,8 @@ try {
       const result = await runProcess({
         executable: 'unzip',
         args: [...UTF8_UNZIP_OPTIONS, '-p', collection.archivePath, entry.entryName],
-        maxOutputBytes: observation.resourceLimits.maxEntryBytes,
-        timeoutMs: observation.resourceLimits.entryTimeoutMs,
+        maxOutputBytes: config.maxEntryBytes,
+        timeoutMs: config.entryTimeoutMs,
       });
       assert.equal(result.exitCode, 0);
       assert.equal(result.truncated, false);
@@ -89,7 +91,7 @@ try {
         for (const row of iterateLicenseCsv(
           result.stdout,
           entry,
-          observation.resourceLimits.maxTotalRows - totalRows,
+          config.maxTotalRows - totalRows,
         )) {
           totalRows++;
           yield row;
@@ -189,6 +191,11 @@ try {
     validationNow: input.now,
     environment: { platform: process.platform, architecture: process.arch, node: process.version },
     implementationSha256,
+    resourceLimits: {
+      maxEntryBytes: config.maxEntryBytes,
+      maxTotalRows: config.maxTotalRows,
+      entryTimeoutMs: config.entryTimeoutMs,
+    },
     validationKind: control.kind,
     missingPolicyKind: 'review_required',
     zeroChangeCategoryRejection: { categoryId: zeroChangeCategory, kind: countRejected.kind },

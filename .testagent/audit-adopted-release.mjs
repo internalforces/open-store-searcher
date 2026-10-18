@@ -6,9 +6,13 @@ import { readFile, readdir, writeFile, access } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { createServer } from 'vite';
 
-const [rootArgument] = process.argv.slice(2);
-assert(rootArgument && process.argv.length === 3);
+const [rootArgument, archiveArgument] = process.argv.slice(2);
+assert(
+  rootArgument && archiveArgument && process.argv.length === 4,
+  'Usage: node .testagent/audit-adopted-release.mjs REPLAY-ROOT SOURCE-ARCHIVE',
+);
 const root = resolve(rootArgument);
+const archivePath = resolve(archiveArgument);
 const output = join(root, 'accepted');
 const canonical = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const json = async (path) => JSON.parse(await readFile(path, 'utf8'));
@@ -34,6 +38,10 @@ assert.equal(canonical(inventory), receipt.artifactInventorySha256);
 assert.equal(receipt.validationKind, 'accepted');
 assert.equal(receipt.publicationApproved, false);
 assert.equal(receipt.sourceDataAsOf, null);
+const archiveBefore = await hashFile(archivePath);
+assert.deepEqual(archiveBefore, receipt.archive);
+assert.equal(archiveBefore.sha256, config.baseline.archiveSha256);
+assert.equal(archiveBefore.byteLength, observation.collection.byteLength);
 const snapshot = async () => {
   const fresh = [];
   for (const file of inventory) {
@@ -69,19 +77,37 @@ try {
   const { stageBoundedRelease } = await server.ssrLoadModule(
     '/src/pipeline/stage-bounded-release.ts',
   );
+  const { validateLicenseRefreshV1 } = await server.ssrLoadModule(
+    '/src/pipeline/validate-license-refresh.ts',
+  );
   const archiveContract = await json('src/pipeline/contracts/seoul-archive-contract.json');
   const permissionManifest = await json('reports/source-permission-manifest-2026-08-28.json');
   const input = {
     dateBasis: 'collection',
     collection: {
       ...observation.collection,
-      archivePath: `/work/task008-calibration-archives/${observation.collection.sha256}.zip`,
+      archivePath,
     },
     archiveContract,
     permissionManifest,
     ...config,
     now: '2026-10-18T12:00:00.000Z',
   };
+  // Obtain severities from the actual validator for the same complete, empty-category injection.
+  const validation = validateLicenseRefreshV1({
+    ...input,
+    rows: [],
+    ingestion: archiveContract.entries.map((entry) => ({
+      fileDataId: entry.fileDataId,
+      entryName: entry.entryName,
+      headers: [...entry.headers],
+      completed: true,
+      rowCount: 0,
+      archiveSha256: input.collection.sha256,
+    })),
+  });
+  assert.equal(validation.kind, 'rejected');
+  const codes = (diagnostics) => [...new Set(diagnostics.map((item) => item.code))].sort();
   const rejected = join(root, 'quality-rejected');
   let reason = '';
   await assert.rejects(
@@ -97,6 +123,11 @@ try {
       return reason.startsWith('Publication blocked:') && reason.includes('count_below_minimum');
     },
   );
+  // A changed/unexpected staging failure must not be relabeled as this expected quality failure.
+  assert.deepEqual(
+    [...new Set(reason.slice('Publication blocked: '.length).split(', '))].sort(),
+    codes(validation.diagnostics),
+  );
   await assert.rejects(access(rejected), { code: 'ENOENT' });
   const after = await snapshot();
   assert.deepEqual(after, before);
@@ -105,17 +136,21 @@ try {
     'private-file-inventory.json',
     'receipt.json',
   ]);
+  const archiveAfter = await hashFile(archivePath);
+  assert.deepEqual(archiveAfter, archiveBefore);
   const summary = {
     kind: 'approved-policy-quality-failure-preservation',
     executedAt: new Date().toISOString(),
     publicationApproved: false,
     policySha256: canonical(config.policy),
     initialBaselineSha256: canonical(config.baseline),
-    sourceArchive: await hashFile(input.collection.archivePath),
+    sourceArchive: archiveAfter,
     categoryCount: archiveContract.entries.length,
     injectedFailure:
       'All 195 categories complete but zero rows; exact approved policy rejects counts',
-    reasonCodes: [...new Set(reason.slice('Publication blocked: '.length).split(', '))].sort(),
+    reasonCodes: codes(validation.diagnostics.filter((item) => item.severity === 'rejection')),
+    warnings: validation.diagnostics.filter((item) => item.severity === 'warning'),
+    diagnostics: validation.diagnostics,
     rejectedOutputAbsent: true,
     temporaryCandidatesAbsent: true,
     acceptedFilesRehashed: after.length,
