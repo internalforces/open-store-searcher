@@ -25,4 +25,4 @@ jobs:
       - run: npx --no-install playwright install --with-deps
       - run: npm run verify:full
       - name: Verify Pages artifact packaging without publication
-        run: node --test scripts/check-pages-artifact.test.mjs
+        run: node --test scripts/check-pages-artifact.test.mjs scripts/check-publication-state.test.mjs scripts/check-publication-workflows.test.mjs scripts/publication-operators.test.mjs

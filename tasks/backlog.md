@@ -7,11 +7,10 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-10-18_
+_Last updated: 2026-10-19_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
-| TASK-009 | Design and implement atomic validated-artifact publication and last-known-good preservation | High | M1 | M | FR-13 |
 | TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
 | TASK-021 | Run full P0 traceability and v1.0 release-candidate verification | High | M3 | L | FR-01 through FR-14, Section 17 |
 | TASK-022 | Design and implement identifier-based share URLs | Medium | M4 | M | FR-15 |
@@ -23,8 +22,12 @@ _Last updated: 2026-10-18_
 
 1. TASK-008 completed on 2026-10-18 with exact approved quality inputs, full-source accepted
    validation, failure preservation, pinned full checks and independent Approved final review.
-2. Resume TASK-009, then TASK-010 sequentially; operational configuration, hosted publication/
-   recovery and action-time deployment approval remain required. No next task is active.
+2. TASK-009 is active on the user's 2026-10-19 instruction; TASK-010 remains paused.
+   Local focused transaction evidence is verified with independent Task 2 approval; final
+   current-tree full verification passes 849/68/20; whole-diff verdict is recorded separately in `reports/review-2026-10-19-task-009.md`. Operational configuration,
+   hosted successful/failed/uncertain promotion/recovery, durable retention and action-time
+   deployment approval remain required. See [active work](active.md) and
+   [acceptance evidence](../reports/test-2026-10-19-task-009.md).
 3. Keep TASK-021 gated on production/performance/publication/recovery and remaining release criteria.
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 public documentation

@@ -7,7 +7,61 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-18_
+_Last updated: 2026-10-19_
+
+## Current TASK-009 design approval and execution plan — 2026-10-19
+
+The user approved the [operational/recovery design](../docs/superpowers/specs/2026-10-19-task-009-operational-recovery-design.md)
+with GitHub Release backup, exact proposed URL/resources, default-off schedule and current-main
+trusted restoration. This supersedes only the pending design/destination/resource choice in the
+dated preparation below. Actual remote changes, tags/assets, source-candidate selection and each
+deployment/recovery remain separately gated; the fresh quality rejection is unchanged.
+
+Prepared and self-reviewed the [five-task execution plan](../docs/superpowers/plans/2026-10-19-task-009-operational-recovery.md)
+using writing-plans, with explicit types/limits/trust root, current V2 validator reuse, safe tar,
+complete public reconciliation, operator adapters and workflow tests. Two read-only explorers
+confirmed existing validation interfaces and CI/security test hooks; no implementation was
+delegated or started. Remote main still equals9569ffb. The user then approved the detailed execution plan on October19. The selected subagent
+implementation/independent-review method is running from a per-plan ledger; Task1 is dispatched
+to /root/recovery_task1. Existing product fingerprints matched the prior155-file receipt at
+preflight. Remote actions remain prohibited; task completion must follow fresh checks/review.
+
+## Current TASK-009 operations continuation — 2026-10-19
+
+The user requested remaining operational setup and actual publication/recovery checks, with
+separate approvals identified. Read-only GitHub inspection still finds main9569ffb, no Pages site,
+no publication flag, no artifacts/releases, and retained main/environment protections. The
+proposed conventional public release URL returned direct404; URL/bootstrap remain unapproved.
+
+One fresh collection completed successfully (archive4a012243...), but strict unchanged-policy
+validation completed all195 categories /2,952,086 rows and blocked publication:9 count-maximum,
+18 count-change and24 status-share diagnostics. Source-coverage uncertainty remains a warning,
+not a rejection. No candidate output or baseline was accepted. Do not relax policy or silently
+substitute the retained October16 source. ISS-003 remains open despite this successful transfer.
+
+Fresh retained-input build/package proof passes:730 files/691,233,947 bytes, all726 accepted
+files unchanged, unpacked inventory and gzip/tar round trip identical. This is private local
+evidence, not a hosted known-good backup. The current workflow cannot accept retained input or
+restore after one-day artifact expiration/main advancement. It also begins scheduled preparation
+when config is added, even if deployment is disabled. Proposed separate schedule hold, exact URL/
+resources and durable Release-asset restoration require approval before implementation.
+
+See [operations report](../reports/operations-2026-10-19-task-009.md),
+[aggregate receipt](../reports/operations-2026-10-19-task-009.json) and
+[proposed design](../docs/superpowers/specs/2026-10-19-task-009-operational-recovery-design.md).
+Builder check completed; owner storage/URL/resource decisions remain pending. The asynchronous
+approval question is pending and silence is not approval. No config entry point, remote mutation,
+dispatch, publication, release/tag or recurrence was enabled. Existing ten-file state is preserved
+outside Git before these additive records; original checkout's73 untracked files remain intact.
+
+## Current TASK-009 acceptance — 2026-10-19
+
+TASK-008 is complete; PR #32 merged as `9569ffbce4ce141e06f0883d90bc19305890972c`.
+TASK-009 is the sole active task under the approved October 19 plan. TASK-010 remains paused.
+Local focused transaction verification passes 18/18 and independent Task 2 spec/quality review
+is Approved with no findings. Final current-tree full verification passes 849/68/20; whole-diff verdict is recorded
+separately in `reports/review-2026-10-19-task-009.md`. See [the handoff report](../reports/test-2026-10-19-task-009.md). Historical current/next
+statements below describe their dated sessions and do not supersede this active state.
 
 ## Current PR 32 review remediation — 2026-10-18
 
@@ -2268,3 +2322,82 @@ Independent integrated delivery review is **Approved** with no actionable findin
 nine raw-replay byte bindings, all 156 current product/test/tooling fingerprints and 813/68/20
 log bindings pass. Final record lint/format/typecheck and whitespace checks pass. The user has
 explicitly authorized pushing this branch and creating a PR; no main merge/deployment is included.
+
+
+## TASK-009 local acceptance records — 2026-10-19
+
+Added the dated AC-009-1 through AC-009-6 / FR-13 evidence mapping and reconciled active,
+backlog, project and session records. The one new test file exercises actual V2 reader/builder
+transactions, semantic mismatches, meaningful partial-copy failure and competing-output
+preservation; existing codec/Worker/component cases retain complete readiness, cancellation,
+accepted-data retention and query-independent I/O evidence. Focused 18/18 and independent
+Task 2 approval are recorded separately from the unchanged baseline 831/68/20. Final current-tree
+full verification passes 849/68/20 with all 155 product/test/tooling fingerprints matched;
+whole-diff verdict is recorded separately in `reports/review-2026-10-19-task-009.md`.
+
+Original checkout HEAD and all 73 original untracked files remain unchanged. Prior site/source
+inventories are compared completely by path and SHA-256; no policy/status/date/public contract,
+production source, dependency or workflow changed. Read-only settings do not select a Pages URL.
+Operational configuration/resource review, hosted promotion/reconciliation/recovery/durable
+retention and action-time deployment approval remain open, as do ISS-003 and production/mobile
+performance. No TASK-009 completion, TASK-010 activation, milestone closure or release is claimed.
+No new issue, architecture or decision entry is warranted by this test/documentation-only scope.
+
+
+Final whole-diff review is **Approved** with no actionable findings; see
+[the review](../reports/review-2026-10-19-task-009.md). The reviewer independently reconciled
+all 155 current fingerprints, 154 unchanged base Git objects, three log hashes, exact quality
+configuration bytes and all nine reviewed files. Only approval bookkeeping followed this
+review; product/test bytes remain unchanged. TASK-009 remains active for hosted acceptance,
+TASK-010 stays paused, and no commit, push, PR, deployment or remote change occurred.
+
+## TASK-009 operational recovery final local handoff — 2026-10-19
+
+Tasks1–4 of the user-approved recovery plan are locally implemented and independently Approved;
+Task4 Actions/security has zero findings. The local config now exists and equals the approved
+proposal.configuration with policy/baseline/reviewed-pair objects unchanged. Current accumulated
+verification and real-package proof are recorded in the
+[test report](../reports/test-2026-10-19-task-009-operational-recovery.md) and
+[verification receipt](../reports/verification-2026-10-19-task-009-operational-recovery.json).
+Operator docs record exact draft/receipt/registry contracts, current-main and public-state guards,
+one-run flag-before-dispatch/environment-wait ordering, one-day artifact expiry/new-run durable
+recovery and successful complete backup registration before another publication. Local retained
+proof preserves October16 collection/null source coverage and has no public-success provenance.
+Registry remains empty; current October19 quality rejection remains unchanged. No source code,
+policy, dependency, raw input, handbook, remote setting, dispatch, approval, deployment, tag,
+Release/asset, commit, push, PR or merge was changed by this task. TASK009 stays active and
+TASK010 paused. Source/candidate, full-data/physical/mobile/hosted performance/release and each
+remote action remain concrete separate gates; final whole-diff independent review is pending.
+
+Real-package integration found the new verifier rejected the existing producer's `warnings`
+field. The Task1 owner fixed only strict inert warning admission, its tests and the shared
+fixture; independent spec/quality correction review is Approved with zero findings. The initial
+proof failure and pre-fix1092/68/20 run remain historical. Fresh current-source proof preserves
+all730 files/691,233,947 bytes and exact original691,804,160-byte tar; no real source or package
+bytes changed. Final accumulated evidence supersedes pre-fix counts in the current report.
+
+Current post-correction `npm run verify:full` exits0 with52 files/1,116 tests,68 browser checks
+and20 accessibility tests; coverage92.98/91.38/95.27/94.79. The explicit four-file Node command
+passes45/45. Fresh retained proof and188 current host/runtime fingerprints, approved-config
+equality, original HEAD/all73 files and11 protected-file preservation pass. See the current
+operational recovery reports; these results supersede pre-fix1092 evidence only for current
+local acceptance, not hosted gates.
+
+
+## TASK-009 whole-review final correction handoff — 2026-10-19
+
+Task5 scoped Spec/Quality review is Approved with three deferred reporting minors. The initial
+whole-branch review requested changes for invalid UTF-8 hiding visible newer collection evidence
+plus M1/M2/M3. The final bounded wave corrects only `reconcile-publication.ts` and its test:
+strict UTF-8 remains mandatory for semantic parsing, while replacement decoding supplies only
+conservative date evidence. RED8 failed/35 passed; focused GREEN43; fresh full1125/68/20 with
+coverage92.99/91.42/95.27/94.79 and explicitNode45 pass. Current188 host/runtime fingerprints,
+whole approved configuration/three unchanged quality objects/empty registry and original
+HEAD/73 files/11 protected-file preservation pass. Reporting now records24 net producer-warning
+tests, precise before/after proof checks, and all five existing lint infos including two sampler
+infos. No proof modules changed: original730-file proof/helper/receipt and15 old log bindings
+remain preserved; no heavy proof was rerun or falsely rebound to the changed guard.
+Final scoped independent review is Approved (all four findings addressed; zero new breakage).
+TASK009 active/TASK010 paused; actual hosted/source/
+performance/release and separate remote action-time approvals remain open. No commit or remote
+operation occurred. See the current operational recovery test/verification/review reports.

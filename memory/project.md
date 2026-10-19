@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-10-18_
+_Last updated: 2026-10-19_
 
 ## Summary
 
@@ -16,8 +16,8 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 local staged-quality acceptance complete; TASK-009/010/021 production and release gates remain open
-- Next milestone: M1 — TASK-009 then TASK-010 publication/recovery; no next task active
+- Phase: TASK-008 complete; TASK-009 active for atomic-publication acceptance; TASK-010 paused
+- Next milestone: M1 — complete TASK-009 before TASK-010 publication/recovery
 - Overall health: 🟡 Caution — local quality accepted; production performance/recovery/release gates remain open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
@@ -47,6 +47,44 @@ open-store-searcher/
 ```
 
 Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 created them.
+
+## Current acceptance handoff — 2026-10-19
+
+TASK-008 is complete and PR #32 merged at `9569ffb`. TASK-009 is the sole active task;
+TASK-010 stays paused. The approved local continuation adds one 18-case transaction test file,
+with focused checks passed and independent Task 2 spec/quality review Approved. Final current-tree
+full verification passes 849/68/20; whole-diff verdict is recorded separately in `reports/review-2026-10-19-task-009.md`. See
+[acceptance evidence](../reports/test-2026-10-19-task-009.md).
+
+No product/configuration change was needed. Exact quality/date/status/public contracts and the
+complete original-work inventory remain preserved. Operational URL/resource decisions, hosted
+successful/failed/uncertain promotion, recovery and durable retention require separate evidence
+and action-time approval. ISS-003 and full-data mobile/hosted performance remain open. The dated
+sections below retain historical states and are superseded by this current handoff where they
+say no task is active or name a different next task.
+
+The user's subsequent operational continuation produced a fresh accepted transfer but rejected
+unchanged-policy validation of all195 categories/2,952,086 rows; no publishable candidate was
+created. Complete retained-input build/package equality passes locally. The proposed destination/
+resource/schedule-hold/durable-restoration choices are now approved with GitHub Release backup;
+the [detailed execution plan](../docs/superpowers/plans/2026-10-19-task-009-operational-recovery.md)
+is approved and local subagent implementation/review is documented below. Actual setup/archive/deployment
+gates remain separate.
+See [operational evidence](../reports/operations-2026-10-19-task-009.md).
+
+## Current operational recovery implementation — 2026-10-19
+
+The approved production `publication/config.json` now exists locally and equals the approved
+proposal.configuration; all three quality objects remain unchanged. Tasks1–4 implementation,
+spec/quality reviews and independent Task4 Actions/security review are Approved (zero findings).
+The current [verification/report](../reports/test-2026-10-19-task-009-operational-recovery.md)
+supersedes earlier current-state claims that configuration is absent. Local implementation
+is not remote enablement; registry remains empty and refuses recovery. Current-source rejection
+of195 categories/2,952,086 rows remains. TASK-009 stays active and TASK-010 paused; actual hosted,
+source/candidate, physical/mobile/full-data performance and release gates remain open. Code
+ delivery, setup, dispatch, each deployment, archival assets/registry adoption and recurring
+operation require their separate approvals; none occurred. Task5 scoped review is Approved; the initial whole-branch review requested I1/M1/M2/M3
+corrections. Those fixes pass fresh1125/68/20 andNode45 checks; final scoped re-review is Approved (all four findings addressed; zero new breakage).
 
 ## Recent Changes
 
@@ -352,3 +390,10 @@ preserves those changes and adds fresh October 18 quality-replay/preservation ev
 The earlier 797/68/20 evidence is explicitly the pre-integration `fd6f79f` product snapshot;
 current integrated delivery verification is recorded separately. Source freshness/ISS-003
 upstream and hosted/performance/publication/recovery/release gates remain open.
+
+Current post-correction `npm run verify:full` exits0 with52 files/1,116 tests,68 browser checks
+and20 accessibility tests; coverage92.98/91.38/95.27/94.79. The explicit four-file Node command
+passes45/45. Fresh retained proof and188 current host/runtime fingerprints, approved-config
+equality, original HEAD/all73 files and11 protected-file preservation pass. See the current
+operational recovery reports; these results supersede pre-fix1092 evidence only for current
+local acceptance, not hosted gates.

@@ -1,113 +1,118 @@
 # Deployment and recovery
 
-This runbook describes the reviewed GitHub Pages path. It does not authorize a deployment. Every
-deployment still requires human approval under the project constitution.
+## Current local state — 2026-10-19
 
-## Current local state — 2026-10-17
+The approved local operational configuration, default-off schedule hold, trusted durable restore
+and public-byte verification are implemented. [`publication/config.json`](../publication/config.json)
+equals the approved proposal and preserves all three approved quality objects. The registry is
+empty; no hosted successful backup exists. Local proof and verification are in the
+[October 19 report](../reports/test-2026-10-19-task-009-operational-recovery.md).
+TASK-009 remains active; TASK-010, recurring operation and release remain paused.
 
-The three linked October 16 quality inputs were adopted under the user's delegation to dot and
-accepted in a complete local retained-archive replay with verified failure preservation. See
-[local verification](../reports/test-2026-10-17-task-008-policy-adoption.md) and
-[scoped independent review](../reports/review-2026-10-17-task-008-policy-adoption.md).
-`publication/validation-config.json` supplies those exact local inputs. The separate
-`publication/config.json` remains absent; no production URL/resource settings, publication,
-deployment, bootstrap/recovery exercise or security-setting change is authorized by this work.
-The dated settings below remain historical receipts rather than a current settings readback.
-No release or milestone gate is closed by local quality validation alone.
+Dated October 19 readbacks find remote main `9569ffbce4ce141e06f0883d90bc19305890972c`,
+no Pages site, either enable variable, Release or Actions artifact, and a direct descriptor404.
+Transport/tool failures before the direct probe are uncertain observations, never evidence of absence.
+No remote setup, dispatch, approval, deployment or archive publication was performed. Readbacks
+are dated evidence and must be repeated at operation time; configuration in a local branch
+cannot enable remote workflows. No handbook or production data was changed.
 
-## Historical state before local adoption
+## Preconditions and separate approvals
 
-The production path is intentionally disabled. `publication/config.json` and the repository
-variable `PAGES_PUBLICATION_ENABLED` are absent. The `github-pages` environment is protected and
-limited to `main` in the dated settings receipt. The approved 2026-10-16 source now passes local
-offline TASK-008 staging; no hosted publication or deployment has been accepted or performed.
+The October 19 source transfer accepted195 categories /2,952,086 rows but unchanged strict
+count/count-change/status-share gates rejected it. No publishable candidate exists. Resolve the
+source/quality decision with evidence and explicit approval; do not relax limits or silently
+select retained October16 data. Retained-input bootstrap is not implemented and requires its own
+trusted import design and candidate approval. Collection time remains explicitly labeled;
+source coverage stays null/unverified, and age>=7 Seoul calendar days triggers the warning.
 
-The 30-Seoul-calendar-day calibration from 2026-09-17 through 2026-10-16 is complete. The
-user approved its exact derived quality policy, 23 allowed-empty IDs and 2026-10-16 initial
-baseline on 2026-10-18. [`publication/validation-config.json`](../publication/validation-config.json)
-records those inputs for non-publishing TASK-008 acceptance only; it is not the workflow entry
-point and contains no deployment URL. TASK-008 is complete after fresh full-source/full-suite verification and independent Approved
-[final review](../reports/review-2026-10-18-task-008-final.md). Operational configuration, hosted/mobile performance,
-publication/recovery and release verification remain separate gates.
+Before first preparation/deployment obtain accepted full-data performance, physical/mobile-device
+and hosted evidence and the applicable release prerequisites (TASK-018/021). Local shell/browser
+fixtures cannot satisfy those gates or30-day reliability. Complete exact protected-main CI after
+separately authorized commit/push/PR/merge. Keep code delivery, remote Pages/variable setup,
+source/quality selection, preparation dispatch, each candidate deployment, public tag/Release/assets,
+recovery deployment and recurring operation as separate approval scopes. Placeholder IDs/URLs
+in examples cannot approve a run or candidate.
 
-## Architecture
+Re-read actual strict main verification/admin enforcement and `github-pages` reviewer,
+main-only policy/no bypass before any authorized operation. The accepted solo-review policy
+remains manual human approval, not independent human separation. Do not weaken protections.
+Approved target is `https://internalforces.github.io/open-store-searcher/`, descriptor
+`https://internalforces.github.io/open-store-searcher/release.json`, Pages `build_type=workflow`;
+no custom domain, service, paid dependency or new writer token is required.
 
-The `Validated Pages refresh` workflow runs daily at 06:17 Asia/Seoul and can also be dispatched
-manually. Its preparation job has read-only repository permission. It installs pinned tooling,
-runs the full verification suite, collects and validates the complete source archive, builds a
-content-addressed site, rejects an obsolete source revision, and uploads a one-day same-run
-artifact. Only the dependent deployment job receives Pages and OIDC write permission.
+## Local commands and immutable evidence
 
-Deployment runs only when `PAGES_PUBLICATION_ENABLED` equals `true`. The protected environment adds
-a human review step, and the deploy job rechecks the current `main` revision after that approval.
+Use current trusted pinned Node24.19.0/npm11.17.0 and new private directories:
 
-## Prerequisites for the first publication
-
-Do not create production configuration from test fixtures or provisional measurements. Before a
-first run, all of these must exist:
-
-1. Completed calibration evidence and explicitly approved numeric quality policy.
-2. An explicitly approved allowed-empty category list and initial collection-date baseline.
-3. Reviewed positive resource limits and the exact approved reviewed-unverified-pair contract.
-4. A `publication/config.json` that binds those decisions and the deployed HTTPS `release.json`
-   URL, with no credentials.
-5. Passing pull-request and `main` verification for the exact workflow and code revision.
-6. An accepted complete staging/build candidate with hashes, record count, site size, and
-   performance evidence.
-7. An approved recovery procedure and a concrete action-time deployment approval.
-
-The environment and branch protections must be read back before use; YAML alone does not prove
-repository settings.
-
-## Local candidate preparation
-
-Use fresh output directories outside the repository. Neither command overwrites an existing
-output directory.
-
-```sh
-node scripts/stage-refresh.mjs publication/config.json /absolute/new/candidate --bootstrap
-node scripts/build-publication.mjs /absolute/new/candidate /absolute/new/site
+```text
+node scripts/stage-refresh.mjs publication/config.json NEW-CANDIDATE-DIR --bootstrap
+node scripts/build-publication.mjs NEW-CANDIDATE-DIR NEW-SITE-DIR
+node scripts/inspect-publication.mjs NEW-SITE-DIR NEW-METADATA-DIR
+node scripts/prepare-publication-backup.mjs publication/config.json ORIGINAL-ARTIFACT-TAR INVENTORY-JSON PROVENANCE-DRAFT-JSON NEW-BACKUP-DIR
+node scripts/restore-publication.mjs publication/config.json publication/recovery-approvals.json ACTIVE-BACKUP-ID NEW-RECOVERY-DIR
+node scripts/check-publication-state.mjs https://internalforces.github.io/open-store-searcher/release.json EXPECTED-STATUS EXPECTED-SHA
 ```
 
-Use `--bootstrap` only for the first explicitly reviewed baseline and only when the configured
-deployed release URL returns a direct HTTP 404. A redirect, existing release, authentication error,
-or network failure aborts. Later runs omit `--bootstrap` and must read the deployed baseline.
+Bootstrap requires the explicitly approved initial baseline and a fresh direct404; existing,
+redirected, unauthorized, uncertain or failed reads abort. Later refreshes omit `--bootstrap` and
+read the deployed baseline. Scheduled runs never bootstrap. Capture archive/policy/date/count,
+complete inventory, original tar, config/code fingerprints and verification evidence. Keep source
+rows/private backups outside Git. Exact schemas, output files and the archival registry promotion
+sequence are in the [operator contract](../publication/README.md#exact-local-operator-contract).
+A backup proposal explicitly says `approvalStatus:'proposed'` and `historyVerified:false`;
+it is an operator attestation, never successful GitHub history or approved authority.
 
-Before proposing publication, record the archive and policy bindings, collection date, complete
-row count, excluded/unknown metrics, descriptor and asset hashes, total site bytes, commit SHA, and
-verification results. Keep raw archives and intermediate files outside Git.
+## One-time protected publication sequence
 
-## Approved publication sequence
+1. Obtain explicit remote setup approval for the exact repository/URL/Pages mode/variable changes,
+   apply only that scope, and re-read protections. Keep `PAGES_SCHEDULE_ENABLED=false` or unset.
+2. After source/performance/release prerequisites, obtain a separate one-time preparation dispatch
+   authorization. Set `PAGES_PUBLICATION_ENABLED=true` **before dispatch** so the dependent deploy
+   job can wait for protected-environment approval. With a false flag the job is skipped;
+   changing it afterward does not queue the prepared candidate. Never approve the environment
+   during preparation. Select bootstrap only within the approved first-run scope.
+3. Preserve the prepared run, exact main/config SHA, artifact ID, full candidate inventory/hashes,
+   date/count/size/performance and destination. Verify the job is blocked pending environment
+   approval. Failed preparation requires disabling the one-run flag, no publication attempt.
+4. Present that concrete candidate and fresh main/public/protection readbacks for action-time
+   deployment approval. Only after approval approve the exact pending job. Both preparation
+   and postapproval deployment reject stale main; after main advances use a new trusted run.
+5. Reset one-time publication enablement after the approved run, including failure. Keep scheduling
+   off; a different pending job has no implicit authorization. No automated environment approval.
+6. Independently reconcile the deployment outcome and public state: read descriptor, manifest,
+   baseline and **every expected site file** and exact length/SHA, then read descriptor again.
+   Verify subpath/Worker loading, search, attribution, collection date/uncertainty and age warning.
+   A guard or HTTP200 alone is insufficient. Record failure/timeouts/mismatches as uncertain;
+   do not infer that a failed deployment preserved the previous bytes or advance a separate baseline.
+7. Following success obtain separate exact tag/Release/asset publication approval; prepare,
+   upload, redownload and verify the complete backup, then approve its exact registry entry through
+   protected main. Keep a verified local copy. **Register the successful complete backup before
+   another publication.** Public equality and successful GitHub deployment history remain separate.
 
-1. Review and merge the exact configuration and code through the protected `main` branch.
-2. Confirm Pages uses GitHub Actions and re-read branch and `github-pages` environment settings.
-3. Obtain approval for the concrete candidate and first-run bootstrap, if applicable.
-4. Set `PAGES_PUBLICATION_ENABLED=true` only within that approved operation.
-5. Dispatch `Validated Pages refresh`; select `bootstrap=true` only for the approved first run.
-6. Review the exact pending environment deployment, then approve it.
-7. Verify the public `release.json`, manifest, baseline, asset hashes, collection-date display,
-   search behavior, and source/disclaimer links against the recorded candidate.
-8. Record the run URL, deployment URL, deployed commit, release hashes, checks, and any incident.
+## Failure and durable recovery
 
-Scheduled runs must never bootstrap. If preparation fails, no deploy job should publish a new
-artifact.
+Preserve failed run/logs, current public readback, original inputs and last verified authority;
+keep publication disabled and diagnose source/policy/code/hosting/configuration without weakening
+gates. Do not intentionally corrupt public data or publish invalid candidates for failure injection.
+Uncertain deployment outcomes require complete public reconciliation before any next operation.
 
-## Failure and recovery
+For recovery, select only the active current-main registry approval, never arbitrary URLs/old runs.
+Empty registry refuses recovery. The actual preparation receipt explicitly records same-snapshot,
+absent404/null or corrupt200/actual-descriptor-hash. Transport uncertainty or coherent newer state
+rejects; no older-snapshot override is implemented. Missing/corrupt status is preparation evidence,
+not permission. Fresh action-time approval must bind backup/release/asset IDs and hashes, current
+operator/config SHA, run, URL and public precondition. Set the one-run publication flag before
+separately authorized restoration dispatch, leave the environment blocked, and review the exact
+prepared receipt before approving that deployment. Postapproval main and descriptor guard run again.
 
-When collection, validation, build, revision, approval, or deployment checks fail:
+The current trusted workflow downloads/verifies the complete durable snapshot, preserves the
+original raw tar, and uploads one same-run artifact in a **new run**. It never executes archive
+code or rebuilds an old application. Original Actions artifacts expire after one day and old-SHA
+reruns cannot bypass stale checks. Recovery therefore depends on already reviewed durable assets
+and authority, not retention of the old run. Verify complete public equality plus the separate
+successful deployment record afterward; reset flags and keep schedule off. Re-register the last
+successful complete verified publication before permitting another publication.
 
-1. Leave the last known-good Pages release in place and do not weaken a gate to make the run pass.
-2. Set or keep `PAGES_PUBLICATION_ENABLED` disabled while the cause is investigated.
-3. Preserve the failed run, candidate metadata, logs, and the currently deployed release bindings.
-4. Classify whether the failure is source, policy, code, GitHub configuration, or hosting related.
-5. Fix and verify through a new pull request. Re-stage from reviewed inputs; do not edit a staged
-   artifact in place.
-6. Obtain fresh approval for any recovery deployment and verify the resulting public bindings.
-
-A hosted rollback/recovery exercise has not yet been accepted. Do not claim that historical
-artifacts can be redeployed indefinitely: the workflow retains its Pages artifact for one day.
-Until the recovery gate passes, preserve the public last-known-good site and escalate through the
-release process rather than replacing it with an unvalidated build.
-
-The detailed staging format and migration notes remain in the internal
-[publication operator contract](../publication/README.md).
+Hosted successful/failed/uncertain promotion, environment enforcement, durable upload/redownload,
+original-artifact-expired recovery, actual whole-site public equality and30-day reliability remain
+unperformed. Offline tests and retained local proof do not close AC-009-4/5, TASK-010 or release.

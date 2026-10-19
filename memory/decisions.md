@@ -715,3 +715,35 @@ first population of an empty baseline requires review, and the compact-size budg
 or source-freshness assurance. Future changes require evidence and explicit approval. Collection
 date remains the only approved date basis; source coverage is unverified. No publication or
 release approval is implied.
+
+## TASK-009 operational recovery design approved — 2026-10-19
+
+The user approved the [operational/recovery design](../docs/superpowers/specs/2026-10-19-task-009-operational-recovery-design.md)
+and selected its GitHub Release backup recommendation. Accepted design: site URL
+`https://internalforces.github.io/open-store-searcher/`, the corresponding `/release.json`,
+source resource ceilings536870912/3000000/120000, a separate default-off schedule gate,
+complete hash/provenance-bound Release assets plus a local copy, current-main trusted
+restoration and complete public reconciliation. Exact approved quality/baseline/status-pair
+objects remain unchanged. The dated configuration proposal retains its original metadata;
+this decision adopts its configuration values without activating publication.
+
+The [detailed implementation plan](../docs/superpowers/plans/2026-10-19-task-009-operational-recovery.md)
+was subsequently approved by the user on October19, preserving subagent implementation
+followed by independent review. Design approval is not authority to mutate remote settings, publish
+assets/tags, push/merge, dispatch/approve a run, deploy/recover, enable recurrence, relax quality
+or substitute retained data. The latest complete source remains quality-rejected. TASK-009
+stays active and TASK-010 stays paused; no release/performance/hosted gate closes.
+
+## TASK-009 operational design implemented locally — 2026-10-19
+
+This records implementation of the already user-approved design/plan; it introduces no new
+product decision. Use approved Pages destination/resources, separate default-off schedule hold,
+GitHub Release complete backups and current-main trusted restoration. Preserve original tar,
+full inventory and actual gzip binding. Current-main registry authority requires independent
+successful deployment history, complete public equality, exact asset redownload and review;
+proposed backup output alone is insufficient. Keep each successful complete backup registered
+before another publication. No registry entry or remote resource was created. The October19
+rejected source and October16 retained local proof are not selected publication candidates.
+[Design](../docs/superpowers/specs/2026-10-19-task-009-operational-recovery-design.md) and
+[operator gates](../docs/deployment.md) retain separate source/quality, performance/release,
+code delivery, setup, dispatch, exact deployment, archive and recurring-operation approvals.

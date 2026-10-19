@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "scope": "Non-publishing operational preparation; approval pending",
+  "sourceCommit": "9569ffbce4ce141e06f0883d90bc19305890972c",
+  "operationalProposal": {
+    "path": "reports/proposed-2026-10-19-task-009-operational-config.json",
+    "qualityAndResourceInputsDeepEqual": true,
+    "sourceConfigSha256": "f3feafd8d37d30e859b7797fe753277d2091cb7383009e035dff60edb76987f1",
+    "productionConfigCreated": false,
+    "sha256": "49d4efb380ec39a07b438533ee414ea8f32037e59620e5b7bbca06996651c044"
+  },
+  "currentValidation": {
+    "purpose": "Strict non-publishing current-candidate check",
+    "startedAt": "2026-10-19T02:48:29.408Z",
+    "archiveSha256": "4a0122435f1a3c998c6293f25eeb4338dcef1c36901fee268014b8d50ea787ff",
+    "collectedAt": "2026-10-19T02:46:06.133Z",
+    "sourceDataAsOf": null,
+    "policyRevision": "task-008-calibration-2026-10-16-v1-proposed",
+    "publicationApproved": false,
+    "kind": "blocked",
+    "error": "Publication blocked: count_above_maximum, count_above_maximum, count_above_maximum, count_above_maximum, count_above_maximum, count_above_maximum, count_above_maximum, count_above_maximum, count_above_maximum, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, count_change_exceeded, source_coverage_unverified, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded, status_share_change_exceeded",
+    "completedAt": "2026-10-19T02:55:12.283Z",
+    "elapsedMs": 402875,
+    "totalRows": 2952086,
+    "categoriesCompleted": 195,
+    "outputExists": false,
+    "archiveHashAfter": "4a0122435f1a3c998c6293f25eeb4338dcef1c36901fee268014b8d50ea787ff",
+    "diagnosticCodeCounts": {
+      "count_above_maximum": 9,
+      "count_change_exceeded": 18,
+      "source_coverage_unverified": 1,
+      "status_share_change_exceeded": 24
+    },
+    "rejectionCodeCounts": {
+      "count_above_maximum": 9,
+      "count_change_exceeded": 18,
+      "status_share_change_exceeded": 24
+    },
+    "warningCodeCounts": {
+      "source_coverage_unverified": 1
+    },
+    "classificationBasis": "Production compareMetric emits these three count/status codes with rejection severity; source_coverage_unverified is a separate warning. The stager error string includes both; counts are derived from that string, not a structured diagnostic receipt.",
+    "newBaselineAccepted": false,
+    "policyChanged": false
+  },
+  "retainedPackage": {
+    "checkedAt": "2026-10-19T02:51:57.372Z",
+    "purpose": "Non-publishing retained candidate and recovery-package proof",
+    "sourceCommit": "9569ffbce4ce141e06f0883d90bc19305890972c",
+    "sourceFiles": 726,
+    "sourceInventoryMatchesPriorReceipt": true,
+    "allSourceFilesMatchBuiltSite": true,
+    "siteFiles": 730,
+    "siteBytes": 691233947,
+    "siteInventorySha256": "ce7a93a0916e8450f1e5b99b8945eb14a1b9d61eeb5a497a191a8ce823acbf55",
+    "unpackedIdentical": true,
+    "gzipRoundTripIdentical": true,
+    "artifactTar": {
+      "sha256": "a171ea86858cbed0455b999579bd6d22d5ac97986728dad2df4f7475136cde7e",
+      "byteLength": 691804160
+    },
+    "backupGzip": {
+      "sha256": "059da4d80123e5c2bb2bfcaf86f5dfc0b42304bb32e19b169d4e2a1ea984248f",
+      "byteLength": 207515860
+    },
+    "release": {
+      "name": "release.json",
+      "sha256": "a85001ee0bca4be2fef7d667d3fe0e78e4ac2334a318353168a9f80655652190",
+      "byteLength": 703
+    },
+    "baseline": {
+      "name": "baseline.json",
+      "sha256": "e44f4733f7d9551c92f5114a75b7d1377aa2800484c4128656d11e511b3aa399",
+      "byteLength": 135035
+    },
+    "archiveSha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+    "collectedAt": "2026-10-16T01:52:52.043Z",
+    "sourceDataAsOf": null,
+    "recordCount": 2951024,
+    "policyRevision": "task-008-calibration-2026-10-16-v1-proposed",
+    "baselineDate": "2026-10-16",
+    "publicationApproved": false,
+    "hostedVerified": false
+  },
+  "privateEvidenceDigests": {
+    "collection-receipt.json": "679bce13a056b6a3bea12de91db6e0b58e4174988669f157705b99a95a1b0c37",
+    "current-validation-receipt.json": "54bb5df8aae403fb8e4f5a7c13c5445f61416b987d9c1904d24aa81df695ce92",
+    "current-validation.log": "ebfdf7aca43920e9d4998249285bd6fe103a33208a63fc43157d9a22b1d4a1c7",
+    "retained-package-receipt.json": "4968f7db008a423a7d19f3efe56ecc459f7e24b82ec50ab45866fcc9c99ef2fa",
+    "recovery-path-audit.md": "75dbdc469ca0e5143d7346a3c07c5cb3ddac70d9441270aef7081d6806c4e3f0",
+    "prior-state.json": "f891dfcb58bb4dddbc82182b24c1045a209aacecb784485da49bacfdbffd159f",
+    "prior-tracked.patch": "df0550cbecd166377942f3e0f7534c30d7dcd98f500c39341dfd0f5c2fb9b40c",
+    "remote-state.json": "3326794bf43cb4346b36bb97a07fa50ac1ff9dbe9b6861594c1cfbe0785a5a9c"
+  },
+  "performed": {
+    "remoteMutations": false,
+    "workflowDispatch": false,
+    "hostedPublication": false,
+    "hostedRecovery": false,
+    "releaseCreation": false,
+    "recurringOperationEnabled": false
+  },
+  "pending": [
+    "operational/recovery design approval",
+    "fresh-source quality resolution or separately approved initial retained-candidate import design",
+    "full-data performance and release prerequisites",
+    "branch delivery/PR/merge authorization",
+    "remote Pages setup approval",
+    "concrete first-deployment approval",
+    "exact archive/tag publication approval",
+    "concrete recovery-deployment approval"
+  ],
+  "remoteReadback": {
+    "checkedAt": "2026-10-19T02:58:47.033204+00:00",
+    "main": "9569ffbce4ce141e06f0883d90bc19305890972c",
+    "pagesAbsent": true,
+    "publicationFlagAbsent": true,
+    "scheduleFlagAbsent": true,
+    "artifactCount": 0,
+    "releaseCount": 0,
+    "strictStatusChecks": true,
+    "adminsEnforced": true,
+    "environment": {
+      "name": "github-pages",
+      "canAdminsBypass": false,
+      "reviewers": ["internalforces"],
+      "preventSelfReview": false,
+      "branches": ["main"]
+    }
+  }
+}
