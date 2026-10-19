@@ -289,6 +289,20 @@ and overall TASK-019 is deferred/incomplete in the backlog. See the
 [acceptance record](../tasks/completed.md#task-019-acceptance-criteria-and-evidence).
 This is a documentation/status correction, not a new application vulnerability or policy change.
 
+## TASK-009 operational recovery gap — 2026-10-19
+
+DEBT-003 is locally implemented/tested but remains open for hosted durability. The existing
+workflow's one-day same-run artifact and current-main checks cannot restore after expiry or
+main advancement. There is no retained-input or historical restore interface or automatic
+post-deploy public reconciliation. Adding production config also starts daily preparation even
+with deployment disabled. The [proposed design](../docs/superpowers/specs/2026-10-19-task-009-operational-recovery-design.md)
+addresses those boundaries without bypassing main/environment protections. The user approved
+the design and detailed plan with GitHub Release backup on October19; implementation/review
+are underway. No remote permission or risk acceptance is adopted by that design approval.
+The current complete source is blocked by exact existing quality limits, as recorded in
+[operations evidence](../reports/operations-2026-10-19-task-009.md). That rejection is a working
+safety gate, not authority to widen policy or a newly diagnosed validator bug.
+
 ## TASK-009/010 publication integration dependencies — 2026-09-12
 
 TASK-009 owns resolution of the production serializer/identifier encoding, fixed partition
@@ -563,3 +577,22 @@ with a new corrected receipt and explicit supersession. See
 [verification](../reports/test-2026-10-18-pr32-remediation.md). These local harness repairs do not
 resolve ISS-003 upstream or source freshness, relax calibrated policy, enable publication, or
 close operational/recovery/physical/mobile/hosted performance and release limits.
+
+## TASK-009 operational recovery limitations — 2026-10-19
+
+Local config/recovery implementation resolves the missing local entry-point/schedule/durable
+restore code gap; it does not resolve hosted acceptance. Empty registry intentionally refuses
+all production recovery. No successful Pages publication, durable Release backup adoption,
+original-artifact-expired hosted recovery, actual whole-site public equality or30-day reliability
+has occurred. Dated absence readbacks are not operation-time permission; transport uncertainty
+is never404. October19 all195-category/2,952,086-row unchanged-policy quality rejection remains;
+no retained-input import or older-snapshot override exists. ISS-003/source coverage and physical,
+mobile/full-data/hosted performance and release prerequisites remain open. Final independent
+whole-diff review remains pending. See [evidence](../reports/test-2026-10-19-task-009-operational-recovery.md).
+
+Real-package integration found the new verifier rejected the existing producer's `warnings`
+field. The Task1 owner fixed only strict inert warning admission, its tests and the shared
+fixture; independent spec/quality correction review is Approved with zero findings. The initial
+proof failure and pre-fix1092/68/20 run remain historical. Fresh current-source proof preserves
+all730 files/691,233,947 bytes and exact original691,804,160-byte tar; no real source or package
+bytes changed. Final accumulated evidence supersedes pre-fix counts in the current report.

@@ -438,3 +438,19 @@ bytes after rejection injection. It compares actual staging error codes with str
 validator diagnostics and records only rejection severity under reasonCodes, retaining warnings
 separately. These are internal evidence adapters, not a new production/public interface. All
 quality objects, resource numbers, processing modules and the separate publication hold remain.
+
+## TASK-009 approved operational recovery — 2026-10-19
+
+Local production config clones the approved proposal.configuration and unchanged quality objects.
+Current trusted pipeline modules inventory and semantically verify complete static V2 snapshots,
+stream bounded original-tar compression/extraction, validate current-main Release approval and
+immutable download bindings, and reconcile every public file plus before/after descriptor.
+Operators anchor executable loading to their current repository, never restored app code.
+`publication/recovery-approvals.json` is an empty trust root, not a local candidate allowlist.
+Manual current-main restoration uploads the original verified tar into a new same-run Pages
+artifact; protected deployment rechecks main and the recorded public descriptor precondition.
+Preparation stays contents:read; only protected deployment gets Pages/OIDC write. Separate
+schedule/publication gates remain default-off. GitHub Release asset publication and reviewed
+registry adoption are separately approved operations after real successful public/history evidence.
+See [operator contract](../publication/README.md) and [verification](../reports/test-2026-10-19-task-009-operational-recovery.md).
+No public app interface, source/status/date/quality rule, dependency or runtime architecture changed.

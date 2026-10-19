@@ -256,7 +256,7 @@ function policyState(value: unknown, ids: string[]): PolicyState {
     ...ids.map((id) => limitsState(categories[id])),
   ]);
 }
-function baselineState(
+export function validationBaselineState(
   value: unknown,
   ids: string[],
   policy: ValidationPolicyV1 | null,
@@ -513,7 +513,7 @@ export function validateMeasuredRefresh<T>(
       code: policyStatus === 'missing' ? 'policy_review_required' : 'invalid_validation_policy',
       severity: policyStatus === 'missing' ? 'review' : 'rejection',
     });
-  const baselineStatus = baselineState(input.baseline, ids, policy, schemaHash);
+  const baselineStatus = validationBaselineState(input.baseline, ids, policy, schemaHash);
   const baseline = baselineStatus === 'valid' ? (input.baseline as ValidationBaselineV1) : null;
   if (baseline && (baseline.dateBasis ?? 'coverage') !== dateBasis)
     return reject('baseline_date_basis_mismatch');

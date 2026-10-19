@@ -1,0 +1,90 @@
+name: Restore approved Pages publication
+on:
+  workflow_dispatch:
+    inputs:
+      backup_id:
+        description: Exact active backup ID reviewed on current main
+        required: true
+        type: string
+permissions: {}
+concurrency:
+  group: pages-publication
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: github.event_name == 'workflow_dispatch' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    outputs:
+      descriptor_url: ${{ steps.recovery.outputs.descriptor_url }}
+      descriptor_status: ${{ steps.recovery.outputs.descriptor_status }}
+      descriptor_sha: ${{ steps.recovery.outputs.descriptor_sha }}
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24.19.0
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+      - name: Verify publication operators and packaging
+        run: node --test scripts/check-pages-artifact.test.mjs scripts/check-publication-state.test.mjs scripts/check-publication-workflows.test.mjs scripts/publication-operators.test.mjs
+      - name: Restore only the current-main active approved backup
+        id: recovery
+        env:
+          BACKUP_ID: ${{ inputs.backup_id }}
+        run: node scripts/restore-publication.mjs publication/config.json publication/recovery-approvals.json "$BACKUP_ID" "$RUNNER_TEMP/recovery"
+      - name: Reject an obsolete source revision
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          current_sha=$(git ls-remote origin "refs/heads/$DEFAULT_BRANCH" | cut -f1)
+          test "$current_sha" = "$EXPECTED_SHA"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/recovery/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+  deploy:
+    needs: prepare
+    if: github.event_name == 'workflow_dispatch' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && vars.PAGES_PUBLICATION_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Reject obsolete code after environment approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          current_sha=$(gh api "repos/$GH_REPO/git/ref/heads/$DEFAULT_BRANCH" --jq '.object.sha')
+          test "$current_sha" = "$EXPECTED_SHA"
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24.19.0
+      - name: Recheck the exact public descriptor after environment approval
+        env:
+          DESCRIPTOR_URL: ${{ needs.prepare.outputs.descriptor_url }}
+          DESCRIPTOR_STATUS: ${{ needs.prepare.outputs.descriptor_status }}
+          DESCRIPTOR_SHA: ${{ needs.prepare.outputs.descriptor_sha }}
+        run: node scripts/check-publication-state.mjs "$DESCRIPTOR_URL" "$DESCRIPTOR_STATUS" "$DESCRIPTOR_SHA"
+      - name: Publish the verified unchanged tar from this run
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

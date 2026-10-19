@@ -32,7 +32,7 @@ _Last updated: 2026-10-17_
 | FR-10 | Naver and Kakao search links | TASK-016 | [URL encoding, protected new-tab navigation and full verification](../reports/test-2026-09-07-task-016.md); [independent Approved review](../reports/review-2026-09-07-task-016.md) | Complete (Naver compatibility limitation accepted) |
 | FR-11 | Responsive mobile and desktop UI | TASK-014, 017 | TASK-017: 320/768/1280px doubled-text reflow, long queries, visible candidate headings and native Chrome200% inspection; see [verification](../reports/test-2026-09-08-task-017.md) in the delivery revision. | Verified; TASK-017 complete |
 | FR-12 | No collection of personal or usage data | TASK-019, 020 | Current-code and Actions security reviews are complete; see the [application review](../reports/security-2026-09-09-task-019.md) and [final Actions review](../reports/security-2026-09-18-task-019-final.md). TASK-020 independently reviewed documentation covers browser-only query handling and the external-map click boundary. | Verified (current application, Actions, and public documentation); release pending |
-| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending TASK-015 internal UI preserves the accepted dataset/results after loader or presentation-validation failure (T15-03/06); reports/test-2026-09-07-task-015.md. TASK-008 production evidence and TASK-009/010 atomic publication/workflow gates remain open. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
+| FR-13 | Preserve previous data after refresh failure | TASK-005, 008 through TASK-010, 015 | TASK-005 independent final approval confirms the fail-closed staged collector, 195-entry schema contract, changed/unchanged outcomes, rejected-body cancellation including cleanup failures, early retrieval-evidence validation, and non-publication boundary; last-known-good replacement and workflow failure injection remain pending TASK-015 internal UI preserves the accepted dataset/results after loader or presentation-validation failure (T15-03/06); reports/test-2026-09-07-task-015.md. TASK-008 quality acceptance is complete; [October 19 local transaction evidence](#task-009-local-publication-acceptance--2026-10-19) covers complete V2 reconciliation and builder preservation. Hosted TASK-009/010 publication/recovery gates remain open. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
 | FR-14 | Warn at seven Seoul calendar days or older | TASK-008, 014, 015 | Current user-approved ADR-015 boundary is age >= 7. PR #15 R1 UI tests cover days 6/7/8, Seoul midnight, focus/visibility and unavailable/rejected dates; reports/review-2026-09-06-pr15.md. V1 historical pipeline semantics remain unchanged; full recovery and production evidence stay gated. TASK-015 preserves >=7 Seoul-day warnings and separates actual browser load time from coverage (T15-03/04/08); reports/test-2026-09-07-task-015.md. Existing PR15 6/7/8-day and clock regressions remain. Production coverage is still gated. Current calibration receipts and failed attempts are mapped in [the daily evidence update](#task-008-quality-calibration-daily-evidence--2026-09-22-to-2026-10-16). | In progress |
 
 TASK-008's FR-13 validation contract is recorded in
@@ -465,3 +465,57 @@ files unchanged and supersedes only the old receipt's warning-as-reason classifi
 raw-replay receipts stay historical. See [regressions and verification](../reports/test-2026-10-18-pr32-remediation.md)
 and [independent review](../reports/review-2026-10-18-pr32-remediation.md). No policy, original
 collection date, status rule, source-coverage assertion or production/release acceptance changed.
+
+
+## TASK-009 local publication acceptance — 2026-10-19
+
+Operational continuation: [fresh evidence](../reports/operations-2026-10-19-task-009.md) records
+accepted source transfer but blocked unchanged-policy validation (195 categories/2,952,086 rows),
+plus exact retained-candidate 730-file package/unpack equality. No hosted gate is closed. The
+[approved operational/recovery design](superpowers/specs/2026-10-19-task-009-operational-recovery-design.md)
+addresses schedule activation, durable complete backup and current-main trusted restore gaps;
+the user selected GitHub Release backup on October 19. The
+[detailed execution plan](superpowers/plans/2026-10-19-task-009-operational-recovery.md) was also
+approved; local implementation/review is underway. Quality-resolution, hosted verification and
+concrete action-time deployment gates remain pending.
+
+FR-13 / AC-009-1 through AC-009-6: the [acceptance report](../reports/test-2026-10-19-task-009.md)
+maps staging rejection, complete-byte/metadata binding, baseline reconciliation, candidate cleanup,
+full prior-site/source inventory preservation and accepted-Worker retention to exact tests.
+Generated `reconciles a complete V2 site baseline through the deployed descriptor` checks the real
+builder/reader/loader; `rejects a replacement during V2 baseline reconciliation without bootstrapping`
+and 14 parameterized component failures reject changed or semantically incompatible state.
+`preserves the previous site and source inventory after a partial build copy failure` and
+`preserves an output that appears before final build promotion` verify meaningful child-only
+injections and complete path/hash inventories. Existing `rejects missing blocks without accepting
+a partial snapshot`, `real Worker protocol accepts only complete data, cancels stale work and
+pages without fetches`, and `preserves old data when a different manifest fails and releases it
+on leaving compact mode` preserve the FR-02/12/13 lifecycle evidence.
+
+Focused 18/18 passes with independent Task 2 spec/quality review Approved; the unchanged baseline
+passes 831/68/20. Final current-tree full verification passes 849/68/20; whole-diff verdict is recorded separately in `reports/review-2026-10-19-task-009.md`.
+Original checkout HEAD and all 73 original untracked files are unchanged. Exact numeric policy,
+23 allowed-empty IDs, baseline, collection date/null source coverage, status mapping, public URL
+and identifier contracts remain unchanged. TASK-008 is complete and PR #32 is merged.
+
+The URL/resource design is now approved, while its executable configuration and hosted successful/failed/
+uncertain promotion and reconciliation, recovery and durable artifact retention remain required.
+A read-only Pages API 404 is not bootstrap/destination approval. Action-time deployment approval
+and fresh protection readback remain mandatory. ISS-003, full-data readiness/mobile/hosted
+performance and release boundaries remain open. Local evidence leaves AC-009-4/5 hosted portions,
+overall FR-13 and TASK-009 incomplete; TASK-010 stays paused. No milestone/release closes.
+
+## TASK-009 operational recovery local evidence — 2026-10-19
+
+FR-13 and supporting FR-02/08/12/14: approved local production config/schedule hold,
+complete current-code snapshot verification, bounded original-tar recovery, current-main
+approval/download authority and all-file public reconciliation are implemented. Tasks1–4
+spec/quality reviews are Approved; independent Task4 Actions/security review has zero findings.
+The [current test report](../reports/test-2026-10-19-task-009-operational-recovery.md) and
+[fingerprints](../reports/verification-2026-10-19-task-009-operational-recovery.json) bind final
+accumulated tests and local retained-package proof. The complete730-file proof remains local-only
+with October16 collection date and null coverage; empty production registry refuses recovery.
+AC-009-4/5 actual hosted success/failure/uncertainty, separate deployment outcome, durable asset
+adoption/redownload and expired-original-artifact recovery remain open. Current-source rejection,
+source/candidate decision, physical/mobile/full-data performance, reliability and release gates
+remain; no whole FR/milestone closure, TASK009 completion or TASK010 activation is claimed.

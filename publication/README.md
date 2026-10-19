@@ -1,4 +1,123 @@
-# Collection-date publication
+# Collection-date publication and durable recovery
+
+## Current operational state — 2026-10-19
+
+The approved local implementation includes [`config.json`](config.json), the separate
+`PAGES_SCHEDULE_ENABLED` gate, current-main restore workflow and bounded trusted operators.
+The entire production configuration equals the approved proposal's `configuration`; `policy`,
+`baseline` and `reviewedUnverifiedPairs` equal `validation-config.json` unchanged. Resources are
+536870912 bytes per source entry, 3000000 total rows and 120000 ms per entry. Local existence
+of configuration does not enable GitHub. Dated readbacks find no Pages site, either enable
+variable, release or Actions artifact; protections remain a separately rechecked prerequisite.
+
+TASK-009 stays active and TASK-010 paused. The October 19 source failed unchanged quality gates
+for 195 categories / 2,952,086 rows. The October 16 retained package is only local proof; its
+collection date and null source coverage remain unchanged. No retained-input import is implemented
+or approved. [`recovery-approvals.json`](recovery-approvals.json) has `activeBackupId:null` and
+`backups:[]`; production recovery refuses every ID until actual successful history and exact
+archival assets have been reviewed into current main. See the
+[verification report](../reports/test-2026-10-19-task-009-operational-recovery.md).
+
+## Exact local operator contract
+
+Run from current trusted code with pinned Node/npm and existing locked dependencies. Use new
+private output directories outside source control. These commands never authorize remote writes.
+Never import, execute, install or rebuild an archived application's code.
+
+```text
+node scripts/inspect-publication.mjs SITE-DIR NEW-METADATA-DIR
+node scripts/prepare-publication-backup.mjs publication/config.json ARTIFACT-TAR INVENTORY-JSON PROVENANCE-DRAFT-JSON NEW-BACKUP-DIR
+node scripts/restore-publication.mjs publication/config.json publication/recovery-approvals.json ACTIVE-BACKUP-ID NEW-RECOVERY-DIR
+node scripts/check-publication-state.mjs https://internalforces.github.io/open-store-searcher/release.json EXPECTED-STATUS EXPECTED-SHA
+```
+
+Inspection emits exactly canonical `inventory.json` and `identity.json` (UTF-8
+`JSON.stringify(value)+'\n'`). Inventory v1 has `kind:'publication-inventory'`, an ordinally
+sorted full `files` list of `{name,byteLength,sha256}`, and `totalBytes`. Identity binds
+`releaseSha256`, `manifestSha256`, `baselineSha256`, `archiveSha256`, `collectedAt`, `recordCount`,
+`policyRevision`, `schemaVersion:2`, `identifierVersion:1`, `normalizationVersion:1`.
+The inspector verifies current V2 semantics and every regular file without loading site code.
+
+The backup draft must have exactly these fields, populated from real independently checked
+successful GitHub run/artifact/deployment records, never invented example IDs:
+
+```text
+{version:1,kind:'publication-backup-draft',repository:'internalforces/open-store-searcher',
+ siteUrl:'https://internalforces.github.io/open-store-searcher/',sourceCommit,workflowCommit,
+ workflowPath:'.github/workflows/refresh.yml',runId,artifactId,deploymentId,deploymentOutcome:'success'}
+```
+
+Commits are lowercase 40-hex, run/artifact IDs positive safe integers and deployment ID nonempty.
+The preparer validates/compresses the original tar, restores and semantically verifies all bytes,
+and compares every public file with descriptor reads before/after. Output contains exactly
+`snapshot.tar.gz`, `inventory.json`, `provenance.json`, `verification.json`. The latter and stdout
+say `kind:'publication-backup-proposed'`, `approvalStatus:'proposed'`, `historyVerified:false`,
+with `operatorAttestation` and `publicVerification`. It does not verify GitHub history or promote
+a registry entry. Its public receipt is `{version:1,kind:'public-bytes-verified',siteUrl,checkedAt,
+inventorySha256,releaseSha256}`. A public receipt and a separate successful deployment outcome
+are both required; matching hashes alone never prove history.
+
+Provenance v1 (`kind:'verified-publication-backup'`) binds repository/site, source/workflow commits,
+workflow path, run/artifact/deployment IDs, successful outcome, `verifiedAt`, full `identity`,
+`inventory`, `tar`, `gzip` byte bindings, and `publicVerification:{receipt,binding}`. Bindings are
+`{byteLength,sha256}`; the receipt timestamp equals `verifiedAt`. JSON hashes bind exact canonical
+bytes, including the newline. Compression can change gzip bytes: retain original raw tar and
+record the actual compressed length/hash, never substitute an older gzip binding.
+
+The restorer accepts only the active approved entry in current main, downloads exact immutable
+Release asset IDs, validates same-repository metadata and tag/commit targets, compares all archive,
+JSON and restored semantic identity/inventory bindings, and records the current public precondition.
+Its output is exactly original `artifact.tar` and `preparation.json`. Receipt/stdout is
+`{version:1,kind:'publication-recovery-prepared',backupId,siteUrl,identity,inventory,tar,
+precondition:{kind:'same-snapshot'|'absent'|'corrupt',status:200|404,releaseSha256:string|null}}`.
+Absent is explicit 404/null; corrupt is 200 with the actual descriptor hash. Neither receipt
+asserts preservation or deployment success. Uncertain transport/HTTP status and a coherent newer
+snapshot reject; a changed public snapshot requires a new explicit decision. Ordinary collection
+regression remains rejected; no historical rollback override exists.
+
+The postapproval guard accepts only the exact descriptor URL, status `200` plus lowercase 64-hex
+SHA, or `404` plus literal `absent`. It rejects redirects, changed state, unexpected absence,
+oversize and timeout. Its fixed success receipt is only
+`{version:1,kind:'publication-state-unchanged',status,releaseSha256}`. All operators reject malformed
+arguments, unsafe/bounded data and existing output; failures clean only their own private scratch.
+The hard bounds remain 10000 files, 1000000000 site bytes, 536870912 bytes/file,
+1020000000 bytes each tar/gzip, 4 MiB inventory, 64 KiB provenance and 1 MiB registry/API JSON.
+
+## Durable authority and promotion sequence
+
+After a separately approved successful deployment and complete public reconciliation:
+
+1. Preserve the exact original tar, metadata, full inventory, successful run/deployment records
+   and local complete backup. Prepare the proposed backup with the command above.
+2. Obtain separate approval for exact tag/release/public asset publication and provenance.
+   Only then upload the three files `snapshot.tar.gz`, `inventory.json`, `provenance.json`.
+3. Download each actual asset by its numeric ID and revalidate full bytes and original tar/site
+   equality with trusted current code. Record the real release ID, tag, asset IDs, lengths and
+   SHA-256 values; names/tags alone can be replaced and are insufficient.
+4. Review GitHub successful deployment history separately from public bytes/proposed metadata.
+   Through separately authorized protected-main delivery adopt an entry
+   `{id,repository,siteUrl,releaseId,tag,assets:{snapshot,inventory,provenance},expectedProvenance}`.
+   Each asset is `{id,name,byteLength,sha256}` with the exact three fixed names. Registry envelope
+   stays `{version:1,kind:'publication-recovery-approvals',repository,siteUrl,activeBackupId,backups}`.
+   Set `activeBackupId` only to that reviewed successful entry. A proposed output cannot supply
+   authority by itself; an empty registry must continue refusing recovery.
+5. Register each successful publication's complete verified backup **before another publication**.
+   Preserve its local copy and exact remote readback evidence. Never overwrite recovery authority
+   with a failed or uncertain publication.
+
+A durable recovery uses a new current-main run and the active registry ID after separate preparation
+and action-time deployment approvals. It restores the unchanged raw tar and uploads one same-run
+`github-pages` artifact. The original run's one-day artifact may expire; neither that artifact nor
+an obsolete run can serve as indefinite recovery. Main advancement requires a new trusted run;
+never bypass stale-SHA checks or execute historical scripts. Full public equality and a separate
+successful deployment outcome must be established again after restoration. See the complete
+[deployment approval sequence](../docs/deployment.md).
+
+## Historical records
+
+The dated sections below preserve earlier states; the current section above supersedes prior
+claims that production configuration is absent. They do not imply remote enablement.
+
 
 ## PR 32 review corrections — 2026-10-18
 
