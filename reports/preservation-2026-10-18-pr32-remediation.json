@@ -1,0 +1,5570 @@
+{
+  "kind": "approved-policy-quality-failure-preservation",
+  "executedAt": "2026-10-18T23:34:55.362Z",
+  "publicationApproved": false,
+  "policySha256": "090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff",
+  "initialBaselineSha256": "9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183",
+  "sourceArchive": {
+    "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+    "byteLength": 217307219
+  },
+  "categoryCount": 195,
+  "injectedFailure": "All 195 categories complete but zero rows; exact approved policy rejects counts",
+  "reasonCodes": [
+    "count_below_minimum",
+    "count_change_exceeded",
+    "empty_category_not_approved",
+    "empty_refresh"
+  ],
+  "warnings": [
+    {
+      "code": "source_coverage_unverified",
+      "severity": "warning"
+    }
+  ],
+  "diagnostics": [
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2940295
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006668",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 93
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006679",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 148
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006697",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 13129
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006700",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 8
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006706",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 605
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006730",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 147124
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006741",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 6
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044950",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2671
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044952",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 35517
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044953",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2893
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044954",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 662
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044955",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 283
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044956",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 147
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044957",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 5572
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044958",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 19
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044959",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 23
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044960",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 663
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044961",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1913
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044962",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 270
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044964",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 15358
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044966",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 9148
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044967",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 976
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044968",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 7141
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044969",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 358
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044970",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 78
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044971",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 985
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044972",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 8955
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044973",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 16555
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044974",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 143
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044975",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 5761
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044976",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 10904
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044977",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 156046
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044978",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 19719
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044979",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1961
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044980",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 417
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044981",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 7420
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044982",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 51
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044983",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 68343
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044984",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2509
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044985",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 116009
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044986",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 363
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044987",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2948
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044991",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 841
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044992",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 23
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044994",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044995",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 728
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044996",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 13591
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044997",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 11846
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044998",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 5440
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044999",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 34
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045000",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 12976
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045001",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 39
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045002",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1644
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045003",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1347
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045004",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1366
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045005",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 481
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045006",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 7412
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045007",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1823
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045008",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 942
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045009",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2455
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045010",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 156
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045011",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 746
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045013",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1051
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045014",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 955
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045015",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 34
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045016",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 538520
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045017",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 11616
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045018",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4990
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045020",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 3288
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045021",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 119
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045023",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 810
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045024",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 37646
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045025",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 930
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045026",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 93
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045027",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 244
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045028",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4904
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045029",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2531
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045030",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 146
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045032",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 70208
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045033",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1467
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045034",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 18039
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045035",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 3811
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045036",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 22442
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045037",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 99628
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045038",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 15632
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045039",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 225
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045042",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 75
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045044",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 44
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045045",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 5714
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045046",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045047",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 264
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045048",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 7324
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045049",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 588
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045050",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2231
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045052",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 812
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045054",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045057",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 5417
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045058",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 83795
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045059",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 9933
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045060",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 945787
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045061",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1590
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045062",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4285
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045063",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 159
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045064",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 510
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045066",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 210
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045067",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045068",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 20
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045069",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4195
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045070",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4163
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045071",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 10205
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045072",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4641
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045073",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 16850
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045074",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 7988
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045075",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 77
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045076",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 70
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045077",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 45
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045078",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 113
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045079",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 3617
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045080",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045081",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 11556
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045082",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 3990
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045084",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 6
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045085",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 557
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045086",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 3
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045087",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 3
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045088",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 5
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045089",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 772
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045090",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045091",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 6
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045092",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 112
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045093",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045094",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 33
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045095",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 228
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045096",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045097",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 496
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045098",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 32
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045099",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1625
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045100",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 5
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045101",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 12625
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045102",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 857
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045103",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 564
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045104",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 95473
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045105",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 296
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045106",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1417
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045107",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 14036
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045108",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 414
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045109",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 12800
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045110",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 75
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045111",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 3
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045112",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 8008
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045113",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 65
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045116",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 10617
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045117",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 63
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045118",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 134
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15096255",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 35
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15096257",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 10737
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101543",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4863
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101544",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 198
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101545",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 13
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101546",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2507
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101549",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 42004
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101550",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1533
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101551",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1794
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101552",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 75
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101553",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 350
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15106987",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1489
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15106988",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 185
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107028",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1205
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107029",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 1379
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107030",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 4372
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107031",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 50
+    },
+    {
+      "code": "count_below_minimum",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107032",
+      "metric": "recordCount",
+      "actual": 0,
+      "limit": 2472
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "metric": "absoluteCountChange",
+      "actual": 2951024,
+      "limit": 1158
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000392825474
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006668",
+      "metric": "absoluteCountChange",
+      "actual": 93,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006668",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006679",
+      "metric": "absoluteCountChange",
+      "actual": 148,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006679",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006697",
+      "metric": "absoluteCountChange",
+      "actual": 13139,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006697",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000152276535
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006700",
+      "metric": "absoluteCountChange",
+      "actual": 8,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006700",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006706",
+      "metric": "absoluteCountChange",
+      "actual": 605,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006706",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006730",
+      "metric": "absoluteCountChange",
+      "actual": 147746,
+      "limit": 70
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006730",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000474717882
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006741",
+      "metric": "absoluteCountChange",
+      "actual": 6,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15006741",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044950",
+      "metric": "absoluteCountChange",
+      "actual": 2673,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044950",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000374251498
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044952",
+      "metric": "absoluteCountChange",
+      "actual": 35540,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044952",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000112593594
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044953",
+      "metric": "absoluteCountChange",
+      "actual": 2896,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044953",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000345542502
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044954",
+      "metric": "absoluteCountChange",
+      "actual": 662,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044954",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044955",
+      "metric": "absoluteCountChange",
+      "actual": 285,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044955",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.003521126761
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044956",
+      "metric": "absoluteCountChange",
+      "actual": 147,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044956",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044957",
+      "metric": "absoluteCountChange",
+      "actual": 5577,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044957",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000358808755
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044958",
+      "metric": "absoluteCountChange",
+      "actual": 23,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044958",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.095238095239
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044959",
+      "metric": "absoluteCountChange",
+      "actual": 23,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044959",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044960",
+      "metric": "absoluteCountChange",
+      "actual": 663,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044960",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044961",
+      "metric": "absoluteCountChange",
+      "actual": 1913,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044961",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044962",
+      "metric": "absoluteCountChange",
+      "actual": 270,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044962",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044964",
+      "metric": "absoluteCountChange",
+      "actual": 15364,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044964",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000130199857
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044966",
+      "metric": "absoluteCountChange",
+      "actual": 9421,
+      "limit": 36
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044966",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.003851091143
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044967",
+      "metric": "absoluteCountChange",
+      "actual": 1025,
+      "limit": 9
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044967",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.008982035929
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044968",
+      "metric": "absoluteCountChange",
+      "actual": 7187,
+      "limit": 7
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044968",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000976017848
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044969",
+      "metric": "absoluteCountChange",
+      "actual": 358,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044969",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044970",
+      "metric": "absoluteCountChange",
+      "actual": 78,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044970",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044971",
+      "metric": "absoluteCountChange",
+      "actual": 987,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044971",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001014198783
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044972",
+      "metric": "absoluteCountChange",
+      "actual": 8971,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044972",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000446279148
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044973",
+      "metric": "absoluteCountChange",
+      "actual": 16954,
+      "limit": 158
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044973",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.009453718663
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044974",
+      "metric": "absoluteCountChange",
+      "actual": 143,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044974",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044975",
+      "metric": "absoluteCountChange",
+      "actual": 5774,
+      "limit": 3
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044975",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000520381614
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044976",
+      "metric": "absoluteCountChange",
+      "actual": 10913,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044976",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000183351669
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044977",
+      "metric": "absoluteCountChange",
+      "actual": 156831,
+      "limit": 106
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044977",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000677061045
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044978",
+      "metric": "absoluteCountChange",
+      "actual": 19843,
+      "limit": 17
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044978",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000860149768
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044979",
+      "metric": "absoluteCountChange",
+      "actual": 1964,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044979",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000509683996
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044980",
+      "metric": "absoluteCountChange",
+      "actual": 417,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044980",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044981",
+      "metric": "absoluteCountChange",
+      "actual": 7462,
+      "limit": 8
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044981",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001074546676
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044982",
+      "metric": "absoluteCountChange",
+      "actual": 51,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044982",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044983",
+      "metric": "absoluteCountChange",
+      "actual": 68374,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044983",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000058524881
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044984",
+      "metric": "absoluteCountChange",
+      "actual": 2511,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044984",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000398406375
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044985",
+      "metric": "absoluteCountChange",
+      "actual": 116430,
+      "limit": 47
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044985",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000404506374
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044986",
+      "metric": "absoluteCountChange",
+      "actual": 363,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044986",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044987",
+      "metric": "absoluteCountChange",
+      "actual": 2954,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044987",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000339098
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044991",
+      "metric": "absoluteCountChange",
+      "actual": 844,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044991",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001187648457
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044992",
+      "metric": "absoluteCountChange",
+      "actual": 23,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044992",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044994",
+      "metric": "absoluteCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044994",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044995",
+      "metric": "absoluteCountChange",
+      "actual": 728,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044995",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044996",
+      "metric": "absoluteCountChange",
+      "actual": 13625,
+      "limit": 6
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044996",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000440917108
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044997",
+      "metric": "absoluteCountChange",
+      "actual": 11912,
+      "limit": 13
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044997",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001094276095
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044998",
+      "metric": "absoluteCountChange",
+      "actual": 5443,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044998",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000183789745
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044999",
+      "metric": "absoluteCountChange",
+      "actual": 34,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15044999",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045000",
+      "metric": "absoluteCountChange",
+      "actual": 13031,
+      "limit": 8
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045000",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000615195325
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045001",
+      "metric": "absoluteCountChange",
+      "actual": 39,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045001",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045002",
+      "metric": "absoluteCountChange",
+      "actual": 1650,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045002",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001214329084
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045003",
+      "metric": "absoluteCountChange",
+      "actual": 1347,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045003",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045004",
+      "metric": "absoluteCountChange",
+      "actual": 1366,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045004",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045005",
+      "metric": "absoluteCountChange",
+      "actual": 481,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045005",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045006",
+      "metric": "absoluteCountChange",
+      "actual": 7432,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045006",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000539374326
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045007",
+      "metric": "absoluteCountChange",
+      "actual": 1826,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045007",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000548245615
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045008",
+      "metric": "absoluteCountChange",
+      "actual": 942,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045008",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045009",
+      "metric": "absoluteCountChange",
+      "actual": 2468,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045009",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001626016261
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045010",
+      "metric": "absoluteCountChange",
+      "actual": 156,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045010",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045011",
+      "metric": "absoluteCountChange",
+      "actual": 746,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045011",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045013",
+      "metric": "absoluteCountChange",
+      "actual": 1054,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045013",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000950570343
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045014",
+      "metric": "absoluteCountChange",
+      "actual": 957,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045014",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001046025105
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045015",
+      "metric": "absoluteCountChange",
+      "actual": 34,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045015",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045016",
+      "metric": "absoluteCountChange",
+      "actual": 540036,
+      "limit": 183
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045016",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000339147018
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045017",
+      "metric": "absoluteCountChange",
+      "actual": 11616,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045017",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045018",
+      "metric": "absoluteCountChange",
+      "actual": 4993,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045018",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00020036065
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045020",
+      "metric": "absoluteCountChange",
+      "actual": 3320,
+      "limit": 5
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045020",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001515151516
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045021",
+      "metric": "absoluteCountChange",
+      "actual": 119,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045021",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045023",
+      "metric": "absoluteCountChange",
+      "actual": 816,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045023",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.002463054188
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045024",
+      "metric": "absoluteCountChange",
+      "actual": 37714,
+      "limit": 10
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045024",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00026535757
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045025",
+      "metric": "absoluteCountChange",
+      "actual": 930,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045025",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045026",
+      "metric": "absoluteCountChange",
+      "actual": 94,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045026",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.01052631579
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045027",
+      "metric": "absoluteCountChange",
+      "actual": 244,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045027",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045028",
+      "metric": "absoluteCountChange",
+      "actual": 4913,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045028",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000407581007
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045029",
+      "metric": "absoluteCountChange",
+      "actual": 2538,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045029",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000788954636
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045030",
+      "metric": "absoluteCountChange",
+      "actual": 146,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045030",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045032",
+      "metric": "absoluteCountChange",
+      "actual": 70396,
+      "limit": 30
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045032",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00042664543
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045033",
+      "metric": "absoluteCountChange",
+      "actual": 1469,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045033",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000681198911
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045034",
+      "metric": "absoluteCountChange",
+      "actual": 18086,
+      "limit": 9
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045034",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000498118221
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045035",
+      "metric": "absoluteCountChange",
+      "actual": 3826,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045035",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00104821803
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045036",
+      "metric": "absoluteCountChange",
+      "actual": 22473,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045036",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000178181657
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045037",
+      "metric": "absoluteCountChange",
+      "actual": 99904,
+      "limit": 32
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045037",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000320711981
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045038",
+      "metric": "absoluteCountChange",
+      "actual": 15640,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045038",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000127901772
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045039",
+      "metric": "absoluteCountChange",
+      "actual": 225,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045039",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045042",
+      "metric": "absoluteCountChange",
+      "actual": 75,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045042",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045044",
+      "metric": "absoluteCountChange",
+      "actual": 44,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045044",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045045",
+      "metric": "absoluteCountChange",
+      "actual": 5728,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045045",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000349895032
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045046",
+      "metric": "absoluteCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045046",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045047",
+      "metric": "absoluteCountChange",
+      "actual": 264,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045047",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045048",
+      "metric": "absoluteCountChange",
+      "actual": 7342,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045048",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000545107659
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045049",
+      "metric": "absoluteCountChange",
+      "actual": 590,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045049",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00169779287
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045050",
+      "metric": "absoluteCountChange",
+      "actual": 2241,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045050",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000894054538
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045052",
+      "metric": "absoluteCountChange",
+      "actual": 816,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045052",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001230012301
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045054",
+      "metric": "absoluteCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045054",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045057",
+      "metric": "absoluteCountChange",
+      "actual": 5424,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045057",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000184569953
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045058",
+      "metric": "absoluteCountChange",
+      "actual": 84080,
+      "limit": 31
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045058",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000369104743
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045059",
+      "metric": "absoluteCountChange",
+      "actual": 9943,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045059",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000201227488
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045060",
+      "metric": "absoluteCountChange",
+      "actual": 950468,
+      "limit": 489
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045060",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000515234179
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045061",
+      "metric": "absoluteCountChange",
+      "actual": 1596,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045061",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001254705145
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045062",
+      "metric": "absoluteCountChange",
+      "actual": 4287,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045062",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000233317779
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045063",
+      "metric": "absoluteCountChange",
+      "actual": 159,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045063",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045064",
+      "metric": "absoluteCountChange",
+      "actual": 510,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045064",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045066",
+      "metric": "absoluteCountChange",
+      "actual": 212,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045066",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.004739336493
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045067",
+      "metric": "absoluteCountChange",
+      "actual": 4,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045067",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045068",
+      "metric": "absoluteCountChange",
+      "actual": 20,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045068",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045069",
+      "metric": "absoluteCountChange",
+      "actual": 4219,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045069",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00095102235
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045070",
+      "metric": "absoluteCountChange",
+      "actual": 4188,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045070",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000959923207
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045071",
+      "metric": "absoluteCountChange",
+      "actual": 10208,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045071",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00009798158
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045072",
+      "metric": "absoluteCountChange",
+      "actual": 4651,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045072",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000430477831
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045073",
+      "metric": "absoluteCountChange",
+      "actual": 16857,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045073",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00005934366
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045074",
+      "metric": "absoluteCountChange",
+      "actual": 8160,
+      "limit": 22
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045074",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.002705361535
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045075",
+      "metric": "absoluteCountChange",
+      "actual": 77,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045075",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045076",
+      "metric": "absoluteCountChange",
+      "actual": 70,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045076",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045077",
+      "metric": "absoluteCountChange",
+      "actual": 45,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045077",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045078",
+      "metric": "absoluteCountChange",
+      "actual": 113,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045078",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045079",
+      "metric": "absoluteCountChange",
+      "actual": 3619,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045079",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000276395799
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045080",
+      "metric": "absoluteCountChange",
+      "actual": 2,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045080",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045081",
+      "metric": "absoluteCountChange",
+      "actual": 11580,
+      "limit": 5
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045081",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000432451134
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045082",
+      "metric": "absoluteCountChange",
+      "actual": 3995,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045082",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000250563769
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045084",
+      "metric": "absoluteCountChange",
+      "actual": 6,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045084",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045085",
+      "metric": "absoluteCountChange",
+      "actual": 567,
+      "limit": 3
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045085",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.005347593583
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045086",
+      "metric": "absoluteCountChange",
+      "actual": 3,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045086",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045087",
+      "metric": "absoluteCountChange",
+      "actual": 3,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045087",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045088",
+      "metric": "absoluteCountChange",
+      "actual": 5,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045088",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045089",
+      "metric": "absoluteCountChange",
+      "actual": 791,
+      "limit": 3
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045089",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.003861003862
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045090",
+      "metric": "absoluteCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045090",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045091",
+      "metric": "absoluteCountChange",
+      "actual": 6,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045091",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045092",
+      "metric": "absoluteCountChange",
+      "actual": 112,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045092",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045093",
+      "metric": "absoluteCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045093",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045094",
+      "metric": "absoluteCountChange",
+      "actual": 33,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045094",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045095",
+      "metric": "absoluteCountChange",
+      "actual": 228,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045095",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045096",
+      "metric": "absoluteCountChange",
+      "actual": 2,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045096",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045097",
+      "metric": "absoluteCountChange",
+      "actual": 496,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045097",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045098",
+      "metric": "absoluteCountChange",
+      "actual": 32,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045098",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045099",
+      "metric": "absoluteCountChange",
+      "actual": 1631,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045099",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000615006151
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045100",
+      "metric": "absoluteCountChange",
+      "actual": 5,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045100",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045101",
+      "metric": "absoluteCountChange",
+      "actual": 12656,
+      "limit": 5
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045101",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000395507041
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045102",
+      "metric": "absoluteCountChange",
+      "actual": 857,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045102",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045103",
+      "metric": "absoluteCountChange",
+      "actual": 564,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045103",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045104",
+      "metric": "absoluteCountChange",
+      "actual": 95564,
+      "limit": 12
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045104",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000125591326
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045105",
+      "metric": "absoluteCountChange",
+      "actual": 296,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045105",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045106",
+      "metric": "absoluteCountChange",
+      "actual": 1417,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045106",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045107",
+      "metric": "absoluteCountChange",
+      "actual": 14041,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045107",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00014246029
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045108",
+      "metric": "absoluteCountChange",
+      "actual": 414,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045108",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045109",
+      "metric": "absoluteCountChange",
+      "actual": 12806,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045109",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000156201188
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045110",
+      "metric": "absoluteCountChange",
+      "actual": 75,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045110",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045111",
+      "metric": "absoluteCountChange",
+      "actual": 3,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045111",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045112",
+      "metric": "absoluteCountChange",
+      "actual": 8105,
+      "limit": 13
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045112",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001606524963
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045113",
+      "metric": "absoluteCountChange",
+      "actual": 65,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045113",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045116",
+      "metric": "absoluteCountChange",
+      "actual": 10624,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045116",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000188323918
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045117",
+      "metric": "absoluteCountChange",
+      "actual": 65,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045117",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.015625
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045118",
+      "metric": "absoluteCountChange",
+      "actual": 134,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15045118",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15096255",
+      "metric": "absoluteCountChange",
+      "actual": 35,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15096255",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15096257",
+      "metric": "absoluteCountChange",
+      "actual": 10742,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15096257",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000093127212
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101543",
+      "metric": "absoluteCountChange",
+      "actual": 4904,
+      "limit": 7
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101543",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00143207856
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101544",
+      "metric": "absoluteCountChange",
+      "actual": 201,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101544",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.005025125629
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101545",
+      "metric": "absoluteCountChange",
+      "actual": 13,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101545",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101546",
+      "metric": "absoluteCountChange",
+      "actual": 2521,
+      "limit": 3
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101546",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.001195219124
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101549",
+      "metric": "absoluteCountChange",
+      "actual": 42042,
+      "limit": 4
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101549",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000095215425
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101550",
+      "metric": "absoluteCountChange",
+      "actual": 1533,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101550",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101551",
+      "metric": "absoluteCountChange",
+      "actual": 1794,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101551",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101552",
+      "metric": "absoluteCountChange",
+      "actual": 75,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101552",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101553",
+      "metric": "absoluteCountChange",
+      "actual": 352,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15101553",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00284900285
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15106987",
+      "metric": "absoluteCountChange",
+      "actual": 1491,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15106987",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.00067114094
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15106988",
+      "metric": "absoluteCountChange",
+      "actual": 188,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15106988",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.005376344087
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107028",
+      "metric": "absoluteCountChange",
+      "actual": 1225,
+      "limit": 3
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107028",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.002483443709
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107029",
+      "metric": "absoluteCountChange",
+      "actual": 1382,
+      "limit": 1
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107029",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000724637682
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107030",
+      "metric": "absoluteCountChange",
+      "actual": 4372,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107030",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107031",
+      "metric": "absoluteCountChange",
+      "actual": 50,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107031",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107032",
+      "metric": "absoluteCountChange",
+      "actual": 2478,
+      "limit": 2
+    },
+    {
+      "code": "count_change_exceeded",
+      "severity": "rejection",
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "categoryId": "15107032",
+      "metric": "relativeCountChange",
+      "actual": 1,
+      "limit": 0.000807754443
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15006668"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15006679"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15006697"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15006700"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15006706"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15006730"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15006741"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044950"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044952"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044953"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044954"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044955"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044956"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044957"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044958"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044959"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044960"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044961"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044962"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044964"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044966"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044967"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044968"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044969"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044970"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044971"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044972"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044973"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044974"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044975"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044976"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044977"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044978"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044979"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044980"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044981"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044982"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044983"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044984"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044985"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044986"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044987"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044991"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044992"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044994"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044995"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044996"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044997"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044998"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15044999"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045000"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045001"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045002"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045003"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045004"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045005"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045006"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045007"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045008"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045009"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045010"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045011"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045013"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045014"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045015"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045016"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045017"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045018"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045020"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045021"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045023"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045024"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045025"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045026"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045027"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045028"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045029"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045030"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045032"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045033"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045034"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045035"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045036"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045037"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045038"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045039"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045042"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045044"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045045"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045046"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045047"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045048"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045049"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045050"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045052"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045054"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045057"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045058"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045059"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045060"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045061"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045062"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045063"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045064"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045066"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045067"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045068"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045069"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045070"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045071"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045072"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045073"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045074"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045075"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045076"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045077"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045078"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045079"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045080"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045081"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045082"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045084"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045085"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045086"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045087"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045088"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045089"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045090"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045091"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045092"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045093"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045094"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045095"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045096"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045097"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045098"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045099"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045100"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045101"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045102"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045103"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045104"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045105"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045106"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045107"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045108"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045109"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045110"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045111"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045112"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045113"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045116"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045117"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15045118"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15096255"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15096257"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101543"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101544"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101545"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101546"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101549"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101550"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101551"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101552"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15101553"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15106987"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15106988"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15107028"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15107029"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15107030"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15107031"
+    },
+    {
+      "code": "empty_category_not_approved",
+      "severity": "rejection",
+      "categoryId": "15107032"
+    },
+    {
+      "code": "empty_refresh",
+      "severity": "rejection"
+    },
+    {
+      "code": "source_coverage_unverified",
+      "severity": "warning"
+    }
+  ],
+  "rejectedOutputAbsent": true,
+  "temporaryCandidatesAbsent": true,
+  "acceptedFilesRehashed": 726,
+  "beforeInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+  "afterInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+  "totalJsonBytes": 691143712,
+  "sizeHeadroom": 176253
+}

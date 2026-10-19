@@ -697,3 +697,72 @@ and staging; exact workflow GNU tar/unpack inventories match. See
 HEAD requires its own passing Verify readback before handoff. This does not close ISS-003
 upstream or TASK-009/010/021 production, hosted/mobile performance, recovery and release gates.
 No merge, auto-merge, deployment/publication, schedule resume or security/credential change.
+
+
+## TASK-008 final quality acceptance — 2026-10-18
+
+This is a fresh confirmation of the local quality scope already completed on 2026-10-17 and
+merged through PR #31. The earlier completion, ISS-003 client mitigation and delivery evidence
+above remain authoritative for that historical work.
+
+- Status: Complete under the approved collection-date mode and original quality/staging ownership.
+- Owner: Planner / Researcher / Implementer / Tester / Reviewer.
+- Milestone: M1; this task alone does not close M1 or any whole FR/release criterion.
+- Related requirements: FR-08, FR-13, FR-14; data-quality/freshness NFRs.
+- Authorization: original TASK-008 continuation plus the user's 2026-10-18 explicit approval of
+  the exact policy, 23 allowed-empty IDs and 2026-10-16 baseline as conservative initial criteria,
+  with an instruction to finish remaining verification and independent final review.
+
+### Acceptance criteria and evidence
+
+- [x] Accepted staged validator/freshness/JSON design and reviewed implementation, with exact
+      unknown-status acknowledgment preserving raw/unknown counts and unverified display.
+- [x] Collection-date operation explicitly approved; source coverage remains unknown with warning.
+- [x] Source PRD access and original quality/staging ownership resolved without adding release gates.
+- [x] Approved 30-Seoul-calendar-day interval complete (2026-09-17 through 2026-10-16), with
+      23 complete receipts/22 distinct archives; one duplicate, four gaps and three failures retained.
+- [x] Complete deterministic policy, exact 23-ID empty list and latest compatible initial baseline
+      derived and explicitly approved without synthetic defaults.
+- [x] Exact approved objects installed in `publication/validation-config.json`, preserving canonical
+      policy/baseline hashes and the original approved revision string.
+- [x] Fresh offline raw-source replay through unchanged production parser/stager accepts all
+      195 categories/2,951,024 rows and preserves every measured metric; archive rehashed before
+      and after ingestion. All 726 JSON files total 691,143,712 bytes under 691,319,965 bytes.
+- [x] Interrupted input, existing-output and approved-count rejection preserve all 726 accepted
+      hashes and remove owned rejected/scratch output; missing policy remains review-required.
+- [x] Pinned Ubuntu `npm run verify:full` passes 797 Vitest, 68 browser and 20 accessibility tests
+      at unchanged default concurrency/flaky policy. Coverage 92.72/91.09/95.36/94.44%; mapper100%.
+- [x] Independent final Reviewer **Approved** with no actionable findings; direct policy/source/
+      baseline/artifact/hash checks and actual-validator historical numeric replay passed.
+
+Evidence: [approval](../reports/calibration-2026-10-16-approval-packet.md),
+[verification](../reports/test-2026-10-18-task-008-final.md),
+[raw replay](../reports/validation-2026-10-18-task-008.json),
+[preservation](../reports/preservation-2026-10-18-task-008.json),
+[full-suite receipt](../reports/verification-2026-10-18-task-008.json), and
+[independent review](../reports/review-2026-10-18-task-008-final.md).
+
+The two helper-injection setup failures and first concurrent full-suite Firefox/WebKit midnight
+failures are disclosed in verification. The unchanged exact full suite subsequently passed.
+No production application, test, dependency, workflow, source/status or public-interface change.
+No commit/push/merge, publication enablement, hosted bootstrap/deployment/recovery or release.
+The accepted local artifact is verification evidence, not a deployed authoritative baseline.
+
+Future normal movement may reject under the explicitly accepted conservative initial envelope:
+79 nonempty categories allow zero count change and only 176,253 compact bytes of headroom remain.
+ISS-003 stays open; the fail-closed collector is unchanged. TASK-009/010 remain incomplete and
+unactivated; TASK-018/021 retain performance/release gates. No handbook/milestone closure occurs.
+
+
+## PR32 local review remediation — 2026-10-18
+
+The user authorized fixes/push/reverification of all four PR32 findings. Direct adopted resource
+limits, an explicit hash/size-bound audit archive, severity-correct rejection reporting and
+committed active-task context are implemented. New18-case adapter regressions pass, and fresh
+actual preservation audit keeps all726 accepted files unchanged with no failed/temporary output.
+Independent review is Approved for the bounded local repair; see
+[verification](../reports/test-2026-10-18-pr32-remediation.md),
+[corrected aggregate receipt](../reports/preservation-2026-10-18-pr32-remediation.json), and
+[review](../reports/review-2026-10-18-pr32-remediation.md). Final pinned checks pass831/68/20 plus
+four packaging cases; exact pushed-head hosted CI/readback is required before handoff. The approved configuration is byte-identical;
+no production task, merge/auto-merge, publication/deployment, collection resume or settings change.

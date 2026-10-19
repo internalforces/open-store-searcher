@@ -424,3 +424,44 @@ and leaves zero staged files; no provider recovery or freshness assertion is inf
 [sanitized evidence](../reports/diagnostic-2026-10-17-iss-003.json), and
 [independent review](../reports/review-2026-10-17-iss-003.md) preserve the upstream/source-freshness
 blocker. No overall requirement, publication/recovery or release gate is closed by mitigation.
+
+
+## TASK-008 approved production quality inputs and final replay — 2026-10-18
+
+The user explicitly approved the complete calibrated policy, exact 23 allowed-empty IDs and
+2026-10-16 initial baseline as conservative initial criteria. The original proposal remains
+historical; current adoption is in `memory/decisions.md` and
+[`publication/validation-config.json`](../publication/validation-config.json).
+
+| Requirement / gate | Current evidence and remaining boundary |
+| --- | --- |
+| Quality calibration | 30 Seoul calendar days, 23 receipts, 22 distinct archives, exact deterministic total/195-category limits; all failures/gaps retained. Explicit approval on 2026-10-18. |
+| Complete accepted validation | [Fresh raw-source replay](../reports/validation-2026-10-18-task-008.json): 195 categories, 2,951,024 rows, exact baseline metrics, 726 compact JSON files/691,143,712 bytes; unchanged production parser/stager and exact approved limits. |
+| FR-08 date evidence | Original collection instant preserved, collection date 2026-10-16; source coverage remains null/unverified. Accepted collection-date operation is not proof of source freshness. |
+| FR-13 staged preservation | [Fresh preservation audit](../reports/preservation-2026-10-18-task-008.json): all 726 accepted files retain the same inventory hash after interruption, existing-output and count-policy rejection; failed candidate and owned scratch absent. Hosted publication/recovery remains TASK-009/010/021. |
+| FR-14 warning | Actual release retains the source-coverage warning. Existing seven-Seoul-day/UI clock tests remain unchanged; fresh full verification passes 797/68/20 and independent final review is Approved in the [final report](../reports/test-2026-10-18-task-008-final.md). |
+
+The 79 nonempty zero-count-change categories, initial empty growth review gate and 176,253-byte
+compact headroom are explicitly accepted conservative restrictions. No limit relaxation,
+status remapping, dependency, source-delivery method, public URL, workflow permission,
+publication enablement, hosted recovery, mobile-performance waiver or release is included.
+No whole FR or milestone is closed merely by this bounded quality evidence.
+
+
+TASK-008 final disposition: **Complete**, independently Approved on 2026-10-18. See the
+[completion record](../tasks/completed.md#task-008-final-quality-acceptance--2026-10-18) and
+[final review](../reports/review-2026-10-18-task-008-final.md). This supersedes earlier TASK-008
+waiting/incomplete status only. FR-08/13/14 and freshness/reliability release acceptance retain
+source-uncertainty, hosted/publication/recovery and operational evidence boundaries above.
+
+
+## PR32 validation-evidence review repairs — 2026-10-18
+
+FR-08/13/14: the replay now directly uses the exact adopted config resource ceilings, and the
+preservation audit binds an explicitly supplied archive hash/size and separates actual rejection
+severity from source-coverage warnings. The actual validator and staging code sets must agree.
+The [fresh audit](../reports/preservation-2026-10-18-pr32-remediation.json) rehashes all726 accepted
+files unchanged and supersedes only the old receipt's warning-as-reason classification. Historical
+raw-replay receipts stay historical. See [regressions and verification](../reports/test-2026-10-18-pr32-remediation.md)
+and [independent review](../reports/review-2026-10-18-pr32-remediation.md). No policy, original
+collection date, status rule, source-coverage assertion or production/release acceptance changed.

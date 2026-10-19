@@ -7,7 +7,39 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-17_
+_Last updated: 2026-10-18_
+
+## Current PR 32 review remediation — 2026-10-18
+
+The user explicitly instructed the parent to proceed after its offer to fix/push/reverify PR32.
+Read actual remote head2801d8e and basec521467 (PR31 already merged), original checkout/worktree
+state and the four review threads. The original PR32 checkout is clean; unrelated main duplicates
+remain untouched. Reused the clean isolated workspace on local `codex/pr32-review-fixes`, tracking
+the PR branch; original branch refs/checkouts are preserved. No repository `.agents` skill applies.
+
+All four findings are valid. Replay now directly enforces and records the unchanged adopted
+config ceilings536870912/3000000/120000; audit accepts an explicit relocated archive, binds
+hash/size before and after, and uses structured actual validator severity while verifying the
+actual staging rejection's code set. Only rejections enter reasonCodes; source uncertainty remains
+a warning. Active-task context points to committed reports/revisions, not a local checkout.
+Regressions reproduce seven failures before repair; final18 cases and typecheck pass. Independent
+review reruns18 and the real validator/stager empty-category comparison with no blocker.
+
+Fresh actual audit on a private independent copy verifies all726 accepted files unchanged,
+693 diagnostics with four rejection codes and one separate source-coverage warning, no rejected
+candidate or temporary output, and the relocated archive's unchanged c90758c2 hash. New aggregate
+receipt supersedes the old historical warning-as-reason classification without rewriting its
+original execution. Policy/config is byte-identical; current resource ceilings equal the original
+observation ceilings and the processing code is unchanged, so no duplicate complete replay or new
+collection/freshness claim is made. See
+[verification](../reports/test-2026-10-18-pr32-remediation.md),
+[fresh receipt](../reports/preservation-2026-10-18-pr32-remediation.json) and
+[review](../reports/review-2026-10-18-pr32-remediation.md).
+
+Pinned final full checks pass 831/68/20 plus four packaging cases. Exact final-head hosted CI
+readback is still required after push before handoff. No merge/auto-merge,
+publication/deployment, workflow dispatch, recurring collection, credential or security change.
+ISS-003/source coverage and operational/performance/recovery/release gates remain open.
 
 ## Current PR 31 readiness continuation — 2026-10-17
 
@@ -2160,3 +2192,79 @@ finding as resolved with the failing/passing regression. No blocking implementat
 The Open upstream/source-freshness state is deliberate and evidence-bound; no false closure is
 recorded. After the public-output scan and whitespace/format/lint checks, deliver this repair as
 its own logical commit and read back the exact remote HEAD/check status. No PR or settings change.
+
+
+## TASK-008 final acceptance resumed — 2026-10-18
+
+The user explicitly approved all three exact 2026-10-16 proposal inputs as conservative initial
+criteria and requested remaining validation and independent final review. Reusing the clean
+`.worktrees/task008-calibration` checkout at `fd6f79f` on `codex/task-008-calibration`.
+Installed `publication/validation-config.json` with the exact canonical policy and baseline,
+existing approved reviewed-pair contract, and previously observed resource ceilings. The policy
+revision suffix remains unchanged to preserve exact approved identity. Publication entry-point
+configuration remains absent. No new application behavior, dependency, workflow, source/status
+rule, remote setting, deployment, push or merge is authorized by this continuation.
+
+Execution ledger: approval/configuration recorded; fresh full-source replay, failure preservation,
+pinned full verification and independent final review are pending. Retained older container
+artifacts belong to earlier work; current acceptance will use new isolated run directories and
+fresh evidence rather than claim an old run as current verification.
+
+
+## TASK-008 final quality acceptance complete — 2026-10-18
+
+Completed the explicitly approved continuation in the existing calibration worktree. Exact
+approved policy/baseline canonical hashes remain unchanged; the validation-only configuration
+contains no deployment URL. Fresh pinned Ubuntu raw replay accepts 195 categories/2,951,024 rows
+with exact baseline metrics, 726 JSON files/691,143,712 bytes and only source-coverage uncertainty.
+Archive hashes match before/after. Interrupted input, existing-output and all-category-empty
+count failure preserve the complete accepted inventory and leave no rejected/temporary output.
+
+Fresh exact `npm run verify:full` passes 797 tests, 68 four-browser checks and 20 accessibility
+tests at default concurrency with strict flaky policy unchanged. All 156 product/test/tooling
+fingerprints match current files. Initial helper-injection consistency failures and concurrent
+Firefox/WebKit midnight-test failures remain disclosed; no product/test changes were needed.
+Post-evidence lint, formatting, types, Markdown targets and whitespace checks passed.
+
+Independent final Reviewer Approved with no actionable findings after reproducing all numeric
+limits, observation/log/source hashes, baseline provenance, actual-validator numeric replays,
+726 artifact hashes and bound full-suite evidence. Moved TASK-008 to completed and reconciled
+active/project/traceability/operator records. No next task is active. TASK-009/010 publication/
+recovery, TASK-018/021 performance/release and milestone handbook gates remain open. ISS-003 and
+conservative future-rejection limitations remain recorded. No handbook access, commit, push,
+merge, workflow dispatch, publication enablement, deployment, tag or release occurred.
+
+
+## TASK-008 authorized delivery and merged-main reconciliation — 2026-10-18
+
+The user requested commit, push and PR creation. Created `2be9077` to preserve all independently
+reviewed October 18 changes. Fresh fetch revealed that PR #31 had already merged as `c521467`,
+including the prior exact local policy adoption and bounded ISS-003 client recovery. Integrated
+that main history without reverting any production/script/test change. Documentation conflicts
+preserve prior decisions, issues, completed tasks and verification before adding the new dated
+confirmation. TASK-008 remains complete; no next task or deployment is activated.
+
+The approved canonical policy/baseline and parsed local configuration remain identical to the
+reviewed October 18 inputs. The merged-main JSON spelling is retained to avoid irrelevant numeric
+formatting churn; three explicit observation-resource ceilings remain local-only. Historical
+October 18 replay/full-suite receipts bind the pre-integration `2be9077` tree. Current integrated
+full verification and independent delivery review will be recorded separately before pushing.
+The PR excludes production source/test/dependency/workflow changes relative to current main.
+
+
+Integrated delivery verification passed the exact pinned `npm run verify:full`: 813 tests,
+68 browser checks and 20 accessibility tests at default concurrency with unchanged flaky policy.
+All 156 current product/test/tooling fingerprints match; producer/parser/validator/codec paths
+remain byte-identical to the complete raw replay. The original 797-test receipts retain their
+pre-integration scope. Current delivery evidence is in
+`reports/verification-2026-10-18-task-008-delivery.json` and
+`reports/delivery-2026-10-18-task-008.md`. The formatting-only initial integrated attempt is
+retained separately. Final delivery review and push/PR readback follow; no merge to main or
+deployment is included.
+
+
+Independent integrated delivery review is **Approved** with no actionable findings; see
+`reports/review-2026-10-18-task-008-delivery.md`. Current parsed configuration, canonical inputs,
+nine raw-replay byte bindings, all 156 current product/test/tooling fingerprints and 813/68/20
+log bindings pass. Final record lint/format/typecheck and whitespace checks pass. The user has
+explicitly authorized pushing this branch and creating a PR; no main merge/deployment is included.

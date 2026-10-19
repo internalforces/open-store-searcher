@@ -177,3 +177,20 @@ created and no network-dependent source test is introduced.
 4. Run narrow tests and coverage, one bounded real collector validation, then full pinned
    verification and independent implementation/assertion review. Record exact test names/results
    in `.testagent/status.md` and the public aggregate-only issue report.
+
+
+## PR 32 review regression plan — 2026-10-18
+
+1. Reproduce actual replay wiring with config ceilings deliberately different from observation
+   ceilings: extraction bytes/timeout and cumulative parser row budget; reject truncated output
+   and row overflow without promotion. Verify invalid adopted ceilings fail without fallback.
+2. Reproduce actual audit CLI outside its original directory using a caller-supplied archive.
+   Assert receipt hash/size binding, before/after accepted inventory and absence of candidates.
+3. Exercise mixed rejection/warning diagnostics, duplicate codes and inconsistent stage failures.
+   Only actual rejection severity enters reasonCodes; retain source uncertainty as warnings.
+4. Replace ephemeral/uncommitted active-task prose with committed revision/report references;
+   verify repository-local Markdown targets and retained production/release boundaries.
+5. Run narrow RED/GREEN pipeline regressions, fresh private preservation audit and full pinned
+   verification. If resource values remain identical to historical inputs, retain that fact;
+   never claim newly measured source freshness. Obtain independent review and then push logical
+   commits, reply/resolve only evidenced threads, and wait for exact final-head hosted CI.

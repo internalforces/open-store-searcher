@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-10-18_
 
 ## Summary
 
@@ -17,7 +17,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 
 - Version: v0.1.0-dev
 - Phase: TASK-008 local staged-quality acceptance complete; TASK-009/010/021 production and release gates remain open
-- Next milestone: M1 — publication/recovery and milestone handbook gates remain open
+- Next milestone: M1 — TASK-009 then TASK-010 publication/recovery; no next task active
 - Overall health: 🟡 Caution — local quality accepted; production performance/recovery/release gates remain open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
@@ -328,3 +328,27 @@ all equality/quality gates remain unchanged. Final pinned checks pass813/68/20 p
 checks. The actual two-attempt collection still rejects and leaves zero staged files, so ISS-003
 and original source freshness stay open. No PR, deployment, recurring collection or security change
 occurred. See reports/test-2026-10-17-iss-003.md and the independent issue review.
+
+
+## Current priority — TASK-008 final acceptance, 2026-10-18
+
+The user approved all three exact calibration inputs as conservative initial criteria: numeric
+policy, 23 allowed-empty IDs and the 2026-10-16 baseline. `publication/validation-config.json`
+contains the exact approved objects and unchanged reviewed-pair/resource inputs; the separate
+workflow configuration remains absent. Original proposal/revision strings remain historical and
+unchanged. A fresh pinned Ubuntu complete-source replay passes all 195 categories and 2,951,024
+rows, producing 726 JSON files totaling 691,143,712 bytes under the 691,319,965-byte maximum.
+Interruption, existing-output and approved-count failure checks preserve all accepted file hashes.
+Pinned full verification passed 797/68/20 and independent final review Approved with no
+actionable findings. TASK-008 is complete and no implementation task is active. TASK-009/010 remain
+paused; no publication, hosted recovery, mobile acceptance, push, merge or release is implied.
+
+
+## Current delivery reconciliation — 2026-10-18
+
+A fresh fetch discovered merged PR #31 (`c521467`), which already adopted the same canonical
+quality objects and added reviewed bounded ISS-003 client recovery. The current delivery
+preserves those changes and adds fresh October 18 quality-replay/preservation evidence.
+The earlier 797/68/20 evidence is explicitly the pre-integration `fd6f79f` product snapshot;
+current integrated delivery verification is recorded separately. Source freshness/ISS-003
+upstream and hosted/performance/publication/recovery/release gates remain open.

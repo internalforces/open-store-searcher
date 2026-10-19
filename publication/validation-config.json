@@ -14432,5 +14432,8 @@
         "categoryIds": ["15045089", "15045092"]
       }
     ]
-  }
+  },
+  "maxEntryBytes": 536870912,
+  "maxTotalRows": 3000000,
+  "entryTimeoutMs": 120000
 }

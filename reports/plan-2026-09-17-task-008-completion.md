@@ -180,3 +180,27 @@ After this branch is delivered, the next actionable decision is the calibration 
 observation interval. The repository already has a bounded observation path; no production
 publication is needed to collect the evidence. The policy values should be derived and presented
 for review after the approved interval, rather than requested as 195 manual values from the user.
+
+
+## Final acceptance continuation — 2026-10-18
+
+The interval completed on 2026-10-16 with 23 complete receipts, 22 distinct archives, four
+pre-collection gaps and three retained rejections. The user explicitly approved the derived
+policy, exact 23 empty IDs and 2026-10-16 baseline on 2026-10-18 as conservative initial criteria.
+This supersedes the historical protocol/policy waiting instructions above.
+
+- [x] Complete the approved interval and derive the full evidence-bound policy proposal.
+- [x] Obtain explicit policy, allowed-empty, and initial-baseline approval.
+- [x] Install the exact objects in separate non-publishing `publication/validation-config.json`.
+- [x] Run accepted full-source validation and verify failure preservation.
+- [x] Pass pinned full verification and independent final review.
+
+No public deployment URL is selected and `publication/config.json` remains absent. Preserve
+original raw statuses, source uncertainty, all failed attempts and all independent release gates.
+
+
+Final disposition: TASK-008 is complete on 2026-10-18 after accepted raw-source replay,
+failure-preservation verification, fresh pinned full 797/68/20 checks and independent Approved
+review. See [final verification](test-2026-10-18-task-008-final.md) and
+[completion record](../tasks/completed.md#task-008-final-quality-acceptance--2026-10-18).
+TASK-009/010 are the next sequential work and remain unactivated; release gates stay separate.

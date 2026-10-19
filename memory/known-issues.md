@@ -537,3 +537,29 @@ rejection requires evidence and a separate decision; no threshold was silently r
 October 16 collection date supplies no original source freshness. Hosted/mobile performance,
 publication/recovery and release evidence remain with their existing owners. This continuation
 only adopts the linked local quality inputs and verifies them without publishing.
+
+
+## TASK-008 conservative initial policy limitations — 2026-10-18
+
+The user explicitly approved the observed-envelope quality policy, exact 23 allowed-empty
+categories and 2026-10-16 baseline. Historical missing-policy/baseline notes above are superseded
+for TASK-008. This approval accepts conservative rejections rather than inventing tolerance:
+79 nonempty categories have zero count-change allowance, first population of an empty baseline
+requires review, and the compact JSON ceiling has only 176,253 bytes of observed headroom.
+Normal growth/correction may therefore block a refresh. Future relaxation requires evidence and
+explicit approval; failed candidates must preserve prior accepted bytes. These criteria do not
+establish provider freshness, reliable future acceptance, mobile performance or hosted recovery.
+ISS-003 remains open; no collector rule or cause was changed/inferred during this adoption.
+
+
+## PR32 evidence-adapter review findings repaired — 2026-10-18
+
+Four P2 review findings are repaired locally: historical resource-limit fallback, host-fixed
+audit archive path, warning-as-rejection summary and stale active-task checkout/delivery context.
+New18-case regressions cover actual CLI wiring and preservation-report refusal on binding,
+mutation, diagnostic mismatch or cleanup failure; a fresh actual726-file audit verifies the real
+bytes unchanged. The old receipt is retained as historical evidence of its classification bug,
+with a new corrected receipt and explicit supersession. See
+[verification](../reports/test-2026-10-18-pr32-remediation.md). These local harness repairs do not
+resolve ISS-003 upstream or source freshness, relax calibrated policy, enable publication, or
+close operational/recovery/physical/mobile/hosted performance and release limits.

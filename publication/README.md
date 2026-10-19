@@ -1,5 +1,26 @@
 # Collection-date publication
 
+## PR 32 review corrections — 2026-10-18
+
+Local replay now enforces the exact three positive integer ceilings from `validation-config.json`
+directly. Historical observation resource limits are provenance, not runtime fallback values.
+The preservation audit requires the same explicitly selected archive and verifies its receipt/
+baseline hash and size before injection and unchanged bytes afterward:
+
+```text
+node .testagent/replay-adopted-policy.mjs SOURCE-ARCHIVE NEW-REPLAY-ROOT
+node .testagent/audit-adopted-release.mjs REPLAY-ROOT SOURCE-ARCHIVE
+```
+
+Both commands are private, non-publishing operations. The audit records structured actual
+validator severity and compares the staging rejection's codes before issuing a receipt; only
+rejections enter `reasonCodes`, with `source_coverage_unverified` kept as a warning. The
+[fresh review verification](../reports/test-2026-10-18-pr32-remediation.md) and
+[corrected preservation receipt](../reports/preservation-2026-10-18-pr32-remediation.json)
+supersede the prior audit's warning-as-reason classification. The old receipt remains historical.
+The exact policy, baseline, 23-ID list and resource numbers are unchanged. PR31 has merged; PR32
+review delivery does not enable publication or close ISS-003, source-freshness or release gates.
+
 ## PR 31 non-publishing readiness — 2026-10-17
 
 [PR31](https://github.com/internalforces/open-store-searcher/pull/31) delivers the adopted local
@@ -38,8 +59,14 @@ unverified. The date is the completed archive collection instant converted to As
 Source ZIP dates, row dates and build time never become a claimed source coverage date.
 
 The user resumed quality review on 2026-09-12. Complete CP949-capable source observation and
-compact conversion now pass; `config.json` remains absent pending reviewed quality policy and
-bootstrap baseline. See the [compact evidence](../reports/test-2026-09-14-compact-delivery.md). Do not copy the
+compact conversion now pass. On 2026-10-18 the user approved the exact calibrated policy,
+23 allowed-empty IDs and 2026-10-16 initial baseline as conservative initial criteria. They are
+installed in [`validation-config.json`](validation-config.json), which is used only for the
+non-publishing TASK-008 acceptance replay. The workflow's `config.json` remains absent pending
+TASK-009/010 operational/publication review. The immutable proposal and exact approval are
+recorded in the [approval packet](../reports/calibration-2026-10-16-approval-packet.md) and
+[decision record](../memory/decisions.md#task-008-conservative-initial-quality-policy-approved--2026-10-18).
+See the [compact evidence](../reports/test-2026-09-14-compact-delivery.md). Do not copy the
 synthetic test policy/baseline into it, waive unknown-status review, or auto-bootstrap from
 the same unreviewed candidate. Missing configuration fails the refresh before any publication.
 
@@ -191,7 +218,9 @@ and its [settings receipt](../reports/security-2026-09-18-task-019-final-evidenc
   evidence. Publication remains disabled and no deployment was dispatched or approved.
 
 Re-read repository and environment settings before any approved operation; this dated receipt
-is not a live settings guarantee. TASK-019's Actions criterion is accepted, while calibration,
-quality policy, empty-category list, baseline, accepted candidate, hosted/mobile performance,
-publication/recovery and release gates remain open. Follow the
+is not a live settings guarantee. TASK-019's Actions criterion is accepted. The calibration
+interval is complete and the policy, empty-category list and initial baseline were explicitly
+approved on 2026-10-18. TASK-008 final validation/review is complete with independent Approved acceptance; see
+[verification](../reports/test-2026-10-18-task-008-final.md).
+hosted/mobile performance, publication/recovery and release gates remain open. Follow the
 [deployment and recovery runbook](../docs/deployment.md) for those prerequisites.

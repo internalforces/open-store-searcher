@@ -2,13 +2,14 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
-import { access, readdir, readFile, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { readFile, writeFile, readdir, access } from 'node:fs/promises';
+import { resolve, join } from 'node:path';
 import { createServer } from 'vite';
-
 const [archivePath, root] = process.argv.slice(2);
 assert(archivePath && root && process.argv.length === 4);
 const config = JSON.parse(await readFile('publication/validation-config.json', 'utf8'));
+for (const field of ['maxEntryBytes', 'maxTotalRows', 'entryTimeoutMs'])
+  assert(Number.isSafeInteger(config[field]) && config[field] > 0, `Invalid adopted ${field}`);
 const proposal = JSON.parse(
   await readFile('reports/task-008-validation-policy-proposal-2026-10-16.json', 'utf8'),
 );
@@ -49,11 +50,28 @@ const server = await createServer({
   server: { middlewareMode: true, watch: null, ws: false },
 });
 const started = performance.now();
+const implementationSha256 = {};
+for (const path of [
+  '.testagent/replay-adopted-policy.mjs',
+  'src/pipeline/stage-bounded-release.ts',
+  'src/pipeline/validate-license-refresh.ts',
+  'src/pipeline/parse-license-csv.ts',
+  'src/pipeline/write-compact-dataset.ts',
+  'src/pipeline/contracts/seoul-archive-contract.json',
+  'src/pipeline/contracts/reviewed-unverified-pairs-v1.json',
+  'reports/source-permission-manifest-2026-08-28.json',
+  'publication/validation-config.json',
+  'package-lock.json',
+])
+  implementationSha256[path] = (await hashFile(path)).sha256;
 try {
   const { runProcess, UTF8_UNZIP_OPTIONS } = await server.ssrLoadModule(
     '/src/pipeline/unzip-archive.ts',
   );
   const { iterateLicenseCsv } = await server.ssrLoadModule('/src/pipeline/parse-license-csv.ts');
+  const { validateMeasuredRefresh } = await server.ssrLoadModule(
+    '/src/pipeline/validate-license-refresh.ts',
+  );
   const { stageBoundedRelease } = await server.ssrLoadModule(
     '/src/pipeline/stage-bounded-release.ts',
   );
@@ -64,8 +82,8 @@ try {
       const result = await runProcess({
         executable: 'unzip',
         args: [...UTF8_UNZIP_OPTIONS, '-p', collection.archivePath, entry.entryName],
-        maxOutputBytes: observation.resourceLimits.maxEntryBytes,
-        timeoutMs: observation.resourceLimits.entryTimeoutMs,
+        maxOutputBytes: config.maxEntryBytes,
+        timeoutMs: config.entryTimeoutMs,
       });
       assert.equal(result.exitCode, 0);
       assert.equal(result.truncated, false);
@@ -73,7 +91,7 @@ try {
         for (const row of iterateLicenseCsv(
           result.stdout,
           entry,
-          observation.resourceLimits.maxTotalRows - totalRows,
+          config.maxTotalRows - totalRows,
         )) {
           totalRows++;
           yield row;
@@ -91,8 +109,42 @@ try {
     archiveContract,
     permissionManifest,
     ...config,
-    now: '2026-10-16T21:30:00.000Z',
+    now: '2026-10-18T12:00:00.000Z',
   };
+  const measured = (metrics) => () => ({ candidate: true, metrics });
+  const control = validateMeasuredRefresh(
+    input,
+    measured(structuredClone(config.baseline.metrics)),
+  );
+  assert.equal(control.kind, 'accepted');
+  const noPolicy = { ...input, policy: undefined };
+  assert.equal(
+    validateMeasuredRefresh(noPolicy, measured(structuredClone(config.baseline.metrics))).kind,
+    'review_required',
+  );
+  const changedMetrics = structuredClone(config.baseline.metrics);
+  const zeroChangeCategory = Object.keys(config.policy.categories).find(
+    (id) =>
+      config.policy.categories[id].maxAbsoluteCountChange === 0 &&
+      changedMetrics.categories[id].recordCount > 0,
+  );
+  changedMetrics.categories[zeroChangeCategory].recordCount++;
+  changedMetrics.categories[zeroChangeCategory].statusCounts['행정상 영업']++;
+  changedMetrics.total.recordCount++;
+  changedMetrics.total.statusCounts['행정상 영업']++;
+  const injectedPair = changedMetrics.categories[zeroChangeCategory].aggregatePairs[0];
+  injectedPair.count++;
+  changedMetrics.total.aggregatePairs.find(
+    (pair) => pair.code === injectedPair.code && pair.name === injectedPair.name,
+  ).count++;
+  const countRejected = validateMeasuredRefresh(input, measured(changedMetrics));
+  assert.equal(countRejected.kind, 'rejected');
+  assert(
+    countRejected.diagnostics.some(
+      (item) => item.code === 'count_change_exceeded' && item.categoryId === zeroChangeCategory,
+    ),
+    JSON.stringify(countRejected.diagnostics),
+  );
   const result = await stageBoundedRelease(input, categories(), output);
   assert.equal(categoryCount, 195);
   assert.equal(totalRows, 2951024);
@@ -135,6 +187,18 @@ try {
   const release = JSON.parse(await readFile(join(output, 'release.json'), 'utf8'));
   const receipt = {
     kind: 'accepted-offline-replay',
+    executedAt: new Date().toISOString(),
+    validationNow: input.now,
+    environment: { platform: process.platform, architecture: process.arch, node: process.version },
+    implementationSha256,
+    resourceLimits: {
+      maxEntryBytes: config.maxEntryBytes,
+      maxTotalRows: config.maxTotalRows,
+      entryTimeoutMs: config.entryTimeoutMs,
+    },
+    validationKind: control.kind,
+    missingPolicyKind: 'review_required',
+    zeroChangeCategoryRejection: { categoryId: zeroChangeCategory, kind: countRejected.kind },
     publicationApproved: false,
     sourceDataAsOf: null,
     collectedAt: collection.fetchedAt,

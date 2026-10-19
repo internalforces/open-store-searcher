@@ -383,3 +383,28 @@ from client mitigation. No raw dataset/log, credential or personal identifier is
 Independent final verdict: Approved for bounded client mitigation/diagnostics, with the timeout
 finding resolved and no blocking source issue. See reports/review-2026-10-17-iss-003.md. This is
 not provider recovery, source-freshness verification or hosted CI success.
+
+
+## PR32 bounded review regression completion — 2026-10-18
+
+Research/plan precede implementation. Specialized generator/pairing/gap/assertion tools are
+unavailable; scope/requirement matrix, pairing and quality audit were performed inline with
+an independent reviewer. Original adapter defects reproduced seven RED failures/three passes;
+final18 adapter cases and typecheck pass. Final pinned verify:full plus packaging exits0:
+831tests/45files,68 browser,20a11y,4packaging. Default concurrency/flaky policy unchanged.
+
+Assertion audit: resource arguments deliberately differ from observation values and assert
+cumulative budgets; invalid limits, truncated extraction and overflow cannot report acceptance.
+Audit tests assert supplied path, pre/post archive binding, exact severity sets and independent
+726-file before/after evidence. Wrong stage codes, archive/accepted mutation and leftover
+candidate/scratch refuse receipts. Added four independent-review mutation/cleanup cases.
+No assertions weakened; no skipped cases. Independent latest18-case suite passes, plus real
+validator/stager zero-row comparison and earlier188 combined adapter/parser/validator tests.
+
+Fresh actual relocated audit verifies real726-file hashes/217307219-byte archive,693 structured
+diagnostics,4 rejection codes and separate source-coverage warning. Historical complete replay
+is reused only because all current adopted ceilings equal historical ceilings and processing
+code is unchanged; no duplicate raw replay/newcollection/freshness claim. Current config remains
+byte-identical to original PR32. Reports/test-2026-10-18-pr32-remediation.md and bound JSON receipts
+provide exact command/log hashes and behavior matrix. Final pushed-head CI/review readback remains
+a separate delivery gate; no merge, publication, collection resumption or security change.

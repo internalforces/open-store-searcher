@@ -1,0 +1,27 @@
+{
+  "kind": "approved-policy-quality-failure-preservation",
+  "executedAt": "2026-10-18T11:54:16.522Z",
+  "publicationApproved": false,
+  "policySha256": "090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff",
+  "initialBaselineSha256": "9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183",
+  "sourceArchive": {
+    "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+    "byteLength": 217307219
+  },
+  "categoryCount": 195,
+  "injectedFailure": "All 195 categories complete but zero rows; exact approved policy rejects counts",
+  "reasonCodes": [
+    "count_below_minimum",
+    "count_change_exceeded",
+    "empty_category_not_approved",
+    "empty_refresh",
+    "source_coverage_unverified"
+  ],
+  "rejectedOutputAbsent": true,
+  "temporaryCandidatesAbsent": true,
+  "acceptedFilesRehashed": 726,
+  "beforeInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+  "afterInventorySha256": "3de3740d37241d204e558f74295ee8d07f4a0a051497116823cad85b878cedf0",
+  "totalJsonBytes": 691143712,
+  "sizeHeadroom": 176253
+}
