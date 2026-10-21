@@ -7,7 +7,18 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-10-16_
+_Last updated: 2026-10-21_
+
+## TASK-009 initial-import local evidence — 2026-10-21
+
+No new unresolved production defect was found by Task 7's actual retained-source proof,
+all-file artifact/preservation audits or pinned 1,366 / 68 / 20 +96 Node checks. The earlier cross-task
+empty operator-file binding issue was fixed and independently rereviewed before this proof.
+Task 7 independent scoped spec/quality review is Approved; final independent whole-diff review is Approved for local technical delivery. ISS-003 upstream/source coverage,
+full-data/physical/mobile performance, hosted/public publication and durable recovery gates remain
+open. The selected historical source does not resolve daily live-policy/freshness risk. Both
+registries remain inactive and routine operation paused; see
+[current evidence](../reports/test-2026-10-21-task-009-initial-import.md).
 
 ## Active Bugs
 
@@ -596,3 +607,44 @@ fixture; independent spec/quality correction review is Approved with zero findin
 proof failure and pre-fix1092/68/20 run remain historical. Fresh current-source proof preserves
 all730 files/691,233,947 bytes and exact original691,804,160-byte tar; no real source or package
 bytes changed. Final accumulated evidence supersedes pre-fix counts in the current report.
+
+## TASK-009 current-source envelope rejection explained — 2026-10-20
+
+Fresh retained-byte replay reproduces the October 19 rejection: 51 diagnostics across 18
+category scopes (nine fixed maxima, nine absolute plus nine relative count changes, 24 status
+share changes). No global metric fails; its fixed count maximum has only 96 rows of headroom.
+Three previously zero-change categories each gained one row. Existing-row edits and denominator
+changes both account for share failures; the baseline-only control still rejects nine fixed
+maxima. This is verified policy behavior, not a new confirmed parser/validator defect.
+
+Exact-source comparison finds 1,065 additions, three absent prior identities and 1,766 changed
+matched rows. The three absent prior identities were administratively operating in category
+15045037; their removal reason is unknown and must not imply closure. All source-delta and
+status accounting reconciles. Compact bytes for the rejected source were not measured because
+staging stops before serialization. See the [analysis and proposal](../reports/research-2026-10-20-task-009-first-publication.md).
+
+The exact accepted October 16 source is recommended only as a proposed initial acceptance
+candidate. Selection and trusted initial import remain unapproved; ordinary live refresh and
+provenance-restricted recovery cannot substitute for that missing import. Collection-age warning
+starts October 23. Daily policy, source truth/coverage, ISS-003, performance and hosted/release
+gates remain open. No policy, baseline, source or implementation changed.
+
+## TASK-009 initial-source decision resolved; design proposed — 2026-10-20
+
+The user subsequently approved the exact October 16 retained source with quality unchanged.
+Only source selection is resolved; a [proposed initial-import design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md)
+and fresh builder check now cover the missing manual entry point and exact source transport.
+Current code still cannot perform it. Backup provenance currently admits only refresh as the
+origin workflow, so the proposed dedicated import requires a narrow two-path admission before
+successful first-import backup/recovery can be registered. No registry bypass is appropriate.
+Design/implementation/security/operational approval and actual hosted/performance/release gates
+remain separate. No new vulnerability or code defect is asserted by this design record.
+
+## TASK-009 initial-import design approval recorded — 2026-10-21
+
+The full design is now user-approved, with unchanged quality and explicit upload/deployment
+hold. A [self-reviewed detailed plan](../docs/superpowers/plans/2026-10-21-task-009-initial-import.md)
+addresses the missing local entry point and first-import backup-origin admission. It is not
+implemented. Actual source asset IDs and activation remain unavailable until later authorized
+upload/readback/trust-root delivery. Current-source quality, source coverage/ISS-003, local
+implementation/review, full-data performance and actual hosted/release gates remain open.

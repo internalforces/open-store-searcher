@@ -1,5 +1,65 @@
 # Collection-date publication and durable recovery
 
+## Initial-import local implementation — 2026-10-21
+
+The approved initial-import path is implemented locally. The exact October 16 source is selected
+only for first-publication/recovery verification; it does not change daily quality policy.
+`initial-import-approvals.json` remains `{activeSourceId:null,sources:[]}` and recovery remains
+`{activeBackupId:null,backups:[]}`. Empty source authority rejects hosted import before network
+or source work. Earlier dated statements that the importer is unimplemented describe historical
+states; this section supersedes them. TASK-009 remains active and TASK-010 remains paused.
+
+Use the current pinned Node 24.19.0/npm 11.17.0 and a new private output outside Git:
+
+```text
+node scripts/verify-initial-import.mjs publication/config.json SELECTED-ZIP ORIGINAL-OBSERVATION NEW-PRIVATE-OUTPUT
+node scripts/stage-initial-import.mjs publication/config.json publication/initial-import-approvals.json seoul-2026-10-16-initial NEW-PRIVATE-OUTPUT
+```
+
+The first command is local proof only. It accepts the exact 217,307,219-byte ZIP
+`c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352` and original
+356,005-byte observation `3d23a3c770b24039a6690f2db8022eb610ffb5b56a9efee031f78b78918b4626`.
+It records actual host base commit, dirty status and complete current code bindings, with
+`runId:null`, `transport:{kind:'local-proof'}` and `precondition:null`. It cannot bind a hosted run.
+The hosted command additionally requires clean current-main GitHub identity, a real run ID,
+active reviewed source authority and stable approved Release metadata/tag/asset bytes. It
+requires a direct descriptor 404 before work and immediately before final promotion.
+
+Both commands use the full production parser, validator, compact builder and tar inspector.
+All 195 categories/2,951,024 rows and complete baseline metrics must match; the approved policy,
+baseline, reviewed pairs and resource limits are unchanged. The historical collection remains
+`2026-10-16T01:52:52.043Z`, with `sourceDataAsOf:null`. Validation, verification, preparation and
+transport clocks are distinct and never refresh that date. Age reaches seven Seoul calendar
+days at `2026-10-22T15:00:00.000Z` (October 23 midnight); the delay warning starts then.
+
+The exact private output is `artifact.tar`, `source-import.json`, `inventory.json`, `identity.json`
+and `preparation.json`. Raw ZIP/observation, stage rows and private receipts never enter the tar.
+The source receipt is `RetainedSourceImportReceiptV1`, binding original source/observation,
+collection/null coverage, schema/quality hashes, actual validation/verification clocks, operator,
+transport and warnings. Preparation is `InitialPreparationV1`, binding mode/source/operator,
+source-receipt bytes, built identity, canonical inventory, original tar and `preparedAt` plus
+exactly 24 hours `expiresAt`; hosted precondition is `{status:404,releaseSha256:null}`.
+Stdout is `{outputDirectory,preparation}`, not deployment-success evidence.
+
+The manual `.github/workflows/initial-import.yml` prepares on current main with read-only
+permissions, uploads exactly one same-run `github-pages` candidate, then binds the actual
+upload-step artifact ID and current run/SHA to `InitialImportRunV1`. Its fields are version,
+kind, workflowPath, sourceId, operatorSha, runId, candidateArtifactId, artifactName,
+preparationSha256, tarSha256, inventorySha256, preparedAt and expiresAt. A separate one-day
+`initial-import-metadata` artifact exposes candidate evidence for human review. The protected
+deploy job rechecks current main, the trusted prepare-job scalar binding and exact 404/absent
+public state after approval. Local, expired, mismatched or uncertain evidence rejects.
+`bind-initial-import-run.mjs PREPARED-DIR CANDIDATE-ARTIFACT-ID NEW-METADATA-DIR` and
+`check-initial-import-run.mjs BOUND-RUN-JSON` require actual hosted context, not fixture IDs.
+
+Recovery accepts successful provenance from exactly `.github/workflows/refresh.yml` or
+`.github/workflows/initial-import.yml`. All previous successful-history/public-byte/inventory,
+registry and date/hash guards remain; source assets or local proof are never recovery authority.
+No source Release/asset IDs exist operationally yet. Both enable flags remain default-off,
+scheduling stays paused and publication uses shared noncancelling `pages-publication` concurrency.
+See [current evidence](../reports/test-2026-10-21-task-009-initial-import.md) and the
+[remaining operational gates](../docs/deployment.md#initial-import-operational-gates--2026-10-21).
+
 ## Current operational state — 2026-10-19
 
 The approved local implementation includes [`config.json`](config.json), the separate

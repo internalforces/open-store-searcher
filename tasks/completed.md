@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
-_Last updated: 2026-10-17_
+_Last updated: 2026-10-21_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
@@ -28,6 +28,21 @@ _Last updated: 2026-10-17_
 | TASK-005 | Implement a change-detecting Seoul data collector | 2026-09-02 | Architect / Implementer | Final cancellation-error remediation independently re-reviewed with no findings; pinned pipeline, coverage, browser, accessibility, and whitespace gates passed |
 | TASK-006 | Implement transformation schema and identifiers | 2026-09-02 | Architect / Implementer | User accepted the approved, implemented, fully verified, and independently reviewed lossless transformation and internal identifier contract; PR #9 and stacked PR #10 contain the reviewable changes |
 | TASK-007 | Implement fail-safe four-status mapping and unknown-code handling | 2026-09-04 | Implementer / Tester | ADR-013 accepted; test-first implementation, 100% mapper coverage, full verification and independent Approved review passed |
+
+## TASK-009 approved local sub-work evidence — 2026-10-21
+
+Tasks 1–6 of the approved initial-import plan are complete with independent Approved spec/quality
+reviews, separate Task 5 Actions/security and Task 6 provenance-security approval, zero open
+findings. Their exact source/transport/staging/operator/workflow/two-path recovery implementation
+preserves original quality/configuration and empty source/recovery registries.
+
+Task 7's actual retained-source proof/check components are complete: 195 categories/2,951,024 rows,
+full baseline metrics,730-file tar/unpack equality, compact/site caps, actual local CLI failures,
+coherent +1 metric/midnight controls and final proof/input/code rehashes. Pinned checks pass 56
+files / 1,366 Vitest,68 browser,20 accessibility and 96 Node tests. Task 7 independent scoped spec/quality review is Approved; final independent whole-diff
+review is Approved for local technical delivery; this completes the local initial-import plan including Task 7 review/delivery, while
+TASK-009, II-10, hosted AC-009-4/5, milestone and release remain incomplete. No commit or remote
+operation occurred. See [evidence](../reports/test-2026-10-21-task-009-initial-import.md).
 
 ## TASK-007 Verification Evidence
 
@@ -766,3 +781,36 @@ Independent review is Approved for the bounded local repair; see
 [review](../reports/review-2026-10-18-pr32-remediation.md). Final pinned checks pass831/68/20 plus
 four packaging cases; exact pushed-head hosted CI/readback is required before handoff. The approved configuration is byte-identical;
 no production task, merge/auto-merge, publication/deployment, collection resume or settings change.
+
+## TASK-009 bounded source-rejection analysis — 2026-10-20
+
+Completed only the user's rejection-analysis/first-source-proposal request. The retained
+October 19 production diagnostic replay and both-source comparison are complete; independent
+arithmetic reproduces all 51 rejection values in 18 scopes and full row/status accounting.
+The [report](../reports/research-2026-10-20-task-009-first-publication.md) recommends the exact
+accepted October 16 source for bounded initial publication/recovery acceptance, subject to
+explicit selection and a separately approved trusted import. The
+[aggregate receipt](../reports/analysis-2026-10-20-task-009-source-rejection.json) preserves exact
+identities, category details, controls and evidence bindings. No source/policy change, import,
+remote action or new independent reviewer verdict is claimed. Overall TASK-009 remains active;
+TASK-010 stays paused and no FR/milestone/release gate closes.
+
+## TASK-009 initial-import design deliverable — 2026-10-20
+
+Completed the user's design-only request after explicit October 16 source-selection approval.
+The [written design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md)
+preserves exact source/collection/quality identities, specifies proposed transport/manual import,
+first-publication and later successful-backup boundaries, and maps ten acceptance criteria.
+The [fresh builder check](../reports/design-2026-10-20-task-009-initial-import.md) found no
+material question before planning. This does not approve the full design or implement it;
+overall TASK-009 remains active, TASK-010 paused, and actual hosted/release gates remain open.
+
+## TASK-009 initial-import detailed planning deliverable — 2026-10-21
+
+Completed only the user's planning request after full design approval. The
+[self-reviewed implementation plan](../docs/superpowers/plans/2026-10-21-task-009-initial-import.md)
+defines seven sequential units with exact files, signatures, failing/passing behavior, review
+gates, pinned commands and II-01 through II-10 coverage. Existing quality/source/date identities
+are preserved; later uploads/deployments are isolated from local implementation scope. No code,
+test execution, remote action or overall TASK-009 completion is claimed. Plan review/execution
+authorization remains separate; TASK-010 and recurring operation remain paused.

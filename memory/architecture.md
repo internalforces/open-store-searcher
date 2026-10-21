@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-09-04_
+_Last updated: 2026-10-21_
 
 ## System Overview
 
@@ -454,3 +454,64 @@ schedule/publication gates remain default-off. GitHub Release asset publication 
 registry adoption are separately approved operations after real successful public/history evidence.
 See [operator contract](../publication/README.md) and [verification](../reports/test-2026-10-19-task-009-operational-recovery.md).
 No public app interface, source/status/date/quality rule, dependency or runtime architecture changed.
+
+## TASK-009 initial-import architecture proposal — 2026-10-20
+
+The user selected the exact retained October 16 raw source for first-publication/recovery
+verification with quality unchanged. The [written design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md)
+is proposed, not implemented or human-approved as an architecture/workflow change. It separates
+initial-source authority from successful-publication recovery authority: same-repository exact
+source/observation assets, an initially inactive current-main source registry, manual inspected
+source import and full unchanged validation/build, then protected first publication. Ordinary
+refresh remains live-only, and the existing recovery registry remains empty until real success,
+complete public equality and exact backup assets/history are approved.
+
+The proposed first-publication workflow also requires narrowly adding its exact path alongside
+refresh in backup-origin admission; it must not weaken successful-history, public, byte/date or
+registry checks. Real transport IDs and current operator/candidate identities are intentionally
+late-bound through separate reviewed operational gates. No new service, dependency, runtime
+server, tracking, paid operation, app URL, source freshness assertion or quality relaxation is
+proposed. Design approval precedes implementation planning and code changes.
+
+## TASK-009 initial-import architecture approved; implementation planned — 2026-10-21
+
+The user approved the full October 20 initial-import architecture with unchanged quality.
+The [detailed implementation plan](../docs/superpowers/plans/2026-10-21-task-009-initial-import.md)
+fixes seven local ownership boundaries and their contracts/tests while preserving existing
+production modules. This supersedes only the design-pending state above; nothing is implemented.
+Source authority is initially inactive, live refresh remains live-only, recovery needs real
+successful publication/provenance and source transport cannot grant recovery authority. The
+local complete tar check reuses the existing archive inspector and grants no backup status.
+All upload/deployment and operational gates remain separate; no runtime architecture changed.
+
+## TASK-009 initial-import architecture implemented locally — 2026-10-21
+
+The approved source contract is now implemented as a fixed exact-byte selection plus strict
+current config/source registry validators. Production authority starts inactive. The real bounded
+downloader reads immutable approved numeric assets, rechecks Release/tag/individual metadata
+before and after streams, verifies bytes and promotes only its owned complete download.
+The staging path admits only original observation bytes, freshly inspects Info-ZIP evidence,
+uses production CSV parsing and bounded staging for all categories/rows, compares every baseline
+metric, retains original dates and promotes only after all final source checks.
+
+Local/hosted composition builds and independently inspects complete compact/site identity,
+inventory and GNU tar. It emits exactly five private files and keeps source/stage receipts out
+of public bytes. Local proof binds actual base SHA plus dirty/current file hashes with null run
+and no public-state authority; the gitless pinned test snapshot uses a host-generated manifest
+whose complete bytes are verified by the CLI. Hosted mode requires actual clean current-main
+GitHub context and before/final direct descriptor 404s. The manual workflow binds the actual
+same-run upload ID, current run/SHA and exact one-day preparation expiry; protected deployment
+rechecks main/run/public state. Its prepare job has read-only permissions and scheduling stays off.
+
+Recovery provenance admits exactly refresh and initial-import workflow paths with the existing
+successful-history, complete public equality, registry, date/hash and inventory guards intact.
+Both trust registries remain empty. See [the operator schemas](../publication/README.md#initial-import-local-implementation--2026-10-21)
+and [current verification](../reports/test-2026-10-21-task-009-initial-import.md).
+No server, runtime database, external service, dependency, telemetry or new public URL was added.
+
+Final independent whole-diff technical review Approved the local initial-import implementation
+on 2026-10-21 (`final-whole-review.md`, exact checkpoint `whole-review-100856954058.diff`,
+SHA-256 `e6808de92225e08b9dfe2dcd20b9f68f6ca9af968ef3926638ebc3fad76f8f35`):
+0 Critical/Important/new Minor findings. Existing M1 is nonblocking informational lint noise.
+This records external review, changes no architecture/proof binding, and authorizes no remote
+operation, source-registry activation, hosted acceptance or milestone closure.

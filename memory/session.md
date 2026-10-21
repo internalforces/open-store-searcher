@@ -7,7 +7,146 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-19_
+_Last updated: 2026-10-21_
+
+## TASK-009 initial-import implementation and evidence work — 2026-10-21
+
+The user-approved seven-task local execution has implemented Tasks 1–6 with independent
+Approved spec/quality reviews, separate Task 5 Actions/security approval and Task 6 provenance
+security approval; all findings are closed. Task 7 actual retained-source CLI proof passes all 195 categories/2,951,024 rows with exact
+baseline metrics and full 730-file tar/unpack equality. Compact JSON is 691,143,712 bytes; site
+is 691,233,995 bytes. Pinned full checks pass 56 files / 1,366 tests, 68 browser and 20 accessibility
+checks; the exact five-file Node suite passes 96/96. Actual damaged/occupied-output rejections,
+coherent +1 metric and October 23 midnight controls, and final all-file/input/code rehash pass.
+Task 7 independent scoped spec/quality review is Approved; final independent whole-diff review is Approved for local technical delivery.
+The [test record](../reports/test-2026-10-21-task-009-initial-import.md) is the current evidence
+entry point; earlier dated planning/unimplemented claims below retain their historical scope.
+
+Both source and recovery registries remain null/empty. The original collection/null coverage,
+source/configuration/quality hashes, zero-cost boundary and default-off flags are preserved.
+No operational source Release/asset/run/deployment IDs are invented. No commit, upload, remote
+setting, dispatch, environment approval, deployment, registry adoption or recurring operation
+occurred. TASK-009 stays active, II-10/hosted AC-009-4/5 open and TASK-010 paused. Local readiness
+does not close full-data performance, physical/mobile, hosted/public recovery or release gates.
+
+Independent Task 7 approval is recorded in private `task-7-review.md` for exact checkpoint
+`task-7-review-100303476184.diff` (0 Critical/Important findings; M1 is the disclosed five
+pre-existing informational `useTemplate` notices, nonblocking/no fix). The controller's fresh
+`controller-final-preservation.json` confirms all 178 proof code bindings, 73 original files/exact
+status and four prior report/spec hashes unchanged. Final independent whole-diff review is Approved for local technical delivery.
+
+Final independent whole-diff review is **Approved for local delivery on technical quality** in
+private `final-whole-review.md`, covering checkpoint `whole-review-100856954058.diff`
+(SHA-256 `e6808de92225e08b9dfe2dcd20b9f68f6ca9af968ef3926638ebc3fad76f8f35`).
+Findings: 0 Critical, 0 Important, 0 new Minor. Existing M1 remains the five disclosed
+informational `useTemplate` notices, nonblocking/no fix. No corrective wave or heavy rerun
+was requested. This external verdict closes local plan review/delivery only; no commit,
+protected-main integration, source upload/activation, deployment, recovery, recurrence,
+hosted acceptance or milestone authorization follows. Historical proof/core/artifact bindings
+remain unchanged; only administrative status records changed after the reviewed checkpoint.
+
+## TASK-009 initial-import local execution authorized — 2026-10-21
+
+The user approved the detailed seven-task plan and explicitly authorized local implementation,
+verification and independent review per task. Execution is in progress in the existing calibration
+worktree. Existing quality/configuration/source identities remain fixed. The source registry will
+start inactive; recovery authority remains empty. Upload, deployment and all other remote
+operations remain withheld. Earlier planning records below are historical; they do not revoke
+this later execution authorization. Private progress and reviewed file checkpoints are retained
+under `.superpowers/sdd/2026-10-21-task-009-initial-import/`.
+
+## TASK-009 initial-import design approved; detailed plan delivered — 2026-10-21
+
+The user approved the full initial-import design, required existing quality criteria unchanged
+and requested the detailed implementation plan. Upload and deployment remain explicitly
+withheld. Applied writing-plans only; no implementation skill, subagent dispatch or code work.
+
+The [plan](../docs/superpowers/plans/2026-10-21-task-009-initial-import.md) defines seven sequential
+ownership/interface/red-green/review units: pinned authority and inactive source registry,
+bounded source transport, complete inspected staging, local/hosted operators, fixed same-run
+manual workflow, narrow successful-backup origin admission, and fresh actual local evidence.
+It names exact files/signatures, clock/quality/source constants, test commands and II-01 through
+II-10 mapping, with operational steps isolated as later gates. The established TASK-009 subagent
+implementation plus independent review method is preserved for future authorized execution.
+
+Self-review corrected typed fixture/registry consistency, refresh Node-check ownership,
+complete tar/inventory admission using the existing archive inspector and the distinction
+between changed-ZIP hash rejection and an actual measured quality-boundary control. No heavy
+proof or product tests were run for this prose-only planning task. Plan paths/constants,
+coverage/step structure, links, whitespace and the protected-file inventory are verified before
+delivery. The approved spec received only an approval-status addendum.
+
+Reused the same dirty calibration worktree and branch; earlier local analysis/design and all
+private evidence remain preserved. Preflight protects 168 source/tooling/workflow/config/evidence
+paths in ignored `.superpowers/sdd/2026-10-21-task-009-initial-import-plan/preflight.json`.
+No source/config/policy/baseline/status/code, runtime registry, dependency, handbook, commit,
+push/PR/merge, tag/asset/upload, setting, dispatch, environment approval, deployment, recovery
+adoption or recurrence changed. The detailed plan is for human review, not executed or approved
+as an execution plan. TASK-009 remains active; TASK-010 stays paused.
+
+## TASK-009 source selected and initial-import design delivered — 2026-10-20
+
+The user approved the exact retained October 16 source for the first publication/recovery
+verification exercise, required unchanged quality criteria and requested the initial-import
+design. Recorded only that source-selection decision; no other source, tolerance, collection
+date, baseline, implementation or remote action was approved.
+
+The [design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md) proposes
+same-repository published Release transport of the exact ZIP and byte-identical original
+observation, a separate inactive current-main source registry and a manual full inspected import,
+validation/build path. Real release/asset/tag-target IDs are deliberately bound only after later
+approved upload/readback and reviewed trust-root delivery. Direct first-publication 404/main
+guards and current protected-environment behavior remain. Backup origin admission must add
+only the new initial-import workflow beside refresh, preserving all successful-deployment,
+public-equality, date/hash and registry checks before actual complete-site recovery.
+
+Applied brainstorming and system-design skills. Brainstorming explicitly required a fresh
+builder check; the read-only checker reported no material question before implementation
+planning. See [the check record](../reports/design-2026-10-20-task-009-initial-import.md).
+This is planning-readiness feedback, not human design approval or implementation/security
+approval. The exact source ZIP was freshly rehashed unchanged; approved canonical hashes were
+verified using pinned Node JSON serialization. Document links, constants and whitespace are
+verified before delivery. No product tests were rerun for this design-only scope.
+
+Existing uncommitted analysis and private evidence are preserved in the same branch/worktree.
+Only documentation/decision/handoff records change. No code, dependencies, configuration,
+runtime trust record, source bytes, handbook, commit/push/PR, tag/assets, setting, dispatch,
+deployment, backup adoption or recurrence changed. Full-design approval is the next design
+gate, followed by a detailed implementation plan. TASK-009 remains active and TASK-010 paused.
+
+## TASK-009 source analysis and first-publication proposal — 2026-10-20
+
+The user requested continuation first through October 19 rejection analysis and a
+first-publication source proposal. PR #33 is merged as `b586e72`; exact-main Verify passed.
+Fetched main and reused the clean calibration checkout on
+`codex/task-009-first-publication-analysis`, preserving the prior branch and other checkouts.
+
+A pinned Ubuntu/Node 24.19.0 replay of retained October 19 bytes used one in-memory Vite
+observation assignment after the unchanged production validation call. It reproduced the exact
+historical error and captures 51 rejection diagnostics across 18 scopes, plus the separate source
+coverage warning. All 195 categories/2,952,086 rows and identity checks completed; no candidate
+or owned scratch remains. A second read-only parser pass compared all 96 changed category files;
+99 hashes were identical. It reconciles 1,065 additions, three absent prior identities in
+category 15045037 and 1,766 changed matched rows, including 787 mapped-status transitions.
+Independent Python arithmetic reconstructs all 51 rejection values and row/status totals.
+Both archives and bound module/configuration hashes remain equal.
+
+The [report](../reports/research-2026-10-20-task-009-first-publication.md) and
+[aggregate evidence](../reports/analysis-2026-10-20-task-009-source-rejection.json) propose the
+exact October 16 accepted source for a bounded first-publication/recovery acceptance exercise.
+Selection and a trusted initial-import design remain separate approvals. This source is four
+Seoul calendar days old on October 20; warning begins October 23. A baseline-only production
+control still rejects all nine fixed maxima for October 19. Compact bytes for the rejected source
+remain unmeasured. Routine refresh needs separate reviewed policy work rather than an inferred
+tolerance or retrospective baseline substitution. The three absent identities do not imply closure.
+
+Only analysis reports and handoff records change. No product/configuration/source/status/policy,
+workflow, registry, dependency, handbook or remote change occurred. Application tests were not
+rerun for this prose/aggregate-evidence scope; analysis assertions, links, formatting and whitespace
+are checked separately. Private probes and full receipts are retained in ignored
+`.superpowers/sdd/2026-10-20-task-009-source-analysis/` and the existing container snapshot.
+No independent new review is claimed. TASK-009 remains incomplete; TASK-010 stays paused.
+The user's current request does not authorize commit, push, merge, dispatch or deployment.
 
 ## Current TASK-009 design approval and execution plan — 2026-10-19
 

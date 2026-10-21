@@ -26,7 +26,7 @@ const binding = (b) => ({
   byteLength: b.length,
   sha256: createHash('sha256').update(b).digest('hex'),
 });
-async function fixture(t) {
+async function fixture(t, workflowPath = '.github/workflows/refresh.yml') {
   const f = await createRecoveryFixture();
   t.after(() => f.cleanup());
   const verified = await verifyPublicationDirectory(f.siteDir);
@@ -61,7 +61,7 @@ async function fixture(t) {
     siteUrl,
     sourceCommit: 'c'.repeat(40),
     workflowCommit: 'd'.repeat(40),
-    workflowPath: '.github/workflows/refresh.yml',
+    workflowPath,
     runId: 15,
     artifactId: 16,
     deploymentId: 'synthetic-deployment',
@@ -101,7 +101,7 @@ async function publicRoutes(f) {
     ),
   );
 }
-async function approval(f, identityPatch = {}) {
+async function approval(f, identityPatch = {}, preparedProvenance) {
   const receipt = {
     version: 1,
     kind: 'public-bytes-verified',
@@ -113,7 +113,7 @@ async function approval(f, identityPatch = {}) {
   const { inventory, inventorySha256, ...identity } = f.verified;
   Object.assign(identity, identityPatch);
   receipt.releaseSha256 = identity.releaseSha256;
-  const provenance = {
+  const provenance = preparedProvenance ?? {
     ...f.draft,
     kind: 'verified-publication-backup',
     verifiedAt: receipt.checkedAt,
@@ -200,62 +200,90 @@ test('inspect CLI emits canonical complete inventory and identity without execut
   await assert.rejects(access(join(f.root, 'executed')));
   assert.deepEqual((await readdir(out)).sort(), ['identity.json', 'inventory.json']);
 });
-test('backup CLI verifies original tar and all public bytes and retains proposed unverified history attestation', async (t) => {
-  const f = await fixture(t),
-    out = join(f.root, 'proposal');
-  const hook = await preload(f, await publicRoutes(f));
-  const r = run(
-    'prepare-publication-backup',
-    [f.config, f.tar, f.inventoryPath, f.draftPath, out],
-    hook,
-  );
-  assert.equal(r.status, 0, r.stderr);
-  const p = JSON.parse(await readFile(join(out, 'provenance.json'))),
-    receipt = JSON.parse(await readFile(join(out, 'verification.json')));
-  assert.deepEqual(p.tar, f.archive.tar);
-  assert.deepEqual(p.identity, f.identity);
-  assert.equal(p.deploymentId, f.draft.deploymentId);
-  assert.equal(receipt.approvalStatus, 'proposed');
-  assert.equal(receipt.historyVerified, false);
-  assert.deepEqual(receipt.operatorAttestation, f.draft);
-  assert.deepEqual((await readdir(out)).sort(), [
-    'inventory.json',
-    'provenance.json',
-    'snapshot.tar.gz',
-    'verification.json',
-  ]);
-  await assert.rejects(access(join(f.root, 'executed')));
-});
-test('backup CLI rejects mismatched inventory public bytes and draft metadata with owned cleanup', async (t) => {
-  const f = await fixture(t);
-  const routes = await publicRoutes(f);
-  routes[`${siteUrl}assets/app.js`] = { body: Buffer.from('changed').toString('base64') };
-  const out = join(f.root, 'failed');
-  const hook = await preload(f, routes);
-  assert.notEqual(
-    run('prepare-publication-backup', [f.config, f.tar, f.inventoryPath, f.draftPath, out], hook)
-      .status,
-    0,
-  );
-  await assert.rejects(access(out));
-  const inv = structuredClone(f.verified.inventory);
-  inv.files[0].sha256 = '1'.repeat(64);
-  await writeFile(f.inventoryPath, json(inv));
-  assert.notEqual(
-    run('prepare-publication-backup', [f.config, f.tar, f.inventoryPath, f.draftPath, out], hook)
-      .status,
-    0,
-  );
-  await assert.rejects(access(out));
-  await writeFile(f.inventoryPath, json(f.verified.inventory));
-  await writeFile(f.draftPath, json({ ...f.draft, deploymentOutcome: 'failure' }));
-  assert.notEqual(
-    run('prepare-publication-backup', [f.config, f.tar, f.inventoryPath, f.draftPath, out], hook)
-      .status,
-    0,
-  );
-  await assert.rejects(access(out));
-});
+for (const workflowPath of [
+  '.github/workflows/refresh.yml',
+  '.github/workflows/initial-import.yml',
+])
+  test(`backup CLI composes verified public bytes and restore selection for ${workflowPath} while retaining proposed history attestation`, async (t) => {
+    const f = await fixture(t, workflowPath),
+      out = join(f.root, 'proposal');
+    const hook = await preload(f, await publicRoutes(f));
+    const r = run(
+      'prepare-publication-backup',
+      [f.config, f.tar, f.inventoryPath, f.draftPath, out],
+      hook,
+    );
+    assert.equal(r.status, 0, r.stderr);
+    const p = JSON.parse(await readFile(join(out, 'provenance.json'))),
+      receipt = JSON.parse(await readFile(join(out, 'verification.json')));
+    assert.deepEqual(p.tar, f.archive.tar);
+    assert.deepEqual(p.identity, f.identity);
+    assert.equal(p.workflowPath, workflowPath);
+    assert.equal(p.sourceCommit, 'c'.repeat(40));
+    assert.equal(p.workflowCommit, 'd'.repeat(40));
+    assert.equal(p.deploymentId, f.draft.deploymentId);
+    assert.equal(receipt.approvalStatus, 'proposed');
+    assert.equal(receipt.historyVerified, false);
+    assert.deepEqual(receipt.operatorAttestation, f.draft);
+    assert.deepEqual((await readdir(out)).sort(), [
+      'inventory.json',
+      'provenance.json',
+      'snapshot.tar.gz',
+      'verification.json',
+    ]);
+    const a = await approval(f, {}, p);
+    const restored = join(f.root, 'restored-proposal');
+    const restore = run(
+      'restore-publication',
+      [f.config, a.registry, a.approved.id, restored],
+      await preload(f, a.routes),
+    );
+    assert.equal(restore.status, 0, restore.stderr);
+    assert.deepEqual(await readFile(join(restored, 'artifact.tar')), await readFile(f.tar));
+    assert.deepEqual(JSON.parse(restore.stdout).identity, p.identity);
+    await assert.rejects(access(join(f.root, 'executed')));
+  });
+for (const workflowPath of [
+  '.github/workflows/refresh.yml',
+  '.github/workflows/initial-import.yml',
+])
+  test(`backup CLI rejects mismatched inventory public bytes and draft metadata with owned cleanup for ${workflowPath}`, async (t) => {
+    const f = await fixture(t, workflowPath);
+    const routes = await publicRoutes(f);
+    routes[`${siteUrl}assets/app.js`] = { body: Buffer.from('changed').toString('base64') };
+    const out = join(f.root, 'failed');
+    const hook = await preload(f, routes);
+    assert.notEqual(
+      run('prepare-publication-backup', [f.config, f.tar, f.inventoryPath, f.draftPath, out], hook)
+        .status,
+      0,
+    );
+    await assert.rejects(access(out));
+    const goodHook = await preload(f, await publicRoutes(f));
+    const inv = structuredClone(f.verified.inventory);
+    inv.files[0].sha256 = '1'.repeat(64);
+    await writeFile(f.inventoryPath, json(inv));
+    assert.notEqual(
+      run(
+        'prepare-publication-backup',
+        [f.config, f.tar, f.inventoryPath, f.draftPath, out],
+        goodHook,
+      ).status,
+      0,
+    );
+    await assert.rejects(access(out));
+    await writeFile(f.inventoryPath, json(f.verified.inventory));
+    await writeFile(f.draftPath, json({ ...f.draft, deploymentOutcome: 'failure' }));
+    assert.notEqual(
+      run(
+        'prepare-publication-backup',
+        [f.config, f.tar, f.inventoryPath, f.draftPath, out],
+        goodHook,
+      ).status,
+      0,
+    );
+    await assert.rejects(access(out));
+  });
 test('restore CLI composes active selection immutable download real V2 restoration and same-snapshot precondition', async (t) => {
   const f = await fixture(t),
     a = await approval(f),

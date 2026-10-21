@@ -2,6 +2,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { selectRecoveryApproval, validateRecoveryProvenance } from './recovery-approval.js';
 import { sha256Bytes, type RecoveryApprovalV1 } from './recovery-types.js';
 import registryFile from '../../publication/recovery-approvals.json' with { type: 'json' };
+import { createInitialImportFixture } from '../../tests/fixtures/initial-import.js';
+import { INITIAL_SOURCE } from './initial-import-types.js';
 
 // All identities below are synthetic fixtures, never hosted-success evidence.
 beforeEach(() => {
@@ -326,5 +328,153 @@ describe('selectRecoveryApproval', () => {
     ]) {
       expect(() => selectRecoveryApproval(invalid, 'synthetic-backup', config)).toThrow();
     }
+  });
+});
+
+const origins = ['.github/workflows/refresh.yml', '.github/workflows/initial-import.yml'];
+const initialImport = createInitialImportFixture();
+// Recovery consumes only the fixed site and approved policy revision, not the import config.
+const initialConfig = { siteUrl, policyRevision: initialImport.config.policy.revision };
+function originFixture(workflowPath: string) {
+  const approval = fixture();
+  approval.expectedProvenance.workflowPath = workflowPath;
+  approval.expectedProvenance.identity.policyRevision = initialConfig.policyRevision;
+  approval.expectedProvenance.identity.archiveSha256 = INITIAL_SOURCE.archive.sha256;
+  approval.expectedProvenance.identity.collectedAt = INITIAL_SOURCE.collectedAt;
+  return approval;
+}
+describe.each(origins)('successful publication origin %s', (workflowPath) => {
+  it('admits verified provenance and active backup while retaining historical source dates and publication commits', () => {
+    const approval = originFixture(workflowPath);
+    const checked = validateRecoveryProvenance(approval.expectedProvenance, initialConfig);
+    expect(checked.workflowPath).toBe(workflowPath);
+    expect(checked.identity.collectedAt).toBe('2026-10-16T01:52:52.043Z');
+    expect(checked.identity.archiveSha256).toBe(INITIAL_SOURCE.archive.sha256);
+    expect(checked.sourceCommit).toBe('c'.repeat(40));
+    expect(checked.workflowCommit).toBe('d'.repeat(40));
+    expect(checked.sourceCommit).not.toBe(initialImport.approval.tagCommit);
+    expect(checked.workflowCommit).not.toBe(initialImport.approval.tagCommit);
+    expect(selectRecoveryApproval(registry(approval), approval.id, initialConfig)).toEqual(
+      approval,
+    );
+  });
+  it.each([
+    [
+      'failed deployment',
+      (a: RecoveryApprovalV1) =>
+        Object.assign(a.expectedProvenance, { deploymentOutcome: 'failure' }),
+    ],
+    [
+      'missing deployment outcome',
+      (a: RecoveryApprovalV1) => Reflect.deleteProperty(a.expectedProvenance, 'deploymentOutcome'),
+    ],
+    [
+      'missing deployment history',
+      (a: RecoveryApprovalV1) => Reflect.deleteProperty(a.expectedProvenance, 'deploymentId'),
+    ],
+    [
+      'absent public verification',
+      (a: RecoveryApprovalV1) => Reflect.deleteProperty(a.expectedProvenance, 'publicVerification'),
+    ],
+    [
+      'public release mismatch',
+      (a: RecoveryApprovalV1) => {
+        a.expectedProvenance.publicVerification.receipt.releaseSha256 = '0'.repeat(64);
+      },
+    ],
+    [
+      'public inventory mismatch',
+      (a: RecoveryApprovalV1) => {
+        a.expectedProvenance.publicVerification.receipt.inventorySha256 = '0'.repeat(64);
+      },
+    ],
+    [
+      'public date mismatch',
+      (a: RecoveryApprovalV1) => {
+        a.expectedProvenance.publicVerification.receipt.checkedAt = '2026-10-17T00:00:00.000Z';
+      },
+    ],
+    [
+      'future collection date',
+      (a: RecoveryApprovalV1) => {
+        a.expectedProvenance.identity.collectedAt = '2026-10-19T00:00:00.000Z';
+      },
+    ],
+    [
+      'public receipt hash mismatch',
+      (a: RecoveryApprovalV1) => {
+        a.expectedProvenance.publicVerification.binding.sha256 = '0'.repeat(64);
+      },
+    ],
+    [
+      'public receipt length mismatch',
+      (a: RecoveryApprovalV1) => {
+        a.expectedProvenance.publicVerification.binding.byteLength += 1;
+      },
+    ],
+    [
+      'backup asset hash mismatch',
+      (a: RecoveryApprovalV1) => {
+        a.assets.snapshot.sha256 = '0'.repeat(64);
+      },
+    ],
+    [
+      'source archive as backup asset',
+      (a: RecoveryApprovalV1) => {
+        Object.assign(a.assets.snapshot, initialImport.approval.assets.archive);
+      },
+    ],
+  ])('rejects %s before backup selection', (_label, mutate) => {
+    const approval = originFixture(workflowPath);
+    mutate(approval);
+    if (
+      ['public release mismatch', 'public inventory mismatch', 'public date mismatch'].includes(
+        _label,
+      )
+    ) {
+      const bytes = Buffer.from(
+        `${JSON.stringify(approval.expectedProvenance.publicVerification.receipt)}\n`,
+      );
+      approval.expectedProvenance.publicVerification.binding = {
+        byteLength: bytes.length,
+        sha256: sha256Bytes(bytes),
+      };
+    }
+    expect(() => selectRecoveryApproval(registry(approval), approval.id, initialConfig)).toThrow();
+  });
+});
+describe('closed publication origin authority', () => {
+  it.each([
+    '.github/workflows/restore.yml',
+    '.github/workflows/pull-request.yml',
+    '.github/workflows/arbitrary.yml',
+    '.github/workflows/initial-import.yml/extra',
+  ])('rejects non-publication workflow %s', (workflowPath) => {
+    const approval = originFixture(workflowPath);
+    expect(() => validateRecoveryProvenance(approval.expectedProvenance, initialConfig)).toThrow();
+    expect(() => selectRecoveryApproval(registry(approval), approval.id, initialConfig)).toThrow();
+  });
+  it('rejects initial-source transport and source registry records as recovery authority', () => {
+    const sourceTransportRecord = {
+      kind: 'github-release',
+      releaseId: initialImport.approval.releaseId,
+      tag: initialImport.approval.tag,
+      tagCommit: initialImport.approval.tagCommit,
+      assets: initialImport.approval.assets,
+      downloadedAt: '2026-10-18T00:00:00.000Z',
+    };
+    expect(() => validateRecoveryProvenance(sourceTransportRecord, initialConfig)).toThrow();
+    expect(() => validateRecoveryProvenance(initialImport.approval, initialConfig)).toThrow();
+    expect(() =>
+      selectRecoveryApproval(initialImport.registry, INITIAL_SOURCE.id, initialConfig),
+    ).toThrow();
+    expect(() =>
+      selectRecoveryApproval(
+        { ...registry(), activeBackupId: INITIAL_SOURCE.id, backups: [initialImport.approval] },
+        INITIAL_SOURCE.id,
+        initialConfig,
+      ),
+    ).toThrow();
+    expect(() => selectRecoveryApproval(registryFile, INITIAL_SOURCE.id, initialConfig)).toThrow();
   });
 });

@@ -64,7 +64,8 @@ export function validateRecoveryProvenance(value: unknown, config: Config): Reco
       /^[a-f0-9]{40}$/.test(value.sourceCommit) &&
       typeof value.workflowCommit === 'string' &&
       /^[a-f0-9]{40}$/.test(value.workflowCommit) &&
-      value.workflowPath === '.github/workflows/refresh.yml' &&
+      (value.workflowPath === '.github/workflows/refresh.yml' ||
+        value.workflowPath === '.github/workflows/initial-import.yml') &&
       positive(value.runId) &&
       positive(value.artifactId) &&
       text(value.deploymentId) &&

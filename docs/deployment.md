@@ -1,5 +1,44 @@
 # Deployment and recovery
 
+## Initial-import operational gates — 2026-10-21
+
+The user approved the exact retained October 16 source, complete initial-import design and local
+implementation/verification. The importer and manual workflow are now implemented locally;
+[the operator contract](../publication/README.md#initial-import-local-implementation--2026-10-21)
+provides both exact CLI forms, private output schemas and run/clock bindings. Earlier dated
+statements that bootstrap is unimplemented or source selection is unresolved are historical.
+The [current local proof](../reports/test-2026-10-21-task-009-initial-import.md) is local readiness
+only. TASK-009/II-10/AC-009-4/5 remain open; TASK-010 and routine operation stay paused.
+
+These are separate future approval gates, not instructions to execute from local acceptance:
+
+1. Authorize exact code delivery and protected-main integration; require actual current-main CI.
+2. Confirm attribution/redistribution and account/resource evidence, then separately approve the
+   exact source transport tag target and both public asset names, lengths, hashes and upload.
+   The tag is `initial-source-seoul-2026-10-16`; assets are `seoul-source-2026-10-16.zip` and
+   `source-observation.json`. Local synthetic metadata/IDs are never uploaded authority.
+3. Redownload the approved actual asset IDs, re-read tag/metadata, then separately review/deliver
+   the exact real source-registry entry to protected main. It remains null/empty until then.
+4. Satisfy full-data performance, physical/mobile and release prerequisites; re-read protections
+   and actual public state. Obtain exact Pages setup, one-time flag and dispatch authorization.
+   Keep `PAGES_SCHEDULE_ENABLED` false/unset. Set publication enablement only for the approved run.
+5. Before approving the protected environment, review actual same-run candidate/metadata IDs,
+   exact main/config/operator/identity/tar/inventory hashes, collection date, warnings and URL.
+   Recheck current main and descriptor absence; reset one-time publication enablement after the
+   run or failure. Prepared evidence expires exactly 24 hours after preparation.
+6. Verify every public file and successful deployment history separately. Then separately approve
+   complete backup publication, redownload equality, registry adoption and durable recovery
+   deployment/public verification. Only the exact two approved originating workflow paths are
+   admitted; the source ZIP and local proof never provide recovery authority.
+7. Keep routine operation paused pending its separate live-policy/operational decision.
+
+The source remains collected `2026-10-16T01:52:52.043Z` with null/unverified source coverage.
+It is five Seoul calendar days old on October 21 and warns from October 23 midnight Seoul.
+Rebuild, import, upload and deployment clocks never refresh it. Configuration/quality/source
+identity, protected deployment permissions and zero-cost constraints remain unchanged. No
+upload, tag, settings change, dispatch, environment approval, deployment, recovery adoption,
+commit/push/PR/merge or recurrence occurred during this local work.
+
 ## Current local state — 2026-10-19
 
 The approved local operational configuration, default-off schedule hold, trusted durable restore

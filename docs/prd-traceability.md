@@ -519,3 +519,58 @@ AC-009-4/5 actual hosted success/failure/uncertainty, separate deployment outcom
 adoption/redownload and expired-original-artifact recovery remain open. Current-source rejection,
 source/candidate decision, physical/mobile/full-data performance, reliability and release gates
 remain; no whole FR/milestone closure, TASK009 completion or TASK010 activation is claimed.
+
+## TASK-009 source rejection and first-source proposal — 2026-10-20
+
+FR-13 and supporting FR-02/08/12/14: [analysis](../reports/research-2026-10-20-task-009-first-publication.md)
+and [structured evidence](../reports/analysis-2026-10-20-task-009-source-rejection.json) reproduce
+the October 19 production refusal (51 diagnostics in 18 scopes) and reconcile complete
+source-row/status deltas. Independent arithmetic confirms all values; no rejected candidate
+appears. A hypothetical baseline-only control still rejects nine fixed maxima. Missing prior
+source identities do not imply closure; original collection date and null coverage are preserved.
+The recommended October 16 source remains a proposal requiring selection/import approval.
+This closes only the bounded analysis deliverable, not source acceptance, hosted AC-009-4/5,
+overall FR-13, TASK-009/010, performance or release gates. No implementation or policy changed.
+
+## TASK-009 initial source selected; import design proposed — 2026-10-20
+
+FR-13 and supporting FR-02/08/12/14: the user approved the exact October 16 retained source and
+unchanged quality criteria; see [decision](../memory/decisions.md#task-009-initial-source-selected--2026-10-20).
+The [design](superpowers/specs/2026-10-20-task-009-initial-import-design.md) defines exact
+source/observation/quality bindings, a separate inactive source trust root, manual current-main
+full import/build, direct-404/protected deployment guards, complete backup-origin continuity and
+II-01 through II-10 acceptance evidence. A fresh [builder check](../reports/design-2026-10-20-task-009-initial-import.md)
+found no material planning questions. Design and implementation remain unapproved; source
+approval alone does not close hosted AC-009-4/5, TASK-009/010, full-data performance or release.
+
+## TASK-009 approved initial-import design and detailed plan — 2026-10-21
+
+FR-13 and supporting FR-02/08/12/14: the user approved the initial-import design with all
+quality inputs unchanged. The [detailed plan](superpowers/plans/2026-10-21-task-009-initial-import.md)
+maps II-01 through II-10 to seven concrete file/interface/test/review units and separate actual
+operational gates. Source/tolerance/date authority, same-run/manual-main/expiry/public-state
+guards and successful-backup continuity are explicit. This is plan coverage only; no test,
+implementation, source-registry, hosted AC-009-4/5, performance or release criterion is closed.
+Upload/deployment remain explicitly withheld; TASK-009 active and TASK-010 paused.
+
+## TASK-009 initial-import local execution — 2026-10-21
+
+FR-13 and supporting FR-02/08/12/14: the approved initial-import Tasks 1–6 are implemented and
+independently Approved, including separate Actions/provenance security review. Task 7 actual
+retained-source proof passes 195 categories/2,951,024 rows, exact full baseline metrics and
+complete 730-file tar/unpack equality. Compact/site caps pass; accumulated verification passes
+1,366 Vitest  / 68 browser  / 20 accessibility checks plus 96 Node tests. Actual CLI damaged/occupied
+failures, coherent measured +1 rejection, October 23 Seoul midnight warning and full preservation
+rehashes pass. Independent Task 7 scoped spec/quality review is Approved; final independent whole-diff review is Approved for local technical delivery. Evidence is recorded in
+[test](../reports/test-2026-10-21-task-009-initial-import.md),
+[verification](../reports/verification-2026-10-21-task-009-initial-import.json),
+[review](../reports/review-2026-10-21-task-009-initial-import.md) and
+[security](../reports/security-2026-10-21-task-009-initial-import.md).
+
+II-01–09 cover immutable source/config authority, bounded exact transport/full production
+staging, historical date/midnight warning, atomic preservation, manual same-run current-main
+preparation/deploy guards, full original-source packaging and exact two-path backup continuity.
+They supply local evidence only. II-10 and hosted AC-009-4/5 remain open; TASK-009 stays active,
+TASK-010 stays paused. Existing PRD, quality, source-coverage, full-data performance, physical/mobile,
+30-day reliability, publication/recovery and release gates are unchanged. Neither registry is
+active and no remote operation or milestone/handbook closure is claimed.

@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-10-19_
+_Last updated: 2026-10-21_
 
 ## In Progress
 
@@ -17,15 +17,60 @@ _Last updated: 2026-10-19_
 - Requirements: FR-13; supporting FR-02/08/12/14.
 - Authorization: On 2026-10-19 the user requested preservation of existing work, activation on
   latest main and execution. TASK-010 remains paused.
-- Base: merged PR #32, `9569ffbce4ce141e06f0883d90bc19305890972c`.
-- Workspace: reuse the clean calibration checkout on `codex/task-009-publication-acceptance`;
+- Base: merged PR #33, `b586e72e88cb41b9988a62d70f9cd5b5503b53bc`; prior local acceptance
+  and recovery evidence retains its original PR #32 base.
+- Workspace: reuse the calibration checkout on `codex/task-009-first-publication-analysis`;
   retain its prior branch and all other checkouts. The original checkout's 73 untracked files
   are fingerprinted outside Git and remain untouched.
-- Status: Active; focused local acceptance verified (18/18), with independent Task 2 spec and
-  quality review Approved. Final current-tree full verification passes 849/68/20; whole-diff verdict is recorded
+- Status: Active. Historical October 19 local acceptance verified (18/18), with independent Task 2 spec and
+  quality review Approved. That dated current-tree full verification passed 849/68/20; whole-diff verdict is recorded
   separately in `reports/review-2026-10-19-task-009.md`. The user approved the plan and subagent implementation on 2026-10-19.
 - Design: retain the approved collection-date publication design and compact V2 contract.
 - Plan: [acceptance continuation](../docs/superpowers/plans/2026-10-19-task-009-publication-acceptance.md).
+
+Current October 21 implementation: Tasks 1–6 have Approved independent spec/quality reviews,
+with Task 5 Actions/security and Task 6 provenance-security reviews Approved and zero open
+findings. Task 7 actual-source proof passes 195 categories/2,951,024 rows, complete baseline
+metrics and 730-file package equality. Full checks pass 1,366 / 68 / 20 plus 96 Node tests; actual
+failure/metric/midnight/preservation controls pass. Its independent scoped spec/quality review
+is Approved; final independent whole-diff review is Approved for local technical delivery. See [current test evidence](../reports/test-2026-10-21-task-009-initial-import.md).
+Source and recovery registries remain inactive, default-off controls remain unchanged and no
+remote action occurred. This supersedes earlier implementation-pending statements below.
+
+Current October 21 execution authorization: the user approved the detailed initial-import plan
+and authorized local implementation, verification and independent task review. Execution is in
+progress; upload/deployment and all other remote operations remain withheld. Keep every quality
+criterion unchanged and preserve prior work. TASK-009 remains active and TASK-010 paused.
+
+Earlier October 21 planning handoff: the user approved the full initial-import design and requested the
+[detailed implementation plan](../docs/superpowers/plans/2026-10-21-task-009-initial-import.md),
+with quality unchanged and upload/deployment explicitly withheld. The self-reviewed plan fixes
+seven sequential ownership/interface/test/review units, maps II-01 through II-10, and separates
+local readiness from future actual source-asset/registry/hosted operations. It is not executed or
+human-approved as an execution plan. No code, config, workflow, runtime registry, dependency or
+remote state changed; source authority stays unimplemented and recovery authority empty.
+Preserve prior uncommitted analysis/design. TASK-009 remains active and TASK-010 paused.
+
+Historical October 20 continuation: the user approved the exact October 16 retained source for
+the first-publication/recovery exercise, with quality inputs unchanged, and requested an initial
+import design. The [source decision](../memory/decisions.md#task-009-initial-source-selected--2026-10-20)
+resolves selection only. The [design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md)
+proposes a separate manual current-main import with hash-bound Release source assets, full
+production validation/build, strict first-publication 404 checks and existing protected deployment.
+It includes the narrow backup-origin admission needed for later recovery. Fresh builder check
+found no material planning questions; this is not human design approval or a code/security review.
+No importer, workflow, runtime registry, policy or remote action is implemented or activated.
+Full-design approval precedes the detailed implementation plan; TASK-010 remains paused.
+
+Pre-selection October 20 analysis: PR #33 merged and exact-main Verify passed. The user requested
+rejection analysis and a first-source proposal. Fresh retained-source replay reproduces 51
+rejections in 18 categories; complete source comparison finds 1,065 added identities, three
+absent prior identities and 1,766 changed matched rows. Independent arithmetic reproduces all
+rejection values. The [source decision report](../reports/research-2026-10-20-task-009-first-publication.md)
+proposes the exact already validated October 16 source for bounded first-publication/recovery
+acceptance, subject to explicit source selection and separately approved initial-import design.
+No source or policy is adopted, no import is implemented, and no hosted/release gate closes.
+Daily operation still needs a separate evidence-bound policy decision; TASK-010 remains paused.
 
 Operational continuation requested on October 19: fresh collection succeeded, but strict
 validation of all 195 categories / 2,952,086 rows rejected count/count-change/status-share
