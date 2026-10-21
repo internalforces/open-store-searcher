@@ -25,6 +25,12 @@ jobs:
       tar_sha256: ${{ steps.binding.outputs.tar_sha256 }}
       inventory_sha256: ${{ steps.binding.outputs.inventory_sha256 }}
     steps:
+      - name: Reject workflow reruns
+        run: |
+          if [[ "${GITHUB_RUN_ATTEMPT:-}" != "1" ]]; then
+            echo "This workflow run was rerun. Start a new workflow_dispatch run instead." >&2
+            exit 1
+          fi
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
@@ -88,6 +94,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Reject workflow reruns
+        run: |
+          if [[ "${GITHUB_RUN_ATTEMPT:-}" != "1" ]]; then
+            echo "This workflow run was rerun. Start a new workflow_dispatch run instead." >&2
+            exit 1
+          fi
       - name: Reject obsolete code after environment approval
         env:
           GH_TOKEN: ${{ github.token }}
@@ -107,8 +119,17 @@ jobs:
         env:
           RUN_BINDING: ${{ needs.prepare.outputs.run_binding }}
         run: node scripts/check-initial-import-run.mjs "$RUN_BINDING"
-      - name: Require the public descriptor to remain absent after environment approval
-        run: node scripts/check-publication-state.mjs https://internalforces.github.io/open-store-searcher/release.json 404 absent
+      - name: Final current-main and trusted-run check after public 404 probe
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          EXPECTED_SHA: ${{ github.sha }}
+          RUN_BINDING: ${{ needs.prepare.outputs.run_binding }}
+        run: |
+          node scripts/check-publication-state.mjs https://internalforces.github.io/open-store-searcher/release.json 404 absent
+          current_sha=$(gh api "repos/$GH_REPO/git/ref/heads/main" --jq '.object.sha')
+          test "$current_sha" = "$EXPECTED_SHA"
+          node scripts/check-initial-import-run.mjs "$RUN_BINDING"
       - name: Publish the verified unchanged artifact from this run
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

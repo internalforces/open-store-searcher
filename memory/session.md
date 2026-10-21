@@ -2580,3 +2580,37 @@ not relabeled. No merge, source Release/asset upload, registry adoption, setting
 manual operational dispatch, protected approval, deployment, recovery, recurrence, cleanup,
 handbook work or milestone closure is included. Both registries stay inactive, TASK-009 stays
 active for II-10/hosted AC-009-4/5, and TASK-010 stays paused.
+
+
+## PR #34 final review and authorized integration — 2026-10-21
+
+The user requested final review and conditional protected-main merge while keeping quality
+unchanged and withholding source-data upload/deployment. Frozen-head independent review of
+`b586e72..09c20e5` confirmed three remote P2s: a late current-main race, expiry during a later
+network probe and unguarded same-run reruns. The scoped correction keeps early guards and adds
+a final public404/main/binding-clock sequence directly before deployment; both jobs reject any
+native run attempt other than exact1 before work. Retry uses a new manual workflow_dispatch.
+Fixed names, no overwrite, existing pins/permissions and all quality objects remain unchanged.
+
+The initial RED command ran13 tests, with10 passes/3 expected failures. Focused correction
+passes15; independent four-path core rereview is Approved with no new findings. The first full
+attempt stopped on8 new test-only lint warnings; equivalent regex quantifiers and an unused
+parameter cleanup fix them without suppressions, and focused lint/format/tests pass. Current
+accumulated verification, final handoff review, exact-head CI and protected integration outcomes
+are recorded in the [final review](../reports/review-2026-10-21-pr34-final.md) and live PR.
+Historical raw-source proof is not rebound:176/178 code members remain identical, and the only
+changes are the reviewed workflow and its regression tests. Original73 files/status, source
+and quality configurations, inactive registries and all private evidence remain preserved.
+
+Read-only GitHub preflight reports has_pages=false, publication/schedule variables unset, strict
+Verify/admin enforcement and required conversation resolution. Integration uses normal
+protection and the exact reviewed head; no admin override, main direct commit or branch/worktree
+cleanup is allowed. Source assets/adoption, settings/flags, operational dispatch, environment
+approval, deployment, recovery and recurrence remain unperformed; TASK-009 active, TASK-010 paused.
+
+Final accumulated verification now passes1,366/68/20 plus101 Node tests. The independent final
+12-path handoff assessment is Approved with0 open P2/new Minor and no additional findings;
+current-head Verify/conversation resolution and normal protected merge remain action-time gates.
+Fresh preservation-only rehash confirms5 original proof files,730 site files and6 inputs, plus
+the original73 files/exact status and four frozen prior reports/specs unchanged. This appended
+external-verdict note changes no reviewed core or historical raw-proof identity.

@@ -803,3 +803,15 @@ rejected source and October16 retained local proof are not selected publication 
 [Design](../docs/superpowers/specs/2026-10-19-task-009-operational-recovery-design.md) and
 [operator gates](../docs/deployment.md) retain separate source/quality, performance/release,
 code delivery, setup, dispatch, exact deployment, archive and recurring-operation approvals.
+
+
+## PR #34 first-attempt artifact contract enforcement — 2026-10-21
+
+The final review found that same-run reruns could leave ambiguous fixed-name artifacts. Enforce
+the existing fresh-run/single-candidate contract with a first executable native run-attempt1
+guard in both initial-import jobs. Keep fixed artifact names, no overwrite and existing
+permissions rather than introducing attempt-specific names, deletion or broader access. Retry
+uses a new separately authorized manual workflow_dispatch and fresh candidate review. Final
+public404/main/binding-clock guards preserve the existing current-main/24-hour contract. This
+is an implementation clarification of II-06/07, not a source/quality/architecture approval.
+Evidence: [PR34 final review](../reports/review-2026-10-21-pr34-final.md).

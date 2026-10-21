@@ -52,6 +52,16 @@ public state after approval. Local, expired, mismatched or uncertain evidence re
 `bind-initial-import-run.mjs PREPARED-DIR CANDIDATE-ARTIFACT-ID NEW-METADATA-DIR` and
 `check-initial-import-run.mjs BOUND-RUN-JSON` require actual hosted context, not fixture IDs.
 
+The initial-import workflow accepts only the first attempt of a manual run. Both preparation
+and protected deployment reject any other `GITHUB_RUN_ATTEMPT` before checkout or artifact work.
+Retry requires a new authorized `workflow_dispatch` on current main, with a new run ID and fresh
+candidate review; do not rerun jobs or delete/overwrite artifacts to reuse an earlier run. Fixed
+`github-pages` and `initial-import-metadata` names and the existing permissions are retained.
+After the public descriptor probe, the final deployment guard reads current main again and then
+checks the trusted binding against the actual clock. The next step is `deploy-pages`, so expiry
+during either network probe cannot bypass the final validity check. Earlier guards remain for
+fast rejection. No guard change enables publication or changes quality criteria.
+
 Recovery accepts successful provenance from exactly `.github/workflows/refresh.yml` or
 `.github/workflows/initial-import.yml`. All previous successful-history/public-byte/inventory,
 registry and date/hash guards remain; source assets or local proof are never recovery authority.

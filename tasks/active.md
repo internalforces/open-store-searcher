@@ -28,6 +28,15 @@ _Last updated: 2026-10-21_
 - Design: retain the approved collection-date publication design and compact V2 contract.
 - Plan: [acceptance continuation](../docs/superpowers/plans/2026-10-19-task-009-publication-acceptance.md).
 
+Latest final-review authorization: the user requested review of PR #34 and protected-main
+merge if sound while keeping quality unchanged and source-data upload/deployment withheld.
+Three P2 workflow findings are corrected locally; independent core rereview is Approved.
+The [final-review evidence](../reports/review-2026-10-21-pr34-final.md) retains exact regression,
+full verification, final independent assessment and action-time CI/integration boundaries.
+Final current-head Verify and conversation closure remain mandatory before normal merge.
+TASK-009/II-10/hosted AC-009-4/5 remains active; TASK-010, registries and operational gates stay
+paused/inactive. The historical base below identifies the pre-PR34 integration starting point.
+
 Latest October 21 code-delivery authorization: the user requested commit, push, PR creation
 and subsequent verification. Implementation `fd8872dfb6703737731bde68e8688b73c28f9361` is in
 [draft PR #34](https://github.com/internalforces/open-store-searcher/pull/34); exact43-file remote

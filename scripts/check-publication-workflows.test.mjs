@@ -17,6 +17,91 @@ function job(yaml, name) {
     )?.[1] ?? ''
   );
 }
+function runStep(yaml, jobName, stepName) {
+  const block = job(yaml, jobName);
+  const start = block.indexOf(`- name: ${stepName}`);
+  assert.notEqual(start, -1, `missing ${jobName} step: ${stepName}`);
+  const tail = block.slice(start);
+  const end = tail.search(/^ {6}- /m);
+  const step = end < 0 ? tail : tail.slice(0, end);
+  const inline = step.match(/^ {8}run: (?!\|$)(.+)$/m)?.[1];
+  const multiline = step.match(/^ {8}run: \|\n((?: {10}[^\n]*\n?)+)/m)?.[1];
+  const script = inline ?? multiline?.replace(/^ {10}/gm, '');
+  assert.ok(script, `${jobName}/${stepName} must be an executable run step`);
+  return script;
+}
+function runShell(script, env = {}, cwd = process.cwd()) {
+  return spawnSync('bash', ['-e', '-c', script], {
+    cwd,
+    encoding: 'utf8',
+    timeout: 15000,
+    env: { ...process.env, ...env },
+  });
+}
+const initialSha = 'c'.repeat(40);
+function initialRunBinding(expiresAt) {
+  const preparedAt = new Date(Date.parse(expiresAt) - 86400000).toISOString();
+  return JSON.stringify({
+    version: 1,
+    kind: 'initial-import-run-bound',
+    workflowPath: '.github/workflows/initial-import.yml',
+    sourceId: 'seoul-2026-10-16-initial',
+    operatorSha: initialSha,
+    runId: 31,
+    candidateArtifactId: 501,
+    artifactName: 'github-pages',
+    preparationSha256: 'a'.repeat(64),
+    tarSha256: 'b'.repeat(64),
+    inventorySha256: 'd'.repeat(64),
+    preparedAt,
+    expiresAt,
+  });
+}
+async function finalGuardFixture(
+  t,
+  script,
+  { now, currentSha = initialSha, fetchFails = false, apiFails = false },
+) {
+  const directory = await mkdtemp(join(tmpdir(), 'initial-final-guard-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const events = join(directory, 'events');
+  const clock = join(directory, 'clock');
+  const binding = initialRunBinding(new Date(now + 60000).toISOString());
+  await writeFile(clock, String(now));
+  await writeFile(
+    join(directory, 'gh'),
+    `#!/bin/sh\nprintf 'main\\n' >> "$EVENTS"\nif [ -n "\${ADVANCE_AFTER_MAIN:-}" ]; then printf '%s' "$ADVANCE_AFTER_MAIN" > "$TEST_CLOCK"; fi\n${apiFails ? "echo 'simulated gh api transport failure' >&2; exit 1;" : `printf '%s\\n' '${currentSha}'`}\n`,
+    { mode: 0o700 },
+  );
+  const preload = join(directory, 'preload.mjs');
+  await writeFile(
+    preload,
+    `import { readFileSync, appendFileSync, writeFileSync } from 'node:fs';\nconst RealDate = Date;\nconst clock = () => Number(readFileSync(process.env.TEST_CLOCK, 'utf8'));\nglobalThis.Date = class extends RealDate { constructor(...args) { super(...(args.length ? args : [clock()])); } static now() { return clock(); } };\nglobalThis.fetch = async (...args) => { appendFileSync(process.env.EVENTS, 'probe\\n'); ${fetchFails ? "throw new Error('transport failed');" : 'if (process.env.ADVANCE_AFTER_PROBE) writeFileSync(process.env.TEST_CLOCK, process.env.ADVANCE_AFTER_PROBE); return new Response(null, { status: 404 });'} };\n`,
+  );
+  const node = join(directory, 'node');
+  await writeFile(node, `#!/bin/sh\nexec '${process.execPath}' --import "$TEST_PRELOAD" "$@"\n`, {
+    mode: 0o700,
+  });
+  const result = runShell(
+    script,
+    {
+      PATH: `${directory}:${process.env.PATH}`,
+      TEST_PRELOAD: preload,
+      TEST_CLOCK: clock,
+      EVENTS: events,
+      GH_REPO: 'internalforces/open-store-searcher',
+      EXPECTED_SHA: initialSha,
+      RUN_BINDING: binding,
+      GITHUB_ACTIONS: 'true',
+      GITHUB_REPOSITORY: 'internalforces/open-store-searcher',
+      GITHUB_REF: 'refs/heads/main',
+      GITHUB_SHA: initialSha,
+      GITHUB_RUN_ID: '31',
+    },
+    process.cwd(),
+  );
+  return { result, events: await readFile(events, 'utf8').catch(() => ''), directory };
+}
 const nodes = [
   'scripts/check-pages-artifact.test.mjs',
   'scripts/check-publication-state.test.mjs',
@@ -49,6 +134,25 @@ test('refresh evaluates its actual default-off schedule and current-main predica
           JSON.stringify({ event, main, enabled }),
         );
       }
+});
+
+test('initial import keeps the early trusted-run expiry fast-fail before public probing', () => {
+  const early = runStep(
+    initial,
+    'deploy',
+    'Recheck the trusted same-run preparation after environment approval',
+  );
+  const expired = initialRunBinding(new Date(Date.now() - 1).toISOString());
+  const result = runShell(early, {
+    RUN_BINDING: expired,
+    GITHUB_ACTIONS: 'true',
+    GITHUB_REPOSITORY: 'internalforces/open-store-searcher',
+    GITHUB_REF: 'refs/heads/main',
+    GITHUB_SHA: initialSha,
+    GITHUB_RUN_ID: '31',
+  });
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /invalid, mismatched or expired/i);
 });
 test('restore is manual-only default-branch and deny-all with shared protected same-run promotion', () => {
   assert.match(restore, /^ {2}workflow_dispatch:/m);
@@ -267,11 +371,10 @@ test('actual initial source command treats malicious source_id as one inert argu
   await assert.rejects(access(sentinel));
   await assert.rejects(access(join(directory, 'initial-prepared')));
 });
-test('actual initial postapproval current-main command rejects main advancement', async (t) => {
+test('actual initial early postapproval current-main command rejects main advancement', async (t) => {
   const directory = await mkdtemp(join(tmpdir(), 'initial-main-guard-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
-  const guard = job(initial, 'deploy').match(/run: \|\n((?: {10}[^\n]*\n)+)/)?.[1];
-  assert.ok(guard);
+  const guard = runStep(initial, 'deploy', 'Reject obsolete code after environment approval');
   const expected = 'c'.repeat(40);
   for (const current of [expected, 'd'.repeat(40)]) {
     await writeFile(join(directory, 'gh'), `#!/bin/sh\nprintf '%s\\n' '${current}'\n`, {
@@ -288,6 +391,139 @@ test('actual initial postapproval current-main command rejects main advancement'
       },
     });
     assert.equal(r.status, current === expected ? 0 : 1, r.stderr);
+  }
+});
+
+test('initial import rejects rerun attempts as the first executable step in both jobs', () => {
+  const names = ['prepare', 'deploy'];
+  for (const name of names) {
+    const block = job(initial, name);
+    const steps = block.match(/^ {4}steps:\n([\s\S]*)/m)?.[1] ?? '';
+    const firstEntry = steps.match(/^ {6}- [^\n]+/m)?.[0];
+    assert.equal(firstEntry, '      - name: Reject workflow reruns');
+    const guard = runStep(initial, name, 'Reject workflow reruns');
+    for (const attempt of ['1', '2', '7']) {
+      const result = runShell(guard, { GITHUB_RUN_ATTEMPT: attempt });
+      assert.equal(result.status, attempt === '1' ? 0 : 1, `${name} attempt=${attempt}`);
+      if (attempt !== '1') assert.match(result.stderr, /new workflow_dispatch/i);
+    }
+    for (const attempt of [undefined, '', '0', '01', '1x', 'malformed']) {
+      const result = runShell(guard, { GITHUB_RUN_ATTEMPT: attempt });
+      assert.equal(result.status, 1, `${name} malformed attempt=${attempt}`);
+      assert.match(result.stderr, /new workflow_dispatch/i);
+    }
+    assert.ok(block.indexOf('Reject workflow reruns') < block.indexOf('uses: actions/checkout'));
+  }
+});
+
+test('initial final guard probes public 404, rechecks main, then validates the same-run binding immediately before deploy', async (t) => {
+  const deploy = job(initial, 'deploy');
+  const finalStep = runStep(
+    initial,
+    'deploy',
+    'Final current-main and trusted-run check after public 404 probe',
+  );
+  const deployIndex = deploy.indexOf('uses: actions/deploy-pages');
+  const stepIndex = deploy.indexOf(
+    'Final current-main and trusted-run check after public 404 probe',
+  );
+  assert.ok(stepIndex >= 0 && stepIndex < deployIndex);
+  assert.equal(deploy.slice(stepIndex, deployIndex).match(/^ {6}- /gm)?.length, 1);
+  assert.ok(finalStep.indexOf('check-publication-state.mjs') < finalStep.indexOf('gh api'));
+  assert.ok(finalStep.indexOf('gh api') < finalStep.indexOf('check-initial-import-run.mjs'));
+  assert.match(finalStep, /check-initial-import-run\.mjs "\$RUN_BINDING"/);
+  const now = Date.now();
+  const success = await finalGuardFixture(t, finalStep, { now });
+  assert.equal(success.result.status, 0, success.result.stderr);
+  assert.deepEqual(success.events.trim().split('\n'), ['probe', 'main']);
+  const obsolete = await finalGuardFixture(t, finalStep, { now, currentSha: 'd'.repeat(40) });
+  assert.equal(obsolete.result.status, 1);
+  assert.deepEqual(obsolete.events.trim().split('\n'), ['probe', 'main']);
+  const transport = await finalGuardFixture(t, finalStep, { now, fetchFails: true });
+  assert.equal(transport.result.status, 1);
+  assert.deepEqual(transport.events.trim().split('\n'), ['probe']);
+  const apiFailure = await finalGuardFixture(t, finalStep, { now, apiFails: true });
+  assert.equal(apiFailure.result.status, 1);
+  assert.match(apiFailure.result.stderr, /simulated gh api transport failure/);
+  assert.deepEqual(apiFailure.events.trim().split('\n'), ['probe', 'main']);
+});
+
+test('initial final guard accepts a binding before expiry and rejects it at or after expiry after both network probes', async (t) => {
+  const finalStep = runStep(
+    initial,
+    'deploy',
+    'Final current-main and trusted-run check after public 404 probe',
+  );
+  const now = Date.now();
+  for (const [offset, expected] of [
+    [-1, 0],
+    [0, 1],
+    [1, 1],
+  ]) {
+    const fixture = await finalGuardFixture(t, finalStep, {
+      now: now - 60000,
+    });
+    await writeFile(join(fixture.directory, 'events'), '');
+    await writeFile(join(fixture.directory, 'clock'), String(now + offset));
+    const checked = runShell(
+      finalStep,
+      {
+        PATH: `${fixture.directory}:${process.env.PATH}`,
+        TEST_PRELOAD: join(fixture.directory, 'preload.mjs'),
+        TEST_CLOCK: join(fixture.directory, 'clock'),
+        EVENTS: join(fixture.directory, 'events'),
+        GH_REPO: 'internalforces/open-store-searcher',
+        EXPECTED_SHA: initialSha,
+        RUN_BINDING: initialRunBinding(new Date(now).toISOString()),
+        GITHUB_ACTIONS: 'true',
+        GITHUB_REPOSITORY: 'internalforces/open-store-searcher',
+        GITHUB_REF: 'refs/heads/main',
+        GITHUB_SHA: initialSha,
+        GITHUB_RUN_ID: '31',
+      },
+      process.cwd(),
+    );
+    assert.equal(checked.status, expected, `expiry offset ${offset}`);
+    assert.deepEqual(
+      (await readFile(join(fixture.directory, 'events'), 'utf8')).trim().split('\n'),
+      ['probe', 'main'],
+    );
+  }
+});
+
+test('initial final guard rejects expiry reached during either network probe before publishing', async (t) => {
+  const finalStep = runStep(
+    initial,
+    'deploy',
+    'Final current-main and trusted-run check after public 404 probe',
+  );
+  const now = Date.now();
+  for (const advance of ['probe', 'main']) {
+    const fixture = await finalGuardFixture(t, finalStep, { now: now - 60000 });
+    await writeFile(join(fixture.directory, 'events'), '');
+    await writeFile(join(fixture.directory, 'clock'), String(now - 60000));
+    const checked = runShell(finalStep, {
+      PATH: `${fixture.directory}:${process.env.PATH}`,
+      TEST_PRELOAD: join(fixture.directory, 'preload.mjs'),
+      TEST_CLOCK: join(fixture.directory, 'clock'),
+      EVENTS: join(fixture.directory, 'events'),
+      GH_REPO: 'internalforces/open-store-searcher',
+      EXPECTED_SHA: initialSha,
+      RUN_BINDING: initialRunBinding(new Date(now).toISOString()),
+      GITHUB_ACTIONS: 'true',
+      GITHUB_REPOSITORY: 'internalforces/open-store-searcher',
+      GITHUB_REF: 'refs/heads/main',
+      GITHUB_SHA: initialSha,
+      GITHUB_RUN_ID: '31',
+      ...(advance === 'probe'
+        ? { ADVANCE_AFTER_PROBE: String(now) }
+        : { ADVANCE_AFTER_MAIN: String(now) }),
+    });
+    assert.equal(checked.status, 1, `expiry advanced during ${advance}`);
+    assert.deepEqual(
+      (await readFile(join(fixture.directory, 'events'), 'utf8')).trim().split('\n'),
+      ['probe', 'main'],
+    );
   }
 });
 test('production configuration equals exactly the approved configuration with unchanged quality objects', async () => {

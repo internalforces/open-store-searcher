@@ -32,6 +32,14 @@ These are separate future approval gates, not instructions to execute from local
    admitted; the source ZIP and local proof never provide recovery authority.
 7. Keep routine operation paused pending its separate live-policy/operational decision.
 
+Initial-import retries require a new authorized manual run. Both jobs reject any run attempt
+other than the first before doing work; do not use GitHub's job-rerun controls or remove earlier
+artifacts to reuse a run. Keep the fixed artifact names and review the new run's own IDs and
+24-hour window. After the protected environment approval and public-404 probe, the final guard
+reads current main again and rechecks expiry against the actual clock immediately before
+`deploy-pages`. This preserves the approved manual/current-main/same-run contract without
+additional permissions, source selection or quality changes.
+
 The source remains collected `2026-10-16T01:52:52.043Z` with null/unverified source coverage.
 It is five Seoul calendar days old on October 21 and warns from October 23 midnight Seoul.
 Rebuild, import, upload and deployment clocks never refresh it. Configuration/quality/source

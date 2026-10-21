@@ -648,3 +648,15 @@ addresses the missing local entry point and first-import backup-origin admission
 implemented. Actual source asset IDs and activation remain unavailable until later authorized
 upload/readback/trust-root delivery. Current-source quality, source coverage/ISS-003, local
 implementation/review, full-data performance and actual hosted/release gates remain open.
+
+
+## PR #34 initial-import workflow findings — 2026-10-21
+
+Three P2s from the remote and independent final review are corrected locally: recheck current
+main at the deployment boundary; revalidate expiry after both network probes; reject same-run
+reruns before work and require a fresh manual run. The independent core rereview is Approved;
+accumulated/final-head verification remains a gate before merge. See the
+[final review evidence](../reports/review-2026-10-21-pr34-final.md). These are guard corrections,
+not a quality-policy or source/status change. ISS-003 and hosted/performance/release gates remain
+open. The initial8 test-only lint warnings were fixed without suppression; five pre-existing
+informational notices remain nonblocking.

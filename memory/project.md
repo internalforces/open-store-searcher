@@ -48,6 +48,17 @@ open-store-searcher/
 
 Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 created them.
 
+## PR #34 final review and conditional integration — 2026-10-21
+
+The user authorized final review and protected-main merge if sound, with quality unchanged and
+source upload/deployment withheld. Three P2 workflow edge cases are corrected locally and the
+independent core rereview is Approved: final main/expiry checks after network validation, and
+first-attempt-only jobs with fresh manual-run retry. The
+[final review](../reports/review-2026-10-21-pr34-final.md) records current verification and
+action-time CI/integration evidence. Earlier delivery counts remain historical. Source and
+recovery registries stay inactive, Pages is currently disabled and enable variables unset.
+TASK-009/hosted AC-009-4/5 stays active, TASK-010 paused, with no operational action authorized.
+
 ## TASK-009 initial-import PR delivery — 2026-10-21
 
 The user subsequently authorized code commit/push/PR creation and verification. Implementation

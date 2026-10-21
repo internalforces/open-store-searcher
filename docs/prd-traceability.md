@@ -574,3 +574,15 @@ They supply local evidence only. II-10 and hosted AC-009-4/5 remain open; TASK-0
 TASK-010 stays paused. Existing PRD, quality, source-coverage, full-data performance, physical/mobile,
 30-day reliability, publication/recovery and release gates are unchanged. Neither registry is
 active and no remote operation or milestone/handbook closure is claimed.
+
+
+## PR #34 final-review guard correction — 2026-10-21
+
+FR-13 / II-06/07 / AC-009-4/5: the local current-main, actual24-hour-expiry and fresh-run
+contracts now have executable workflow-boundary regressions for both network waits and exact
+first-attempt admission. The [final-review record](../reports/review-2026-10-21-pr34-final.md)
+maps exact test names, RED/GREEN, unchanged quality hashes, independent review and subsequent
+CI/integration readback. It preserves the historical195-category/730-file raw proof with two
+explicit guard/test differences among178 code bindings. Hosted publication/public equality,
+backup/recovery and release acceptance remain open; main integration cannot close II-10 or
+activate TASK-010, either registry, publication or recurrence.
