@@ -48,6 +48,19 @@ open-store-searcher/
 
 Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 created them.
 
+## TASK-009 initial-import PR delivery — 2026-10-21
+
+The user subsequently authorized code commit/push/PR creation and verification. Implementation
+`fd8872dfb6703737731bde68e8688b73c28f9361` is delivered in
+[draft PR #34](https://github.com/internalforces/open-store-searcher/pull/34). Exact remote
+43-file/head readback and all 178 historical raw-proof code bindings match. Fresh local and
+implementation-head GitHub Verify pass 1,366/68/20 plus96 Node tests. The
+[delivery record](../reports/delivery-2026-10-21-task-009-initial-import.md) retains exact heads,
+check/log identities and the separate current-head readback requirement after bookkeeping.
+Earlier no-commit/no-remote claims below retain their local-execution historical scope.
+Source/recovery registries remain inactive; main integration, source upload/activation and all
+operational/deployment/hosted gates remain open. TASK-009 active, TASK-010 paused.
+
 ## TASK-009 initial-import implementation and evidence work — 2026-10-21
 
 The user-approved seven-task local execution has implemented Tasks 1–6 with independent

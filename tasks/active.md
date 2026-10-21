@@ -28,6 +28,17 @@ _Last updated: 2026-10-21_
 - Design: retain the approved collection-date publication design and compact V2 contract.
 - Plan: [acceptance continuation](../docs/superpowers/plans/2026-10-19-task-009-publication-acceptance.md).
 
+Latest October 21 code-delivery authorization: the user requested commit, push, PR creation
+and subsequent verification. Implementation `fd8872dfb6703737731bde68e8688b73c28f9361` is in
+[draft PR #34](https://github.com/internalforces/open-store-searcher/pull/34); exact43-file remote
+readback and all178 historical-proof code bindings match. Fresh local and implementation-head
+GitHub Verify pass1,366/68/20 plus96 Node tests. See the
+[delivery record](../reports/delivery-2026-10-21-task-009-initial-import.md). Current-head checks
+are read back after documentation bookkeeping. This authorization covers code delivery;
+source assets/registry activation, main merge, settings/dispatch and all deployment/hosted
+acceptance gates remain separate and unperformed. Earlier no-remote authorization statements
+below describe the prior local-only phase. TASK-009 stays active and TASK-010 paused.
+
 Current October 21 implementation: Tasks 1–6 have Approved independent spec/quality reviews,
 with Task 5 Actions/security and Task 6 provenance-security reviews Approved and zero open
 findings. Task 7 actual-source proof passes 195 categories/2,951,024 rows, complete baseline

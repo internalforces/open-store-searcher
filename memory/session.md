@@ -2559,3 +2559,24 @@ staged-whitespace diagnostics; exact approved design bytes were retained. TASK-0
 active for actual hosted/source/performance/release gates, TASK-010 stays paused, and the
 branch/worktree and private proof/review records remain preserved. No merge, settings/flags,
 dispatch, environment approval, tag/Release/assets, publication or deployment was performed.
+
+
+## TASK-009 initial-import authorized PR delivery — 2026-10-21
+
+The user explicitly requested commit, push, PR creation and subsequent verification. Delivered
+43 reviewed implementation/analysis/design/evidence files in
+`fd8872dfb6703737731bde68e8688b73c28f9361` on
+`codex/task-009-first-publication-analysis` and created
+[draft PR #34](https://github.com/internalforces/open-store-searcher/pull/34) against unchanged
+main `b586e72e88cb41b9988a62d70f9cd5b5503b53bc`. Exact remote head/base/file-set readback and
+all 178 actual-proof core Git-blob bindings match. Original checkout status/73 files and prior
+proof identities remain preserved. Fresh precommit full verification passes 1,366/68/20 plus
+96 Node tests; GitHub Verify run39527329529 independently passes the same commands/counts.
+See the [delivery record](../reports/delivery-2026-10-21-task-009-initial-import.md).
+
+This entry and accompanying handoff updates are documentation-only delivery bookkeeping.
+Current final-head CI/readback is checked separately after their push; historical proof is
+not relabeled. No merge, source Release/asset upload, registry adoption, setting/flag change,
+manual operational dispatch, protected approval, deployment, recovery, recurrence, cleanup,
+handbook work or milestone closure is included. Both registries stay inactive, TASK-009 stays
+active for II-10/hosted AC-009-4/5, and TASK-010 stays paused.
