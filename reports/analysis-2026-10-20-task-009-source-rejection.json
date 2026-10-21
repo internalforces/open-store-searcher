@@ -1,0 +1,2443 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "status": "analysis-only; no source or policy adopted",
+  "sourceCommit": "b586e72e88cb41b9988a62d70f9cd5b5503b53bc",
+  "requirements": ["FR-13", "FR-02", "FR-08", "FR-12", "FR-14"],
+  "method": {
+    "mechanism": "One Vite in-memory observation assignment immediately after the unchanged production validateMeasuredRefresh call",
+    "transforms": 1,
+    "resultUnchanged": true,
+    "historicalErrorExactMatch": true,
+    "trackedFilesUnchanged": true
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "arch": "arm64"
+  },
+  "replayElapsedMs": 402028,
+  "baseline": {
+    "collectionDate": "2026-10-16",
+    "archiveSha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+    "canonicalSha256": "9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183",
+    "recordCount": 2951024
+  },
+  "currentSource": {
+    "sha256": "4a0122435f1a3c998c6293f25eeb4338dcef1c36901fee268014b8d50ea787ff",
+    "byteLength": 217395591,
+    "collectedAt": "2026-10-19T02:46:06.133Z",
+    "sourceDataAsOf": null
+  },
+  "policy": {
+    "revision": "task-008-calibration-2026-10-16-v1-proposed",
+    "canonicalSha256": "090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff",
+    "unchangedInBothConfigurationFiles": true,
+    "maxJsonBytes": 691319965,
+    "allowedEmptyCategoryCount": 23,
+    "allowedEmptyListUnchanged": true
+  },
+  "rejections": {
+    "diagnosticCount": 51,
+    "categoryCount": 18,
+    "codeCounts": {
+      "count_above_maximum": 9,
+      "count_change_exceeded": 18,
+      "status_share_change_exceeded": 24
+    },
+    "countChangeScopes": 9,
+    "statusShareScopes": 16,
+    "zeroCountChangeScopesThatChanged": ["15045021", "15045103", "15101551"]
+  },
+  "warnings": [
+    {
+      "code": "source_coverage_unverified",
+      "severity": "warning"
+    }
+  ],
+  "total": {
+    "baseline": {
+      "recordCount": 2951024,
+      "missingNameCount": 29,
+      "missingBothAddressCount": 0,
+      "unknownPairCount": 188307,
+      "statusCounts": {
+        "행정상 영업": 982085,
+        "휴업": 3787,
+        "폐업": 1582950,
+        "확인되지 않음": 382202
+      },
+      "rawMissing": {
+        "businessName": {
+          "null": 0,
+          "empty": 0,
+          "whitespace": 29
+        },
+        "roadAddress": {
+          "null": 0,
+          "empty": 694220,
+          "whitespace": 0
+        },
+        "parcelAddress": {
+          "null": 0,
+          "empty": 135140,
+          "whitespace": 188
+        },
+        "detailedCode": {
+          "null": 0,
+          "empty": 0,
+          "whitespace": 0
+        },
+        "detailedName": {
+          "null": 0,
+          "empty": 1233,
+          "whitespace": 0
+        }
+      },
+      "aggregatePairs": [
+        {
+          "code": "01",
+          "name": "영업/정상",
+          "count": 982085
+        },
+        {
+          "code": "02",
+          "name": "휴업",
+          "count": 3787
+        },
+        {
+          "code": "03",
+          "name": "폐업",
+          "count": 1582950
+        },
+        {
+          "code": "04",
+          "name": "취소/말소/만료/정지/중지",
+          "count": 193895
+        },
+        {
+          "code": "05",
+          "name": "제외/삭제/전출",
+          "count": 188284
+        },
+        {
+          "code": "06",
+          "name": "기타",
+          "count": 23
+        }
+      ],
+      "collisionGroupCount": 1125922,
+      "collisionRecordCount": 2746525
+    },
+    "current": {
+      "recordCount": 2952086,
+      "missingNameCount": 29,
+      "missingBothAddressCount": 0,
+      "unknownPairCount": 188416,
+      "statusCounts": {
+        "행정상 영업": 982359,
+        "휴업": 3788,
+        "폐업": 1583621,
+        "확인되지 않음": 382318
+      },
+      "rawMissing": {
+        "businessName": {
+          "null": 0,
+          "empty": 0,
+          "whitespace": 29
+        },
+        "roadAddress": {
+          "null": 0,
+          "empty": 694231,
+          "whitespace": 0
+        },
+        "parcelAddress": {
+          "null": 0,
+          "empty": 135142,
+          "whitespace": 188
+        },
+        "detailedCode": {
+          "null": 0,
+          "empty": 0,
+          "whitespace": 0
+        },
+        "detailedName": {
+          "null": 0,
+          "empty": 1233,
+          "whitespace": 0
+        }
+      },
+      "aggregatePairs": [
+        {
+          "code": "01",
+          "name": "영업/정상",
+          "count": 982359
+        },
+        {
+          "code": "02",
+          "name": "휴업",
+          "count": 3788
+        },
+        {
+          "code": "03",
+          "name": "폐업",
+          "count": 1583621
+        },
+        {
+          "code": "04",
+          "name": "취소/말소/만료/정지/중지",
+          "count": 193902
+        },
+        {
+          "code": "05",
+          "name": "제외/삭제/전출",
+          "count": 188393
+        },
+        {
+          "code": "06",
+          "name": "기타",
+          "count": 23
+        }
+      ],
+      "collisionGroupCount": 1126346,
+      "collisionRecordCount": 2747588
+    },
+    "countDelta": 1062,
+    "limits": {
+      "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+      "minCount": 2940295,
+      "maxCount": 2952182,
+      "maxAbsoluteCountChange": 1158,
+      "maxRelativeCountChange": 0.000392825474,
+      "maxMissingNameRate": 9.859074e-6,
+      "maxMissingBothAddressRate": 0,
+      "maxStatusShareChange": {
+        "행정상 영업": 0.000102338285,
+        "휴업": 1.288694e-6,
+        "폐업": 9.1661403e-5,
+        "확인되지 않음": 1.2010517e-5
+      }
+    },
+    "maxCountHeadroom": 96,
+    "statusCountDelta": {
+      "행정상 영업": 274,
+      "휴업": 1,
+      "폐업": 671,
+      "확인되지 않음": 116
+    },
+    "rejectedMetrics": []
+  },
+  "sourceComparison": {
+    "changedCategoryFiles": 96,
+    "unchangedCategoryFiles": 99,
+    "categoryCountIncreases": 56,
+    "categoryCountDecreases": 0,
+    "rowCounts": {
+      "added": 1065,
+      "removed": 3,
+      "matchedChanged": 1766,
+      "matchedUnchanged": 2949255
+    },
+    "fieldGroupChangesOverlap": {
+      "display": 280,
+      "aggregatePair": 787,
+      "detailedStatus": 788,
+      "otherSourceFields": 1766
+    },
+    "mappedStatusTransitions": [
+      {
+        "from": "폐업",
+        "to": "행정상 영업",
+        "count": 1
+      },
+      {
+        "from": "행정상 영업",
+        "to": "폐업",
+        "count": 670
+      },
+      {
+        "from": "행정상 영업",
+        "to": "확인되지 않음",
+        "count": 113
+      },
+      {
+        "from": "행정상 영업",
+        "to": "휴업",
+        "count": 2
+      },
+      {
+        "from": "휴업",
+        "to": "행정상 영업",
+        "count": 1
+      }
+    ],
+    "absentPriorIdentities": [
+      {
+        "categoryId": "15045037",
+        "oldCount": 99904,
+        "newCount": 99933,
+        "added": 32,
+        "removed": 3,
+        "matchedUnchanged": 99844,
+        "matchedChanged": 57,
+        "changes": {
+          "display": 10,
+          "aggregatePair": 17,
+          "detailedStatus": 17,
+          "otherSourceFields": 57
+        },
+        "addedStatuses": {
+          "행정상 영업": 32,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 3,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 17
+          }
+        ]
+      }
+    ],
+    "scope": "Exact category/authority/management identity, original CSV values; absence is not a closure decision; source administrative truth and reasons for edits remain unverified"
+  },
+  "affectedCategories": [
+    {
+      "categoryId": "15044955",
+      "sourceTitleLiteral": "행정안전부_자원환경_환경측정대행업",
+      "baselineCount": 285,
+      "currentCount": 286,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 283,
+        "maxCount": 286,
+        "maxAbsoluteCountChange": 1,
+        "maxRelativeCountChange": 0.003521126761,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.001816160119,
+          "휴업": 0,
+          "폐업": 0.000976031629,
+          "확인되지 않음": 0.000840128491
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044955",
+          "metric": "확인되지 않음",
+          "actual": 0.0026622500306710817,
+          "limit": 0.000840128491
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15044955",
+        "oldCount": 285,
+        "newCount": 286,
+        "added": 1,
+        "removed": 0,
+        "matchedUnchanged": 283,
+        "matchedChanged": 2,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 1,
+          "detailedStatus": 1,
+          "otherSourceFields": 2
+        },
+        "addedStatuses": {
+          "행정상 영업": 1,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "확인되지 않음",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15044968",
+      "sourceTitleLiteral": "행정안전부_문화_숙박업",
+      "baselineCount": 7187,
+      "currentCount": 7195,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 7141,
+        "maxCount": 7194,
+        "maxAbsoluteCountChange": 7,
+        "maxRelativeCountChange": 0.000976017848,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000594121465,
+          "휴업": 0,
+          "폐업": 0.000594121465,
+          "확인되지 않음": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "recordCount",
+          "actual": 7195,
+          "limit": 7194
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "absoluteCountChange",
+          "actual": 8,
+          "limit": 7
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "relativeCountChange",
+          "actual": 0.0011131209127591484,
+          "limit": 0.000976017848
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "폐업",
+          "actual": 0.0006760720484721983,
+          "limit": 0.000594121465
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "행정상 영업",
+          "actual": 0.0006760720484721983,
+          "limit": 0.000594121465
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15044968",
+        "oldCount": 7187,
+        "newCount": 7195,
+        "added": 8,
+        "removed": 0,
+        "matchedUnchanged": 7183,
+        "matchedChanged": 4,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 0,
+          "detailedStatus": 0,
+          "otherSourceFields": 4
+        },
+        "addedStatuses": {
+          "행정상 영업": 8,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": []
+      }
+    },
+    {
+      "categoryId": "15044985",
+      "sourceTitleLiteral": "행정안전부_식품_건강기능식품일반판매업",
+      "baselineCount": 116430,
+      "currentCount": 116479,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 116009,
+        "maxCount": 116477,
+        "maxAbsoluteCountChange": 47,
+        "maxRelativeCountChange": 0.000404506374,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 7.6700718e-5,
+          "휴업": 0,
+          "폐업": 7.6700718e-5,
+          "확인되지 않음": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044985",
+          "metric": "recordCount",
+          "actual": 116479,
+          "limit": 116477
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044985",
+          "metric": "absoluteCountChange",
+          "actual": 49,
+          "limit": 47
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044985",
+          "metric": "relativeCountChange",
+          "actual": 0.00042085373185605086,
+          "limit": 0.000404506374
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15044985",
+        "oldCount": 116430,
+        "newCount": 116479,
+        "added": 49,
+        "removed": 0,
+        "matchedUnchanged": 116379,
+        "matchedChanged": 51,
+        "changes": {
+          "display": 11,
+          "aggregatePair": 37,
+          "detailedStatus": 37,
+          "otherSourceFields": 51
+        },
+        "addedStatuses": {
+          "행정상 영업": 49,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 36
+          },
+          {
+            "from": "폐업",
+            "to": "행정상 영업",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15044996",
+      "sourceTitleLiteral": "행정안전부_문화_국내외여행업",
+      "baselineCount": 13625,
+      "currentCount": 13629,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 13591,
+        "maxCount": 13631,
+        "maxAbsoluteCountChange": 6,
+        "maxRelativeCountChange": 0.000440917108,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000112197233,
+          "휴업": 1.651739e-6,
+          "폐업": 0.000150078729,
+          "확인되지 않음": 0.000109339376
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044996",
+          "metric": "확인되지 않음",
+          "actual": 0.0001228465206074003,
+          "limit": 0.000109339376
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15044996",
+        "oldCount": 13625,
+        "newCount": 13629,
+        "added": 4,
+        "removed": 0,
+        "matchedUnchanged": 13607,
+        "matchedChanged": 18,
+        "changes": {
+          "display": 2,
+          "aggregatePair": 3,
+          "detailedStatus": 3,
+          "otherSourceFields": 18
+        },
+        "addedStatuses": {
+          "행정상 영업": 4,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045000",
+      "sourceTitleLiteral": "행정안전부_문화_비디오물제작업",
+      "baselineCount": 13031,
+      "currentCount": 13040,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 12976,
+        "maxCount": 13039,
+        "maxAbsoluteCountChange": 8,
+        "maxRelativeCountChange": 0.000615195325,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000283051944,
+          "휴업": 0,
+          "폐업": 0.000145341761,
+          "확인되지 않음": 0.000167524235
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045000",
+          "metric": "recordCount",
+          "actual": 13040,
+          "limit": 13039
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045000",
+          "metric": "absoluteCountChange",
+          "actual": 9,
+          "limit": 8
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045000",
+          "metric": "relativeCountChange",
+          "actual": 0.000690660732100376,
+          "limit": 0.000615195325
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045000",
+        "oldCount": 13031,
+        "newCount": 13040,
+        "added": 9,
+        "removed": 0,
+        "matchedUnchanged": 13022,
+        "matchedChanged": 9,
+        "changes": {
+          "display": 3,
+          "aggregatePair": 3,
+          "detailedStatus": 3,
+          "otherSourceFields": 9
+        },
+        "addedStatuses": {
+          "행정상 영업": 9,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "확인되지 않음",
+            "count": 2
+          },
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045021",
+      "sourceTitleLiteral": "행정안전부_문화_온라인음악서비스제공업",
+      "baselineCount": 119,
+      "currentCount": 120,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 119,
+        "maxCount": 119,
+        "maxAbsoluteCountChange": 0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.01680672269,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0.01680672269
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "recordCount",
+          "actual": 120,
+          "limit": 119
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "absoluteCountChange",
+          "actual": 1,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "relativeCountChange",
+          "actual": 0.008403361344537815,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "폐업",
+          "actual": 0.0014705882352941402,
+          "limit": 0
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045021",
+        "oldCount": 119,
+        "newCount": 120,
+        "added": 1,
+        "removed": 0,
+        "matchedUnchanged": 118,
+        "matchedChanged": 1,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 1,
+          "detailedStatus": 1,
+          "otherSourceFields": 1
+        },
+        "addedStatuses": {
+          "행정상 영업": 1,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "확인되지 않음",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045029",
+      "sourceTitleLiteral": "행정안전부_건강_치과기공소",
+      "baselineCount": 2538,
+      "currentCount": 2538,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 2531,
+        "maxCount": 2540,
+        "maxAbsoluteCountChange": 2,
+        "maxRelativeCountChange": 0.000788954636,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000551085124,
+          "휴업": 0,
+          "폐업": 0.000597008885,
+          "확인되지 않음": 0.000302427428
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045029",
+          "metric": "확인되지 않음",
+          "actual": 0.0003940110323089052,
+          "limit": 0.000302427428
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045029",
+        "oldCount": 2538,
+        "newCount": 2538,
+        "added": 0,
+        "removed": 0,
+        "matchedUnchanged": 2537,
+        "matchedChanged": 1,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 1,
+          "detailedStatus": 1,
+          "otherSourceFields": 1
+        },
+        "addedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "확인되지 않음",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045032",
+      "sourceTitleLiteral": "행정안전부_건강_의료기기판매(임대)업",
+      "baselineCount": 70396,
+      "currentCount": 70416,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 70208,
+        "maxCount": 70426,
+        "maxAbsoluteCountChange": 30,
+        "maxRelativeCountChange": 0.00042664543,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.00011892678,
+          "휴업": 1.4400066e-5,
+          "폐업": 0.000136337829,
+          "확인되지 않음": 5.466256e-5
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045032",
+          "metric": "확인되지 않음",
+          "actual": 6.879719067509615e-5,
+          "limit": 5.466256e-5
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045032",
+        "oldCount": 70396,
+        "newCount": 70416,
+        "added": 20,
+        "removed": 0,
+        "matchedUnchanged": 70368,
+        "matchedChanged": 28,
+        "changes": {
+          "display": 4,
+          "aggregatePair": 19,
+          "detailedStatus": 19,
+          "otherSourceFields": 28
+        },
+        "addedStatuses": {
+          "행정상 영업": 20,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "확인되지 않음",
+            "count": 8
+          },
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 11
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045035",
+      "sourceTitleLiteral": "행정안전부_자원환경_소독업",
+      "baselineCount": 3826,
+      "currentCount": 3826,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 3811,
+        "maxCount": 3830,
+        "maxAbsoluteCountChange": 4,
+        "maxRelativeCountChange": 0.00104821803,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.00078410873,
+          "휴업": 0.000266026669,
+          "폐업": 0.000422305641,
+          "확인되지 않음": 0.00078410873
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045035",
+          "metric": "폐업",
+          "actual": 0.0007841087297438265,
+          "limit": 0.000422305641
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045035",
+        "oldCount": 3826,
+        "newCount": 3826,
+        "added": 0,
+        "removed": 0,
+        "matchedUnchanged": 3821,
+        "matchedChanged": 5,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 3,
+          "detailedStatus": 3,
+          "otherSourceFields": 5
+        },
+        "addedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045038",
+      "sourceTitleLiteral": "행정안전부_생활_이용업",
+      "baselineCount": 15640,
+      "currentCount": 15641,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 15632,
+        "maxCount": 15642,
+        "maxAbsoluteCountChange": 2,
+        "maxRelativeCountChange": 0.000127901772,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000137566388,
+          "휴업": 0,
+          "폐업": 0.000137566388,
+          "확인되지 않음": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045038",
+          "metric": "폐업",
+          "actual": 0.00020145100317536802,
+          "limit": 0.000137566388
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045038",
+          "metric": "행정상 영업",
+          "actual": 0.00020145100317528475,
+          "limit": 0.000137566388
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045038",
+        "oldCount": 15640,
+        "newCount": 15641,
+        "added": 1,
+        "removed": 0,
+        "matchedUnchanged": 15633,
+        "matchedChanged": 7,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 4,
+          "detailedStatus": 4,
+          "otherSourceFields": 7
+        },
+        "addedStatuses": {
+          "행정상 영업": 1,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 4
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045052",
+      "sourceTitleLiteral": "행정안전부_동물_동물용의료용구판매업",
+      "baselineCount": 816,
+      "currentCount": 818,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 812,
+        "maxCount": 817,
+        "maxAbsoluteCountChange": 1,
+        "maxRelativeCountChange": 0.001230012301,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000524341853,
+          "휴업": 3.022144e-6,
+          "폐업": 0.000494120421,
+          "확인되지 않음": 2.719929e-5
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "recordCount",
+          "actual": 818,
+          "limit": 817
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "absoluteCountChange",
+          "actual": 2,
+          "limit": 1
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "relativeCountChange",
+          "actual": 0.0024509803921568627,
+          "limit": 0.001230012301
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "폐업",
+          "actual": 0.0009797928951532087,
+          "limit": 0.000494120421
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "행정상 영업",
+          "actual": 0.001039719066110556,
+          "limit": 0.000524341853
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "확인되지 않음",
+          "actual": 5.393355386164311e-5,
+          "limit": 2.719929e-5
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "휴업",
+          "actual": 5.992617095738027e-6,
+          "limit": 3.022144e-6
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045052",
+        "oldCount": 816,
+        "newCount": 818,
+        "added": 2,
+        "removed": 0,
+        "matchedUnchanged": 816,
+        "matchedChanged": 0,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 0,
+          "detailedStatus": 0,
+          "otherSourceFields": 0
+        },
+        "addedStatuses": {
+          "행정상 영업": 2,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": []
+      }
+    },
+    {
+      "categoryId": "15045089",
+      "sourceTitleLiteral": "행정안전부_문화_테마파크업(기타)",
+      "baselineCount": 791,
+      "currentCount": 796,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 772,
+        "maxCount": 794,
+        "maxAbsoluteCountChange": 3,
+        "maxRelativeCountChange": 0.003861003862,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.002618552619,
+          "휴업": 4.950005e-6,
+          "폐업": 0.002400752401,
+          "확인되지 않음": 0.001270648031
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "recordCount",
+          "actual": 796,
+          "limit": 794
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "absoluteCountChange",
+          "actual": 5,
+          "limit": 3
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "relativeCountChange",
+          "actual": 0.006321112515802781,
+          "limit": 0.003861003862
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "휴업",
+          "actual": 7.941096125380466e-6,
+          "limit": 4.950005e-6
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045089",
+        "oldCount": 791,
+        "newCount": 796,
+        "added": 5,
+        "removed": 0,
+        "matchedUnchanged": 788,
+        "matchedChanged": 3,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 2,
+          "detailedStatus": 2,
+          "otherSourceFields": 3
+        },
+        "addedStatuses": {
+          "행정상 영업": 5,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045097",
+      "sourceTitleLiteral": "행정안전부_기타_요양보호사교육기관",
+      "baselineCount": 496,
+      "currentCount": 496,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 496,
+        "maxCount": 496,
+        "maxAbsoluteCountChange": 0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.002016129033,
+          "휴업": 0.002016129033,
+          "폐업": 0,
+          "확인되지 않음": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045097",
+          "metric": "폐업",
+          "actual": 0.0020161290322581182,
+          "limit": 0
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045097",
+        "oldCount": 496,
+        "newCount": 496,
+        "added": 0,
+        "removed": 0,
+        "matchedUnchanged": 494,
+        "matchedChanged": 2,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 1,
+          "detailedStatus": 1,
+          "otherSourceFields": 2
+        },
+        "addedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15045103",
+      "sourceTitleLiteral": "행정안전부_기타_담배도매업",
+      "baselineCount": 564,
+      "currentCount": 565,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 564,
+        "maxCount": 564,
+        "maxAbsoluteCountChange": 0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.001773049646,
+          "휴업": 0,
+          "폐업": 0.001773049646,
+          "확인되지 않음": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "recordCount",
+          "actual": 565,
+          "limit": 564
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "absoluteCountChange",
+          "actual": 1,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "relativeCountChange",
+          "actual": 0.0017730496453900709,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "확인되지 않음",
+          "actual": 7.845352413230616e-5,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "휴업",
+          "actual": 3.1381409652921424e-6,
+          "limit": 0
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045103",
+        "oldCount": 564,
+        "newCount": 565,
+        "added": 1,
+        "removed": 0,
+        "matchedUnchanged": 564,
+        "matchedChanged": 0,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 0,
+          "detailedStatus": 0,
+          "otherSourceFields": 0
+        },
+        "addedStatuses": {
+          "행정상 영업": 1,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": []
+      }
+    },
+    {
+      "categoryId": "15045109",
+      "sourceTitleLiteral": "행정안전부_문화_노래연습장업",
+      "baselineCount": 12806,
+      "currentCount": 12806,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 12800,
+        "maxCount": 12808,
+        "maxAbsoluteCountChange": 2,
+        "maxRelativeCountChange": 0.000156201188,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000328210335,
+          "휴업": 3.6593e-8,
+          "폐업": 0.000271579976,
+          "확인되지 않음": 0.000324563282
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045109",
+          "metric": "폐업",
+          "actual": 0.00031235358425740767,
+          "limit": 0.000271579976
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045109",
+          "metric": "행정상 영업",
+          "actual": 0.00039044198032173183,
+          "limit": 0.000328210335
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15045109",
+        "oldCount": 12806,
+        "newCount": 12806,
+        "added": 0,
+        "removed": 0,
+        "matchedUnchanged": 12794,
+        "matchedChanged": 12,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 5,
+          "detailedStatus": 5,
+          "otherSourceFields": 12
+        },
+        "addedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 4
+          },
+          {
+            "from": "행정상 영업",
+            "to": "확인되지 않음",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15101549",
+      "sourceTitleLiteral": "행정안전부_식품_축산판매업",
+      "baselineCount": 42042,
+      "currentCount": 42054,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 42004,
+        "maxCount": 42046,
+        "maxAbsoluteCountChange": 4,
+        "maxRelativeCountChange": 9.5215425e-5,
+        "maxMissingNameRate": 0.000452294801,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 9.7699863e-5,
+          "휴업": 5.2125e-8,
+          "폐업": 0.000105939092,
+          "확인되지 않음": 8.9049123e-5
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "recordCount",
+          "actual": 42054,
+          "limit": 42046
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "absoluteCountChange",
+          "actual": 12,
+          "limit": 4
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "relativeCountChange",
+          "actual": 0.0002854288568574283,
+          "limit": 9.5215425e-5
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "휴업",
+          "actual": 1.561055715916873e-7,
+          "limit": 5.2125e-8
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15101549",
+        "oldCount": 42042,
+        "newCount": 42054,
+        "added": 12,
+        "removed": 0,
+        "matchedUnchanged": 42033,
+        "matchedChanged": 9,
+        "changes": {
+          "display": 2,
+          "aggregatePair": 6,
+          "detailedStatus": 6,
+          "otherSourceFields": 9
+        },
+        "addedStatuses": {
+          "행정상 영업": 12,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 6
+          }
+        ]
+      }
+    },
+    {
+      "categoryId": "15101551",
+      "sourceTitleLiteral": "행정안전부_식품_식육포장처리업",
+      "baselineCount": 1794,
+      "currentCount": 1795,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 1794,
+        "maxCount": 1794,
+        "maxAbsoluteCountChange": 0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.001114827202,
+          "휴업": 0.000557413601,
+          "폐업": 0.001114827202,
+          "확인되지 않음": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "recordCount",
+          "actual": 1795,
+          "limit": 1794
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "absoluteCountChange",
+          "actual": 1,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "relativeCountChange",
+          "actual": 0.0005574136008918618,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "확인되지 않음",
+          "actual": 3.91276399511753e-5,
+          "limit": 0
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15101551",
+        "oldCount": 1794,
+        "newCount": 1795,
+        "added": 1,
+        "removed": 0,
+        "matchedUnchanged": 1794,
+        "matchedChanged": 0,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 0,
+          "detailedStatus": 0,
+          "otherSourceFields": 0
+        },
+        "addedStatuses": {
+          "행정상 영업": 1,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": []
+      }
+    },
+    {
+      "categoryId": "15107029",
+      "sourceTitleLiteral": "행정안전부_동물_동물위탁관리업",
+      "baselineCount": 1382,
+      "currentCount": 1383,
+      "limits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 1379,
+        "maxCount": 1383,
+        "maxAbsoluteCountChange": 1,
+        "maxRelativeCountChange": 0.000724637682,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.000724637682,
+          "휴업": 5.2472e-7,
+          "폐업": 0.000724637682,
+          "확인되지 않음": 6.296635e-6
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15107029",
+          "metric": "폐업",
+          "actual": 0.0011709271042941172,
+          "limit": 0.000724637682
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15107029",
+          "metric": "행정상 영업",
+          "actual": 0.0011641254723210315,
+          "limit": 0.000724637682
+        }
+      ],
+      "rowComparison": {
+        "categoryId": "15107029",
+        "oldCount": 1382,
+        "newCount": 1383,
+        "added": 1,
+        "removed": 0,
+        "matchedUnchanged": 1380,
+        "matchedChanged": 2,
+        "changes": {
+          "display": 0,
+          "aggregatePair": 2,
+          "detailedStatus": 2,
+          "otherSourceFields": 2
+        },
+        "addedStatuses": {
+          "행정상 영업": 1,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "removedStatuses": {
+          "행정상 영업": 0,
+          "휴업": 0,
+          "폐업": 0,
+          "확인되지 않음": 0
+        },
+        "matchedStatusTransitions": [
+          {
+            "from": "행정상 영업",
+            "to": "폐업",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "hypotheticalControlClock": "2026-10-20T03:00:00.000Z",
+  "counterfactuals": {
+    "unchangedPolicyAndBaseline": {
+      "kind": "rejected",
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "recordCount",
+          "actual": 7195,
+          "limit": 7194
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044985",
+          "metric": "recordCount",
+          "actual": 116479,
+          "limit": 116477
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045000",
+          "metric": "recordCount",
+          "actual": 13040,
+          "limit": 13039
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "recordCount",
+          "actual": 120,
+          "limit": 119
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "recordCount",
+          "actual": 818,
+          "limit": 817
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "recordCount",
+          "actual": 796,
+          "limit": 794
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "recordCount",
+          "actual": 565,
+          "limit": 564
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "recordCount",
+          "actual": 42054,
+          "limit": 42046
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "recordCount",
+          "actual": 1795,
+          "limit": 1794
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "absoluteCountChange",
+          "actual": 8,
+          "limit": 7
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "relativeCountChange",
+          "actual": 0.0011131209127591484,
+          "limit": 0.000976017848
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044985",
+          "metric": "absoluteCountChange",
+          "actual": 49,
+          "limit": 47
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044985",
+          "metric": "relativeCountChange",
+          "actual": 0.00042085373185605086,
+          "limit": 0.000404506374
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045000",
+          "metric": "absoluteCountChange",
+          "actual": 9,
+          "limit": 8
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045000",
+          "metric": "relativeCountChange",
+          "actual": 0.000690660732100376,
+          "limit": 0.000615195325
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "absoluteCountChange",
+          "actual": 1,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "relativeCountChange",
+          "actual": 0.008403361344537815,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "absoluteCountChange",
+          "actual": 2,
+          "limit": 1
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "relativeCountChange",
+          "actual": 0.0024509803921568627,
+          "limit": 0.001230012301
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "absoluteCountChange",
+          "actual": 5,
+          "limit": 3
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "relativeCountChange",
+          "actual": 0.006321112515802781,
+          "limit": 0.003861003862
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "absoluteCountChange",
+          "actual": 1,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "relativeCountChange",
+          "actual": 0.0017730496453900709,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "absoluteCountChange",
+          "actual": 12,
+          "limit": 4
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "relativeCountChange",
+          "actual": 0.0002854288568574283,
+          "limit": 9.5215425e-5
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "absoluteCountChange",
+          "actual": 1,
+          "limit": 0
+        },
+        {
+          "code": "count_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "relativeCountChange",
+          "actual": 0.0005574136008918618,
+          "limit": 0
+        },
+        {
+          "code": "source_coverage_unverified",
+          "severity": "warning"
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044955",
+          "metric": "확인되지 않음",
+          "actual": 0.0026622500306710817,
+          "limit": 0.000840128491
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "폐업",
+          "actual": 0.0006760720484721983,
+          "limit": 0.000594121465
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "행정상 영업",
+          "actual": 0.0006760720484721983,
+          "limit": 0.000594121465
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044996",
+          "metric": "확인되지 않음",
+          "actual": 0.0001228465206074003,
+          "limit": 0.000109339376
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "폐업",
+          "actual": 0.0014705882352941402,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045029",
+          "metric": "확인되지 않음",
+          "actual": 0.0003940110323089052,
+          "limit": 0.000302427428
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045032",
+          "metric": "확인되지 않음",
+          "actual": 6.879719067509615e-5,
+          "limit": 5.466256e-5
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045035",
+          "metric": "폐업",
+          "actual": 0.0007841087297438265,
+          "limit": 0.000422305641
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045038",
+          "metric": "폐업",
+          "actual": 0.00020145100317536802,
+          "limit": 0.000137566388
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045038",
+          "metric": "행정상 영업",
+          "actual": 0.00020145100317528475,
+          "limit": 0.000137566388
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "폐업",
+          "actual": 0.0009797928951532087,
+          "limit": 0.000494120421
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "행정상 영업",
+          "actual": 0.001039719066110556,
+          "limit": 0.000524341853
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "확인되지 않음",
+          "actual": 5.393355386164311e-5,
+          "limit": 2.719929e-5
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "휴업",
+          "actual": 5.992617095738027e-6,
+          "limit": 3.022144e-6
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "휴업",
+          "actual": 7.941096125380466e-6,
+          "limit": 4.950005e-6
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045097",
+          "metric": "폐업",
+          "actual": 0.0020161290322581182,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "확인되지 않음",
+          "actual": 7.845352413230616e-5,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "휴업",
+          "actual": 3.1381409652921424e-6,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045109",
+          "metric": "폐업",
+          "actual": 0.00031235358425740767,
+          "limit": 0.000271579976
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045109",
+          "metric": "행정상 영업",
+          "actual": 0.00039044198032173183,
+          "limit": 0.000328210335
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "휴업",
+          "actual": 1.561055715916873e-7,
+          "limit": 5.2125e-8
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "확인되지 않음",
+          "actual": 3.91276399511753e-5,
+          "limit": 0
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15107029",
+          "metric": "폐업",
+          "actual": 0.0011709271042941172,
+          "limit": 0.000724637682
+        },
+        {
+          "code": "status_share_change_exceeded",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15107029",
+          "metric": "행정상 영업",
+          "actual": 0.0011641254723210315,
+          "limit": 0.000724637682
+        }
+      ]
+    },
+    "baselineOnly": {
+      "kind": "rejected",
+      "diagnostics": [
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044968",
+          "metric": "recordCount",
+          "actual": 7195,
+          "limit": 7194
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15044985",
+          "metric": "recordCount",
+          "actual": 116479,
+          "limit": 116477
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045000",
+          "metric": "recordCount",
+          "actual": 13040,
+          "limit": 13039
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045021",
+          "metric": "recordCount",
+          "actual": 120,
+          "limit": 119
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045052",
+          "metric": "recordCount",
+          "actual": 818,
+          "limit": 817
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045089",
+          "metric": "recordCount",
+          "actual": 796,
+          "limit": 794
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15045103",
+          "metric": "recordCount",
+          "actual": 565,
+          "limit": 564
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101549",
+          "metric": "recordCount",
+          "actual": 42054,
+          "limit": 42046
+        },
+        {
+          "code": "count_above_maximum",
+          "severity": "rejection",
+          "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+          "categoryId": "15101551",
+          "metric": "recordCount",
+          "actual": 1795,
+          "limit": 1794
+        },
+        {
+          "code": "source_coverage_unverified",
+          "severity": "warning"
+        }
+      ]
+    }
+  },
+  "compactBytesForRejectedSource": {
+    "measured": false,
+    "reason": "Production rejection precedes compact serialization; count/status fixes would not prove the byte budget passes"
+  },
+  "preservation": {
+    "candidateOutputAbsent": true,
+    "ownedScratchRemoved": true,
+    "archiveHashUnchanged": true
+  },
+  "independentArithmeticChecksPassed": true,
+  "allSourceDeltaAccountingPassed": true,
+  "candidateRecommendation": {
+    "status": "proposed, not selected or publishable",
+    "archiveSha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+    "collectionInstant": "2026-10-16T01:52:52.043Z",
+    "recordCount": 2951024,
+    "purpose": "Bounded first publication/recovery acceptance with the unchanged approved quality policy",
+    "requires": [
+      "explicit source selection",
+      "separately approved trusted initial-import design and implementation",
+      "fresh current-code validation/build and byte-bound inventory",
+      "required performance and release prerequisites",
+      "separate setup, preparation and exact deployment approvals"
+    ],
+    "doesNotAuthorize": [
+      "daily operation",
+      "recovery registry adoption",
+      "policy relaxation",
+      "freshness relabeling"
+    ]
+  },
+  "bindings": {
+    "src/pipeline/stage-bounded-release.ts": {
+      "sha256": "fa6f39e6ed8a9f385f560facd30d95320ef2db83548acbe556fd1f9d473461ad",
+      "byteLength": 20502
+    },
+    "src/pipeline/validate-license-refresh.ts": {
+      "sha256": "131703251a2ad9144a620a5880bb496e693722818e2852cd28a35045f94942a8",
+      "byteLength": 22246
+    },
+    "src/pipeline/refresh-validation-metrics.ts": {
+      "sha256": "966a88f234e99402f3a1dd3a4ebd2e84959e4598f2637ad7d6e8a0bc6ef6a515",
+      "byteLength": 9508
+    },
+    "src/pipeline/parse-license-csv.ts": {
+      "sha256": "86186c2e809951b958457dd0864fc1413ceeeb92f041b94168e3c7fc8ec0537e",
+      "byteLength": 2926
+    },
+    "src/pipeline/transform-license-records.ts": {
+      "sha256": "a2beea03bea7f3d5ff170ff8032ef5f150bee58acc5aa6ca7dc257f23597910a",
+      "byteLength": 18920
+    },
+    "src/domain/map-license-status.ts": {
+      "sha256": "16f58c1ade9d11c5a5ae14d980312d5431438edc58369582c70d2a1d3cd0c4bf",
+      "byteLength": 721
+    },
+    "publication/validation-config.json": {
+      "sha256": "f3feafd8d37d30e859b7797fe753277d2091cb7383009e035dff60edb76987f1",
+      "byteLength": 403320
+    },
+    "publication/config.json": {
+      "sha256": "b7a64b46c49ad6d3ab10ba268becb6e62bb666d342bc4aa158898a37ac1e20ba",
+      "byteLength": 403224
+    },
+    "src/pipeline/contracts/seoul-archive-contract.json": {
+      "sha256": "7cd8ce23032b491a4d9859c2cf50d7fa7505ea94c63523cb44bcb5e4242388ec",
+      "byteLength": 237349
+    }
+  },
+  "privateEvidenceBindings": {
+    "replay-diagnostics.mjs": {
+      "byteLength": 7087,
+      "sha256": "47769f5f31024f0738afa38b912ae3427801c359f2c0c7dbeb1c2fe4f0be828a"
+    },
+    "structured-diagnostics.json": {
+      "byteLength": 350336,
+      "sha256": "7310803f518e96e3a576781ff16c724c45da264459c3a875827935bdc2647ed5"
+    },
+    "compare-source.mjs": {
+      "byteLength": 8686,
+      "sha256": "462f4cdbc963c242d028764145e491c9ae78aa09fc426bda07d04cde5fde0020"
+    },
+    "source-comparison.json": {
+      "byteLength": 92788,
+      "sha256": "25ca1d23c2979f5d47aa886f5251c9f5d1b778a7b782cdf8d36b8a2e131d4dc1"
+    }
+  }
+}

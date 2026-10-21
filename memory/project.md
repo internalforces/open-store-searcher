@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-10-19_
+_Last updated: 2026-10-21_
 
 ## Summary
 
@@ -47,6 +47,103 @@ open-store-searcher/
 ```
 
 Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 created them.
+
+## PR #34 final review and conditional integration — 2026-10-21
+
+The user authorized final review and protected-main merge if sound, with quality unchanged and
+source upload/deployment withheld. Three P2 workflow edge cases are corrected locally and the
+independent core rereview is Approved: final main/expiry checks after network validation, and
+first-attempt-only jobs with fresh manual-run retry. The
+[final review](../reports/review-2026-10-21-pr34-final.md) records current verification and
+action-time CI/integration evidence. Earlier delivery counts remain historical. Source and
+recovery registries stay inactive, Pages is currently disabled and enable variables unset.
+TASK-009/hosted AC-009-4/5 stays active, TASK-010 paused, with no operational action authorized.
+
+## TASK-009 initial-import PR delivery — 2026-10-21
+
+The user subsequently authorized code commit/push/PR creation and verification. Implementation
+`fd8872dfb6703737731bde68e8688b73c28f9361` is delivered in
+[draft PR #34](https://github.com/internalforces/open-store-searcher/pull/34). Exact remote
+43-file/head readback and all 178 historical raw-proof code bindings match. Fresh local and
+implementation-head GitHub Verify pass 1,366/68/20 plus96 Node tests. The
+[delivery record](../reports/delivery-2026-10-21-task-009-initial-import.md) retains exact heads,
+check/log identities and the separate current-head readback requirement after bookkeeping.
+Earlier no-commit/no-remote claims below retain their local-execution historical scope.
+Source/recovery registries remain inactive; main integration, source upload/activation and all
+operational/deployment/hosted gates remain open. TASK-009 active, TASK-010 paused.
+
+## TASK-009 initial-import implementation and evidence work — 2026-10-21
+
+The user-approved seven-task local execution has implemented Tasks 1–6 with independent
+Approved spec/quality reviews, separate Task 5 Actions/security approval and Task 6 provenance
+security approval; all findings are closed. Task 7 actual retained-source CLI proof passes all 195 categories/2,951,024 rows with exact
+baseline metrics and full 730-file tar/unpack equality. Compact JSON is 691,143,712 bytes; site
+is 691,233,995 bytes. Pinned full checks pass 56 files / 1,366 tests, 68 browser and 20 accessibility
+checks; the exact five-file Node suite passes 96/96. Actual damaged/occupied-output rejections,
+coherent +1 metric and October 23 midnight controls, and final all-file/input/code rehash pass.
+Task 7 independent scoped spec/quality review is Approved; final independent whole-diff review is Approved for local technical delivery.
+The [test record](../reports/test-2026-10-21-task-009-initial-import.md) is the current evidence
+entry point; earlier dated planning/unimplemented claims below retain their historical scope.
+
+Both source and recovery registries remain null/empty. The original collection/null coverage,
+source/configuration/quality hashes, zero-cost boundary and default-off flags are preserved.
+No operational source Release/asset/run/deployment IDs are invented. No commit, upload, remote
+setting, dispatch, environment approval, deployment, registry adoption or recurring operation
+occurred. TASK-009 stays active, II-10/hosted AC-009-4/5 open and TASK-010 paused. Local readiness
+does not close full-data performance, physical/mobile, hosted/public recovery or release gates.
+
+Independent Task 7 approval is recorded in private `task-7-review.md` for exact checkpoint
+`task-7-review-100303476184.diff` (0 Critical/Important findings; M1 is the disclosed five
+pre-existing informational `useTemplate` notices, nonblocking/no fix). The controller's fresh
+`controller-final-preservation.json` confirms all 178 proof code bindings, 73 original files/exact
+status and four prior report/spec hashes unchanged. Final independent whole-diff review is Approved for local technical delivery.
+
+Final independent whole-diff review is **Approved for local delivery on technical quality** in
+private `final-whole-review.md`, covering checkpoint `whole-review-100856954058.diff`
+(SHA-256 `e6808de92225e08b9dfe2dcd20b9f68f6ca9af968ef3926638ebc3fad76f8f35`).
+Findings: 0 Critical, 0 Important, 0 new Minor. Existing M1 remains the five disclosed
+informational `useTemplate` notices, nonblocking/no fix. No corrective wave or heavy rerun
+was requested. This external verdict closes local plan review/delivery only; no commit,
+protected-main integration, source upload/activation, deployment, recovery, recurrence,
+hosted acceptance or milestone authorization follows. Historical proof/core/artifact bindings
+remain unchanged; only administrative status records changed after the reviewed checkpoint.
+
+## Current initial-import planning handoff — 2026-10-21
+
+The user approved the full initial-import design and requested a detailed plan with quality
+unchanged, expressly withholding upload/deployment. The
+[seven-task plan](../docs/superpowers/plans/2026-10-21-task-009-initial-import.md) is written and
+self-reviewed; it fixes source authority, transport, full staging, operators, manual workflow,
+backup continuity and actual local verification responsibilities. Human plan review/execution
+authorization remains before implementation. No code/config/runtime authority or remote
+operation changed. TASK-009 stays active and TASK-010 paused. The October 21 record supersedes
+older design-pending claims below while retaining their historical review/evidence scope.
+
+## Historical source-selection handoff — 2026-10-20
+
+The user subsequently approved the exact October 16 source and unchanged quality criteria for
+first-publication/recovery verification. The requested
+[initial-import design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md)
+is written and a fresh builder check reports no material questions before planning. Source
+selection is accepted; the complete transport/workflow design remains proposed for human
+approval. No implementation or remote action follows from source approval. See the
+[decision](decisions.md#task-009-initial-source-selected--2026-10-20) and
+[design check](../reports/design-2026-10-20-task-009-initial-import.md).
+
+PR #33 merged as `b586e72`; exact-main Verify passed. TASK-009 remains active on
+`codex/task-009-first-publication-analysis` in the reused calibration checkout. The user's
+analysis-only continuation reproduced the October 19 quality rejection: 51 diagnostics across
+18 categories, independently recalculated. Source comparison reconciles 1,065 additions, three
+absent prior identities and 1,766 changed matched rows. This is not independent source-truth
+verification. See the [first-publication proposal](../reports/research-2026-10-20-task-009-first-publication.md).
+
+The preceding analysis recommended the exact October 16 source for bounded first-publication/
+recovery acceptance. Source selection is now approved; trusted initial-import design approval
+remains separate.
+Current live-only preparation cannot use it, and recovery requires prior hosted provenance.
+No policy, configuration, source, workflow, registry or remote state changed. Daily policy,
+full-data performance, hosted publication/recovery and release gates remain open. TASK-010 stays
+paused. This section supersedes older delivery-pending/current-branch claims below.
 
 ## Current acceptance handoff — 2026-10-19
 

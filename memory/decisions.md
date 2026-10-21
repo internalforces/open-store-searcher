@@ -7,7 +7,63 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-10-21_
+
+## TASK-009 authorized local implementation boundary — 2026-10-21
+
+Status: Existing approved architecture executed locally; no new product or quality decision.
+The user's later explicit execution authorization supersedes earlier plan-review-pending prose.
+Tasks 1–6 are independently Approved, including required Actions/provenance security reviews.
+Task 7 records actual-source/full-check evidence and its independent scoped review is Approved;
+final independent whole-diff review is Approved for local technical delivery.
+
+Complete current code bytes and actual host HEAD/dirty state, rather than base SHA alone, bind
+local proof in the pinned gitless snapshot. Synthetic metadata/IDs used with an injected local
+fetcher test the real downloader over retained bytes and never establish uploaded authority.
+Private proof paths/inventories and failed attempts are retained outside Git. A changed raw ZIP
+must fail selected-source identity; quality-boundary evidence separately uses the actual validator
+with a coherent measured-metric clone and unchanged admitted source/policy.
+
+No code-delivery, source-upload/registry, protected deployment, backup/recovery or recurrence
+approval is inferred. TASK-009 remains active and TASK-010 paused; see the
+[operational gates](../docs/deployment.md#initial-import-operational-gates--2026-10-21).
+
+## TASK-009 initial-import design approved — 2026-10-21
+
+The user explicitly approved the full
+[October 20 initial-import design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md)
+and requested a detailed implementation plan preserving all existing quality criteria. Upload
+and deployment were explicitly withheld. Approved architecture: same-repository byte-bound
+source/observation Release transport, separate initially inactive source authority, manual
+current-main full inspected import/build, direct-404/protected publication guards, and narrow
+two-origin successful-backup continuity. No data, tolerance, date or baseline change is approved.
+
+The [detailed plan](../docs/superpowers/plans/2026-10-21-task-009-initial-import.md) records seven
+sequential implementation/review units and remains for human review/execution authorization.
+Design approval does not authorize implementation in this planning-only turn, active source IDs,
+source asset/tag publication, remote setup/dispatch, environment approval, backup adoption or
+recurring operation. Preserve earlier local analysis/design changes and the prior TASK-009
+subagent implementation/independent-review method unless the user changes it.
+
+## TASK-009 initial source selected — 2026-10-20
+
+Status: Approved source selection; initial-import design remains proposed.
+
+The user explicitly approved the retained October 16 source for first publication/recovery
+verification and required the existing quality criteria to remain unchanged. Select all 195
+categories / 2,951,024 rows from the exact 217,307,219-byte ZIP with SHA-256
+`c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352`. Preserve original collection
+`2026-10-16T01:52:52.043Z`, null source coverage, the exact approved policy/23-ID empty list,
+initial baseline and reviewed-pair contract. The collection-age warning starts October 23.
+
+This supersedes only pending source-selection claims in the preceding analysis. It does not
+adopt new tolerances, select the rejected October 19 source, authorize routine refresh, or make
+the retained package a publicly verified backup. The requested
+[initial-import design](../docs/superpowers/specs/2026-10-20-task-009-initial-import-design.md)
+proposes separate same-repository Release source transport, an inactive current-main source
+trust root and a manual full-validation/build path. Those architecture/workflow details and the
+later implementation, tag/assets, trust-root activation, dispatch, deployment, complete backup
+and recovery operations retain their separate approvals. No runtime source registry is changed.
 
 ## ADR Template
 
@@ -747,3 +803,15 @@ rejected source and October16 retained local proof are not selected publication 
 [Design](../docs/superpowers/specs/2026-10-19-task-009-operational-recovery-design.md) and
 [operator gates](../docs/deployment.md) retain separate source/quality, performance/release,
 code delivery, setup, dispatch, exact deployment, archive and recurring-operation approvals.
+
+
+## PR #34 first-attempt artifact contract enforcement — 2026-10-21
+
+The final review found that same-run reruns could leave ambiguous fixed-name artifacts. Enforce
+the existing fresh-run/single-candidate contract with a first executable native run-attempt1
+guard in both initial-import jobs. Keep fixed artifact names, no overwrite and existing
+permissions rather than introducing attempt-specific names, deletion or broader access. Retry
+uses a new separately authorized manual workflow_dispatch and fresh candidate review. Final
+public404/main/binding-clock guards preserve the existing current-main/24-hour contract. This
+is an implementation clarification of II-06/07, not a source/quality/architecture approval.
+Evidence: [PR34 final review](../reports/review-2026-10-21-pr34-final.md).

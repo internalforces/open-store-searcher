@@ -38,7 +38,7 @@ jobs:
       - run: npx --no-install playwright install --with-deps
       - run: npm run verify:full
       - name: Verify publication operators and packaging
-        run: node --test scripts/check-pages-artifact.test.mjs scripts/check-publication-state.test.mjs scripts/check-publication-workflows.test.mjs scripts/publication-operators.test.mjs
+        run: node --test scripts/check-pages-artifact.test.mjs scripts/check-publication-state.test.mjs scripts/check-publication-workflows.test.mjs scripts/publication-operators.test.mjs scripts/initial-import-operators.test.mjs
       - name: Collect, validate and stage a complete release
         env:
           NODE_OPTIONS: --max-old-space-size=6144

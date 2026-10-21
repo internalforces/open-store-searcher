@@ -1,0 +1,353 @@
+{
+  "version": 1,
+  "kind": "task-009-initial-import-local-verification",
+  "executionDateSeoul": "2026-10-21",
+  "generatedAt": "2026-10-21T00:59:22.918040+00:00",
+  "status": "local-plan-complete-final-whole-diff-approved-for-local-technical-delivery",
+  "operationalAuthority": false,
+  "task009": "active",
+  "task010": "paused",
+  "hostedCriteriaOpen": ["II-10", "AC-009-4", "AC-009-5"],
+  "runtime": {
+    "os": "Ubuntu 24.04.4 LTS",
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "unzip": "Info-ZIP 6.0"
+  },
+  "proof": {
+    "kind": "actual-local-cli-full-source-audit",
+    "auditedAt": "2026-10-21T00:54:42.951Z",
+    "privateOutput": "/work/task009-initial-import-proof-20261021/accepted-local-cli",
+    "validationNow": "2026-10-21T00:43:17.542Z",
+    "verifiedAt": "2026-10-21T00:53:39.788Z",
+    "preparedAt": "2026-10-21T00:54:19.326Z",
+    "expiresAt": "2026-10-22T00:54:19.326Z",
+    "collectedAt": "2026-10-16T01:52:52.043Z",
+    "sourceDataAsOf": null,
+    "categories": 195,
+    "recordCount": 2951024,
+    "fullBaselineMetricsEqual": true,
+    "warnings": [
+      {
+        "code": "source_coverage_unverified",
+        "severity": "warning"
+      }
+    ],
+    "compactBytes": 691143712,
+    "compactCap": 691319965,
+    "siteFileCount": 730,
+    "siteBytes": 691233995,
+    "siteCap": 1000000000,
+    "identity": {
+      "releaseSha256": "a85001ee0bca4be2fef7d667d3fe0e78e4ac2334a318353168a9f80655652190",
+      "manifestSha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+      "baselineSha256": "e44f4733f7d9551c92f5114a75b7d1377aa2800484c4128656d11e511b3aa399",
+      "archiveSha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+      "collectedAt": "2026-10-16T01:52:52.043Z",
+      "recordCount": 2951024,
+      "policyRevision": "task-008-calibration-2026-10-16-v1-proposed",
+      "schemaVersion": 2,
+      "identifierVersion": 1,
+      "normalizationVersion": 1
+    },
+    "tar": {
+      "byteLength": 691804160,
+      "sha256": "237d60d3bc34d4422aee921977a736707bcdeb998dd7df9a974c59bde9aa93da"
+    },
+    "inventory": {
+      "byteLength": 140217,
+      "sha256": "8fb0b86c872c66532fd737952f700a55b94ce2356db8a251cdda63b7f030c97a"
+    },
+    "sourceReceipt": {
+      "byteLength": 24642,
+      "sha256": "0b20cc1e6854a82eef4af38325bb9810af7bf70f8cb7fd0f00b4ce4dc59ba280"
+    },
+    "completeTarUnpackEquality": true,
+    "rawAndPrivateReceiptExcluded": true,
+    "operatorCodeBindingCount": 178,
+    "operatorCodeBindingsCanonicalSha256": "23b8b780cd3eebb46d3b9fe95ca33ba7b2d662fbed1f0304864a5d961ac71750",
+    "operator": {
+      "commit": "b586e72e88cb41b9988a62d70f9cd5b5503b53bc",
+      "uncommitted": true,
+      "runId": null
+    }
+  },
+  "inputBindings": {
+    "publication/config.json": {
+      "byteLength": 403224,
+      "sha256": "b7a64b46c49ad6d3ab10ba268becb6e62bb666d342bc4aa158898a37ac1e20ba"
+    },
+    "publication/validation-config.json": {
+      "byteLength": 403320,
+      "sha256": "f3feafd8d37d30e859b7797fe753277d2091cb7383009e035dff60edb76987f1"
+    },
+    "publication/initial-import-approvals.json": {
+      "byteLength": 224,
+      "sha256": "9f8f59ffa77e132fa671c1ddaefa4cb181b96dfdcb1f982913d376d79512bff2"
+    },
+    "publication/recovery-approvals.json": {
+      "byteLength": 230,
+      "sha256": "d7f513067028d84f860d8ce0ee3d3bee8f04cdb0e009dd1003607b71f3683c74"
+    },
+    "reports/observation-2026-10-16-bounded-source.json": {
+      "byteLength": 356005,
+      "sha256": "3d23a3c770b24039a6690f2db8022eb610ffb5b56a9efee031f78b78918b4626"
+    }
+  },
+  "downloadProof": {
+    "kind": "local-injected-fetcher-retained-byte-proof",
+    "syntheticLocalMetadataAndIdsOnly": true,
+    "actualProductionDownloaderReaderWriterHashes": true,
+    "realNetworkRequests": 0,
+    "localFetcherRequests": 12,
+    "bindings": {
+      "archive": {
+        "byteLength": 217307219,
+        "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352"
+      },
+      "observation": {
+        "byteLength": 356005,
+        "sha256": "3d23a3c770b24039a6690f2db8022eb610ffb5b56a9efee031f78b78918b4626"
+      }
+    }
+  },
+  "failureControls": {
+    "actualCli": [
+      {
+        "kind": "damaged-selected-hash",
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "Initial source byte binding mismatch\n"
+      },
+      {
+        "kind": "occupied-output",
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "Operator output already exists\n"
+      }
+    ],
+    "acceptedProofAndInputsUnchanged": true,
+    "coherentMeasuredMetricControl": {
+      "kind": "actual-measured-metric-control",
+      "executedAt": "2026-10-21T00:55:11.771Z",
+      "scope": "Coherent private measured-metric clone, one extra administratively-operating row in zero-change category 15045103 and total. No raw ZIP replay or policy change.",
+      "admittedOriginalCollection": "2026-10-16T01:52:52.043Z",
+      "baselineMetricCount": 2951024,
+      "changedMetricCount": 2951025,
+      "categoryId": "15045103",
+      "categoryOriginalCount": 564,
+      "categoryChangedCount": 565,
+      "unchangedPolicyLimits": {
+        "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+        "minCount": 564,
+        "maxCount": 564,
+        "maxAbsoluteCountChange": 0,
+        "maxRelativeCountChange": 0,
+        "maxMissingNameRate": 0,
+        "maxMissingBothAddressRate": 0,
+        "maxStatusShareChange": {
+          "행정상 영업": 0.001773049646,
+          "휴업": 0,
+          "폐업": 0.001773049646,
+          "확인되지 않음": 0
+        }
+      },
+      "acceptedControl": {
+        "kind": "accepted",
+        "diagnostics": [
+          {
+            "code": "source_coverage_unverified",
+            "severity": "warning"
+          }
+        ]
+      },
+      "rejectedControl": {
+        "kind": "rejected",
+        "diagnostics": [
+          {
+            "code": "count_above_maximum",
+            "severity": "rejection",
+            "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+            "categoryId": "15045103",
+            "metric": "recordCount",
+            "actual": 565,
+            "limit": 564
+          },
+          {
+            "code": "count_change_exceeded",
+            "severity": "rejection",
+            "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+            "categoryId": "15045103",
+            "metric": "absoluteCountChange",
+            "actual": 1,
+            "limit": 0
+          },
+          {
+            "code": "count_change_exceeded",
+            "severity": "rejection",
+            "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+            "categoryId": "15045103",
+            "metric": "relativeCountChange",
+            "actual": 0.0017730496453900709,
+            "limit": 0
+          },
+          {
+            "code": "source_coverage_unverified",
+            "severity": "warning"
+          },
+          {
+            "code": "status_share_change_exceeded",
+            "severity": "rejection",
+            "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+            "categoryId": "15045103",
+            "metric": "확인되지 않음",
+            "actual": 7.845352413230616e-5,
+            "limit": 0
+          },
+          {
+            "code": "status_share_change_exceeded",
+            "severity": "rejection",
+            "evidenceReference": "reports/task-008-validation-policy-proposal-2026-10-16.json#observed-envelope-plus-one-max-step",
+            "categoryId": "15045103",
+            "metric": "휴업",
+            "actual": 3.1381409652921424e-6,
+            "limit": 0
+          }
+        ]
+      },
+      "seoulMidnightBoundary": [
+        {
+          "now": "2026-10-22T14:59:59.999Z",
+          "kind": "accepted",
+          "dataAsOf": "2026-10-16",
+          "diagnostics": [
+            {
+              "code": "source_coverage_unverified",
+              "severity": "warning"
+            }
+          ]
+        },
+        {
+          "now": "2026-10-22T15:00:00.000Z",
+          "kind": "accepted",
+          "dataAsOf": "2026-10-16",
+          "diagnostics": [
+            {
+              "code": "collection_stale",
+              "severity": "warning",
+              "metric": "ageDays",
+              "actual": 7,
+              "limit": 7
+            },
+            {
+              "code": "source_coverage_unverified",
+              "severity": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    "finalPostSuiteRehash": {
+      "kind": "final-post-suite-preservation-rehash",
+      "checkedAt": "2026-10-21T00:58:58.262Z",
+      "acceptedProofFiles": 5,
+      "siteFiles": 730,
+      "inputs": 6,
+      "codeBindings": 178,
+      "acceptedProofInputSiteAndCodeBindingsUnchanged": true
+    }
+  },
+  "checks": {
+    "verifyFull": {
+      "command": "npm run verify:full",
+      "exitCode": 0,
+      "files": 56,
+      "tests": 1366,
+      "browserChecks": 68,
+      "accessibilityChecks": 20,
+      "coverage": {
+        "statements": 93.3,
+        "branches": 91.72,
+        "functions": 95.65,
+        "lines": 95.01
+      },
+      "zeroAxeViolations": true,
+      "informationalUseTemplateNotices": 5,
+      "thresholdsRetriesSkipsAndFlakyPolicyUnchanged": true
+    },
+    "nodeFiveFile": {
+      "command": "node --test scripts/check-pages-artifact.test.mjs scripts/check-publication-state.test.mjs scripts/check-publication-workflows.test.mjs scripts/publication-operators.test.mjs scripts/initial-import-operators.test.mjs",
+      "exitCode": 0,
+      "tests": 96,
+      "pass": 96,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0
+    },
+    "diffCheck": {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    "logs": {
+      "verifyFull": "check-20261021-095520-634800.log",
+      "nodeFiveFile": "check-20261021-095815-488310.log",
+      "finalRehash": "check-20261021-095856-204308.log"
+    },
+    "preservedArtifacts": {
+      "coverage": "coverage-verify-full/index.html",
+      "browserAndA11y": "full check log contains all test names/results; test-results-final-a11y/.last-run.json"
+    }
+  },
+  "privateEvidenceDirectory": "/Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task008-calibration/.superpowers/sdd/2026-10-21-task-009-initial-import",
+  "privateContainerDirectory": "/work/task009-initial-import-proof-20261021",
+  "registryState": {
+    "activeSourceId": null,
+    "sources": [],
+    "activeBackupId": null,
+    "backups": []
+  },
+  "reviews": {
+    "tasks1Through6": "Approved",
+    "task5ActionsSecurity": "Approved",
+    "task6ProvenanceSecurity": "Approved",
+    "task7Scoped": "Approved",
+    "finalWholeDiff": "Approved for local delivery on technical quality",
+    "task7ScopedEvidence": {
+      "report": "task-7-review.md",
+      "checkpoint": "task-7-review-100303476184.diff",
+      "specCompliance": "Approved",
+      "taskQuality": "Approved",
+      "critical": 0,
+      "important": 0,
+      "nonblockingExistingObservation": {
+        "id": "M1",
+        "informationalUseTemplateNotices": 5,
+        "task7FixRequired": false,
+        "heavyRerunRequired": false
+      }
+    },
+    "controllerFreshPreservationEvidence": {
+      "report": "controller-final-preservation.json",
+      "codeBindingsMatchActualProof": 178,
+      "originalFilesUnchanged": 73,
+      "originalGitStatusUnchanged": true,
+      "priorReportAndSpecHashesUnchanged": 4
+    },
+    "finalWholeDiffEvidence": {
+      "report": "final-whole-review.md",
+      "checkpoint": "whole-review-100856954058.diff",
+      "checkpointSha256": "e6808de92225e08b9dfe2dcd20b9f68f6ca9af968ef3926638ebc3fad76f8f35",
+      "critical": 0,
+      "important": 0,
+      "newMinor": 0,
+      "existingM1": "Five pre-existing informational useTemplate notices; nonblocking/no fix",
+      "correctiveWaveRequired": false,
+      "heavyRerunRequired": false
+    }
+  },
+  "remoteOperations": [],
+  "administrativeUpdatedAt": "2026-10-21T01:19:03.326309+00:00",
+  "operationalApprovalGrantedByReview": false,
+  "task7LocalStepsComplete": [1, 2, 3, 4, 5, 6, 7, 8]
+}
