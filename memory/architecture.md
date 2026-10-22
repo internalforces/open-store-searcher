@@ -249,8 +249,13 @@ and coverage boundaries remain unchanged. Tests use a separate bundled offline A
 
 ## TASK-018 optimized search and deferred synthetic assets — 2026-09-08
 
-The browser entry now injects demoLoader, which fetches three Vite-managed JSON assets after
-an abortable two-frame shell-paint boundary. createPartitionLoader uses fixed batches of at
+The browser entry injects demoLoader, which fetches three Vite-managed JSON assets after
+an abortable shell-paint opportunity boundary. TASK-018 originally waited for two native
+animation frames without a fallback. The October22 PR37 liveness correction under verification
+retains the normal two-frame path and gives each sequential phase a cancellable35ms timer
+alternative. Each phase advances once; abort/settlement cleans pending handles/listeners and
+late callbacks cannot advance. Timers permit progress when task scheduling resumes, not proof
+of physical paint or a wall-clock guarantee. createPartitionLoader uses fixed batches of at
 most two, independent of search input. It assembles ordered records before prepareDisplayData
 validates global identity and prepares one complete index. No partial snapshot is searchable.
 Failures abort outstanding parts; retries restart the sequence and retain previously accepted

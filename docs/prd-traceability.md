@@ -7,14 +7,32 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-10-17_
+_Last updated: 2026-10-22_
+
+## TASK-027 captured CI corrections — 2026-10-22
+
+PG-10/14/15 and FR-13 continue through the [animation baseline correction](../reports/test-2026-10-22-pr37-animation-baseline.md)
+and [loader liveness correction](../reports/test-2026-10-22-pr37-load-liveness.md).
+The replay oracle now requires exact initial native starts on stable nodes before sampling its
+unchanged global counter. A captured loader wait before any fetch is corrected with two
+preferred frame phases, each with a cancellable35ms task alternative; timers do not certify
+physical paint or a wall-clock guarantee. Fixed batches and full-snapshot semantics remain.
+
+Focused51tests and8unchanged startup/recovery browser cases pass, as do all49 unchanged lab
+gates in the [new performance report](../reports/performance-2026-10-22-pr37-paint-wait.json).
+Its152source hashes match; the earlier refresh performance report retains150/152 matching files
+and remains historical evidence. Source/test/performance review is Approved;
+new exact-head full CI/GitHub review and actual affected AT remain separate delivery gates.
+Normal accepted-data AT has a conditional unchanged-behavior bridge; new loading timing speech
+is unverified and pending-refresh actual observation remains required. No criterion is waived.
 
 ## TASK-027 refresh correction verification — 2026-10-22
 
 The final-review P2 correction is tracked in [current evidence](../reports/test-2026-10-22-pr37-refresh.md)
 for FR-13 and PG-07/08/10/15. Exact regressions verify accepted-data paging during a pending and
 rejected refresh, plus settled terminal Worker guards; focused32, types/style/build and new-source
-all-budget lab performance pass. All152 new performance source bindings are current. Prior
+all-budget lab performance pass at that checkpoint. Its152 source bindings matched then;
+the current loader correction and fresh binding are recorded above. Prior
 8ed3ddb acceptance remains checkpoint-only. The independent normal-flow AT bridge is bounded;
 changed pending-refresh actual speech remains unverified because the human cannot restart
 VoiceOver now. TASK-027 remains active; final acceptance and authorized normal merge await that

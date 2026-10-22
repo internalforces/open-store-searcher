@@ -14,12 +14,17 @@ _Last updated: 2026-10-22_
 Final GitHub review on PR37 head3c67280 found P2 retained-data refresh pagination blocking.
 TASK-027 is reopened as the sole active task. The minimal result-busy correction and two focused
 regressions have independent Sol/xhigh code/test approval; pinned workspace32/type/style/build
-and fresh all-budget performance pass. The new performance report binds all152 current files;
-old source8ed3ddb acceptance and its150/152 remaining matching hashes are historical.
-See [current correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+and fresh all-budget performance pass at that checkpoint. Captured CI follow-ups repair the
+animation test baseline and the loader's unbounded frame-notification wait. Local51tests,
+eight unchanged browser cases and all49 fresh performance gates pass; independent source/
+test/performance review is Approved. The new paint-wait report binds152/152 current inputs.
+The earlier refresh report now matches150/152 and source8ed3ddb's report148/152, both retained
+historically. See [current loader evidence](../reports/test-2026-10-22-pr37-load-liveness.md)
+and the [busy correction](../reports/test-2026-10-22-pr37-refresh.md).
 
-The human cannot restart VoiceOver now. Only the changed pending-refresh paging state lacks
-actual speech verification; prior normal-flow observations have a reviewed carry-forward bridge.
+The human cannot restart VoiceOver now. Changed pending-refresh paging lacks actual speech
+verification; initial/loading speech under the new scheduling is also unverified. Prior normal
+accepted-data observations have a conditional reviewed carry-forward bridge.
 The user's explicit actual-verification-before-merge condition remains mandatory. No AT waiver,
 current-head full CI/review success or merge is claimed. The owned QA tab/server are stopped;
 VoiceOver/Utility inventory shows not running and no settings changed during this attempt.

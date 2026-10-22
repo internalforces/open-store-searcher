@@ -11,6 +11,30 @@ _Last updated: 2026-10-22_
 
 ## PR37 hosted failure captured — 2026-10-22
 
+The baseline correction was committed/pushed as4c55774230707a0e0200c29a857f055d00c4774d.
+Exact-head GitHub review completes with no findings. Verify39795194051/job119880641090 fails:
+static/1425units pass;91browserpass/1flaky WebKit startup0/2requests, retry passes.
+All four decoration cases pass first attempts; axe/packaging unreached.
+New failed-host timeline maps outer loader frame483→1731ms and inner scheduled1732ms with
+no fire/cancel/fetch before5s failure,0drops, visible/focused. A cancellable loader-wait fallback
+is being diagnosed. Do not claim WebKit/GPU root cause or timer-guaranteed paint. Full logs/JSON
+are preserved; see the updated host-capture report. No blind rerun or policy relaxation.
+The bounded two-phase35ms frame/timer correction is implemented and source-reviewed Approved.
+Deterministic final RED6fail/13pass; GREEN19partition+32workspace, type/style, onebuild and
+unchanged startup/recovery8cases/all4projects pass first attempts. Frozen loader88a8c509...,
+test63afc786...; previous refresh report now150/152, exactly those two files differ.
+One fresh unchanged-budget performance measurement exits0/all49gates pass, initial93525B,
+maxprimary1246.6ms/LCP1172ms/submit252.4ms/page234.4ms. Newpaint-wait report binds152/152;
+all10oldreports preserved. Independent measurement review is Approved after96summary/49gate
+recomputation and direct binding/preservation checks. New exact-head CI/review remain;
+livePR37 records delivery identity/result. Do not rebind prior samples.
+See [liveness correction](../reports/test-2026-10-22-pr37-load-liveness.md).
+Source/event-clock and timer/paint limitations remain explicit. Initial/loading speech is
+unverified; conditional normal accepted-data AT bridge survives inspection, affected pending
+refresh actualAT remains required. Data-delivery and runner policies remain unchanged;
+merge stays withheld.
+Earlier checkpoint descriptions below retain their dated scopes.
+
 Committed head b3d1033e5436893931ef17c08dde9a2e626fe6e2 remains open/unmerged.
 Verify39791048517/job119866844594 fails strict flaky policy: static/1,425unit tests pass;
 91browserpass/1flaky Chromium decoration, retry passes. Native order proves the detail effect's

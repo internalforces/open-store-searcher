@@ -16,7 +16,8 @@ _Last updated: 2026-10-22_
 - Status: Reopened after final-head GitHub review identifies a P2 pagination regression in
   `src/app/app.tsx`: background refresh marks retained results busy and blocks all page controls.
 - Scope: Correct the result busy boundary and add a real-App pending-refresh regression;
-  retain actual search/page request guards, all acceptance assertions and runner policy.
+  repair the captured replay-test baseline and unbounded shell-paint frame wait.
+  Retain actual search/page request guards, all acceptance assertions and runner policy.
 - Authority: The user's existing CI-repair, review and protected-main merge request covers this
   review correction. No deployment, source policy or follow-up activation is authorized.
 - Prior acceptance on source8ed3ddb and manual VoiceOver observations remain point-in-time
@@ -39,6 +40,12 @@ _Last updated: 2026-10-22_
   See [correction](../reports/test-2026-10-22-pr37-animation-baseline.md).
   Earlier WebKit5s/initial CLS causes remain unresolved; this observation's passing WebKit
   targets do not erase them. Exact b3d1033 GitHub review completes with no findings.
+  The new4c55774 canonical run passes all decoration cases but fails WebKit startup; its
+  capture maps the wait to an unfired inner loader frame before any fetch. Cancellable
+  A two-phase35ms timer/frame fallback is locally under verification, with no scheduler-cause
+  or physical-paint guarantee. Fresh source-bound performance passes49unchanged gates and
+  independent source/test/performance review is Approved. Exact-head CI/review and affected
+  actualAT remain; old performance bindings must not be described as current.
 - TASK-009 remains waiting, TASK-010 paused, TASK-021 gated and TASK-028 proposed/unactivated.
   Original and TASK-009 worktree changes remain protected. No task is completed by this reopening.
 

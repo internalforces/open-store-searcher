@@ -45,6 +45,30 @@ No task acceptance, thread resolution, main merge or deployment follows.
 
 ## Failed canonical observations
 
+### Captured loader wait on 4c55774
+
+[Verify39795194051](https://github.com/internalforces/open-store-searcher/actions/runs/39795194051),
+job119880641090, on `4c55774230707a0e0200c29a857f055d00c4774d` fails strict flaky policy:
+static checks,59files/1,425tests, coverage93.92/92.59/96.47/95.60, quality and build pass;
+91browserpass/1flaky WebKit startup, retry passes. Axe/packaging are not reached.
+All four corrected decoration cases pass first attempts.
+
+The failed WebKit timeline maps to `partition-loader.ts`'s two nested frame callbacks:
+outer scheduled at483ms, fires1731ms; inner scheduled1732ms, with no subsequent fire/cancel or
+fetch/request before the assertion fails0/2 within5s. Buffers have0drops; recorded visibility
+is visible and focus true. Preact's own35ms effect fallback and flush already ran, so the
+loader was reached. Independent source mapping and review localize this attempt to waiting
+for the inner frame before any network/data validation, rather than a failed response.
+
+This does not prove the frame would never eventually fire, establish a WebKit/GPU/OS cause,
+rule out event-loop pressure, or make a timer proof of physical paint. Instrumentation may
+affect scheduling. This led to the locally verified and independently Approved
+[cancellable fallback correction](test-2026-10-22-pr37-load-liveness.md); no blind rerun or
+assertion/deadline weakening follows. The earlier initial non-input CLS cause remains distinct.
+Exact current-head GitHub review completes with no findings; CI and actual AT remain open.
+Full decoded log and exact failed observation are retained privately as
+`pr37-ci-4c55774-decoded.log` and `pr37-ci-4c55774-failure-observation-0.json`.
+
 [Verify39778033230](https://github.com/internalforces/open-store-searcher/actions/runs/39778033230)
 on the checkpoint above fails twice under the unchanged normal two-worker profile and
 fail-on-flaky policy. Both attempts pass static checks,59files/1,425tests, coverage

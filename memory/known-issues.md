@@ -11,6 +11,20 @@ _Last updated: 2026-10-22_
 
 ## PR37 hosted counter failure attributed — 2026-10-22
 
+After the locally approved baseline repair, exact-head4c55774 GitHub review completes with
+no findings but Verify39795194051 fails91pass/1flaky WebKit startup (all decoration first-pass).
+The failed-host capture localizes the wait to the scheduled inner loader animation frame,
+before any fetch;0drops and visible/focused state. No underlying scheduler cause is proven.
+A bounded cancellable liveness correction is being diagnosed. Earlier initial CLS remains
+unattributed; no retry-to-green or policy relaxation. See the host-capture report below.
+The preferred two-frame path now has35ms cancellable alternatives per phase, with once/late/
+abort cleanup guards. Local51tests, type/style and8first-attempt startup/recovery browser
+cases pass; independent source/test review is Approved. Fresh performance passes all49gates
+with152current bindings; independent measurement review is Approved. Exact-head CI/review
+are still required.
+This removes the sole frame-notification dependency without attributing
+the browser's scheduling behavior. Previous refresh performance retains150/152 matching files.
+
 Verify39791048517 on b3d1033 fails91browserpass/1flaky after passing static/1,425unit tests.
 Captured native event order places the detail effect's first start after the baseline; there
 are no duplicated related starts or dropped animation entries in this failed attempt.

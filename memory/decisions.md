@@ -9,6 +9,28 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## PR37 loader scheduling correction — 2026-10-22
+
+Status: Bounded implementation correction under verification, within the user's authorized
+CI repair; no new source delivery method, public interface or architecture is selected.
+
+Hosted failure observation maps an outer loader frame that fires and a subsequent inner frame
+that does not fire before the original5s assertion. No data request begins. This localizes the
+unbounded wait without proving a browser scheduler cause or permanent halt.
+
+Retain the preferred two sequential frame opportunities, each raced with a cancellable35ms
+timer using the nominal fallback delay already present in locked Preact10.29.8. This value is
+not derived from the5s test deadline and changes no test/performance budget. A phase advances
+once; phase1 cannot directly release the loader. Cleanup and guards must reject original abort
+reasons, cancel pending handles and ignore late/repeated losing callbacks.
+
+This is best-effort asynchronous liveness when tasks resume. It cannot guarantee physical
+paint or a wall-clock bound if the browser stops scheduling tasks. Fixed query-independent
+two-request batches, complete-snapshot validation/promotion, retries, retained accepted data
+and managed data asset URLs/content remain unchanged; the application bundle is regenerated.
+Fresh source-bound performance, independent
+review and exact-head canonical CI are required; affected actual AT and merge gates persist.
+
 ## TASK-009 authorized local implementation boundary — 2026-10-21
 
 Status: Existing approved architecture executed locally; no new product or quality decision.
