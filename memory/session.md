@@ -9,6 +9,21 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## TASK-027 delivered as draft PR #37 — 2026-10-22
+
+Authorized commit/push and [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37)
+creation succeeded on codex/task-027-prism-glass -> main; it is attached to this task. Creation
+head900d642/base596080a were independently read back; source8ed3ddb and152measured hashes are
+unchanged. The [delivery receipt](../reports/delivery-2026-10-22-task-027.md) distinguishes
+creation-time metadata and CI observation from current exact-head results. Creation-time Verify
+was in_progress, not passed. Do not recreate the PR, mark TASK027complete, merge/deploy, or infer
+manualAT/defaultfull acceptance from delivery. Read current exact-head CI before any new claim.
+
+TASK028proposed design/plan and its independent planning check are committed for human review,
+unactivated and planning-only. No product/test/dependency/runtime/source-policy change follows.
+The original85pending files/status remain preserved. Earlier authorization/preparation notes
+below are historical; current PR links and live metadata govern future delivery decisions.
+
 ## TASK-027 remote delivery and proposed follow-up — 2026-10-22
 
 The user's latest request explicitly authorizes committing/pushing this branch and creating a PR;

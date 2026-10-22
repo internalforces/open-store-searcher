@@ -21,6 +21,14 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 - Overall health: 🟡 Caution — source ZIP and action approvals missing; performance/recovery/release gates open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
+## Current remote delivery — 2026-10-22
+
+Reviewed TASK027is delivered in [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37)
+from codex/task-027-prism-glass to main, with implementation source8ed3ddb unchanged. No merge or
+deployment occurred. Required exact-headCI and actualspokenAT acceptance remain separate; first
+Verify observation is in_progress. See [delivery](../reports/delivery-2026-10-22-task-027.md).
+TASK028design/plan is proposed, independently checked for planning gaps and unactivated.
+
 ## Latest delivery and planning request — 2026-10-22
 
 The user explicitly requested commit/push and PR creation for reviewed TASK027, plus a future

@@ -22,6 +22,9 @@ _Last updated: 2026-10-22_
 - Authorization: On 2026-10-22 the user requested local commit/push, PR creation, main merge,
   and TASK-027 activation. This supersedes earlier proposed/unactivated status only.
 - Owner: Implementer / Tester / Reviewer for final verification, review and remaining acceptance.
+- Delivery: [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37) created
+  after authorized push. Application source8ed3ddb unchanged; exact-headCI and actualspokenAT
+  acceptance remain separate. No merge/deployment or follow-up activation occurred.
 - Latest delivery authority: On2026-10-22 the user explicitly requested commit/push and PR
   creation for this branch. This supersedes the earlier local-only delivery limit, but does not
   authorize merge/deploy or waive PG10/15. The proposed TASK028design/plan is planning-only and
