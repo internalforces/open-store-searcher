@@ -9,7 +9,39 @@ Harness Version: 1.1
 
 Date: 2026-10-22
 Application source checkpoint: `5524090793ffcffcabc8d81dc2925ea0a42d7fe5`
-Status: Independently Approved for intentional hosted observation only; CI cause unresolved.
+Status: Hosted observation captured one animation-baseline failure; earlier startup/CLS causes remain unresolved.
+
+## Captured hosted failure on b3d1033
+
+[Verify39791048517](https://github.com/internalforces/open-store-searcher/actions/runs/39791048517),
+job119866844594, on `b3d1033e5436893931ef17c08dde9a2e626fe6e2` exits1 under the original
+two-worker/fail-on-flaky profile. Static checks,59files/1,425tests, coverage, quality and build
+pass. Browser results are91pass/1flaky; accessibility and packaging are not reached.
+All WebKit startup, recovery and map targets pass their first attempts in this observation.
+
+The Chromium decoration case fails its original global counter assertion, expected1/received2,
+and passes only on its built-in retry. Its bounded native event order has no dropped entries:
+`prism-rim`(1), `accepted-underline` on the result span(3), baseline checkpoint(4),
+`detail-rim` on the detail span(5), after61s(6), focus/final checkpoint(7).
+Each related effect starts once; the detail's first native start arrives after the baseline.
+This explains this counter failure. It does not explain the earlier initial non-input
+layoutshift0.028657389322916667 or WebKit5s failures. The captured shift has recent input;
+the original non-input zero-shift assertion passes.
+
+The complete decoded job log and exact failure JSON are retained privately as
+`pr37-ci-b3d1033-decoded.log` and `pr37-ci-b3d1033-failure-observation-0.json` under the task
+evidence directory. The GitHub code-review summary independently completes on this exact head
+at2026-10-22T13:57:16Z with no findings. This is code-review evidence, not a passing CI result.
+
+A bounded test-only precondition repair is locally verified and independently Approved:
+see [exact source and commands](test-2026-10-22-pr37-animation-baseline.md).
+An authoritative native ledger must
+prove each expected effect started exactly once on its actual saved node before sampling the
+unchanged global counter. Keep the original immediate-content, zero-shift, geometry,61s/focus,
+resource and storage assertions; recheck geometry/shifts after any added polling.
+No timeout, worker, retry, flaky policy, production source or budget change is authorized.
+Affected pending-refresh actual VoiceOver remains unperformed; the human cannot enable it now.
+No task acceptance, thread resolution, main merge or deployment follows.
 
 ## Failed canonical observations
 

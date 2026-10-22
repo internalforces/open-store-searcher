@@ -33,6 +33,12 @@ _Last updated: 2026-10-22_
 - CI: Two canonical observations on5524090 fail strict flaky policy. No more unchanged reruns;
   test-only host failure observation has scoped independent approval, with all152 measured inputs
   and all7 production assets unchanged. See [diagnosis](../reports/test-2026-10-22-pr37-ci-observation.md).
+  Hosted b3d1033 observation fails91pass/1flaky and captures a late first detail animation start
+  after the global baseline. The test-only exact-once start precondition passes all four
+  engines locally and independent Sol/xhigh review; new pushed-head full CI/review is required.
+  See [correction](../reports/test-2026-10-22-pr37-animation-baseline.md).
+  Earlier WebKit5s/initial CLS causes remain unresolved; this observation's passing WebKit
+  targets do not erase them. Exact b3d1033 GitHub review completes with no findings.
 - TASK-009 remains waiting, TASK-010 paused, TASK-021 gated and TASK-028 proposed/unactivated.
   Original and TASK-009 worktree changes remain protected. No task is completed by this reopening.
 

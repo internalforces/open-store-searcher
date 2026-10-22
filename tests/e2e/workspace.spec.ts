@@ -240,6 +240,16 @@ test('decoration preserves immediate content, stable geometry and resource bound
         value: () => writes.push(key),
       });
     }
+    const relatedStarts: { name: string; target: EventTarget | null }[] = [];
+    Reflect.set(window, '__workspaceRelatedAnimationStarts', relatedStarts);
+    document.addEventListener('animationstart', (event) => {
+      const animation = event as AnimationEvent;
+      if (
+        animation.animationName === 'accepted-underline' ||
+        animation.animationName === 'detail-rim'
+      )
+        relatedStarts.push({ name: animation.animationName, target: animation.target });
+    });
     Reflect.set(window, '__workspaceAnimationStarts', 0);
     document.addEventListener('animationstart', () =>
       Reflect.set(
@@ -249,9 +259,19 @@ test('decoration preserves immediate content, stable geometry and resource bound
       ),
     );
   });
+  await expect(page.locator('span.result-glint')).toHaveCount(0);
+  await expect(page.locator('span.detail-glint')).toHaveCount(0);
   await search(page);
   await page.locator('.candidate-summary').first().getByRole('button').click();
   await expect(page.locator('.workspace-detail .record-evidence')).toBeVisible();
+  await expect(page.locator('span.result-glint')).toHaveCount(1);
+  await expect(page.locator('span.detail-glint')).toHaveCount(1);
+  await page.evaluate(() => {
+    const result = document.querySelector('span.result-glint');
+    const detail = document.querySelector('span.detail-glint');
+    if (!result || !detail) throw new Error('The accepted result and detail glints must exist.');
+    Reflect.set(window, '__workspaceSavedAnimationNodes', { result, detail });
+  });
   await page.evaluate(() => {
     const shifts = Reflect.get(window, '__workspaceLayoutShifts') as number[];
     shifts.length = 0;
@@ -262,7 +282,37 @@ test('decoration preserves immediate content, stable geometry and resource bound
   if (supportsLayoutShift) {
     expect(await page.evaluate(() => Reflect.get(window, '__workspaceLayoutShifts'))).toEqual([]);
   }
-  const animationStarts = await page.evaluate(() => {
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const starts = Reflect.get(window, '__workspaceRelatedAnimationStarts') as {
+          name: string;
+          target: EventTarget | null;
+        }[];
+        const saved = Reflect.get(window, '__workspaceSavedAnimationNodes') as {
+          result: Element;
+          detail: Element;
+        };
+        const accepted = (entry: (typeof starts)[number]) =>
+          entry.name === 'accepted-underline' && entry.target === saved.result;
+        const inspected = (entry: (typeof starts)[number]) =>
+          entry.name === 'detail-rim' && entry.target === saved.detail;
+        return {
+          accepted: starts.filter(accepted).length,
+          detail: starts.filter(inspected).length,
+          other: starts.filter((entry) => !accepted(entry) && !inspected(entry)).length,
+          sameNodes:
+            saved.result === document.querySelector('span.result-glint') &&
+            saved.detail === document.querySelector('span.detail-glint'),
+        };
+      }),
+    )
+    .toEqual({ accepted: 1, detail: 1, other: 0, sameNodes: true });
+  expect(await page.locator('.workspace-detail').boundingBox()).toEqual(detail);
+  if (supportsLayoutShift) {
+    expect(await page.evaluate(() => Reflect.get(window, '__workspaceLayoutShifts'))).toEqual([]);
+  }
+  const animationBaseline = await page.evaluate(() => {
     try {
       const observation = Reflect.get(window, '__failureObservation') as
         | { mark: (label: string) => void }
@@ -271,8 +321,32 @@ test('decoration preserves immediate content, stable geometry and resource bound
     } catch {
       // Diagnostic failures must not change the original read or focus dispatch.
     }
-    return Reflect.get(window, '__workspaceAnimationStarts');
+    const starts = Reflect.get(window, '__workspaceRelatedAnimationStarts') as {
+      name: string;
+      target: EventTarget | null;
+    }[];
+    const saved = Reflect.get(window, '__workspaceSavedAnimationNodes') as {
+      result: Element;
+      detail: Element;
+    };
+    const accepted = (entry: (typeof starts)[number]) =>
+      entry.name === 'accepted-underline' && entry.target === saved.result;
+    const inspected = (entry: (typeof starts)[number]) =>
+      entry.name === 'detail-rim' && entry.target === saved.detail;
+    return {
+      counter: Reflect.get(window, '__workspaceAnimationStarts'),
+      related: {
+        accepted: starts.filter(accepted).length,
+        detail: starts.filter(inspected).length,
+        other: starts.filter((entry) => !accepted(entry) && !inspected(entry)).length,
+        sameNodes:
+          saved.result === document.querySelector('span.result-glint') &&
+          saved.detail === document.querySelector('span.detail-glint'),
+      },
+    };
   });
+  expect(animationBaseline.related).toEqual({ accepted: 1, detail: 1, other: 0, sameNodes: true });
+  const animationStarts = animationBaseline.counter;
   await page.clock.fastForward(61_000);
   await page.evaluate(() => {
     try {
@@ -298,6 +372,18 @@ test('decoration preserves immediate content, stable geometry and resource bound
       return Reflect.get(window, '__workspaceAnimationStarts');
     }),
   ).toBe(animationStarts);
+  expect(
+    await page.evaluate(() => {
+      const saved = Reflect.get(window, '__workspaceSavedAnimationNodes') as {
+        result: Element;
+        detail: Element;
+      };
+      return (
+        saved.result === document.querySelector('span.result-glint') &&
+        saved.detail === document.querySelector('span.detail-glint')
+      );
+    }),
+  ).toBe(true);
   expect(requests).toEqual(beforeRequests);
   expect(requests.every((url) => new URL(url).origin === new URL(originalUrl).origin)).toBe(true);
   expect(page.url()).toBe(originalUrl);

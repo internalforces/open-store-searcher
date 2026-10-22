@@ -9,7 +9,20 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
-## PR37 exact-head CI follow-up — 2026-10-22
+## PR37 hosted counter failure attributed — 2026-10-22
+
+Verify39791048517 on b3d1033 fails91browserpass/1flaky after passing static/1,425unit tests.
+Captured native event order places the detail effect's first start after the baseline; there
+are no duplicated related starts or dropped animation entries in this failed attempt.
+An exact-once native-start test precondition is locally verified (four first-attempt engine
+passes) and independently Approved; no production cause is inferred. See the
+[baseline correction](../reports/test-2026-10-22-pr37-animation-baseline.md).
+Earlier WebKit5s and initial non-input CLS failures remain unresolved even though they do not
+recur in this observation. See [current capture](../reports/test-2026-10-22-pr37-ci-observation.md).
+Exact b3d1033 GitHub review completes with no findings. New correction-head CI/review, affected actual AT and final
+acceptance remain open; the human cannot enable VoiceOver now. No main merge or deployment.
+
+## Earlier PR37 exact-head CI follow-up — 2026-10-22
 
 Current pushed source/head:5524090793ffcffcabc8d81dc2925ea0a42d7fe5, PR37 open/unmerged.
 [Verify39778033230](https://github.com/internalforces/open-store-searcher/actions/runs/39778033230)

@@ -9,7 +9,27 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
-## PR37 exact-head CI follow-up — 2026-10-22
+## PR37 hosted failure captured — 2026-10-22
+
+Committed head b3d1033e5436893931ef17c08dde9a2e626fe6e2 remains open/unmerged.
+Verify39791048517/job119866844594 fails strict flaky policy: static/1,425unit tests pass;
+91browserpass/1flaky Chromium decoration, retry passes. Native order proves the detail effect's
+first start arrives after the counter baseline, not a duplicated related start in this attempt.
+All targeted WebKit cases pass first attempts; earlier startup/initial CLS causes remain
+unresolved. Full decoded log and failure JSON are preserved privately. GitHub review completes
+on exact b3d1033 with no findings. See [host capture](../reports/test-2026-10-22-pr37-ci-observation.md).
+The existing Sol/high worker completed the bounded exact-once native-start precondition.
+Final source314cc0f8 passes four configured engines first attempts/exit0, type/style and92
+collection; independent Sol/xhigh review is Approved with0 findings. Atomic ledger+counter
+sampling closes the poll-to-baseline gap. Source152/all7 existing assets remain unchanged.
+See [baseline correction](../reports/test-2026-10-22-pr37-animation-baseline.md).
+The next normal push requires fresh exact-head full CI/review; livePR37 holds final identities
+and results. No production or runner policy changed; prior startup/CLS risks remain open.
+Actual changed pending-refresh VoiceOver remains unperformed because the human cannot enable
+it now. Their actual-verification-before-merge condition persists. No merge/deployment or
+TASK028 activation; original85 pending files/status remain protected.
+
+## Earlier PR37 exact-head CI follow-up — 2026-10-22
 
 Current pushed source/head:5524090793ffcffcabc8d81dc2925ea0a42d7fe5, PR37 open/unmerged.
 [Verify39778033230](https://github.com/internalforces/open-store-searcher/actions/runs/39778033230)
