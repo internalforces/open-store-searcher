@@ -9,7 +9,19 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
-## TASK-027 verification limits — 2026-10-22
+## TASK-027 verification acceptance resolved — 2026-10-22
+
+Canonical hosted Verify39757243712 on `d4f9b9e` passes the normal full command and packaging
+(1,423/92/20 plus101), resolving the missing required-default pass. The human subsequently
+starts VoiceOver and confirms current-source repeated-search, inspection/return and both
+page/range announcements without decorative speech. [Final manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md)
+and [independent final acceptance](../reports/review-2026-10-22-pr37-final-acceptance.md)
+resolve I1/PG-15 and I2/PG-10 within TASK-027. No product defect, timeout relaxation, policy
+waiver or production compatibility claim is inferred. Original outcomes below remain historical.
+The complete delivered-artifact formatting failure is corrected with raw bytes preserved;
+full-inventory pinned checks pass. Final documentation-head integration checks remain separate.
+
+### Prior verification limits (historical)
 
 The local CUA attempt could observe the macOS VoiceOver Settings switch and restore off, but
 could not obtain an executing VoiceOver/caption output surface. The caption setting remained

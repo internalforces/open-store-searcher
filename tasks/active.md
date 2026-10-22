@@ -9,58 +9,23 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
-## In Progress
+## Current implementation slot
 
-### TASK-027: Prism Glass dashboard workspace
+No implementation task is active. TASK-027 has completed its approved presentation scope with
+independent final acceptance; see [completion](completed.md#task-027-final-acceptance--2026-10-22),
+[manual VoiceOver](../reports/manual-2026-10-22-task-027-voiceover-final.md) and
+[final review](../reports/review-2026-10-22-pr37-final-acceptance.md).
 
-- Status: Active after PR #36 merged as `596080a41b6b5884a73a9bdffb52333548441fe5`.
-  Detailed design and continuation approved on 2026-10-22; implementation checkpoint `8ed3ddb`
-  is verified locally with the explicitly separated default/serial outcomes. Tasks1–3 are Approved;
-  Task4 and fresh whole-branch Sol/xhigh code-quality reviews are Approved; acceptance is
-  Request Changes for the two open criteria. Minor backlog prose correction is independently ADDRESSED; scoped rereview Approved. PG10 actual
-  VoiceOver output and PG15 strict default verification remain open; task completion is withheld.
-- Authorization: On 2026-10-22 the user requested local commit/push, PR creation, main merge,
-  and TASK-027 activation. This supersedes earlier proposed/unactivated status only.
-- Owner: Implementer / Tester / Reviewer for final verification, review and remaining acceptance.
-- Delivery: [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37) created
-  after authorized push. Application source8ed3ddb unchanged; exact-headCI and actualspokenAT
-  acceptance remain separate. No merge/deployment or follow-up activation occurred.
-- Latest delivery authority: On 2026-10-22 the user requested fixing PR #37 CI, requesting
-  review and merging main after verification. This supersedes the earlier no-merge delivery
-  limit for this PR; it does not authorize deployment or waive PG-10/15. The proposed TASK-028
-  design/plan is planning-only and does not occupy the active implementation slot.
-- CI remediation: Hosted run 39754874448 failed on one baseline JSON artifact's formatting
-  before application checks. Original bytes are preserved; the full eligible tracked snapshot
-  passes pinned lint/format. Independent fix review and fresh hosted CI follow; see
-  [remediation](../reports/test-2026-10-22-pr37-ci-remediation.md). A manual AT retry cannot
-  proceed while macOS is locked; the existing specific VoiceOver permission is retained.
-- Requirements: FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs;
-  PG-01 through PG-15 in the [design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
-- Workspace: reused `.worktrees/task013-quality` on `codex/task-027-prism-glass`,
-  based on exact merged main `596080a41b6b5884a73a9bdffb52333548441fe5` (PR #36).
-  Preserve the original and TASK-009 checkouts and their pending work.
-- Design state: concept 01 selected; independent builder check is ready for planning.
-  The user's subsequent approval accepts the detailed design, including its tokens, breakpoints,
-  motion and selection rules. The [implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md)
-  has been prepared and self-reviewed; the user confirmed execution with the model override.
-- Acceptance:
-  - [x] Preserve and integrate selected reference/provenance, design, readiness and waiting records.
-  - [x] Obtain explicit task activation authority; retain the single-active-task rule.
-  - [x] Confirm the detailed design and prepare the implementation plan.
-  - [x] Obtain human review of the plan and confirm the execution method.
-  - [ ] Implement the approved scope and satisfy PG-01 through PG-15 with current evidence.
-  - [ ] Pass pinned full verification, performance checks and independent final review.
-- Current verification: pinned same-source1,423tests/static/build/quality pass; strict default
-  `verify:full` exits1 with91/92browser (WebKit startup5s on both attempts); approved serial
-  browser92/92 and accessibility20/20 pass, performance all budgets pass, actualChrome200%
-  keyboard/focus proof passes. Actual VoiceOver output remains unavailable; original settings
-  are restored. See [verification](../reports/test-2026-10-22-task-027.md).
-- Required verification: focused presentation/Worker regressions, four-browser search, axe,
-  keyboard/responsive/zoom/motion/forced-color/visual checks, `npm run verify:full`,
-  `npm run performance:check` and independent review on project tooling.
-- Boundaries: no TASK-023 enhanced navigation, share URLs, photos/history/favorites,
-  new service/dependency, pipeline/search policy change, deployment or release acceptance.
-  TASK-009 waits outside the slot; TASK-010 stays paused and TASK-021 gated.
+PR #37 integration is authorized after verification. Application source remains `8ed3ddb`;
+canonical Verify on tested head `d4f9b9e` passes 1,423 / 92 / 20 plus 101 packaging tests.
+The final documentation/evidence head still requires its exact-head CI/review and normal
+protected-main merge. Consult [the live PR](https://github.com/internalforces/open-store-searcher/pull/37)
+for the final integration receipt; no deployment or release acceptance is authorized.
+
+TASK-028 remains proposed and unactivated; its exact design and execution still require approval.
+TASK-009 remains waiting outside the slot, TASK-010 paused and TASK-021 gated. Existing source,
+calibration, physical-mobile, hosted/publication/recovery, milestone/handbook and release
+boundaries remain unchanged. Preserve the original and TASK-009 worktrees and pending changes.
 
 ## TASK-009 waiting disposition — 2026-10-22
 

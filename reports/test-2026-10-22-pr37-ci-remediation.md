@@ -8,7 +8,7 @@ Harness Version: 1.1
 # PR37 CI Remediation
 
 Date: 2026-10-22
-Status: Artifact-only fix passes pinned style checks and independent Sol/xhigh review; exact-head CI pending.
+Status: Artifact fix, canonical hosted CI and final task acceptance pass; final evidence-head integration checks remain.
 Failing head: `e994ae74d4d19d1cd65e43b7733e9daa28d1cf81`
 PR: [#37](https://github.com/internalforces/open-store-searcher/pull/37)
 Run: [39754874448](https://github.com/internalforces/open-store-searcher/actions/runs/39754874448)
@@ -35,7 +35,7 @@ must not be presented as full artifact-inventory equivalence. Remediation uses a
 from all tracked eligible inputs/artifacts, excluding handbook and secret/environment files,
 with COPYFILE_DISABLE and no-xattrs/no-fflags to avoid AppleDouble sidecars.
 
-## Fix and pending gates
+## Fix and pre-acceptance gates (historical)
 
 Preserve original before-metrics bytes as a raw sibling, format the JSON reading view and require
 exact original raw SHA plus parsed-object equality. No sample, product source, test assertion,
@@ -75,3 +75,18 @@ Fresh GPT-6.1 Sol / xhigh review approves the bounded correction with zero findi
 independent raw/view equality, source hashes, complete input inventory, runtime and evidence
 hash checks. See [review](review-2026-10-22-pr37-ci-remediation.md). This is fix approval;
 canonical exact-head CI and actual PG-10 observation remain separate gates.
+
+
+## Current acceptance disposition
+
+Exact head `d4f9b9e` canonical [Verify39757243712](https://github.com/internalforces/open-store-searcher/actions/runs/39757243712)
+passes lint301/format299,1,423tests/59files,92browser and20accessibility with normal two-worker
+workflow settings, plus101 packaging tests (zero failures/skips). The GitHub Codex exact-head
+review completes with no findings; inline review threads are empty. This resolves the previously
+missing canonical default pass without rewriting historical failed evidence.
+
+The user subsequently unlocks, starts VoiceOver directly, and confirms actual current-source
+search, inspection/return and both page/range announcements without decorative speech.
+See [manual evidence](manual-2026-10-22-task-027-voiceover-final.md) and
+[final independent acceptance](review-2026-10-22-pr37-final-acceptance.md). No criterion is waived.
+Final evidence-head CI/review and normal protected-main merge remain mandatory delivery checks.

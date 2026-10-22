@@ -2952,3 +2952,27 @@ A screen-reader retry under the prior authorization encountered a locked Mac. No
 changed; the user was asked to unlock it. Actual PG-10 output remains unverified. TASK-027
 stays active, TASK-009 waiting, TASK-010 paused and TASK-021 gated. See the
 [remediation record](../reports/test-2026-10-22-pr37-ci-remediation.md).
+
+
+## TASK-027 actual AT and final acceptance — 2026-10-22
+
+After unlocking, the user directly started VoiceOver and selected actual verification before
+merge. CUA controlled the current-source local test and native Tab/Enter actions; the human
+confirmed actual repeated-search announcement, detail-title and exact invoking-button return
+reading, and both next/last-page range announcements with no decorative speech. This is
+human-assisted actual AT evidence, not a caption transcript or an inferred AX-only pass.
+The separate47-record fixture reuses exact existing fixture logic and pinned compiled assets;
+all152 source bindings and all7 asset bindings match. No product/test code changed.
+
+VoiceOver is restored to the complete temporary test's original off baseline; caption/cursor
+preferences stay checked, AppleScript control unchecked, and Settings/Utility restored to
+General and quit. Final inventory confirms temporary apps stopped; QA tab and owned5198server
+are closed. Current-source manual evidence and canonical hosted Verify39757243712 success
+resolve the prior PG-10/15 acceptance gaps. Independent Sol/xhigh final acceptance is Approved;
+see [manual](../reports/manual-2026-10-22-task-027-voiceover-final.md) and
+[review](../reports/review-2026-10-22-pr37-final-acceptance.md).
+
+TASK-027 moves to completed; no implementation task is active. PR37 final evidence-head
+CI/review and authorized normal protected-main integration remain delivery checks, recorded
+through the live PR. No deployment/source activation, TASK-028 execution, milestone/handbook
+or release gate is activated. Original checkout status/fingerprints remain preserved.

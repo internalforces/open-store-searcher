@@ -652,3 +652,20 @@ design approval/prior acceptance/active-slot authority(Task1). This is prospecti
 not a new verification result or approved replacement for TASK027's design. TASK028is unactivated;
 TASK027PG10/15 and all operational/release boundaries remain open. Commit/push/PR authorization
 for reviewed TASK027does not authorize merging, deployment or follow-up implementation.
+
+
+## TASK-027 final acceptance — 2026-10-22
+
+The source8ed3ddb PG-01 through PG-15 presentation scope is accepted after the preserved scoped
+and whole-branch code reviews, unchanged-budget lab performance, fresh canonical hosted
+Verify39757243712 (1,423/92/20 plus101 packaging), and actual human-assisted VoiceOver search,
+inspection/return and page/range observations. [Manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md)
+and [independent acceptance](../reports/review-2026-10-22-pr37-final-acceptance.md) disposition the
+prior I1/PG-15 and I2/PG-10 gaps; older checkpoints above remain historical. All152 measured
+source hashes remain current. TASK-027 is recorded in completed work; final evidence-head
+CI/review and authorized protected integration remain delivery checks.
+
+FR-01 through FR-14 and baselineFR-16 retain their existing policy owners and safety invariants.
+No whole milestone/handbook, production/full-source, physical-mobile, hosted/publication/recovery
+or release criterion is closed. TASK-023 enhanced navigation stays separate. TASK-028's QM01-08
+mapping remains prospective, with no design/execution/active-slot approval inferred.

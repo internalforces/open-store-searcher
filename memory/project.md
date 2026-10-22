@@ -16,30 +16,29 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 complete; TASK-027 implementation reviewed in stages; final acceptance open; TASK-009 awaiting materials and action-time approval
+- Phase: TASK-008 and TASK-027 complete within their accepted scopes; PR37 integration pending final delivery checks; TASK-009 awaiting materials and action-time approval
 - Next milestone: M1 — TASK-009 hosted acceptance, then TASK-010 publication/recovery
 - Overall health: 🟡 Caution — source ZIP and action approvals missing; performance/recovery/release gates open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
-## Current remote delivery — 2026-10-22
+## Current TASK-027 acceptance and delivery — 2026-10-22
 
-Reviewed TASK027is delivered in [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37)
-from codex/task-027-prism-glass to main, with implementation source8ed3ddb unchanged. No merge or
-deployment occurred. Required exact-headCI and actualspokenAT acceptance remain separate; first
-Verify observation is in_progress. See [delivery](../reports/delivery-2026-10-22-task-027.md).
-TASK028design/plan is proposed, independently checked for planning gaps and unactivated.
+TASK-027 source `8ed3ddb` has Approved final acceptance after current-source human-assisted
+VoiceOver and canonical hosted Verify on `d4f9b9e` (1,423/92/20 plus101 packaging).
+See [completion](../tasks/completed.md#task-027-final-acceptance--2026-10-22),
+[manual AT](../reports/manual-2026-10-22-task-027-voiceover-final.md) and
+[final review](../reports/review-2026-10-22-pr37-final-acceptance.md).
+No implementation task is active. The user explicitly requests fixing CI, review and normal
+protected-main merge for [PR37](https://github.com/internalforces/open-store-searcher/pull/37).
+Final documentation/evidence-head CI/review and integration remain delivery checks; the live PR
+records the eventual exact head/merge SHA. Deployment remains unauthorized.
 
-## Latest delivery and planning request — 2026-10-22
+TASK-028 design/plan is proposed and unactivated, with exact visual/motion approval and active-slot
+handoff still required. TASK-009 remains waiting, TASK-010 paused and TASK-021 gated. No source,
+status, privacy, public-interface, production, physical-mobile, hosted, milestone or release
+boundary changes. Earlier snapshots below retain their point-in-time scope.
 
-The user explicitly requested commit/push and PR creation for reviewed TASK027, plus a future
-visual-restraint/animation plan. Current delivery may create a draft PR while PG10spokenAT and
-PG15strictdefault remain open; no merge/deployment or task completion is authorized. Proposed
-TASK028is registered only in backlog with [design](../docs/superpowers/specs/2026-10-22-dashboard-refinement-design.md)
-and [plan](../docs/superpowers/plans/2026-10-22-dashboard-refinement.md); it is unactivated and
-its exact styling/motion requires human review. This supersedes earlier local-only delivery
-statements for the current branch without changing operational gates or source/status policy.
-
-## Current handoff — 2026-10-22
+## Historical implementation handoff — 2026-10-22
 
 TASK-027 is the sole active task after PR #36 merged as `596080a` in the reused
 `.worktrees/task013-quality` checkout on `codex/task-027-prism-glass`. Its detailed design was

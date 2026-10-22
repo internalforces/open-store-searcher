@@ -93,8 +93,10 @@ is separate from the still-absent workflow config; no deployment/publication is 
 
 ## TASK-027: Prism Glass dashboard workspace
 
-- Status: Implemented at `8ed3ddb156f12cd83d4037b0026b0ca28b5b5dbf`; remains [active work](active.md)
-  and incomplete because PG-10 spoken AT and PG-15 strict-default verification remain open.
+- Status: Complete for the approved presentation scope at `8ed3ddb`; see
+  [final acceptance](completed.md#task-027-final-acceptance--2026-10-22). Human-assisted actual
+  VoiceOver and canonical hosted full verification resolve the prior PG-10/15 gaps.
+  PR #37 final evidence-head CI/review and authorized protected merge remain delivery checks.
 - Owner: Implementer / Tester / Reviewer under the approved sequential execution method;
   GPT-6.1 Sol/high implementation and GPT-6.1 Sol/xhigh independent review.
 - Authorization: Concept 01/design documentation, followed by the explicit commit/push/PR/merge
@@ -115,14 +117,15 @@ is separate from the still-absent workflow config; no deployment/publication is 
 - TASK-023 retains enhanced candidate keyboard navigation. This task uses native inspect/return
   buttons and baseline keyboard access; it does not close TASK-023 or FR-15.
 - The [detailed implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md)
-  was executed after the user's approval. Task 4 and final whole-branch code quality are Approved;
-  PG-10 spoken AT and PG-15 strict-default acceptance remain open.
+  was executed after the user's approval. Task 4 and final whole-branch code quality are Approved.
+  Final independent acceptance is Approved after current-source manual AT and canonical full CI;
+  historical failed/unavailable results remain preserved in their dated reports.
 
 
 ## TASK-028: Dashboard visual restraint and interaction feedback
 
-- Status: Proposed and unactivated; planning requested on2026-10-22. TASK-027 remains the sole
-  active task and is not completed by PR publication or this proposed follow-up.
+- Status: Proposed and unactivated; planning requested on 2026-10-22. TASK-027 is accepted;
+  no follow-up implementation or active-slot handoff is inferred from that completion.
 - Owner: Planner / Designer for design review; Implementer / Tester / Reviewer only after
   explicit execution and active-slot authority.
 - Milestone: M2 follow-up; priority Medium; size L.
@@ -131,8 +134,8 @@ is separate from the still-absent workflow config; no deployment/publication is 
 - Intent: Reduce repeated generic visual decoration while preserving the bright Prism identity;
   use short animation to explain accepted search/page and inspected-record state.
 - Plan: [four-stage proposed implementation plan](../docs/superpowers/plans/2026-10-22-dashboard-refinement.md).
-- Dependencies: TASK-027 current PG10spokenAT and PG15defaultfull acceptance, full follow-up design
-  approval and explicit active-slot handoff; a human may explicitly change sequencing, but this
+- Dependencies: Accepted TASK-027 implementation, full follow-up design approval and explicit
+  active-slot handoff; a human may explicitly change sequencing, but this
   plan does not. Exact palette/corners/timing are coordinator proposals, not accepted values.
 - Acceptance: QM01–08 cover approved direction, hierarchy/evidence preservation, interruption-safe
   motion, media/AT, long content/responsive/actualzoom, unchanged budgets/default suite and review.

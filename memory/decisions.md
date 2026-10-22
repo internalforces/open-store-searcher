@@ -905,3 +905,14 @@ and animation. Register proposed/unactivated TASK028with restrained Prism materi
 short feedback as coordinator recommendations, preserving product truth and all current gates.
 Exact visual/motion approval and active-slot authority remain future decisions; no product code
 or current approved design is changed by these planning records.
+
+
+## TASK-027 actual AT acceptance before merge — 2026-10-22
+
+The user explicitly chose unlocking and actual VoiceOver verification before the authorized
+PR37 merge. No acceptance-contract deferral is adopted. Human-assisted current-source speech
+observations close the previously unavailable manual criterion after independent review;
+normal exact-head CI/review and protected integration still apply. Restore the complete
+consented temporary test's original VoiceOver-off baseline and retain caption preferences.
+The follow-up TASK-028 remains proposed/unactivated; no design, policy or operational gate is
+changed by TASK-027 completion. See [final manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md).

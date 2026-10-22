@@ -5,7 +5,7 @@ Update Trigger: When exact remote delivery or acceptance evidence changes
 Harness Version: 1.1
 -->
 
-# TASK-027 Draft PR Delivery
+# TASK-027 PR Delivery
 
 Date: 2026-10-22
 Repository: internalforces/open-store-searcher (public)
@@ -35,7 +35,7 @@ materials, fewer repeated card/gradient treatments and short purposeful160/180ms
 Exact values are coordinator recommendations awaiting full design review. The independent
 [builder check](review-2026-10-22-dashboard-refinement-plan.md) finds no material planning gap;
 it is not approval or execution authority. TASK028is registered in backlog only, unactivated.
-TASK027remains the sole active task; TASK009waiting/010paused/021gated stay unchanged.
+At that planning checkpoint TASK027 remained active; its final acceptance is recorded below. TASK009waiting/010paused/021gated stay unchanged.
 
 ## This pass's checks
 
@@ -43,3 +43,19 @@ Only documentation/planning changed after the reviewed application source. All15
 hashes still match; the original85pending files and exact original-checkout status remain equal.
 Plan/spec links resolve, all four plan stages and QM01–08 exist, and full-range staged whitespace
 validation passes. No new application-suite result or visual improvement is claimed by this pass.
+
+
+## Final acceptance and integration preparation
+
+The user later requests fixing failed CI, review and main merge after verification, and explicitly
+selects actual VoiceOver testing before integration. The artifact-only formatter correction
+preserves raw bytes and passes complete-inventory checks. Canonical Verify39757243712 on
+`d4f9b9e` succeeds with1,423/92/20 plus101 packaging; GitHub Codex reports no findings for that
+head, and independent code/fix review is Approved.
+
+Current-source [human-assisted VoiceOver](manual-2026-10-22-task-027-voiceover-final.md) and
+[final independent acceptance](review-2026-10-22-pr37-final-acceptance.md) resolve the prior
+PG-10/15 gaps without waiver. TASK-027 moves to completed. No follow-up task is activated.
+Final documentation/evidence-head CI/review and normal protected-main merge still follow;
+consult [PR37](https://github.com/internalforces/open-store-searcher/pull/37) for exact final
+head/check/merge receipts. No source-data activation, deployment or release is authorized.
