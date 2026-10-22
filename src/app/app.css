@@ -956,3 +956,27 @@ button[aria-disabled="true"] {
     box-shadow: none;
   }
 }
+
+.workspace-results-grid {
+  align-items: start;
+}
+.workspace-candidates,
+.workspace-inspection-prompt,
+.workspace-results-grid > .workspace-detail {
+  min-width: 0;
+}
+.workspace-candidates > section + section {
+  margin-top: 24px;
+}
+.workspace-candidates h2 {
+  font-size: 1.125rem;
+}
+.workspace-busy {
+  color: var(--secondary);
+}
+@media (min-width: 1280px) {
+  .workspace-results-grid > .workspace-detail,
+  .workspace-inspection-prompt {
+    grid-column: 2 / -1;
+  }
+}

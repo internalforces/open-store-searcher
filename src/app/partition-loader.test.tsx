@@ -234,10 +234,12 @@ describe('partitioned loading', () => {
       ).toBe(false),
     );
     fireEvent.submit(screen.getByRole('searchbox').closest('form') as HTMLFormElement);
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
+    expect(document.querySelectorAll('.workspace-detail')).toHaveLength(1);
     fail = true;
     fireEvent.click(screen.getByRole('button', { name: '데이터 다시 불러오기' }));
     expect((await screen.findByRole('alert')).textContent).toContain('이전 데이터');
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
+    expect(document.querySelectorAll('.workspace-detail')).toHaveLength(1);
   });
 });

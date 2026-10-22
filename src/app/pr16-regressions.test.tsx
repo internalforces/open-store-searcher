@@ -57,7 +57,8 @@ describe('PR16 loader regressions', () => {
     expect(build).toHaveBeenCalledTimes(1);
     fireEvent.click(screen.getByRole('button', { name: /예시 입력/ }));
     fireEvent.click(screen.getByRole('button', { name: '검색', exact: true }));
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
+    expect(document.querySelector('.workspace-detail')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: '검색', exact: true }));
     expect(build).toHaveBeenCalledTimes(1);
     fireEvent.click(screen.getByRole('button', { name: '데이터 다시 불러오기' }));

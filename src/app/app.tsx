@@ -255,6 +255,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             result={result}
             coverage={dataset.coverage}
             synthetic={isSynthetic}
+            busy={searchBusy || loading.phase === 'loading'}
             {...(loading.page
               ? {
                   onPage: (page: number) => {
@@ -279,7 +280,6 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
                         }
                       });
                   },
-                  busy: searchBusy,
                 }
               : {})}
           />

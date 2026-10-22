@@ -20,13 +20,17 @@ describe('map link presentation', () => {
   it('links each candidate record rather than the submitted query and preserves uncertainty and evidence', async () => {
     render(<App dataset={dataset()} />);
     await search();
-    const cards = screen.getAllByRole('article');
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.candidate-summary'));
+    const user = userEvent.setup();
     expect(cards).toHaveLength(2);
     for (const [index, address] of [
       '서울특별시 마포구 월드컵로 12-1',
       '서울특별시 강남구 테헤란로 12-1',
     ].entries()) {
-      const card = within(cards[index] as HTMLElement);
+      await user.click(
+        within(cards[index] as HTMLElement).getByRole('button', { name: /상세 보기/ }),
+      );
+      const card = within(document.querySelector('.workspace-detail') as HTMLElement);
       for (const label of ['네이버 지도에서 검색 (새 탭)', '카카오맵에서 검색 (새 탭)']) {
         const link = card.getByRole('link', { name: label });
         expect(
@@ -55,9 +59,17 @@ describe('map link presentation', () => {
     expect(screen.queryAllByRole('link', { name: /지도에서 검색|카카오맵에서 검색/ })).toHaveLength(
       0,
     );
-    expect(
-      screen.getAllByText('합성 예시 데이터에는 외부 지도 검색을 제공하지 않습니다.'),
-    ).toHaveLength(2);
+    for (const summary of document.querySelectorAll<HTMLElement>('.candidate-summary')) {
+      await userEvent.setup().click(within(summary).getByRole('button', { name: /상세 보기/ }));
+      expect(
+        within(document.querySelector('.workspace-detail') as HTMLElement).getByText(
+          '합성 예시 데이터에는 외부 지도 검색을 제공하지 않습니다.',
+        ),
+      ).toBeTruthy();
+      expect(
+        screen.queryAllByRole('link', { name: /지도에서 검색|카카오맵에서 검색/ }),
+      ).toHaveLength(0);
+    }
   });
   it('suppresses map actions for a synthetic loader even when coverage is unavailable', async () => {
     render(
@@ -79,9 +91,17 @@ describe('map link presentation', () => {
     expect(screen.queryAllByRole('link', { name: /지도에서 검색|카카오맵에서 검색/ })).toHaveLength(
       0,
     );
-    expect(
-      screen.getAllByText('합성 예시 데이터에는 외부 지도 검색을 제공하지 않습니다.'),
-    ).toHaveLength(2);
+    for (const summary of document.querySelectorAll<HTMLElement>('.candidate-summary')) {
+      await userEvent.setup().click(within(summary).getByRole('button', { name: /상세 보기/ }));
+      expect(
+        within(document.querySelector('.workspace-detail') as HTMLElement).getByText(
+          '합성 예시 데이터에는 외부 지도 검색을 제공하지 않습니다.',
+        ),
+      ).toBeTruthy();
+      expect(
+        screen.queryAllByRole('link', { name: /지도에서 검색|카카오맵에서 검색/ }),
+      ).toHaveLength(0);
+    }
   });
 });
 

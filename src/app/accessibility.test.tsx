@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/preact';
 import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { App } from './app.js';
 import { demoDataset } from './demo-data.js';
 
@@ -23,7 +23,7 @@ describe('TASK-017 accessible search', () => {
     expect(cards[0]?.getAttribute('aria-label')).toContain('서울특별시');
     expect(cards[0]?.getAttribute('aria-label')).not.toBe(cards[1]?.getAttribute('aria-label'));
     for (const card of cards) {
-      expect(card.tabIndex).toBe(0);
+      expect(within(card).getByRole('button', { name: /상세 보기/ }).tabIndex).toBe(0);
       expect(within(card).getByText('원본 근거')).toBeTruthy();
       expect(within(card).getByText('예시 데이터 기준일: 2026-09-01')).toBeTruthy();
     }
@@ -48,12 +48,20 @@ describe('TASK-017 accessible search', () => {
       );
       await user.click(screen.getByRole('button', { name: '검색 결과로 이동' }));
       for (const card of cards) {
-        // jsdom has no layout/scroll API; browser tests cover visible focus.
-        card.scrollIntoView = vi.fn();
         await user.tab();
-        expect(document.activeElement).toBe(card);
+        expect(document.activeElement).toBe(
+          within(card).getByRole('button', { name: /상세 보기/ }),
+        );
         expect(within(card).getByText('행정상 영업')).toBeTruthy();
       }
+      await user.keyboard('{Enter}');
+      const detail = document.querySelector('.workspace-detail') as HTMLElement;
+      expect(document.activeElement).toBe(within(detail).getByRole('heading', { level: 3 }));
+      expect(within(detail).getByText('행정상 영업')).toBeTruthy();
+      await user.click(screen.getByRole('button', { name: '후보 목록으로 돌아가기' }));
+      expect(document.activeElement).toBe(
+        within(cards[1] as HTMLElement).getByRole('button', { name: /상세 보기/ }),
+      );
     },
   );
 
