@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
 
 ## TASK-009 initial-import implementation and evidence work — 2026-10-21
 
@@ -2666,3 +2666,120 @@ Local documentary/invariant checks, independent review and exact PR/main CI are 
 [the verification report](../reports/test-2026-10-22-task-009-source-transport.md); unknown future
 outcomes are not inferred from this entry. The source request is evidence only and retains
 actual upload/publication/backup/recovery action-time prerequisites.
+
+## TASK-009 materials and approval waiting disposition — 2026-10-22
+
+The user requested explicit clarification and completion of TASK-009's waiting disposition.
+Read the newer retained TASK-009 checkout and its October 22 preflight/request, reconciling the
+original checkout's stale calibration/active-task context. TASK-008 is complete; TASK-009 now
+awaits materials and action-time approval without occupying the implementation slot. No task is
+active; TASK-010 stays paused, TASK-021 gated and TASK-027 unactivated. Overall TASK-009 remains
+incomplete; only this administrative work is recorded in completed tasks.
+
+The [waiting register](../reports/status-2026-10-22-task-009-waiting.md) distinguishes original ZIP availability,
+concrete upload approval, actual asset/registry adoption, performance/protection/public readiness,
+first publication and durable recovery. It records owners, exact source identities and explicit
+resumption conditions. Both original and operational checkout handoffs were updated while
+preserving prior uncommitted changes and immutable preflight/request/evidence. Existing decisions
+remain valid in scope. No architecture change or new code defect was introduced; existing ZIP/
+Docker/protection-read gaps, ISS-003 and release limitations remain open. No handbook/milestone
+work, source/configuration change, remote operation or delivery is included. Local documentation
+and preservation checks are recorded in the waiting report; application suites and independent
+review were not rerun for this status-only request.
+
+## Dashboard visual baseline capture — 2026-10-22
+
+The user requested inspection and screenshots before dashboard design refinement. Started the
+existing Vite development server at `http://127.0.0.1:5173/` using the locally available
+Node.js 22.22.3/npm 10.9.8. Inspected the current first screen and submitted the built-in
+synthetic example; the UI displayed one primary match and one similar candidate. Saved full-page
+JPEG captures in `reports/screenshots/2026-10-22-dashboard-before-home.jpg` and
+`reports/screenshots/2026-10-22-dashboard-before-results.jpg`.
+
+This is visual baseline evidence for the local synthetic demo, not production data or functional
+suite verification. No application code, dependency, design, task status, policy or deployment
+changed. Existing untracked duplicate files were preserved. No new decision or issue was recorded.
+
+## Bright multi-panel dashboard image exploration — 2026-10-22
+
+The user requested multiple image prototypes that discard the incumbent look in favor of bright,
+sparkling colors, multiple panels and a dynamic feeling. Generated three exploratory raster
+concepts with the built-in image tool: Prism Glass, Pop Playground and Aurora Orbit. Inspected
+all outputs; corrected Prism's current-opening assertion and replaced generated history labels
+with search examples in Prism and Aurora. Final images and exact generation/edit prompts are
+saved under `reports/design-prototypes/2026-10-22/`.
+
+These are static synthetic visual concepts, not adopted product features or verified factual
+copy. Incidental photos, personal/registration fields, favorites, comparison and geographic
+controls require separate scope decisions; no collection of search history is authorized.
+No implementation task was activated and no application code, dependency, status mapping,
+public contract or deployment changed. No tests were run for image-only design exploration.
+The user has not selected or approved an implementation direction. No milestone or task closed.
+
+## Prism Glass design documented — 2026-10-22
+
+The user selected prototype 01 and requested design/documentation. Delivered the
+[concrete design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md),
+bound to the selected image and its SHA-256. It specifies the light glass identity, desktop
+three-panel/two-panel and mobile single-column layouts, tokens, bounded event-driven motion,
+opaque/reduced-motion/forced-color fallbacks, explicit candidate inspection, correct evidence
+association, complete pagination, safety/date/recovery rules and PG-01 through PG-15 acceptance.
+Generated photos, favorites/history, registration/personal fields and share controls are excluded.
+
+A fresh GPT-6.1 Sol high-effort reviewer performed the brainstorming builder check and returned
+"nothing important left", with no material interface or safety contradiction. The
+[review record](../reports/review-2026-10-22-prism-glass-design.md) states the design-only scope.
+This readiness finding is not user acceptance of the detailed design or implemented-code approval.
+TASK-027 was proposed in the backlog; no implementation task was activated. Updated current
+context, decisions, active-task disposition, prospective traceability and prototype selection.
+Existing calibration, publication and release dispositions remain unchanged. No task was moved
+to completed; no implemented structure changed and no new confirmed bug was introduced.
+
+Verification passed: 10 local Markdown targets, all 15 acceptance rows, selected image hash,
+Git whitespace, npm lint and format checks. Local Node.js 22.22.3/npm 10.9.8 differ from pinned
+application tooling; lint retains five pre-existing informational suggestions. No application
+suite, rendered motion/accessibility/performance or production verification was run for this
+prose-only delivery. No product code, dependency, workflow, data/public contract, commit, push,
+merge, deployment or handbook content changed. A detailed implementation plan follows the user's
+review of this concrete design; this turn stops at the requested documentation.
+
+## TASK-027 start readiness assessment — 2026-10-22
+
+The user requested a judgment, not implementation. Assessment found the original checkout's
+operational state stale: HEAD a514790/PR28 versus locally cached origin/main cd16e7c/PR34.
+The existing TASK-009 checkout's October22 task record explicitly keeps TASK-009 active,
+TASK-010 paused and TASK-008 complete. Its source-transport preflight records missing original
+ZIP bytes and action-time approval; those external gates were not freshly revalidated here.
+The previous design pass's no-active-task/calibration-pending statements apply only to its
+older checkout and are superseded for this start decision.
+
+TASK-027 is technically independent and a reasonable next task, but immediate concurrent
+implementation conflicts with the single-active-task rule. Recommend explicit TASK-009 waiting
+disposition, concrete design confirmation/implementation planning, suitable clean checkout/base
+and pinned-runtime baseline before TASK-027 activation. Do not silently pause TASK-009 or
+interpret this assessment request as execution authority. Corrected the original active-task
+snapshot and recorded the [assessment](../reports/assessment-2026-10-22-task-027-readiness.md).
+
+Read-only verification: branches/worktrees/status and local refs, Node22.22.3/npm10.9.8,
+`npm ls --depth=0` (declared dependencies resolve; extraneous duplicate entries), and
+`npm run typecheck` (exit1;13 diagnostics in three pre-existing untracked duplicate pipeline
+files). Existing task013-quality checkout returned clean status; TASK-009 checkout has pending
+work and was untouched. No full suite, remote fetch, source search, implementation, dependency
+installation, branch/worktree mutation, task transition, commit/push or deployment occurred.
+
+## Authorized local-state delivery and TASK-027 handoff — 2026-10-22
+
+The user authorized commit, push, PR creation, main merge and TASK-027 activation. Fetched and
+verified main `23aa0a7589e9c4c8e5636d97f21c001cdc5d9c35` (merged PR #35). Reused the clean
+`.worktrees/task013-quality` checkout on `codex/task-009-waiting-task-027-handoff`; preserved
+the original and TASK-009 checkouts and their uncommitted changes. Integrated the current
+operational waiting records with original Prism Glass documentation/prototypes/screenshots,
+retaining source preflight and runtime inputs from current main. No duplicate-suffixed files
+are delivered. The scope is documentation and synthetic design assets only.
+
+TASK-027 activation takes effect on this handoff's main integration. It starts with detailed
+design confirmation and implementation planning; no product implementation or retrospective
+PG acceptance is claimed. TASK-009 remains awaiting materials/action-time approval, TASK-010
+paused and TASK-021 gated. The prior waiting-state request's no-active-task record retains its
+point-in-time scope. Current delivery verification, independent review, exact PR/CI/merge and
+subsequent local activation are tracked in [the delivery record](../reports/delivery-2026-10-22-task-027-handoff.md).

@@ -11,6 +11,54 @@ _Last updated: 2026-10-22_
 
 ## In Progress
 
+### TASK-027: Prism Glass dashboard workspace
+
+- Status: User-authorized activation takes effect when this handoff is merged into main;
+  then TASK-027 is the sole active task. Begin with detailed design confirmation and planning.
+- Authorization: On 2026-10-22 the user requested local commit/push, PR creation, main merge,
+  and TASK-027 activation. This supersedes earlier proposed/unactivated status only.
+- Owner: Planner / Architect for the next design/plan stage; Implementer / Tester / Reviewer
+  for later product implementation and acceptance.
+- Requirements: FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs;
+  PG-01 through PG-15 in the [design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
+- Workspace: reused `.worktrees/task013-quality`; handoff branch
+  `codex/task-009-waiting-task-027-handoff`, based on verified main `23aa0a7` (PR #35).
+  After integration, use an isolated TASK-027 branch from the exact merged main.
+  Preserve the original and TASK-009 checkouts and their pending work.
+- Design state: concept 01 selected; independent builder check is ready for planning.
+  Activation alone does not certify the proposed tokens, breakpoints, motion or selection rules.
+  Confirm the concrete design before product code, then prepare the bounded implementation plan.
+- Acceptance:
+  - [x] Preserve and integrate selected reference/provenance, design, readiness and waiting records.
+  - [x] Obtain explicit task activation authority; retain the single-active-task rule.
+  - [ ] Confirm the detailed design and prepare the implementation plan.
+  - [ ] Implement the approved scope and satisfy PG-01 through PG-15 with current evidence.
+  - [ ] Pass pinned full verification, performance checks and independent final review.
+- Verification: focused presentation/Worker regressions, four-browser search, axe,
+  keyboard/responsive/zoom/motion/forced-color/visual checks, `npm run verify:full`,
+  `npm run performance:check` and independent review on project tooling.
+- Boundaries: no TASK-023 enhanced navigation, share URLs, photos/history/favorites,
+  new service/dependency, pipeline/search policy change, deployment or release acceptance.
+  TASK-009 waits outside the slot; TASK-010 stays paused and TASK-021 gated.
+
+## TASK-009 waiting disposition — 2026-10-22
+
+TASK-009 is **awaiting materials and action-time approval**,
+incomplete, and does not occupy the single active implementation slot. The user explicitly
+authorized this waiting-state clarification. TASK-008 is complete under October 18 acceptance;
+TASK-010 stays paused and TASK-021 gated. The later TASK-027 activation is recorded above.
+
+Missing materials: exact October 16 original ZIP and fresh byte verification. Missing approvals
+and later evidence: concrete source transport, real asset/registry adoption, performance/release
+readiness, one-time hosted publication and durable recovery acceptance. Existing source/design/
+quality approvals remain valid within their original scope. Owners, exact identities and separate
+resumption/completion conditions are in the [waiting register](../reports/status-2026-10-22-task-009-waiting.md).
+Explicitly reactivate TASK-009 with an available slot before execution; time or material arrival
+alone does not resume it. Earlier active/calibration-pending statements below are historical
+and are superseded for current start decisions. Retain all implementation and dated evidence.
+
+## Historical execution and checkout snapshots
+
 ### TASK-009: Atomic validated publication and last-known-good preservation
 
 - Owner: Implementer / Tester / Reviewer; priority High; milestone M1; size M.
@@ -22,7 +70,7 @@ _Last updated: 2026-10-22_
 - Workspace: reuse the calibration checkout on `codex/task-009-first-publication-analysis`;
   retain its prior branch and all other checkouts. The original checkout's 73 untracked files
   are fingerprinted outside Git and remain untouched.
-- Status: Active. Historical October 19 local acceptance verified (18/18), with independent Task 2 spec and
+- Status at October 19 activation (superseded by the current waiting disposition): Active. Historical October 19 local acceptance verified (18/18), with independent Task 2 spec and
   quality review Approved. That dated current-tree full verification passed 849/68/20; whole-diff verdict is recorded
   separately in `reports/review-2026-10-19-task-009.md`. The user approved the plan and subagent implementation on 2026-10-19.
 - Design: retain the approved collection-date publication design and compact V2 contract.

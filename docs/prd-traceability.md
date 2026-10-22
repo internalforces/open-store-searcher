@@ -586,3 +586,35 @@ CI/integration readback. It preserves the historical195-category/730-file raw pr
 explicit guard/test differences among178 code bindings. Hosted publication/public equality,
 backup/recovery and release acceptance remain open; main integration cannot close II-10 or
 activate TASK-010, either registry, publication or recurrence.
+
+## TASK-009 waiting disposition — 2026-10-22
+
+FR-13 and supporting FR-02/08/12/14 retain local implementation/verification evidence; II-10
+and hosted AC-009-4/5 remain open. The user authorized explicit materials/action-time-approval
+waiting status outside the active implementation slot. TASK-008 is complete; no implementation
+task is active. TASK-010 remains paused and TASK-021 gated. This supersedes historical task
+activation/calibration guidance only; it closes no product requirement or hosted/release gate.
+See [owners, evidence and resumption conditions](../reports/status-2026-10-22-task-009-waiting.md).
+
+## Proposed Prism Glass redesign — 2026-10-22
+
+The user selected the visual direction and requested a design-only delivery. Proposed TASK-027
+is bound to the [Prism Glass specification](superpowers/specs/2026-10-22-prism-glass-dashboard-design.md):
+PG-02/03 preserve FR-01/02/03/07; PG-04/05/06 preserve FR-04/05/06/08/09/14; PG-07/08 preserve
+FR-07/13 and complete paginated results; PG-09/10/11/12 cover FR-11, baseline FR-16 and
+accessibility; PG-13 preserves FR-02/10/12; PG-14 preserves performance budgets; PG-01/15
+require reference comparison and final verification/review. Enhanced FR-16 remains TASK-023.
+
+This is prospective coverage, not new implementation or verification evidence. No requirement
+status changes, release acceptance, source/status/public-interface change or deployment follows
+from visual selection. The generation's photos, history, favorites, share controls and additional
+fields are excluded from the product scope. Existing dated verification remains scoped as recorded.
+
+## TASK-027 activation handoff — 2026-10-22
+
+The user authorized TASK-027 activation on main integration of the local-state handoff. PG-01
+through PG-15 remain prospective acceptance under the retained Prism Glass design, covering
+FR-01 through FR-14, baseline FR-16 and accessibility/performance NFRs. Begin with detailed
+design confirmation and planning. No product requirement is newly verified or closed by this
+administrative activation. TASK-009/II-10/hosted AC-009-4/5 remains awaiting materials and
+approval outside the active slot; TASK-010 paused, TASK-021 gated. See [active task](../tasks/active.md).

@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
 
 ## TASK-009 authorized local implementation boundary — 2026-10-21
 
@@ -815,3 +815,40 @@ uses a new separately authorized manual workflow_dispatch and fresh candidate re
 public404/main/binding-clock guards preserve the existing current-main/24-hour contract. This
 is an implementation clarification of II-06/07, not a source/quality/architecture approval.
 Evidence: [PR34 final review](../reports/review-2026-10-21-pr34-final.md).
+
+## TASK-009 waiting disposition authorized — 2026-10-22
+
+The user's explicit status-clarification/completion request authorizes moving TASK-009 from
+active execution to awaiting materials and action-time approval, outside the active implementation
+slot. This completes only the administrative disposition. Preserve all source/design/quality
+approvals and implementation; TASK-009 itself remains incomplete for II-10/hosted AC-009-4/5.
+TASK-008 is complete, TASK-010 stays paused, TASK-021 gated and TASK-027 unactivated. Resumption
+requires an explicit transition with an available slot and the applicable evidence/approvals;
+this grants no source upload, settings, dispatch, deployment or release approval.
+See the [waiting register](../reports/status-2026-10-22-task-009-waiting.md). This supersedes earlier active-task
+start guidance, without changing architecture, policy, public interfaces or historical evidence.
+
+## Selected Prism Glass visual direction — 2026-10-22
+
+Status: Visual direction selected by the user; detailed design is proposed for review.
+
+The user selected concept 01 from the three generated bright multi-panel prototypes and
+requested design/documentation. Preserve its pearl/cyan/lilac glass surfaces, luminous blue
+search and separate result/detail/evidence panels. The selected image and exact content,
+responsive, motion and safety rules are bound in the
+[design specification](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
+
+The design recommends local CSS/SVG, existing Preact state and explicit candidate inspection,
+without photos, history, favorites, registration/personal fields, new URLs or dependencies.
+Those precise behavioral/token choices are designer recommendations pending detailed design
+review. This records no implemented architecture change and grants no deployment, commit,
+push, merge, policy/baseline or release approval. TASK-027 remains proposed.
+
+## TASK-027 activation authorized after handoff integration — 2026-10-22
+
+The user requested commit/push of the prepared local state, PR creation, main integration and
+TASK-027 activation. Integrate the TASK-009 waiting disposition with the retained Prism Glass
+reference/design, then TASK-027 owns the sole active slot. Start with detailed design confirmation
+and the implementation plan; do not infer acceptance of every proposed design detail or commence
+product code in this documentation delivery. TASK-009 remains incomplete outside the slot,
+TASK-010 paused and TASK-021 gated. No deployment/source-upload or quality-policy approval follows.
