@@ -22,7 +22,10 @@ for (const [state, query] of [
     await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
     await page.getByRole('searchbox').fill(query);
     await page.getByRole('button', { name: '검색', exact: true }).click();
-    await expect(page.getByRole('article')).toHaveCount(2);
+    await expect(page.locator('.candidate-summary')).toHaveCount(2);
+    await expect(page.locator('.workspace-detail')).toHaveCount(
+      state === 'primary and conflict' ? 1 : 0,
+    );
     const results = await scanPageForWcag21Violations(page);
     expect(results.violations).toEqual([]);
   });
@@ -38,7 +41,7 @@ test('has no WCAG violations with stale coverage warnings', async ({ page }) => 
     page.getByText(
       '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.',
     ),
-  ).toHaveCount(3);
+  ).toHaveCount(4);
   expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
 });
 
@@ -57,7 +60,8 @@ test('has no WCAG violations during loading, initial failure and retained-data f
   await page.getByRole('button', { name: '검색', exact: true }).click();
   await page.getByRole('button', { name: '데이터 다시 불러오기' }).click();
   await completeLoad(page, 'error');
-  await expect(page.getByRole('article')).toHaveCount(1);
+  await expect(page.locator('.candidate-summary')).toHaveCount(1);
+  await expect(page.locator('.workspace-detail')).toHaveCount(1);
   expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
 });
 
@@ -67,7 +71,7 @@ test('has no WCAG violations with candidate map links and unavailable coverage',
   await mountMapSearch(page);
   await page.getByRole('searchbox').fill('가상별빛 카페 서울특별시 마포구 월드컵로 12-1');
   await page.getByRole('searchbox').press('Enter');
-  await expect(page.getByRole('link', { name: '네이버 지도에서 검색 (새 탭)' })).toHaveCount(2);
+  await expect(page.getByRole('link', { name: '네이버 지도에서 검색 (새 탭)' })).toHaveCount(1);
   expect((await scanPageForWcag21Violations(page)).violations).toEqual([]);
 });
 

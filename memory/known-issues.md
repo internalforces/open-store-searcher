@@ -7,7 +7,115 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
+
+## PR37 hosted counter failure attributed — 2026-10-22
+
+After the locally approved baseline repair, exact-head4c55774 GitHub review completes with
+no findings but Verify39795194051 fails91pass/1flaky WebKit startup (all decoration first-pass).
+The failed-host capture localizes the wait to the scheduled inner loader animation frame,
+before any fetch;0drops and visible/focused state. No underlying scheduler cause is proven.
+A bounded cancellable liveness correction is being diagnosed. Earlier initial CLS remains
+unattributed; no retry-to-green or policy relaxation. See the host-capture report below.
+The preferred two-frame path now has35ms cancellable alternatives per phase, with once/late/
+abort cleanup guards. Local51tests, type/style and8first-attempt startup/recovery browser
+cases pass; independent source/test review is Approved. Fresh performance passes all49gates
+with152current bindings; independent measurement review is Approved. Exact-head CI/review
+are still required.
+This removes the sole frame-notification dependency without attributing
+the browser's scheduling behavior. Previous refresh performance retains150/152 matching files.
+
+Verify39791048517 on b3d1033 fails91browserpass/1flaky after passing static/1,425unit tests.
+Captured native event order places the detail effect's first start after the baseline; there
+are no duplicated related starts or dropped animation entries in this failed attempt.
+An exact-once native-start test precondition is locally verified (four first-attempt engine
+passes) and independently Approved; no production cause is inferred. See the
+[baseline correction](../reports/test-2026-10-22-pr37-animation-baseline.md).
+Earlier WebKit5s and initial non-input CLS failures remain unresolved even though they do not
+recur in this observation. See [current capture](../reports/test-2026-10-22-pr37-ci-observation.md).
+Exact b3d1033 GitHub review completes with no findings. New correction-head CI/review, affected actual AT and final
+acceptance remain open; the human cannot enable VoiceOver now. No main merge or deployment.
+
+## Earlier PR37 exact-head CI follow-up — 2026-10-22
+
+Current pushed source/head:5524090793ffcffcabc8d81dc2925ea0a42d7fe5, PR37 open/unmerged.
+[Verify39778033230](https://github.com/internalforces/open-store-searcher/actions/runs/39778033230)
+attempt1 fails failOnFlaky:1425tests/59files and static/build pass;91browserpass plus one WebKit
+startup-batching case passes only on built-inretry1. Axe/packaging not reached. Previously observed
+nondeterministic startup failure, cause unresolved; do not call it proven main/external behavior.
+
+One isolated diagnostic and three predetermined two-worker startup/map pairs pass first attempts,
+but cannot establish the hosted5s cause. Earlier diagnostic collection errors are retained separately.
+No tracked product/test/config change follows. Source152 bindings remain current. Independent
+review supported exactly one unchanged-head canonical fresh observation. Attempt2/job119835178890
+also fails: static/1425tests pass;89browserpass+3flaky (WebKit startup requests0/2; WebKit recovery
+submit disabled; Chromium decoration layoutshift0.028657389322916667). All pass on built-inretry;
+axe/packaging unreached. Further canonical reruns STOPPED. Startup/initial geometry diagnosis
+continues; preserve both failed attempts and do not claim passing diagnostics repair them.
+
+GitHub review request6340664201 is still running; independent Sol/xhigh code/test/performance
+approval remains scoped. Affected actual pending-refresh VoiceOver is unperformed because the
+human cannot restart it now. Explicit actual-verification-before-merge condition remains, as do
+final acceptance, exact-head CI/review and original-thread/protected-main gates. QA tab/server are
+stopped; no settings changed during this attempt. TASK027 stays active; TASK028 unactivated.
+Private paired outcome/summary and all attempts remain under the task's .superpowers/sdd folder.
+Test-only hosted failure-observation preparation now follows the inconclusive full92 local
+run (91pass/1flaky animation counter; all targetedWebKitfirst-pass). Type/style/92collection and
+all7asset equality pass; all152 measured inputs still current. Independent observation review
+is Approved for hosted capture only. Both failed WebKit smoke commands/provenance limits are
+retained; no clean runtime-suite, PG15 or AT acceptance is inferred. See [CI observation evidence](../reports/test-2026-10-22-pr37-ci-observation.md).
+This handoff update follows the pushed checkpoint and is not a product/source change.
+
+## TASK-027 final-review correction and remaining AT gate — 2026-10-22
+
+Final GitHub review on PR37 head3c67280 found P2 retained-data refresh pagination blocking.
+TASK-027 is reopened as the sole active task. The minimal result-busy correction and two focused
+regressions have independent Sol/xhigh code/test approval; pinned workspace32/type/style/build
+and fresh all-budget performance pass. The new performance report binds all152 current files;
+old source8ed3ddb acceptance and its150/152 remaining matching hashes are historical.
+See [current correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+
+The human cannot restart VoiceOver now. Only the changed pending-refresh paging state lacks
+actual speech verification; prior normal-flow observations have a reviewed carry-forward bridge.
+The user's explicit actual-verification-before-merge condition remains mandatory. No AT waiver,
+current-head full CI/review success or merge is claimed. The owned QA tab/server are stopped;
+VoiceOver/Utility inventory shows not running and no settings changed during this attempt.
+Commit/push and fresh CI/review remain authorized preparation. TASK-028 is proposed/unactivated,
+TASK-009 waiting, TASK-010 paused and TASK-021 gated. No deployment or handbook work occurs.
+Earlier completion and delivery statements below retain only their original checkpoint scope.
+
+## TASK-027 verification acceptance resolved — 2026-10-22
+
+Canonical hosted Verify39757243712 on `d4f9b9e` passes the normal full command and packaging
+(1,423/92/20 plus101), resolving the missing required-default pass. The human subsequently
+starts VoiceOver and confirms current-source repeated-search, inspection/return and both
+page/range announcements without decorative speech. [Final manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md)
+and [independent final acceptance](../reports/review-2026-10-22-pr37-final-acceptance.md)
+resolve I1/PG-15 and I2/PG-10 within TASK-027. No product defect, timeout relaxation, policy
+waiver or production compatibility claim is inferred. Original outcomes below remain historical.
+The complete delivered-artifact formatting failure is corrected with raw bytes preserved;
+full-inventory pinned checks pass. Final documentation-head integration checks remain separate.
+
+### Prior verification limits (historical)
+
+The local CUA attempt could observe the macOS VoiceOver Settings switch and restore off, but
+could not obtain an executing VoiceOver/caption output surface. The caption setting remained
+at its original checked value; utility and Settings apps were quit. Manual PG-10 therefore
+remains unverified, separately from actual Chrome200% zoom, native AX and keyboard/focus proof.
+See [the bounded AT attempt](../reports/manual-2026-10-22-task-027-assistive-technology.json).
+This is an environment/evidence limit, not a diagnosed application screen-reader defect.
+
+The pinned container exposes8 CPU entries with a2-CPU quota. Strict default-parallel browser
+runs have reported WebKit startup flakes under the existing5s deadline; failOnFlaky correctly
+rejects them. Serialized diagnostics retain assertions, retry/flaky policy and deadlines.
+Final delivered-state default `verify:full` exits1 after successful static/1,423coverage/build/
+quality stages:91/92 browser cases pass; WebKit all-pagination startup fails the existing5s
+assertion on both attempts. The unchanged single-worker full profile passes92/92browser and20/20accessibility without
+retries/flakes; Task4 code-quality review is Approved, while its ImportantPG10/15 acceptance gaps and acceptance Request Changes remain open.
+Fresh whole-branch code-quality review is Approved with no implementation defect. Original static logs contain AppleDouble diagnostics; bounded
+runner-only backup/cleanup and same-source lint/format checks remove those errors, retaining two
+pre-existing useTemplateINFOs. No source or policy changed.
+Results remain separate; no runner policy or product budget is relaxed. PG15 remains open.
 
 ## TASK-009 initial-import local evidence — 2026-10-21
 

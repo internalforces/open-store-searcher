@@ -11,35 +11,43 @@ _Last updated: 2026-10-22_
 
 ## In Progress
 
-### TASK-027: Prism Glass dashboard workspace
+### TASK-027: PR37 retained-data refresh correction
 
-- Status: User-authorized activation takes effect when this handoff is merged into main;
-  then TASK-027 is the sole active task. Begin with detailed design confirmation and planning.
-- Authorization: On 2026-10-22 the user requested local commit/push, PR creation, main merge,
-  and TASK-027 activation. This supersedes earlier proposed/unactivated status only.
-- Owner: Planner / Architect for the next design/plan stage; Implementer / Tester / Reviewer
-  for later product implementation and acceptance.
-- Requirements: FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs;
-  PG-01 through PG-15 in the [design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
-- Workspace: reused `.worktrees/task013-quality`; handoff branch
-  `codex/task-009-waiting-task-027-handoff`, based on verified main `23aa0a7` (PR #35).
-  After integration, use an isolated TASK-027 branch from the exact merged main.
-  Preserve the original and TASK-009 checkouts and their pending work.
-- Design state: concept 01 selected; independent builder check is ready for planning.
-  Activation alone does not certify the proposed tokens, breakpoints, motion or selection rules.
-  Confirm the concrete design before product code, then prepare the bounded implementation plan.
-- Acceptance:
-  - [x] Preserve and integrate selected reference/provenance, design, readiness and waiting records.
-  - [x] Obtain explicit task activation authority; retain the single-active-task rule.
-  - [ ] Confirm the detailed design and prepare the implementation plan.
-  - [ ] Implement the approved scope and satisfy PG-01 through PG-15 with current evidence.
-  - [ ] Pass pinned full verification, performance checks and independent final review.
-- Verification: focused presentation/Worker regressions, four-browser search, axe,
-  keyboard/responsive/zoom/motion/forced-color/visual checks, `npm run verify:full`,
-  `npm run performance:check` and independent review on project tooling.
-- Boundaries: no TASK-023 enhanced navigation, share URLs, photos/history/favorites,
-  new service/dependency, pipeline/search policy change, deployment or release acceptance.
-  TASK-009 waits outside the slot; TASK-010 stays paused and TASK-021 gated.
+- Status: Reopened after final-head GitHub review identifies a P2 pagination regression in
+  `src/app/app.tsx`: background refresh marks retained results busy and blocks all page controls.
+- Scope: Correct the result busy boundary and add a real-App pending-refresh regression;
+  repair the captured replay-test baseline and unbounded shell-paint frame wait.
+  Retain actual search/page request guards, all acceptance assertions and runner policy.
+- Authority: The user's existing CI-repair, review and protected-main merge request covers this
+  review correction. No deployment, source policy or follow-up activation is authorized.
+- Prior acceptance on source8ed3ddb and manual VoiceOver observations remain point-in-time
+  evidence. Changed source requires new bindings and explicit reviewed carry-forward or affected
+  verification; do not relabel the earlier152 hashes or CI as current after the correction.
+- Delivery checkpoint: PR37 is ready/open; review thread PRRT_kwDOT-E1m86vLUCg remains unresolved.
+  Implementer Sol/high owns App and its focused workspace regression; independent Sol/xhigh
+  review and final current-head CI/review still precede merge.
+- Verification: Focused workspace32, type/style/build and new-source performance pass; code/test
+  correction independently Approved. Affected actual VoiceOver remains pending because the human
+  cannot restart it now. Prior normal flows have a reviewed carry-forward bridge. Preserve the
+  explicit actual-verification-before-merge condition; no waiver or completion is inferred. See
+  [correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+- CI: Two canonical observations on5524090 fail strict flaky policy. No more unchanged reruns;
+  test-only host failure observation has scoped independent approval, with all152 measured inputs
+  and all7 production assets unchanged. See [diagnosis](../reports/test-2026-10-22-pr37-ci-observation.md).
+  Hosted b3d1033 observation fails91pass/1flaky and captures a late first detail animation start
+  after the global baseline. The test-only exact-once start precondition passes all four
+  engines locally and independent Sol/xhigh review; new pushed-head full CI/review is required.
+  See [correction](../reports/test-2026-10-22-pr37-animation-baseline.md).
+  Earlier WebKit5s/initial CLS causes remain unresolved; this observation's passing WebKit
+  targets do not erase them. Exact b3d1033 GitHub review completes with no findings.
+  The new4c55774 canonical run passes all decoration cases but fails WebKit startup; its
+  capture maps the wait to an unfired inner loader frame before any fetch. Cancellable
+  A two-phase35ms timer/frame fallback is locally under verification, with no scheduler-cause
+  or physical-paint guarantee. Fresh source-bound performance passes49unchanged gates and
+  independent source/test/performance review is Approved. Exact-head CI/review and affected
+  actualAT remain; old performance bindings must not be described as current.
+- TASK-009 remains waiting, TASK-010 paused, TASK-021 gated and TASK-028 proposed/unactivated.
+  Original and TASK-009 worktree changes remain protected. No task is completed by this reopening.
 
 ## TASK-009 waiting disposition — 2026-10-22
 

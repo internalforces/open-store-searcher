@@ -17,6 +17,7 @@ _Last updated: 2026-10-22_
 | TASK-023 | Improve candidate-list keyboard navigation | Medium | M4 | M | FR-16 |
 | TASK-024 | Design static-file expansion outside Seoul | Low | M4 | L | FR-17 |
 | TASK-026 | At each milestone close, update or review affected Korean handbook documents and obtain human language review | High | Recurring | S | Documentation NFR; all safety invariants |
+| TASK-028 | Refine dashboard visual restraint and interaction feedback | Medium | M2 follow-up | L | FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs |
 
 ## Recommended Start Order
 
@@ -92,9 +93,12 @@ is separate from the still-absent workflow config; no deployment/publication is 
 
 ## TASK-027: Prism Glass dashboard workspace
 
-- Status: Promoted to [active work](active.md) on this handoff integration; detailed design
-  confirmation and planning precede product implementation.
-- Owner: Planner / Architect for design; Implementer / Tester / Reviewer for later execution.
+- Status: Reopened for the final-review retained-data refresh correction. Code/test correction
+  and fresh performance pass; affected actual AT and final-head CI/review remain before merge.
+  The [prior acceptance](completed.md#task-027-final-acceptance--2026-10-22) is checkpoint-only;
+  see [active work](active.md) and [correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+- Owner: Implementer / Tester / Reviewer under the approved sequential execution method;
+  GPT-6.1 Sol/high implementation and GPT-6.1 Sol/xhigh independent review.
 - Authorization: Concept 01/design documentation, followed by the explicit commit/push/PR/merge
   and TASK-027 activation request on 2026-10-22.
 - Milestone: M2 follow-up; size L; no release or milestone gate is waived.
@@ -112,5 +116,31 @@ is separate from the still-absent workflow config; no deployment/publication is 
   personal/registration fields, draggable windows, new dependencies/services and deployments.
 - TASK-023 retains enhanced candidate keyboard navigation. This task uses native inspect/return
   buttons and baseline keyboard access; it does not close TASK-023 or FR-15.
-- A detailed implementation plan is prepared after review of the concrete design, not executed
-  as a side effect of this design-only request.
+- The [detailed implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md)
+  was executed after the user's approval. Task 4 and final whole-branch code quality are Approved.
+  Prior independent acceptance is Approved at its recorded source checkpoint. Final acceptance
+  of the refresh correction awaits affected actual AT; historical outcomes remain preserved.
+
+
+## TASK-028: Dashboard visual restraint and interaction feedback
+
+- Status: Proposed and unactivated; planning requested on 2026-10-22. TASK-027 is accepted;
+  no follow-up implementation or active-slot handoff is inferred from that completion.
+- Owner: Planner / Designer for design review; Implementer / Tester / Reviewer only after
+  explicit execution and active-slot authority.
+- Milestone: M2 follow-up; priority Medium; size L.
+- Requirements: FR-01 through FR-14, baselineFR-16, accessibility/performance NFRs; QM01–08
+  in the [design proposal](../docs/superpowers/specs/2026-10-22-dashboard-refinement-design.md).
+- Intent: Reduce repeated generic visual decoration while preserving the bright Prism identity;
+  use short animation to explain accepted search/page and inspected-record state.
+- Plan: [four-stage proposed implementation plan](../docs/superpowers/plans/2026-10-22-dashboard-refinement.md).
+- Dependencies: Accepted TASK-027 implementation, full follow-up design approval and explicit
+  active-slot handoff; a human may explicitly change sequencing, but this
+  plan does not. Exact palette/corners/timing are coordinator proposals, not accepted values.
+- Acceptance: QM01–08 cover approved direction, hierarchy/evidence preservation, interruption-safe
+  motion, media/AT, long content/responsive/actualzoom, unchanged budgets/default suite and review.
+- Verification: Existing real component/Worker regressions, workspace browser/axe, actual AT,
+  all-element2x and native200%zoom, pinned verify:full, performance:check and independent review;
+  preserve failed/historical outcomes. No invented objective AI-style score.
+- Exclusions: New dependencies/services/fonts, source/status/pipeline/Worker changes, analytics,
+  history/favorites/share, enhanced TASK023navigation, deployment or silent acceptance waiver.

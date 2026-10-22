@@ -1,7 +1,8 @@
-import { render, screen, within } from '@testing-library/preact';
-import { describe, expect, it } from 'vitest';
+import { fireEvent, render, screen, within } from '@testing-library/preact';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { CandidateMatch } from '../search/search-candidates.js';
-import type { DisplayRecord } from './display-data.js';
+import { CoverageClock } from './coverage-clock.js';
+import type { Coverage, DisplayRecord } from './display-data.js';
 import { ResultCard } from './result-card.js';
 
 const record: DisplayRecord = {
@@ -42,6 +43,8 @@ const match: CandidateMatch<DisplayRecord> = {
 function evidence(label: string) {
   return screen.getByText(label, { selector: 'dt' }).nextElementSibling?.textContent;
 }
+
+afterEach(() => vi.useRealTimers());
 
 describe('ResultCard evidence', () => {
   it.each([
@@ -173,5 +176,194 @@ describe('ResultCard evidence', () => {
     expect(
       screen.getByText('검색한 사업체와 같은 곳인지 주소와 원본 정보를 확인하세요.'),
     ).toBeTruthy();
+  });
+});
+
+describe('ResultCard workspace', () => {
+  it('focuses the programmatic heading and invokes return once while preserving evidence order', () => {
+    const headingRef = { current: null as HTMLHeadingElement | null };
+    const onReturn = vi.fn();
+    const { container } = render(
+      <ResultCard
+        match={match}
+        position={7}
+        coverage={{ kind: 'unavailable' }}
+        layout="workspace"
+        headingRef={headingRef}
+        onReturn={onReturn}
+      />,
+    );
+    const article = screen.getByRole('article');
+    expect(article.classList.contains('workspace-detail')).toBe(true);
+    expect(article.hasAttribute('tabindex')).toBe(false);
+    expect(headingRef.current?.getAttribute('tabindex')).toBe('-1');
+    headingRef.current?.focus();
+    expect(document.activeElement).toBe(headingRef.current);
+    const children = Array.from(article.children).map((child) => child.className);
+    expect(children.indexOf('record-evidence')).toBeLessThan(children.indexOf('record-basics'));
+    expect(children.indexOf('record-basics')).toBeLessThan(children.indexOf('record-lifecycle'));
+    expect(children.indexOf('record-lifecycle')).toBeLessThan(children.indexOf('card-footer'));
+    expect(container.querySelectorAll('.status-badge')).toHaveLength(1);
+    expect(container.querySelector('.status-badge svg[aria-hidden="true"]')).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: '후보 목록으로 돌아가기' }));
+    expect(onReturn).toHaveBeenCalledTimes(1);
+  });
+
+  it('retains default keyboard card semantics and all repeated business-type occurrences on rerender', () => {
+    const repeated = {
+      ...record,
+      businessTypes: [
+        { sourceField: '업태구분명', value: '첫 번째' },
+        { sourceField: '업태구분명', value: '두 번째' },
+        { sourceField: '다른 필드', value: '' },
+      ],
+    };
+    const { rerender } = render(
+      <ResultCard match={{ ...match, record: repeated }} coverage={{ kind: 'unavailable' }} />,
+    );
+    expect(screen.getByRole('article').getAttribute('tabindex')).toBe('0');
+    expect(
+      screen
+        .getAllByText('업태 (업태구분명)', { selector: 'dt' })
+        .map((label) => label.nextElementSibling?.textContent),
+    ).toEqual(['첫 번째', '두 번째']);
+    expect(evidence('업태 (다른 필드)')).toBe('제공되지 않음');
+    rerender(
+      <ResultCard
+        match={{
+          ...match,
+          record: {
+            ...repeated,
+            businessTypes: [
+              { sourceField: '업태구분명', value: '바뀐 첫 번째' },
+              { sourceField: '업태구분명', value: '바뀐 두 번째' },
+            ],
+          },
+        }}
+        coverage={{ kind: 'unavailable' }}
+      />,
+    );
+    expect(
+      screen
+        .getAllByText('업태 (업태구분명)', { selector: 'dt' })
+        .map((label) => label.nextElementSibling?.textContent),
+    ).toEqual(['바뀐 첫 번째', '바뀐 두 번째']);
+    expect(screen.queryByText('업태 (다른 필드)')).toBeNull();
+  });
+
+  it('marks explicit synthetic unavailable details without a false date or map action', () => {
+    render(
+      <ResultCard match={match} coverage={{ kind: 'unavailable' }} synthetic layout="workspace" />,
+    );
+    expect(screen.getAllByText('합성 예시 데이터 · 실제 사업체 조회가 아닙니다')).toHaveLength(1);
+    expect(screen.getByText('데이터 기준일: 확인되지 않음')).toBeTruthy();
+    expect(
+      screen.getByText('합성 예시 데이터에는 외부 지도 검색을 제공하지 않습니다.'),
+    ).toBeTruthy();
+    expect(screen.queryByRole('link', { name: /지도/ })).toBeNull();
+  });
+});
+
+describe('ResultCard complete evidence boundaries', () => {
+  it('retains all eight absent lifecycle fields and complete long original addresses', () => {
+    const value = '긴원본주소'.repeat(400);
+    render(
+      <ResultCard
+        match={{
+          ...match,
+          record: {
+            ...record,
+            roadAddress: value,
+            parcelAddress: value,
+            lifecycle: {
+              licensedOn: null,
+              licenseCancelledOn: '',
+              suspendedFrom: null,
+              suspendedThrough: '',
+              reopenedOn: null,
+              closedOn: '',
+              sourceUpdatedAt: null,
+              sourceLastModifiedAt: '',
+            },
+          },
+        }}
+        coverage={{ kind: 'unavailable' }}
+        layout="workspace"
+      />,
+    );
+    expect(evidence('도로명 주소')).toBe(value);
+    expect(evidence('지번 주소')).toBe(value);
+    for (const label of [
+      '인허가일',
+      '인허가 취소일',
+      '휴업 시작일',
+      '휴업 종료일',
+      '재개업일',
+      '폐업일',
+      '원본 데이터 갱신일',
+      '원본 최종 수정일',
+    ]) {
+      expect(evidence(label)).toBe('제공되지 않음');
+    }
+  });
+
+  it.each([
+    [
+      'verified',
+      '데이터 기준일',
+      '최근 데이터 갱신이 지연되고 있습니다. 아래 기준일을 확인하고 외부 지도 또는 사업체에 직접 확인하세요.',
+    ],
+    [
+      'collected',
+      '데이터 수집일',
+      '데이터 수집일로부터 7일 이상 지났습니다. 외부 지도 또는 사업체에 직접 확인하세요.',
+    ],
+    [
+      'synthetic',
+      '예시 데이터 기준일',
+      '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.',
+    ],
+  ] as const)('keeps complete %s evidence truthful at Seoul ages 6/7/8', (kind, label, warning) => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-09-07T00:00:00.000Z'));
+    const { rerender } = render(
+      <CoverageClock>
+        <ResultCard match={match} coverage={{ kind, date: '2026-09-01' }} layout="workspace" />
+      </CoverageClock>,
+    );
+    expect(screen.getByText(`${label}: 2026-09-01`)).toBeTruthy();
+    expect(screen.queryByText(warning)).toBeNull();
+    for (const now of ['2026-09-07T15:00:00.000Z', '2026-09-08T15:00:00.000Z']) {
+      vi.setSystemTime(new Date(now));
+      rerender(
+        <CoverageClock key={now}>
+          <ResultCard match={match} coverage={{ kind, date: '2026-09-01' }} layout="workspace" />
+        </CoverageClock>,
+      );
+      expect(screen.getByText(warning)).toBeTruthy();
+    }
+    if (kind === 'collected') {
+      expect(
+        screen.getByText(
+          '원천 데이터 기준일은 확인되지 않았습니다. 수집일은 사업체 상태가 확인된 날짜가 아닙니다.',
+        ),
+      ).toBeTruthy();
+    }
+    if (kind === 'synthetic') {
+      expect(screen.getAllByText('합성 예시 데이터 · 실제 사업체 조회가 아닙니다')).toHaveLength(1);
+    }
+  });
+
+  it.each<Coverage>([
+    { kind: 'unavailable' },
+    { kind: 'verified', date: '2026-02-30' },
+    { kind: 'verified', date: '2026-09-20' },
+  ])('keeps complete rejected or unavailable coverage unknown for $kind/$date', (coverage) => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-09-08T00:00:00.000Z'));
+    render(<ResultCard match={match} coverage={coverage} layout="workspace" />);
+    expect(screen.getByText('데이터 기준일: 확인되지 않음')).toBeTruthy();
+    expect(evidence('원본 최종 수정일')).toBe('2025-08-09 10:11:12');
+    expect(screen.queryByText(/최근 데이터 갱신이 지연/)).toBeNull();
   });
 });

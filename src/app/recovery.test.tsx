@@ -69,7 +69,7 @@ describe('TASK-015 recovery', () => {
     await waitFor(() => expect(screen.getByRole('status').textContent).toContain('불러왔습니다'));
     expect(screen.queryByRole('alert')).toBeNull();
     await submit();
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
   });
 
   it('keeps prior results, coverage and load time after a failed reload', async () => {
@@ -84,13 +84,13 @@ describe('TASK-015 recovery', () => {
     await submit();
     const loadTime = screen.getByText(/이 브라우저에서 마지막으로 불러온 시각:/).textContent;
     fireEvent.click(screen.getByRole('button', { name: '데이터 다시 불러오기' }));
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
     expect(
       (screen.getByRole('button', { name: '검색', exact: true }) as HTMLButtonElement).disabled,
     ).toBe(false);
     await act(async () => pending.reject(new Error('offline')));
     expect((await screen.findByRole('alert')).textContent).toContain('이전 데이터');
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
     expect(screen.getByText(/이 브라우저에서 마지막으로 불러온 시각:/).textContent).toBe(loadTime);
     expect(
       within(screen.getByRole('region', { name: '가장 잘 일치하는 결과' })).getByText(
@@ -98,7 +98,12 @@ describe('TASK-015 recovery', () => {
       ),
     ).toBeTruthy();
     await submit('가상달빛 가게 서울특별시 중구 세종대로 30');
-    expect(screen.getByText('확인되지 않음', { selector: '.status-badge' })).toBeTruthy();
+    expect(
+      within(document.querySelector('.workspace-detail') as HTMLElement).getByText(
+        '확인되지 않음',
+        { selector: '.status-badge' },
+      ),
+    ).toBeTruthy();
   });
 
   it('clears obsolete results after successful replacement without claiming fresh coverage', async () => {
@@ -164,8 +169,10 @@ describe('TASK-015 recovery', () => {
     );
     await screen.findByText(/레코드 1개를 제외/);
     await submit();
-    expect(screen.getAllByRole('article')).toHaveLength(1);
-    expect(screen.getByText('행정상 영업', { selector: '.status-badge' })).toBeTruthy();
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(1);
+    for (const article of screen.getAllByRole('article')) {
+      expect(within(article).getByText('행정상 영업', { selector: '.status-badge' })).toBeTruthy();
+    }
   });
 
   it.each([null, { ...demoDataset, records: [null] }])(
@@ -177,7 +184,7 @@ describe('TASK-015 recovery', () => {
       fireEvent.click(screen.getByRole('button', { name: '데이터 다시 불러오기' }));
       await screen.findByRole('alert');
       await submit();
-      expect(screen.getAllByRole('article')).toHaveLength(2);
+      expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
     },
   );
 

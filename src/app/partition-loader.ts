@@ -8,20 +8,48 @@ export interface PartitionOptions {
   waitForPaint?: (signal: AbortSignal) => Promise<void>;
 }
 
+/** Deferred rendering opportunities; timer fallback does not certify physical paint. */
 export function afterShellPaint(signal: AbortSignal): Promise<void> {
   return new Promise((resolve, reject) => {
     signal.throwIfAborted();
+    let settled = false;
+    let frame: number | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const clearPhase = () => {
+      if (frame !== undefined) cancelAnimationFrame(frame);
+      if (timer !== undefined) clearTimeout(timer);
+      frame = undefined;
+      timer = undefined;
+    };
+    const cleanup = () => {
+      clearPhase();
+      signal.removeEventListener('abort', onAbort);
+    };
     const onAbort = () => {
-      cancelAnimationFrame(frame);
+      if (settled) return;
+      settled = true;
+      cleanup();
       reject(signal.reason);
     };
-    let frame = requestAnimationFrame(() => {
-      frame = requestAnimationFrame(() => {
-        signal.removeEventListener('abort', onAbort);
-        resolve();
-      });
-    });
+    const schedule = (remaining: number) => {
+      let advanced = false;
+      const advance = () => {
+        if (settled || advanced) return;
+        advanced = true;
+        clearPhase();
+        if (remaining > 1) schedule(remaining - 1);
+        else {
+          settled = true;
+          cleanup();
+          resolve();
+        }
+      };
+      // Match the locked Preact effect scheduler's liveness fallback, not a paint deadline.
+      timer = setTimeout(advance, 35);
+      frame = requestAnimationFrame(advance);
+    };
     signal.addEventListener('abort', onAbort, { once: true });
+    schedule(2);
   });
 }
 

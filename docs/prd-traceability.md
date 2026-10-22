@@ -7,7 +7,36 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
-_Last updated: 2026-10-17_
+_Last updated: 2026-10-22_
+
+## TASK-027 captured CI corrections — 2026-10-22
+
+PG-10/14/15 and FR-13 continue through the [animation baseline correction](../reports/test-2026-10-22-pr37-animation-baseline.md)
+and [loader liveness correction](../reports/test-2026-10-22-pr37-load-liveness.md).
+The replay oracle now requires exact initial native starts on stable nodes before sampling its
+unchanged global counter. A captured loader wait before any fetch is corrected with two
+preferred frame phases, each with a cancellable35ms task alternative; timers do not certify
+physical paint or a wall-clock guarantee. Fixed batches and full-snapshot semantics remain.
+
+Focused51tests and8unchanged startup/recovery browser cases pass, as do all49 unchanged lab
+gates in the [new performance report](../reports/performance-2026-10-22-pr37-paint-wait.json).
+Its152source hashes match; the earlier refresh performance report retains150/152 matching files
+and remains historical evidence. Source/test/performance review is Approved;
+new exact-head full CI/GitHub review and actual affected AT remain separate delivery gates.
+Normal accepted-data AT has a conditional unchanged-behavior bridge; new loading timing speech
+is unverified and pending-refresh actual observation remains required. No criterion is waived.
+
+## TASK-027 refresh correction verification — 2026-10-22
+
+The final-review P2 correction is tracked in [current evidence](../reports/test-2026-10-22-pr37-refresh.md)
+for FR-13 and PG-07/08/10/15. Exact regressions verify accepted-data paging during a pending and
+rejected refresh, plus settled terminal Worker guards; focused32, types/style/build and new-source
+all-budget lab performance pass at that checkpoint. Its152 source bindings matched then;
+the current loader correction and fresh binding are recorded above. Prior
+8ed3ddb acceptance remains checkpoint-only. The independent normal-flow AT bridge is bounded;
+changed pending-refresh actual speech remains unverified because the human cannot restart
+VoiceOver now. TASK-027 remains active; final acceptance and authorized normal merge await that
+observation plus current-head CI/review/conversation closure. No criterion or release gate is waived.
 
 ## Usage Rules
 
@@ -618,3 +647,54 @@ FR-01 through FR-14, baseline FR-16 and accessibility/performance NFRs. Begin wi
 design confirmation and planning. No product requirement is newly verified or closed by this
 administrative activation. TASK-009/II-10/hosted AC-009-4/5 remains awaiting materials and
 approval outside the active slot; TASK-010 paused, TASK-021 gated. See [active task](../tasks/active.md).
+
+## TASK-027 detailed design approved and implementation planned — 2026-10-22
+
+The user approved the detailed design after execution intake. The self-reviewed
+[four-task implementation plan](superpowers/plans/2026-10-22-task-027-prism-glass.md) maps every
+PG-01–15 criterion to shell, evidence, inspection/recovery and browser/performance verification
+work. This is prospective implementation coverage; no FR or NFR is newly verified or closed.
+Plan review and execution-method confirmation precede product changes. TASK-009 remains waiting,
+TASK-010 paused and TASK-021 gated, with no publication or release authorization.
+
+
+## TASK-027 implemented verification checkpoint — 2026-10-22
+
+Checkpoint8ed3ddb implements the approved presentation scope. The [test report](../reports/test-2026-10-22-task-027.md)
+links every PG01–15 criterion to exact component/browser regressions, current source-bound manual
+zoom, final capture/contrast and unchanged-budget performance evidence. FR01–14/baselineFR16
+preserve their prior policy owners; no pipeline, Worker, source/status or URL contract changed.
+Pinned1,423tests/static/build/bothquality pass; strictdefaultfull exits1(91/92WebKitstartup),
+while approved serial92/92browser+20/20accessibility pass without retries/flakes. ActualVoiceOver
+output and strictdefaultPG15 remain open; independent scoped/final code quality is Approved, while final task acceptance is Request Changes. Therefore
+TASK027 is not moved to completed and no milestone, publication, handbook or release gate closes.
+
+
+## TASK-028 proposed visual and motion follow-up — 2026-10-22
+
+The user requested less AI-styled presentation and animation in a future improvement. The
+[proposed design](superpowers/specs/2026-10-22-dashboard-refinement-design.md) and
+[plan](superpowers/plans/2026-10-22-dashboard-refinement.md) map QM01–08 to preserved
+FR01–14/baselineFR16 and accessibility/performance NFRs: hierarchy/materials(Task2), accepted
+state/interruption feedback(Task3), current media/AT/zoom/oracle/budget evidence(Task4), and
+design approval/prior acceptance/active-slot authority(Task1). This is prospective coverage,
+not a new verification result or approved replacement for TASK027's design. TASK028is unactivated;
+TASK027PG10/15 and all operational/release boundaries remain open. Commit/push/PR authorization
+for reviewed TASK027does not authorize merging, deployment or follow-up implementation.
+
+
+## TASK-027 final acceptance — 2026-10-22
+
+The source8ed3ddb PG-01 through PG-15 presentation scope is accepted after the preserved scoped
+and whole-branch code reviews, unchanged-budget lab performance, fresh canonical hosted
+Verify39757243712 (1,423/92/20 plus101 packaging), and actual human-assisted VoiceOver search,
+inspection/return and page/range observations. [Manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md)
+and [independent acceptance](../reports/review-2026-10-22-pr37-final-acceptance.md) disposition the
+prior I1/PG-15 and I2/PG-10 gaps; older checkpoints above remain historical. All152 measured
+source hashes remain current. TASK-027 is recorded in completed work; final evidence-head
+CI/review and authorized protected integration remain delivery checks.
+
+FR-01 through FR-14 and baselineFR-16 retain their existing policy owners and safety invariants.
+No whole milestone/handbook, production/full-source, physical-mobile, hosted/publication/recovery
+or release criterion is closed. TASK-023 enhanced navigation stays separate. TASK-028's QM01-08
+mapping remains prospective, with no design/execution/active-slot approval inferred.

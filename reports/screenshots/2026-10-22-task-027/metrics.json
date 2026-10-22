@@ -1,0 +1,1564 @@
+[
+  {
+    "label": "initial-1586",
+    "width": 1586,
+    "pageWidth": 1586,
+    "bodyFont": "16px",
+    "blurCount": 2,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      }
+    ]
+  },
+  {
+    "label": "selected-1586",
+    "width": 1586,
+    "pageWidth": 1586,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 마포구 월드컵로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(27, 67, 186)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243)"
+      }
+    ]
+  },
+  {
+    "label": "initial-390",
+    "width": 390,
+    "pageWidth": 390,
+    "bodyFont": "16px",
+    "blurCount": 0,
+    "rail": 390,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      }
+    ]
+  },
+  {
+    "label": "selected-390",
+    "width": 390,
+    "pageWidth": 390,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 마포구 월드컵로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 390,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(27, 67, 186)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-320",
+    "width": 320,
+    "pageWidth": 320,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 320,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-390",
+    "width": 390,
+    "pageWidth": 390,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 390,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(27, 67, 186)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-768",
+    "width": 768,
+    "pageWidth": 768,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 768,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-1023",
+    "width": 1023,
+    "pageWidth": 1023,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 1023,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-1024",
+    "width": 1024,
+    "pageWidth": 1024,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 64,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-1279",
+    "width": 1279,
+    "pageWidth": 1279,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 64,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-1280",
+    "width": 1280,
+    "pageWidth": 1280,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243)"
+      }
+    ]
+  },
+  {
+    "label": "long-1586",
+    "width": 1586,
+    "pageWidth": 1586,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243)"
+      }
+    ]
+  },
+  {
+    "label": "long-320-text200",
+    "width": 320,
+    "pageWidth": 320,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 320,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-320-all-text200",
+    "width": 320,
+    "pageWidth": 320,
+    "bodyFont": "32px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 320,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-390-all-text200",
+    "width": 390,
+    "pageWidth": 390,
+    "bodyFont": "32px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 390,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-1024-all-text200",
+    "width": 1024,
+    "pageWidth": 1024,
+    "bodyFont": "32px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 64,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      }
+    ]
+  },
+  {
+    "label": "long-1280-all-text200",
+    "width": 1280,
+    "pageWidth": 1280,
+    "bodyFont": "32px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243)"
+      }
+    ]
+  },
+  {
+    "label": "reduced-motion-1280",
+    "width": 1280,
+    "pageWidth": 1280,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 1,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243)"
+      }
+    ]
+  },
+  {
+    "label": "forced-colors-1280",
+    "width": 1280,
+    "pageWidth": 1280,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgba(255, 255, 255, 0)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgba(255, 255, 255, 0)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgba(5, 0, 73, 0.8)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(0, 0, 0)"
+      }
+    ]
+  },
+  {
+    "label": "no-blur-1280",
+    "width": 1280,
+    "pageWidth": 1280,
+    "bodyFont": "16px",
+    "detail": "가상별빛 카페 인허가 정보 · 서울특별시 강남구 테헤란로 12-1 · 후보 1",
+    "blurCount": 0,
+    "rail": 72,
+    "colors": [
+      {
+        "selector": "H1",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "purpose",
+        "color": "rgb(70, 87, 122)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(70, 87, 122)"
+      },
+      {
+        "selector": "INPUT",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "search-button",
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(36, 86, 232)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(36, 86, 232)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(21, 63, 166)",
+        "background": "rgb(229, 240, 255)",
+        "border": "rgb(21, 63, 166)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243) rgb(21, 35, 77) rgb(21, 35, 77)"
+      },
+      {
+        "selector": "inspect-button",
+        "color": "rgb(36, 86, 232)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(115, 132, 168)"
+      },
+      {
+        "selector": "status-badge",
+        "color": "rgb(121, 67, 21)",
+        "background": "rgb(255, 241, 213)",
+        "border": "rgb(121, 67, 21)"
+      },
+      {
+        "selector": "record-evidence",
+        "color": "rgb(21, 35, 77)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(220, 228, 243)"
+      }
+    ]
+  }
+]

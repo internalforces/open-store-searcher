@@ -408,3 +408,38 @@ code is unchanged; no duplicate raw replay/newcollection/freshness claim. Curren
 byte-identical to original PR32. Reports/test-2026-10-18-pr32-remediation.md and bound JSON receipts
 provide exact command/log hashes and behavior matrix. Final pushed-head CI/review readback remains
 a separate delivery gate; no merge, publication, collection resumption or security change.
+
+
+## TASK-027 bounded UI verification in progress — 2026-10-22
+
+Research and per-file plan precede implementation. Specialized source-pairing, test-gap and
+assertion-quality tools are unavailable; inline requirement mapping and independent task/final
+reviews provide the bounded audit. Tasks1–3 include RED/GREEN and Approved Sol/xhigh reviews.
+Exact named behavior assertions are preserved in reports/test-2026-10-22-task-027.md.
+Task4 browser/media/motion/performance checks and independent reviews remain in progress.
+Manual VoiceOver output could not be observed through CUA; original off/caption-on state and
+settings-app termination were verified after the authorized attempt. PG10 is not closed.
+
+Current checkpoint8ed3ddb: final same-source verify stage1423/59passes with93.90/92.57/96.47/
+95.60coverage, static/build/bothquality pass; defaultfull exits1(91/92,WebKitstartup5s on both
+attempts). Approved serial E2E92/92+a11y20/20 exit0 without retries/flakes; performance every
+sample passes. Exact browser names and requirement matrix are in the public test report.
+Source/evidence/assertion audit:11owned/12App/152measured/169retained/41capture/8report hashes
+match; full identities/order/absolute positions/count/primary oracle, raw/date/status/missing
+fields, deferred stale replies, no-query-network/storage and real keyboard focus are retained.
+New all-element text resize checks fixed14px→28px; actual browserzoom is separate. New finite
+motion regression reproduces missing selector RED, then focused4/4 and final92GREEN; its RED
+retryZIP was overwritten before copying and remains unavailable. No fabricated trace, skipped
+assertion, global timeout/worker/retry change or performance relaxation. Task4 independent and
+whole-branch reviews remain pending; actual VoiceOver and strictdefault acceptance stay open.
+
+Fresh independent Sol/xhigh whole-branch review approves implementation quality and verifies
+all11/12/152/169/41/8hash groups plus15documentation bindings. No Critical/Important implementation
+finding, assertion weakening, missing candidate/oracle or unreported budget change was found.
+Acceptance remains Request Changes for strictdefaultPG15 and actualspokenATPG10. Existing
+INFOs are nonblocking; only new MinorM2backlog prose correction enters one scoped rereview.
+Task remains active/incomplete; no source/suite/performance rerun accompanies that doc fix.
+
+FinalM2scoped rereview Approved/ADDRESSED, no new findings. Coordinator21local-link and
+whitespace audit pass; original85files/exactstatus preserved. No test/source change follows
+final review. TASK027 remains active/incomplete with ImportantPG10/15open; no release/remote claim.

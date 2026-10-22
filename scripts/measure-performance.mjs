@@ -380,7 +380,7 @@ try {
         'Navigation to laid-out heading/input and enabled submit button plus two animation frames.',
       lcp: 'Latest buffered LCP after readiness plus 1000 ms without interaction; fixed lab observation window.',
       search:
-        'Loaded real App: complete search and first page (Top-3 plus up to 20 similar cards), verified identities/order/full count, layout and two animation frames. Page navigation uses the same endpoint. Excludes typing, automation transport, and input scheduling delay; paint opportunity is not pixel presentation.',
+        'Loaded real App: complete search and first page (Top-3 plus up to 20 similar summaries plus zero/one selected detail), verified complete summary identities/order/absolute positions/full count and selected-detail identity, layout and two animation frames. Page navigation uses the same endpoint. Excludes typing, automation transport, and input scheduling delay; paint opportunity is not pixel presentation.',
       preparation:
         'Five fresh pages: generation, JSON parse and diagnostic prepare measured separately; App rebuilds its own index. Diagnostic preparation/search precedes mounting and can warm code caches.',
       queryOrder: Object.keys(queries),
@@ -396,7 +396,7 @@ try {
     workloads,
     limitations: [
       'Synthetic distribution only: one district, 1% common name, 100 invented roads, distinct building numbers; no claim about production distribution or maximum supported rows.',
-      'Approved pagination: complete result calculation plus Top-3 and first 20 similar cards; all candidates remain reachable. First/next/last/previous page display measured; no full simultaneous DOM claim.',
+      'Approved pagination: complete result calculation plus Top-3 and first 20 similar summaries with a separate selected detail; all candidates remain reachable. First/next/last/previous page display measured; no full simultaneous DOM claim.',
       'Production JSON schema, data partition contract, source-cut and publication remain unavailable. No production data budget was invented.',
       'Local lab only: no physical mobile device, Pages CDN, compression, field percentiles or production-scale signoff.',
     ],

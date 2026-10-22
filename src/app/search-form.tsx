@@ -4,6 +4,7 @@ interface SearchFormProps {
   value: string;
   error: string | null;
   disabled?: boolean;
+  busy?: boolean;
   exampleQuery: string;
   onChange: (value: string) => void;
   onSubmit: () => void;
@@ -16,11 +17,13 @@ export function SearchForm({
   onChange,
   onSubmit,
   disabled = false,
+  busy = false,
 }: SearchFormProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   return (
-    <search>
+    <search aria-label="사업체 검색">
       <form
+        aria-busy={busy}
         onSubmit={(event) => {
           event.preventDefault();
           if (!disabled) {

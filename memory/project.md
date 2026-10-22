@@ -9,6 +9,29 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## Current TASK-027 reopening — 2026-10-22
+
+Final GitHub review on PR37 head3c67280 found P2 retained-data refresh pagination blocking.
+TASK-027 is reopened as the sole active task. The minimal result-busy correction and two focused
+regressions have independent Sol/xhigh code/test approval; pinned workspace32/type/style/build
+and fresh all-budget performance pass at that checkpoint. Captured CI follow-ups repair the
+animation test baseline and the loader's unbounded frame-notification wait. Local51tests,
+eight unchanged browser cases and all49 fresh performance gates pass; independent source/
+test/performance review is Approved. The new paint-wait report binds152/152 current inputs.
+The earlier refresh report now matches150/152 and source8ed3ddb's report148/152, both retained
+historically. See [current loader evidence](../reports/test-2026-10-22-pr37-load-liveness.md)
+and the [busy correction](../reports/test-2026-10-22-pr37-refresh.md).
+
+The human cannot restart VoiceOver now. Changed pending-refresh paging lacks actual speech
+verification; initial/loading speech under the new scheduling is also unverified. Prior normal
+accepted-data observations have a conditional reviewed carry-forward bridge.
+The user's explicit actual-verification-before-merge condition remains mandatory. No AT waiver,
+current-head full CI/review success or merge is claimed. The owned QA tab/server are stopped;
+VoiceOver/Utility inventory shows not running and no settings changed during this attempt.
+Commit/push and fresh CI/review remain authorized preparation. TASK-028 is proposed/unactivated,
+TASK-009 waiting, TASK-010 paused and TASK-021 gated. No deployment or handbook work occurs.
+Earlier completion and delivery statements below retain only their original checkpoint scope.
+
 ## Summary
 
 A free, open-source dashboard that regularly transforms Seoul local administrative licensing open data into static JSON and lets users search by business name or address in the browser, showing administrative status and supporting evidence.
@@ -16,18 +39,41 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 complete; TASK-027 activation on handoff integration; TASK-009 awaiting materials and action-time approval
+- Phase: TASK-008 complete; TASK-027 reopened for final-review correction/affected AT; TASK-009 awaiting materials and action-time approval
 - Next milestone: M1 — TASK-009 hosted acceptance, then TASK-010 publication/recovery
 - Overall health: 🟡 Caution — source ZIP and action approvals missing; performance/recovery/release gates open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
-## Current handoff — 2026-10-22
+## Current TASK-027 acceptance and delivery — 2026-10-22
 
-TASK-027 becomes the sole active task on integration, beginning with detailed design confirmation
-and implementation planning. See the [active task](../tasks/active.md). TASK-009 is **awaiting materials and action-time approval**,
+TASK-027 source `8ed3ddb` has Approved final acceptance after current-source human-assisted
+VoiceOver and canonical hosted Verify on `d4f9b9e` (1,423/92/20 plus101 packaging).
+See [completion](../tasks/completed.md#task-027-final-acceptance--2026-10-22),
+[manual AT](../reports/manual-2026-10-22-task-027-voiceover-final.md) and
+[final review](../reports/review-2026-10-22-pr37-final-acceptance.md).
+No implementation task is active. The user explicitly requests fixing CI, review and normal
+protected-main merge for [PR37](https://github.com/internalforces/open-store-searcher/pull/37).
+Final documentation/evidence-head CI/review and integration remain delivery checks; the live PR
+records the eventual exact head/merge SHA. Deployment remains unauthorized.
+
+TASK-028 design/plan is proposed and unactivated, with exact visual/motion approval and active-slot
+handoff still required. TASK-009 remains waiting, TASK-010 paused and TASK-021 gated. No source,
+status, privacy, public-interface, production, physical-mobile, hosted, milestone or release
+boundary changes. Earlier snapshots below retain their point-in-time scope.
+
+## Historical implementation handoff — 2026-10-22
+
+TASK-027 is the sole active task after PR #36 merged as `596080a` in the reused
+`.worktrees/task013-quality` checkout on `codex/task-027-prism-glass`. Its detailed design was
+subsequently approved by the user, and the four-task implementation plan is prepared and
+self-reviewed. The user confirmed execution with GPT-6.1 Sol/high implementation and
+GPT-6.1 Sol/xhigh independent review; implementation checkpoint8ed3ddb has1,423tests and
+serial92browser/20accessibility passes, while strictdefaultfull fails one WebKit startup check.
+Scoped and fresh whole-branch code-quality reviews are Approved; task acceptance Request
+Changes retains strictdefault and actual VoiceOver gates. Minor backlog prose correction is independently ADDRESSED; scoped rereview Approved. See the [active task](../tasks/active.md). TASK-009 is **awaiting materials and action-time approval**,
 incomplete, and does not occupy the single active implementation slot. The user explicitly
 authorized this waiting-state clarification. TASK-008 is complete under October 18 acceptance;
-TASK-010 stays paused and TASK-021 gated. Product implementation and verification remain pending.
+TASK-010 stays paused and TASK-021 gated. TASK-027 completion is withheld for those remaining acceptance gates.
 
 Missing materials: exact October 16 original ZIP and fresh byte verification. Missing approvals
 and later evidence: concrete source transport, real asset/registry adoption, performance/release

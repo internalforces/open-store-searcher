@@ -9,6 +9,28 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## PR37 loader scheduling correction — 2026-10-22
+
+Status: Bounded implementation correction under verification, within the user's authorized
+CI repair; no new source delivery method, public interface or architecture is selected.
+
+Hosted failure observation maps an outer loader frame that fires and a subsequent inner frame
+that does not fire before the original5s assertion. No data request begins. This localizes the
+unbounded wait without proving a browser scheduler cause or permanent halt.
+
+Retain the preferred two sequential frame opportunities, each raced with a cancellable35ms
+timer using the nominal fallback delay already present in locked Preact10.29.8. This value is
+not derived from the5s test deadline and changes no test/performance budget. A phase advances
+once; phase1 cannot directly release the loader. Cleanup and guards must reject original abort
+reasons, cancel pending handles and ignore late/repeated losing callbacks.
+
+This is best-effort asynchronous liveness when tasks resume. It cannot guarantee physical
+paint or a wall-clock bound if the browser stops scheduling tasks. Fixed query-independent
+two-request batches, complete-snapshot validation/promotion, retries, retained accepted data
+and managed data asset URLs/content remain unchanged; the application bundle is regenerated.
+Fresh source-bound performance, independent
+review and exact-head canonical CI are required; affected actual AT and merge gates persist.
+
 ## TASK-009 authorized local implementation boundary — 2026-10-21
 
 Status: Existing approved architecture executed locally; no new product or quality decision.
@@ -852,3 +874,67 @@ reference/design, then TASK-027 owns the sole active slot. Start with detailed d
 and the implementation plan; do not infer acceptance of every proposed design detail or commence
 product code in this documentation delivery. TASK-009 remains incomplete outside the slot,
 TASK-010 paused and TASK-021 gated. No deployment/source-upload or quality-policy approval follows.
+
+## TASK-027 detailed design accepted — 2026-10-22
+
+The user explicitly approved the concrete Prism Glass design after execution intake and requested
+continuation. This accepts its responsive composition, tokens, bounded motion, explicit candidate
+inspection/focus return and image-to-product exclusions as the implementation basis. The prior
+visual-direction-only scope is superseded for detailed design acceptance. The four-task
+[implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md) is prepared and
+self-reviewed; human plan review and execution-method confirmation remain pending. No product
+code, policy, dependency, public interface, remote action, deployment or release gate is approved
+or completed by this planning record. Existing task dispositions remain unchanged.
+
+
+## TASK-027 execution and explicit model routing — 2026-10-22
+
+The user confirmed continuation after the implementation-plan handoff, specifying GPT-6.1
+Sol/high for implementation and GPT-6.1 Sol/xhigh for independent review. This supersedes the
+plan's initial Luna/high implementation and Sol/high review recommendation. Execute the four
+units sequentially with task-scoped spec/quality review and a final whole-diff review, preserving
+the approved scope and all operational/remote approval boundaries.
+
+
+## TASK-027 bounded verification rulings — 2026-10-22
+
+- Replace only obsolete full-card-count assertions with separate summary/detail assertions,
+  preserving complete counts, partial-snapshot and failure evidence. Risk if wrong: a weakened
+  count could conceal a missing candidate. Task3 independent review checked this boundary.
+- Preserve exact measurement bytes as `.json.raw` and use parsed-equal Biome-formatted `.json`
+  reading views so actual delivered artifacts pass repository formatting. Risk if wrong: sample
+  changes could invalidate comparison. Original raw hashes and parsed equality are verified;
+  no formatting exclusion/configuration is added.
+- Give only new multi-scan browser matrices a120s total timeout, retaining existing5s assertions,
+  all scans, retry/failOnFlaky rules and performance budgets. Risk if wrong: a hung new matrix
+  may wait up to120s. Original timeout/failure evidence remains, and this does not waive either
+  strictdefault or manualAT acceptance. The existing product/runner defaults are unchanged.
+
+These are test/evidence implementation judgments, not new source/status or deployment policy.
+
+Final review representation followup: preserve the exact reviewer Markdown in a deterministic
+gzip archive and normalize trailing whitespace only in its public reading view. Risk if wrong:
+review bytes or findings could change; verified decompression reproduces the original SHA256,
+and the normalized view changes no verdict/content. This repairs documentation whitespace only.
+
+
+## TASK-027 delivery and proposed TASK-028 direction — 2026-10-22
+
+The user explicitly authorizes branch commit/push and PR creation, superseding the prior local-only
+limit for this delivery. Keep the PR draft while required acceptance is incomplete; no merge or
+deployment authorization follows. The user separately requests planning for less AI-styled UI
+and animation. Register proposed/unactivated TASK028with restrained Prism materials and purposeful
+short feedback as coordinator recommendations, preserving product truth and all current gates.
+Exact visual/motion approval and active-slot authority remain future decisions; no product code
+or current approved design is changed by these planning records.
+
+
+## TASK-027 actual AT acceptance before merge — 2026-10-22
+
+The user explicitly chose unlocking and actual VoiceOver verification before the authorized
+PR37 merge. No acceptance-contract deferral is adopted. Human-assisted current-source speech
+observations close the previously unavailable manual criterion after independent review;
+normal exact-head CI/review and protected integration still apply. Restore the complete
+consented temporary test's original VoiceOver-off baseline and retain caption preferences.
+The follow-up TASK-028 remains proposed/unactivated; no design, policy or operational gate is
+changed by TASK-027 completion. See [final manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md).

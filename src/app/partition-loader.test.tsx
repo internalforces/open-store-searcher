@@ -18,8 +18,38 @@ const metadata = { ...demoDataset, records: undefined };
 const ready = async () => {};
 afterEach(() => {
   vi.restoreAllMocks();
+  vi.useRealTimers();
   vi.unstubAllGlobals();
 });
+
+function controlledPaintFrames() {
+  vi.useFakeTimers();
+  const timers = vi.spyOn(globalThis, 'setTimeout');
+  const callbacks = new Map<number, FrameRequestCallback>();
+  const active = new Set<number>();
+  let next = 0;
+  const request = vi.fn((callback: FrameRequestCallback) => {
+    const id = ++next;
+    callbacks.set(id, callback);
+    active.add(id);
+    return id;
+  });
+  vi.stubGlobal('requestAnimationFrame', request);
+  vi.stubGlobal('cancelAnimationFrame', (id: number) => active.delete(id));
+  return {
+    request,
+    active,
+    fireTimer: (index: number) => {
+      const callback = timers.mock.calls.filter((call) => call[1] === 35)[index]?.[0];
+      if (typeof callback === 'function') Reflect.apply(callback, globalThis, []);
+    },
+    // Retain cancelled callbacks to model a loser that was already queued.
+    fire: (id: number) => {
+      active.delete(id);
+      callbacks.get(id)?.(0);
+    },
+  };
+}
 
 describe('partitioned loading', () => {
   it('starts no part for a pre-aborted load or cancellation while waiting for paint', async () => {
@@ -205,6 +235,146 @@ describe('partitioned loading', () => {
     expect(callbacks.has(3)).toBe(false);
   });
 
+  it.each(['outer', 'inner', 'both'])(
+    'completes two deferred phases when %s frame callbacks are withheld',
+    async (missing) => {
+      const frames = controlledPaintFrames();
+      const controller = new AbortController();
+      const remove = vi.spyOn(controller.signal, 'removeEventListener');
+      const completed = vi.fn();
+      const painted = afterShellPaint(controller.signal).then(completed);
+      expect(completed).not.toHaveBeenCalled();
+      if (missing === 'inner') {
+        frames.fire(1);
+        frames.fireTimer(0);
+        frames.fireTimer(0);
+        await Promise.resolve();
+        expect(completed).not.toHaveBeenCalled();
+        expect(frames.active.has(2)).toBe(true);
+        expect(vi.getTimerCount()).toBe(1);
+      } else {
+        await vi.advanceTimersByTimeAsync(34);
+        expect(completed).not.toHaveBeenCalled();
+        await vi.advanceTimersByTimeAsync(1);
+      }
+      expect(completed).not.toHaveBeenCalled();
+      if (missing === 'outer') frames.fire(2);
+      else {
+        await vi.advanceTimersByTimeAsync(34);
+        expect(completed).not.toHaveBeenCalled();
+        await vi.advanceTimersByTimeAsync(1);
+      }
+      await Promise.resolve();
+      expect(completed).toHaveBeenCalledTimes(1);
+      await painted;
+      expect(frames.request).toHaveBeenCalledTimes(2);
+      expect(frames.active.size).toBe(0);
+      expect(vi.getTimerCount()).toBe(0);
+      expect(remove).toHaveBeenCalledWith('abort', expect.any(Function));
+      frames.fire(1);
+      frames.fire(2);
+      frames.fireTimer(0);
+      frames.fireTimer(1);
+      await vi.advanceTimersByTimeAsync(70);
+      expect(completed).toHaveBeenCalledTimes(1);
+      expect(frames.request).toHaveBeenCalledTimes(2);
+      expect(frames.active.size).toBe(0);
+      expect(vi.getTimerCount()).toBe(0);
+    },
+  );
+
+  it('keeps one fixed batch when a timer wins and cancelled frame callbacks arrive late', async () => {
+    const frames = controlledPaintFrames();
+    const first = deferred<unknown>();
+    const second = deferred<unknown>();
+    const started: number[] = [];
+    const loader = createPartitionLoader({
+      metadata,
+      kind: 'synthetic',
+      parts: [
+        () => {
+          started.push(0);
+          return first.promise;
+        },
+        () => {
+          started.push(1);
+          return second.promise;
+        },
+        async () => {
+          started.push(2);
+          return demoDataset.records.slice(4);
+        },
+      ],
+    });
+    const loaded = loader.load();
+    await vi.advanceTimersByTimeAsync(34);
+    expect(started).toEqual([]);
+    await vi.advanceTimersByTimeAsync(1);
+    expect(started).toEqual([]);
+    expect(frames.request).toHaveBeenCalledTimes(2);
+    frames.fire(1);
+    frames.fire(1);
+    frames.fireTimer(0);
+    expect(frames.active.has(2)).toBe(true);
+    expect(vi.getTimerCount()).toBe(1);
+    frames.fire(2);
+    await Promise.resolve();
+    expect(started).toEqual([0, 1]);
+    frames.fire(1);
+    frames.fire(2);
+    frames.fire(2);
+    frames.fireTimer(1);
+    await vi.advanceTimersByTimeAsync(70);
+    expect(started).toEqual([0, 1]);
+    expect(frames.request).toHaveBeenCalledTimes(2);
+    expect(frames.active.size).toBe(0);
+    expect(vi.getTimerCount()).toBe(0);
+    first.resolve(demoDataset.records.slice(0, 2));
+    await Promise.resolve();
+    expect(started).toEqual([0, 1]);
+    second.resolve(demoDataset.records.slice(2, 4));
+    expect(await loaded).toEqual(demoDataset);
+    expect(started).toEqual([0, 1, 2]);
+  });
+
+  it.each(['pre-abort', 'outer', 'inner'])(
+    'cancels deferred work with the original reason when aborted in %s',
+    async (phase) => {
+      const frames = controlledPaintFrames();
+      const controller = new AbortController();
+      const reason = { cancelled: phase };
+      const add = vi.spyOn(controller.signal, 'addEventListener');
+      const remove = vi.spyOn(controller.signal, 'removeEventListener');
+      const completed = vi.fn();
+      if (phase === 'pre-abort') controller.abort(reason);
+      const painted = afterShellPaint(controller.signal).then(completed);
+      if (phase === 'inner') frames.fire(1);
+      const rejected = expect(painted).rejects.toBe(reason);
+      if (phase !== 'pre-abort') controller.abort(reason);
+      await rejected;
+      expect(completed).not.toHaveBeenCalled();
+      expect(frames.active.size).toBe(0);
+      expect(vi.getTimerCount()).toBe(0);
+      if (phase === 'pre-abort') {
+        expect(frames.request).not.toHaveBeenCalled();
+        expect(add).not.toHaveBeenCalled();
+        expect(remove).not.toHaveBeenCalled();
+      } else {
+        expect(add).toHaveBeenCalledWith('abort', expect.any(Function), { once: true });
+      }
+      const requests = frames.request.mock.calls.length;
+      frames.fire(1);
+      frames.fire(2);
+      frames.fireTimer(0);
+      frames.fireTimer(1);
+      await vi.advanceTimersByTimeAsync(70);
+      expect(completed).not.toHaveBeenCalled();
+      expect(frames.request).toHaveBeenCalledTimes(requests);
+      expect(frames.active.size).toBe(0);
+      expect(vi.getTimerCount()).toBe(0);
+    },
+  );
+
   it('never searches a partial snapshot and keeps previous results after a part fails', async () => {
     let fail = false;
     const later = deferred<unknown>();
@@ -234,10 +404,12 @@ describe('partitioned loading', () => {
       ).toBe(false),
     );
     fireEvent.submit(screen.getByRole('searchbox').closest('form') as HTMLFormElement);
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
+    expect(document.querySelectorAll('.workspace-detail')).toHaveLength(1);
     fail = true;
     fireEvent.click(screen.getByRole('button', { name: '데이터 다시 불러오기' }));
     expect((await screen.findByRole('alert')).textContent).toContain('이전 데이터');
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
+    expect(document.querySelectorAll('.workspace-detail')).toHaveLength(1);
   });
 });

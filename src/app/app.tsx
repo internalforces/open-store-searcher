@@ -11,6 +11,7 @@ import {
 } from './evidence-context.js';
 import { SearchForm } from './search-form.js';
 import { SearchResults } from './search-results.js';
+import { WorkspaceIntro } from './workspace-intro.js';
 import { type DisplayLoader, useDisplayData } from './use-display-data.js';
 import './app.css';
 
@@ -50,9 +51,49 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
   const error = result && !result.validation.ok ? result.validation.message : null;
   return (
     <CoverageClock>
+      <nav className="workspace-rail" aria-label="작업 공간">
+        <span className="rail-prism" aria-hidden="true">
+          <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false">
+            <path d="m16 3 12 13-12 13L4 16Z" />
+            <path d="m16 3 4 13-4 13-4-13Z" />
+          </svg>
+        </span>
+        {[
+          {
+            label: '검색',
+            target: 'business-query',
+            path: 'M21 21l-5-5M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
+          },
+          {
+            label: '결과',
+            target: result?.validation.ok ? 'search-results' : 'workspace-results',
+            path: 'M4 5h16M4 12h16M4 19h10',
+          },
+          {
+            label: '안내',
+            target: 'workspace-guidance',
+            path: 'M12 17v-5m0-4v.1M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0',
+          },
+        ].map(({ label, target, path }) => (
+          <button
+            key={label}
+            type="button"
+            aria-label={`${label}${label === '검색' ? '으로' : '로'} 이동`}
+            onClick={() => {
+              const element = document.getElementById(target);
+              element?.focus();
+              element?.scrollIntoView?.({ block: 'nearest' });
+            }}
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+              <path d={path} />
+            </svg>
+            <span>{label}</span>
+          </button>
+        ))}
+      </nav>
       <main className="page-shell">
         <header className="page-header">
-          <p className="eyebrow">서울 사업체 · 공개 인허가 정보</p>
           <h1>open-store-searcher</h1>
           <p className="purpose">
             상호명이나 주소로 공개 행정 데이터상의 사업체 상태를 확인하세요.
@@ -66,6 +107,8 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
           />
         </header>
         <div className="search-panel">
+          <span className="search-glint" aria-hidden="true" />
+          <h2>상호명이나 주소로 찾아보세요</h2>
           <SearchForm
             value={draft}
             onChange={(value) => {
@@ -77,6 +120,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             error={error}
             exampleQuery={dataset?.exampleQuery ?? ''}
             disabled={!dataset || !loading.searchAvailable}
+            busy={loading.phase === 'loading' || searchBusy}
             onSubmit={() => {
               if (!dataset || !loading.searchAvailable) return;
               const sequence = ++requestSequence.current;
@@ -198,12 +242,20 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             result.similarCount > 0 &&
             ' · 유사 후보는 같은 사업체인지 주소와 원본 정보를 확인하세요.'}
         </p>
+        {!result?.validation.ok && (
+          <WorkspaceIntro
+            coverage={dataset?.coverage ?? { kind: 'unavailable' }}
+            sourceLabel={source.sourceLabel}
+            sourceUrl={source.sourceUrl}
+          />
+        )}
         {dataset && result?.validation.ok && (
           <SearchResults
             key={submission?.sequence}
             result={result}
             coverage={dataset.coverage}
             synthetic={isSynthetic}
+            busy={searchBusy}
             {...(loading.page
               ? {
                   onPage: (page: number) => {
@@ -228,7 +280,6 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
                         }
                       });
                   },
-                  busy: searchBusy,
                 }
               : {})}
           />
@@ -236,7 +287,9 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
       </main>
       <footer className="page-footer">
         <div className="footer-content">
-          <h2>출처와 이용 안내</h2>
+          <h2 id="workspace-guidance" tabIndex={-1}>
+            출처와 이용 안내
+          </h2>
           {isSynthetic ? (
             <p>
               현재 화면은 프로젝트에서 만든 합성 예시로 작동합니다. 실제 사업체 상태를 확인하는 데

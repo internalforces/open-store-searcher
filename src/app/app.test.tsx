@@ -93,7 +93,8 @@ describe('App', () => {
     const similar = within(screen.getByRole('region', { name: '유사 후보' }));
     expect(similar.getByText('서울특별시 강남구 테헤란로 12-1')).toBeTruthy();
     expect(similar.getByText('일치 신뢰도 낮음')).toBeTruthy();
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(document.querySelectorAll('.candidate-summary')).toHaveLength(2);
+    expect(document.querySelectorAll('.workspace-detail')).toHaveLength(1);
     for (const card of screen.getAllByRole('article')) {
       expect(within(card).getByText('예시 데이터 기준일: 2026-09-01')).toBeTruthy();
       expect(within(card).getByText('합성 시험 데이터')).toBeTruthy();

@@ -9,6 +9,243 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## PR37 hosted failure captured — 2026-10-22
+
+The baseline correction was committed/pushed as4c55774230707a0e0200c29a857f055d00c4774d.
+Exact-head GitHub review completes with no findings. Verify39795194051/job119880641090 fails:
+static/1425units pass;91browserpass/1flaky WebKit startup0/2requests, retry passes.
+All four decoration cases pass first attempts; axe/packaging unreached.
+New failed-host timeline maps outer loader frame483→1731ms and inner scheduled1732ms with
+no fire/cancel/fetch before5s failure,0drops, visible/focused. A cancellable loader-wait fallback
+is being diagnosed. Do not claim WebKit/GPU root cause or timer-guaranteed paint. Full logs/JSON
+are preserved; see the updated host-capture report. No blind rerun or policy relaxation.
+The bounded two-phase35ms frame/timer correction is implemented and source-reviewed Approved.
+Deterministic final RED6fail/13pass; GREEN19partition+32workspace, type/style, onebuild and
+unchanged startup/recovery8cases/all4projects pass first attempts. Frozen loader88a8c509...,
+test63afc786...; previous refresh report now150/152, exactly those two files differ.
+One fresh unchanged-budget performance measurement exits0/all49gates pass, initial93525B,
+maxprimary1246.6ms/LCP1172ms/submit252.4ms/page234.4ms. Newpaint-wait report binds152/152;
+all10oldreports preserved. Independent measurement review is Approved after96summary/49gate
+recomputation and direct binding/preservation checks. New exact-head CI/review remain;
+livePR37 records delivery identity/result. Do not rebind prior samples.
+See [liveness correction](../reports/test-2026-10-22-pr37-load-liveness.md).
+Source/event-clock and timer/paint limitations remain explicit. Initial/loading speech is
+unverified; conditional normal accepted-data AT bridge survives inspection, affected pending
+refresh actualAT remains required. Data-delivery and runner policies remain unchanged;
+merge stays withheld.
+Earlier checkpoint descriptions below retain their dated scopes.
+
+Committed head b3d1033e5436893931ef17c08dde9a2e626fe6e2 remains open/unmerged.
+Verify39791048517/job119866844594 fails strict flaky policy: static/1,425unit tests pass;
+91browserpass/1flaky Chromium decoration, retry passes. Native order proves the detail effect's
+first start arrives after the counter baseline, not a duplicated related start in this attempt.
+All targeted WebKit cases pass first attempts; earlier startup/initial CLS causes remain
+unresolved. Full decoded log and failure JSON are preserved privately. GitHub review completes
+on exact b3d1033 with no findings. See [host capture](../reports/test-2026-10-22-pr37-ci-observation.md).
+The existing Sol/high worker completed the bounded exact-once native-start precondition.
+Final source314cc0f8 passes four configured engines first attempts/exit0, type/style and92
+collection; independent Sol/xhigh review is Approved with0 findings. Atomic ledger+counter
+sampling closes the poll-to-baseline gap. Source152/all7 existing assets remain unchanged.
+See [baseline correction](../reports/test-2026-10-22-pr37-animation-baseline.md).
+The next normal push requires fresh exact-head full CI/review; livePR37 holds final identities
+and results. No production or runner policy changed; prior startup/CLS risks remain open.
+Actual changed pending-refresh VoiceOver remains unperformed because the human cannot enable
+it now. Their actual-verification-before-merge condition persists. No merge/deployment or
+TASK028 activation; original85 pending files/status remain protected.
+
+## Earlier PR37 exact-head CI follow-up — 2026-10-22
+
+Current pushed source/head:5524090793ffcffcabc8d81dc2925ea0a42d7fe5, PR37 open/unmerged.
+[Verify39778033230](https://github.com/internalforces/open-store-searcher/actions/runs/39778033230)
+attempt1 fails failOnFlaky:1425tests/59files and static/build pass;91browserpass plus one WebKit
+startup-batching case passes only on built-inretry1. Axe/packaging not reached. Previously observed
+nondeterministic startup failure, cause unresolved; do not call it proven main/external behavior.
+
+One isolated diagnostic and three predetermined two-worker startup/map pairs pass first attempts,
+but cannot establish the hosted5s cause. Earlier diagnostic collection errors are retained separately.
+No tracked product/test/config change follows. Source152 bindings remain current. Independent
+review supported exactly one unchanged-head canonical fresh observation. Attempt2/job119835178890
+also fails: static/1425tests pass;89browserpass+3flaky (WebKit startup requests0/2; WebKit recovery
+submit disabled; Chromium decoration layoutshift0.028657389322916667). All pass on built-inretry;
+axe/packaging unreached. Further canonical reruns STOPPED. Startup/initial geometry diagnosis
+continues; preserve both failed attempts and do not claim passing diagnostics repair them.
+
+GitHub review request6340664201 is still running; independent Sol/xhigh code/test/performance
+approval remains scoped. Affected actual pending-refresh VoiceOver is unperformed because the
+human cannot restart it now. Explicit actual-verification-before-merge condition remains, as do
+final acceptance, exact-head CI/review and original-thread/protected-main gates. QA tab/server are
+stopped; no settings changed during this attempt. TASK027 stays active; TASK028 unactivated.
+Private paired outcome/summary and all attempts remain under the task's .superpowers/sdd folder.
+Test-only hosted failure-observation preparation now follows the inconclusive full92 local
+run (91pass/1flaky animation counter; all targetedWebKitfirst-pass). Type/style/92collection and
+all7asset equality pass; all152 measured inputs still current. Independent observation review
+is Approved for hosted capture only. Both failed WebKit smoke commands/provenance limits are
+retained; no clean runtime-suite, PG15 or AT acceptance is inferred. See [CI observation evidence](../reports/test-2026-10-22-pr37-ci-observation.md).
+This handoff update follows the pushed checkpoint and is not a product/source change.
+
+## TASK-027 refresh correction; actual AT pending — 2026-10-22
+
+Final GitHub review on PR37 head3c67280 found P2 retained-data refresh pagination blocking.
+TASK-027 is reopened as the sole active task. The minimal result-busy correction and two focused
+regressions have independent Sol/xhigh code/test approval; pinned workspace32/type/style/build
+and fresh all-budget performance pass. The new performance report binds all152 current files;
+old source8ed3ddb acceptance and its150/152 remaining matching hashes are historical.
+See [current correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+
+The human cannot restart VoiceOver now. Only the changed pending-refresh paging state lacks
+actual speech verification; prior normal-flow observations have a reviewed carry-forward bridge.
+The user's explicit actual-verification-before-merge condition remains mandatory. No AT waiver,
+current-head full CI/review success or merge is claimed. The owned QA tab/server are stopped;
+VoiceOver/Utility inventory shows not running and no settings changed during this attempt.
+Commit/push and fresh CI/review remain authorized preparation. TASK-028 is proposed/unactivated,
+TASK-009 waiting, TASK-010 paused and TASK-021 gated. No deployment or handbook work occurs.
+Earlier completion and delivery statements below retain only their original checkpoint scope.
+
+## TASK-027 delivered as draft PR #37 — 2026-10-22
+
+Authorized commit/push and [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37)
+creation succeeded on codex/task-027-prism-glass -> main; it is attached to this task. Creation
+head900d642/base596080a were independently read back; source8ed3ddb and152measured hashes are
+unchanged. The [delivery receipt](../reports/delivery-2026-10-22-task-027.md) distinguishes
+creation-time metadata and CI observation from current exact-head results. Creation-time Verify
+was in_progress, not passed. Do not recreate the PR, mark TASK027complete, merge/deploy, or infer
+manualAT/defaultfull acceptance from delivery. Read current exact-head CI before any new claim.
+
+TASK028proposed design/plan and its independent planning check are committed for human review,
+unactivated and planning-only. No product/test/dependency/runtime/source-policy change follows.
+The original85pending files/status remain preserved. Earlier authorization/preparation notes
+below are historical; current PR links and live metadata govern future delivery decisions.
+
+## TASK-027 remote delivery and proposed follow-up — 2026-10-22
+
+The user's latest request explicitly authorizes committing/pushing this branch and creating a PR;
+this supersedes older local-only no-push instructions below for this delivery only. Merge,
+deployment and PG10/15acceptance remain withheld. Source checkpoint8ed3ddb and its current test/
+performance/manual bindings stay unchanged; follow-up preparation changes documentation only.
+The repo is public. Create a draft PR with honest default91/92failure, serial92/20pass and actual
+VoiceOver gap, then attach it to this task and verify exact remote branch/head/base/draft metadata.
+RemoteCI is new evidence, not a reinterpretation of historical local outcomes.
+
+The user also requested a future plan to reduce AI-styled presentation and use animation.
+Proposed TASK028design/plan recommend restrained Prism materials, fewer repeated cards, small
+brand detail and short accepted-action/selection feedback. All exact values are proposals.
+A fresh Sol/xhigh builder check reports nothing important left after conditional future-routing
+clarification; its public planning review is retained. No follow-up product source,
+tests, dependency, runtime setting or activation is changed. Full design review and an explicit
+active-slot handoff are required before implementation. Preserve TASK009waiting/010paused/021gated
+and original85pending-file/status fingerprints. See the new backlog/design/plan links.
+
+## TASK-027 current execution checkpoint — 2026-10-22
+
+Current source checkpoint: `8ed3ddb156f12cd83d4037b0026b0ca28b5b5dbf`. Tasks1–3 Approved;
+Task4 scoped Sol/xhigh code-quality Approved; ImportantI1(strictdefault) andI2(spokenAT)
+keep acceptance open. Fresh whole-branch Sol/xhigh code-quality Approved; acceptance Request Changes for the same
+I1/I2. MinorM2backlog prose was corrected by original Sol/high worker; scoped rereview Approved
+with M2 ADDRESSED and no new finding; no product/test change or suite repeat. Supplemental
+runner-only metadata cleanup yields clean format and lint without errors, retaining2existingINFOs. Current same-source verify stage passes1,423/59 and
+static/build/bothquality checks; defaultfull exits1(91/92,WebKit startup5s both attempts), approved
+serial92/92+20/20 pass without retries/flakes. All performance budgets pass:93393bytes,
+search231.2ms/page214.9ms maxima, worstcoldprimary1209ms/LCP1228ms;152source hashes match.
+All20capture states have no overflow. Current manualChrome200%→100% keyboard/focus return
+proof binds all12App files. VoiceOver authorized off→on→off attempt produced no observable
+runtime/caption output; caption remained1 and settings apps quit. User has an async request
+for direct manual results; silence is not acceptance. PG10/strictPG15 stay open. Keep TASK027
+active; do not move it to completed, push/merge/deploy, activate009 or claim release acceptance.
+Private task4report/manifest and default failure traces are preserved. All ledger rulings and their risks must be surfaced at handoff. Hostdevserver67787 port5197 and QAChrome1491080023 remain for
+manual followup. Final preservation audit confirms all85original files and exact Git status unchanged.
+
+Earlier checkpoint history follows; use the plan ledger and commits, never redispatch completed
+Tasks1–3.
+
+Latest continuation: Task3 complete at877562f, independent Sol/xhigh spec/quality Approved,
+Critical0/Important0/Minor0; pinned component180/full1423tests and static checks pass. Task4
+is assigned to /root/task027_acceptance (Sol/high); browser suites/oracle migration are in
+progress, with no appsource change as of its first update. Coordinator realChrome200% manual
+proof (source-bound JSON) passes search/focus/return/no-overflow and restores100%; native AX/live
+metadata observed. The user approved temporary VoiceOver/caption testing. The Settings switch off→on→off
+and unchanged caption checkbox were observed; both settings apps were quit. Actual runtime/caption
+output was unavailable through CUA, so manual PG-10 remains unverified. The JSON report records the
+bounded attempts/restoration. Task4 found two missing specified decorative effects and is implementing
+them before final captures/performance/checks; existing877562f manual evidence is historical until
+a focused current-source keyboard/zoom recheck.
+Host devserver67787 serves5197; QA Chrome tab1491080023. Use the plan ledger to resume; Tasks1–3
+must not be repeated. Final scoped/whole-diff review and acceptance remain.
+
+Latest: Task2 is complete at c4410b7 with independent Sol/xhigh spec/quality Approved,
+Critical0/Important0/Minor0; pinned full59files/1398tests and focused54tests pass. Seven source/
+test hashes equal the runner. Task3 is now assigned to /root/task027_inspection (Sol/high),
+implementing selected candidate/focus/page/recovery behavior. Raw task reviews are preserved
+in reports/review-2026-10-22-task-027.md. Final PG/whole-diff acceptance remains pending.
+
+Task1 shell is complete at fe0a3f7 after independent Sol/xhigh task review and scoped I1
+correction rereview Approved (Critical0/Important0 open). Baseline implementation a036165
+passed pinned npm test57files/1370tests; the subsequent busy-state correction passed focused
+36tests/type/lint/format. No full-run claim is extended over the later correction. Task2 shared
+evidence/summary/full-detail implementation is assigned to /root/task027_evidence (Sol/high).
+The plan-scoped ledger is .superpowers/sdd/2026-10-22-task-027-prism-glass/progress.md; use it
+to resume after compaction without redispatching Task1. Task3/4 and final acceptance remain.
+
+## TASK-027 execution authorized with model override — 2026-10-22
+
+The user confirmed continuation and explicitly set implementation to GPT-6.1 Sol/high and
+independent review to GPT-6.1 Sol/xhigh, superseding the proposed Luna/high and Sol/high routing.
+Sequential subagent execution of the four-task plan has started in the existing TASK-027
+worktree. The plan-specific private ledger records task state, preflight interface checks,
+briefs, reports and review checkpoints; do not restart completed units after compaction.
+The existing pinned Ubuntu container is available after restarting its existing Docker host
+and task research container; Node24.19.0/npm11.17.0 are confirmed. No dependency installation,
+new service or global runtime change is needed. The host baseline component suite passes
+12 files/123 tests on Node22; pinned baseline and performance capture precede product edits.
+Original checkout preservation covers all85 pending files and exact Git status.
+No push/merge/deploy or operational task resumption is authorized.
+
+## TASK-027 detailed design approved; implementation plan prepared — 2026-10-22
+
+The user approved the detailed design presented at intake and requested continuation. Recorded
+that acceptance in the specification, decisions and task state, superseding the pending design
+confirmation below. Prepared and self-reviewed the
+[four-task implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md):
+responsive shell, shared evidence/full detail, deterministic inspection/recovery, and browser/
+accessibility/performance acceptance. Its interfaces preserve App's dataset/submission/request
+ownership and existing Worker/search/data contracts. Every PG-01–15 criterion has an owner.
+
+Self-review identified the need to preserve synthetic labeling with unavailable coverage and
+to migrate the complete identity/order/count performance oracle to candidate summaries plus a
+separate selected article; both are explicit in the plan. Plan review and execution-method
+confirmation remain required by writing-plans before product edits. Recommended sequential
+subagent implementation with configured Luna/high implementers and Sol/high independent reviews;
+no agent was dispatched during planning. Existing selected-reference builder review is retained.
+
+No product code/test, dependency, runtime configuration, policy or remote state changed; no
+application suite, rendered screenshot or pinned-runtime acceptance is claimed by this planning
+pass. Original checkout/other worktrees and earlier administrative edits were preserved. This
+does not complete TASK-027 or change waiting/publication/release dispositions.
+
+Planning verification passed: all 10 local link targets in the plan/spec resolve; all four
+task sections and required plan sections exist; the selected reference SHA-256 is unchanged;
+`git diff --check` passes. These are documentation checks, not application verification.
+
+## TASK-027 execution intake — 2026-10-22
+
+The user requested understanding and execution of TASK-027. Inspected the constitution,
+current task/context, implementation prompt, standards, architecture, selected design and
+its existing independent builder check, and the App/SearchResults/ResultCard boundaries.
+Reused `.worktrees/task013-quality` on `codex/task-027-prism-glass` at merged PR #36
+`596080a41b6b5884a73a9bdffb52333548441fe5`; its working tree was clean before these
+administrative updates. The original checkout and other tasks' pending files remain untouched.
+
+TASK-027 is active. The detailed design remains proposed, and explicit confirmation was
+requested before preparing its implementation plan and product changes, as required by the
+active record and brainstorming approval gate. The previous independent builder check
+already reports no material unresolved question; no repeat design review was dispatched.
+The implementation scope preserves search/status/data/Worker policies and excludes deployment.
+No product code, tests, dependencies, runtime configuration or remote state changed.
+
+Read-only checks confirmed the branch/base and locally available Node.js 22.22.3/npm 10.9.8.
+These differ from required Node.js 24.19.0/npm 11.17.0; no application test or pinned-runtime
+acceptance is claimed. No task completed, new architecture/decision/bug was established,
+or handbook accessed. TASK-009 remains waiting; TASK-010 stays paused and TASK-021 gated.
+
 ## TASK-009 initial-import implementation and evidence work — 2026-10-21
 
 The user-approved seven-task local execution has implemented Tasks 1–6 with independent
@@ -2783,3 +3020,51 @@ PG acceptance is claimed. TASK-009 remains awaiting materials/action-time approv
 paused and TASK-021 gated. The prior waiting-state request's no-active-task record retains its
 point-in-time scope. Current delivery verification, independent review, exact PR/CI/merge and
 subsequent local activation are tracked in [the delivery record](../reports/delivery-2026-10-22-task-027-handoff.md).
+
+TASK027 final documentation followup: original reviewer Markdown hard-break whitespace caused
+staged whitespace failure although the shell continued to create3410cec. Exact original is now
+preserved as reports/review-2026-10-22-task-027-final.md.gz, decompression/hash verified; public
+reading view normalizes trailing whitespace only. Application checkpoint8ed3ddb and all current
+source/performance/manual bindings are unchanged. Full-range staged whitespace check passes;152source hashes remain current, raw review gzip
+roundtrip is exact and21local links resolve. No product checks or verdicts changed.
+
+
+## PR37 CI remediation and merge request — 2026-10-22
+
+The user requests repairing failed CI, requesting review and merging main after verification.
+This supersedes the previous PR-only/no-merge scope for PR37; deployment, source activation,
+TASK-028 implementation and acceptance-contract changes are not inferred. Hosted run
+39754874448 failed Biome on baseline `before-metrics.json` before application checks.
+The bounded correction preserves its original raw bytes and formats the reading view; parsed
+values and all 152 measured-source hashes are unchanged. A clean complete eligible tracked
+snapshot reproduces the failure on 299 files and then passes pinned format (299) and lint
+(301; five existing INFOs). This qualifies the earlier incomplete 205-file style supplement.
+Independent review, fresh exact-head CI and normal protected integration remain pending.
+A screen-reader retry under the prior authorization encountered a locked Mac. No settings
+changed; the user was asked to unlock it. Actual PG-10 output remains unverified. TASK-027
+stays active, TASK-009 waiting, TASK-010 paused and TASK-021 gated. See the
+[remediation record](../reports/test-2026-10-22-pr37-ci-remediation.md).
+
+
+## TASK-027 actual AT and final acceptance — 2026-10-22
+
+After unlocking, the user directly started VoiceOver and selected actual verification before
+merge. CUA controlled the current-source local test and native Tab/Enter actions; the human
+confirmed actual repeated-search announcement, detail-title and exact invoking-button return
+reading, and both next/last-page range announcements with no decorative speech. This is
+human-assisted actual AT evidence, not a caption transcript or an inferred AX-only pass.
+The separate47-record fixture reuses exact existing fixture logic and pinned compiled assets;
+all152 source bindings and all7 asset bindings match. No product/test code changed.
+
+VoiceOver is restored to the complete temporary test's original off baseline; caption/cursor
+preferences stay checked, AppleScript control unchecked, and Settings/Utility restored to
+General and quit. Final inventory confirms temporary apps stopped; QA tab and owned5198server
+are closed. Current-source manual evidence and canonical hosted Verify39757243712 success
+resolve the prior PG-10/15 acceptance gaps. Independent Sol/xhigh final acceptance is Approved;
+see [manual](../reports/manual-2026-10-22-task-027-voiceover-final.md) and
+[review](../reports/review-2026-10-22-pr37-final-acceptance.md).
+
+TASK-027 moves to completed; no implementation task is active. PR37 final evidence-head
+CI/review and authorized normal protected-main integration remain delivery checks, recorded
+through the live PR. No deployment/source activation, TASK-028 execution, milestone/handbook
+or release gate is activated. Original checkout status/fingerprints remain preserved.

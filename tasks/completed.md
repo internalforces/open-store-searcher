@@ -11,6 +11,7 @@ _Last updated: 2026-10-22_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
+| TASK-027 | Prism Glass dashboard workspace | 2026-10-22 | Implementer / Tester / Independent Reviewer | Approved source8ed3ddb; canonical hosted 1,423/92/20 plus101 packaging; human-assisted current-source VoiceOver; independent final acceptance Approved. Final evidence-head delivery checks and all operational/release gates stay separate. |
 | TASK-008 | Local staged-quality validation and calibrated policy acceptance | 2026-10-17 | Implementer / Tester / Independent Reviewer | Exact delegated October 16 policy, 23-ID empty list and baseline; full retained-archive replay and 726-file failure preservation; 797/68/20 checks and independent Approved review. Publication/recovery, performance and release remain separate. |
 | TASK-017 | Responsive, keyboard and screen-reader search flow | 2026-09-08 | Implementer / Tester / Reviewer | Approved implementation 1acf77f pushed; 561 Vitest, 56 browser checks, 18 accessibility tests / 22 zero-violation axe scans; seven user-assisted VoiceOver cases passed. Evidence: [test](../reports/test-2026-09-08-task-017.md), [VoiceOver](../reports/voiceover-2026-09-08-task-017.md), [review](../reports/review-2026-09-08-task-017.md). FR-16 enhanced selection remains TASK-023. |
 | TASK-015 | Implement empty-result, low-confidence, loading-failure and stale-data recovery UX | 2026-09-07 | Implementer / Tester | User-approved bounded design; internal synthetic loader/retry, usable-data preservation, malformed/duplicate exclusion, truthful dates and uncertainty guidance. Pinned full verification: 522 tests, 28 browser checks, 14 zero-violation axe scans; independent Reviewer Approved. Evidence: .worktrees/task013-quality/reports/test-2026-09-07-task-015.md and review-2026-09-07-task-015.md. Production integration remains gated. |
@@ -28,6 +29,33 @@ _Last updated: 2026-10-22_
 | TASK-005 | Implement a change-detecting Seoul data collector | 2026-09-02 | Architect / Implementer | Final cancellation-error remediation independently re-reviewed with no findings; pinned pipeline, coverage, browser, accessibility, and whitespace gates passed |
 | TASK-006 | Implement transformation schema and identifiers | 2026-09-02 | Architect / Implementer | User accepted the approved, implemented, fully verified, and independently reviewed lossless transformation and internal identifier contract; PR #9 and stacked PR #10 contain the reviewable changes |
 | TASK-007 | Implement fail-safe four-status mapping and unknown-code handling | 2026-09-04 | Implementer / Tester | ADR-013 accepted; test-first implementation, 100% mapper coverage, full verification and independent Approved review passed |
+
+## TASK-027 final acceptance — 2026-10-22
+
+Checkpoint only: subsequent PR37 P2 refresh correction reopens TASK-027. Current source changes
+App and its workspace test; the following acceptance and152-current-hash statements apply only
+to the recorded8ed3ddb source. Current affected AT and final-head CI/review remain gates; see
+[active work](active.md) and [correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+
+The approved four-unit Prism Glass implementation at `8ed3ddb` satisfies PG-01 through PG-15
+within its presentation scope. Original whole-branch code quality and bounded corrections are
+Approved. Fresh canonical [Verify39757243712](https://github.com/internalforces/open-store-searcher/actions/runs/39757243712)
+on `d4f9b9e` passes 1,423 tests/59 files, 92 browser and20 accessibility cases with normal
+workflow settings, plus101 packaging tests. Existing unchanged-budget lab performance passes;
+all152 measured-source hashes remain current.
+
+The human started VoiceOver and confirmed actual repeated-search announcements, detail-title
+and invoking-button return reading, both page/range changes and no decorative speech while the
+coordinator operated native keyboard actions. See [manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md)
+and [independent final acceptance](../reports/review-2026-10-22-pr37-final-acceptance.md).
+No acceptance criterion is waived; earlier failures/unavailable evidence remain historical.
+VoiceOver and temporary apps are restored, and the owned pagination server is stopped.
+
+The user authorizes PR #37 normal protected-main integration after final evidence-head CI/review.
+That delivery check is separate from source acceptance; consult the live PR for the final SHA
+and merge result. No deployment, milestone/handbook, production/full-source, physical-mobile,
+publication/recovery or release acceptance follows. TASK-028 remains proposed/unactivated;
+TASK-009 waits, TASK-010 stays paused and TASK-021 gated. No handbook was accessed.
 
 ## TASK-009 approved local sub-work evidence — 2026-10-21
 

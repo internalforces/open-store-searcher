@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-22",
+  "baseCheckpoint": "877562f8e1f4e49138fb73bf335d58ba98040925",
+  "sourceSha256": {
+    "src/app/app.css": "f08926fcf8aaf6efc657308670f4369d06b8cfad2cf435b48b644f68396129e5",
+    "src/app/app.tsx": "50874341d1884f9da18b13802f1a3a4b5f0697334b59922434eb9ade1405eec1",
+    "src/app/candidate-summary.tsx": "9c08bfbdfd0972038f10f0d1cfaec3165507de281b8ae15f5e412ad7afe6aa8a",
+    "src/app/coverage-clock.tsx": "1d3e8b8a31f3483edcb11d45e17bc9568f9e8e9903787dc2dba08caa4a48c69c",
+    "src/app/evidence-context.tsx": "51d708fc76e2803bafd928240a62597f737b99765760d4f36025381f34317dac",
+    "src/app/main.tsx": "2c0795d54fb0d7ba490227ab1733b8d873e49bc1cec8af3e299683146976bafd",
+    "src/app/map-links.tsx": "62ffd467e555817f904cdf8627e98915ee8cca1e8d8ee6bc2942b169e9fa03cf",
+    "src/app/record-evidence.tsx": "0bda5eb85d1ddc105ea0aac84f774ad8506548f2af8a200c0d55f4ab9da1ca58",
+    "src/app/result-card.tsx": "f1502f1082aa63cf81d2cfcfb712fefd849d2368781609455ba1d9d7b31c978d",
+    "src/app/search-form.tsx": "d55067e025dde336efa351e42356643f5f38c190994cabcac0ad1d9756f4df52",
+    "src/app/search-results.tsx": "d6497876aef6ae774d95b008bcff02f7fb21a36258cbd5c18a68ad7198edb458",
+    "src/app/workspace-intro.tsx": "e09e9c84b7d440cc05a0e8264f8046de2259b354d5d900d2b94386e176dd284c"
+  },
+  "url": "http://127.0.0.1:5197/",
+  "browser": "Existing macOS Chrome through CUA/native accessibility API",
+  "purpose": "Current-source confirmation after finite decorative motion patch; supersedes earlier source binding for keyboard and actual browser zoom only.",
+  "zoomNativeAX": [
+    "200% after five Command-equal increments from restored100%",
+    "100% after Command-0 restore"
+  ],
+  "at200": {
+    "innerWidth": 735,
+    "innerHeight": 344,
+    "dpr": 4,
+    "scrollWidth": 735,
+    "acceptedCompletionCount": 2,
+    "automaticSelection": "unique primary",
+    "submissionFocus": "INPUT",
+    "explicitSelection": "Gangnam similar candidate, suspended, low confidence, conflict warning retained",
+    "focusedTag": "H3",
+    "headingTop": 271.09765625,
+    "headingBottom": 307.49609375
+  },
+  "returnAt200": {
+    "focusedTag": "BUTTON",
+    "accessibleName": "가상별빛 카페 · 서울특별시 강남구 테헤란로 12-1 · 후보 2 상세 보기"
+  },
+  "restored": {
+    "innerWidth": 1470,
+    "innerHeight": 688,
+    "dpr": 2,
+    "scrollWidth": 1470,
+    "url": "http://127.0.0.1:5197/",
+    "liveRole": "status",
+    "ariaLive": "polite"
+  },
+  "observations": [
+    "Both new empty decorative spans are aria-hidden=true and do not appear in native AX.",
+    "Raw status quartet, source, explicit synthetic date, stale warning, both addresses, business type and all eight lifecycle labels remain exposed.",
+    "Repeated identical Enter submission resets inspection to unique primary without stealing input focus; explicit similar inspection focuses visible heading and return restores exact invoking button.",
+    "Computed animation duration was0s on this host; normal/reduced/forced motion timing is assessed separately by pinned emulated browser tests."
+  ],
+  "limitations": [
+    "Actual VoiceOver spoken/caption output remains unverified as recorded in the separate AT report.",
+    "Synthetic demo on existing macOS Chrome, not production/physical-mobile performance."
+  ]
+}
