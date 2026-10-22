@@ -9,6 +9,17 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-17_
 
+## TASK-027 refresh correction verification — 2026-10-22
+
+The final-review P2 correction is tracked in [current evidence](../reports/test-2026-10-22-pr37-refresh.md)
+for FR-13 and PG-07/08/10/15. Exact regressions verify accepted-data paging during a pending and
+rejected refresh, plus settled terminal Worker guards; focused32, types/style/build and new-source
+all-budget lab performance pass. All152 new performance source bindings are current. Prior
+8ed3ddb acceptance remains checkpoint-only. The independent normal-flow AT bridge is bounded;
+changed pending-refresh actual speech remains unverified because the human cannot restart
+VoiceOver now. TASK-027 remains active; final acceptance and authorized normal merge await that
+observation plus current-head CI/review/conversation closure. No criterion or release gate is waived.
+
 ## Usage Rules
 
 - When work starts, change the related row to In progress and add pull request or report links as evidence.

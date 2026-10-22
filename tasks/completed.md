@@ -32,6 +32,11 @@ _Last updated: 2026-10-22_
 
 ## TASK-027 final acceptance — 2026-10-22
 
+Checkpoint only: subsequent PR37 P2 refresh correction reopens TASK-027. Current source changes
+App and its workspace test; the following acceptance and152-current-hash statements apply only
+to the recorded8ed3ddb source. Current affected AT and final-head CI/review remain gates; see
+[active work](active.md) and [correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+
 The approved four-unit Prism Glass implementation at `8ed3ddb` satisfies PG-01 through PG-15
 within its presentation scope. Original whole-branch code quality and bounded corrections are
 Approved. Fresh canonical [Verify39757243712](https://github.com/internalforces/open-store-searcher/actions/runs/39757243712)

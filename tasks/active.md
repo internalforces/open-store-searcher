@@ -9,23 +9,29 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
-## Current implementation slot
+## In Progress
 
-No implementation task is active. TASK-027 has completed its approved presentation scope with
-independent final acceptance; see [completion](completed.md#task-027-final-acceptance--2026-10-22),
-[manual VoiceOver](../reports/manual-2026-10-22-task-027-voiceover-final.md) and
-[final review](../reports/review-2026-10-22-pr37-final-acceptance.md).
+### TASK-027: PR37 retained-data refresh correction
 
-PR #37 integration is authorized after verification. Application source remains `8ed3ddb`;
-canonical Verify on tested head `d4f9b9e` passes 1,423 / 92 / 20 plus 101 packaging tests.
-The final documentation/evidence head still requires its exact-head CI/review and normal
-protected-main merge. Consult [the live PR](https://github.com/internalforces/open-store-searcher/pull/37)
-for the final integration receipt; no deployment or release acceptance is authorized.
-
-TASK-028 remains proposed and unactivated; its exact design and execution still require approval.
-TASK-009 remains waiting outside the slot, TASK-010 paused and TASK-021 gated. Existing source,
-calibration, physical-mobile, hosted/publication/recovery, milestone/handbook and release
-boundaries remain unchanged. Preserve the original and TASK-009 worktrees and pending changes.
+- Status: Reopened after final-head GitHub review identifies a P2 pagination regression in
+  `src/app/app.tsx`: background refresh marks retained results busy and blocks all page controls.
+- Scope: Correct the result busy boundary and add a real-App pending-refresh regression;
+  retain actual search/page request guards, all acceptance assertions and runner policy.
+- Authority: The user's existing CI-repair, review and protected-main merge request covers this
+  review correction. No deployment, source policy or follow-up activation is authorized.
+- Prior acceptance on source8ed3ddb and manual VoiceOver observations remain point-in-time
+  evidence. Changed source requires new bindings and explicit reviewed carry-forward or affected
+  verification; do not relabel the earlier152 hashes or CI as current after the correction.
+- Delivery checkpoint: PR37 is ready/open; review thread PRRT_kwDOT-E1m86vLUCg remains unresolved.
+  Implementer Sol/high owns App and its focused workspace regression; independent Sol/xhigh
+  review and final current-head CI/review still precede merge.
+- Verification: Focused workspace32, type/style/build and new-source performance pass; code/test
+  correction independently Approved. Affected actual VoiceOver remains pending because the human
+  cannot restart it now. Prior normal flows have a reviewed carry-forward bridge. Preserve the
+  explicit actual-verification-before-merge condition; no waiver or completion is inferred. See
+  [correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+- TASK-009 remains waiting, TASK-010 paused, TASK-021 gated and TASK-028 proposed/unactivated.
+  Original and TASK-009 worktree changes remain protected. No task is completed by this reopening.
 
 ## TASK-009 waiting disposition — 2026-10-22
 

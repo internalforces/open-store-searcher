@@ -9,6 +9,24 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## TASK-027 refresh correction; actual AT pending — 2026-10-22
+
+Final GitHub review on PR37 head3c67280 found P2 retained-data refresh pagination blocking.
+TASK-027 is reopened as the sole active task. The minimal result-busy correction and two focused
+regressions have independent Sol/xhigh code/test approval; pinned workspace32/type/style/build
+and fresh all-budget performance pass. The new performance report binds all152 current files;
+old source8ed3ddb acceptance and its150/152 remaining matching hashes are historical.
+See [current correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+
+The human cannot restart VoiceOver now. Only the changed pending-refresh paging state lacks
+actual speech verification; prior normal-flow observations have a reviewed carry-forward bridge.
+The user's explicit actual-verification-before-merge condition remains mandatory. No AT waiver,
+current-head full CI/review success or merge is claimed. The owned QA tab/server are stopped;
+VoiceOver/Utility inventory shows not running and no settings changed during this attempt.
+Commit/push and fresh CI/review remain authorized preparation. TASK-028 is proposed/unactivated,
+TASK-009 waiting, TASK-010 paused and TASK-021 gated. No deployment or handbook work occurs.
+Earlier completion and delivery statements below retain only their original checkpoint scope.
+
 ## TASK-027 delivered as draft PR #37 — 2026-10-22
 
 Authorized commit/push and [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37)

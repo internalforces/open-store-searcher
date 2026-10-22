@@ -255,7 +255,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             result={result}
             coverage={dataset.coverage}
             synthetic={isSynthetic}
-            busy={searchBusy || loading.phase === 'loading'}
+            busy={searchBusy}
             {...(loading.page
               ? {
                   onPage: (page: number) => {

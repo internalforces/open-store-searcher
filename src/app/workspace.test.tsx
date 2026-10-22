@@ -8,6 +8,7 @@ import type { DisplayDataset } from './display-data.js';
 import type { CompactPage, WorkerRequest } from './compact-worker-protocol.js';
 import { App } from './app.js';
 import { demoDataset } from './demo-data.js';
+import type { DisplayLoader } from './use-display-data.js';
 
 // PG-01/02/04/10/13: the initial workspace must not imply a selected business.
 describe('TASK-027 workspace shell', () => {
@@ -143,6 +144,90 @@ function pageOf(dataset: DisplayDataset, query: string, page = 0): CompactPage {
     similarCandidates: result.similarCandidates.slice(page * 20, page * 20 + 20),
   };
 }
+
+describe('TASK-027 background refresh pagination', () => {
+  it('keeps all applicable accepted-page controls usable during a pending refresh and after rejection', async () => {
+    const dataset = similarFixture(47);
+    let rejectRefresh!: (reason: Error) => void;
+    const pending = new Promise<unknown>((_resolve, reject) => {
+      rejectRefresh = reject;
+    });
+    const loader: DisplayLoader = {
+      kind: 'synthetic',
+      sourceLabel: dataset.sourceLabel,
+      sourceUrl: null,
+      load: vi.fn().mockResolvedValueOnce(dataset).mockReturnValueOnce(pending),
+    };
+    render(<App loader={loader} />);
+    const submit = screen.getByRole('button', { name: '검색', exact: true }) as HTMLButtonElement;
+    await waitFor(() => expect(submit.disabled).toBe(false));
+    submitWorkspace(queries.common);
+    const result = screen.getByRole('region', { name: '검색 결과' });
+    const buttons = () =>
+      within(screen.getByRole('navigation', { name: '유사 후보 페이지' })).getAllByRole(
+        'button',
+      ) as HTMLButtonElement[];
+    const selected = inspectAt(2);
+    const acceptedDetail = detail();
+    fireEvent.click(screen.getByRole('button', { name: '데이터 다시 불러오기' }));
+    await waitFor(() =>
+      expect(acceptedAnnouncement()).toContain(
+        '데이터를 다시 불러오는 중입니다. 이전 데이터로 검색할 수 있습니다.',
+      ),
+    );
+    expect(buttons().map((button) => button.disabled)).toEqual([true, true, false, false]);
+    expect(result.getAttribute('aria-busy')).toBe('false');
+    expect(submit.disabled).toBe(false);
+    expect(submit.closest('form')?.getAttribute('aria-busy')).toBe('true');
+    expect(detail()).toBe(acceptedDetail);
+    expect(selected.getAttribute('aria-pressed')).toBe('true');
+    expect(result.getAttribute('data-total-candidates')).toBe('47');
+    expect(acceptedAnnouncement()).toContain('검색 1회 완료 · 일치 후보 0개 · 유사 후보 47개');
+    for (const [control, start, count, page, disabled] of [
+      ['다음 페이지', 21, 20, 2, [false, false, false, false]],
+      ['마지막 페이지', 41, 7, 3, [false, false, true, true]],
+      ['이전 페이지', 21, 20, 2, [false, false, false, false]],
+      ['처음 페이지', 1, 20, 1, [true, true, false, false]],
+    ] as const) {
+      inspectAt(0);
+      fireEvent.click(screen.getByRole('button', { name: control }));
+      const rows = summaries();
+      expect(rows).toHaveLength(count);
+      expect(rows.map((row) => row.parentElement?.getAttribute('aria-posinset'))).toEqual(
+        Array.from({ length: count }, (_, index) => String(start + index)),
+      );
+      expect(rows.every((row) => row.parentElement?.getAttribute('aria-setsize') === '47')).toBe(
+        true,
+      );
+      expect(within(result).getByRole('status').textContent).toBe(
+        `유사 후보 47개 중 ${start}–${start + count - 1}개 · ${page}/3페이지`,
+      );
+      expect(buttons().map((button) => button.disabled)).toEqual(disabled);
+      expect(detail()).toBeNull();
+      expect(
+        rows.every(
+          (row) => within(row).getByRole('button').getAttribute('aria-pressed') === 'false',
+        ),
+      ).toBe(true);
+      expect(document.activeElement).toBe(screen.getByRole('heading', { name: '유사 후보' }));
+      expect(acceptedAnnouncement()).toContain('이전 데이터로 검색할 수 있습니다.');
+    }
+    const inspected = inspectAt(2);
+    const beforeFailure = detail();
+    await act(async () => rejectRefresh(new Error('private refresh failure')));
+    expect((await screen.findByRole('alert')).textContent).toContain('이전 데이터로 계속 검색');
+    expect(detail()).toBe(beforeFailure);
+    expect(inspected.getAttribute('aria-pressed')).toBe('true');
+    expect(buttons().map((button) => button.disabled)).toEqual([true, true, false, false]);
+    expect(submit.disabled).toBe(false);
+    expect(submit.closest('form')?.getAttribute('aria-busy')).toBe('false');
+    fireEvent.click(screen.getByRole('button', { name: '다음 페이지' }));
+    expect(summaries()).toHaveLength(20);
+    expect(within(result).getByRole('status').textContent).toContain('21–40개 · 2/3페이지');
+    expect(detail()).toBeNull();
+    expect(document.activeElement).toBe(screen.getByRole('heading', { name: '유사 후보' }));
+  });
+});
 
 // PG-03/08/10: inspection is ephemeral presentation, never a new identity decision.
 describe('TASK-027 candidate inspection', () => {
@@ -530,6 +615,34 @@ describe('TASK-027 real App deferred compact inspection', () => {
     expect(detail()).toBeNull();
     expect(screen.getByText(/유사 후보 47개 중 1–20개/)).toBeTruthy();
     expect(acceptedAnnouncement()).toContain('검색 3회 완료');
+  });
+
+  it('does not report pending work or send page requests after the accepted search Worker fails', async () => {
+    const dataset = similarFixture(47);
+    const worker = await readyWorkspace(dataset);
+    await acceptSearch(worker, dataset, queries.common);
+    const acceptedRows = summaries().map((row) => row.getAttribute('aria-label'));
+    await act(async () => worker.onerror?.());
+    expect((await screen.findByRole('alert')).textContent).toContain(
+      '데이터를 불러오지 못했습니다',
+    );
+    expect(
+      (screen.getByRole('button', { name: '검색', exact: true }) as HTMLButtonElement).disabled,
+    ).toBe(true);
+    expect(screen.getByRole('region', { name: '검색 결과' }).getAttribute('aria-busy')).toBe(
+      'false',
+    );
+    expect(
+      screen.queryByText('검색 결과를 불러오는 중입니다. 이전 후보와 상세 정보를 표시합니다.'),
+    ).toBeNull();
+    const requests = worker.messages.length;
+    for (const button of within(
+      screen.getByRole('navigation', { name: '유사 후보 페이지' }),
+    ).getAllByRole('button')) {
+      fireEvent.click(button);
+    }
+    expect(worker.messages.length).toBe(requests);
+    expect(summaries().map((row) => row.getAttribute('aria-label'))).toEqual(acceptedRows);
   });
 
   it('ignores superseded search and page replies while preserving accepted inspection until success', async () => {

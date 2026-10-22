@@ -93,10 +93,10 @@ is separate from the still-absent workflow config; no deployment/publication is 
 
 ## TASK-027: Prism Glass dashboard workspace
 
-- Status: Complete for the approved presentation scope at `8ed3ddb`; see
-  [final acceptance](completed.md#task-027-final-acceptance--2026-10-22). Human-assisted actual
-  VoiceOver and canonical hosted full verification resolve the prior PG-10/15 gaps.
-  PR #37 final evidence-head CI/review and authorized protected merge remain delivery checks.
+- Status: Reopened for the final-review retained-data refresh correction. Code/test correction
+  and fresh performance pass; affected actual AT and final-head CI/review remain before merge.
+  The [prior acceptance](completed.md#task-027-final-acceptance--2026-10-22) is checkpoint-only;
+  see [active work](active.md) and [correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
 - Owner: Implementer / Tester / Reviewer under the approved sequential execution method;
   GPT-6.1 Sol/high implementation and GPT-6.1 Sol/xhigh independent review.
 - Authorization: Concept 01/design documentation, followed by the explicit commit/push/PR/merge
@@ -118,8 +118,8 @@ is separate from the still-absent workflow config; no deployment/publication is 
   buttons and baseline keyboard access; it does not close TASK-023 or FR-15.
 - The [detailed implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md)
   was executed after the user's approval. Task 4 and final whole-branch code quality are Approved.
-  Final independent acceptance is Approved after current-source manual AT and canonical full CI;
-  historical failed/unavailable results remain preserved in their dated reports.
+  Prior independent acceptance is Approved at its recorded source checkpoint. Final acceptance
+  of the refresh correction awaits affected actual AT; historical outcomes remain preserved.
 
 
 ## TASK-028: Dashboard visual restraint and interaction feedback
