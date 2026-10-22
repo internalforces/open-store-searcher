@@ -11,7 +11,10 @@ async function paintOpportunity() {
   await frame();
 }
 
-const outcomes = new Map<string, { top: DisplayRecord[]; similar: DisplayRecord[] }>();
+const outcomes = new Map<
+  string,
+  { top: DisplayRecord[]; similar: DisplayRecord[]; primaryId: string | null }
+>();
 function checkPage(query: string, page: number) {
   const expected = outcomes.get(query);
   const results = document.getElementById('search-results');
@@ -23,11 +26,28 @@ function checkPage(query: string, page: number) {
       record.roadAddress?.trim() || record.parcelAddress?.trim() || '주소 제공되지 않음';
     return `${record.name.trim() || '제공되지 않음'} 인허가 정보 · ${address} · 후보 ${position}`;
   });
-  const actual = Array.from(results.querySelectorAll('article'), (node) =>
+  const actual = Array.from(results.querySelectorAll('article.candidate-summary'), (node) =>
     node.getAttribute('aria-label'),
   );
   if (JSON.stringify(actual) !== JSON.stringify(labels))
     throw new Error('Incorrect page identities/order.');
+  const details = results.querySelectorAll('article.workspace-detail');
+  const selected = results.querySelectorAll('.candidate-summary[data-selected="true"]');
+  if (details.length !== selected.length || details.length > 1)
+    throw new Error('Incorrect selected detail count.');
+  if (
+    details.length &&
+    details[0]?.getAttribute('aria-label') !== selected[0]?.getAttribute('aria-label')
+  )
+    throw new Error('Selected detail identity differs from its summary.');
+  const primaryIndex = records.findIndex((record) => record.id === expected.primaryId);
+  if (details.length !== (expected.primaryId === null ? 0 : 1))
+    throw new Error('Incorrect automatic inspection count.');
+  if (
+    expected.primaryId !== null &&
+    details[0]?.getAttribute('aria-label') !== labels[primaryIndex]
+  )
+    throw new Error('Automatic inspection differs from the complete primary oracle.');
   const total = expected.top.length + expected.similar.length;
   if (Number(results.dataset.totalCandidates) !== total)
     throw new Error('Incomplete candidate count.');
@@ -63,6 +83,7 @@ const harness = {
       const result = searchCandidates(prepared.index, query);
       const ms = performance.now() - start;
       outcomes.set(query, {
+        primaryId: result.ambiguousTop ? null : (result.primaryMatch?.record.id ?? null),
         top: result.topMatches.map((match) => match.record),
         similar: result.similarCandidates.map((match) => match.record),
       });

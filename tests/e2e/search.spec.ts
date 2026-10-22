@@ -378,7 +378,7 @@ test('searches the real form with keyboard and wraps results at 320 CSS pixels',
   await page.setViewportSize({ width: 320, height: 740 });
   await page.goto('./');
   await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
-  await page.keyboard.press('Tab');
+  for (let step = 0; step < 4; step++) await page.keyboard.press('Tab');
   const input = page.getByRole('searchbox', { name: '상호명 또는 주소' });
   await expect(input).toBeFocused();
   expect(await input.evaluate((element) => getComputedStyle(element).outlineStyle)).not.toBe(
@@ -498,9 +498,10 @@ test('keeps real form queries out of browser network, storage, logs and URL', as
 test('updates stale demo evidence at Seoul midnight and announces equal-count repeated searches', async ({
   page,
 }) => {
-  await page.clock.install({ time: new Date('2026-09-07T14:59:59.000Z') });
+  await page.clock.install({ time: new Date('2026-09-07T14:59:00.000Z') });
   await page.goto('./');
   await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
+  await page.clock.pauseAt(new Date('2026-09-07T14:59:59.000Z'));
   const warning =
     '합성 예시 데이터의 기준일로부터 7일 이상 지났습니다. 실제 사업체 상태를 나타내지 않습니다.';
   await expect(page.getByRole('searchbox')).toBeVisible();
@@ -519,7 +520,7 @@ test('updates stale demo evidence at Seoul midnight and announces equal-count re
     const announcement = await page.getByRole('status').innerText();
     expect(announcement).not.toBe(previous);
     previous = announcement;
-    await expect(page.getByRole('article').getByText(warning)).toBeVisible();
+    await expect(page.locator('.candidate-summary').getByText(warning)).toBeVisible();
   }
   await page.getByRole('searchbox').fill('');
   await page.getByRole('searchbox').press('Enter');
@@ -586,12 +587,16 @@ test('recovers loading failures with keyboard and preserves usable data without 
   await expect(page.getByRole('status')).toContainText('불러왔습니다');
   await expect(page.getByText(/레코드 1개를 제외/)).toBeVisible();
   await input.press('Enter');
-  await expect(page.getByRole('article')).toHaveCount(1);
+  await expect(page.locator('.candidate-summary')).toHaveCount(1);
+  await expect(page.locator('.workspace-detail')).toHaveCount(1);
   await reload.click();
   await completeLoad(page, 'error');
   await expect(page.getByRole('alert')).toContainText('이전 데이터');
-  await expect(page.getByRole('article')).toHaveCount(1);
-  await expect(page.getByRole('article').getByText('예시 데이터 기준일: 2026-09-01')).toBeVisible();
+  await expect(page.locator('.candidate-summary')).toHaveCount(1);
+  await expect(page.locator('.workspace-detail')).toHaveCount(1);
+  await expect(
+    page.locator('.candidate-summary').getByText('예시 데이터 기준일: 2026-09-01'),
+  ).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath('retained.png'), fullPage: true });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await reload.click();
@@ -648,8 +653,9 @@ test('opens candidate-only map searches by keyboard without automatic provider I
     ['네이버 지도에서 검색 (새 탭)', 'https://map.naver.com'],
     ['카카오맵에서 검색 (새 탭)', 'https://map.kakao.com'],
   ] as const) {
-    const link = similar.getByRole('link', { name: label });
-    await input.focus();
+    await similar.getByRole('button', { name: /상세 보기/ }).click();
+    const link = page.locator('.workspace-detail').getByRole('link', { name: label });
+    await page.locator('.workspace-detail h3').focus();
     for (
       let step = 0;
       step < 15 && !(await link.evaluate((element) => element === document.activeElement));
@@ -702,15 +708,20 @@ test('TASK-017 traverses candidate evidence forwards and backwards with visible 
   await expect(page.getByRole('region', { name: '검색 결과', exact: true })).toBeFocused();
   const cards = page.getByRole('list', { name: '유사 후보' }).getByRole('article');
   await page.keyboard.press(tab);
-  await expect(cards.nth(0)).toBeFocused();
-  await expect(cards.nth(0).getByRole('heading', { level: 3 })).toBeInViewport();
-  expect(await cards.nth(0).evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
+  await expect(cards.nth(0).getByRole('button')).toBeFocused();
+  await expect(cards.nth(0).getByRole('button')).toBeInViewport();
+  expect(
+    await cards
+      .nth(0)
+      .getByRole('button')
+      .evaluate((el) => getComputedStyle(el).outlineStyle),
+  ).toBe('solid');
   await page.keyboard.press(tab);
-  await expect(cards.nth(1)).toBeFocused();
-  await expect(cards.nth(1).getByRole('heading', { level: 3 })).toBeInViewport();
+  await expect(cards.nth(1).getByRole('button')).toBeFocused();
+  await expect(cards.nth(1).getByRole('button')).toBeInViewport();
   await page.keyboard.press(back);
-  await expect(cards.nth(0)).toBeFocused();
-  await expect(cards.nth(0).getByRole('heading', { level: 3 })).toBeInViewport();
+  await expect(cards.nth(0).getByRole('button')).toBeFocused();
+  await expect(cards.nth(0).getByRole('button')).toBeInViewport();
   await input.fill('');
   await input.press('Enter');
   await expect(input).toBeFocused();
@@ -746,7 +757,8 @@ test('TASK-017 keeps retry focus during pending, failure and recovery without st
   await input.focus();
   await completeLoad(page, 'error');
   await expect(input).toBeFocused();
-  await expect(page.getByRole('article')).toHaveCount(1);
+  await expect(page.locator('.candidate-summary')).toHaveCount(1);
+  await expect(page.locator('.workspace-detail')).toHaveCount(0);
   await expect(page.getByRole('alert')).toContainText('이전 데이터');
 });
 
@@ -806,17 +818,29 @@ test('TASK-017 reaches source and map links in order and activates source only o
   const back = tab === 'Alt+Tab' ? 'Alt+Shift+Tab' : 'Shift+Tab';
   const card = page.getByRole('list', { name: '유사 후보' }).getByRole('article').nth(0);
   await page.keyboard.press(tab);
-  await expect(card).toBeFocused();
+  await expect(card.getByRole('link', { name: '시험 원본 출처' })).toBeFocused();
   const source = card.getByRole('link', { name: '시험 원본 출처' });
-  await page.keyboard.press(tab);
   await expect(source).toBeFocused();
   await expect(source).toBeInViewport();
   expect(await source.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
   await page.keyboard.press(tab);
-  await expect(card.getByRole('link', { name: '네이버 지도에서 검색 (새 탭)' })).toBeFocused();
+  await expect(card.getByRole('button', { name: /상세 보기/ })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.workspace-detail h3')).toBeFocused();
+  await page.keyboard.press(tab);
+  await expect(
+    page.locator('.workspace-detail').getByRole('link', { name: '시험 원본 출처' }),
+  ).toBeFocused();
+  await page.keyboard.press(tab);
+  await expect(
+    page.locator('.workspace-detail').getByRole('link', { name: '네이버 지도에서 검색 (새 탭)' }),
+  ).toBeFocused();
   await page.keyboard.press(back);
-  await expect(source).toBeFocused();
-  await expect(source).toBeInViewport();
+  const detailSource = page
+    .locator('.workspace-detail')
+    .getByRole('link', { name: '시험 원본 출처' });
+  await expect(detailSource).toBeFocused();
+  await expect(detailSource).toBeInViewport();
   expect(requests).toEqual([]);
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(sourceUrl);

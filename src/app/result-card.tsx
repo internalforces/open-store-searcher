@@ -54,6 +54,7 @@ export function ResultCard({
         }
       }}
     >
+      {workspace && <span className="detail-glint" aria-hidden="true" />}
       <header className="card-header">
         <h3 ref={headingRef ?? null} tabIndex={workspace ? -1 : undefined}>
           {displayName}

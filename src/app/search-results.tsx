@@ -96,7 +96,10 @@ export function SearchResults({
       aria-label="검색 결과"
       aria-busy={busy}
     >
-      <p className="submitted-query">검색 결과: {result.validation.original}</p>
+      <p className="submitted-query">
+        검색 결과: {result.validation.original}
+        <span key={page} className="result-glint" aria-hidden="true" />
+      </p>
       {busy && (
         <p className="workspace-busy">
           검색 결과를 불러오는 중입니다. 이전 후보와 상세 정보를 표시합니다.

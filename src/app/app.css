@@ -980,3 +980,68 @@ button[aria-disabled="true"] {
     grid-column: 2 / -1;
   }
 }
+
+/* Accepted identities mount finite decoration; evidence never participates in the animation. */
+.submitted-query,
+.workspace-detail {
+  position: relative;
+}
+.result-glint,
+.detail-glint {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.result-glint::after,
+.detail-glint::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 2px;
+  pointer-events: none;
+}
+.result-glint::after {
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #2456e8, #55ddf6, #b8a0ff);
+  transform-origin: left;
+  animation: accepted-underline 180ms cubic-bezier(0.16, 1, 0.3, 1) 1 both;
+}
+.detail-glint::after {
+  top: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, #55ddf6, #b8a0ff, transparent);
+  animation: detail-rim 220ms cubic-bezier(0.16, 1, 0.3, 1) 1 both;
+}
+@keyframes accepted-underline {
+  from {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+@keyframes detail-rim {
+  from {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(350%);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
+  .result-glint,
+  .detail-glint {
+    display: none;
+  }
+  .result-glint::after,
+  .detail-glint::after {
+    animation: none;
+  }
+}

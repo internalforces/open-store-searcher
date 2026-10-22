@@ -36,7 +36,7 @@ function buildRuntime() {
     };
   });
 }
-export async function mountMapSearch(page: Page) {
+export async function mountMapSearch(page: Page, longEvidence = false) {
   bundle ??= buildRuntime();
   const { script, css } = await bundle;
   await page.route('**/map-harness', (route) =>
@@ -48,9 +48,9 @@ export async function mountMapSearch(page: Page) {
   await page.goto('./map-harness');
   await page.addStyleTag({ content: css });
   await page.addScriptTag({ content: script });
-  await page.evaluate(() => {
-    const runtime = Reflect.get(window, 'MapTestRuntime') as { mount(): void };
-    runtime.mount();
-  });
+  await page.evaluate((longEvidence) => {
+    const runtime = Reflect.get(window, 'MapTestRuntime') as { mount(longEvidence: boolean): void };
+    runtime.mount(longEvidence);
+  }, longEvidence);
   await page.getByRole('searchbox').waitFor();
 }
