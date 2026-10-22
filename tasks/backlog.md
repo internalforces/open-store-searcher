@@ -92,9 +92,10 @@ is separate from the still-absent workflow config; no deployment/publication is 
 
 ## TASK-027: Prism Glass dashboard workspace
 
-- Status: Promoted to [active work](active.md) on this handoff integration; detailed design
-  confirmation and planning precede product implementation.
-- Owner: Planner / Architect for design; Implementer / Tester / Reviewer for later execution.
+- Status: Implemented at `8ed3ddb156f12cd83d4037b0026b0ca28b5b5dbf`; remains [active work](active.md)
+  and incomplete because PG-10 spoken AT and PG-15 strict-default verification remain open.
+- Owner: Implementer / Tester / Reviewer under the approved sequential execution method;
+  GPT-6.1 Sol/high implementation and GPT-6.1 Sol/xhigh independent review.
 - Authorization: Concept 01/design documentation, followed by the explicit commit/push/PR/merge
   and TASK-027 activation request on 2026-10-22.
 - Milestone: M2 follow-up; size L; no release or milestone gate is waived.
@@ -112,5 +113,6 @@ is separate from the still-absent workflow config; no deployment/publication is 
   personal/registration fields, draggable windows, new dependencies/services and deployments.
 - TASK-023 retains enhanced candidate keyboard navigation. This task uses native inspect/return
   buttons and baseline keyboard access; it does not close TASK-023 or FR-15.
-- A detailed implementation plan is prepared after review of the concrete design, not executed
-  as a side effect of this design-only request.
+- The [detailed implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md)
+  was executed after the user's approval. Task 4 and final whole-branch code quality are Approved;
+  PG-10 spoken AT and PG-15 strict-default acceptance remain open.

@@ -1,0 +1,67 @@
+{
+  "checkpoint": "877562f8e1f4e49138fb73bf335d58ba98040925",
+  "sourceSha256": {
+    "src/app/app.css": "5c4866f63da57be6ca5b9d33d8a107209f4d0d25460b5dba0a0a52c0bb6c671b",
+    "src/app/app.tsx": "50874341d1884f9da18b13802f1a3a4b5f0697334b59922434eb9ade1405eec1",
+    "src/app/candidate-summary.tsx": "9c08bfbdfd0972038f10f0d1cfaec3165507de281b8ae15f5e412ad7afe6aa8a",
+    "src/app/coverage-clock.tsx": "1d3e8b8a31f3483edcb11d45e17bc9568f9e8e9903787dc2dba08caa4a48c69c",
+    "src/app/evidence-context.tsx": "51d708fc76e2803bafd928240a62597f737b99765760d4f36025381f34317dac",
+    "src/app/main.tsx": "2c0795d54fb0d7ba490227ab1733b8d873e49bc1cec8af3e299683146976bafd",
+    "src/app/map-links.tsx": "62ffd467e555817f904cdf8627e98915ee8cca1e8d8ee6bc2942b169e9fa03cf",
+    "src/app/record-evidence.tsx": "0bda5eb85d1ddc105ea0aac84f774ad8506548f2af8a200c0d55f4ab9da1ca58",
+    "src/app/result-card.tsx": "0623ef1478cb4cefea470466f628bedcaaf26df86a0d5c1da5be8f2d26cda9f6",
+    "src/app/search-form.tsx": "d55067e025dde336efa351e42356643f5f38c190994cabcac0ad1d9756f4df52",
+    "src/app/search-results.tsx": "2092c8b6b1fbbf5e8ceceb9d6771d1cecb952a1eb76e221c3019b1995c928aee",
+    "src/app/workspace-intro.tsx": "e09e9c84b7d440cc05a0e8264f8046de2259b354d5d900d2b94386e176dd284c"
+  },
+  "browser": "Existing macOS Chrome through CUA/native accessibility API",
+  "hostNode": "22.22.3",
+  "url": "http://127.0.0.1:5197/",
+  "zoomNativeAX": [
+    "110% after first increment (initial 100%)",
+    "200% after five increments total",
+    "100% after restore"
+  ],
+  "before": {
+    "innerWidth": 1470,
+    "innerHeight": 688,
+    "dpr": 2,
+    "scrollWidth": 1470
+  },
+  "at200": {
+    "innerWidth": 735,
+    "innerHeight": 344,
+    "dpr": 4,
+    "scrollWidth": 735,
+    "railPosition": "static",
+    "selectedStatus": "휴업",
+    "focusedTag": "H3",
+    "headingTop": 271.09765625,
+    "headingBottom": 307.49609375
+  },
+  "returnAt200": {
+    "focusedTag": "BUTTON",
+    "accessibleName": "가상별빛 카페 · 서울특별시 강남구 테헤란로 12-1 · 후보 2 상세 보기"
+  },
+  "restored": {
+    "innerWidth": 1470,
+    "innerHeight": 688,
+    "dpr": 2,
+    "scrollWidth": 1470,
+    "liveRole": "status",
+    "ariaLive": "polite",
+    "ariaAtomic": "true"
+  },
+  "observations": [
+    "Example fills input; Enter accepts search without URL/query/hash change.",
+    "Native AX exposes summary/detail raw quartet, source, explicit synthetic date, stale warning, uncertainty and all eight lifecycle labels.",
+    "Explicit Enter inspection focuses selected heading and changes status/record evidence to selected address.",
+    "Return restores exact invoking button.",
+    "Native AX represents pressed button state through a checkbox role; DOM retains native button/aria-pressed."
+  ],
+  "limitations": [
+    "Synthetic demo, actual macOS browser; not pinned Ubuntu JS-suite or physical/mobile/hosted performance.",
+    "Native accessibility-tree and live-region metadata observed; spoken VoiceOver/screen-reader output not exercised.",
+    "A 200%-zoom screenshot is present in the CUA conversation output; final file-based viewport captures remain Task4."
+  ]
+}

@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
 
 ## System Overview
 
@@ -515,3 +515,33 @@ SHA-256 `e6808de92225e08b9dfe2dcd20b9f68f6ca9af968ef3926638ebc3fad76f8f35`):
 0 Critical/Important/new Minor findings. Existing M1 is nonblocking informational lint noise.
 This records external review, changes no architecture/proof binding, and authorizes no remote
 operation, source-registry activation, hosted acceptance or milestone closure.
+
+
+## TASK-027 Prism Glass presentation boundary — 2026-10-22
+
+The approved workspace replaces the incumbent presentation while retaining all search, Worker,
+loader, source/status and publication contracts. App still owns draft/submission sequences,
+accepted dataset binding and request guards. Its normal-flow local navigation changes focus
+without a query, hash or route contract. WorkspaceIntro renders truthful pre-search guidance,
+local decorative geometry and dataset context without business records or invented totals.
+
+SearchResults renders engine-owned groups through CandidateSummary and owns ephemeral inspected
+ID, invoking button and originating group references alongside pagination. The selected match
+is derived only from accepted top matches/current visible similar page; it is not a copied
+record/status/date state. App's existing submission key resets repeated accepted searches and
+its dataset binding invalidates old results. Explicit inspection focuses the complete article's
+heading and return restores its invoking button or originating group heading. Accepted page
+changes retain inspection only for persistent top/newly visible rows; failures retain accepted
+query/page/record context and request guards ignore obsolete replies.
+
+RecordEvidence/EvidenceField/RecordStatus are stateless shared presentation of raw values,
+source, date meaning and the existing policy mapper; CoverageClock/EvidenceContext/SourceLink
+remain the policy owners. ResultCard preserves its default full-card API and adds optional
+workspace layout, heading ref and return callback. The evidence panel remains inside the same
+selected article and consumes the same accepted match/coverage. MapLinks appears in complete
+details and retains its explicit click/synthetic suppression boundary. CSS supplies the approved
+three/two/one-column layout and finite decorative motion with opaque/reduced/forced-color
+fallbacks. No production readiness or release acceptance is inferred; Task4 adds finite page/submission-keyed180ms result decoration and selected-record-keyed220ms
+detail decoration, hidden from AX and disabled by reduced/forced media without policy state.
+Current-source lab/static/serial evidence is recorded, while manual AT, strictdefault full and
+task acceptance remain open; fresh whole-branch code-quality review is Approved.

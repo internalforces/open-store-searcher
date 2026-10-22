@@ -9,6 +9,117 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## TASK-027 current execution checkpoint — 2026-10-22
+
+Current source checkpoint: `8ed3ddb156f12cd83d4037b0026b0ca28b5b5dbf`. Tasks1–3 Approved;
+Task4 scoped Sol/xhigh code-quality Approved; ImportantI1(strictdefault) andI2(spokenAT)
+keep acceptance open. Fresh whole-branch Sol/xhigh code-quality Approved; acceptance Request Changes for the same
+I1/I2. MinorM2backlog prose was corrected by original Sol/high worker; scoped rereview Approved
+with M2 ADDRESSED and no new finding; no product/test change or suite repeat. Supplemental
+runner-only metadata cleanup yields clean format and lint without errors, retaining2existingINFOs. Current same-source verify stage passes1,423/59 and
+static/build/bothquality checks; defaultfull exits1(91/92,WebKit startup5s both attempts), approved
+serial92/92+20/20 pass without retries/flakes. All performance budgets pass:93393bytes,
+search231.2ms/page214.9ms maxima, worstcoldprimary1209ms/LCP1228ms;152source hashes match.
+All20capture states have no overflow. Current manualChrome200%→100% keyboard/focus return
+proof binds all12App files. VoiceOver authorized off→on→off attempt produced no observable
+runtime/caption output; caption remained1 and settings apps quit. User has an async request
+for direct manual results; silence is not acceptance. PG10/strictPG15 stay open. Keep TASK027
+active; do not move it to completed, push/merge/deploy, activate009 or claim release acceptance.
+Private task4report/manifest and default failure traces are preserved. All ledger rulings and their risks must be surfaced at handoff. Hostdevserver67787 port5197 and QAChrome1491080023 remain for
+manual followup. Final preservation audit confirms all85original files and exact Git status unchanged.
+
+Earlier checkpoint history follows; use the plan ledger and commits, never redispatch completed
+Tasks1–3.
+
+Latest continuation: Task3 complete at877562f, independent Sol/xhigh spec/quality Approved,
+Critical0/Important0/Minor0; pinned component180/full1423tests and static checks pass. Task4
+is assigned to /root/task027_acceptance (Sol/high); browser suites/oracle migration are in
+progress, with no appsource change as of its first update. Coordinator realChrome200% manual
+proof (source-bound JSON) passes search/focus/return/no-overflow and restores100%; native AX/live
+metadata observed. The user approved temporary VoiceOver/caption testing. The Settings switch off→on→off
+and unchanged caption checkbox were observed; both settings apps were quit. Actual runtime/caption
+output was unavailable through CUA, so manual PG-10 remains unverified. The JSON report records the
+bounded attempts/restoration. Task4 found two missing specified decorative effects and is implementing
+them before final captures/performance/checks; existing877562f manual evidence is historical until
+a focused current-source keyboard/zoom recheck.
+Host devserver67787 serves5197; QA Chrome tab1491080023. Use the plan ledger to resume; Tasks1–3
+must not be repeated. Final scoped/whole-diff review and acceptance remain.
+
+Latest: Task2 is complete at c4410b7 with independent Sol/xhigh spec/quality Approved,
+Critical0/Important0/Minor0; pinned full59files/1398tests and focused54tests pass. Seven source/
+test hashes equal the runner. Task3 is now assigned to /root/task027_inspection (Sol/high),
+implementing selected candidate/focus/page/recovery behavior. Raw task reviews are preserved
+in reports/review-2026-10-22-task-027.md. Final PG/whole-diff acceptance remains pending.
+
+Task1 shell is complete at fe0a3f7 after independent Sol/xhigh task review and scoped I1
+correction rereview Approved (Critical0/Important0 open). Baseline implementation a036165
+passed pinned npm test57files/1370tests; the subsequent busy-state correction passed focused
+36tests/type/lint/format. No full-run claim is extended over the later correction. Task2 shared
+evidence/summary/full-detail implementation is assigned to /root/task027_evidence (Sol/high).
+The plan-scoped ledger is .superpowers/sdd/2026-10-22-task-027-prism-glass/progress.md; use it
+to resume after compaction without redispatching Task1. Task3/4 and final acceptance remain.
+
+## TASK-027 execution authorized with model override — 2026-10-22
+
+The user confirmed continuation and explicitly set implementation to GPT-6.1 Sol/high and
+independent review to GPT-6.1 Sol/xhigh, superseding the proposed Luna/high and Sol/high routing.
+Sequential subagent execution of the four-task plan has started in the existing TASK-027
+worktree. The plan-specific private ledger records task state, preflight interface checks,
+briefs, reports and review checkpoints; do not restart completed units after compaction.
+The existing pinned Ubuntu container is available after restarting its existing Docker host
+and task research container; Node24.19.0/npm11.17.0 are confirmed. No dependency installation,
+new service or global runtime change is needed. The host baseline component suite passes
+12 files/123 tests on Node22; pinned baseline and performance capture precede product edits.
+Original checkout preservation covers all85 pending files and exact Git status.
+No push/merge/deploy or operational task resumption is authorized.
+
+## TASK-027 detailed design approved; implementation plan prepared — 2026-10-22
+
+The user approved the detailed design presented at intake and requested continuation. Recorded
+that acceptance in the specification, decisions and task state, superseding the pending design
+confirmation below. Prepared and self-reviewed the
+[four-task implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md):
+responsive shell, shared evidence/full detail, deterministic inspection/recovery, and browser/
+accessibility/performance acceptance. Its interfaces preserve App's dataset/submission/request
+ownership and existing Worker/search/data contracts. Every PG-01–15 criterion has an owner.
+
+Self-review identified the need to preserve synthetic labeling with unavailable coverage and
+to migrate the complete identity/order/count performance oracle to candidate summaries plus a
+separate selected article; both are explicit in the plan. Plan review and execution-method
+confirmation remain required by writing-plans before product edits. Recommended sequential
+subagent implementation with configured Luna/high implementers and Sol/high independent reviews;
+no agent was dispatched during planning. Existing selected-reference builder review is retained.
+
+No product code/test, dependency, runtime configuration, policy or remote state changed; no
+application suite, rendered screenshot or pinned-runtime acceptance is claimed by this planning
+pass. Original checkout/other worktrees and earlier administrative edits were preserved. This
+does not complete TASK-027 or change waiting/publication/release dispositions.
+
+Planning verification passed: all 10 local link targets in the plan/spec resolve; all four
+task sections and required plan sections exist; the selected reference SHA-256 is unchanged;
+`git diff --check` passes. These are documentation checks, not application verification.
+
+## TASK-027 execution intake — 2026-10-22
+
+The user requested understanding and execution of TASK-027. Inspected the constitution,
+current task/context, implementation prompt, standards, architecture, selected design and
+its existing independent builder check, and the App/SearchResults/ResultCard boundaries.
+Reused `.worktrees/task013-quality` on `codex/task-027-prism-glass` at merged PR #36
+`596080a41b6b5884a73a9bdffb52333548441fe5`; its working tree was clean before these
+administrative updates. The original checkout and other tasks' pending files remain untouched.
+
+TASK-027 is active. The detailed design remains proposed, and explicit confirmation was
+requested before preparing its implementation plan and product changes, as required by the
+active record and brainstorming approval gate. The previous independent builder check
+already reports no material unresolved question; no repeat design review was dispatched.
+The implementation scope preserves search/status/data/Worker policies and excludes deployment.
+No product code, tests, dependencies, runtime configuration or remote state changed.
+
+Read-only checks confirmed the branch/base and locally available Node.js 22.22.3/npm 10.9.8.
+These differ from required Node.js 24.19.0/npm 11.17.0; no application test or pinned-runtime
+acceptance is claimed. No task completed, new architecture/decision/bug was established,
+or handbook accessed. TASK-009 remains waiting; TASK-010 stays paused and TASK-021 gated.
+
 ## TASK-009 initial-import implementation and evidence work — 2026-10-21
 
 The user-approved seven-task local execution has implemented Tasks 1–6 with independent

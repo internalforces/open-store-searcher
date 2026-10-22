@@ -1,0 +1,22 @@
+[
+  {
+    "width": 1586,
+    "pageWidth": 1586,
+    "bodyFont": "16px",
+    "rail": 72,
+    "controlHeight": 51.59375,
+    "panelPadding": "24px",
+    "colors": ["rgb(36, 86, 232)", "rgb(21, 35, 77)", "rgb(255, 255, 255)"],
+    "blurCount": 2
+  },
+  {
+    "width": 390,
+    "pageWidth": 390,
+    "bodyFont": "16px",
+    "rail": 390,
+    "controlHeight": 51.59375,
+    "panelPadding": "16px",
+    "colors": ["rgb(36, 86, 232)", "rgb(21, 35, 77)", "rgb(255, 255, 255)"],
+    "blurCount": 0
+  }
+]

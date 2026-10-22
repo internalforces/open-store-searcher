@@ -16,18 +16,24 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 complete; TASK-027 activation on handoff integration; TASK-009 awaiting materials and action-time approval
+- Phase: TASK-008 complete; TASK-027 implementation reviewed in stages; final acceptance open; TASK-009 awaiting materials and action-time approval
 - Next milestone: M1 — TASK-009 hosted acceptance, then TASK-010 publication/recovery
 - Overall health: 🟡 Caution — source ZIP and action approvals missing; performance/recovery/release gates open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
 ## Current handoff — 2026-10-22
 
-TASK-027 becomes the sole active task on integration, beginning with detailed design confirmation
-and implementation planning. See the [active task](../tasks/active.md). TASK-009 is **awaiting materials and action-time approval**,
+TASK-027 is the sole active task after PR #36 merged as `596080a` in the reused
+`.worktrees/task013-quality` checkout on `codex/task-027-prism-glass`. Its detailed design was
+subsequently approved by the user, and the four-task implementation plan is prepared and
+self-reviewed. The user confirmed execution with GPT-6.1 Sol/high implementation and
+GPT-6.1 Sol/xhigh independent review; implementation checkpoint8ed3ddb has1,423tests and
+serial92browser/20accessibility passes, while strictdefaultfull fails one WebKit startup check.
+Scoped and fresh whole-branch code-quality reviews are Approved; task acceptance Request
+Changes retains strictdefault and actual VoiceOver gates. Minor backlog prose correction is independently ADDRESSED; scoped rereview Approved. See the [active task](../tasks/active.md). TASK-009 is **awaiting materials and action-time approval**,
 incomplete, and does not occupy the single active implementation slot. The user explicitly
 authorized this waiting-state clarification. TASK-008 is complete under October 18 acceptance;
-TASK-010 stays paused and TASK-021 gated. Product implementation and verification remain pending.
+TASK-010 stays paused and TASK-021 gated. TASK-027 completion is withheld for those remaining acceptance gates.
 
 Missing materials: exact October 16 original ZIP and fresh byte verification. Missing approvals
 and later evidence: concrete source transport, real asset/registry adoption, performance/release

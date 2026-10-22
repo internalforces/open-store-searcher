@@ -194,3 +194,8 @@ created and no network-dependent source test is introduced.
    verification. If resource values remain identical to historical inputs, retain that fact;
    never claim newly measured source freshness. Obtain independent review and then push logical
    commits, reply/resolve only evidenced threads, and wait for exact final-head hosted CI.
+
+
+## TASK-027 bounded UI test generation — 2026-10-22
+
+Authoritative per-file test plan: docs/superpowers/plans/2026-10-22-task-027-prism-glass.md Tasks 1–4 and PG coverage table. Shell/navigation → workspace.test.tsx Task 1; all status/date/raw/missing/repeated fields → record-evidence/candidate-summary/result-card tests Task 2; selection/focus/local-and-Worker page/replacement/deferred-error combinations → workspace/pagination/recovery tests Task 3; responsive/media/keyboard/axe/privacy and complete performance oracle → browser tests Task 4. Final report must map each criterion to exact named tests or explicitly unavailable manual evidence.

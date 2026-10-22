@@ -13,28 +13,37 @@ _Last updated: 2026-10-22_
 
 ### TASK-027: Prism Glass dashboard workspace
 
-- Status: User-authorized activation takes effect when this handoff is merged into main;
-  then TASK-027 is the sole active task. Begin with detailed design confirmation and planning.
+- Status: Active after PR #36 merged as `596080a41b6b5884a73a9bdffb52333548441fe5`.
+  Detailed design and continuation approved on 2026-10-22; implementation checkpoint `8ed3ddb`
+  is verified locally with the explicitly separated default/serial outcomes. Tasks1–3 are Approved;
+  Task4 and fresh whole-branch Sol/xhigh code-quality reviews are Approved; acceptance is
+  Request Changes for the two open criteria. Minor backlog prose correction is independently ADDRESSED; scoped rereview Approved. PG10 actual
+  VoiceOver output and PG15 strict default verification remain open; task completion is withheld.
 - Authorization: On 2026-10-22 the user requested local commit/push, PR creation, main merge,
   and TASK-027 activation. This supersedes earlier proposed/unactivated status only.
-- Owner: Planner / Architect for the next design/plan stage; Implementer / Tester / Reviewer
-  for later product implementation and acceptance.
+- Owner: Implementer / Tester / Reviewer for final verification, review and remaining acceptance.
 - Requirements: FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs;
   PG-01 through PG-15 in the [design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
-- Workspace: reused `.worktrees/task013-quality`; handoff branch
-  `codex/task-009-waiting-task-027-handoff`, based on verified main `23aa0a7` (PR #35).
-  After integration, use an isolated TASK-027 branch from the exact merged main.
+- Workspace: reused `.worktrees/task013-quality` on `codex/task-027-prism-glass`,
+  based on exact merged main `596080a41b6b5884a73a9bdffb52333548441fe5` (PR #36).
   Preserve the original and TASK-009 checkouts and their pending work.
 - Design state: concept 01 selected; independent builder check is ready for planning.
-  Activation alone does not certify the proposed tokens, breakpoints, motion or selection rules.
-  Confirm the concrete design before product code, then prepare the bounded implementation plan.
+  The user's subsequent approval accepts the detailed design, including its tokens, breakpoints,
+  motion and selection rules. The [implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md)
+  has been prepared and self-reviewed; the user confirmed execution with the model override.
 - Acceptance:
   - [x] Preserve and integrate selected reference/provenance, design, readiness and waiting records.
   - [x] Obtain explicit task activation authority; retain the single-active-task rule.
-  - [ ] Confirm the detailed design and prepare the implementation plan.
+  - [x] Confirm the detailed design and prepare the implementation plan.
+  - [x] Obtain human review of the plan and confirm the execution method.
   - [ ] Implement the approved scope and satisfy PG-01 through PG-15 with current evidence.
   - [ ] Pass pinned full verification, performance checks and independent final review.
-- Verification: focused presentation/Worker regressions, four-browser search, axe,
+- Current verification: pinned same-source1,423tests/static/build/quality pass; strict default
+  `verify:full` exits1 with91/92browser (WebKit startup5s on both attempts); approved serial
+  browser92/92 and accessibility20/20 pass, performance all budgets pass, actualChrome200%
+  keyboard/focus proof passes. Actual VoiceOver output remains unavailable; original settings
+  are restored. See [verification](../reports/test-2026-10-22-task-027.md).
+- Required verification: focused presentation/Worker regressions, four-browser search, axe,
   keyboard/responsive/zoom/motion/forced-color/visual checks, `npm run verify:full`,
   `npm run performance:check` and independent review on project tooling.
 - Boundaries: no TASK-023 enhanced navigation, share URLs, photos/history/favorites,

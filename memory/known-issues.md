@@ -7,7 +7,28 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
+
+## TASK-027 verification limits — 2026-10-22
+
+The local CUA attempt could observe the macOS VoiceOver Settings switch and restore off, but
+could not obtain an executing VoiceOver/caption output surface. The caption setting remained
+at its original checked value; utility and Settings apps were quit. Manual PG-10 therefore
+remains unverified, separately from actual Chrome200% zoom, native AX and keyboard/focus proof.
+See [the bounded AT attempt](../reports/manual-2026-10-22-task-027-assistive-technology.json).
+This is an environment/evidence limit, not a diagnosed application screen-reader defect.
+
+The pinned container exposes8 CPU entries with a2-CPU quota. Strict default-parallel browser
+runs have reported WebKit startup flakes under the existing5s deadline; failOnFlaky correctly
+rejects them. Serialized diagnostics retain assertions, retry/flaky policy and deadlines.
+Final delivered-state default `verify:full` exits1 after successful static/1,423coverage/build/
+quality stages:91/92 browser cases pass; WebKit all-pagination startup fails the existing5s
+assertion on both attempts. The unchanged single-worker full profile passes92/92browser and20/20accessibility without
+retries/flakes; Task4 code-quality review is Approved, while its ImportantPG10/15 acceptance gaps and acceptance Request Changes remain open.
+Fresh whole-branch code-quality review is Approved with no implementation defect. Original static logs contain AppleDouble diagnostics; bounded
+runner-only backup/cleanup and same-source lint/format checks remove those errors, retaining two
+pre-existing useTemplateINFOs. No source or policy changed.
+Results remain separate; no runner policy or product budget is relaxed. PG15 remains open.
 
 ## TASK-009 initial-import local evidence — 2026-10-21
 

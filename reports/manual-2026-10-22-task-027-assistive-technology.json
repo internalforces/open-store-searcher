@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-22",
+  "checkpoint": "877562f8e1f4e49138fb73bf335d58ba98040925",
+  "sourceBinding": "manual-2026-10-22-task-027-browser.json sourceSha256",
+  "authorization": "User explicitly permitted temporary VoiceOver and caption-panel testing with restoration.",
+  "originalState": { "voiceOverSettingsSwitch": "off", "showCaptionPanel": true },
+  "observations": [
+    "System Settings Accessibility VoiceOver switch changed from off to on through CUA.",
+    "VoiceOver Utility Visuals / Panels and Menus showed Show Caption Panel checked before and after the attempt; it was never changed.",
+    "The CUA VoiceOver app acquisition timed out; subsequent inventory reported com.apple.VoiceOver not running.",
+    "Control-Option-Right in the local Chrome window produced no observable VoiceOver caption output.",
+    "The settings switch was restored to off. A bounded alternate Command-F5 attempt produced no observable switch or caption change.",
+    "The utility was returned to General and quit. System Settings was returned to its original General page. Subsequent CUA inventory confirmed both utility and settings apps not running."
+  ],
+  "restoredState": { "voiceOverSettingsSwitch": "off", "showCaptionPanel": true },
+  "verdict": "not verified",
+  "unverified": [
+    "Actual spoken/captioned search-completion announcement",
+    "VoiceOver cursor synchronization with explicit inspection and return focus",
+    "Manual assistive-technology PG-10 gate"
+  ],
+  "limitations": [
+    "Native AX, browser keyboard/focus and actual 200% zoom evidence are separate and do not establish screen-reader output.",
+    "No OS configuration, security permission or VoiceOver control permission was expanded to work around this tooling/runtime limitation."
+  ],
+  "reference": "https://support.apple.com/guide/voiceover/general-commands-cpvokys01/mac"
+}

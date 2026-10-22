@@ -220,3 +220,8 @@ assertion-quality tools. Execute research/plan/test-first/quality review inline.
 .testagent/*.mjs adapters with src/pipeline/adopted-validation-adapters.test.ts so regressions
 run in the unchanged pipeline/CI project. The single active continuation is PR32 remediation;
 no production task, release, settings change or new tolerance is authorized.
+
+
+## TASK-027 bounded UI test generation — 2026-10-22
+
+Scope: App, SearchResults, ResultCard and new workspace/evidence/summary modules only. Existing Vitest component/jsdom and Testing Library conventions apply; deterministic demo/performance fixtures, deferred loader/Worker seams and existing CoverageClock. No framework changes. Checklist: PG-02 form; PG-03 selection/ambiguity; PG-04/05 evidence; PG-06 dates; PG-07 failures/late replies; PG-08 complete pagination; PG-09–13 browser/accessibility/privacy; PG-14/15 oracle/full verification. Existing tests are paired next to app modules. No find-untested-sources, test-gap-analysis or assertion-quality tool is exposed; use scoped inventory and reviewer analysis inline. Preserve prior task entries.

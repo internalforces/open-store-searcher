@@ -618,3 +618,24 @@ FR-01 through FR-14, baseline FR-16 and accessibility/performance NFRs. Begin wi
 design confirmation and planning. No product requirement is newly verified or closed by this
 administrative activation. TASK-009/II-10/hosted AC-009-4/5 remains awaiting materials and
 approval outside the active slot; TASK-010 paused, TASK-021 gated. See [active task](../tasks/active.md).
+
+## TASK-027 detailed design approved and implementation planned — 2026-10-22
+
+The user approved the detailed design after execution intake. The self-reviewed
+[four-task implementation plan](superpowers/plans/2026-10-22-task-027-prism-glass.md) maps every
+PG-01–15 criterion to shell, evidence, inspection/recovery and browser/performance verification
+work. This is prospective implementation coverage; no FR or NFR is newly verified or closed.
+Plan review and execution-method confirmation precede product changes. TASK-009 remains waiting,
+TASK-010 paused and TASK-021 gated, with no publication or release authorization.
+
+
+## TASK-027 implemented verification checkpoint — 2026-10-22
+
+Checkpoint8ed3ddb implements the approved presentation scope. The [test report](../reports/test-2026-10-22-task-027.md)
+links every PG01–15 criterion to exact component/browser regressions, current source-bound manual
+zoom, final capture/contrast and unchanged-budget performance evidence. FR01–14/baselineFR16
+preserve their prior policy owners; no pipeline, Worker, source/status or URL contract changed.
+Pinned1,423tests/static/build/bothquality pass; strictdefaultfull exits1(91/92WebKitstartup),
+while approved serial92/92browser+20/20accessibility pass without retries/flakes. ActualVoiceOver
+output and strictdefaultPG15 remain open; independent scoped/final code quality is Approved, while final task acceptance is Request Changes. Therefore
+TASK027 is not moved to completed and no milestone, publication, handbook or release gate closes.

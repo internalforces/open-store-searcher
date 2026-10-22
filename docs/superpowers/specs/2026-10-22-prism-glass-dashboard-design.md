@@ -8,8 +8,8 @@ Harness Version: 1.1
 # Prism Glass Dashboard Design
 
 Date: 2026-10-22
-Status: Visual direction selected by the user; detailed design proposed for implementation review.
-Scope: Design and documentation only. No implementation, release or deployment acceptance.
+Status: Detailed design approved by the user on 2026-10-22 after TASK-027 execution intake.
+Scope: Approved design basis for the implementation plan. No implementation, release or deployment acceptance.
 
 ## 1. Intent and authority
 
@@ -31,8 +31,8 @@ Selected visual reference:
 - [Targeted text corrections](../../../reports/design-prototypes/2026-10-22/revisions.md).
 - The image governs palette, luminous materials, panel hierarchy and overall density.
   This specification governs real content, functions, accessibility and responsive behavior.
-- The user's selection approves the visual direction. Exact tokens, breakpoints, durations and
-  selection rules below are designer recommendations, not previously approved facts.
+- The initial selection approved the visual direction. The user's later detailed-design approval
+  accepts the tokens, breakpoints, durations and selection rules below as the implementation basis.
 - Read [AGENTS.md](../../../AGENTS.md), [standards.md](../../../standards.md) and
   [PRD traceability](../../prd-traceability.md) first. The source PRD Sections 11 and 14 was
   inspected from the path recorded in [project memory](../../../memory/project.md).
@@ -332,16 +332,17 @@ Run the focused component/search/accessibility checks while developing, then req
 Manual review additionally covers long names/addresses/raw statuses, unknown/future dates,
 slow refresh, keyboard focus, 200% zoom, reduced motion and forced colors.
 
-## 10. Delivery and remaining approval
+## 10. Delivery and approval disposition
 
 Deliver this specification, the selected-image reference, a bounded backlog record and a
 design-readiness review. The English-only harness policy applies; exact Korean strings above
 are quoted product literals. No human handbook or milestone closure is required for this
 design-only pass.
 
-Before product implementation, obtain review of this concrete design; then prepare the
-implementation plan and activate the sole implementation task. Visual-direction selection
-does not certify every incidental image element, confer deployment approval or close existing
-quality/performance gates. No product-level uncertainty remains that requires inventing a
-new service or broadening data collection; the proposed implementation choices are explicitly
-listed for the user's next review.
+The user approved this concrete design on 2026-10-22 after TASK-027 execution intake and
+requested continuation. TASK-027 already owns the sole active slot after PR #36. The next
+artifact is the [implementation plan](../plans/2026-10-22-task-027-prism-glass.md), which requires
+review and execution-method confirmation before product edits. Earlier proposed/design-only
+wording describes the original design delivery; this dated approval supersedes its pending
+detailed-design gate. No incidental excluded image feature, deployment, existing quality or
+performance gate is approved by this design acceptance.

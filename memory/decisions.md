@@ -852,3 +852,40 @@ reference/design, then TASK-027 owns the sole active slot. Start with detailed d
 and the implementation plan; do not infer acceptance of every proposed design detail or commence
 product code in this documentation delivery. TASK-009 remains incomplete outside the slot,
 TASK-010 paused and TASK-021 gated. No deployment/source-upload or quality-policy approval follows.
+
+## TASK-027 detailed design accepted — 2026-10-22
+
+The user explicitly approved the concrete Prism Glass design after execution intake and requested
+continuation. This accepts its responsive composition, tokens, bounded motion, explicit candidate
+inspection/focus return and image-to-product exclusions as the implementation basis. The prior
+visual-direction-only scope is superseded for detailed design acceptance. The four-task
+[implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md) is prepared and
+self-reviewed; human plan review and execution-method confirmation remain pending. No product
+code, policy, dependency, public interface, remote action, deployment or release gate is approved
+or completed by this planning record. Existing task dispositions remain unchanged.
+
+
+## TASK-027 execution and explicit model routing — 2026-10-22
+
+The user confirmed continuation after the implementation-plan handoff, specifying GPT-6.1
+Sol/high for implementation and GPT-6.1 Sol/xhigh for independent review. This supersedes the
+plan's initial Luna/high implementation and Sol/high review recommendation. Execute the four
+units sequentially with task-scoped spec/quality review and a final whole-diff review, preserving
+the approved scope and all operational/remote approval boundaries.
+
+
+## TASK-027 bounded verification rulings — 2026-10-22
+
+- Replace only obsolete full-card-count assertions with separate summary/detail assertions,
+  preserving complete counts, partial-snapshot and failure evidence. Risk if wrong: a weakened
+  count could conceal a missing candidate. Task3 independent review checked this boundary.
+- Preserve exact measurement bytes as `.json.raw` and use parsed-equal Biome-formatted `.json`
+  reading views so actual delivered artifacts pass repository formatting. Risk if wrong: sample
+  changes could invalidate comparison. Original raw hashes and parsed equality are verified;
+  no formatting exclusion/configuration is added.
+- Give only new multi-scan browser matrices a120s total timeout, retaining existing5s assertions,
+  all scans, retry/failOnFlaky rules and performance budgets. Risk if wrong: a hung new matrix
+  may wait up to120s. Original timeout/failure evidence remains, and this does not waive either
+  strictdefault or manualAT acceptance. The existing product/runner defaults are unchanged.
+
+These are test/evidence implementation judgments, not new source/status or deployment policy.
