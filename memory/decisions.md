@@ -889,3 +889,8 @@ the approved scope and all operational/remote approval boundaries.
   strictdefault or manualAT acceptance. The existing product/runner defaults are unchanged.
 
 These are test/evidence implementation judgments, not new source/status or deployment policy.
+
+Final review representation followup: preserve the exact reviewer Markdown in a deterministic
+gzip archive and normalize trailing whitespace only in its public reading view. Risk if wrong:
+review bytes or findings could change; verified decompression reproduces the original SHA256,
+and the normalized view changes no verdict/content. This repairs documentation whitespace only.

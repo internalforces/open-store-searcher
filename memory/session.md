@@ -2894,3 +2894,10 @@ PG acceptance is claimed. TASK-009 remains awaiting materials/action-time approv
 paused and TASK-021 gated. The prior waiting-state request's no-active-task record retains its
 point-in-time scope. Current delivery verification, independent review, exact PR/CI/merge and
 subsequent local activation are tracked in [the delivery record](../reports/delivery-2026-10-22-task-027-handoff.md).
+
+TASK027 final documentation followup: original reviewer Markdown hard-break whitespace caused
+staged whitespace failure although the shell continued to create3410cec. Exact original is now
+preserved as reports/review-2026-10-22-task-027-final.md.gz, decompression/hash verified; public
+reading view normalizes trailing whitespace only. Application checkpoint8ed3ddb and all current
+source/performance/manual bindings are unchanged. Full-range staged whitespace check passes;152source hashes remain current, raw review gzip
+roundtrip is exact and21local links resolve. No product checks or verdicts changed.

@@ -440,6 +440,6 @@ Acceptance remains Request Changes for strictdefaultPG15 and actualspokenATPG10.
 INFOs are nonblocking; only new MinorM2backlog prose correction enters one scoped rereview.
 Task remains active/incomplete; no source/suite/performance rerun accompanies that doc fix.
 
-FinalM2scoped rereview Approved/ADDRESSED, no new findings. Coordinator20local-link and
+FinalM2scoped rereview Approved/ADDRESSED, no new findings. Coordinator21local-link and
 whitespace audit pass; original85files/exactstatus preserved. No test/source change follows
 final review. TASK027 remains active/incomplete with ImportantPG10/15open; no release/remote claim.
