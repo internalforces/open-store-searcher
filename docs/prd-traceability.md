@@ -639,3 +639,16 @@ Pinned1,423tests/static/build/bothquality pass; strictdefaultfull exits1(91/92We
 while approved serial92/92browser+20/20accessibility pass without retries/flakes. ActualVoiceOver
 output and strictdefaultPG15 remain open; independent scoped/final code quality is Approved, while final task acceptance is Request Changes. Therefore
 TASK027 is not moved to completed and no milestone, publication, handbook or release gate closes.
+
+
+## TASK-028 proposed visual and motion follow-up — 2026-10-22
+
+The user requested less AI-styled presentation and animation in a future improvement. The
+[proposed design](superpowers/specs/2026-10-22-dashboard-refinement-design.md) and
+[plan](superpowers/plans/2026-10-22-dashboard-refinement.md) map QM01–08 to preserved
+FR01–14/baselineFR16 and accessibility/performance NFRs: hierarchy/materials(Task2), accepted
+state/interruption feedback(Task3), current media/AT/zoom/oracle/budget evidence(Task4), and
+design approval/prior acceptance/active-slot authority(Task1). This is prospective coverage,
+not a new verification result or approved replacement for TASK027's design. TASK028is unactivated;
+TASK027PG10/15 and all operational/release boundaries remain open. Commit/push/PR authorization
+for reviewed TASK027does not authorize merging, deployment or follow-up implementation.

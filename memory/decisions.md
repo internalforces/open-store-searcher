@@ -894,3 +894,14 @@ Final review representation followup: preserve the exact reviewer Markdown in a 
 gzip archive and normalize trailing whitespace only in its public reading view. Risk if wrong:
 review bytes or findings could change; verified decompression reproduces the original SHA256,
 and the normalized view changes no verdict/content. This repairs documentation whitespace only.
+
+
+## TASK-027 delivery and proposed TASK-028 direction — 2026-10-22
+
+The user explicitly authorizes branch commit/push and PR creation, superseding the prior local-only
+limit for this delivery. Keep the PR draft while required acceptance is incomplete; no merge or
+deployment authorization follows. The user separately requests planning for less AI-styled UI
+and animation. Register proposed/unactivated TASK028with restrained Prism materials and purposeful
+short feedback as coordinator recommendations, preserving product truth and all current gates.
+Exact visual/motion approval and active-slot authority remain future decisions; no product code
+or current approved design is changed by these planning records.

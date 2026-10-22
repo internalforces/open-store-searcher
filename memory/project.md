@@ -21,6 +21,16 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 - Overall health: 🟡 Caution — source ZIP and action approvals missing; performance/recovery/release gates open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
 
+## Latest delivery and planning request — 2026-10-22
+
+The user explicitly requested commit/push and PR creation for reviewed TASK027, plus a future
+visual-restraint/animation plan. Current delivery may create a draft PR while PG10spokenAT and
+PG15strictdefault remain open; no merge/deployment or task completion is authorized. Proposed
+TASK028is registered only in backlog with [design](../docs/superpowers/specs/2026-10-22-dashboard-refinement-design.md)
+and [plan](../docs/superpowers/plans/2026-10-22-dashboard-refinement.md); it is unactivated and
+its exact styling/motion requires human review. This supersedes earlier local-only delivery
+statements for the current branch without changing operational gates or source/status policy.
+
 ## Current handoff — 2026-10-22
 
 TASK-027 is the sole active task after PR #36 merged as `596080a` in the reused

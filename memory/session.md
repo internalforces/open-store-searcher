@@ -9,6 +9,25 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## TASK-027 remote delivery and proposed follow-up — 2026-10-22
+
+The user's latest request explicitly authorizes committing/pushing this branch and creating a PR;
+this supersedes older local-only no-push instructions below for this delivery only. Merge,
+deployment and PG10/15acceptance remain withheld. Source checkpoint8ed3ddb and its current test/
+performance/manual bindings stay unchanged; follow-up preparation changes documentation only.
+The repo is public. Create a draft PR with honest default91/92failure, serial92/20pass and actual
+VoiceOver gap, then attach it to this task and verify exact remote branch/head/base/draft metadata.
+RemoteCI is new evidence, not a reinterpretation of historical local outcomes.
+
+The user also requested a future plan to reduce AI-styled presentation and use animation.
+Proposed TASK028design/plan recommend restrained Prism materials, fewer repeated cards, small
+brand detail and short accepted-action/selection feedback. All exact values are proposals.
+A fresh Sol/xhigh builder check reports nothing important left after conditional future-routing
+clarification; its public planning review is retained. No follow-up product source,
+tests, dependency, runtime setting or activation is changed. Full design review and an explicit
+active-slot handoff are required before implementation. Preserve TASK009waiting/010paused/021gated
+and original85pending-file/status fingerprints. See the new backlog/design/plan links.
+
 ## TASK-027 current execution checkpoint — 2026-10-22
 
 Current source checkpoint: `8ed3ddb156f12cd83d4037b0026b0ca28b5b5dbf`. Tasks1–3 Approved;

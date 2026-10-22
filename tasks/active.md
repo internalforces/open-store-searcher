@@ -22,6 +22,10 @@ _Last updated: 2026-10-22_
 - Authorization: On 2026-10-22 the user requested local commit/push, PR creation, main merge,
   and TASK-027 activation. This supersedes earlier proposed/unactivated status only.
 - Owner: Implementer / Tester / Reviewer for final verification, review and remaining acceptance.
+- Latest delivery authority: On2026-10-22 the user explicitly requested commit/push and PR
+  creation for this branch. This supersedes the earlier local-only delivery limit, but does not
+  authorize merge/deploy or waive PG10/15. The proposed TASK028design/plan is planning-only and
+  does not occupy the active implementation slot.
 - Requirements: FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs;
   PG-01 through PG-15 in the [design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
 - Workspace: reused `.worktrees/task013-quality` on `codex/task-027-prism-glass`,

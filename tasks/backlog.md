@@ -17,6 +17,7 @@ _Last updated: 2026-10-22_
 | TASK-023 | Improve candidate-list keyboard navigation | Medium | M4 | M | FR-16 |
 | TASK-024 | Design static-file expansion outside Seoul | Low | M4 | L | FR-17 |
 | TASK-026 | At each milestone close, update or review affected Korean handbook documents and obtain human language review | High | Recurring | S | Documentation NFR; all safety invariants |
+| TASK-028 | Refine dashboard visual restraint and interaction feedback | Medium | M2 follow-up | L | FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs |
 
 ## Recommended Start Order
 
@@ -116,3 +117,27 @@ is separate from the still-absent workflow config; no deployment/publication is 
 - The [detailed implementation plan](../docs/superpowers/plans/2026-10-22-task-027-prism-glass.md)
   was executed after the user's approval. Task 4 and final whole-branch code quality are Approved;
   PG-10 spoken AT and PG-15 strict-default acceptance remain open.
+
+
+## TASK-028: Dashboard visual restraint and interaction feedback
+
+- Status: Proposed and unactivated; planning requested on2026-10-22. TASK-027 remains the sole
+  active task and is not completed by PR publication or this proposed follow-up.
+- Owner: Planner / Designer for design review; Implementer / Tester / Reviewer only after
+  explicit execution and active-slot authority.
+- Milestone: M2 follow-up; priority Medium; size L.
+- Requirements: FR-01 through FR-14, baselineFR-16, accessibility/performance NFRs; QM01–08
+  in the [design proposal](../docs/superpowers/specs/2026-10-22-dashboard-refinement-design.md).
+- Intent: Reduce repeated generic visual decoration while preserving the bright Prism identity;
+  use short animation to explain accepted search/page and inspected-record state.
+- Plan: [four-stage proposed implementation plan](../docs/superpowers/plans/2026-10-22-dashboard-refinement.md).
+- Dependencies: TASK-027 current PG10spokenAT and PG15defaultfull acceptance, full follow-up design
+  approval and explicit active-slot handoff; a human may explicitly change sequencing, but this
+  plan does not. Exact palette/corners/timing are coordinator proposals, not accepted values.
+- Acceptance: QM01–08 cover approved direction, hierarchy/evidence preservation, interruption-safe
+  motion, media/AT, long content/responsive/actualzoom, unchanged budgets/default suite and review.
+- Verification: Existing real component/Worker regressions, workspace browser/axe, actual AT,
+  all-element2x and native200%zoom, pinned verify:full, performance:check and independent review;
+  preserve failed/historical outcomes. No invented objective AI-style score.
+- Exclusions: New dependencies/services/fonts, source/status/pipeline/Worker changes, analytics,
+  history/favorites/share, enhanced TASK023navigation, deployment or silent acceptance waiver.
