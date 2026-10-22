@@ -1,9 +1,17 @@
+import { beginFailureObservation, reportFailureObservation } from '../setup/failure-observation.js';
 import { mountPagination } from '../setup/pagination-browser.js';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { build } from 'vite';
 import { mountMapSearch } from '../setup/map-browser.js';
 import { completeLoad, mountRecovery } from '../setup/recovery-browser.js';
+
+test.beforeEach(async ({ page }, info) => {
+  await beginFailureObservation(page, info);
+});
+test.afterEach(async ({ page }, info) => {
+  await reportFailureObservation(page, info);
+});
 
 test('loads built data parts after shell paint in bounded query-independent batches', async ({
   page,

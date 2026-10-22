@@ -30,6 +30,9 @@ _Last updated: 2026-10-22_
   cannot restart it now. Prior normal flows have a reviewed carry-forward bridge. Preserve the
   explicit actual-verification-before-merge condition; no waiver or completion is inferred. See
   [correction evidence](../reports/test-2026-10-22-pr37-refresh.md).
+- CI: Two canonical observations on5524090 fail strict flaky policy. No more unchanged reruns;
+  test-only host failure observation has scoped independent approval, with all152 measured inputs
+  and all7 production assets unchanged. See [diagnosis](../reports/test-2026-10-22-pr37-ci-observation.md).
 - TASK-009 remains waiting, TASK-010 paused, TASK-021 gated and TASK-028 proposed/unactivated.
   Original and TASK-009 worktree changes remain protected. No task is completed by this reopening.
 

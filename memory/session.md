@@ -9,6 +9,36 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-22_
 
+## PR37 exact-head CI follow-up — 2026-10-22
+
+Current pushed source/head:5524090793ffcffcabc8d81dc2925ea0a42d7fe5, PR37 open/unmerged.
+[Verify39778033230](https://github.com/internalforces/open-store-searcher/actions/runs/39778033230)
+attempt1 fails failOnFlaky:1425tests/59files and static/build pass;91browserpass plus one WebKit
+startup-batching case passes only on built-inretry1. Axe/packaging not reached. Previously observed
+nondeterministic startup failure, cause unresolved; do not call it proven main/external behavior.
+
+One isolated diagnostic and three predetermined two-worker startup/map pairs pass first attempts,
+but cannot establish the hosted5s cause. Earlier diagnostic collection errors are retained separately.
+No tracked product/test/config change follows. Source152 bindings remain current. Independent
+review supported exactly one unchanged-head canonical fresh observation. Attempt2/job119835178890
+also fails: static/1425tests pass;89browserpass+3flaky (WebKit startup requests0/2; WebKit recovery
+submit disabled; Chromium decoration layoutshift0.028657389322916667). All pass on built-inretry;
+axe/packaging unreached. Further canonical reruns STOPPED. Startup/initial geometry diagnosis
+continues; preserve both failed attempts and do not claim passing diagnostics repair them.
+
+GitHub review request6340664201 is still running; independent Sol/xhigh code/test/performance
+approval remains scoped. Affected actual pending-refresh VoiceOver is unperformed because the
+human cannot restart it now. Explicit actual-verification-before-merge condition remains, as do
+final acceptance, exact-head CI/review and original-thread/protected-main gates. QA tab/server are
+stopped; no settings changed during this attempt. TASK027 stays active; TASK028 unactivated.
+Private paired outcome/summary and all attempts remain under the task's .superpowers/sdd folder.
+Test-only hosted failure-observation preparation now follows the inconclusive full92 local
+run (91pass/1flaky animation counter; all targetedWebKitfirst-pass). Type/style/92collection and
+all7asset equality pass; all152 measured inputs still current. Independent observation review
+is Approved for hosted capture only. Both failed WebKit smoke commands/provenance limits are
+retained; no clean runtime-suite, PG15 or AT acceptance is inferred. See [CI observation evidence](../reports/test-2026-10-22-pr37-ci-observation.md).
+This handoff update follows the pushed checkpoint and is not a product/source change.
+
 ## TASK-027 refresh correction; actual AT pending — 2026-10-22
 
 Final GitHub review on PR37 head3c67280 found P2 retained-data refresh pagination blocking.

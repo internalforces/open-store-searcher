@@ -1,3 +1,4 @@
+import { beginFailureObservation, reportFailureObservation } from '../setup/failure-observation.js';
 import { expect, type Page, test } from '@playwright/test';
 import { scanPageForWcag21Violations } from '../setup/accessibility.js';
 import { mountMapSearch } from '../setup/map-browser.js';
@@ -184,6 +185,13 @@ test('fallback media never hides evidence or controls', async ({ page }) => {
   ).toBe('none');
 });
 
+test.beforeEach(async ({ page }, info) => {
+  await beginFailureObservation(page, info);
+});
+test.afterEach(async ({ page }, info) => {
+  await reportFailureObservation(page, info);
+});
+
 test('decoration preserves immediate content, stable geometry and resource boundaries', async ({
   page,
 }) => {
@@ -202,6 +210,14 @@ test('decoration preserves immediate content, stable geometry and resource bound
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         if (!Reflect.get(entry, 'hadRecentInput')) shifts.push(Number(Reflect.get(entry, 'value')));
+        try {
+          const observation = Reflect.get(window, '__failureObservation') as
+            | { layout: (entry: PerformanceEntry) => void }
+            | undefined;
+          observation?.layout(entry);
+        } catch {
+          // Diagnostic failures must not suppress this or later shift entries.
+        }
       }
     });
     observer.observe({ type: 'layout-shift' });
@@ -246,14 +262,42 @@ test('decoration preserves immediate content, stable geometry and resource bound
   if (supportsLayoutShift) {
     expect(await page.evaluate(() => Reflect.get(window, '__workspaceLayoutShifts'))).toEqual([]);
   }
-  const animationStarts = await page.evaluate(() =>
-    Reflect.get(window, '__workspaceAnimationStarts'),
-  );
+  const animationStarts = await page.evaluate(() => {
+    try {
+      const observation = Reflect.get(window, '__failureObservation') as
+        | { mark: (label: string) => void }
+        | undefined;
+      observation?.mark('animation-baseline-after-250ms');
+    } catch {
+      // Diagnostic failures must not change the original read or focus dispatch.
+    }
+    return Reflect.get(window, '__workspaceAnimationStarts');
+  });
   await page.clock.fastForward(61_000);
-  await page.evaluate(() => window.dispatchEvent(new Event('focus')));
-  expect(await page.evaluate(() => Reflect.get(window, '__workspaceAnimationStarts'))).toBe(
-    animationStarts,
-  );
+  await page.evaluate(() => {
+    try {
+      const observation = Reflect.get(window, '__failureObservation') as
+        | { mark: (label: string) => void }
+        | undefined;
+      observation?.mark('after-61000ms-before-focus');
+    } catch {
+      // Diagnostic failures must not change the original read or focus dispatch.
+    }
+    return window.dispatchEvent(new Event('focus'));
+  });
+  expect(
+    await page.evaluate(() => {
+      try {
+        const observation = Reflect.get(window, '__failureObservation') as
+          | { mark: (label: string) => void }
+          | undefined;
+        observation?.mark('animation-final-after-focus');
+      } catch {
+        // Diagnostic failures must not change the original read or focus dispatch.
+      }
+      return Reflect.get(window, '__workspaceAnimationStarts');
+    }),
+  ).toBe(animationStarts);
   expect(requests).toEqual(beforeRequests);
   expect(requests.every((url) => new URL(url).origin === new URL(originalUrl).origin)).toBe(true);
   expect(page.url()).toBe(originalUrl);
