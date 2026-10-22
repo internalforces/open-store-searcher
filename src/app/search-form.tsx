@@ -19,8 +19,9 @@ export function SearchForm({
 }: SearchFormProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   return (
-    <search>
+    <search aria-label="사업체 검색">
       <form
+        aria-busy={disabled}
         onSubmit={(event) => {
           event.preventDefault();
           if (!disabled) {
