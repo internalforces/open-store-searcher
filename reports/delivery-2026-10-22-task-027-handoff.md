@@ -47,3 +47,25 @@ and GNU tar `--hard-dereference` unsupported by the macOS tar. Application/test 
 base; no assertion, test scope or platform requirement is changed. This is not a local full-suite
 pass. The pinned Ubuntu 24.04/Node.js 24.19.0/npm 11.17.0 GitHub Verify must pass for the exact
 PR head before protected merge. Hosted outcomes are pending at this preparation checkpoint.
+
+### Delivered checkpoint and independent review
+
+Commit `8735ff869618ba3044dda6313321de0092869309` was committed locally and pushed as
+`codex/task-009-waiting-task-027-handoff`. [PR #36](https://github.com/internalforces/open-store-searcher/pull/36)
+targets exact base `23aa0a7`; fresh local/remote head and all 20 changed paths match.
+Read-only preservation rehash confirms 106 original files and both original dirty-checkout statuses
+unchanged. Neither duplicate files nor runtime/workflow inputs enter the delivery.
+
+A fresh GPT-6.1 Sol high-effort independent reviewer approved all 20 paths at frozen tree
+`9140c511d5323cbc1a1d30586331ccaaef5aeb9f`, exactly the commit tree above: zero Critical,
+Important or Minor findings. It independently verified 293 local targets, selected-image hash/
+1586×992 dimensions, whitespace, state/approval boundaries and unchanged runtime scope.
+Verdict: Ready to merge, conditioned on successful pinned Verify for the exact reviewed head.
+It did not judge live operational state, reproduce historical tests or accept future UI behavior.
+
+The [initial Verify run](https://github.com/internalforces/open-store-searcher/actions/runs/39730892417)
+was in progress at this bookkeeping checkpoint. This report update does not relabel that run
+as final-head evidence. Check the current PR head's successful required Verify, unresolved
+conversations and main/base before normal protected merge; do not bypass protection. Actual
+final-head CI and merge identities are retained in the live PR. TASK-027 activation becomes
+effective only on successful main integration; create its working branch from that exact merge.
