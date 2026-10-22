@@ -16,10 +16,27 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 complete; TASK-009 active for atomic-publication acceptance; TASK-010 paused
-- Next milestone: M1 — complete TASK-009 before TASK-010 publication/recovery
-- Overall health: 🟡 Caution — local quality accepted; production performance/recovery/release gates remain open
+- Phase: TASK-008 complete; TASK-027 activation on handoff integration; TASK-009 awaiting materials and action-time approval
+- Next milestone: M1 — TASK-009 hosted acceptance, then TASK-010 publication/recovery
+- Overall health: 🟡 Caution — source ZIP and action approvals missing; performance/recovery/release gates open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`
+
+## Current handoff — 2026-10-22
+
+TASK-027 becomes the sole active task on integration, beginning with detailed design confirmation
+and implementation planning. See the [active task](../tasks/active.md). TASK-009 is **awaiting materials and action-time approval**,
+incomplete, and does not occupy the single active implementation slot. The user explicitly
+authorized this waiting-state clarification. TASK-008 is complete under October 18 acceptance;
+TASK-010 stays paused and TASK-021 gated. Product implementation and verification remain pending.
+
+Missing materials: exact October 16 original ZIP and fresh byte verification. Missing approvals
+and later evidence: concrete source transport, real asset/registry adoption, performance/release
+readiness, one-time hosted publication and durable recovery acceptance. Existing source/design/
+quality approvals remain valid within their original scope. Owners, exact identities and separate
+resumption/completion conditions are in the [waiting register](../reports/status-2026-10-22-task-009-waiting.md).
+Explicitly reactivate TASK-009 with an available slot before execution; time or material arrival
+alone does not resume it. Earlier active/calibration-pending statements below are historical
+and are superseded for current start decisions. Retain all implementation and dated evidence.
 
 ## Technical Summary
 
@@ -506,3 +523,13 @@ passes45/45. Fresh retained proof and188 current host/runtime fingerprints, appr
 equality, original HEAD/all73 files and11 protected-file preservation pass. See the current
 operational recovery reports; these results supersede pre-fix1092 evidence only for current
 local acceptance, not hosted gates.
+
+## Prism Glass dashboard direction selected — 2026-10-22
+
+The user selected concept 01 and requested design/documentation. The
+[Prism Glass specification](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md)
+is the proposed concrete contract for the later M2 UI follow-up TASK-027. Bright glass surfaces,
+multiple evidence-linked panels, bounded motion and responsive layouts replace the incumbent
+visual direction while retaining existing product/data/privacy rules. No implementation task
+was activated; exact behavior and tokens await detailed design review. Existing production,
+calibration and release gates remain open. The application is unchanged.

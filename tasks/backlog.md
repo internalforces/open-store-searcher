@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
-_Last updated: 2026-10-19_
+_Last updated: 2026-10-22_
 
 | ID | Task | Priority | Milestone | Size | Related requirement |
 |---|---|---|---|---|---|
@@ -20,15 +20,14 @@ _Last updated: 2026-10-19_
 
 ## Recommended Start Order
 
-1. TASK-008 completed on 2026-10-18 with exact approved quality inputs, full-source accepted
-   validation, failure preservation, pinned full checks and independent Approved final review.
-2. TASK-009 is active on the user's 2026-10-19 instruction; TASK-010 remains paused.
-   Local focused transaction evidence is verified with independent Task 2 approval; final
-   current-tree full verification passes 849/68/20; whole-diff verdict is recorded separately in `reports/review-2026-10-19-task-009.md`. Operational configuration,
-   hosted successful/failed/uncertain promotion/recovery, durable retention and action-time
-   deployment approval remain required. See [active work](active.md) and
-   [acceptance evidence](../reports/test-2026-10-19-task-009.md).
-3. Keep TASK-021 gated on production/performance/publication/recovery and remaining release criteria.
+1. TASK-008 is complete. TASK-009 is awaiting materials/action-time approval and does not
+   occupy the active implementation slot; TASK-010 remains paused. Use the current
+   [waiting register](../reports/status-2026-10-22-task-009-waiting.md), not historical calibration/active notes below.
+2. TASK-027 becomes the sole active task on this handoff integration by explicit user request;
+   start with detailed design confirmation and planning. See [active work](active.md).
+3. Resume TASK-009 explicitly when applicable evidence and approvals are available and the slot
+   is free; retain hosted AC-009-4/5 and II-10 acceptance before sequential TASK-010 completion.
+4. Keep TASK-021 gated on performance/publication/recovery and remaining release criteria.
 
 TASK-026 recurs after milestone implementation, testing, and review. TASK-020 public documentation
 completed on 2026-09-18; TASK-021 retains release-candidate documentation verification.
@@ -90,3 +89,28 @@ empty list and initial baseline are approved and TASK-008 is complete; see
 [completion](completed.md#task-008-final-quality-acceptance--2026-10-18).
 TASK-009/010 may now be resumed sequentially, but are not activated here. Validation-only config
 is separate from the still-absent workflow config; no deployment/publication is authorized.
+
+## TASK-027: Prism Glass dashboard workspace
+
+- Status: Promoted to [active work](active.md) on this handoff integration; detailed design
+  confirmation and planning precede product implementation.
+- Owner: Planner / Architect for design; Implementer / Tester / Reviewer for later execution.
+- Authorization: Concept 01/design documentation, followed by the explicit commit/push/PR/merge
+  and TASK-027 activation request on 2026-10-22.
+- Milestone: M2 follow-up; size L; no release or milestone gate is waived.
+- Dependencies: Current search, evidence, recovery, pagination and responsive contracts;
+  concrete design review before implementation. Do not block design on unresolved calibration
+  or resume TASK-009/010. Preserve the single-active-implementation-task rule.
+- Specification: [Prism Glass design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
+- Acceptance: PG-01 through PG-15 in the specification are the task's acceptance criteria.
+  Preserve four statuses, raw evidence, explicit collection-date semantics, seven-day warnings,
+  browser-only search, last-good recovery, complete pagination and safe external-map clicks.
+- Verification: Focused component/Worker integration, four-browser search, axe, keyboard,
+  responsive/zoom/motion/forced-color review, visual comparison, `npm run verify:full`,
+  `npm run performance:check`, and independent final review on the approved runtime/runner.
+- Exclusions: Business photos, favorites/history, share URLs, official-looking certificates,
+  personal/registration fields, draggable windows, new dependencies/services and deployments.
+- TASK-023 retains enhanced candidate keyboard navigation. This task uses native inspect/return
+  buttons and baseline keyboard access; it does not close TASK-023 or FR-15.
+- A detailed implementation plan is prepared after review of the concrete design, not executed
+  as a side effect of this design-only request.

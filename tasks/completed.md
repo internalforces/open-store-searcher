@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
@@ -824,3 +824,13 @@ rereview Approved. See [final-review evidence](../reports/review-2026-10-21-pr34
 Final handoff/current-head CI/protected-main integration remain action-time gates. This entry
 does not complete TASK-009 or hosted AC-009-4/5, activate TASK-010 or authorize source upload,
 publication, recovery, recurrence, milestone or handbook closure.
+
+## TASK-009 waiting-state clarification only — 2026-10-22
+
+Completed the user-authorized administrative disposition: TASK-009 is awaiting materials and
+action-time approval, outside the active implementation slot. The
+[waiting register](../reports/status-2026-10-22-task-009-waiting.md) records missing inputs/approvals, owners and
+resumption/acceptance conditions. Original and operational checkout handoffs are reconciled;
+existing work and approvals remain preserved. No implementation task is active and no successor
+is activated. This is not overall TASK-009 completion: FR-13, II-10 and hosted AC-009-4/5 remain
+open, TASK-010 stays paused and TASK-021 remains gated. No milestone or release is closed.

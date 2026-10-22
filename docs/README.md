@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Documentation Index
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-10-22_
 
 ## Source Requirements
 
@@ -19,6 +19,11 @@ _Last updated: 2026-09-18_
 The source PRD is the source of truth for product requirements. This harness turns the PRD into implementation work. If meanings conflict, consult the user's latest instructions and the source PRD.
 
 ## Harness Documents
+
+- `superpowers/specs/2026-10-22-prism-glass-dashboard-design.md`: selected TASK-027 design and prospective acceptance
+- `../reports/delivery-2026-10-22-task-027-handoff.md`: current delivery and activation evidence
+
+- `../reports/status-2026-10-22-task-009-waiting.md`: current TASK-009 materials/approval waiting register and resumption rules
 
 - `../AGENTS.md`: project constitution and absolute constraints
 - `../ORCHESTRATOR.md`: cross-role workflows and approval gates
