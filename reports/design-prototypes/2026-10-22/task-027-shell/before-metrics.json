@@ -5,11 +5,7 @@
     "bodyFont": "16px",
     "controlHeight": 52.390625,
     "panelPadding": "28px",
-    "colors": [
-      "rgb(28, 48, 44)",
-      "rgb(28, 48, 44)",
-      "rgb(255, 255, 255)"
-    ],
+    "colors": ["rgb(28, 48, 44)", "rgb(28, 48, 44)", "rgb(255, 255, 255)"],
     "blurCount": 0
   },
   {
@@ -18,11 +14,7 @@
     "bodyFont": "16px",
     "controlHeight": 52.390625,
     "panelPadding": "18px",
-    "colors": [
-      "rgb(28, 48, 44)",
-      "rgb(28, 48, 44)",
-      "rgb(255, 255, 255)"
-    ],
+    "colors": ["rgb(28, 48, 44)", "rgb(28, 48, 44)", "rgb(255, 255, 255)"],
     "blurCount": 0
   }
 ]

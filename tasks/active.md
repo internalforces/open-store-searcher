@@ -25,10 +25,15 @@ _Last updated: 2026-10-22_
 - Delivery: [draftPR37](https://github.com/internalforces/open-store-searcher/pull/37) created
   after authorized push. Application source8ed3ddb unchanged; exact-headCI and actualspokenAT
   acceptance remain separate. No merge/deployment or follow-up activation occurred.
-- Latest delivery authority: On2026-10-22 the user explicitly requested commit/push and PR
-  creation for this branch. This supersedes the earlier local-only delivery limit, but does not
-  authorize merge/deploy or waive PG10/15. The proposed TASK028design/plan is planning-only and
-  does not occupy the active implementation slot.
+- Latest delivery authority: On 2026-10-22 the user requested fixing PR #37 CI, requesting
+  review and merging main after verification. This supersedes the earlier no-merge delivery
+  limit for this PR; it does not authorize deployment or waive PG-10/15. The proposed TASK-028
+  design/plan is planning-only and does not occupy the active implementation slot.
+- CI remediation: Hosted run 39754874448 failed on one baseline JSON artifact's formatting
+  before application checks. Original bytes are preserved; the full eligible tracked snapshot
+  passes pinned lint/format. Independent fix review and fresh hosted CI follow; see
+  [remediation](../reports/test-2026-10-22-pr37-ci-remediation.md). A manual AT retry cannot
+  proceed while macOS is locked; the existing specific VoiceOver permission is retained.
 - Requirements: FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs;
   PG-01 through PG-15 in the [design](../docs/superpowers/specs/2026-10-22-prism-glass-dashboard-design.md).
 - Workspace: reused `.worktrees/task013-quality` on `codex/task-027-prism-glass`,

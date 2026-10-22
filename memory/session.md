@@ -2935,3 +2935,20 @@ preserved as reports/review-2026-10-22-task-027-final.md.gz, decompression/hash 
 reading view normalizes trailing whitespace only. Application checkpoint8ed3ddb and all current
 source/performance/manual bindings are unchanged. Full-range staged whitespace check passes;152source hashes remain current, raw review gzip
 roundtrip is exact and21local links resolve. No product checks or verdicts changed.
+
+
+## PR37 CI remediation and merge request — 2026-10-22
+
+The user requests repairing failed CI, requesting review and merging main after verification.
+This supersedes the previous PR-only/no-merge scope for PR37; deployment, source activation,
+TASK-028 implementation and acceptance-contract changes are not inferred. Hosted run
+39754874448 failed Biome on baseline `before-metrics.json` before application checks.
+The bounded correction preserves its original raw bytes and formats the reading view; parsed
+values and all 152 measured-source hashes are unchanged. A clean complete eligible tracked
+snapshot reproduces the failure on 299 files and then passes pinned format (299) and lint
+(301; five existing INFOs). This qualifies the earlier incomplete 205-file style supplement.
+Independent review, fresh exact-head CI and normal protected integration remain pending.
+A screen-reader retry under the prior authorization encountered a locked Mac. No settings
+changed; the user was asked to unlock it. Actual PG-10 output remains unverified. TASK-027
+stays active, TASK-009 waiting, TASK-010 paused and TASK-021 gated. See the
+[remediation record](../reports/test-2026-10-22-pr37-ci-remediation.md).
