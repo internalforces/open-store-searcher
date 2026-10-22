@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/preact';
+import { act, render, screen, within } from '@testing-library/preact';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { App } from './app.js';
@@ -73,5 +73,33 @@ describe('TASK-027 workspace shell', () => {
       within(screen.getByRole('region', { name: '검색 시작 안내' })).getByText('합성 로딩 시험'),
     ).toBeTruthy();
     expect(screen.queryByRole('article')).toBeNull();
+  });
+
+  it('settles form busy state after a rejected initial load while keeping submit unavailable', async () => {
+    let rejectLoad!: (reason: Error) => void;
+    const pending = new Promise<unknown>((_resolve, reject) => {
+      rejectLoad = reject;
+    });
+    render(
+      <App
+        loader={{
+          kind: 'synthetic',
+          sourceLabel: '합성 로딩 시험',
+          sourceUrl: null,
+          load: () => pending,
+        }}
+      />,
+    );
+    const form = screen.getByRole('searchbox').closest('form');
+    const submit = screen.getByRole('button', { name: '검색', exact: true }) as HTMLButtonElement;
+    expect(form?.getAttribute('aria-busy')).toBe('true');
+    expect(submit.disabled).toBe(true);
+    await act(async () => rejectLoad(new Error('offline')));
+    expect((await screen.findByRole('alert')).textContent).toContain(
+      '데이터를 불러오지 못했습니다.',
+    );
+    expect(form?.getAttribute('aria-busy')).toBe('false');
+    expect(submit.disabled).toBe(true);
+    expect(screen.getByRole('status').textContent).not.toContain('불러오는 중');
   });
 });

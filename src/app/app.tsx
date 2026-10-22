@@ -120,6 +120,7 @@ export function App({ dataset: suppliedDataset, loader }: AppProps) {
             error={error}
             exampleQuery={dataset?.exampleQuery ?? ''}
             disabled={!dataset || !loading.searchAvailable}
+            busy={loading.phase === 'loading' || searchBusy}
             onSubmit={() => {
               if (!dataset || !loading.searchAvailable) return;
               const sequence = ++requestSequence.current;
