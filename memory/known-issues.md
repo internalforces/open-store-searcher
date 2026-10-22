@@ -660,3 +660,16 @@ accumulated/final-head verification remains a gate before merge. See the
 not a quality-policy or source/status change. ISS-003 and hosted/performance/release gates remain
 open. The initial8 test-only lint warnings were fixed without suppression; five pre-existing
 informational notices remain nonblocking.
+
+
+## TASK-009 source transport environment gap — 2026-10-22
+
+The current preflight could not locate the exact approved 217,307,219-byte October 16 ZIP in
+the searched project/temporary directories. Docker's daemon is unavailable and the Docker
+application was not found. Historical raw proof is retained as dated evidence; do not describe
+this as a fresh archive verification or assume that the archive is lost elsewhere. Locate and
+rehash the original accepted bytes before upload/replay; a new live archive is not a substitute.
+The integration also returns 403 for detailed branch-protection reads. Normal protected PR
+integration remains available, but actual deployment requires a fresh permitted full protection
+review. Existing physical/mobile/full-data and hosted recovery gates remain open. See the
+[preflight](../reports/research-2026-10-22-task-009-source-transport.md).

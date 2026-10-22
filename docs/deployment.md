@@ -1,5 +1,20 @@
 # Deployment and recovery
 
+## Source transport preflight — 2026-10-22
+
+The [preflight report](../reports/research-2026-10-22-task-009-source-transport.md) and
+[exact asset request](../reports/source-transport-2026-10-22.json) supply the concrete source
+transport preparation for the sequence below. PR #34 and exact-main CI have completed; step 1
+is satisfied for that implementation. The request fixes the source tag target to
+`cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a`; later documentation delivery does not retarget it.
+Upload is blocked until the original approved ZIP is located and rehashed and the exact
+source/resource action is approved. The request is documentary evidence, not runtime authority.
+The four current license spot checks do not replace the dated full 195-category audit.
+Detailed protection reads are restricted by the current integration; actual deployment requires
+a fresh permitted inspection rather than an assumed historic protection state. All later
+performance, physical/mobile, public equality, durable backup/recovery and action-time gates
+remain. The source/recovery registries and default-off controls are unchanged.
+
 ## Initial-import operational gates — 2026-10-21
 
 The user approved the exact retained October 16 source, complete initial-import design and local

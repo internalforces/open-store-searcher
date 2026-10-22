@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
 
 ## In Progress
 
@@ -27,6 +27,17 @@ _Last updated: 2026-10-21_
   separately in `reports/review-2026-10-19-task-009.md`. The user approved the plan and subagent implementation on 2026-10-19.
 - Design: retain the approved collection-date publication design and compact V2 contract.
 - Plan: [acceptance continuation](../docs/superpowers/plans/2026-10-19-task-009-publication-acceptance.md).
+
+Current October 22 continuation: PR #34 is merged as
+`cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a`, with exact-main Verify completed/success.
+The user's next-work execution and merge request covers the concrete source transport
+preparation and delivery. The [preflight](../reports/research-2026-10-22-task-009-source-transport.md)
+and [request](../reports/source-transport-2026-10-22.json) bind the approved assets and unchanged
+quality with explicit current/historical evidence. Source upload remains blocked on locating and
+rehashing the original ZIP and concrete action-time source/resource approval. Runtime trust
+registries remain inactive. Full-data/mobile, hosted/publication/backup/recovery and release
+prerequisites remain open; TASK-009 stays active and TASK-010 paused. Older premerge notes below
+are dated history, not instructions to repeat PR #34 integration.
 
 Latest final-review authorization: the user requested review of PR #34 and protected-main
 merge if sound while keeping quality unchanged and source-data upload/deployment withheld.

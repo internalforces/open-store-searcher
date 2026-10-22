@@ -2614,3 +2614,55 @@ current-head Verify/conversation resolution and normal protected merge remain ac
 Fresh preservation-only rehash confirms5 original proof files,730 site files and6 inputs, plus
 the original73 files/exact status and four frozen prior reports/specs unchanged. This appended
 external-verdict note changes no reviewed core or historical raw-proof identity.
+
+## Next-work assessment — 2026-10-22
+
+The user requested identification of the next work only. The original checkout remains on an
+older main, 43 commits behind its recorded origin/main, so the assessment used the newer
+origin/main task records and fresh GitHub readback. PR #34 is merged as
+`cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a`; its live integration record reports successful
+exact-main Verify with 1,366 Vitest, 68 browser, 20 accessibility and 101 Node tests. These are
+the integration record's results, not a new test run in this assessment. Some checked-in
+premerge wording remains historical; no repeat code delivery or merge is the next action.
+
+TASK-008 is complete. TASK-009 remains the sole active task for II-10 and hosted AC-009-4/5;
+TASK-010 stays paused and TASK-021 remains gated. The next preparation is a concrete source
+transport approval packet: confirm attribution/redistribution and resource evidence and bind
+the exact tag target, approved ZIP/observation names, lengths and hashes. Later separately
+authorized upload must be followed by actual asset redownload, equality checks and reviewed
+source-registry adoption. Full-data performance, physical/mobile and release prerequisites,
+fresh protection/public-state checks, exact one-time setup/dispatch and candidate approval
+remain before first deployment. Complete public equality, durable backup/adoption and hosted
+recovery evidence follow. Preserve the approved quality policy and paused recurring operation.
+
+The October 16 collection date remains unchanged and reaches the seven-day warning at
+2026-10-23 00:00 Asia/Seoul; this is a warning boundary, not an import expiry. Preparation's
+separate 24-hour expiry is unchanged. No application, test, configuration, registry, policy,
+architecture, task activation, commit, push, remote setting, upload or deployment changed.
+Only this session handoff was appended in the clean existing calibration checkout; no new
+decision, defect or completed task was introduced. Documentation whitespace was checked;
+application tests were not rerun for this assessment.
+
+
+## TASK-009 source transport preparation and delivery — 2026-10-22
+
+The user requested execution of the identified next work, verification and main integration.
+Prepared the exact documentary source transport request and evidence report, reconciling live
+PR #34 merge/exact-main CI, proposed immutable tag target, asset identities, current official
+resource/policy evidence and four license spot checks against the dated 195-category audit.
+Observation bytes/canonical collection, manifest coverage and all three equal approved quality
+objects were checked locally with Node.js 22.22.3, not the pinned application runtime.
+The original ZIP was not located in the scoped project/temporary search. Docker daemon access
+failed and the Docker application was not found; no raw replay or new ZIP hash is claimed.
+Detailed protection API readback returns integration 403; normal protected PR checks remain.
+
+Local Git metadata writes are sandbox-restricted, so the remote preparation branch was created
+from exact main through the connected GitHub API. The reused checkout's original session
+assessment is preserved and included; all other checkouts and original untracked files remain.
+No application, test, dependency, workflow, quality/configuration, runtime registry, public URL,
+status rule, remote setting, source asset, operational dispatch or deployment changed. No entire
+task or milestone is marked complete. TASK-009 remains active; TASK-010 paused; TASK-021 gated.
+Local documentary/invariant checks, independent review and exact PR/main CI are recorded in
+[the verification report](../reports/test-2026-10-22-task-009-source-transport.md); unknown future
+outcomes are not inferred from this entry. The source request is evidence only and retains
+actual upload/publication/backup/recovery action-time prerequisites.

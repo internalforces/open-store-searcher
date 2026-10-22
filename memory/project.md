@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
 
 ## Summary
 
@@ -47,6 +47,18 @@ open-store-searcher/
 ```
 
 Approved source boundaries are `src/app`, `src/search`, `src/domain`, `src/pipeline`, and `src/shared`; TASK-002 created them.
+
+## TASK-009 source transport preflight — 2026-10-22
+
+PR #34 is merged as `cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a`; exact-main Verify is
+completed/success. Its older premerge wording below is historical. The user requested execution
+of the identified next preparation, verification and protected-main integration. The
+[source transport preflight](../reports/research-2026-10-22-task-009-source-transport.md) and
+[exact request](../reports/source-transport-2026-10-22.json) bind the two approved assets,
+fixed tag target, licensing/resource evidence and remaining operational gates. The original ZIP
+was not located in the scoped project/temporary search, so upload/replay is blocked. No runtime
+registry, quality input or operational setting changed. TASK-009 remains active for II-10/hosted
+AC-009-4/5; TASK-010 stays paused and TASK-021 gated. No publication or recovery success is claimed.
 
 ## PR #34 final review and conditional integration — 2026-10-21
 
