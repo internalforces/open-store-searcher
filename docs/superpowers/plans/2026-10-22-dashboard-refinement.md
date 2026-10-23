@@ -8,7 +8,19 @@
 
 **Tech Stack:** Existing pinned Node24.19.0/npm11.17.0, TypeScript7.0.2, Preact10.29.8, Vite8.2.1, CSS/SVG, Vitest and Playwright. No new package.
 
-**Spec:** [Dashboard refinement proposal](../specs/2026-10-22-dashboard-refinement-design.md), QM-01–08. Proposed TASK-028, planning only, unactivated. Exact new colors/durations are not approved. The user requested planning on2026-10-22; this does not authorize implementation.
+**Spec:** [Finalized dashboard refinement](../specs/2026-10-22-dashboard-refinement-design.md), QM-01–08. TASK-028 is active under the explicit 2026-10-23 instruction to finalize the design and implement. Remaining verification gates are recorded separately.
+
+## Current execution authority — 2026-10-23
+
+The user explicitly activated TASK-028 and requested design finalization followed by implementation.
+The existing restrained Prism material/motion table is finalized under that delegation; the exact
+values are the implementer's calls, not values directly supplied by the user. This instruction
+changes sequencing while preserving TASK-027's pending-refresh/loader actual-speech gaps.
+Execute the four stages inline and obtain one fresh whole-change review. Preserve every content,
+focus, request, deadline, retry, performance and safety contract. Earlier proposed approval/status
+statements below are retained historical planning context, superseded by this authority.
+Git metadata is read-only: normal feature-branch creation failed, so owned source changes remain
+in the already isolated checkout for review. No push, merge or deployment is included.
 
 ## Global Constraints
 
@@ -21,6 +33,16 @@
 - Proposed motion: no entrance sweep,120ms hover,80ms press,160ms accepted-response underline,180ms selected-edge trace. One iteration, no success effect on stale/rejected work, no clock/focus replay. Reduced/forced media removes decoration and retains static state.
 - Preserve existing5s assertion deadlines, retries/failOnFlaky, runner defaults and all2.5s primary/LCP,500ms loaded-search/page,300000byte initial-code budgets. Alternative serial results do not replace the required default pass.
 - All harness content is English; never access handbook/ko/**. TASK-009 waits,010paused,021gated; TASK-023 enhancements are excluded. No merge/deploy is implied by this plan.
+
+## Implementation checkpoint — 2026-10-23
+
+Stages 2 and 3 product edits are implemented; component189/type/style/build/search quality pass.
+The [current verification record](../../../reports/test-2026-10-23-task-028.md) records exact source
+bindings and all outstanding checks. Three unchanged macOS archive-tool tests fail; local server
+and browser execution are blocked. Fresh rendered comparison, browser RED/GREEN, media/axe/zoom/
+actual speech and runtime performance cannot be claimed. Checkboxes below remain open wherever
+the full step's verification contract is unmet. Final source review is in progress; no task or
+release acceptance is inferred from implementation.
 
 ## Review Focus
 

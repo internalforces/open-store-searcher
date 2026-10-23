@@ -1,0 +1,143 @@
+{
+  "task": "TASK-028",
+  "date": "2026-10-23",
+  "base": "05bffdee2d6d6a037b24fb589ae266bc8f5f633e",
+  "status": "implemented; acceptance pending supported rendering/full/AT verification",
+  "environment": {
+    "platform": "darwin",
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "browserExecution": "blocked",
+    "localServerListen": "EPERM",
+    "gitMetadata": "read-only"
+  },
+  "checks": {
+    "component": {
+      "files": 15,
+      "passed": 189,
+      "failed": 0
+    },
+    "typecheck": "pass",
+    "lint": "pass; five pre-existing informational suggestions",
+    "format": "pass",
+    "build": "pass",
+    "searchQuality": {
+      "syntheticTop3": "28/30",
+      "sourceTop3": "98/100",
+      "safetyFailures": 0
+    },
+    "verifyFull": {
+      "exit": 1,
+      "testFiles": 59,
+      "passed": 1429,
+      "failed": 3,
+      "browsers": "not reached"
+    },
+    "workspaceBrowserCollection": 24,
+    "motionRedGreen": "unavailable; runner blocked before assertions",
+    "performance": "unavailable; bind EPERM; no samples"
+  },
+  "sourceSha256": {
+    "src/app/app.css": "53c58c82e6ea457932e3b45b409046e01e6863345bdb9cc86341d34f3a4f999b",
+    "src/app/workspace-intro.tsx": "1f9e9e72f94c35e6b1e51f75e4407f2689d6f36588031cdc9a1a45eaadd3d960",
+    "tests/e2e/workspace.spec.ts": "8146af5c5811f730b0cc355cd44de6e4eac9f17ca0e2329b3151416504d44960",
+    "src/app/app.tsx": "9f6f9b81c09c8417b6c703d3f70f66148a1373128b6716fe8c8503ea175df116",
+    "src/app/search-results.tsx": "d6497876aef6ae774d95b008bcff02f7fb21a36258cbd5c18a68ad7198edb458",
+    "src/app/result-card.tsx": "f1502f1082aa63cf81d2cfcfb712fefd849d2368781609455ba1d9d7b31c978d",
+    "src/app/record-evidence.tsx": "0bda5eb85d1ddc105ea0aac84f774ad8506548f2af8a200c0d55f4ab9da1ca58",
+    "src/app/candidate-summary.tsx": "9c08bfbdfd0972038f10f0d1cfaec3165507de281b8ae15f5e412ad7afe6aa8a",
+    "playwright.config.ts": "ad79780f60b8c43d3e4a277602d6efb49aee80e61657d7dea373d04191960f41",
+    "package.json": "97f96dd8ea38b06e2e0570444069710b678734139fd3e37355c0ac2712bd5ec9",
+    "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89",
+    "scripts/measure-performance.mjs": "0c56a4fde0e4cc6b1fdf2c186e767289f51c85d290937026f0be375047a9985a"
+  },
+  "buildAssets": [
+    {
+      "path": "dist/assets/compact-search.worker-zG16gCmW.js",
+      "bytes": 21176,
+      "sha256": "2c494a4e8f01128234122f063c5c7eace8f11eb933c57f208db60bfd55bb400a"
+    },
+    {
+      "path": "dist/assets/demo-1-Dgx1yC7q.json",
+      "bytes": 1781,
+      "sha256": "0c4fac06133c4bf4ae7e941aee5950710f87a633ac6b90f5869735b3dbcf8244"
+    },
+    {
+      "path": "dist/assets/demo-2-Cwgu9dF3.json",
+      "bytes": 1780,
+      "sha256": "5196849d529dd0f5d0ebff154ab6270ab0738258fe6705a715c229dccf182353"
+    },
+    {
+      "path": "dist/assets/demo-3-DYrVXLTo.json",
+      "bytes": 1770,
+      "sha256": "14066ff1dfc94f46d5cc07e1ac778da08cefefc9b573835923da325d8208c770"
+    },
+    {
+      "path": "dist/assets/index-BbfMTcq9.js",
+      "bytes": 56121,
+      "sha256": "93afa1db55070d235ca85c712a2123cd51fe36712b7c56cf1d16de7796695034"
+    },
+    {
+      "path": "dist/assets/index-DmOe2V3A.css",
+      "bytes": 14350,
+      "sha256": "06531518787a0f2b0dadf537dbb5e9fb43f2475e4d29d8e76715dcaabf9eafee"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 405,
+      "sha256": "7b84fc84a2c8d0fbb4ec5a1a060edabd6d754a55de5510778a28595221c44f1e"
+    }
+  ],
+  "conservativeCodeBytes": 92052,
+  "opaqueColorCalculations": [
+    {
+      "foreground": "#202936",
+      "background": "#ffffff",
+      "contrast": 14.6663
+    },
+    {
+      "foreground": "#202936",
+      "background": "#f7f8fa",
+      "contrast": 13.8018
+    },
+    {
+      "foreground": "#4b5563",
+      "background": "#ffffff",
+      "contrast": 7.5574
+    },
+    {
+      "foreground": "#4b5563",
+      "background": "#f7f8fa",
+      "contrast": 7.1119
+    },
+    {
+      "foreground": "#2456e8",
+      "background": "#ffffff",
+      "contrast": 5.8801
+    },
+    {
+      "foreground": "#1338b4",
+      "background": "#ffffff",
+      "contrast": 9.3233
+    },
+    {
+      "foreground": "#7384a8",
+      "background": "#ffffff",
+      "contrast": 3.7534
+    },
+    {
+      "foreground": "#7384a8",
+      "background": "#f7f8fa",
+      "contrast": 3.5322
+    }
+  ],
+  "renderedContrastVerified": false,
+  "productionVerified": false,
+  "review": {
+    "verdict": "Approved for reviewed source quality; one nonblocking Minor test precondition finding",
+    "acceptance": "withheld",
+    "reviewedWorkspaceTestSha256": "79b172997e019eed5fb5d70b495f39e608733b871799ae4ab18e2d41a4ed49e0",
+    "finalWorkspaceTestSha256": "8146af5c5811f730b0cc355cd44de6e4eac9f17ca0e2329b3151416504d44960",
+    "followup": "requires one paused midpoint effect; static checks only, no runtime closure or independent rereview"
+  }
+}

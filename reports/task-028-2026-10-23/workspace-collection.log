@@ -1,0 +1,26 @@
+Listing tests:
+  [chromium] › workspace.spec.ts:33:1 › inspection and return preserve keyboard focus
+  [chromium] › workspace.spec.ts:78:1 › all pagination controls preserve complete identity order and invalidate off-page inspection
+  [chromium] › workspace.spec.ts:123:1 › long evidence reflows across workspace breakpoints
+  [chromium] › workspace.spec.ts:154:1 › fallback media never hides evidence or controls
+  [chromium] › workspace.spec.ts:195:1 › decoration preserves immediate content, stable geometry and resource boundaries
+  [chromium] › workspace.spec.ts:410:1 › accepted actions show quiet feedback without replay or stale identity
+  [firefox] › workspace.spec.ts:33:1 › inspection and return preserve keyboard focus
+  [firefox] › workspace.spec.ts:78:1 › all pagination controls preserve complete identity order and invalidate off-page inspection
+  [firefox] › workspace.spec.ts:123:1 › long evidence reflows across workspace breakpoints
+  [firefox] › workspace.spec.ts:154:1 › fallback media never hides evidence or controls
+  [firefox] › workspace.spec.ts:195:1 › decoration preserves immediate content, stable geometry and resource boundaries
+  [firefox] › workspace.spec.ts:410:1 › accepted actions show quiet feedback without replay or stale identity
+  [webkit] › workspace.spec.ts:33:1 › inspection and return preserve keyboard focus
+  [webkit] › workspace.spec.ts:78:1 › all pagination controls preserve complete identity order and invalidate off-page inspection
+  [webkit] › workspace.spec.ts:123:1 › long evidence reflows across workspace breakpoints
+  [webkit] › workspace.spec.ts:154:1 › fallback media never hides evidence or controls
+  [webkit] › workspace.spec.ts:195:1 › decoration preserves immediate content, stable geometry and resource boundaries
+  [webkit] › workspace.spec.ts:410:1 › accepted actions show quiet feedback without replay or stale identity
+  [mobile-chromium] › workspace.spec.ts:33:1 › inspection and return preserve keyboard focus
+  [mobile-chromium] › workspace.spec.ts:78:1 › all pagination controls preserve complete identity order and invalidate off-page inspection
+  [mobile-chromium] › workspace.spec.ts:123:1 › long evidence reflows across workspace breakpoints
+  [mobile-chromium] › workspace.spec.ts:154:1 › fallback media never hides evidence or controls
+  [mobile-chromium] › workspace.spec.ts:195:1 › decoration preserves immediate content, stable geometry and resource boundaries
+  [mobile-chromium] › workspace.spec.ts:410:1 › accepted actions show quiet feedback without replay or stale identity
+Total: 24 tests in 1 file

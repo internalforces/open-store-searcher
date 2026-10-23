@@ -223,6 +223,11 @@ test('decoration preserves immediate content, stable geometry and resource bound
     observer.observe({ type: 'layout-shift' });
     return true;
   });
+  expect(
+    await page
+      .locator('.search-glint')
+      .evaluate((node) => getComputedStyle(node, '::after').animationName),
+  ).toBe('none');
   const initial = await page.locator('.search-panel').boundingBox();
   await expect(page.getByRole('searchbox')).toBeVisible();
   await page.clock.fastForward(700);
@@ -402,9 +407,7 @@ test('decoration preserves immediate content, stable geometry and resource bound
   ).toBe(0);
 });
 
-test('accepted responses and changed details have finite decorative motion without replay', async ({
-  page,
-}) => {
+test('accepted actions show quiet feedback without replay or stale identity', async ({ page }) => {
   test.setTimeout(120_000);
   await page.clock.install({ time: new Date('2026-09-07T14:59:00Z') });
   await mountPagination(page);
@@ -412,13 +415,13 @@ test('accepted responses and changed details have finite decorative motion witho
   await expect(resultGlint).toHaveCount(1);
   expect(
     await resultGlint.evaluate((node) => getComputedStyle(node, '::after').animationDuration),
-  ).toBe('0.18s');
+  ).toBe('0.16s');
   await page.locator('.candidate-summary').first().getByRole('button').click();
   const detailGlint = page.locator('.detail-glint');
   await expect(detailGlint).toHaveCount(1);
   expect(
     await detailGlint.evaluate((node) => getComputedStyle(node, '::after').animationDuration),
-  ).toBe('0.22s');
+  ).toBe('0.18s');
   const before = await page.locator('.workspace-detail').boundingBox();
   for (const progress of [0, 0.5, 1]) {
     await page.evaluate((progress) => {
@@ -488,11 +491,55 @@ test('accepted responses and changed details have finite decorative motion witho
   ).toBe(true);
   await expect(page.locator('.workspace-detail')).toHaveCount(0);
   await page.locator('.candidate-summary').first().getByRole('button').click();
-  for (const media of [
-    { reducedMotion: 'reduce' },
-    { forcedColors: 'active', reducedMotion: 'no-preference' },
-  ] as const) {
+  for (const [index, media] of (
+    [
+      { reducedMotion: 'reduce', forcedColors: 'none' },
+      { forcedColors: 'active', reducedMotion: 'no-preference' },
+    ] as const
+  ).entries()) {
+    await page.emulateMedia({ reducedMotion: 'no-preference', forcedColors: 'none' });
+    // Mount a different record and hold its decoration mid-effect before changing media.
+    const inspect = page
+      .locator('.candidate-summary')
+      .nth(index + 1)
+      .getByRole('button');
+    await inspect.click();
+    const heading = page.locator('.workspace-detail h3');
+    await expect(heading).toBeFocused();
+    const identity = await page.locator('.workspace-detail').getAttribute('aria-label');
+    const evidence = await page.locator('.workspace-detail .record-evidence').textContent();
+    expect(
+      await detailGlint.evaluate((node) => {
+        const animations = node.getAnimations({ subtree: true });
+        for (const animation of animations) {
+          animation.pause();
+          animation.currentTime = 90;
+        }
+        return animations.map((animation) => {
+          const timing = animation.effect?.getComputedTiming();
+          return {
+            time: animation.currentTime,
+            state: animation.playState,
+            duration: timing?.duration,
+            inProgress: timing?.progress != null && timing.progress > 0 && timing.progress < 1,
+          };
+        });
+      }),
+    ).toEqual([{ time: 90, state: 'paused', duration: 180, inProgress: true }]);
     await page.emulateMedia(media);
+    await expect(heading).toBeFocused();
+    await expect(page.locator('.workspace-detail')).toHaveAttribute('aria-label', identity ?? '');
+    await expect(inspect).toHaveAttribute('aria-pressed', 'true');
+    expect(await page.locator('.workspace-detail .record-evidence').textContent()).toBe(evidence);
+    expect(
+      await page.locator('.workspace-detail').evaluate((node) => {
+        const style = getComputedStyle(node);
+        return (
+          Number.parseFloat(style.borderInlineStartWidth) >= 2 &&
+          style.borderInlineStartStyle === 'solid'
+        );
+      }),
+    ).toBe(true);
     for (const glint of [resultGlint, detailGlint]) {
       await expect(glint).toBeHidden();
       expect(await glint.evaluate((node) => getComputedStyle(node, '::after').animationName)).toBe(

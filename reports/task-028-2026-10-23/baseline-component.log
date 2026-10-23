@@ -1,0 +1,13 @@
+
+> open-store-searcher@0.1.0-dev test:component
+> vitest run --project=component
+
+
+ RUN  v4.1.11 /Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality
+
+
+ Test Files  15 passed (15)
+      Tests  189 passed (189)
+   Start at  08:46:20
+   Duration  3.97s (transform 844ms, setup 1.79s, import 1.90s, tests 10.44s, environment 7.68s)
+

@@ -17,15 +17,14 @@ _Last updated: 2026-10-22_
 | TASK-023 | Improve candidate-list keyboard navigation | Medium | M4 | M | FR-16 |
 | TASK-024 | Design static-file expansion outside Seoul | Low | M4 | L | FR-17 |
 | TASK-026 | At each milestone close, update or review affected Korean handbook documents and obtain human language review | High | Recurring | S | Documentation NFR; all safety invariants |
-| TASK-028 | Refine dashboard visual restraint and interaction feedback | Medium | M2 follow-up | L | FR-01 through FR-14, baseline FR-16, accessibility/performance NFRs |
 
 ## Recommended Start Order
 
 1. TASK-008 is complete. TASK-009 is awaiting materials/action-time approval and does not
    occupy the active implementation slot; TASK-010 remains paused. Use the current
    [waiting register](../reports/status-2026-10-22-task-009-waiting.md), not historical calibration/active notes below.
-2. TASK-027 becomes the sole active task on this handoff integration by explicit user request;
-   start with detailed design confirmation and planning. See [active work](active.md).
+2. TASK-028 is active under the explicit 2026-10-23 activation/finalization/implementation request.
+   PR37 is merged; retain TASK-027 residual actual-AT evidence separately. See [active work](active.md).
 3. Resume TASK-009 explicitly when applicable evidence and approvals are available and the slot
    is free; retain hosted AC-009-4/5 and II-10 acceptance before sequential TASK-010 completion.
 4. Keep TASK-021 gated on performance/publication/recovery and remaining release criteria.
@@ -124,8 +123,8 @@ is separate from the still-absent workflow config; no deployment/publication is 
 
 ## TASK-028: Dashboard visual restraint and interaction feedback
 
-- Status: Proposed and unactivated; planning requested on 2026-10-22. TASK-027 is accepted;
-  no follow-up implementation or active-slot handoff is inferred from that completion.
+- Status: Active on 2026-10-23 by explicit user instruction to activate, finalize the design and
+  implement. PR37 is merged; TASK-027 residual affected actual-AT evidence remains open.
 - Owner: Planner / Designer for design review; Implementer / Tester / Reviewer only after
   explicit execution and active-slot authority.
 - Milestone: M2 follow-up; priority Medium; size L.

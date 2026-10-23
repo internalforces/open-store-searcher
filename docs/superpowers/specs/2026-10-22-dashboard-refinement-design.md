@@ -5,12 +5,14 @@ Update Trigger: When the user reviews the proposed visual or motion direction
 Harness Version: 1.1
 -->
 
-# Dashboard Refinement Design Proposal
+# Dashboard Refinement Design
 
 Date: 2026-10-22
-Status: Proposed, planning only. The user requested less AI-styled presentation and animation
-in a follow-up; the exact treatments below are coordinator recommendations, not approved values.
-Proposed owner: TASK-028, unactivated. TASK-027 remains the sole active task.
+Status: Finalized for implementation on 2026-10-23 under the user's explicit TASK-028 activation
+and delegated design-finalization/implementation instruction. The restrained Prism direction and
+the concrete material/motion table below are the implementer's bounded design decisions.
+Owner: TASK-028, the sole active implementation task. TASK-027 residual actual-AT evidence is
+retained without a completion or waiver claim; PR37 is merged and its final canonical CI passed.
 
 ## Intent and evidence
 
@@ -37,7 +39,7 @@ not a replacement product or an instruction to copy a commercial dashboard.
 | Flat monochrome | Removes nearly all prism expression | Do not select by default: discards more of the approved identity than requested |
 | Richer glass spectacle | Adds moving gradients, more glow and floating panels | Do not select by default: adds the repeated visual motifs being questioned |
 
-## Proposed visual contract
+## Finalized visual contract
 
 - Keep search, candidates, selected detail and evidence as distinct information roles. Use spacing,
   headings and separators before adding another card. Do not remove source/status evidence from
@@ -60,7 +62,7 @@ not a replacement product or an instruction to copy a commercial dashboard.
   at least48px. Retain72px/64px wide-screen rails and the existing1280/1024 breakpoints, with body
   scrolling and natural single-column reflow below1024. No sticky overlay or independent scroll.
 
-## Proposed motion contract
+## Finalized motion contract
 
 The focal interaction is selecting a candidate and seeing exactly which record's evidence is
 being inspected. Supporting feedback acknowledges accepted searches/pages. Essential text,
@@ -87,9 +89,9 @@ Failed/obsolete responses never animate as successful. Rapid changes cancel the 
 layer; they never delay new evidence or restore an old identity. No new dependency, global timer,
 motion-owned record state or animation promise in the search/Worker completion path.
 
-The proposed motion and material values intentionally differ from parts of the approved TASK-027
-spec. They become authority only after full follow-up design approval. Existing tests for180/220ms
-Prism sweeps may be updated only for that approved change; unrelated assertions remain intact.
+The finalized motion and material values intentionally supersede the TASK-027 decorative values
+under the user's delegated finalization request. Existing tests for 180/220ms Prism sweeps may
+change for this deliberate presentation change; unrelated assertions remain intact.
 
 ## Safety and delivery boundaries
 
@@ -104,7 +106,7 @@ business facts, pipeline change, security setting, workflow permission or deploy
 TASK-023 enhanced keyboard navigation and TASK-009/010/021 operational gates remain separate.
 Do not access handbook/ko/** during this workflow.
 
-## Acceptance proposal
+## Acceptance criteria
 
 | ID | Required proof before follow-up completion |
 |---|---|
@@ -119,14 +121,14 @@ Do not access handbook/ko/** during this workflow.
 
 ## Preconditions and calls for human review
 
-Current TASK-027 PG-15 default full verification and PG-10 actual VoiceOver output are still open
-in [the current evidence](../../../reports/test-2026-10-22-task-027.md). Publishing its branch/PR
-is not completion or permission to merge. Read any new PR CI result separately; do not guess it.
-No follow-up product implementation starts until full design approval and an explicit active-slot
-handoff after TASK-027 acceptance, or a human explicitly changes that sequencing/acceptance contract.
-The recommended visual restraint and exact durations above are the coordinator's calls to review.
+The user's 2026-10-23 instruction explicitly changes sequencing and delegates design finalization
+before implementation. PR37 merged with final head `05bffde` and passing Verify `39800368846`.
+TASK-027's pending-refresh/changed-loader actual speech evidence remains outstanding. TASK-028
+does not silently close it. Capture desktop/mobile before/after comparisons for the concrete
+decisions above; no separate approval checkpoint is inferred from the older proposed workflow.
 
 
 Independent planning check: Sol/xhigh reports no material unanswered question after clarifying
 conditional future routing. See [the planning review](../../../reports/review-2026-10-22-dashboard-refinement-plan.md).
-Human design review and execution/active-slot authority remain outstanding.
+Execution/active-slot authority is now supplied by the user's 2026-10-23 instruction. Visual and
+verification outcomes still require concrete evidence; activation is not task acceptance.

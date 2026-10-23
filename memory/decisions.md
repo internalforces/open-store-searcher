@@ -938,3 +938,15 @@ normal exact-head CI/review and protected integration still apply. Restore the c
 consented temporary test's original VoiceOver-off baseline and retain caption preferences.
 The follow-up TASK-028 remains proposed/unactivated; no design, policy or operational gate is
 changed by TASK-027 completion. See [final manual evidence](../reports/manual-2026-10-22-task-027-voiceover-final.md).
+
+
+## TASK-028 activation and delegated design finalization — 2026-10-23
+
+The user explicitly requests TASK-028 activation, design finalization and implementation. Adopt
+the already reviewed restrained Prism proposal: neutral #F7F8FA/white surfaces, #202936/#4B5563
+text, retained #2456E8 action/status/focus policy, 16/12/8px corners, compact prism identity,
+120ms hover/80ms press/160ms accepted-action/180ms selection feedback and static first paint.
+These exact values are the implementer's calls under delegated finalization. No classification,
+content, focus, search, data transport, public interface or dependency changes are authorized.
+The activation explicitly changes sequencing; TASK-027 residual actual-speech evidence is retained
+without a waiver. TASK-009/010/021 remain waiting/paused/gated. No deployment is included.
