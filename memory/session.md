@@ -3170,3 +3170,30 @@ The requested app screen remains unopened: no project server is listening, and a
 5199start fails listenEPERM. Browser file policy is respected without workaround. All prior
 actual-AT/rendered/runtime and supported full acceptance gates remain; TASK-028 stays active.
 Local branch/index and other checkouts remain preserved under read-only Git metadata.
+
+
+## TASK-009 verified source adoption — 2026-10-23
+
+TASK-009 is the sole active implementation/operational task. The user explicitly requested
+TASK-009/010 completion, resolution of prerequisites and real-data connection, and then approved
+the Chrome ChatGPT local-file access change. TASK-028 is paused outside the slot with its prior
+acceptance gaps retained; PR38 is merged. TASK-010 follows TASK-009 sequentially.
+
+The exact October16 source was recovered and hash-verified, published as Release421355167 at
+tag `initial-source-seoul-2026-10-16` → `cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a`.
+Actual archive667614415 and observation667616298 passed complete production-downloader
+verification in Ubuntu run39884746237/attempt1 at `1e92b7d`. The source registry in this
+changeset selects those exact verified assets. Approved policy, baseline, reviewed pairs and
+configuration bytes remain unchanged. Collection stays October16; coverage remains null/unverified,
+and the seven-Seoul-calendar-day warning applies from October23.
+
+This closes source availability/public transport verification only. Actual candidate preparation,
+full-data/mobile/performance acceptance, protected publication, complete public reconciliation,
+durable backup/recovery and independent final task acceptance remain. No Pages/schedule variable,
+deployment setting, operational import/refresh/restore dispatch or deployment is enabled by this
+change. TASK-009/010 and TASK-021/release/milestone gates remain incomplete. AC-010-5 requires
+actual thirty-day evidence. Earlier waiting/no-source/upload-withheld snapshots below are historical.
+
+See [the source-adoption evidence](../reports/test-2026-10-23-source-adoption.md) and
+[independent review](../reports/review-2026-10-23-source-transport-verification.md).
+

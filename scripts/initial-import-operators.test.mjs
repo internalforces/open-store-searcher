@@ -57,8 +57,11 @@ async function hook(f, options = {}) {
       const f = fixtureData, options = fixtureOptions;
       return loadCurrentCode(async load => use(async name => {
         const real = await load(name);
-        if (name === 'initial-import-approval' && options.active !== false)
-          return {...real, selectInitialSourceApproval: () => ({id:'seoul-2026-10-16-initial'})};
+        if (name === 'initial-import-approval')
+          return {...real, selectInitialSourceApproval: options.active === false
+            ? (registry, sourceId, config) => real.selectInitialSourceApproval(
+                {...registry, activeSourceId: null, sources: []}, sourceId, config)
+            : () => ({id:'seoul-2026-10-16-initial'})};
         if (name === 'initial-source-download') return {...real,downloadInitialSource:async()=>{
           if(options.failure==='source')throw Error('fixture source failure');
           return {archivePath:'synthetic.zip',observationPath:'synthetic.json',transport:{kind:'github-release'}};
@@ -213,7 +216,7 @@ test('synthetic hosted wiring checks direct 404 both before staging and after pa
   });
   assert.equal((await readFile(f.network, 'utf8')).trim().split('\n').length, 2);
 });
-test('hosted inactive authority refuses before network or input work', async (t) => {
+test('hosted explicitly inactive authority fixture refuses before network or input work', async (t) => {
   const f = await fixture(t);
   await rejected(
     f,
