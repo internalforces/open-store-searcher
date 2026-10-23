@@ -15,7 +15,7 @@ run/identity/configuration/tar/inventory values, artifact metadata, test totals,
 
 | Reviewed file | SHA-256 |
 | --- | --- |
-| `reports/acceptance-2026-10-23-task-009-preparation.md` | `b9a9b0ceba26e57089d49b3eba5f9220fa25522274bd7bc366a9cb7ad1f9a4de` |
+| `reports/acceptance-2026-10-23-task-009-preparation.md` | `b85940f82e9ba252c5556fed5ebb876ac04cd23539ff5b6976b8e0b6aa15030d` |
 | `reports/task-009-2026-10-23/hosted-preparation.json` | `b1d0ea9ff364681732c3a96b5d84b8c10b8f1b3cd1c083226fc61e2f9b00346a` |
 
 The reviewer independently computed the canonical preparation SHA-256 from the logged JSON:
