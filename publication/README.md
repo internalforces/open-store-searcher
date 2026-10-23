@@ -7,9 +7,9 @@ task; TASK-028 is paused with its remaining evidence retained and TASK-010 follo
 The source registry now selects `seoul-2026-10-16-initial`: actual Release421355167, archive asset
 667614415 and observation667616298. Both complete assets passed the existing production downloader
 in Ubuntu run39884746237. See [source-adoption evidence](../reports/test-2026-10-23-source-adoption.md).
-The source-only verifier selects this same runtime registry: registry edits on the verification
-branch trigger it, and current main supports manual verification; the dated proposal remains
-historical evidence. An inactive registry rejects before download.
+The source-only verifier selects this same runtime registry on every push to the verification
+branch, including executable/input dependency edits; current main supports manual verification.
+The dated proposal remains historical evidence. An inactive registry rejects before download.
 Recovery authority remains null/empty. Publication and schedule flags remain unset/off; Pages is
 currently disabled. No import, refresh, restore or deployment has been dispatched at this checkpoint.
 Original October16 collection/null coverage and all approved quality/configuration bytes remain.

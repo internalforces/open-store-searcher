@@ -2,9 +2,6 @@ name: Verify published initial source bytes
 on:
   push:
     branches: [codex/task-009-source-transport-verification]
-    paths:
-      - .github/workflows/verify-initial-source.yml
-      - publication/initial-import-approvals.json
   workflow_dispatch:
 permissions: {}
 concurrency:

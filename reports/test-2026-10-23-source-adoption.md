@@ -121,3 +121,22 @@ inactive registry, then passed with the current registry consumed exactly and in
 rejected before download. All16workflow tests and scoped Biome pass. No permission, deployment
 or product validation rule changed. Final-head source-byte verification and full canonical CI must
 pass before protected integration.
+
+## Passing checkpoint and final review binding
+
+Canonical run39886887114 at `4524ca094c1b60a42c58790f1108db5fe44ced7d` completed/success:
+59Vitest files/1,432tests,92cross-browser E2E,20accessibility and102Node operator checks; zero
+failed operator checks. Coverage is93.93% statements/92.62% branches/96.48% functions/95.62% lines.
+Corrected active-registry source run39886717217 at `02ae9b7e7d934f841d56374ed7c529141d5cd5ea`
+completed/success with137offline tests and both complete verified assets. Receipt artifact12473320887
+is1,124ZIP bytes, wrapper SHA-256 `84f9480f109da6d8c0e93833a1e9469c1ef913586e45561224a8efb8fbacf98f`.
+The independent reviewer separately verified this run and current active-selection code.
+
+Subsequent review requested an explicit in-repository current review binding and complete
+verification-branch dependency triggering. The narrow path filter is now removed: every push on
+the exact verification branch runs source-byte verification, including changes to executed helpers,
+transitive pipeline modules and fixed inputs. Manual-main admission remains unchanged. The
+16workflow regressions and Biome pass after this final filter correction. The current independent
+review/file hashes are in [the review record](review-2026-10-23-source-transport-verification.md).
+Final-head canonical CI and source-byte success remain required; the earlier passing checkpoint
+is not substituted for final integration evidence. No publication or settings mutation occurred.

@@ -7,6 +7,10 @@ Harness Version: 1.1
 
 # Independent source-transport verification review — 2026-10-23
 
+The proposal-verifier review below is historical and superseded for current workflow authority
+by the active-registry/dependency-trigger review at the end. Its old hashes remain historical
+bindings and must not be used as approval of the current workflow.
+
 Verdict: **Approved**, zero Critical/Important/Minor findings. Independent reviewer
 `source_transport_review` reviewed only `.github/workflows/verify-initial-source.yml` and
 `reports/source-approval-2026-10-23-proposed.json`, supported by the existing admission,
@@ -53,3 +57,29 @@ Controller fresh210focused tests, type/lint/format and RED80pass/1fail→GREEN81
 selection evidence are recorded in [the delivered source-adoption report](test-2026-10-23-source-adoption.md). Current-head canonical full CI remains
 required before protected integration. No ingestion, performance, publication/recovery or task
 completion acceptance is supplied by this scoped review. Reviewer made no mutations.
+
+## Current active-registry and dependency-trigger review
+
+Verdict: **Approved**, zero Critical/Important/Minor findings. Independent reviewer
+`source_transport_review` reviewed the actual runtime-registry selection, regression execution
+and current documentation at `4524ca0`, then independently compared the final path-filter removal
+against that commit. This current verdict supersedes the earlier proposal-only workflow approval.
+The unchanged real selector rejects inactive authority before download/receipt; the actual embedded
+workflow regression checks that behavior and exact current authority consumption. Every push to
+the exact verification branch now verifies source bytes, including executable/transitive/input
+changes. Main verification is manual. Permissions, exact branch/main admission and receipt-only
+artifact scope are unchanged. The reviewer independently verified successful active-registry
+source run39886717217; controller16/16local workflow tests and Biome pass are disclosed, not
+misrepresented as reviewer-executed tests. No reviewer file or remote mutations occurred.
+
+| Current reviewed file | SHA-256 |
+| --- | --- |
+| `.github/workflows/verify-initial-source.yml` | `4bd4c02731a57000b0e769fccba0f5f7d58eab3808d936a41e50b7f73f2e3a8e` |
+| `scripts/check-publication-workflows.test.mjs` | `b826f72f453e7481debd3567314675f818cb14813527b369a51b6be93d337550` |
+| `scripts/initial-import-operators.test.mjs` | `9d5db4b8eebd8eecfa4ae0ee55815f46d04d2c0d4065831907ae532049741739` |
+
+The operator fixture/hash was separately Approved in the same review sequence. Six harness
+checkpoints, delivered adoption evidence and operator/deployment corrections are Approved with
+no outstanding findings. Final-head canonical Verify, complete-source verification and resolved
+review threads are required before normal protected merge. This verdict does not close candidate,
+performance, public/deployment, durable recovery, TASK-009/010 or release acceptance.

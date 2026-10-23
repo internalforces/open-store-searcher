@@ -153,7 +153,7 @@ test('source verification consumes active runtime authority and refuses inactive
   );
   assert.deepEqual(receipt.approval, registry.sources[0]);
   assert.equal(receipt.publicationPerformed, false);
-  assert.match(sourceVerification, /^ {6}- publication\/initial-import-approvals\.json$/m);
+  assert.doesNotMatch(sourceVerification, /^ {4}paths(?:-ignore)?:/m);
 });
 test('refresh evaluates its actual default-off schedule and current-main predicate truth table', () => {
   const expression = job(refresh, 'prepare').match(/^ {4}if: (.+)$/m)?.[1];
