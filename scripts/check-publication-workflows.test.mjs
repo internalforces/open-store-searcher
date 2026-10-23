@@ -4,12 +4,14 @@ import { access, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
+import { pathToFileURL } from 'node:url';
 
 const read = (p) => readFile(new URL(`../${p}`, import.meta.url), 'utf8');
 const refresh = await read('.github/workflows/refresh.yml');
 const verify = await read('.github/workflows/verify.yml');
 const restore = await read('.github/workflows/restore.yml').catch(() => '');
 const initial = await read('.github/workflows/initial-import.yml').catch(() => '');
+const sourceVerification = await read('.github/workflows/verify-initial-source.yml');
 function job(yaml, name) {
   return (
     yaml.match(
@@ -108,6 +110,51 @@ const nodes = [
   'scripts/check-publication-workflows.test.mjs',
   'scripts/publication-operators.test.mjs',
 ];
+test('source verification consumes active runtime authority and refuses inactive authority before download', async (t) => {
+  const directory = await mkdtemp(join(tmpdir(), 'source-authority-workflow-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const helper = join(directory, 'helper.mjs');
+  const event = join(directory, 'download.json');
+  const actualHelper = new URL('../scripts/publication-operator-support.mjs', import.meta.url).href;
+  await writeFile(
+    helper,
+    `import { readJson as actualReadJson, trustedCode as actualTrustedCode } from ${JSON.stringify(actualHelper)};
+     import { writeFile } from 'node:fs/promises';
+     export { writeJson } from ${JSON.stringify(actualHelper)};
+     export async function readJson(path, limit) {
+       const value = await actualReadJson(path, limit);
+       return path === 'publication/initial-import-approvals.json' && process.env.INACTIVE === 'true'
+         ? {...value, activeSourceId: null, sources: []} : value;
+     }
+     export const trustedCode = use => actualTrustedCode(load => use(async name => {
+       const real = await load(name);
+       return name === 'initial-source-download' ? {...real, downloadInitialSource: async approval => {
+         await writeFile(${JSON.stringify(event)}, JSON.stringify(approval));
+         return {transport: {kind: 'synthetic-workflow-proof'}};
+       }} : real;
+     }));`,
+  );
+  const script = runStep(
+    sourceVerification,
+    'verify-source',
+    'Download and verify the exact public source without publication',
+  ).replace('./scripts/publication-operator-support.mjs', pathToFileURL(helper).href);
+  const inactive = runShell(script, { RUNNER_TEMP: directory, INACTIVE: 'true' });
+  assert.equal(inactive.status, 1, inactive.stderr);
+  assert.match(inactive.stderr, /authority/i);
+  await assert.rejects(access(event));
+  await assert.rejects(access(join(directory, 'source-transport-receipt')));
+  const active = runShell(script, { RUNNER_TEMP: directory, INACTIVE: 'false' });
+  assert.equal(active.status, 0, active.stderr);
+  const registry = JSON.parse(await read('publication/initial-import-approvals.json'));
+  assert.deepEqual(JSON.parse(await readFile(event)), registry.sources[0]);
+  const receipt = JSON.parse(
+    await readFile(join(directory, 'source-transport-receipt/verification.json')),
+  );
+  assert.deepEqual(receipt.approval, registry.sources[0]);
+  assert.equal(receipt.publicationPerformed, false);
+  assert.match(sourceVerification, /^ {6}- publication\/initial-import-approvals\.json$/m);
+});
 test('refresh evaluates its actual default-off schedule and current-main predicate truth table', () => {
   const expression = job(refresh, 'prepare').match(/^ {4}if: (.+)$/m)?.[1];
   assert.ok(expression);

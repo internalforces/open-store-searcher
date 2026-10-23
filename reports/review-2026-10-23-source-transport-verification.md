@@ -50,6 +50,6 @@ registry rejection tests and exact approved config hashes remain.
 | `src/pipeline/initial-import-approval.test.ts` | `1fc1ef11b85d0d9aabc18e0810bc5b73a06c0903d8dac21aa0d4d627368b5acb` |
 
 Controller fresh210focused tests, type/lint/format and RED80pass/1fail→GREEN81/81 source
-selection evidence are recorded in the operational report. Current-head canonical full CI remains
+selection evidence are recorded in [the delivered source-adoption report](test-2026-10-23-source-adoption.md). Current-head canonical full CI remains
 required before protected integration. No ingestion, performance, publication/recovery or task
 completion acceptance is supplied by this scoped review. Reviewer made no mutations.

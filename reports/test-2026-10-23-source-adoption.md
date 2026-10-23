@@ -76,9 +76,12 @@ protected review/CI; canonical final-head verification remains an integration pr
 
 Authenticated environment UI confirms existing required reviewer `internalforces`, accepted
 self-review allowed, administrator bypass disabled, and main-only/zero-tag deployment policy.
-Those rules were read without mutation. Detailed branch-protection API remains integration403;
-the public branch API confirms protected main/required verify. No fresh complete detailed
-branch-protection readback is invented.
+Those rules were read without mutation. Fresh authenticated branch-rule83311729 UI also confirms
+required PR, required GitHub Actions `verify`, strict up-to-date branches, conversation resolution,
+administrator enforcement, force-push/deletion disabled. Required human PR approvals are disabled
+under the existing solo-maintainer policy; independent agent review is separately recorded.
+Detailed branch-protection API remains integration403. Pages UI confirms currently disabled,
+with branch source None. No settings were saved.
 
 ## Task and safety boundaries
 
@@ -105,3 +108,16 @@ The case was reproduced locally, then changed to feed an explicit null/empty reg
 the unchanged real selector. It still asserts rejection before all network and input work.
 The targeted case and Biome check pass; production guard code and all CI gates are unchanged.
 Canonical complete verification is required again on the final head; this failed run is retained.
+
+## Active-authority review correction
+
+Automated PR review identified stale operator state, an unlinked evidence reference and future
+verifier/proposal drift. Current task/session checkpoints and explicit operator/deployment updates
+resolve the state discrepancy; the review links this delivered evidence. The verifier now consumes
+`selectInitialSourceApproval` from the actual runtime registry and triggers on registry edits,
+leaving the historical proposal immutable. A regression executes the actual embedded workflow
+script with synthetic download only and real selection: it first reproduced false success for an
+inactive registry, then passed with the current registry consumed exactly and inactive authority
+rejected before download. All16workflow tests and scoped Biome pass. No permission, deployment
+or product validation rule changed. Final-head source-byte verification and full canonical CI must
+pass before protected integration.

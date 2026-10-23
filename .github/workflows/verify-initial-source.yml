@@ -4,7 +4,7 @@ on:
     branches: [codex/task-009-source-transport-verification]
     paths:
       - .github/workflows/verify-initial-source.yml
-      - reports/source-approval-2026-10-23-proposed.json
+      - publication/initial-import-approvals.json
   workflow_dispatch:
 permissions: {}
 concurrency:
@@ -36,10 +36,11 @@ jobs:
           import { readJson, trustedCode, writeJson } from './scripts/publication-operator-support.mjs';
           const receiptDirectory = join(process.env.RUNNER_TEMP, 'source-transport-receipt');
           await trustedCode(async (load) => {
-            const { validateInitialImportConfig, validateInitialSourceApproval } = await load('initial-import-approval');
+            const { validateInitialImportConfig, selectInitialSourceApproval } = await load('initial-import-approval');
+            const { INITIAL_SOURCE } = await load('initial-import-types');
             const { downloadInitialSource } = await load('initial-source-download');
-            validateInitialImportConfig(await readJson('publication/config.json', 4 * 1024 * 1024));
-            const approval = validateInitialSourceApproval(await readJson('reports/source-approval-2026-10-23-proposed.json', 1024 * 1024));
+            const config = validateInitialImportConfig(await readJson('publication/config.json', 4 * 1024 * 1024));
+            const approval = selectInitialSourceApproval(await readJson('publication/initial-import-approvals.json', 4 * 1024 * 1024), INITIAL_SOURCE.id, config);
             const source = await downloadInitialSource(approval, join(process.env.RUNNER_TEMP, 'source-transport-bytes'));
             await mkdir(receiptDirectory, { mode: 0o700 });
             await writeJson(join(receiptDirectory, 'verification.json'), {
@@ -52,6 +53,7 @@ jobs:
               runAttempt: process.env.GITHUB_RUN_ATTEMPT,
               checkedAt: new Date().toISOString(),
               runtime: process.version,
+              authorityRegistry: 'publication/initial-import-approvals.json',
               approval,
               transport: source.transport,
               runtimeRegistryModified: false,
