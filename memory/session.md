@@ -3153,3 +3153,20 @@ evidence files, including relevant ignored raw logs so public evidence links rem
 The prior pending-full/rendered/AT/performance boundaries stay explicit; no merge or deployment.
 Fresh lsof finds no project server on4173/5173/5199; a normal5199dev start fails listen EPERM.
 The app screen cannot yet be served from this restricted session; no policy workaround is used.
+
+
+## TASK-028 feature commit and Draft PR published — 2026-10-23
+
+Connected GitHub Git-data delivery created remote codex/task-028-dashboard-refinement from exact
+main c0d0e6c, atomic tree1e6cde3 and implementation commit7d259f97d62333f8c64446ef107ff2d3386e04b8,
+then updated the feature ref non-forcibly under the expected-base lease. DraftPR38 exists and its
+22initial published file hashes/modes independently match all local blobs. Implementation-head
+Verify39876304272 is in progress at readback. This follow-up records delivery and is not a new
+implementation/test or passing final-head CI claim; livePR records eventual final identities.
+See [delivery](../reports/delivery-2026-10-23-task-028.md). The PR attachment helper fails with a
+Codex-app tool error; the normal GitHub URL is returned. No merge or deployment is authorized.
+
+The requested app screen remains unopened: no project server is listening, and a fresh normal
+5199start fails listenEPERM. Browser file policy is respected without workaround. All prior
+actual-AT/rendered/runtime and supported full acceptance gates remain; TASK-028 stays active.
+Local branch/index and other checkouts remain preserved under read-only Git metadata.

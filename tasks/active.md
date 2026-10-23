@@ -38,6 +38,15 @@ _Last updated: 2026-10-23_
   Actual spoken AT is a separate evidence requirement; never substitute automated AX/axe output.
 - TASK-009 remains waiting, TASK-010 paused and TASK-021 gated. No deployment is included.
 
+## TASK-028 remote delivery checkpoint — 2026-10-23
+
+[Draft PR #38](https://github.com/internalforces/open-store-searcher/pull/38) publishes implementation
+`7d259f9` on remote `codex/task-028-dashboard-refinement`. All22 initial files/blob hashes and modes
+match the preserved local files. Implementation-head Verify39876304272 is in progress at readback;
+final-head CI/acceptance remain separate. See [delivery](../reports/delivery-2026-10-23-task-028.md).
+The local branch/index remain untouched and dirty under the Git metadata restriction. The current
+app screen is not open: a fresh normal5199server start fails bind EPERM. TASK-028 remains active.
+
 ## Authorized TASK-028 code delivery — 2026-10-23
 
 The user explicitly requests commit, push, PR creation and opening the dashboard. Local Git

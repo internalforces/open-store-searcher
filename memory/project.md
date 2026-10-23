@@ -9,6 +9,15 @@ Harness Version: 1.1
 
 _Last updated: 2026-10-23_
 
+## Current TASK-028 Draft PR — 2026-10-23
+
+The user authorized commit/push/PR creation. Implementation7d259f9 is published in
+[Draft PR38](https://github.com/internalforces/open-store-searcher/pull/38); all22 initial published
+files match local blob hashes. Hosted Verify is in progress at implementation-head readback,
+not yet a pass. See [delivery](../reports/delivery-2026-10-23-task-028.md). Local Git metadata is
+read-only, so the existing checkout remains preserved on its old local branch. The dashboard
+could not start because local server bind returns EPERM. Task acceptance remains open.
+
 ## Current TASK-028 activation — 2026-10-23
 
 TASK-028 is the sole active implementation task under the user's explicit activation and delegated
