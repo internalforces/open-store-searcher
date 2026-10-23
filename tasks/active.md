@@ -7,9 +7,56 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
-_Last updated: 2026-10-22_
+_Last updated: 2026-10-23_
 
 ## In Progress
+
+### TASK-028: Dashboard visual restraint and interaction feedback
+
+- Status: Active by the user's explicit 2026-10-23 instruction to activate, finalize the design,
+  and implement. This instruction changes sequencing; TASK-027 does not occupy an implementation
+  slot. Its outstanding affected actual-VoiceOver/final-acceptance evidence is preserved below.
+- Requirements: FR-01 through FR-14, baseline FR-16; accessibility/performance NFRs; QM-01–08.
+- Design: [finalized restrained Prism contract](../docs/superpowers/specs/2026-10-22-dashboard-refinement-design.md).
+  The user delegates concrete design finalization within the existing proposal. The palette,
+  radii and durations are implementation decisions, not values directly specified by the user.
+- Plan: [four-stage implementation plan](../docs/superpowers/plans/2026-10-22-dashboard-refinement.md).
+- Scope: Neutral opaque surfaces, simpler candidate/evidence hierarchy, compact first-use mark,
+  finite 160ms accepted-action and 180ms selection feedback; preserve every data/focus/privacy rule.
+- Workspace: Reuse the isolated `task013-quality` checkout. Its tracked source equals merged
+  PR37 head `05bffde`; merge `c0d0e6c` is verified. Git metadata is read-only in this session,
+  so the attempted new `codex/task-028-dashboard-refinement` branch could not be created.
+  Preserve existing uncommitted session notes and deliver owned changes without a direct-main commit.
+- Checkpoint: CSS/SVG and motion assertions implemented. Component189/type/style/build/search
+  quality pass. Full coverage stops at1,429pass/3unsupported-platform failures; server/browser
+  execution is blocked. Task remains active for current rendering/actual-AT/performance and
+  supported full verification; see [evidence](../reports/test-2026-10-23-task-028.md).
+  Fresh independent source review is Approved with one Minor test-precondition finding; final
+  assertion strengthened and statically checked, with runtime confirmation still unavailable.
+- Verification: Existing component/race/evidence regressions, default full verification,
+  unchanged performance budgets, responsive/media/axe/actual-zoom checks and independent review.
+  Actual spoken AT is a separate evidence requirement; never substitute automated AX/axe output.
+- TASK-009 remains waiting, TASK-010 paused and TASK-021 gated. No deployment is included.
+
+## Authorized TASK-028 code delivery — 2026-10-23
+
+The user explicitly requests commit, push, PR creation and opening the dashboard. Local Git
+metadata still rejects feature-branch/index writes. Deliver the exact scoped files through the
+connected GitHub Git-data API to `codex/task-028-dashboard-refinement`, based on verified main
+`c0d0e6c`, and create a Draft PR with the existing acceptance limits. This is code delivery,
+not task completion, merge, source adoption, deployment or a waiver. Local work is preserved.
+A fresh normal dev-server start on127.0.0.1:5199 fails listen EPERM; no owned server is running.
+Browser file-preview policy remains respected; no alternate-surface workaround is attempted.
+
+## TASK-027 integration reconciled; residual acceptance evidence retained
+
+PR37 merged as `c0d0e6c3d304e9b7c9c50352aba463679fd7451e`; final head `05bffde` has
+successful canonical Verify `39800368846` and a resolved P2 thread. Earlier open/unmerged and
+unresolved-thread claims below are historical. Pending-refresh paging and changed loading-time
+actual VoiceOver remain unperformed; integration is not evidence of speech or a waiver.
+The current user explicitly activates TASK-028 after being informed of this residual work.
+
+## Historical TASK-027 correction handoff
 
 ### TASK-027: PR37 retained-data refresh correction
 

@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
-_Last updated: 2026-10-22_
+_Last updated: 2026-10-23_
 
 ## PR37 hosted failure captured — 2026-10-22
 
@@ -3068,3 +3068,88 @@ TASK-027 moves to completed; no implementation task is active. PR37 final eviden
 CI/review and authorized normal protected-main integration remain delivery checks, recorded
 through the live PR. No deployment/source activation, TASK-028 execution, milestone/handbook
 or release gate is activated. Original checkout status/fingerprints remain preserved.
+
+## Next-work assessment and live PR reconciliation — 2026-10-23
+
+The user requested identification of the next work, without execution. Read the constitution,
+current operational context, planning prompt, roadmap, traceability, TASK-027 correction evidence,
+and the proposed TASK-028 design/plan. Preserve all other checkouts and existing changes.
+
+Live GitHub readback confirms PR #37 merged at 2026-10-23 05:41:42 KST as
+`c0d0e6c3d304e9b7c9c50352aba463679fd7451e`, with final head
+`05bffdee2d6d6a037b24fb589ae266bc8f5f633e`. Its Verify run `39800368846` is completed/success;
+the exact-head automated review summary reports completed with no findings and the P2 thread
+is resolved. The merged active-task file and PR body still contain premerge operational claims.
+Those claims must be reconciled with the actual integration state before execution resumes.
+
+Neither the reviewed local evidence nor the live PR discussion supplies new actual VoiceOver
+observations for pending-refresh paging or the changed loader scheduling. Merge does not establish
+that acceptance evidence or waive the previously explicit condition. Keep TASK-027's remaining
+acceptance disposition distinct from its now-completed integration.
+
+The next proposed feature task is TASK-028: restrained Prism presentation and short accepted-action/
+selected-record feedback. Its four stages cover prior-gate/design/slot resolution, hierarchy and
+materials, interruption-safe motion, and responsive/accessibility/performance/final review.
+The precise palette, corners and timings remain proposals. Full design approval and an explicit
+single-active-task handoff remain required before implementation. TASK-009 waits for source
+materials/action-time approval; TASK-010 is paused and TASK-021 gated.
+
+This assessment changes only this session handoff. No task is activated or marked complete,
+no acceptance decision or bug disposition is changed, and no application, dependency, architecture,
+public contract, handbook, remote state, commit, push, merge or deployment is changed. Existing CI
+was read, not rerun; application tests are unnecessary for this assessment-only session entry.
+
+Fresh assessment readback on 2026-10-23 reconfirms PR #37's merged SHA and final head,
+successful Verify `39800368846`, and resolved P2 thread. The current remote-default-branch
+`tasks/active.md` still describes PR37 as open with the thread unresolved. Next execution
+must reconcile those stale delivery claims and the remaining actual-AT/final-acceptance
+disposition before TASK-028's proposed design and single-slot handoff. No task transition,
+product implementation or remote mutation is performed by this repeated assessment.
+
+
+## TASK-028 activation and implementation checkpoint — 2026-10-23
+
+The user explicitly activated TASK-028 and delegated design finalization before implementation.
+Finalized the existing restrained Prism proposal and changed only app.css plus WorkspaceIntro's
+decorative SVG. Neutral opaque materials, separated candidate rows, compact search/first-use
+mark, static initial accent and finite 160ms accepted-action/180ms selection effects retain all
+App/SearchResults state, request guards, source/status/evidence, copy and focus contracts.
+Updated the existing browser motion regression for the deliberate timings and active-effect
+media identity/evidence/focus checks. Original/checkpoint source and all other worktrees remain
+preserved. Git metadata prevented normal new-branch creation; no Git history/index/branch changes.
+
+Approved cached Node24.19.0/npm11.17.0: component189, typecheck, lint, format, build and both search
+quality checks pass. Default verify:full exits1:1,429passed/3failed in59files. Unchanged Linux
+Info-ZIP tests reject macOS unzip, and GNU-tar round trip rejects unsupported --hard-dereference.
+No test was skipped or weakened. Current static HTML/CSS/JS totals92,052B. Server bind EPERM and
+Chromium bootstrap restrictions prevent rendered/axe/runtime performance; CUA rejects file://
+and prohibits workarounds, which were not attempted. Browser collection24 is not execution;
+no RED/GREEN, screenshot, real zoom, speech or performance pass is fabricated.
+
+TASK-028 is the sole active task for remaining supported-environment/full/rendered/AT/performance
+and independent acceptance. The user explicitly changes sequencing; TASK-027 residual affected
+actual speech remains open outside the slot. Its PR37 merge/CI/thread state is reconciled.
+TASK-009 waits,010paused,021gated. No task moved to completed, no structure/architecture changed,
+no handbook accessed and no new product defect was inferred from environment failures.
+See [evidence](../reports/test-2026-10-23-task-028.md); final fresh source review is in progress.
+
+
+Final TASK-028 source review is Approved (fresh Sol/xhigh, Critical0/Important0/Minor1). The Minor
+active-effect precondition is strengthened to require exactly one paused midpoint effect and
+strictly interior progress; final type/lint/format/collection/whitespace pass, but browser proof
+and independent acceptance remain unavailable. Product CSS/SVG and build assets are unchanged
+from the reviewed checkpoint. Saved [review](../reports/review-2026-10-23-task-028.md) and current
+source/build bindings. TASK-028 stays active; no complete-task, merge or deployment claim.
+
+
+## TASK-028 authorized commit/remote/PR preparation — 2026-10-23
+
+The user explicitly requests commit, push, PR creation and showing the dashboard. Reconfirmed
+exact remote main c0d0e6c and no existing target branch. Local feature-branch creation still fails
+read-only index.lock, so use the connected GitHub API for an atomic scoped feature commit/ref
+publication and Draft PR. Preserve the local checkout/index and unrelated original changes.
+Include only the12changed tracked task files and specifically enumerated TASK-028 test/review/
+evidence files, including relevant ignored raw logs so public evidence links remain valid.
+The prior pending-full/rendered/AT/performance boundaries stay explicit; no merge or deployment.
+Fresh lsof finds no project server on4173/5173/5199; a normal5199dev start fails listen EPERM.
+The app screen cannot yet be served from this restricted session; no policy workaround is used.

@@ -7,9 +7,18 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
-_Last updated: 2026-10-22_
+_Last updated: 2026-10-23_
 
-## Current TASK-027 reopening — 2026-10-22
+## Current TASK-028 activation — 2026-10-23
+
+TASK-028 is the sole active implementation task under the user's explicit activation and delegated
+design-finalization/implementation instruction. Finalize the restrained Prism proposal and preserve
+all data/focus/privacy contracts. PR37 is merged as c0d0e6c with successful exact-head CI; old
+open/unmerged claims below are historical. TASK-027's changed-loading/pending-refresh actual speech
+remains unverified and is retained outside the implementation slot under this sequencing change.
+TASK-009 waits, TASK-010 is paused and TASK-021 gated. No deployment or release is included.
+
+## Historical TASK-027 reopening — 2026-10-22
 
 Final GitHub review on PR37 head3c67280 found P2 retained-data refresh pagination blocking.
 TASK-027 is reopened as the sole active task. The minimal result-busy correction and two focused
@@ -39,7 +48,7 @@ A free, open-source dashboard that regularly transforms Seoul local administrati
 ## Current Status
 
 - Version: v0.1.0-dev
-- Phase: TASK-008 complete; TASK-027 reopened for final-review correction/affected AT; TASK-009 awaiting materials and action-time approval
+- Phase: TASK-008 complete; TASK-028 implemented with acceptance verification pending; TASK-009 awaiting materials and action-time approval
 - Next milestone: M1 — TASK-009 hosted acceptance, then TASK-010 publication/recovery
 - Overall health: 🟡 Caution — source ZIP and action approvals missing; performance/recovery/release gates open
 - PRD: `/Users/sonmyeong-gwan/Documents/Codex/2026-08-18/new-chat/outputs/zero-cost-open-business-dashboard-prd.md`

@@ -29,12 +29,12 @@ export function WorkspaceIntro({
       <div className="workspace-panel intro-prism">
         <h2>사업체 정보와 근거를 한곳에서</h2>
         <div className="prism-art" aria-hidden="true">
-          <svg aria-hidden="true" viewBox="0 0 440 160" focusable="false">
+          <svg aria-hidden="true" viewBox="110 0 220 160" focusable="false">
             <defs>
               <linearGradient id="prism-face" x1="0" x2="1" y2="1">
                 <stop stop-color="#55DDF6" />
                 <stop offset=".55" stop-color="#B8A0FF" />
-                <stop offset="1" stop-color="#F5B9E7" />
+                <stop offset="1" stop-color="#B8A0FF" />
               </linearGradient>
               <linearGradient id="prism-side" x1="0" x2="1">
                 <stop stop-color="#2456E8" />
@@ -49,10 +49,6 @@ export function WorkspaceIntro({
               fill="none"
               stroke="white"
               stroke-width="2"
-            />
-            <path
-              d="m80 28 3 10 10 3-10 3-3 10-3-10-10-3 10-3ZM350 102l3 10 10 3-10 3-3 10-3-10-10-3 10-3Z"
-              fill="white"
             />
           </svg>
         </div>

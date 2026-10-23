@@ -781,3 +781,15 @@ The integration also returns 403 for detailed branch-protection reads. Normal pr
 integration remains available, but actual deployment requires a fresh permitted full protection
 review. Existing physical/mobile/full-data and hosted recovery gates remain open. See the
 [preflight](../reports/research-2026-10-22-task-009-source-transport.md).
+
+
+## TASK-028 current-environment verification limits — 2026-10-23
+
+Owner: Tester / Reviewer. Presentation is implemented, but supported Ubuntu full verification,
+current rendered/mobile/media/axe/actual-zoom/VoiceOver and runtime performance remain open.
+Current macOS full suite passes1,429 and fails the two Linux Info-ZIP integration cases plus the
+GNU-tar round trip (`--hard-dereference` unsupported). Local server bind is denied and browser
+bootstrap blocked; native tooling rejects file preview. No assertion/runner/budget is weakened,
+no workaround is attempted, and no new product defect is inferred from these platform limits.
+See [verification](../reports/test-2026-10-23-task-028.md). TASK-027 residual actual-AT remains
+separate; TASK-009/010/021 operational/release gates are unchanged.
