@@ -1,0 +1,68 @@
+name: Verify published initial source bytes
+on:
+  push:
+    branches: [codex/task-009-source-transport-verification]
+    paths:
+      - .github/workflows/verify-initial-source.yml
+      - reports/source-approval-2026-10-23-proposed.json
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: initial-source-transport-verification
+  cancel-in-progress: false
+jobs:
+  verify-source:
+    if: github.repository == 'internalforces/open-store-searcher' && ((github.event_name == 'push' && github.ref == 'refs/heads/codex/task-009-source-transport-verification') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24.19.0
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+      - name: Verify the existing source-admission contracts offline
+        run: npx --no-install vitest run --project=pipeline src/pipeline/initial-import-approval.test.ts src/pipeline/initial-source-download.test.ts
+      - name: Download and verify the exact public source without publication
+        run: |
+          node --input-type=module <<'JS'
+          import { mkdir } from 'node:fs/promises';
+          import { join } from 'node:path';
+          import { readJson, trustedCode, writeJson } from './scripts/publication-operator-support.mjs';
+          const receiptDirectory = join(process.env.RUNNER_TEMP, 'source-transport-receipt');
+          await trustedCode(async (load) => {
+            const { validateInitialImportConfig, validateInitialSourceApproval } = await load('initial-import-approval');
+            const { downloadInitialSource } = await load('initial-source-download');
+            validateInitialImportConfig(await readJson('publication/config.json', 4 * 1024 * 1024));
+            const approval = validateInitialSourceApproval(await readJson('reports/source-approval-2026-10-23-proposed.json', 1024 * 1024));
+            const source = await downloadInitialSource(approval, join(process.env.RUNNER_TEMP, 'source-transport-bytes'));
+            await mkdir(receiptDirectory, { mode: 0o700 });
+            await writeJson(join(receiptDirectory, 'verification.json'), {
+              version: 1,
+              kind: 'initial-source-transport-verified',
+              scope: 'source-metadata-and-complete-downloaded-bytes-only',
+              repository: process.env.GITHUB_REPOSITORY,
+              operatorSha: process.env.GITHUB_SHA,
+              runId: process.env.GITHUB_RUN_ID,
+              runAttempt: process.env.GITHUB_RUN_ATTEMPT,
+              checkedAt: new Date().toISOString(),
+              runtime: process.version,
+              approval,
+              transport: source.transport,
+              runtimeRegistryModified: false,
+              publicationPerformed: false,
+            });
+            console.log('Both complete source assets verified; no registry or publication was modified.');
+          });
+          JS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: initial-source-transport-receipt
+          path: ${{ runner.temp }}/source-transport-receipt/verification.json
+          retention-days: 1
+          if-no-files-found: error
