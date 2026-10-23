@@ -7,6 +7,21 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
+## TASK-009 bounded search optimization evidence — 2026-10-23
+
+Recorded the local lossless-search follow-up: conservative address admission, guarded district
+ranking, all 55 complete before/after identities, 50 focused tests, unchanged quality checks and
+24 corrected-observer desktop/narrow-viewport samples below 500ms. Independent source/test review
+is Approved with zero findings. Full local tests retain the same three platform failures;
+final evidence review and fresh supported final-head verification are recorded separately.
+
+This records a bounded development/evidence checkpoint. Overall TASK-009 is incomplete:
+physical/mobile/hosted performance, controlled loading/memory, publication/public equality and
+durable backup/recovery remain open. TASK-010 retains real 30-day history after its sequential start.
+No task row, milestone or release gate is closed. See
+[follow-up report](../reports/performance-2026-10-23-task-009-search-follow-up.md).
+
+
 ## TASK-009 bounded performance checkpoint — 2026-10-23
 
 Completed this bounded substep: exact-source replay and desktop diagnostic comparison, a

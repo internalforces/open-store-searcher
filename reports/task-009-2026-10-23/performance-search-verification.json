@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "kind": "task009-search-follow-up-local-verification",
+  "node": "v24.19.0",
+  "platform": "darwin",
+  "focusedFinal": {
+    "filesPassed": 4,
+    "testsPassed": 50
+  },
+  "fullFinal": {
+    "filesPassed": 57,
+    "filesFailed": 2,
+    "testsPassed": 1433,
+    "testsFailed": 3
+  },
+  "unchangedPlatformFailures": [
+    "recovery-archive: round trips actual GNU Pages tar preserving all original bytes without executing app code",
+    "unzip-archive: preserves UTF-8 Korean DOS-origin filenames and exact entry bytes",
+    "unzip-archive: lists and streams entries from a valid local archive"
+  ],
+  "typecheckExitCode": 0,
+  "quality": {
+    "synthetic": {
+      "outputSha256": "08feb1f9fd9c9debf9a25547116b128b0b145fd19fdfff8ff9688f372d16202c",
+      "corpusSha256": "de93344cb0bc6fda2198d8d5b66774e656dab8333338b8c7bb3217eafe24ade8",
+      "implementationSha256": {
+        "src/search/prepare-search-query.ts": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+        "src/search/interpret-search-query.ts": "e5bdaad78cfbbcf7612e24dc40c501d8895272b6105fa22ff0a796803cededb8",
+        "src/search/compare-search-address.ts": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942",
+        "src/search/search-candidates.ts": "9c4f36e5c30b9e95a852c05437a3435a0f57169f546cd62d39ea37a5bc0b15bc",
+        "tests/quality/evaluate-search-quality.ts": "3b28f787ebe961ac70944d18d73fcf50c2820e6ee98597553fb76e2cd24a0596",
+        "scripts/measure-search-quality.mjs": "0d8e0b12105fd764cb6406e425906805fa2a0f0e7f90ea9d17eb60736d53579f",
+        "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89"
+      },
+      "exact": {
+        "hits": 28,
+        "total": 30,
+        "recall": 0.9333333333333333,
+        "thresholdMet": true
+      },
+      "safetyFailures": [],
+      "checkPassed": true,
+      "releaseCriterion": "not-assessed"
+    },
+    "source": {
+      "outputSha256": "bb2ab8d8e756028e3557265020899d06cd07a8bbd1665631dc8e5419fc659065",
+      "corpusSha256": "3b5e235e52ad91c710c2f1e22d1d9a343a2cba895c079554f2434989f1063553",
+      "implementationSha256": {
+        "src/search/prepare-search-query.ts": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+        "src/search/interpret-search-query.ts": "e5bdaad78cfbbcf7612e24dc40c501d8895272b6105fa22ff0a796803cededb8",
+        "src/search/compare-search-address.ts": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942",
+        "src/search/search-candidates.ts": "9c4f36e5c30b9e95a852c05437a3435a0f57169f546cd62d39ea37a5bc0b15bc",
+        "tests/quality/evaluate-search-quality.ts": "3b28f787ebe961ac70944d18d73fcf50c2820e6ee98597553fb76e2cd24a0596",
+        "scripts/measure-search-quality.mjs": "0d8e0b12105fd764cb6406e425906805fa2a0f0e7f90ea9d17eb60736d53579f",
+        "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89"
+      },
+      "exact": {
+        "hits": 98,
+        "total": 100,
+        "recall": 0.98,
+        "thresholdMet": true
+      },
+      "safetyFailures": [],
+      "checkPassed": true,
+      "releaseCriterion": "not-assessed"
+    }
+  },
+  "sourceBindings": {
+    "src/search/compact-search.ts": {
+      "before": {
+        "byteLength": 15078,
+        "sha256": "5909a628f07f5a724ef6d7954b5631310145df573b6cf715f3ded6e53f16bc60"
+      },
+      "after": {
+        "byteLength": 17393,
+        "sha256": "64c68505ecf04da2a767ec538d2472da46ec0796d25f8f8fb1cc9f259d493d39"
+      }
+    },
+    "src/search/compact-search.test.ts": {
+      "before": {
+        "byteLength": 9328,
+        "sha256": "a39910299ab1eeb70103f004309c5d739b61ca2907399b67681a2c7ec71e0db3"
+      },
+      "after": {
+        "byteLength": 14911,
+        "sha256": "4cb89e79405f9f9eeed4e61d460902db2e297803cb5e98f8614abead10564600"
+      }
+    }
+  },
+  "all185CodeBindingsSha256": "8f456be11a9b1b997f092046dfded16296bf5946a49f05d825ab01f04637e0be",
+  "logBindings": {
+    "filter-baseline.log": {
+      "byteLength": 1859,
+      "sha256": "ecabdd1fadbbf6381f8de9477e1130b3c32607a102929ba62b8cc0a527083473"
+    },
+    "filter-safety-baseline.log": {
+      "byteLength": 261,
+      "sha256": "aa27339644b29b068c1af07857ba91a9a4aacdf9879ca6e67d7d021a8e520efa"
+    },
+    "filter-focused.log": {
+      "byteLength": 265,
+      "sha256": "376afc94368ae8db298ba0341656c7d81ee0840a26e6b6fff13d1745a703e966"
+    },
+    "district-safety-before.log": {
+      "byteLength": 261,
+      "sha256": "8ceb4e69a4e30949fe3aa234fe673cd85cf9214affb859d995cd20f18a9c29d2"
+    },
+    "district-focused.log": {
+      "byteLength": 265,
+      "sha256": "8f222cd23ece8e923129c9d0a495e0d98e3482b1fe97efc2875057c996ca6546"
+    },
+    "district-all-tests.log": {
+      "byteLength": 3102,
+      "sha256": "85e5cf41f5d0cf60b69aca850269764ce41ef96a51b1400bb5cb5b6215a79f31"
+    },
+    "district-types.log": {
+      "byteLength": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "district-before.log": {
+      "byteLength": 314,
+      "sha256": "5ecd8fc19c35ccd4e47906e8339a581ede3f82d36bcf73111fa8a8ece8cdcdae"
+    },
+    "district-after.log": {
+      "byteLength": 308,
+      "sha256": "ff6e6791e59b52c97c8da7e6e9db01d42e3f2c22e9dc83cb93c7f4317cd16e07"
+    }
+  },
+  "supportedFinalHeadVerificationClaimed": false,
+  "publicationPerformed": false,
+  "performanceAcceptanceGranted": false
+}

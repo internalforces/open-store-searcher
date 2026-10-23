@@ -1,0 +1,1422 @@
+{
+  "version": 1,
+  "kind": "task009-district-complete-rank-diagnostic",
+  "mode": "after",
+  "node": "v24.19.0",
+  "recordCount": 2951024,
+  "manifestSha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+  "ordinalEncoding": "uint32-little-endian",
+  "codeBindings": {
+    ".github/workflows/initial-import.yml": {
+      "byteLength": 6319,
+      "sha256": "01f2c058f89b2e42b8d65dd131a04c20ec8842e81fc9a425f87186c8b668549f"
+    },
+    ".github/workflows/observe-quality.yml": {
+      "byteLength": 989,
+      "sha256": "80805051c1cab514b850cff3de4f988321ca64cdef55bdec8cefa980b1516c56"
+    },
+    ".github/workflows/refresh.yml": {
+      "byteLength": 4449,
+      "sha256": "7f11382eed769b5ecaa39519159e98e63d357aefdc2553f2fdb562b412ed7db9"
+    },
+    ".github/workflows/restore.yml": {
+      "byteLength": 3953,
+      "sha256": "5a563a2a3cce4dc10a8f8e225f96a33d2108656caf238426d4912a36048db0c2"
+    },
+    ".github/workflows/verify-initial-source.yml": {
+      "byteLength": 3599,
+      "sha256": "4bd4c02731a57000b0e769fccba0f5f7d58eab3808d936a41e50b7f73f2e3a8e"
+    },
+    ".github/workflows/verify.yml": {
+      "byteLength": 984,
+      "sha256": "308a16705f85acf9c980d723c8c1c1f821d75dc2b4556f7cca2151c4273abd8f"
+    },
+    "index.html": {
+      "byteLength": 309,
+      "sha256": "c6fc58100514435f413b614d0ed8d09df9f25b18eca7d1ce6d005842d9a349ba"
+    },
+    "package-lock.json": {
+      "byteLength": 162106,
+      "sha256": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89"
+    },
+    "package.json": {
+      "byteLength": 2430,
+      "sha256": "97f96dd8ea38b06e2e0570444069710b678734139fd3e37355c0ac2712bd5ec9"
+    },
+    "playwright.config.ts": {
+      "byteLength": 895,
+      "sha256": "ad79780f60b8c43d3e4a277602d6efb49aee80e61657d7dea373d04191960f41"
+    },
+    "publication/config.json": {
+      "byteLength": 403224,
+      "sha256": "b7a64b46c49ad6d3ab10ba268becb6e62bb666d342bc4aa158898a37ac1e20ba"
+    },
+    "publication/initial-import-approvals.json": {
+      "byteLength": 1994,
+      "sha256": "2a3a19365bf1f16978da03d7a30aabca08c59de36a981a7dda61c60d350c9a1c"
+    },
+    "publication/recovery-approvals.json": {
+      "byteLength": 230,
+      "sha256": "d7f513067028d84f860d8ce0ee3d3bee8f04cdb0e009dd1003607b71f3683c74"
+    },
+    "publication/validation-config.json": {
+      "byteLength": 403320,
+      "sha256": "f3feafd8d37d30e859b7797fe753277d2091cb7383009e035dff60edb76987f1"
+    },
+    "reports/source-permission-manifest-2026-08-28.json": {
+      "byteLength": 59573,
+      "sha256": "4b47b0296c34c0bd3b7c2ee88448ffe2cf5c40f90b99a8c8c8b46b3cf5c8f023"
+    },
+    "scripts/bind-initial-import-run.mjs": {
+      "byteLength": 5204,
+      "sha256": "fb4662e1c9a85f616785c24cc689ae80de54ce70c7adc8013b7fd8e1b21b26b9"
+    },
+    "scripts/build-publication.mjs": {
+      "byteLength": 7620,
+      "sha256": "4878f21ee50c5c7b5bee8020771727fda3e610d7e226c8bdce7dbb95ce85111c"
+    },
+    "scripts/check-initial-import-run.mjs": {
+      "byteLength": 1727,
+      "sha256": "824dfc0f0800b48f95143a73fcdc49e82c3f12373444e8ee1dc8d596f7baa0ed"
+    },
+    "scripts/check-pages-artifact.test.mjs": {
+      "byteLength": 4856,
+      "sha256": "94cf281c3acf55f7b58b2ec8feb17ec9524eafa8dfc33d0a6c55ab434cf4e3f1"
+    },
+    "scripts/check-publication-state.mjs": {
+      "byteLength": 2888,
+      "sha256": "eca793ba77bf009e3dc6bfdd2bc1ddb22daa73eedcdc798d52757c45d3d2ef5e"
+    },
+    "scripts/check-publication-state.test.mjs": {
+      "byteLength": 4565,
+      "sha256": "4b8abf3cd5c463ab1d0ac288c0b201144488bb8b269029f49e0b263d29655ef6"
+    },
+    "scripts/check-publication-workflows.test.mjs": {
+      "byteLength": 28232,
+      "sha256": "b826f72f453e7481debd3567314675f818cb14813527b369a51b6be93d337550"
+    },
+    "scripts/initial-import-operators.test.mjs": {
+      "byteLength": 27058,
+      "sha256": "9d5db4b8eebd8eecfa4ae0ee55815f46d04d2c0d4065831907ae532049741739"
+    },
+    "scripts/initial-import-support.mjs": {
+      "byteLength": 11106,
+      "sha256": "987874fab49cf34bb95eaabc0ea030b8e96c223af9be8d19378d061676c6a63d"
+    },
+    "scripts/inspect-publication.mjs": {
+      "byteLength": 1015,
+      "sha256": "609c51fef80bce33a3fe1f617442cf00c3492540e256ee61ab29431a877c54d5"
+    },
+    "scripts/measure-bounded-source.mjs": {
+      "byteLength": 4363,
+      "sha256": "54822a5375d9c5ec522261d1400357d13c2a9f192ba8bbb29af875841a804212"
+    },
+    "scripts/measure-performance.mjs": {
+      "byteLength": 17078,
+      "sha256": "0c56a4fde0e4cc6b1fdf2c186e767289f51c85d290937026f0be375047a9985a"
+    },
+    "scripts/measure-search-quality.mjs": {
+      "byteLength": 2932,
+      "sha256": "0d8e0b12105fd764cb6406e425906805fa2a0f0e7f90ea9d17eb60736d53579f"
+    },
+    "scripts/measure-source-browser.mjs": {
+      "byteLength": 5037,
+      "sha256": "f9f44318458de99731475508509549fe4061352d6d1342e9b2871e4a6cc09892"
+    },
+    "scripts/observe-seoul-quality.mjs": {
+      "byteLength": 9962,
+      "sha256": "0c450536d2db7aee9decf49ac13bbc430ec39ad329f2b8405a79354573c2065f"
+    },
+    "scripts/prepare-publication-backup.mjs": {
+      "byteLength": 3762,
+      "sha256": "f43cc2f79485afe8a407dad16e3aba822b7ef05bbda576f4acb698fffb165ac6"
+    },
+    "scripts/probe-seoul-source.mjs": {
+      "byteLength": 2700,
+      "sha256": "2d12f66b43979c3e9b50733cc8958891848767e5741e1f21d6b0185bc7042c91"
+    },
+    "scripts/publication-operator-support.mjs": {
+      "byteLength": 4803,
+      "sha256": "8ca4bc81384a6f68b9ab1ed0792c977ea6dfcb1d62320414e63b37ff594e0b79"
+    },
+    "scripts/publication-operators.test.mjs": {
+      "byteLength": 23839,
+      "sha256": "8c6a688bde270a308505d0862f366c79fa80084577ef08b1895844944787380f"
+    },
+    "scripts/report-dependency-licenses.mjs": {
+      "byteLength": 4908,
+      "sha256": "45587db47ac8308f15f15d0d8e00d37e24998d36719f1c446ba243b2ccfe7262"
+    },
+    "scripts/restore-publication.mjs": {
+      "byteLength": 3128,
+      "sha256": "2d308198dc531729fc23efb40e6109225ce0b5e64e49775adc8a9f4d65a1a05c"
+    },
+    "scripts/sample-search-source.mjs": {
+      "byteLength": 11804,
+      "sha256": "1cd57ac5ae64979f7b4bee0d7951f8c382102c8d09b03312dab0b4fdc0f9d95b"
+    },
+    "scripts/stage-initial-import.mjs": {
+      "byteLength": 588,
+      "sha256": "2582b0ba2ee61022fec12773f3d372abbe6284386837278c05fd98ef46ab9e6f"
+    },
+    "scripts/stage-refresh.mjs": {
+      "byteLength": 4932,
+      "sha256": "34a4da4e756688fcb685ba5583e04a839c584e7949dc7d83b246fef33ca3464e"
+    },
+    "scripts/verify-initial-import.mjs": {
+      "byteLength": 656,
+      "sha256": "062e33863dfe9d80498c774a83f3d3b36989c9ba21b3c5bd85fe01c10d8e6a02"
+    },
+    "src/app/accessibility.test.tsx": {
+      "byteLength": 7239,
+      "sha256": "96afaaf622497f6b0c255c44de03dd300272a26785309c48542b331d7153e61d"
+    },
+    "src/app/app.css": {
+      "byteLength": 18297,
+      "sha256": "53c58c82e6ea457932e3b45b409046e01e6863345bdb9cc86341d34f3a4f999b"
+    },
+    "src/app/app.test.tsx": {
+      "byteLength": 11629,
+      "sha256": "b49f574cae6ad6704e8751652eee5413c706a9399f3addd283c481e4b0ba886c"
+    },
+    "src/app/app.tsx": {
+      "byteLength": 13388,
+      "sha256": "9f6f9b81c09c8417b6c703d3f70f66148a1373128b6716fe8c8503ea175df116"
+    },
+    "src/app/candidate-summary.test.tsx": {
+      "byteLength": 5866,
+      "sha256": "4ce31568c6a9134abe82db8d55d24fa227f5390ac91e3d8efdb0bdf2f5bb6499"
+    },
+    "src/app/candidate-summary.tsx": {
+      "byteLength": 2363,
+      "sha256": "9c08bfbdfd0972038f10f0d1cfaec3165507de281b8ae15f5e412ad7afe6aa8a"
+    },
+    "src/app/compact-publication-loader.ts": {
+      "byteLength": 492,
+      "sha256": "f021d2be9dd20564e2327b5f5c8c8861036c9f1df4ea41e21874dd41082aceb9"
+    },
+    "src/app/compact-search.worker.ts": {
+      "byteLength": 3983,
+      "sha256": "d04cd54a1507b8b4efe2714f16e0f015d211e3f37a90c434f2701674e230a6d9"
+    },
+    "src/app/compact-worker-protocol.ts": {
+      "byteLength": 788,
+      "sha256": "f0734b1129d68a0c479bf633b49869ba65ca1650ed8b2a4c146a3b61f42c7304"
+    },
+    "src/app/coverage-clock.tsx": {
+      "byteLength": 1226,
+      "sha256": "1d3e8b8a31f3483edcb11d45e17bc9568f9e8e9903787dc2dba08caa4a48c69c"
+    },
+    "src/app/data-assets.d.ts": {
+      "byteLength": 85,
+      "sha256": "4ab9606e56e491b0b63a3062a5837f0be8cf5ca56d8f6ab2b8b22bb23b0f6ee9"
+    },
+    "src/app/demo-data.ts": {
+      "byteLength": 515,
+      "sha256": "3495fcd9db12735647ec729451ca3af5b24185e6e654250fc661920b9427e819"
+    },
+    "src/app/demo-loader.ts": {
+      "byteLength": 861,
+      "sha256": "862c5062b84d536ca0fbdf2eebfd5298e93db97337a19237c7c93b91c529ce0d"
+    },
+    "src/app/demo-metadata.ts": {
+      "byteLength": 382,
+      "sha256": "174ad9d9c5b5888e01aff5d12d337600183adb45be633ecd5ef4324ebde70e07"
+    },
+    "src/app/demo-parts/demo-1.json": {
+      "byteLength": 1781,
+      "sha256": "0c4fac06133c4bf4ae7e941aee5950710f87a633ac6b90f5869735b3dbcf8244"
+    },
+    "src/app/demo-parts/demo-2.json": {
+      "byteLength": 1780,
+      "sha256": "5196849d529dd0f5d0ebff154ab6270ab0738258fe6705a715c229dccf182353"
+    },
+    "src/app/demo-parts/demo-3.json": {
+      "byteLength": 1770,
+      "sha256": "14066ff1dfc94f46d5cc07e1ac778da08cefefc9b573835923da325d8208c770"
+    },
+    "src/app/display-data.ts": {
+      "byteLength": 1155,
+      "sha256": "36222f33ba317b74401f53c5949e6e38d3d3348ae175d128f5df7577e19c9aad"
+    },
+    "src/app/evidence-context.test.tsx": {
+      "byteLength": 4315,
+      "sha256": "9ff15791138cbdf8fc9ccf1011b3ee46bde11076e7bb19063c8f0059b1dcd7f1"
+    },
+    "src/app/evidence-context.tsx": {
+      "byteLength": 3037,
+      "sha256": "51d708fc76e2803bafd928240a62597f737b99765760d4f36025381f34317dac"
+    },
+    "src/app/main.tsx": {
+      "byteLength": 269,
+      "sha256": "2c0795d54fb0d7ba490227ab1733b8d873e49bc1cec8af3e299683146976bafd"
+    },
+    "src/app/map-links.test.tsx": {
+      "byteLength": 5203,
+      "sha256": "4bfe65b4889e6c9a22b172b1d79e604733f69a17e3f0808e92ce772eee544027"
+    },
+    "src/app/map-links.tsx": {
+      "byteLength": 1246,
+      "sha256": "62ffd467e555817f904cdf8627e98915ee8cca1e8d8ee6bc2942b169e9fa03cf"
+    },
+    "src/app/pagination.test.tsx": {
+      "byteLength": 3794,
+      "sha256": "2fde7a4ac8a71374a808add6fdf0195babf9a22c0007ac07b72c3f84cf321bb5"
+    },
+    "src/app/partition-loader.test.tsx": {
+      "byteLength": 14825,
+      "sha256": "63afc78613661f353d4e0857b83c0aa35e44b5fe9373f4600b6e95ef1e251ce1"
+    },
+    "src/app/partition-loader.ts": {
+      "byteLength": 3434,
+      "sha256": "88a8c509bc2c62cd2e9420966be9095e23c817edc4001e808fd125a3528503b0"
+    },
+    "src/app/pr16-regressions.test.tsx": {
+      "byteLength": 2853,
+      "sha256": "d435c3d850eceab4b44fe4855e9a554a30ed7199ef7d56a44a450568d9c64051"
+    },
+    "src/app/prepare-display-data.test.tsx": {
+      "byteLength": 4418,
+      "sha256": "619788c561499bc6cf4ec23a080c0093b8e3d79ff03b41a95fe09d296be105e1"
+    },
+    "src/app/prepare-display-data.ts": {
+      "byteLength": 3303,
+      "sha256": "7c1cc1d001903b8d8241077d75ebeb4c39eea381cf68e1ef7c239738ae7f9554"
+    },
+    "src/app/publication-loader.test.tsx": {
+      "byteLength": 5169,
+      "sha256": "cacb58902fb0bf6ac268df3a442cdd1edd363fd66acaa0cedd629d383ad13915"
+    },
+    "src/app/publication-loader.ts": {
+      "byteLength": 1214,
+      "sha256": "c722ba56e2fdd16703162448a43ea16880ea92dbc815e873bc0a49fd7fad3f39"
+    },
+    "src/app/record-evidence.test.tsx": {
+      "byteLength": 5690,
+      "sha256": "b2269005a8281a0c490c97cbd588337e172f4a43d1b6d4b033c5689b97833514"
+    },
+    "src/app/record-evidence.tsx": {
+      "byteLength": 2901,
+      "sha256": "0bda5eb85d1ddc105ea0aac84f774ad8506548f2af8a200c0d55f4ab9da1ca58"
+    },
+    "src/app/recovery.test.tsx": {
+      "byteLength": 12737,
+      "sha256": "81c17a2573d1d408c3ffb9dab650dbdb4a837bf7df226f5085aefc236ca0f165"
+    },
+    "src/app/result-card.test.tsx": {
+      "byteLength": 14621,
+      "sha256": "2a282988eb88169779876d3c7ba23270e3674cc90e8120da8403156d0040902d"
+    },
+    "src/app/result-card.tsx": {
+      "byteLength": 4629,
+      "sha256": "f1502f1082aa63cf81d2cfcfb712fefd849d2368781609455ba1d9d7b31c978d"
+    },
+    "src/app/search-form.tsx": {
+      "byteLength": 1988,
+      "sha256": "d55067e025dde336efa351e42356643f5f38c190994cabcac0ad1d9756f4df52"
+    },
+    "src/app/search-results.tsx": {
+      "byteLength": 9270,
+      "sha256": "d6497876aef6ae774d95b008bcff02f7fb21a36258cbd5c18a68ad7198edb458"
+    },
+    "src/app/style.d.ts": {
+      "byteLength": 24,
+      "sha256": "da5bf71d48cf909584a01c80b445f730507068f5b34c920f352e2bfcf0315e4c"
+    },
+    "src/app/use-compact-data.test.tsx": {
+      "byteLength": 6884,
+      "sha256": "9b2e88e79b1cd5482f8f3250d4971e625ae1e5edd6d759b7f703f5163a63e7a9"
+    },
+    "src/app/use-compact-data.ts": {
+      "byteLength": 5133,
+      "sha256": "0fbac5700b00a8f2dd0da225c5c4b14ee48763970c6994fc58f96b423296c911"
+    },
+    "src/app/use-display-data.ts": {
+      "byteLength": 3364,
+      "sha256": "bf8f311e2ad4cacf23d565433756a719d71be0882a742107437a8216f30210e3"
+    },
+    "src/app/workspace-intro.tsx": {
+      "byteLength": 3695,
+      "sha256": "1f9e9e72f94c35e6b1e51f75e4407f2689d6f36588031cdc9a1a45eaadd3d960"
+    },
+    "src/app/workspace.test.tsx": {
+      "byteLength": 34257,
+      "sha256": "29123aea111e3a8b95e41320b717ab7fea1470b348f4d9e6ec9a21e3c840896d"
+    },
+    "src/domain/.gitkeep": {
+      "byteLength": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/domain/map-license-status.test.ts": {
+      "byteLength": 3042,
+      "sha256": "92ac19bf74cb179159d92682094a4554f48c58b81bf89e37f9fb4d44717b46fd"
+    },
+    "src/domain/map-license-status.ts": {
+      "byteLength": 721,
+      "sha256": "16f58c1ade9d11c5a5ae14d980312d5431438edc58369582c70d2a1d3cd0c4bf"
+    },
+    "src/pipeline/.gitkeep": {
+      "byteLength": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/pipeline/adopted-validation-adapters.test.ts": {
+      "byteLength": 13515,
+      "sha256": "17405a8ff8078dc552e2e534d36bd2433daa543a56e7604ab3bc1bed80ca44db"
+    },
+    "src/pipeline/archive-adapter.ts": {
+      "byteLength": 895,
+      "sha256": "071bf9de82695f75cd3966e79cf5220973b3b9c6d1c6052e4d9a72eb85aabfa7"
+    },
+    "src/pipeline/archive-contract.test.ts": {
+      "byteLength": 1092,
+      "sha256": "5a228a3cca4a3e5a69cd8fad9c22ffc666b0b5289806687d7060796f4dd493c6"
+    },
+    "src/pipeline/archive-contract.ts": {
+      "byteLength": 2171,
+      "sha256": "7608154cf60f4c1c6e78c1e8679d38d38d9c8e80d89c3924fd2a1a10ba219608"
+    },
+    "src/pipeline/calendar-date.ts": {
+      "byteLength": 257,
+      "sha256": "7f38dbc8eb6f4f8e21996d6e48203202cb37e496cab4a68c787b3a60bdedc28b"
+    },
+    "src/pipeline/collect-seoul-archive.test.ts": {
+      "byteLength": 9363,
+      "sha256": "0eecda84ddab3cc5ef397e949a57f1a858fe65d590a7db41713162da2b58b298"
+    },
+    "src/pipeline/collect-seoul-archive.ts": {
+      "byteLength": 6844,
+      "sha256": "de6822969a5fe24e06fe548b521ebf48ad42e757f1b321357e3623a8a3bdf42d"
+    },
+    "src/pipeline/collector-types.ts": {
+      "byteLength": 2968,
+      "sha256": "fec6bfa0c5f2d22384b201bec067024da16361155a1f676667ee9514862a3bf4"
+    },
+    "src/pipeline/compact-delivery.test.ts": {
+      "byteLength": 8903,
+      "sha256": "78312027668c9d55d07ec53a88451cce6386b6af0c62596df10870974f624504"
+    },
+    "src/pipeline/compact-worker.test.ts": {
+      "byteLength": 4171,
+      "sha256": "24ef2ac99ac57ddd4ab5b65d7d4efcc84467cf2f6c10e9a87cdcac73e2d9030b"
+    },
+    "src/pipeline/contracts/reviewed-unverified-pairs-v1.json": {
+      "byteLength": 2197,
+      "sha256": "84a16b491eefd39aa8e2b78390ec64ddc1796ceb21ebf73d85745c7b55a5282c"
+    },
+    "src/pipeline/contracts/seoul-archive-contract.json": {
+      "byteLength": 237349,
+      "sha256": "7cd8ce23032b491a4d9859c2cf50d7fa7505ea94c63523cb44bcb5e4242388ec"
+    },
+    "src/pipeline/csv-header.test.ts": {
+      "byteLength": 2099,
+      "sha256": "e62b37661fb9d09c79bb770bb18657781e6003865d414041387bf12bdca43380"
+    },
+    "src/pipeline/csv-header.ts": {
+      "byteLength": 3546,
+      "sha256": "0053cd81ae0c636aac01f83a7d8f7f2d00fa1e90a0356e5db3855d01a1ec7ca2"
+    },
+    "src/pipeline/decode-csv.test.ts": {
+      "byteLength": 1085,
+      "sha256": "fda4ed3a9553a777f5f24c6a4b6a9bf21e3839293eeafe951d671877bd07d098"
+    },
+    "src/pipeline/decode-csv.ts": {
+      "byteLength": 598,
+      "sha256": "83affdaffbccc84b6574e8fb298ada960a2ff7981f5c4c73919c6704c947d28c"
+    },
+    "src/pipeline/discover-archive-contract.test.ts": {
+      "byteLength": 5203,
+      "sha256": "56dc3ed4fd2757d2f534f9d436586024d9816de2484de5e3c2e4c7e6988412d9"
+    },
+    "src/pipeline/discover-archive-contract.ts": {
+      "byteLength": 3397,
+      "sha256": "0db2dcd5a98546ff2782a81f41a19b2b03ea33a945a1dd391c7538abc6903bbd"
+    },
+    "src/pipeline/initial-import-approval.test.ts": {
+      "byteLength": 17643,
+      "sha256": "1fc1ef11b85d0d9aabc18e0810bc5b73a06c0903d8dac21aa0d4d627368b5acb"
+    },
+    "src/pipeline/initial-import-approval.ts": {
+      "byteLength": 5533,
+      "sha256": "f795d277c6768c5d30630959f78787b2acf6054e20f1c6a12a6d94d13b7e40f1"
+    },
+    "src/pipeline/initial-import-run.test.ts": {
+      "byteLength": 7125,
+      "sha256": "76c528534200647c0476cad6930f6d62b30501ec317acd9784c99ef20ca20f38"
+    },
+    "src/pipeline/initial-import-run.ts": {
+      "byteLength": 7224,
+      "sha256": "3b9c624f8e2b2bf0c409b3147288c443b640ddcb64d00d94d670db5e1339f86c"
+    },
+    "src/pipeline/initial-import-types.ts": {
+      "byteLength": 4384,
+      "sha256": "6285c1bc34262c5d7c48c927c475a00cf2d554a03f30cdce716236d03c5c8f6a"
+    },
+    "src/pipeline/initial-source-download.test.ts": {
+      "byteLength": 24322,
+      "sha256": "c772550172dfc38f1936474c19e964daa83ba155c61e0c429d3a5e0ab1b4311b"
+    },
+    "src/pipeline/initial-source-download.ts": {
+      "byteLength": 10942,
+      "sha256": "091008804b1f97f999416a4352876b5f05d2f5fbbe5517be239404ae4887911b"
+    },
+    "src/pipeline/inspect-archive.test.ts": {
+      "byteLength": 5002,
+      "sha256": "0ac77924534aadb137d9facef0ae343922f13899acae1616ca305a8f22103e6c"
+    },
+    "src/pipeline/inspect-archive.ts": {
+      "byteLength": 5414,
+      "sha256": "a5def5e9b3be7d49306b7a1e1459563773496a8a5fa80423ddea4da7b9c81337"
+    },
+    "src/pipeline/manual-probe.test.ts": {
+      "byteLength": 1816,
+      "sha256": "71a7167581c8c516346e917b8fbea1c59dc6224258cffff70736903a9f4da7e5"
+    },
+    "src/pipeline/manual-probe.ts": {
+      "byteLength": 3111,
+      "sha256": "0b10fd69f241efa0edc6397289add8f06beda3bca553f0dda808144378ddab92"
+    },
+    "src/pipeline/measure-source-browser.test.ts": {
+      "byteLength": 4528,
+      "sha256": "941fec55715cbb1211c58416a2805c50ecf4acddde9d7ac53f7629054b308441"
+    },
+    "src/pipeline/parse-license-csv.test.ts": {
+      "byteLength": 3199,
+      "sha256": "ed36654729514607b11c2affc2951a9a577e2cafa6964f1447e8dae6e9b9fb61"
+    },
+    "src/pipeline/parse-license-csv.ts": {
+      "byteLength": 2926,
+      "sha256": "86186c2e809951b958457dd0864fc1413ceeeb92f041b94168e3c7fc8ec0537e"
+    },
+    "src/pipeline/probe-source.test.ts": {
+      "byteLength": 13092,
+      "sha256": "b90719e093281563775792eb5410623a10599e8c3a379112d294400d496702af"
+    },
+    "src/pipeline/probe-source.ts": {
+      "byteLength": 5782,
+      "sha256": "ab83f98a0bb6f8036f96750fa7e5253e848476866306c04a9d28f4a729367778"
+    },
+    "src/pipeline/publication-size.test.ts": {
+      "byteLength": 1574,
+      "sha256": "22f44e1b7a174c397520b053585a3254a74ff18cf600d8567668f126dea05957"
+    },
+    "src/pipeline/publication-size.ts": {
+      "byteLength": 1038,
+      "sha256": "0a0bf7ed83bf0262cd32658d83fa5991ebb9144e803628aaf0cebcb870fc1f64"
+    },
+    "src/pipeline/publication-transaction.test.ts": {
+      "byteLength": 17302,
+      "sha256": "ec63cb44451ebd86d6ed2c5b336c765321979d5f7d46f94ec758ec5d56a3e41b"
+    },
+    "src/pipeline/read-deployed-baseline.test.ts": {
+      "byteLength": 8639,
+      "sha256": "c1f3987d87d19ea22e22741451526c23b4507a2b0ed0dff33ed0c5313ddf9a38"
+    },
+    "src/pipeline/read-deployed-baseline.ts": {
+      "byteLength": 5831,
+      "sha256": "90f7e3cd66f8e0b8ebb1ec210261bbb1d27facfaf138d76b454e47886095b6b7"
+    },
+    "src/pipeline/reconcile-publication.test.ts": {
+      "byteLength": 18392,
+      "sha256": "8edb9ab18ce3db8a3b742aa404478e747f4bd2ae747fac6a2ee42535b449c9ef"
+    },
+    "src/pipeline/reconcile-publication.ts": {
+      "byteLength": 10908,
+      "sha256": "b44f82f7c8bf9ef25b1308434a5861a5f0df98f41e18811cb43873a48c907c3b"
+    },
+    "src/pipeline/recovery-approval.test.ts": {
+      "byteLength": 15649,
+      "sha256": "b76cd081c5565e2f41289e98ba3f4cbe266e7f8781a9ea2ca3db09d0eda469c0"
+    },
+    "src/pipeline/recovery-approval.ts": {
+      "byteLength": 7661,
+      "sha256": "72c457a04005ea0cfcc9e474acbc687589a7fa17d089068fef8a79c7c9549fc6"
+    },
+    "src/pipeline/recovery-archive.test.ts": {
+      "byteLength": 24436,
+      "sha256": "b006d4bb293ec426e52699f96c0369945cd50bdc9d4fdf4d77b5d2f3c0fe178a"
+    },
+    "src/pipeline/recovery-archive.ts": {
+      "byteLength": 17073,
+      "sha256": "311037da708d18559df9988d7a60b4d3f87552ba55ba3b217bb960d1067ae415"
+    },
+    "src/pipeline/recovery-download.test.ts": {
+      "byteLength": 16239,
+      "sha256": "a4f4ff23afb769fc73cecf278cfeace6d465a13020e6f93de51735c099272f42"
+    },
+    "src/pipeline/recovery-download.ts": {
+      "byteLength": 12225,
+      "sha256": "8ee567fa50f0aafdce0689a8f621ab43ea7354739e03481cacfcc8c7224552c9"
+    },
+    "src/pipeline/recovery-inventory.test.ts": {
+      "byteLength": 7840,
+      "sha256": "9a454beb3f738100d70f3f2945f65980189b6a9d331bdd92396652c1dc76017a"
+    },
+    "src/pipeline/recovery-inventory.ts": {
+      "byteLength": 4677,
+      "sha256": "6a0fdd12adaba1a3a65ef9676635b9bdf0dcec4629a7a4cbc44f187c22774a3a"
+    },
+    "src/pipeline/recovery-types.ts": {
+      "byteLength": 5931,
+      "sha256": "033a89472a6a7037964f3ab4acfe4c4b3961da091cd059298a06b9d61c906577"
+    },
+    "src/pipeline/refresh-validation-metrics.ts": {
+      "byteLength": 9508,
+      "sha256": "966a88f234e99402f3a1dd3a4ebd2e84959e4598f2637ad7d6e8a0bc6ef6a515"
+    },
+    "src/pipeline/refresh-validation-types.ts": {
+      "byteLength": 5369,
+      "sha256": "3e6b08a4a5c2bc4b8b36003457ddbda0fcc17523b2fb99378e176e97ab4195e0"
+    },
+    "src/pipeline/reviewed-unverified-pairs.ts": {
+      "byteLength": 2702,
+      "sha256": "d2c4a13dffa4a164332a3f672dc70902e45606e2962edcecee6038098f1d87f9"
+    },
+    "src/pipeline/source-contract.test.ts": {
+      "byteLength": 2753,
+      "sha256": "6443f028ebfec469d0b992b4efcdf2297d7ccbccec23d8a3084ec2de42afc5a4"
+    },
+    "src/pipeline/source-contract.ts": {
+      "byteLength": 4138,
+      "sha256": "a1ae035ab0448e5cbb0a681e488c680d6a336c79fad314badfe4372bc43c1e54"
+    },
+    "src/pipeline/stage-bounded-release.ts": {
+      "byteLength": 20502,
+      "sha256": "fa6f39e6ed8a9f385f560facd30d95320ef2db83548acbe556fd1f9d473461ad"
+    },
+    "src/pipeline/stage-initial-source.test.ts": {
+      "byteLength": 27329,
+      "sha256": "e0e01a8ac25f8882d56023bd408a39f9dd4608571786236fff5d3239f8053e06"
+    },
+    "src/pipeline/stage-initial-source.ts": {
+      "byteLength": 15082,
+      "sha256": "c6410baceca64e7b5b77b83457635eaff7ea6586ba81ec7a76ecbd92d7711e87"
+    },
+    "src/pipeline/stage-validated-release.ts": {
+      "byteLength": 8039,
+      "sha256": "ea9e8fa8afd14d846628bd7f8ecf358b26222b145155cb3769069fd877d89c13"
+    },
+    "src/pipeline/staged-download.test.ts": {
+      "byteLength": 15058,
+      "sha256": "1491e103eaf2194116011956247e956871cc5308163cc7133f2934d3042f146c"
+    },
+    "src/pipeline/staged-download.ts": {
+      "byteLength": 8090,
+      "sha256": "93945854e9c3e561a65209c62cdd1c9af86ed53ed1fbf5bb32f7ab5dde8605d2"
+    },
+    "src/pipeline/transform-license-records.test.ts": {
+      "byteLength": 18819,
+      "sha256": "8bf28c5792cf167ce5b1ba3d16e5e3ffb25075f411b8d1e271c9768a7ce43c3d"
+    },
+    "src/pipeline/transform-license-records.ts": {
+      "byteLength": 18920,
+      "sha256": "a2beea03bea7f3d5ff170ff8032ef5f150bee58acc5aa6ca7dc257f23597910a"
+    },
+    "src/pipeline/unzip-archive.test.ts": {
+      "byteLength": 4608,
+      "sha256": "49620e5265057ccc851706d76a02f115e1013c47c79cda10da5df315c6862b5d"
+    },
+    "src/pipeline/unzip-archive.ts": {
+      "byteLength": 7381,
+      "sha256": "510a49561993479b2dea79b8f073b0ccd99f54b55b601bb5688004e114fa671c"
+    },
+    "src/pipeline/validate-json-bytes.test.ts": {
+      "byteLength": 2906,
+      "sha256": "c5cfa29b16378829d525d48d66a13c83cecf804c875c26abb5c72f518186a938"
+    },
+    "src/pipeline/validate-json-bytes.ts": {
+      "byteLength": 1373,
+      "sha256": "603870a02872ff34c65dcd22cceb2c9bc1603e9ed677c22d84733d7d1847cb50"
+    },
+    "src/pipeline/validate-license-refresh.test.ts": {
+      "byteLength": 80221,
+      "sha256": "ed7b38e40a3d4c78e02d6ef1a3a96118fca13ce5fb3ee968b6b98ea7311d184a"
+    },
+    "src/pipeline/validate-license-refresh.ts": {
+      "byteLength": 22246,
+      "sha256": "131703251a2ad9144a620a5880bb496e693722818e2852cd28a35045f94942a8"
+    },
+    "src/pipeline/verify-compact-directory.ts": {
+      "byteLength": 3044,
+      "sha256": "64f856263c0a74bea0e6f1fcfe5c0310dd554851f1e0d48c57190a40778d0653"
+    },
+    "src/pipeline/verify-publication-directory.test.ts": {
+      "byteLength": 10656,
+      "sha256": "c0fd831f882af7d6ff1b029afcb4bc057582a4bcbfa690bc5bba702661c0f123"
+    },
+    "src/pipeline/verify-publication-directory.ts": {
+      "byteLength": 7054,
+      "sha256": "a71c10d6c6807a1cc02285f529f463f0da4c6f5af4af57c93391077cb0f7e4fe"
+    },
+    "src/pipeline/write-compact-dataset.ts": {
+      "byteLength": 7495,
+      "sha256": "d74ed8f11fb5f4da214b38f914dd256d9347d39a2792082d8e0d80a7a637e910"
+    },
+    "src/search/.gitkeep": {
+      "byteLength": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/search/compact-search.test.ts": {
+      "byteLength": 14911,
+      "sha256": "4cb89e79405f9f9eeed4e61d460902db2e297803cb5e98f8614abead10564600"
+    },
+    "src/search/compact-search.ts": {
+      "byteLength": 17393,
+      "sha256": "64c68505ecf04da2a767ec538d2472da46ec0796d25f8f8fb1cc9f259d493d39"
+    },
+    "src/search/compare-search-address.test.ts": {
+      "byteLength": 9487,
+      "sha256": "f5757b282068cc894e1239646acf7f238c5e1e44c50e5cdfaedc92d51270b2cf"
+    },
+    "src/search/compare-search-address.ts": {
+      "byteLength": 6952,
+      "sha256": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942"
+    },
+    "src/search/interpret-search-query.ts": {
+      "byteLength": 5247,
+      "sha256": "e5bdaad78cfbbcf7612e24dc40c501d8895272b6105fa22ff0a796803cededb8"
+    },
+    "src/search/prepare-search-query.test.ts": {
+      "byteLength": 4369,
+      "sha256": "3486479f9a73c08d008b9cfcd5c6f7f9067fcfc5880609adad7b4927b784bf61"
+    },
+    "src/search/prepare-search-query.ts": {
+      "byteLength": 3076,
+      "sha256": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae"
+    },
+    "src/search/search-candidates.test.ts": {
+      "byteLength": 16219,
+      "sha256": "bfb9929bba72d905ab68b5ddeccf266deb97c766cca549bf07c065c0ec974196"
+    },
+    "src/search/search-candidates.ts": {
+      "byteLength": 10191,
+      "sha256": "9c4f36e5c30b9e95a852c05437a3435a0f57169f546cd62d39ea37a5bc0b15bc"
+    },
+    "src/search/search-optimization.test.ts": {
+      "byteLength": 1963,
+      "sha256": "1657fc99311e470f8a1d1fa9cf8012620825593e50de3a5fbaf801139006d944"
+    },
+    "src/search/search-quality.test.ts": {
+      "byteLength": 15408,
+      "sha256": "ee0cbc5b61a5036fec79346ea5b04e3288d8b214fddab3eb015a2f90d40fae6c"
+    },
+    "src/shared/.gitkeep": {
+      "byteLength": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/shared/compact-data.test.ts": {
+      "byteLength": 1869,
+      "sha256": "0d31e740a5ac7c363285b599b20ba86524789232b3159a231af9c06c107e0e12"
+    },
+    "src/shared/compact-data.ts": {
+      "byteLength": 14016,
+      "sha256": "762bdefcbe61fd9aceafad7e48461defd8a4f74e4dbc41d4ab1eb612c84fda83"
+    },
+    "src/shared/data-freshness.test.ts": {
+      "byteLength": 2686,
+      "sha256": "2745899ee7010b7082b2726d6a90c7f01d235e05ddc8d11126e155ae968d5cbb"
+    },
+    "src/shared/data-freshness.ts": {
+      "byteLength": 2250,
+      "sha256": "98464f9fdf89ec9e3cbdccb74561d9da7e0a8513a25fcb0ec5321715048fe892"
+    },
+    "src/shared/load-compact-data.test.ts": {
+      "byteLength": 1043,
+      "sha256": "8914fe109df06e4b1623bfa08e81a677112876ee6c6b36dc7caa2861adc0996b"
+    },
+    "src/shared/load-compact-data.ts": {
+      "byteLength": 4588,
+      "sha256": "0b5456b1ad4bc7a35d303a89d891e8fc231c8444c4e2c278a25eb0080cb0fe36"
+    },
+    "src/shared/map-search-links.test.ts": {
+      "byteLength": 2598,
+      "sha256": "fb6d756f1fac6ac97bb01d6228c6db9a54abdcf0f7856788c3fb53f2f3351543"
+    },
+    "src/shared/map-search-links.ts": {
+      "byteLength": 1144,
+      "sha256": "b59f5dd3f42ea9fe038efcc6e57af63747f7b11890dd227bad86c887163a630d"
+    },
+    "tsconfig.json": {
+      "byteLength": 900,
+      "sha256": "cebdda0a6f3e942173815fd2ac9fb00b621b13482ba6836a5c6fed29be690c44"
+    },
+    "vite.config.ts": {
+      "byteLength": 151,
+      "sha256": "5328b85fb839a81fcb9603123f14320dc433b771ddea63b06824587b244355f1"
+    },
+    "vitest.config.ts": {
+      "byteLength": 1207,
+      "sha256": "0d9bab9c3a4c3299c574f125471dc2c0d6ad5832a61f559e08b34ef994d35a3d"
+    }
+  },
+  "helperSha256": "4ca651a96f947b7e665c9579728c47da3e30166b537374de683d66fc0dcfe941",
+  "measurements": [
+    {
+      "identity": {
+        "fixtureId": "district-0",
+        "eligibleCount": 0,
+        "similarCount": 101944,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "929819e5754e25df45e7cefa48469ba0b4ce44a9d5e8dc4be117bdfdac67f079",
+        "firstPageSha256": "c806996cc4f9233d6509363d899e8e177a18e214698c8827fd5dab7018e88c1d",
+        "lastPageSha256": "ed1f53a24fb534cd10742ec5abc315ab7caa82943126c33c55df8cc1d79a1eea"
+      },
+      "elapsedMs": 406.0839580000029
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-0",
+        "eligibleCount": 0,
+        "similarCount": 102140,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "3883d17e7de945e1689801598ec2977242f067e9bfd6eb3817753dce59f3e7ea",
+        "firstPageSha256": "4531d2e28073ae016bb3555f36b890161679627ea74b00c7f9797dd847cfb69f",
+        "lastPageSha256": "e28030dc8ae902b3521a5985a50e3734735d3bf3f90ed105aa95bce40e34fc4a"
+      },
+      "elapsedMs": 339.07908399999724
+    },
+    {
+      "identity": {
+        "fixtureId": "district-1",
+        "eligibleCount": 0,
+        "similarCount": 139169,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "885ddfa07a765070c425340b4274fa3acbe2edf6e70f9ed14c95361807d8f0f3",
+        "firstPageSha256": "74aea422d1fb104b7f1bdc651cf3e986d5c3a9ebb6bed215b09f18ae07be6327",
+        "lastPageSha256": "2a757273759c854e4f749bbd9551f64dd2ee907186e9caafd9796304fc404081"
+      },
+      "elapsedMs": 1029.6120420000007
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-1",
+        "eligibleCount": 0,
+        "similarCount": 139275,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "4ea3609c0ad720124a68e06a0e1f0c52a5645dd5c1798e39252dcfe498bb1da7",
+        "firstPageSha256": "d7bdba1d92436269b92acf3ee94ca1a47642ddf44a04a8ca0be5d73355361a66",
+        "lastPageSha256": "e10b6788d0f9a074449dbe2b49ac22f6a40f0e09231e589aca2af4d74796a495"
+      },
+      "elapsedMs": 275.94024999999965
+    },
+    {
+      "identity": {
+        "fixtureId": "district-2",
+        "eligibleCount": 0,
+        "similarCount": 90375,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "b831bf33eeeca8dce5fc6446b1f80f8c38907192dbf327fc765fd10dc98a83a4",
+        "firstPageSha256": "7e5523fcd2df7465ac75031ade18ce44c858ae7f38636fde3ff150d87e585e4d",
+        "lastPageSha256": "370bd4059104527ad709679135bf1f4baef046193d7c8cb3de2782f2aea1c028"
+      },
+      "elapsedMs": 235.7667919999949
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-2",
+        "eligibleCount": 0,
+        "similarCount": 90573,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "9cf3e3bad1aa41c3fbf7b22c13e79b3200cedbaec3ca45daf45ea4d47d7ec041",
+        "firstPageSha256": "ede7f3c59be36d5bbdf8da5de3bd3a062c05a7f3a9f5d54eba41af0b8a2c7b18",
+        "lastPageSha256": "46e84ef1562b70ac5077bf93dff887d12cdaf2491c1def222effb87a8ccb56b4"
+      },
+      "elapsedMs": 245.12629200000083
+    },
+    {
+      "identity": {
+        "fixtureId": "district-3",
+        "eligibleCount": 0,
+        "similarCount": 95198,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "9393dde40a97454f31f80e095d1312be3aa01b7338bf7643e8471006bf4c7099",
+        "firstPageSha256": "8fed06cbb8fa3e06680fefcc7b08e7f38ef34b043e48f185e2bb31d3a86ac659",
+        "lastPageSha256": "17affba24f58310c11e2251c03a98a2ea11ece712cd192f91fefae678d31c99c"
+      },
+      "elapsedMs": 238.40341700000135
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-3",
+        "eligibleCount": 0,
+        "similarCount": 95398,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "f513e022245daa36d8569cfe84a254d8a1ebe0d2f060dad37cc8725893dbd389",
+        "firstPageSha256": "d58b6ad92b3830e4d0e1cbdcc06592e79c6043c72f1a7ece8b217a05071d835e",
+        "lastPageSha256": "b9fe3e7f944fca9e3c1e35e1f7a87716ed3b809bd116f7fb7e34be31038dc955"
+      },
+      "elapsedMs": 331.45091700000194
+    },
+    {
+      "identity": {
+        "fixtureId": "district-4",
+        "eligibleCount": 0,
+        "similarCount": 96516,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "c745372ba15a37c20530bcd4df79dfa99c40db497d638fb448f76c0cd80ab1d5",
+        "firstPageSha256": "faa6d6d65cd1c185e0c43eae49e01d4ba7e1e5c84d1287eb2f0186e7b6c8e0e2",
+        "lastPageSha256": "eb32aec94a0f18e5c3d029a5e18fd4e7f2c81012584ad44d04a442b92f1bfcc1"
+      },
+      "elapsedMs": 236.68879200000083
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-4",
+        "eligibleCount": 0,
+        "similarCount": 96718,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "0c4b92fbd0e34c27d59d2e6362264e7f56ded05aa0c5bedddccbd0e0712a765f",
+        "firstPageSha256": "31f2df708e9c5933cc7b91693445b973df9baf50bbc1c7d1e1de43a22ae9ffc3",
+        "lastPageSha256": "9e9a0e8c90790b727ab828b5628ede605a08947ad67d9e3ab5bee2e518053387"
+      },
+      "elapsedMs": 246.3324999999968
+    },
+    {
+      "identity": {
+        "fixtureId": "district-5",
+        "eligibleCount": 0,
+        "similarCount": 103296,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "6ab464f8156ade41fe6f5f2edd05e5692b4cb5ed657e13a5e723008621952d45",
+        "firstPageSha256": "dd8f4f0b9debdc1a22d1c3052f79f27b3aa418b74c5350b67a09ee02b900e62d",
+        "lastPageSha256": "2d8019844b137d72c1b9ff0a32599e54f324468aaa1a6de3ed7269b61068de3c"
+      },
+      "elapsedMs": 238.7956669999985
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-5",
+        "eligibleCount": 0,
+        "similarCount": 103493,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "5ed54b064e49b75d9c4b791b153ff9cb380f165324828f6fc65f17a17b7ce561",
+        "firstPageSha256": "6b87937f74e94cf0f16ab015cb97fbbc9200b294d4e1928502b612532d528090",
+        "lastPageSha256": "4e93d1e7f80506ec98228f22ee452c8a2d6c2cf7ed235f547314e8d9430aa982"
+      },
+      "elapsedMs": 243.0023749999964
+    },
+    {
+      "identity": {
+        "fixtureId": "district-6",
+        "eligibleCount": 0,
+        "similarCount": 86996,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "cb1d075f6818dc8562bc4541ca85eb00c9fc43927e9c34d0a1c614d78183b8be",
+        "firstPageSha256": "f6f28ffa104a9ac00dd27aa5d5640d251c44298ea4f19c233a1d6882101454fa",
+        "lastPageSha256": "150aeecb2d3d256e8d4b90e620d4457c171d63277d431e741a36bdd2cf1114d2"
+      },
+      "elapsedMs": 277.3931250000023
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-6",
+        "eligibleCount": 0,
+        "similarCount": 87192,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "79fd40d89143ff0d5259392682072270ad7f3eefb1d4f21a316eccdc2cc097c7",
+        "firstPageSha256": "8fc7c8abd3c28562f827440636e1c2b5c61ddd339a930cf8a3005702032159c2",
+        "lastPageSha256": "d43ecce09ee09236bc721df9fd6a0ea6f5e0e197bb0685bd903b2bc16e2746d1"
+      },
+      "elapsedMs": 244.0918329999986
+    },
+    {
+      "identity": {
+        "fixtureId": "district-7",
+        "eligibleCount": 0,
+        "similarCount": 91888,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "8a4e7af93a5cc1e1710734a66d259f94cc59482e349b14ebb4aea5e6d4295e8e",
+        "firstPageSha256": "6fcf6f00ed990a32f47fd3fb46e3016be7d4ef0dc3a54abcc4514db1d94bcc21",
+        "lastPageSha256": "b65ad0108fe36451de1dcb16e2b17834a43b77c67aba979bba16d5333d2d2504"
+      },
+      "elapsedMs": 234.69187500000407
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-7",
+        "eligibleCount": 0,
+        "similarCount": 92082,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "46692598bab0e3c4045aca6f629f57d84e2ab280b63be7542e4fbbd2d32c07cd",
+        "firstPageSha256": "9ef1c0fb8cb73fbb62103297a4e12fb97006e32d5e68f9ebb37a439282e93ddc",
+        "lastPageSha256": "d2ecfe1586e21285900c2924291b969e3d16a0080442e6f9a16416749b805c4b"
+      },
+      "elapsedMs": 247.0110829999976
+    },
+    {
+      "identity": {
+        "fixtureId": "district-8",
+        "eligibleCount": 0,
+        "similarCount": 68899,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "6cc93edc396afb39f6ecd51b1db83e49914bbe97a60b76635e40753be520580b",
+        "firstPageSha256": "4dc01a827ae120ff0ff52557d72b2523f73c313396edc221b05a63e21c50fac4",
+        "lastPageSha256": "106452548f872d344f0ffed387b377fb6a6e1a8ced349ca85ec9d112a26f4fc3"
+      },
+      "elapsedMs": 230.65358299999934
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-8",
+        "eligibleCount": 0,
+        "similarCount": 69100,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "4c9b120508fcd9fe945c31218f7ed4b7edd75fd9972e56a6bbab2a24319e3226",
+        "firstPageSha256": "337bdc89ad52ca7e20c070d9d29d06e8c86f69f72e98320017f6dc8d859ef8b7",
+        "lastPageSha256": "86e28e0a2d711f673afa340cc4521c099d159eccf241ff9d6c5b80248e08bc6b"
+      },
+      "elapsedMs": 278.8092499999984
+    },
+    {
+      "identity": {
+        "fixtureId": "district-9",
+        "eligibleCount": 0,
+        "similarCount": 58734,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "a4567ca851e706f60a29650991640a68172c04db5fbad38b355b0ce857b35feb",
+        "firstPageSha256": "6310587965af333339875477db3b15b95aa03aed57d3bc36d9e948b083f77036",
+        "lastPageSha256": "69687070c91467325050c1619acb8c4b6b5531fe6e58039d7f0ac5f15f8d348e"
+      },
+      "elapsedMs": 217.29245799999626
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-9",
+        "eligibleCount": 0,
+        "similarCount": 58935,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "dbee72a9c0125f1c439e870d0a3724eb74fdeb7401550dbc4d33d5d7cebb805a",
+        "firstPageSha256": "6ea9866e124b4a110b8ba8e07b1e9e36bafc6756b274b8f0bce47a8206882857",
+        "lastPageSha256": "cc78373a725ba7f2ed4585bdd5a2a2c3d325e543d270fb75a2f938bad6b96751"
+      },
+      "elapsedMs": 221.86191699999472
+    },
+    {
+      "identity": {
+        "fixtureId": "district-10",
+        "eligibleCount": 0,
+        "similarCount": 87682,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "55f5d64db507454ec3726456a5891373c0296ce97d33bc363c0a6d2485ad5a7a",
+        "firstPageSha256": "870a43bc218d9f0667853194a91603462ae81016161ce101f3408656f9269ed7",
+        "lastPageSha256": "33979a871c6a15037aff642a8cd745e6aee0318c94d151fd0a9110f9344b78c6"
+      },
+      "elapsedMs": 228.77787499999977
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-10",
+        "eligibleCount": 0,
+        "similarCount": 87883,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "1a72d865c818bd228ecaba5c216f61162b53233cb97f5d718a520f2ca34cc9ab",
+        "firstPageSha256": "fea30811a0124e33a522fb4e9acbb4efd8fee17b3a36b95572167ab2a5266287",
+        "lastPageSha256": "1a3395524c6cea3ae9c09164e2c2b05a38db5a7888c825954941e87f158df1ca"
+      },
+      "elapsedMs": 236.44550000000163
+    },
+    {
+      "identity": {
+        "fixtureId": "district-11",
+        "eligibleCount": 0,
+        "similarCount": 90852,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "e05f91c8f21918e3ea7e959aaefe657f740ccdbaed6b22bfa1f1f326edfdeaf8",
+        "firstPageSha256": "0c6fc392db9a5425c6b367f897571345f0ff765131192da1eb257cbfd3d517b7",
+        "lastPageSha256": "10f36a7a29c128e1ac8ceb3325427bb69163f8d4f9dd3c08139cb792a3e3b25a"
+      },
+      "elapsedMs": 310.73591699999815
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-11",
+        "eligibleCount": 0,
+        "similarCount": 91056,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "a7a296d56495af0f397bba368d295f869e8075ebc62727e9a253e85cb3586629",
+        "firstPageSha256": "5769abfb532b9760885cd77bbb5dc15fd442d45cb5dbee0e4b6881c034399c86",
+        "lastPageSha256": "fa161fd7cf0eac8265793483de6d44cadd7d229ed631c1475a8f482d8e6c68ae"
+      },
+      "elapsedMs": 242.3871250000011
+    },
+    {
+      "identity": {
+        "fixtureId": "district-12",
+        "eligibleCount": 0,
+        "similarCount": 78210,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "46fad4a3201ba6f7fc4e091435b66b23ac4eeedea407d5d1d874107651bcbc21",
+        "firstPageSha256": "a8679f53ca70f71e757ffcc7b8ed4c0f4492187a6ac8059cb806a70557272e91",
+        "lastPageSha256": "8d62a86b1361694a990f736aae93676b126aa6a57067747db2c5bc47d440f66b"
+      },
+      "elapsedMs": 228.07970800000476
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-12",
+        "eligibleCount": 0,
+        "similarCount": 78408,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "bab6c2f834c5ff10623e70200277051fd83d1d935efaa28f5a97e0d85e87069f",
+        "firstPageSha256": "62c0459ebf8f7829dcbb6801e5d9714266fbe514745c87d81d25f92353aa47a5",
+        "lastPageSha256": "f6b0838a1fec12b995272f941fea9664c7a11e1393f71c9e714c6d32d41272c7"
+      },
+      "elapsedMs": 227.67383400000108
+    },
+    {
+      "identity": {
+        "fixtureId": "district-13",
+        "eligibleCount": 0,
+        "similarCount": 164255,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "5ca3ccc8ba0e9e50eb945813644cf6d647a16340be309440d5c39f59c8abdc14",
+        "firstPageSha256": "2d3e2780f4268af18b8762dc9df3cddebc6788168deb1f68a275e8aec07755bf",
+        "lastPageSha256": "3229ec70a7dcba8554dd0172900a560b9f0a4bb5771a414a751c2e5adcfb86f4"
+      },
+      "elapsedMs": 299.94104199999856
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-13",
+        "eligibleCount": 0,
+        "similarCount": 164457,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "44425a3b11acf746cfd50b3271b6577bc57bf423d224d478f8529b77c28c2e34",
+        "firstPageSha256": "4a064b9aa570ccb2a46f52dcc6ce738463617724ac071b629c7519df128a7d47",
+        "lastPageSha256": "a7243ff624ec0181b72ff921c87b0ccbf44d06009cbeb6394b6f3bfc5947774a"
+      },
+      "elapsedMs": 365.88029200000165
+    },
+    {
+      "identity": {
+        "fixtureId": "district-14",
+        "eligibleCount": 0,
+        "similarCount": 92944,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "b65dab19b7891418f0096357f0a74a13c13daa5473b5ee0b4312da39a30ea30d",
+        "firstPageSha256": "9f0521dac70ed822264fa5a173623e723e808b536107d42e0a91c16d8e9b4a43",
+        "lastPageSha256": "8bdc61433071e7fe1ed01851843b76d7ff1106b6ff652f55f21766dd3a082afe"
+      },
+      "elapsedMs": 241.51916599999822
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-14",
+        "eligibleCount": 0,
+        "similarCount": 93146,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "078604907c3c6b7b437d8055245541950f04dddf3da2f4b22a53757ca81f570f",
+        "firstPageSha256": "4d19d8d5818329c90b2ff7656b440b89b33d844b2b7e509d9c9608488926f3d5",
+        "lastPageSha256": "c341c4795e9ef00630a818f9c5e373fe4772aa01cb3fec704d4bcd591a5a4fad"
+      },
+      "elapsedMs": 245.45979100000113
+    },
+    {
+      "identity": {
+        "fixtureId": "district-15",
+        "eligibleCount": 0,
+        "similarCount": 138487,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "acc44581e0e73498a4f2eb0864df7add90711981a0a7bd3e5f83754a4911fe79",
+        "firstPageSha256": "c8e2f4007006eb402b26944b1b015ae36d0b17ddbeb4235c785ac848f6bf3a99",
+        "lastPageSha256": "2cf5a90b824aec9232e785c37d270215b2d57620616e5848b6133e2b891970e6"
+      },
+      "elapsedMs": 279.0849589999998
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-15",
+        "eligibleCount": 0,
+        "similarCount": 138690,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "a198ce85f39de5260733b80746170a1310ec5a979e2fa330fa0015d528860442",
+        "firstPageSha256": "09e6222b3adb4bb1cae77cf52374e76cbefc4cc1a4a46fde7ffc9f8368622eba",
+        "lastPageSha256": "03650da65d8454d20f35b3077fffd41a1f353f10e07418375249f83d380e08be"
+      },
+      "elapsedMs": 278.8842910000021
+    },
+    {
+      "identity": {
+        "fixtureId": "district-16",
+        "eligibleCount": 0,
+        "similarCount": 111025,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "8f52befe08ff86a75094c82afbfe9a9b55b8f6ba1c2795bac405efbca2d661b9",
+        "firstPageSha256": "c369225449122efa6b73c0eca357917963cd0b9c06fa91988f721ea94e66ea25",
+        "lastPageSha256": "68069652d969a157aa24a7c4c753860dffee50150b601b7ee3881269cb14b416"
+      },
+      "elapsedMs": 313.0685000000012
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-16",
+        "eligibleCount": 0,
+        "similarCount": 111225,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "274349ca8d1fac4f44723a78433472b6052ea9bbc62f3cc12520e392f1048833",
+        "firstPageSha256": "16741406533ea145159945e0f4f9236d0fc6c04950c0734008c097675163cb91",
+        "lastPageSha256": "2037609f1a8944b884eea8504d80d5490ad127871f47f8986a936018dfcaa04f"
+      },
+      "elapsedMs": 256.04533300000185
+    },
+    {
+      "identity": {
+        "fixtureId": "district-17",
+        "eligibleCount": 0,
+        "similarCount": 89947,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "319e4f7a4796351e10db799bd38faa094c93d3809246b5d15bc87bd82d34857b",
+        "firstPageSha256": "eec24eb9ecd64e51928e89ec888a54d5c3837c568d99d6aa82ec8df1f34da605",
+        "lastPageSha256": "9f5206dcf8dba96e0b98bbef9145322c2fc2494e1c8bfef47ae70edee12b2228"
+      },
+      "elapsedMs": 230.67258299999958
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-17",
+        "eligibleCount": 0,
+        "similarCount": 90141,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "a5da1e3933f6640a2c3691070bd2a31b7d99bf684f55e65d5de2b9ab34085d27",
+        "firstPageSha256": "b7b362a82f2a8af058010162113a17bb2e848e7d380b82e5b56a3eadcd3a8e97",
+        "lastPageSha256": "ae4681d1ea9399ce3bc8716f042857479ba98b7ec6c365b06a540eb3f9dffa3a"
+      },
+      "elapsedMs": 242.93900000000576
+    },
+    {
+      "identity": {
+        "fixtureId": "district-18",
+        "eligibleCount": 0,
+        "similarCount": 154931,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "a368c4971290201a5f40487e6fb6b6288d79789bd293813dd5432d56e59ece02",
+        "firstPageSha256": "b2d9248f3deba3256f4df2036e46be204f1fa09beb55a3cffb2dbabd5d6e4eb2",
+        "lastPageSha256": "bbe527e0ad5f2d0d2cd4b9afb0420d0fc777b57df9ca0c2dad09b4651d5e1b50"
+      },
+      "elapsedMs": 286.3718330000047
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-18",
+        "eligibleCount": 0,
+        "similarCount": 155116,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "7b5ea8329af9e237130c892590a74e77e330a2411d90a05c689b90f5c51f5a79",
+        "firstPageSha256": "83a0a10f097e90b459faf3da082275cc4d4af8a33ee45d9c15ca2c0caa84d9ad",
+        "lastPageSha256": "aeb9971aba9ac507e142b11663d8cb4131f85d205c2b2b7a12d213bdbe9f55da"
+      },
+      "elapsedMs": 344.91966700000194
+    },
+    {
+      "identity": {
+        "fixtureId": "district-19",
+        "eligibleCount": 0,
+        "similarCount": 75399,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "0a32db64564ba808b4f5673f33845f8e4960973c1d4b2cd9036adb9bcd097001",
+        "firstPageSha256": "1436fae2b0a1fb71418fe54625a130335b18e0e50074b2ba370c1b12bea3c924",
+        "lastPageSha256": "bc02b98901c0e4753539151952ee6eba53a648aa66b485ff126dc56875bbfbda"
+      },
+      "elapsedMs": 231.8444159999999
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-19",
+        "eligibleCount": 0,
+        "similarCount": 75603,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "b4a209eef5b6e6780f5c0a1504d725088dac9c234fab5d2dc8e03eab4608a03f",
+        "firstPageSha256": "8502dd833ee9cad6ecc9945257481c3af2f9b7fc951194b08a9fb7c37f6ff227",
+        "lastPageSha256": "c5ef873f141ca52f6be1691344a4b2187f76b07c76173df50d68f80c23002f0c"
+      },
+      "elapsedMs": 241.4560829999973
+    },
+    {
+      "identity": {
+        "fixtureId": "district-20",
+        "eligibleCount": 0,
+        "similarCount": 109264,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "ce02247b2ed88300e2f4769f938a136b6ee17f0953bf89ce25aed905d9a08f95",
+        "firstPageSha256": "d12621b901926e291b2b8885a176d83b016f3f94a4b257019db5a3eb00972fd0",
+        "lastPageSha256": "7b6d7eb06ca1dbfc4b8c41c9022ddf33ddb8cffc24c0ca426ed0da9d28207544"
+      },
+      "elapsedMs": 253.04204200000095
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-20",
+        "eligibleCount": 0,
+        "similarCount": 109446,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "6dac223d88d23aa301a86714bf5d1236bb8c0dcc6e7822a6c9e05e22996a805d",
+        "firstPageSha256": "41f931f8d215bf62fddbb6e73505f27540ab95861659eb652a4088e4de610007",
+        "lastPageSha256": "3629f1229f4d5a114c1386521a78dbb7de6a30d610b9c7f19fec022e85e7d430"
+      },
+      "elapsedMs": 257.82362500000454
+    },
+    {
+      "identity": {
+        "fixtureId": "district-21",
+        "eligibleCount": 0,
+        "similarCount": 187975,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "248669829d484120b1457a21f9c7771a9d93d7053d8aef3e4f479fc8b68f76a6",
+        "firstPageSha256": "8f225b50621ba685797013644da921d2a29be646ebd9ba626fa5994218f12862",
+        "lastPageSha256": "5b55b620dfbd5a238dc82bcbcc11a044529d490fa70308bc96bea593fa4ec578"
+      },
+      "elapsedMs": 370.69791599999735
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-21",
+        "eligibleCount": 0,
+        "similarCount": 188176,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "05d00f30892c12ddc00df39da76c0b8347d31cc4db8f8d8f404780fbafa76ee1",
+        "firstPageSha256": "5054ed68dcd61bbfb1fd4f17da017f045aa780279a8a717e4bcddd1199210496",
+        "lastPageSha256": "d810dcbe4d59aac09195b40b976eab1c5d5df37b01db59b7dcf95ec6a3de8997"
+      },
+      "elapsedMs": 327.17233300000225
+    },
+    {
+      "identity": {
+        "fixtureId": "district-22",
+        "eligibleCount": 0,
+        "similarCount": 323695,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "258dff96c803051ac6170d77208e3b50303d716249a3ce6bafacc3ceb3becc2b",
+        "firstPageSha256": "81de68d26849f242c93a2c76d44860317f243586b29ab32bb887a64683b70070",
+        "lastPageSha256": "5c7b572c56e9cde3582f6d189ec69ff939cf00f37a347b214adfdfe891221fad"
+      },
+      "elapsedMs": 494.46491600000445
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-22",
+        "eligibleCount": 0,
+        "similarCount": 323891,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "d26ec4d2cd53f5c29bdef9a3cb89c2709d8f675ea97f142ef4dd08e0483a5d94",
+        "firstPageSha256": "bf104773cd35e3eda65282bfeabba054f7c53de0ca2af16fa1d8dbb40f093c2d",
+        "lastPageSha256": "25a4ebaf7a32c310449a6f5b04b2d19e9e9ee139a5cc67c6584352c3f904fd36"
+      },
+      "elapsedMs": 474.0590420000008
+    },
+    {
+      "identity": {
+        "fixtureId": "district-23",
+        "eligibleCount": 0,
+        "similarCount": 182162,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "4909f69f53976ec988511acebaa5517fff03e6e0bd246b06c9884ee798a655b5",
+        "firstPageSha256": "39169d612ac72be051f9b982d38b8ae508114cd9ace2a0a94ce673d45f8f1288",
+        "lastPageSha256": "9fc038fcabc6c87adffad7be81fe64fb515ffb5bb66df424910b9a83f5d6a749"
+      },
+      "elapsedMs": 305.7089579999956
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-23",
+        "eligibleCount": 0,
+        "similarCount": 182349,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "cefe0661bde40b87ffcbde5cbdbb94e099c36a4c5d5fa6f7ce6039f07b593e57",
+        "firstPageSha256": "5cfadb7f02924efe8c06bb2db73d1f3fe747d87ccdd31a7a453064d8f107c7bd",
+        "lastPageSha256": "a54d063e19c68e6386b7ec30ebdec939443f4b9918da58ec553b00c27c17257e"
+      },
+      "elapsedMs": 364.9407499999943
+    },
+    {
+      "identity": {
+        "fixtureId": "district-24",
+        "eligibleCount": 0,
+        "similarCount": 114743,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "7b4640e1cf8613e8d29011824871a2b2069161734fe557fa907fc9f6f1b0e332",
+        "firstPageSha256": "1edef327f706c9931818e8cd837fc6dd667b63668f4c81bc08a611a18c035ba2",
+        "lastPageSha256": "fea83d6448a3524f2322f04706645729e7d8d42b271e7659365f77c7aebfa153"
+      },
+      "elapsedMs": 258.4160419999971
+    },
+    {
+      "identity": {
+        "fixtureId": "province-district-24",
+        "eligibleCount": 0,
+        "similarCount": 114938,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "6492ed2a7a3d9b340ae2969370ec45503a85623d2def53f9a7d79bf7de545900",
+        "firstPageSha256": "670d521e706ced136685144060ae5c0a8cb625b69936edf428567bcb152d3e45",
+        "lastPageSha256": "684cbacd7bb576f93b2329c7b93b83b5e9d938d24f66004dd66606c13ffec22d"
+      },
+      "elapsedMs": 281.15966600000684
+    },
+    {
+      "identity": {
+        "fixtureId": "compound-name",
+        "eligibleCount": 0,
+        "similarCount": 325012,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "bb245b6a8ab2d9d660a3fef6bdc85eab1d31efaa323f2beeccf13496db158d9d",
+        "firstPageSha256": "8fed3e37ce81a074cef2f7ec6971031ff2e286de03e409053f6e7c204c466354",
+        "lastPageSha256": "87a2f3449fb4e1fda2b2b86fdfb72c1ccfdf0ba70080a4d423e221209977558e"
+      },
+      "elapsedMs": 758.9380000000092
+    },
+    {
+      "identity": {
+        "fixtureId": "strong-road",
+        "eligibleCount": 0,
+        "similarCount": 32399,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "3cc63424db20d2352026b04435f070bd69b8c35ca4eeb3514174972caffcf449",
+        "firstPageSha256": "ca997bb499a981ba1f2a6008b1fb41b201e5bd74a4e651aacf94be55cc487990",
+        "lastPageSha256": "3ad27e999f557f7783fd46874d52e709847bfd81af114094b956512761532159"
+      },
+      "elapsedMs": 233.1049170000042
+    },
+    {
+      "identity": {
+        "fixtureId": "weak-road",
+        "eligibleCount": 0,
+        "similarCount": 32418,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "556b8b45a8cccc0a8f1ca3387f84a310d1a537b7b7de9eae8952d556cccb02b4",
+        "firstPageSha256": "f7aeab0ac4d35e9dc3b1542e19954843fa9b35967414cf004bb42d9349b56e39",
+        "lastPageSha256": "fea01d74c78d9cc661e7a1e43624f929682cc386e558a4722810a04bffebb627"
+      },
+      "elapsedMs": 223.55983300000662
+    },
+    {
+      "identity": {
+        "fixtureId": "weak-parcel",
+        "eligibleCount": 0,
+        "similarCount": 75668,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "5cb2d0881db717f6dae03d30af6c53af304c24ffccb361b70591f178b2dbe7a3",
+        "firstPageSha256": "bc8e6f9b92115318bf82476e47361f423057dd060c81443b3e716acf053906cc",
+        "lastPageSha256": "4f086b8e913653605a03a56ccb1ba60ea40e99f1295376b264813b1f56b40e86"
+      },
+      "elapsedMs": 304.77641700000095
+    },
+    {
+      "identity": {
+        "fixtureId": "ambiguous-district",
+        "eligibleCount": 0,
+        "similarCount": 323702,
+        "eligibleOrdinalsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarOrdinalsSha256": "3d86baae3e12dc39e908c89a0b8dfd5620d3a8bf8181b804b74e5c87107a9da0",
+        "firstPageSha256": "aeda1ada1f49122bf402e3da74fe46ab9044e8965f8a5c7900d1036e79dd41f3",
+        "lastPageSha256": "64264994ace668c17d5e06257b370c8447e613fc2ab49fd8125e890d11738e51"
+      },
+      "elapsedMs": 605.992167000004
+    }
+  ],
+  "allComparedIdentitiesEqual": true,
+  "publicationApproved": false,
+  "productionVerified": false,
+  "limitations": [
+    "Node timer fallback and fixed order; not browser/mobile latency acceptance.",
+    "Complete ordinal order is hashed for all55queries; full fields are hashed only on first/last pages. The unchanged scorer/evidence codec and separate complete-page unit oracle parity provide complementary coverage.",
+    "Before and after require exact immutable compact data and all183 unchanged runtime/config bindings."
+  ]
+}

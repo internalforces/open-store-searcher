@@ -7,11 +7,7 @@ import {
   materializeRecord,
   requireCompact,
 } from '../shared/compact-data.js';
-import {
-  type AddressParts,
-  compareSearchAddress,
-  parseSearchAddress,
-} from './compare-search-address.js';
+import { type AddressParts, parseSearchAddress } from './compare-search-address.js';
 import { prepareSearchQuery, projectSearchText } from './prepare-search-query.js';
 import {
   type CandidateMatch,
@@ -260,6 +256,19 @@ export class CompactSearch {
     const scoring = prepareScoringQuery(validation);
     const eligible: number[] = [];
     const similar: number[] = [];
+    const addressQuery = scoring.query.address;
+    const districtQuery =
+      !scoring.query.nameKey &&
+      addressQuery?.district &&
+      addressQuery.family === 'unspecified' &&
+      !addressQuery.road &&
+      !addressQuery.locality &&
+      !addressQuery.number &&
+      !addressQuery.strong &&
+      !addressQuery.core &&
+      !addressQuery.ambiguous
+        ? addressQuery
+        : null;
     // Lossless projection retrieval: score only rows that can satisfy the oracle's
     // name, literal-address, address-match or broad-relevance acceptance predicate.
     // Every ordinal is still visited; no posting cutoff or result cap is applied.
@@ -280,8 +289,18 @@ export class CompactSearch {
       if (!addresses[reference]) {
         const address = this.addressProjections[reference] as AddressProjection;
         if (scoring.query.address) {
-          const comparison = compareSearchAddress(scoring.query.address, address.parts);
-          addresses[reference] = comparison.relevant || comparison.match !== 'none' ? 2 : 1;
+          const query = scoring.query.address;
+          const candidate = address.parts;
+          const sameFamily = query.family !== 'unspecified' && query.family === candidate.family;
+          const anchor = query.family === 'road' ? 'road' : 'locality';
+          // Conservatively retain every relevance or exact-key path. Detailed conflicts,
+          // ambiguity and confidence are still decided by the unchanged scorer below.
+          addresses[reference] =
+            (query.district && query.district === candidate.district) ||
+            (sameFamily && query[anchor] && query[anchor] === candidate[anchor]) ||
+            (query.key && query.key === candidate.key)
+              ? 2
+              : 1;
         } else
           addresses[reference] = matchesLiteralAddress(address.tokens, scoring.literalTokens)
             ? 2
@@ -300,12 +319,28 @@ export class CompactSearch {
           possibleName(block.nameRefs[row] as number) ||
           possibleAddress(block.roadRefs[row] as number) ||
           possibleAddress(block.parcelRefs[row] as number);
-        const scored = possible ? this.score(block, row, scoring) : null;
-        if (scored) {
-          scores[ordinal] = scored.score;
-          conflicts[ordinal] = Number(hasConflict(scored));
-          if (scored.confidence === 'low') similar.push(ordinal);
-          else eligible.push(ordinal);
+        if (possible && districtQuery) {
+          // A district without a core address cannot earn a score or eligibility.
+          // Its only comparable conflict is district; defer full reasons to page materialization.
+          const road = this.addressProjections[block.roadRefs[row] as number] as AddressProjection;
+          const parcel = this.addressProjections[
+            block.parcelRefs[row] as number
+          ] as AddressProjection;
+          conflicts[ordinal] = Number(
+            Boolean(
+              (road.parts.district && road.parts.district !== districtQuery.district) ||
+                (parcel.parts.district && parcel.parts.district !== districtQuery.district),
+            ),
+          );
+          similar.push(ordinal);
+        } else {
+          const scored = possible ? this.score(block, row, scoring) : null;
+          if (scored) {
+            scores[ordinal] = scored.score;
+            conflicts[ordinal] = Number(hasConflict(scored));
+            if (scored.confidence === 'low') similar.push(ordinal);
+            else eligible.push(ordinal);
+          }
         }
         if (++scanned >= SEARCH_BATCH) {
           scanned = 0;

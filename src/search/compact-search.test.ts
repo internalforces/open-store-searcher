@@ -150,6 +150,85 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('preserves district-only zero-score conflict ordering and keeps strong named queries fully scored', async () => {
+    const records = [
+      ...Array.from({ length: 90 }, (_, index) =>
+        record(
+          800 - index,
+          index % 5 === 0 ? '강남구' : `지역상점${index}`,
+          index % 3 === 0
+            ? `서울특별시 강남구 테헤란로 ${index + 1}`
+            : index % 3 === 1
+              ? `서울특별시 서초구 테헤란로 ${index + 1}`
+              : '',
+          index % 4 === 0 ? '서울특별시 강남구 역삼동 12' : '서울특별시 서초구 서초동 12',
+          index % 4 === 0 ? '확인되지 않음' : '행정상 영업',
+        ),
+      ),
+      record(9_000, '정확상점', '서울특별시 강남구 테헤란로 12'),
+      record(9_001, '강남구', '', ''),
+      record(9_002, '주소상점', '강남구 서초구 테헤란로 123', ''),
+    ];
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+
+    for (const query of ['강남구', '서초구', '서울특별시 강남구', '서울시 서초구']) {
+      const oracle = searchCandidates(createSearchIndex(records), query);
+      expect(oracle.eligibleCount).toBe(0);
+      expect(oracle.similarCandidates.length).toBeGreaterThan(20);
+      expect(
+        oracle.similarCandidates.every((match) => match.score === 0 && match.confidence === 'low'),
+      ).toBe(true);
+      await expectCompleteOracleParity(store, records, query);
+    }
+    for (const query of [
+      '지역상점 강남구',
+      '강남구 역삼동',
+      '강남구 서초구',
+      '테헤란로 12',
+      '정확상점 서울특별시 강남구 테헤란로 12',
+    ]) {
+      await expectCompleteOracleParity(store, records, query);
+    }
+    expect(store.page(0).primaryMatch).toMatchObject({
+      record: { id: id(9_000) },
+      score: 500,
+      confidence: 'high',
+    });
+  });
+
+  test('retains complete address-candidate recall for broad, conflicting, ambiguous, exact-key and cross-family evidence', async () => {
+    const records = [
+      ...representativeRecords(),
+      record(601, '주소상점', '테헤란로 123', '역삼동 12'),
+      record(602, '주소상점', '서울특별시 강남구 봉은사로 123', '서울특별시 강남구 역삼동 12'),
+      record(603, '주소상점', '서울특별시 서초구 테헤란로 123', '서울특별시 서초구 역삼동 12'),
+      record(604, '주소상점', '강남구 서초구 테헤란로 123', '강남구 역삼동 12'),
+      record(605, '주소상점', '서울특별시', ''),
+      record(606, '주소상점', '', ''),
+    ];
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+
+    for (const query of [
+      '강남구',
+      '서초구',
+      '테헤란로',
+      '테헤란로 123',
+      '역삼동',
+      '역삼동 12',
+      '서울특별시',
+      '강남구 서초구 테헤란로 123',
+      '주소상점 서울특별시 강남구 테헤란로 123',
+      '주소상점 서울특별시 강남구 역삼동 12',
+      '주소상점',
+    ]) {
+      await expectCompleteOracleParity(store, records, query);
+    }
+  });
+
   test('avoids repeated task scheduling for short batches without changing complete ranked results', async () => {
     const records = Array.from({ length: 4_500 }, (_, index) =>
       record(4_500 - index, `성능상점${index}`, `서울특별시 강남구 테헤란로 ${index + 1}`),

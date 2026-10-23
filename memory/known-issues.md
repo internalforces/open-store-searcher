@@ -7,6 +7,24 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## TASK-009 performance risk after search follow-up — 2026-10-23
+
+Local corrected-observer full-data search observations now remain below 500ms in all 24 samples,
+including a 393x727 desktop viewport; max 365.2ms. The prior broad/address misses remain historical
+evidence, not a current physical/mobile pass. Complete ranking/counts and page evidence match
+for 55 source-bound queries; only two source/test files change.
+
+An intermediate repeated-marker timing wait introduced observer overhead. All affected samples
+and tool timeouts are preserved; the fresh exact-attribute observer avoids that expression.
+No source data, candidate or failed sample was discarded. The same three local GNU-tar/Info-ZIP
+failures remain, with supported Ubuntu verification still required for the final follow-up head.
+
+A fresh device inventory exits 1 with a CoreDeviceService diagnostic. Actual phone CPU/memory/
+network, hosted full-data performance, controlled load/LCP and browser memory remain unresolved.
+No publication or performance waiver follows. See
+[dated evidence](../reports/performance-2026-10-23-task-009-search-follow-up.md).
+
+
 ## TASK-009 full-data performance remains unresolved — 2026-10-23
 
 Fresh exact-source desktop App measurements retain 2,951,024 rows and all candidate counts.
