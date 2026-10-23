@@ -47,7 +47,15 @@ _Last updated: 2026-10-22_
 | TASK-024 | Design static-file expansion outside Seoul | Low | M4 | L | FR-17 |
 | TASK-026 | At each milestone close, update or review affected Korean handbook documents and obtain human language review | High | Recurring | S | Documentation NFR; all safety invariants |
 
-## Recommended Start Order
+## Current Execution Order — 2026-10-23
+
+1. Keep TASK-009 as the sole active task through performance and hosted publication/recovery acceptance.
+2. Resume TASK-010 sequentially after TASK-009 acceptance; preserve its actual thirty-day reliability gate.
+3. Keep TASK-028 paused with retained acceptance gaps. TASK-021 remains gated by applicable release prerequisites.
+
+## Historical Recommended Start Order — superseded 2026-10-23
+
+The following order is preserved as historical context and no longer routes current work.
 
 1. TASK-008 is complete. TASK-009 is awaiting materials/action-time approval and does not
    occupy the active implementation slot; TASK-010 remains paused. Use the current
