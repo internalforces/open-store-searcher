@@ -862,3 +862,12 @@ resumption/acceptance conditions. Original and operational checkout handoffs are
 existing work and approvals remain preserved. No implementation task is active and no successor
 is activated. This is not overall TASK-009 completion: FR-13, II-10 and hosted AC-009-4/5 remain
 open, TASK-010 stays paused and TASK-021 remains gated. No milestone or release is closed.
+
+## TASK-009 bounded hosted preparation checkpoint — 2026-10-23
+
+Source publication/adoption/protected PR39 integration and actual hosted preparation39888491724
+are complete as bounded prerequisites. Exactly195categories/2,951,024rows passed unchanged
+quality; same-run candidate/metadata exist and deployment skipped. TASK-009 remains active for
+performance and hosted publication/recovery; TASK-010 follows sequentially with actual30-day
+history required. This entry does not complete either whole task. See
+[preparation evidence](../reports/acceptance-2026-10-23-task-009-preparation.md).
