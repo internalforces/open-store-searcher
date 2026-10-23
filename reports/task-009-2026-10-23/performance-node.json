@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "kind": "task009-offline-full-source-diagnostic",
+  "recordedAt": "2026-10-23T05:46:21.454Z",
+  "node": "v24.19.0",
+  "platform": "darwin",
+  "boundHostedCommit": "bc7c3d3a43580084e6a1c7f3684c48b84cf802ca",
+  "boundCodeFileCount": 185,
+  "source": {
+    "byteLength": 217307219,
+    "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352"
+  },
+  "observation": {
+    "byteLength": 356005,
+    "sha256": "3d23a3c770b24039a6690f2db8022eb610ffb5b56a9efee031f78b78918b4626"
+  },
+  "categoryCount": 195,
+  "recordCount": 2951024,
+  "manifestEntry": {
+    "name": "assets/compact-manifest-1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1.json",
+    "sha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+    "byteLength": 172739
+  },
+  "stageMs": 530671.53925,
+  "loadedMs": 4908.285999999964,
+  "prepareMs": 49018.765041999985,
+  "measurements": [
+    {
+      "fixtureId": "broad-district",
+      "samples": [
+        {
+          "repetition": 0,
+          "searchMs": 4147.248874999932,
+          "searchAndPageMs": 4152.488999999943,
+          "eligibleCount": 0,
+          "similarCount": 323695
+        },
+        {
+          "repetition": 1,
+          "searchMs": 4097.86720800004,
+          "searchAndPageMs": 4100.424958000076,
+          "eligibleCount": 0,
+          "similarCount": 323695
+        },
+        {
+          "repetition": 2,
+          "searchMs": 4509.258374999976,
+          "searchAndPageMs": 4509.739416999975,
+          "eligibleCount": 0,
+          "similarCount": 323695
+        }
+      ]
+    },
+    {
+      "fixtureId": "business-name",
+      "samples": [
+        {
+          "repetition": 0,
+          "searchMs": 2752.5773340000305,
+          "searchAndPageMs": 2753.4761670000153,
+          "eligibleCount": 0,
+          "similarCount": 1282
+        },
+        {
+          "repetition": 1,
+          "searchMs": 2609.813375000027,
+          "searchAndPageMs": 2611.127833000035,
+          "eligibleCount": 0,
+          "similarCount": 1282
+        },
+        {
+          "repetition": 2,
+          "searchMs": 2454.2850830000825,
+          "searchAndPageMs": 2457.318791000056,
+          "eligibleCount": 0,
+          "similarCount": 1282
+        }
+      ]
+    },
+    {
+      "fixtureId": "partial-address",
+      "samples": [
+        {
+          "repetition": 0,
+          "searchMs": 2558.8130830000155,
+          "searchAndPageMs": 2561.1234580000164,
+          "eligibleCount": 0,
+          "similarCount": 32399
+        },
+        {
+          "repetition": 1,
+          "searchMs": 2498.5351670000236,
+          "searchAndPageMs": 2500.301291999989,
+          "eligibleCount": 0,
+          "similarCount": 32399
+        },
+        {
+          "repetition": 2,
+          "searchMs": 2549.0076670000562,
+          "searchAndPageMs": 2552.8228339999914,
+          "eligibleCount": 0,
+          "similarCount": 32399
+        }
+      ]
+    },
+    {
+      "fixtureId": "absent",
+      "samples": [
+        {
+          "repetition": 0,
+          "searchMs": 2714.0100000000093,
+          "searchAndPageMs": 2714.0805420000106,
+          "eligibleCount": 0,
+          "similarCount": 0
+        },
+        {
+          "repetition": 1,
+          "searchMs": 2803.4704589999747,
+          "searchAndPageMs": 2803.529291999992,
+          "eligibleCount": 0,
+          "similarCount": 0
+        },
+        {
+          "repetition": 2,
+          "searchMs": 2683.609625000041,
+          "searchAndPageMs": 2683.6618340000277,
+          "eligibleCount": 0,
+          "similarCount": 0
+        }
+      ]
+    }
+  ],
+  "memory": {
+    "rss": 2647343104,
+    "heapTotal": 2758377472,
+    "heapUsed": 2628848856,
+    "external": 98805926,
+    "arrayBuffers": 75164585
+  },
+  "maxRssKiB": 2876432,
+  "publicationApproved": false,
+  "productionVerified": false,
+  "limitations": [
+    "Offline Node diagnostic; no browser/UI/device/network timing.",
+    "Python extraction rechecks every entry against original successful Ubuntu observation; no replacement of production Info-ZIP inspection.",
+    "Current complete compact codec and unchanged approved quality/baseline are exercised; no deployment/run/backup authority is emitted.",
+    "Three fixed-fixture samples are retained without percentile or physical-mobile claims."
+  ]
+}

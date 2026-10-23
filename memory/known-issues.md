@@ -7,6 +7,39 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## TASK-009 performance risk after search follow-up — 2026-10-23
+
+Local corrected-observer full-data search observations now remain below 500ms in all 24 samples,
+including a 393x727 desktop viewport; max 365.2ms. The prior broad/address misses remain historical
+evidence, not a current physical/mobile pass. Complete ranking/counts and page evidence match
+for 55 source-bound queries; only two source/test files change.
+
+An intermediate repeated-marker timing wait introduced observer overhead. All affected samples
+and tool timeouts are preserved; the fresh exact-attribute observer avoids that expression.
+No source data, candidate or failed sample was discarded. The same three local GNU-tar/Info-ZIP
+failures remain, with supported Ubuntu verification still required for the final follow-up head.
+
+A fresh device inventory exits 1 with a CoreDeviceService diagnostic. Actual phone CPU/memory/
+network, hosted full-data performance, controlled load/LCP and browser memory remain unresolved.
+No publication or performance waiver follows. See
+[dated evidence](../reports/performance-2026-10-23-task-009-search-follow-up.md).
+
+
+## TASK-009 full-data performance remains unresolved — 2026-10-23
+
+Fresh exact-source desktop App measurements retain 2,951,024 rows and all candidate counts.
+The bounded cooperative-checkpoint proposal reduces unnecessary task scheduling, but broad
+searches still take 675.6–757.8ms and the partial-address sample 564.3ms through two frame
+opportunities, exceeding 500ms. Loading began hidden and is uncontrolled. Physical-device
+inventory is inaccessible through the current CoreDeviceService connection; no physical/mobile/
+hosted performance pass or waiver exists. Continue profiling before any larger optimization.
+
+Local complete tests retain the same three baseline failures: macOS tar lacks GNU
+--hard-dereference, and two Info-ZIP adapter tests reject the local filename environment.
+Do not skip them or replace the approved production collector. Canonical Ubuntu verification
+remains required. See [dated evidence](../reports/performance-2026-10-23-task-009.md).
+
+
 _Last updated: 2026-10-22_
 
 ## PR37 hosted counter failure attributed — 2026-10-22

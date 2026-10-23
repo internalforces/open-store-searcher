@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "kind": "local-uncommitted-proposal-lab-build",
+  "recordedAt": "2026-10-23T06:08:21.622Z",
+  "baseHostedCommit": "bc7c3d3a43580084e6a1c7f3684c48b84cf802ca",
+  "changedCodeBindings": {
+    "src/search/compact-search.ts": {
+      "before": {
+        "byteLength": 15078,
+        "sha256": "5909a628f07f5a724ef6d7954b5631310145df573b6cf715f3ded6e53f16bc60"
+      },
+      "after": {
+        "byteLength": 15688,
+        "sha256": "a41e597acf3cfc2d7811461e52625ef8cda404be1d1ff0305d76df44cf68523d"
+      }
+    },
+    "src/search/compact-search.test.ts": {
+      "before": {
+        "byteLength": 9328,
+        "sha256": "a39910299ab1eeb70103f004309c5d739b61ca2907399b67681a2c7ec71e0db3"
+      },
+      "after": {
+        "byteLength": 11580,
+        "sha256": "d180500810774ab66d171d37c589c7bae2f8763503443ffc1f070184f2bf3369"
+      }
+    }
+  },
+  "boundCodeFileCount": 185,
+  "codeBindingsSha256": "cf2f1965098152564cf4a66fdad16e6f6aece31ca03440b58a1b8a596f5e1381",
+  "manifestEntry": {
+    "name": "assets/compact-manifest-1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1.json",
+    "sha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+    "byteLength": 172739
+  },
+  "builtCode": {
+    "index.html": {
+      "byteLength": 2702,
+      "sha256": "dd4f118ae280341727c528b4a94ae1afd51822f6bb7d5eaf484c37fbf8a4c7f9"
+    },
+    "assets/compact-search.worker-BfUHb-EJ.js": {
+      "byteLength": 21328,
+      "sha256": "5c9db9e1412a13f087b46ccebc13c86843f9da90961f91f00b40c5e890778211"
+    },
+    "assets/index-DaK7CQJ6.js": {
+      "byteLength": 54637,
+      "sha256": "2b2edd1e42b93b080dc44dbdddbd012de86498d23ef90bd7c0db0270cf3b2bac"
+    },
+    "assets/index-DmOe2V3A.css": {
+      "byteLength": 14350,
+      "sha256": "06531518787a0f2b0dadf537dbb5e9fb43f2475e4d29d8e76715dcaabf9eafee"
+    }
+  },
+  "instrumentationSha256": "1718611fffd002d6f28dcb8704ef04d2fe4dbbe28bf40f8b4143ee185cd6cb76",
+  "helper": {
+    "byteLength": 6976,
+    "sha256": "3d2a6c59e9286efb42a4d94b779305bccf07024ddcd30d76fd84d788d0d84c9b"
+  },
+  "publicationApproved": false,
+  "productionVerified": false,
+  "limitations": [
+    "Two animation frames and result-region layout are diagnostic paint opportunities, not physical-screen paint proof."
+  ]
+}

@@ -7,6 +7,74 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## TASK-009 lossless search follow-up — 2026-10-23
+
+The user instructed continuation. TASK-009 remains the sole active task; TASK-028 stays paused
+and TASK-010 follows sequentially. The existing physical/mobile/hosted performance gate is retained.
+
+Two internal optimizations follow the existing checkpoint: a conservative allocation-free address
+admission predicate and a strictly guarded district-only zero-score/conflict path. Full scoring
+still materializes requested-page evidence. All 55 complete before/after ordinal-vector/count and
+first/last-page identities match across 25 districts, province variants and guard queries.
+Only compact-search.ts and its test differ among the same 185 bound inputs. Final input digest:
+`8f456be11a9b1b997f092046dfded16296bf5946a49f05d825ab01f04637e0be`.
+
+Final corrected-observer browser measurements retain all 2,951,024 rows and candidate counts.
+Twenty-four desktop/default and 393x727 desktop-viewport observations are below 500ms; maximum
+365.2ms. Desktop broad search is 326.6–329.0ms; address 194.1–222.7ms. These are two-frame/layout
+diagnostics, not physical paint, percentiles, phone CPU/memory/network or hosted acceptance.
+Collection remains October 16 with unverified coverage and the age-seven warning.
+
+The intermediate repeated-marker observer caused measurement overhead; all 21 affected observations,
+including slow narrow name samples and tool timeouts, are retained. The corrected observer waits
+for an exact data-samples CSS attribute. Product Worker/App JS/CSS are unchanged by this correction.
+The final builder correctly binds its own helper; the intermediate reference-helper field has an
+explicit correction note and post-readback binding.
+
+Focused 50 tests, scoped Biome, types and existing scorer-quality checks pass. The local full suite
+has 1,433 passes and the same three macOS GNU-tar/Info-ZIP failures. Independent source/test and
+complete-identity review is Approved with zero findings; final evidence review and fresh supported
+Verify are recorded separately. Draft PR41 was still at 78b71dc before this follow-up delivery.
+
+A fresh devicectl inventory exits 1 with a CoreDeviceService diagnostic; it does not establish no
+device exists. Readiness is uncontrolled (67.4s observed). Physical/mobile/hosted performance,
+controlled load/LCP, memory, first publication, full public equality and durable recovery remain.
+No merge, deployment, schedule, permission or recovery authority changed. Preserve prior dirty/
+untracked work and ignored raw snapshots. See
+[follow-up evidence](../reports/performance-2026-10-23-task-009-search-follow-up.md) and its review.
+
+
+## TASK-009 performance checkpoint — 2026-10-23
+
+The user authorized the assessed sequence: performance, fresh protected first publication,
+complete public/backup/recovery acceptance, then TASK-010. TASK-009 alone remains active;
+TASK-028 stays paused. No duplicate general approval is required, and the physical/mobile/
+hosted full-data performance gate is unchanged.
+
+Exact-source offline replay passed all 195 categories / 2,951,024 records with unchanged quality
+and the same compact manifest as hosted preparation. Before modification, all 185 runtime/config
+bindings matched; the bounded checkpoint proposal changes only compact-search.ts and its test.
+It keeps initial cancellation boundaries and checks every original batch, queueing subsequent
+tasks after eight milliseconds of actual work.
+
+Final focused verification passes 48 tests; scoped lint/types/whitespace and existing search-quality
+checks pass. Local full baseline/proposal runs retain the same three macOS GNU-tar/Info-ZIP
+failures (1,429/1,431 passed), so no local full-suite pass is claimed. The final test refinement
+was rerun in the 48-test focused set. Supported Ubuntu final-head verification remains separate.
+
+Actual full-data desktop App search observations after the patch are broad 725.2/757.8/675.6ms,
+name 450.4ms, address 564.3ms, absent 421.8ms through two frame opportunities. Counts are unchanged.
+Broad/address still miss 500ms. Loading is uncontrolled and began hidden; no LCP, physical-mobile,
+hosted or browser-memory acceptance is claimed. Current CoreDeviceService access times out.
+Loopback/container creation remains denied and is not bypassed.
+
+See [performance evidence](../reports/performance-2026-10-23-task-009.md) and its bounded review.
+Continue broad/address profiling and the existing physical/mobile/hosted gate before publication.
+A new candidate must be prepared from current main after those gates; the old skipped deploy
+cannot be resumed. No deployment, schedule, settings or recovery authority was changed.
+Preserve prior dirty/untracked work and ignored raw diagnostic assets.
+
+
 ## TASK-009 hosted preparation checkpoint — 2026-10-23
 
 TASK-009 is the sole active task; TASK-028 is paused with prior acceptance gaps retained and

@@ -7,6 +7,21 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
+## Implementation note: lossless query specialization — 2026-10-23
+
+Implementer choice within the authorized TASK-009 performance work: use a conservative boolean
+address-admission predicate, retaining every relevance and equal-key path, then keep the existing
+scorer authoritative. A strict nameless district-only guard permits score 0/low-confident complete
+ranking with both-field district conflicts; full requested-page scoring still generates reasons
+and evidence. No matching/status policy, source delivery, public interface or architecture changes.
+
+This internal specialization is bound to the existing scorer's strong/core conditions. Future
+scoring edits must preserve the proof and complete oracle parity or remove/update the shortcut.
+All55 exact-source identity comparisons and complete-page unit tests support this bounded choice.
+This is not a new product ADR, performance waiver or user approval of deployment. See
+[the implementation evidence](../reports/performance-2026-10-23-task-009-search-follow-up.md).
+
+
 _Last updated: 2026-10-22_
 
 ## PR37 loader scheduling correction — 2026-10-22

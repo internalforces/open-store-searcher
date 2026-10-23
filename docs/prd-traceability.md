@@ -7,6 +7,37 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
+## TASK-009 lossless search follow-up — 2026-10-23
+
+FR-02/03/07 and the complete-search NFR retain all 2,951,024 records. All55 complete ordered
+candidate-vector/count and boundary-page identities match before/after the guarded optimization;
+50 focused tests include complete oracle pages and cancellation. Existing quality corpora remain
+28/30 synthetic and 98/100 source-sample, without safety failures. Final corrected-observer local
+desktop/default and 393x727 observations are below 500ms for 24 samples (max 365.2ms).
+
+FR-08/14 date/source coverage and age-seven warnings remain explicit; FR-07 absence still does
+not imply closure. Physical/mobile/hosted performance, controlled load/LCP/memory and final-head
+supported verification remain separate. TASK-009 publication/recovery and TASK-010 real 30-day
+reliability stay open; TASK-028 stays paused. No requirement or release gate is newly Complete.
+See [report](../reports/performance-2026-10-23-task-009-search-follow-up.md) and
+[review](../reports/review-2026-10-23-task-009-search-follow-up.md).
+
+
+## TASK-009 performance evidence update — 2026-10-23
+
+FR-02/03/07 and the complete-search 500ms NFR retain full source coverage in the
+[dated diagnostic](../reports/performance-2026-10-23-task-009.md): 195 categories / 2,951,024 rows,
+unchanged compact manifest and candidate counts. The bounded checkpoint proposal passes
+48 focused tests, including complete 225-page oracle parity and later-boundary cancellation.
+Existing quality corpora remain 28/30 synthetic and 98/100 source-sample, with no safety failures.
+
+The complete-data desktop broad/address observations still exceed 500ms. Physical/mobile/
+hosted performance, controlled load/LCP and TASK-009 publication/recovery acceptance remain open.
+FR-08/14 rendered checks preserve the explicit October 16 collection date, unverified coverage
+and age-seven warning; FR-07 absence still does not imply closure. No requirement, task, milestone
+or release gate is newly marked complete. TASK-010 remains sequential with actual 30-day history.
+
+
 _Last updated: 2026-10-22_
 
 ## TASK-028 finalized implementation — 2026-10-23

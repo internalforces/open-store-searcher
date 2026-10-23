@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "kind": "local-address-filter-lab-build",
+  "recordedAt": "2026-10-23T09:35:01.731Z",
+  "baseHostedCommit": "bc7c3d3a43580084e6a1c7f3684c48b84cf802ca",
+  "changedCodeBindings": {
+    "src/search/compact-search.ts": {
+      "before": {
+        "byteLength": 15078,
+        "sha256": "5909a628f07f5a724ef6d7954b5631310145df573b6cf715f3ded6e53f16bc60"
+      },
+      "after": {
+        "byteLength": 16196,
+        "sha256": "b72c8a5bb5519476cc221063f2b4681dba3e215111aee1ec49d9b8b52c9b2fed"
+      }
+    },
+    "src/search/compact-search.test.ts": {
+      "before": {
+        "byteLength": 9328,
+        "sha256": "a39910299ab1eeb70103f004309c5d739b61ca2907399b67681a2c7ec71e0db3"
+      },
+      "after": {
+        "byteLength": 12907,
+        "sha256": "234d4031f80b6b1dc5c495b060f0ccadb408e1a034671d5a0cd9122470595f7d"
+      }
+    }
+  },
+  "boundCodeFileCount": 185,
+  "codeBindingsSha256": "7a3658aa4f15b3e0f11c62224b1e602e2c2d0c7f0bb74aa2fbdba62a90f242e6",
+  "manifestEntry": {
+    "name": "assets/compact-manifest-1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1.json",
+    "sha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+    "byteLength": 172739
+  },
+  "builtCode": {
+    "index.html": {
+      "byteLength": 2702,
+      "sha256": "c8f0ac6f1bdae14007f9ca25e76800deceb29cebc2b4e4619cae378b4314bc1c"
+    },
+    "assets/compact-search.worker-D7WRKDv7.js": {
+      "byteLength": 21464,
+      "sha256": "ee7ddd9e9eb06485b8a3238ee78de89757dee661afcc02a0ca27b5cc0332d41b"
+    },
+    "assets/index-DmOe2V3A.css": {
+      "byteLength": 14350,
+      "sha256": "06531518787a0f2b0dadf537dbb5e9fb43f2475e4d29d8e76715dcaabf9eafee"
+    },
+    "assets/index-aQoRO_zZ.js": {
+      "byteLength": 54637,
+      "sha256": "cc8560793d10975460cbac8d036841db257eccb026b36b30e764112d946c66bc"
+    }
+  },
+  "instrumentationSha256": "1718611fffd002d6f28dcb8704ef04d2fe4dbbe28bf40f8b4143ee185cd6cb76",
+  "helper": {
+    "byteLength": 6976,
+    "sha256": "3d2a6c59e9286efb42a4d94b779305bccf07024ddcd30d76fd84d788d0d84c9b"
+  },
+  "publicationApproved": false,
+  "productionVerified": false,
+  "limitations": [
+    "Two animation frames and result-region layout are diagnostic paint opportunities, not physical-screen paint proof."
+  ],
+  "executedHelperPostReadback": {
+    "path": ".testagent/task009-performance-20261023/build-filter-lab.mjs",
+    "byteLength": 6972,
+    "sha256": "c79fbb12cabc97b2d196e7a7c27f10b05eca2d19bc74639fff8a9149b69ec6c3"
+  },
+  "helperBindingNote": "The copied builder recorded its reference build-final-lab.mjs in helper; executedHelperPostReadback separately binds the executed variant after execution. No pre-execution helper binding is claimed. The final linear-observer build correctly records its own executed helper."
+}

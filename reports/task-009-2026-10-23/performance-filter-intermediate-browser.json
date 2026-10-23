@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "kind": "task009-filter-only-intermediate-browser-diagnostic",
+  "scope": "local-desktop-diagnostic-only",
+  "manifestSha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+  "recordCount": 2951024,
+  "ready": {
+    "workerRoundTripMs": 67017.89999997616,
+    "throughTwoFramesMs": 67037.5,
+    "loadMs": 32936.299999952316,
+    "prepareMs": 34029.90000003576,
+    "visibilityAtStart": "visible",
+    "visibilityAtReply": "visible",
+    "visibilityAtFrames": "visible",
+    "controlledColdOrWarm": false
+  },
+  "searchSamples": [
+    {
+      "fixtureId": "broad-district",
+      "repetition": 0,
+      "workerRoundTripMs": 409.4000000357628,
+      "throughTwoFramesMs": 426.9000000357628,
+      "submitThroughTwoFramesMs": 427.19999998807907,
+      "eligibleCount": 0,
+      "similarCount": 323695,
+      "page": 0,
+      "resultRegionHasLayout": true,
+      "visibilityAtStart": "visible",
+      "visibilityAtReply": "visible",
+      "visibilityAtFrames": "visible"
+    },
+    {
+      "fixtureId": "broad-district",
+      "repetition": 1,
+      "workerRoundTripMs": 465.19999998807907,
+      "throughTwoFramesMs": 474.5999999642372,
+      "submitThroughTwoFramesMs": 474.5999999642372,
+      "eligibleCount": 0,
+      "similarCount": 323695,
+      "page": 0,
+      "resultRegionHasLayout": true,
+      "visibilityAtStart": "visible",
+      "visibilityAtReply": "visible",
+      "visibilityAtFrames": "visible"
+    },
+    {
+      "fixtureId": "broad-district",
+      "repetition": 2,
+      "workerRoundTripMs": 538.1999999880791,
+      "throughTwoFramesMs": 570.6999999880791,
+      "submitThroughTwoFramesMs": 570.8000000119209,
+      "eligibleCount": 0,
+      "similarCount": 323695,
+      "page": 0,
+      "resultRegionHasLayout": true,
+      "visibilityAtStart": "visible",
+      "visibilityAtReply": "visible",
+      "visibilityAtFrames": "visible"
+    },
+    {
+      "fixtureId": "partial-address",
+      "repetition": 0,
+      "workerRoundTripMs": 184.5,
+      "throughTwoFramesMs": 198.39999997615814,
+      "submitThroughTwoFramesMs": 198.5,
+      "eligibleCount": 0,
+      "similarCount": 32399,
+      "page": 0,
+      "resultRegionHasLayout": true,
+      "visibilityAtStart": "visible",
+      "visibilityAtReply": "visible",
+      "visibilityAtFrames": "visible"
+    },
+    {
+      "fixtureId": "partial-address",
+      "repetition": 1,
+      "workerRoundTripMs": 189.5,
+      "throughTwoFramesMs": 220.39999997615814,
+      "submitThroughTwoFramesMs": 220.60000002384186,
+      "eligibleCount": 0,
+      "similarCount": 32399,
+      "page": 0,
+      "resultRegionHasLayout": true,
+      "visibilityAtStart": "visible",
+      "visibilityAtReply": "visible",
+      "visibilityAtFrames": "visible"
+    },
+    {
+      "fixtureId": "partial-address",
+      "repetition": 2,
+      "workerRoundTripMs": 267.19999998807907,
+      "throughTwoFramesMs": 276.10000002384186,
+      "submitThroughTwoFramesMs": 276.2000000476837,
+      "eligibleCount": 0,
+      "similarCount": 32399,
+      "page": 0,
+      "resultRegionHasLayout": true,
+      "visibilityAtStart": "visible",
+      "visibilityAtReply": "visible",
+      "visibilityAtFrames": "visible"
+    }
+  ],
+  "searchBudgetMetForAllObservedSamples": false,
+  "publicationApproved": false,
+  "productionVerified": false,
+  "limitations": [
+    "Manual transcription from the local lab's visible DOM metrics.",
+    "Existing local Vite server, uncontrolled loading/network/cache/thermal conditions; no LCP/cold/warm/percentile/physical-mobile/hosted performance acceptance.",
+    "Two animation-frame opportunities plus result-region layout do not prove physical-screen paint.",
+    "The third broad sample remains an observed 500ms miss and is retained."
+  ]
+}
