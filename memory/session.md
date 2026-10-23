@@ -7,6 +7,35 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## TASK-009 hosted preparation checkpoint — 2026-10-23
+
+TASK-009 is the sole active task; TASK-028 is paused with prior acceptance gaps retained and
+TASK-010 follows sequentially. PR39 merged at `bc7c3d3a43580084e6a1c7f3684c48b84cf802ca`.
+Exact-main Verify39888449925 passed1,432Vitest/92browser/20accessibility/102Node checks.
+Actual initial-import39888491724/attempt1 on that main completed/success: production staging
+consumed195categories and exactly2,951,024rows, checked unchanged quality/baseline, built and
+verified the complete site/tar, uploaded candidate12473849713 and metadata12474407680, then
+rehashed/bound the same-run tar. The deploy job was skipped. No Pages setup, publication flag,
+environment approval, public deployment, recovery authority or recurrence was changed.
+
+Raw tar is691824640bytes/SHA-256
+`67c29ff7ca453b2f4bc50f5372409e7f00c17cfa9e19924672de09c15da6ab8f`;
+inventory binding is `eb177c5df45b231d6fa77de4fa45ef57a5ae1f80f0d6bf21aeab0577fbfe667b`.
+Prepared2026-10-23T02:35:18.721Z, expiry exactly24hours later. Collection remains October16,
+coverage null/unverified and age>=7Seoul-day warning applies. Runtime/configuration hashes
+remain approved. No independently extracted metadata ZIP or site file count/total bytes is
+claimed: the browser helper timed out; actual hosted code/log evidence and service metadata
+are recorded separately. Independent preparation-only review is Approved, zero findings.
+
+The approved initial-import design explicitly retains physical/mobile/hosted full-data
+performance before first deployment; this work supplies no exception. II-10 still needs actual
+publication/public-byte equality, durable backup/redownload/adoption and expired-original-artifact
+recovery. TASK-010's actual30-day reliability is a later acceptance gate, not a first-publication
+prerequisite. No task or milestone is marked complete. Earlier pending/no-source/active-TASK-028
+snapshots are historical. See [the current preparation acceptance](../reports/acceptance-2026-10-23-task-009-preparation.md)
+and [machine bindings](../reports/task-009-2026-10-23/hosted-preparation.json).
+
+
 _Last updated: 2026-10-23_
 
 ## PR37 hosted failure captured — 2026-10-22
