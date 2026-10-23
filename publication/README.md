@@ -1,11 +1,28 @@
 # Collection-date publication and durable recovery
 
+## Verified initial source adoption — 2026-10-23
+
+The user authorized prerequisite resolution and real-data connection. TASK-009 is the sole active
+task; TASK-028 is paused with its remaining evidence retained and TASK-010 follows sequentially.
+The source registry now selects `seoul-2026-10-16-initial`: actual Release421355167, archive asset
+667614415 and observation667616298. Both complete assets passed the existing production downloader
+in Ubuntu run39884746237. See [source-adoption evidence](../reports/test-2026-10-23-source-adoption.md).
+The source-only verifier selects this same runtime registry on every push to the verification
+branch, including executable/input dependency edits; current main supports manual verification.
+The dated proposal remains historical evidence. An inactive registry rejects before download.
+Recovery authority remains null/empty. Publication and schedule flags remain unset/off; Pages is
+currently disabled. No import, refresh, restore or deployment has been dispatched at this checkpoint.
+Original October16 collection/null coverage and all approved quality/configuration bytes remain.
+Full-data/mobile/performance, protected candidate/publication, full public equality, durable recovery
+and real thirty-day reliability remain acceptance work. Dated inactive/no-source snapshots below
+are historical and do not override this current adoption checkpoint.
+
 ## Initial-import local implementation — 2026-10-21
 
 The approved initial-import path is implemented locally. The exact October 16 source is selected
 only for first-publication/recovery verification; it does not change daily quality policy.
-`initial-import-approvals.json` remains `{activeSourceId:null,sources:[]}` and recovery remains
-`{activeBackupId:null,backups:[]}`. Empty source authority rejects hosted import before network
+At the October21 checkpoint, `initial-import-approvals.json` was `{activeSourceId:null,sources:[]}`;
+recovery remains `{activeBackupId:null,backups:[]}`. Empty source authority rejects hosted import before network
 or source work. Earlier dated statements that the importer is unimplemented describe historical
 states; this section supersedes them. TASK-009 remains active and TASK-010 remains paused.
 
@@ -65,7 +82,7 @@ fast rejection. No guard change enables publication or changes quality criteria.
 Recovery accepts successful provenance from exactly `.github/workflows/refresh.yml` or
 `.github/workflows/initial-import.yml`. All previous successful-history/public-byte/inventory,
 registry and date/hash guards remain; source assets or local proof are never recovery authority.
-No source Release/asset IDs exist operationally yet. Both enable flags remain default-off,
+At the October21 checkpoint no operational source Release/asset IDs existed. Both enable flags remain default-off,
 scheduling stays paused and publication uses shared noncancelling `pages-publication` concurrency.
 See [current evidence](../reports/test-2026-10-21-task-009-initial-import.md) and the
 [remaining operational gates](../docs/deployment.md#initial-import-operational-gates--2026-10-21).

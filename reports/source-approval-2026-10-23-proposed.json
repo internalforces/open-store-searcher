@@ -1,0 +1,39 @@
+{
+  "id": "seoul-2026-10-16-initial",
+  "purpose": "initial-publication-recovery-verification",
+  "archive": {
+    "byteLength": 217307219,
+    "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352"
+  },
+  "observation": {
+    "byteLength": 356005,
+    "sha256": "3d23a3c770b24039a6690f2db8022eb610ffb5b56a9efee031f78b78918b4626"
+  },
+  "collectionCanonicalSha256": "3817b6e8d7621c12c7ce4a3b5ae8c581c28340284ec001737900a2744d6ac22b",
+  "collectedAt": "2026-10-16T01:52:52.043Z",
+  "sourceDataAsOf": null,
+  "recordCount": 2951024,
+  "categoryCount": 195,
+  "schemaManifestSha256": "6254a2b3d6626c41f625bb98d79399bdd40318632ce0d54561a997fdd039ceb6",
+  "policyRevision": "task-008-calibration-2026-10-16-v1-proposed",
+  "policyCanonicalSha256": "090973f79398f45d52262958e2887497652cec13b4d95b608eb84c691070feff",
+  "baselineCanonicalSha256": "9234ed3297166a08b500356ac01f5bcd150276c04a2bdd129d399fa0bdc6b183",
+  "reviewedPairsCanonicalSha256": "d698ac34c7485c9e09dfec425a0195bcc56d9644f25479aefc350c5969998cb2",
+  "tag": "initial-source-seoul-2026-10-16",
+  "releaseId": 421355167,
+  "tagCommit": "cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a",
+  "assets": {
+    "archive": {
+      "id": 667614415,
+      "name": "seoul-source-2026-10-16.zip",
+      "byteLength": 217307219,
+      "sha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352"
+    },
+    "observation": {
+      "id": 667616298,
+      "name": "source-observation.json",
+      "byteLength": 356005,
+      "sha256": "3d23a3c770b24039a6690f2db8022eb610ffb5b56a9efee031f78b78918b4626"
+    }
+  }
+}

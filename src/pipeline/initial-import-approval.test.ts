@@ -240,22 +240,26 @@ describe('initial import authority', () => {
     ).toThrow();
   });
 
-  it('keeps production authority inactive and both approved files byte-for-byte unchanged', () => {
+  it('selects the byte-verified public source and preserves both approved configuration files', () => {
     const root = new URL('../../publication/', import.meta.url);
     const registry = JSON.parse(
       readFileSync(new URL('initial-import-approvals.json', root), 'utf8'),
     );
-    expect(registry).toEqual({
-      version: 1,
-      kind: 'initial-source-approvals',
-      repository: 'internalforces/open-store-searcher',
-      siteUrl: 'https://internalforces.github.io/open-store-searcher/',
-      activeSourceId: null,
-      sources: [],
+    const approval = selectInitialSourceApproval(
+      registry,
+      INITIAL_SOURCE.id,
+      createInitialImportFixture().config,
+    );
+    const { assetNames, ...selected } = structuredClone(INITIAL_SOURCE);
+    expect(approval).toEqual({
+      ...selected,
+      releaseId: 421355167,
+      tagCommit: 'cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a',
+      assets: {
+        archive: { id: 667614415, name: assetNames.archive, ...selected.archive },
+        observation: { id: 667616298, name: assetNames.observation, ...selected.observation },
+      },
     });
-    expect(() =>
-      selectInitialSourceApproval(registry, INITIAL_SOURCE.id, createInitialImportFixture().config),
-    ).toThrow();
     expect(sha256Bytes(readFileSync(new URL('config.json', root)))).toBe(
       'b7a64b46c49ad6d3ab10ba268becb6e62bb666d342bc4aa158898a37ac1e20ba',
     );
