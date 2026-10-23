@@ -7,6 +7,20 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
+## TASK-009 bounded performance checkpoint — 2026-10-23
+
+Completed this bounded substep: exact-source replay and desktop diagnostic comparison, a
+two-file cooperative-checkpoint optimization, final 48-test focused verification and independent
+Approved review with zero open findings. Existing quality checks remain green. Local full runs
+retain the same three platform failures; remote supported verification is separate.
+See [performance evidence](../reports/performance-2026-10-23-task-009.md) and
+[bounded review](../reports/review-2026-10-23-task-009-performance.md).
+
+Overall TASK-009 is incomplete. Broad/address observations still exceed 500ms; physical/mobile/
+hosted performance, publication, complete public equality and durable recovery remain open.
+TASK-010 follows sequentially, and TASK-028 stays paused. No milestone closes here.
+
+
 _Last updated: 2026-10-22_
 
 | ID | Task | Completed | Owner | Notes |

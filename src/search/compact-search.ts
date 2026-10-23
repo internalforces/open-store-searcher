@@ -2,29 +2,29 @@ import type { DisplayRecord } from '../app/display-data.js';
 import {
   type CompactBlock,
   type CompactManifest,
-  type Dictionaries,
   columnValue,
+  type Dictionaries,
   materializeRecord,
   requireCompact,
 } from '../shared/compact-data.js';
 import {
   type AddressParts,
-  parseSearchAddress,
   compareSearchAddress,
+  parseSearchAddress,
 } from './compare-search-address.js';
 import { prepareSearchQuery, projectSearchText } from './prepare-search-query.js';
 import {
   type CandidateMatch,
+  compareCandidateRank,
+  compareSimilarCandidateRank,
+  hasConflict,
+  matchesLiteralAddress,
+  matchName,
+  prepareScoringQuery,
   type ScoredCandidate,
   type ScoringEntry,
   type ScoringQuery,
   type SearchResult,
-  compareCandidateRank,
-  compareSimilarCandidateRank,
-  hasConflict,
-  matchName,
-  matchesLiteralAddress,
-  prepareScoringQuery,
   scoreCandidate,
 } from './search-candidates.js';
 
@@ -32,6 +32,7 @@ const PAGE_SIZE = 20;
 const PREPARE_BATCH = 512;
 const SEARCH_BATCH = 2_048;
 const SORT_BATCH = 8_192;
+const COOPERATIVE_BUDGET_MS = 8;
 const EMPTY_ORDINALS = new Uint32Array();
 
 interface AddressProjection {
@@ -71,6 +72,19 @@ async function cooperativeYield(signal?: AbortSignal): Promise<void> {
   throwIfAborted(signal);
 }
 
+/** Keep the first cancellation boundary, then yield after actual work consumes a time slice. */
+function cooperativeCheckpoint(signal?: AbortSignal): () => Promise<void> {
+  let yielded = false;
+  let resumedAt = performance.now();
+  return async () => {
+    throwIfAborted(signal);
+    if (yielded && performance.now() - resumedAt < COOPERATIVE_BUDGET_MS) return;
+    await cooperativeYield(signal);
+    yielded = true;
+    resumedAt = performance.now();
+  };
+}
+
 async function sortOrdinals(
   values: readonly number[],
   compare: (left: number, right: number) => number,
@@ -82,6 +96,7 @@ async function sortOrdinals(
     return source;
   }
   let target = new Uint32Array(source.length);
+  const checkpoint = cooperativeCheckpoint(signal);
   let work = 0;
   for (let width = 1; width < source.length; width *= 2) {
     for (let left = 0; left < source.length; left += width * 2) {
@@ -98,14 +113,14 @@ async function sortOrdinals(
         }
         if (++work >= SORT_BATCH) {
           work = 0;
-          await cooperativeYield(signal);
+          await checkpoint();
         }
       }
       while (first < middle) target[output++] = source[first++] as number;
       while (second < right) target[output++] = source[second++] as number;
     }
     [source, target] = [target, source];
-    await cooperativeYield(signal);
+    await checkpoint();
   }
   return source;
 }
@@ -156,6 +171,7 @@ export class CompactSearch {
     const prepared: PreparedBlock[] = [];
     let expectedStart = 0;
     let preparedRows = 0;
+    const checkpoint = cooperativeCheckpoint(signal);
     const nameIndex = (value: string) => {
       const existing = nameIndexes.get(value);
       if (existing !== undefined) return existing;
@@ -210,7 +226,7 @@ export class CompactSearch {
         parcelRefs[row] = addressIndex(parcelAddress);
         if (++preparedRows >= PREPARE_BATCH) {
           preparedRows = 0;
-          await cooperativeYield(signal);
+          await checkpoint();
         }
       }
       prepared.push({ block, evidence, nameRefs, roadRefs, parcelRefs });
@@ -276,6 +292,7 @@ export class CompactSearch {
     const scores = new Int16Array(this.recordCount);
     const conflicts = new Uint8Array(this.recordCount);
     let scanned = 0;
+    const checkpoint = cooperativeCheckpoint(signal);
     for (const block of blocks) {
       for (let row = 0; row < block.block.count; row++) {
         const ordinal = block.block.start + row;
@@ -292,7 +309,7 @@ export class CompactSearch {
         }
         if (++scanned >= SEARCH_BATCH) {
           scanned = 0;
-          await cooperativeYield(signal);
+          await checkpoint();
         }
       }
     }

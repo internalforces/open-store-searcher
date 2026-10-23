@@ -7,6 +7,37 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## TASK-009 performance checkpoint — 2026-10-23
+
+The user authorized the assessed sequence: performance, fresh protected first publication,
+complete public/backup/recovery acceptance, then TASK-010. TASK-009 alone remains active;
+TASK-028 stays paused. No duplicate general approval is required, and the physical/mobile/
+hosted full-data performance gate is unchanged.
+
+Exact-source offline replay passed all 195 categories / 2,951,024 records with unchanged quality
+and the same compact manifest as hosted preparation. Before modification, all 185 runtime/config
+bindings matched; the bounded checkpoint proposal changes only compact-search.ts and its test.
+It keeps initial cancellation boundaries and checks every original batch, queueing subsequent
+tasks after eight milliseconds of actual work.
+
+Final focused verification passes 48 tests; scoped lint/types/whitespace and existing search-quality
+checks pass. Local full baseline/proposal runs retain the same three macOS GNU-tar/Info-ZIP
+failures (1,429/1,431 passed), so no local full-suite pass is claimed. The final test refinement
+was rerun in the 48-test focused set. Supported Ubuntu final-head verification remains separate.
+
+Actual full-data desktop App search observations after the patch are broad 725.2/757.8/675.6ms,
+name 450.4ms, address 564.3ms, absent 421.8ms through two frame opportunities. Counts are unchanged.
+Broad/address still miss 500ms. Loading is uncontrolled and began hidden; no LCP, physical-mobile,
+hosted or browser-memory acceptance is claimed. Current CoreDeviceService access times out.
+Loopback/container creation remains denied and is not bypassed.
+
+See [performance evidence](../reports/performance-2026-10-23-task-009.md) and its bounded review.
+Continue broad/address profiling and the existing physical/mobile/hosted gate before publication.
+A new candidate must be prepared from current main after those gates; the old skipped deploy
+cannot be resumed. No deployment, schedule, settings or recovery authority was changed.
+Preserve prior dirty/untracked work and ignored raw diagnostic assets.
+
+
 ## TASK-009 hosted preparation checkpoint — 2026-10-23
 
 TASK-009 is the sole active task; TASK-028 is paused with prior acceptance gaps retained and

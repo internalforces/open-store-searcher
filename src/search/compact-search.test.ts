@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import {
   type CompactBlock,
   type CompactManifest,
@@ -150,6 +150,65 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('avoids repeated task scheduling for short batches without changing complete ranked results', async () => {
+    const records = Array.from({ length: 4_500 }, (_, index) =>
+      record(4_500 - index, `성능상점${index}`, `서울특별시 강남구 테헤란로 ${index + 1}`),
+    );
+    let scheduledTasks = 0;
+    vi.stubGlobal('performance', { now: () => 0 });
+    vi.stubGlobal('scheduler', {
+      async yield() {
+        scheduledTasks++;
+      },
+    });
+    try {
+      const input = fixture(records, 500);
+      const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+      await store.prepare();
+      await expectCompleteOracleParity(store, records, '강남구');
+
+      // A stationary work clock must not queue another task for each short batch.
+      // Retain an initial task boundary for preparation, scanning and ranking.
+      expect(scheduledTasks).toBeGreaterThan(0);
+      expect(scheduledTasks).toBeLessThanOrEqual(4);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  test('continues yielding when processing consumes time and preserves the accepted result on cancellation', async () => {
+    const records = Array.from({ length: 4_500 }, (_, index) =>
+      record(4_500 - index, `시간상점${index}`, `서울특별시 강남구 테헤란로 ${index + 1}`),
+    );
+    let clock = 0;
+    let scheduledTasks = 0;
+    let abort: AbortController | null = null;
+    vi.stubGlobal('performance', { now: () => (clock += 10) });
+    vi.stubGlobal('scheduler', {
+      async yield() {
+        scheduledTasks++;
+        if (abort && scheduledTasks >= 2) abort.abort();
+      },
+    });
+    try {
+      const input = fixture(records, 500);
+      const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+      await store.prepare();
+      await store.search('시간상점4499');
+      const accepted = store.page(0);
+      expect(scheduledTasks).toBeGreaterThan(4);
+
+      scheduledTasks = 0;
+      abort = new AbortController();
+      await expect(store.search('없는상호', abort.signal)).rejects.toMatchObject({
+        name: 'AbortError',
+      });
+      expect(store.page(0)).toEqual(accepted);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   test('matches every oracle result field across complete pages for broad district, reverse substring, conflict, numeric, unknown-status, and absent queries', async () => {
     const records = representativeRecords();
     const input = fixture(records);

@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "kind": "node-cooperative-yield-diagnostic",
+  "recordCount": 2951024,
+  "manifestSha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+  "identifiersStrictlyAscending": false,
+  "samples": [
+    {
+      "mode": "original-node-timeout",
+      "elapsedMs": 2836.561959000006,
+      "activeMs": 1425.6882480003624,
+      "idleMs": 1410.7041680000002,
+      "yields": 0
+    },
+    {
+      "mode": "diagnostic-node-immediate",
+      "elapsedMs": 393.59316700000636,
+      "activeMs": 393.5963329076767,
+      "idleMs": 0,
+      "yields": 1440
+    }
+  ],
+  "cpu": [
+    {
+      "function": "post",
+      "url": "node:inspector",
+      "milliseconds": 1913.459
+    },
+    {
+      "function": "(idle)",
+      "url": "",
+      "milliseconds": 1869.117
+    },
+    {
+      "function": "possibleAddress",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/compact-search.ts",
+      "milliseconds": 474.289
+    },
+    {
+      "function": "(program)",
+      "url": "",
+      "milliseconds": 214.836
+    },
+    {
+      "function": "possibleName",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/compact-search.ts",
+      "milliseconds": 213.08
+    },
+    {
+      "function": "search",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/compact-search.ts",
+      "milliseconds": 198.3
+    },
+    {
+      "function": "matchName",
+      "url": "",
+      "milliseconds": 146.963
+    },
+    {
+      "function": "insert",
+      "url": "node:internal/timers",
+      "milliseconds": 51.875
+    },
+    {
+      "function": "listOnTimeout",
+      "url": "node:internal/timers",
+      "milliseconds": 10.04
+    },
+    {
+      "function": "processTimers",
+      "url": "node:internal/timers",
+      "milliseconds": 9.5
+    },
+    {
+      "function": "",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/search-candidates.ts",
+      "milliseconds": 6.332
+    },
+    {
+      "function": "",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/search-candidates.ts",
+      "milliseconds": 3.666
+    },
+    {
+      "function": "possibleName",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/compact-search.ts",
+      "milliseconds": 2.75
+    },
+    {
+      "function": "interpretSearchQuery",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/interpret-search-query.ts",
+      "milliseconds": 2.583
+    },
+    {
+      "function": "popAsyncContext",
+      "url": "node:internal/async_hooks",
+      "milliseconds": 2.542
+    },
+    {
+      "function": "search",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/compact-search.ts",
+      "milliseconds": 2.542
+    },
+    {
+      "function": "possibleAddress",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/compact-search.ts",
+      "milliseconds": 2.541
+    },
+    {
+      "function": "",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/search-candidates.ts",
+      "milliseconds": 2.5
+    },
+    {
+      "function": "",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/search-candidates.ts",
+      "milliseconds": 2.459
+    },
+    {
+      "function": "",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/.testagent/task009-performance-20261023/profile-search.mjs",
+      "milliseconds": 2.458
+    },
+    {
+      "function": "",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/search-candidates.ts",
+      "milliseconds": 2.458
+    },
+    {
+      "function": "noop",
+      "url": "node:internal/util/debuglog",
+      "milliseconds": 1.333
+    },
+    {
+      "function": "matchName",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/search-candidates.ts",
+      "milliseconds": 1.209
+    },
+    {
+      "function": "peek",
+      "url": "node:internal/priority_queue",
+      "milliseconds": 1.209
+    },
+    {
+      "function": "",
+      "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task013-quality/src/search/compact-search.ts",
+      "milliseconds": 1.209
+    }
+  ],
+  "helperSha256": "314f85370c6d051542248bae7d31c98fca9bf96d5c3c78615aa21c6baf97e0ab",
+  "publicationApproved": false,
+  "productionVerified": false,
+  "limitation": "setImmediate is a diagnostic substitution in this Node process only, not a production change or browser/mobile measurement."
+}

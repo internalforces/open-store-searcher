@@ -7,6 +7,21 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
+## TASK-009 performance evidence update — 2026-10-23
+
+FR-02/03/07 and the complete-search 500ms NFR retain full source coverage in the
+[dated diagnostic](../reports/performance-2026-10-23-task-009.md): 195 categories / 2,951,024 rows,
+unchanged compact manifest and candidate counts. The bounded checkpoint proposal passes
+48 focused tests, including complete 225-page oracle parity and later-boundary cancellation.
+Existing quality corpora remain 28/30 synthetic and 98/100 source-sample, with no safety failures.
+
+The complete-data desktop broad/address observations still exceed 500ms. Physical/mobile/
+hosted performance, controlled load/LCP and TASK-009 publication/recovery acceptance remain open.
+FR-08/14 rendered checks preserve the explicit October 16 collection date, unverified coverage
+and age-seven warning; FR-07 absence still does not imply closure. No requirement, task, milestone
+or release gate is newly marked complete. TASK-010 remains sequential with actual 30-day history.
+
+
 _Last updated: 2026-10-22_
 
 ## TASK-028 finalized implementation — 2026-10-23

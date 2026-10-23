@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "kind": "task009-browser-baseline-diagnostic",
+  "scope": "local-desktop-diagnostic-only",
+  "url": "http://127.0.0.1:5199/.testagent/task009-performance-20261023/run-1/site/index.html",
+  "recordCount": 2951024,
+  "manifestSha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+  "ready": {
+    "workerRoundTripMs": 69584.69999998808,
+    "throughTwoFramesMs": 111907.30000001192,
+    "loadMs": 25315.5,
+    "prepareMs": 44197.5,
+    "controlledColdOrWarm": false
+  },
+  "searchSamples": [
+    {
+      "fixtureId": "broad-district",
+      "repetition": 0,
+      "workerRoundTripMs": 988.0999999940395,
+      "throughTwoFramesMs": 1029.9000000059605,
+      "submitThroughTwoFramesMs": 1030,
+      "similarCount": 323695
+    },
+    {
+      "fixtureId": "broad-district",
+      "repetition": 1,
+      "workerRoundTripMs": 859.6999999880791,
+      "throughTwoFramesMs": 882.6999999880791,
+      "submitThroughTwoFramesMs": 882.8999999761581,
+      "similarCount": 323695
+    },
+    {
+      "fixtureId": "broad-district",
+      "repetition": 2,
+      "workerRoundTripMs": 762.8000000119209,
+      "throughTwoFramesMs": 785,
+      "submitThroughTwoFramesMs": 785.1999999880791,
+      "similarCount": 323695
+    },
+    {
+      "fixtureId": "business-name",
+      "repetition": 0,
+      "workerRoundTripMs": 637.1000000238419,
+      "throughTwoFramesMs": 671.3000000119209,
+      "submitThroughTwoFramesMs": 671.5,
+      "similarCount": 1282
+    },
+    {
+      "fixtureId": "partial-address",
+      "repetition": 0,
+      "workerRoundTripMs": 646.3999999761581,
+      "throughTwoFramesMs": 673.5,
+      "submitThroughTwoFramesMs": 673.6000000238419,
+      "similarCount": 32399
+    },
+    {
+      "fixtureId": "absent",
+      "repetition": 0,
+      "workerRoundTripMs": 605.5,
+      "throughTwoFramesMs": 646.5,
+      "submitThroughTwoFramesMs": 646.5,
+      "similarCount": 0
+    }
+  ],
+  "allSearchSamplesHaveNonzeroResultRegionLayout": true,
+  "observedWorkerRepliesExceed500ms": true,
+  "renderedChecks": {
+    "sourceCollectionDate": "2026-10-16",
+    "coverageUnverified": true,
+    "sevenDayDelayWarning": true,
+    "broadResultCount": 323695,
+    "firstPageRows": 20,
+    "rawAndProcessedStatusWithSourceAndDate": true,
+    "absentDoesNotImplyClosure": true
+  },
+  "publicationApproved": false,
+  "productionVerified": false,
+  "physicalDeviceMeasured": false,
+  "hostedMeasured": false,
+  "limitations": [
+    "Existing Vite development server serves the research build; no controlled CDN/compression/network/device/CPU profile.",
+    "Foreground changes and browser-tool timeouts occurred around loading; readiness includes an uncontrolled load and delayed animation frames and is not a cold/warm/LCP verdict.",
+    "Search endpoint records Worker reply plus two animation-frame opportunities with a result-region layout check; this is not proof of physical pixels or a percentile.",
+    "Direct DOM/AX readbacks separately confirmed real candidates, evidence, collection/coverage/delay warnings and absent-result safety copy.",
+    "No complete request-level privacy observation or browser memory measurement was performed."
+  ]
+}

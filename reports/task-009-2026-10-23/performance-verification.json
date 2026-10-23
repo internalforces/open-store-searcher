@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "kind": "task009-checkpoint-local-verification",
+  "runtime": "v24.19.0",
+  "platform": "darwin",
+  "focusedFinal": {
+    "files": 4,
+    "passed": 48,
+    "failed": 0
+  },
+  "fullBaseline": {
+    "passed": 1429,
+    "failed": 3
+  },
+  "fullProposalBeforeFinalTestStrengthening": {
+    "passed": 1431,
+    "failed": 3
+  },
+  "unchangedFailures": [
+    "recovery-archive: round trips actual GNU Pages tar preserving all original bytes without executing app code",
+    "unzip-archive: preserves UTF-8 Korean DOS-origin filenames and exact entry bytes",
+    "unzip-archive: lists and streams entries from a valid local archive"
+  ],
+  "quality": {
+    "synthetic": {
+      "fileSha256": "08feb1f9fd9c9debf9a25547116b128b0b145fd19fdfff8ff9688f372d16202c",
+      "corpusSha256": "de93344cb0bc6fda2198d8d5b66774e656dab8333338b8c7bb3217eafe24ade8",
+      "implementationSha256": {
+        "src/search/prepare-search-query.ts": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+        "src/search/interpret-search-query.ts": "e5bdaad78cfbbcf7612e24dc40c501d8895272b6105fa22ff0a796803cededb8",
+        "src/search/compare-search-address.ts": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942",
+        "src/search/search-candidates.ts": "9c4f36e5c30b9e95a852c05437a3435a0f57169f546cd62d39ea37a5bc0b15bc",
+        "tests/quality/evaluate-search-quality.ts": "3b28f787ebe961ac70944d18d73fcf50c2820e6ee98597553fb76e2cd24a0596",
+        "scripts/measure-search-quality.mjs": "0d8e0b12105fd764cb6406e425906805fa2a0f0e7f90ea9d17eb60736d53579f",
+        "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89"
+      },
+      "exact": {
+        "hits": 28,
+        "total": 30,
+        "recall": 0.9333333333333333,
+        "thresholdMet": true
+      },
+      "safetyFailures": [],
+      "checkPassed": true,
+      "releaseCriterion": "not-assessed"
+    },
+    "source": {
+      "fileSha256": "bb2ab8d8e756028e3557265020899d06cd07a8bbd1665631dc8e5419fc659065",
+      "corpusSha256": "3b5e235e52ad91c710c2f1e22d1d9a343a2cba895c079554f2434989f1063553",
+      "implementationSha256": {
+        "src/search/prepare-search-query.ts": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+        "src/search/interpret-search-query.ts": "e5bdaad78cfbbcf7612e24dc40c501d8895272b6105fa22ff0a796803cededb8",
+        "src/search/compare-search-address.ts": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942",
+        "src/search/search-candidates.ts": "9c4f36e5c30b9e95a852c05437a3435a0f57169f546cd62d39ea37a5bc0b15bc",
+        "tests/quality/evaluate-search-quality.ts": "3b28f787ebe961ac70944d18d73fcf50c2820e6ee98597553fb76e2cd24a0596",
+        "scripts/measure-search-quality.mjs": "0d8e0b12105fd764cb6406e425906805fa2a0f0e7f90ea9d17eb60736d53579f",
+        "package-lock.json": "5720ad6f550d240f06fa1d4741ce7faff1193ee03962c36735d1a759389b9f89"
+      },
+      "exact": {
+        "hits": 98,
+        "total": 100,
+        "recall": 0.98,
+        "thresholdMet": true
+      },
+      "safetyFailures": [],
+      "checkPassed": true,
+      "releaseCriterion": "not-assessed"
+    }
+  },
+  "logBindings": {
+    "checkpoint-red.log": {
+      "byteLength": 1202,
+      "sha256": "3887416d01aada06ea14d6de2691aedb5e572ed26f10fffa50609b93f25d7dbe"
+    },
+    "checkpoint-green-final.log": {
+      "byteLength": 265,
+      "sha256": "4dedfe94b3b053a65e6bf8b057f4a84fc262f63aed35ab42e5e5f9646ac22ffc"
+    },
+    "performance-baseline-all-tests.log": {
+      "byteLength": 3102,
+      "sha256": "6080573eccadd04322681985d5426ef5e4af773f41b92a95f8af007facd38f0c"
+    },
+    "performance-after-all-tests.log": {
+      "byteLength": 3102,
+      "sha256": "01913ac74157d6eaaa1ba2543676bdac9d429d08a37740004af4215c105bf7e8"
+    },
+    "checkpoint-types.log": {
+      "byteLength": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "hostedVerificationClaimed": false,
+  "publicationApproved": false,
+  "productionVerified": false
+}

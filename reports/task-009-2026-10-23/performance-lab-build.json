@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "kind": "local-diagnostic-lab-build",
+  "recordedAt": "2026-10-23T05:46:56.945Z",
+  "boundHostedCommit": "bc7c3d3a43580084e6a1c7f3684c48b84cf802ca",
+  "boundCodeFileCount": 185,
+  "codeBindingsSha256": "234345e2fc2f8579f633786e18dcb1bb8604aebf47d87c45833c7fa28e3593a0",
+  "manifestEntry": {
+    "name": "assets/compact-manifest-1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1.json",
+    "sha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+    "byteLength": 172739
+  },
+  "builtCode": {
+    "index.html": {
+      "byteLength": 2516,
+      "sha256": "b3e4d10f9ed16fd3a0e5cdd7c40b42e0826773a2e343f029f1463df1f1c22462"
+    },
+    "assets/compact-search.worker-zG16gCmW.js": {
+      "byteLength": 21176,
+      "sha256": "2c494a4e8f01128234122f063c5c7eace8f11eb933c57f208db60bfd55bb400a"
+    },
+    "assets/index-CIhyNHpa.js": {
+      "byteLength": 54637,
+      "sha256": "b888e01f82b55f4ba4b2521b043d7271a8327a4800f2c8825b587aec7a04a060"
+    },
+    "assets/index-DmOe2V3A.css": {
+      "byteLength": 14350,
+      "sha256": "06531518787a0f2b0dadf537dbb5e9fb43f2475e4d29d8e76715dcaabf9eafee"
+    }
+  },
+  "instrumentationSha256": "e71adcc2434a0e2b0c7e5dea44bb4edf6e8a0d653e90965fe37f1ebed455e6b6",
+  "helper": {
+    "byteLength": 6051,
+    "sha256": "f8e9eafe6f589c94e31cff525852b1c1c7e757cc4874ab05c5af071648f09aa0"
+  },
+  "publicationApproved": false,
+  "productionVerified": false,
+  "limitations": [
+    "Two animation frames and result-region layout are diagnostic paint opportunities, not physical-screen paint proof."
+  ]
+}

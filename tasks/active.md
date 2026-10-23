@@ -7,6 +7,22 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 performance checkpoint — 2026-10-23
+
+TASK-009 remains the sole active task under the user's sequential execution instruction.
+Full-source diagnostic replay matches hosted preparation: 195 categories, 2,951,024 records,
+unchanged approved quality and compact manifest. A bounded time-based cooperative checkpoint
+preserves complete search/ranking and cancellation; final focused verification passes 48 tests.
+The same three existing macOS platform failures remain in local full-suite comparison.
+
+Observed complete-data desktop searches improve, but broad 675.6–757.8ms and address 564.3ms
+still exceed 500ms. Name/absent observations are 450.4/421.8ms. These are diagnostic two-frame
+endpoints, not physical/mobile/hosted acceptance or percentiles. Loading is uncontrolled.
+Keep the existing performance gate open; do not advance to first publication, backup/recovery
+or TASK-010 from this evidence. TASK-028 stays paused and TASK-021 gated.
+See [performance report](../reports/performance-2026-10-23-task-009.md).
+
+
 ## TASK-009 hosted preparation checkpoint — 2026-10-23
 
 TASK-009 is the sole active task; TASK-028 is paused with prior acceptance gaps retained and

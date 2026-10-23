@@ -7,6 +7,21 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## TASK-009 full-data performance remains unresolved — 2026-10-23
+
+Fresh exact-source desktop App measurements retain 2,951,024 rows and all candidate counts.
+The bounded cooperative-checkpoint proposal reduces unnecessary task scheduling, but broad
+searches still take 675.6–757.8ms and the partial-address sample 564.3ms through two frame
+opportunities, exceeding 500ms. Loading began hidden and is uncontrolled. Physical-device
+inventory is inaccessible through the current CoreDeviceService connection; no physical/mobile/
+hosted performance pass or waiver exists. Continue profiling before any larger optimization.
+
+Local complete tests retain the same three baseline failures: macOS tar lacks GNU
+--hard-dereference, and two Info-ZIP adapter tests reject the local filename environment.
+Do not skip them or replace the approved production collector. Canonical Ubuntu verification
+remains required. See [dated evidence](../reports/performance-2026-10-23-task-009.md).
+
+
 _Last updated: 2026-10-22_
 
 ## PR37 hosted counter failure attributed — 2026-10-22
