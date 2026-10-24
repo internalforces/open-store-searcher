@@ -86,3 +86,17 @@ The reviewer declined to certify actual execution, cache effectiveness, instrume
 performance/memory outcomes, physical-phone connectivity, publication/recovery and supported
 full verification. These remain unresolved evidence, rather than accepted exceptions. Measured
 results must keep those limits explicit; no physical or publication gate is closed by this code.
+
+## First hosted execution and diagnostic visibility
+
+PR42 head10d9424 ordinary job120780200298 on run40062963269 passes1,436Vitest/92browser/
+20accessibility/102operator/8diagnostic-admission checks. Full-source job120780200450 successfully
+reconstructs the exact retained source, then the actual measurement command exits1. Artifact
+12548707666 is retained (12,073bytes, ZIP service SHA-256
+35c13717ed0c31c421c966c9a5fb9dc9642269c6bee0eb824e016602f62e98c2).
+No sample value, budget-exceedance cause or browser-error cause is claimed without reading it.
+Current authenticated file transfer fails, and browser artifact download is blocked by the
+client. Neither protection is bypassed. Add a fixed-fixture JSON report line to supported job
+logs so the next actual run can be analyzed through the already accessible read-only log API.
+The original failed run and artifact remain unchanged; a changed-head run is a new observation,
+not a retry that erases the first result. No post-change supported pass is assumed.

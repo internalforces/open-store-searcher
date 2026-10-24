@@ -289,6 +289,8 @@ try {
   await writeFile(join(output, 'measurement.json'), `${JSON.stringify(report, null, 2)}\n`, {
     flag: 'wx',
   });
+  // Keep fixed-fixture diagnostics readable when binary artifact transfer is unavailable.
+  console.log(`TASK009_DIAGNOSTIC_REPORT ${JSON.stringify(report)}`);
   console.log(
     JSON.stringify({
       output,
