@@ -7,6 +7,19 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## Authorized PR43 integration — 2026-10-25
+
+The user explicitly requested commit, push and PR creation, followed by review, verification
+and main merge. Diagnostic delivery is in [PR43](https://github.com/internalforces/open-store-searcher/pull/43)
+on `codex/task-009-full-data-cloud-diagnostics`, based on main `abe4b0a`.
+Implementation/evidence checkpoint125a29d is pushed; this entry is subsequent delivery metadata.
+Final-head canonical Verify and the repository's configured independent Codex review are
+mandatory before normal integration. Authors cannot supply their own final approval.
+The live PR records the eventual exact head, review/check results and merge SHA; this checkpoint
+does not claim those later outcomes. See [delivery record](../reports/delivery-2026-10-25-task-009-diagnostics.md).
+TASK-009 performance/publication acceptance remains open regardless of code integration.
+No deployment or operational configuration change is part of this request.
+
 ## TASK-009 complete-data continuation — 2026-10-25
 
 The user requested execution after repository refresh. Exact-main Verify39943753135 on
