@@ -7,6 +7,22 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
+## TASK-009 complete-data diagnostic — 2026-10-25
+
+FR-02/03/07 and performance NFR retain all2,951,024rows in approved-source replay and four actual
+Worker-ready checks. Complete730file extraction/inventory verification passes. Exact-main hosted
+Verify39943753135 passes; supplementary system-Chromium desktop/mobile-emulated UI/a11y66pass.
+Local coverage retains two Debian Info-ZIP integration failures (1,434pass); no canonical local
+full-suite pass is claimed. Production application code and quality inputs are unchanged.
+
+Complete-search500ms remains unmet in this cloud diagnostic: desktop district/name reach673.2/
+598.0ms, emulated district/name964.9/720.7ms, with additional misses and retained1,858ms outlier.
+Readiness is105.8–108.4seconds; instantaneous browser PSS3.14–3.33GiB. Shell LCP samples are not
+full-data or hosted/physical-mobile acceptance. The negative-intent fixture returns10candidates;
+no actual empty-result performance claim follows. Date/source/coverage evidence stays unchanged.
+Continue preparation/search-phase profiling; no FR, TASK-009/010, performance, release or milestone
+gate closes. See [current report](../reports/performance-2026-10-25-task-009.md).
+
 ## TASK-009 lossless search follow-up — 2026-10-23
 
 FR-02/03/07 and the complete-search NFR retain all 2,951,024 records. All55 complete ordered

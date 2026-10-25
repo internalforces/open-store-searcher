@@ -7,6 +7,27 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## TASK-009 cloud full-data performance gaps — 2026-10-25
+
+Exact-main full-source diagnostics retain all2,951,024rows but do not pass the500ms search gate.
+Desktop district/name take659.9–673.2/586.7–598.0ms; mobile-emulated district/name take
+886.4–964.9/686.4–720.7ms. Additional emulated misses and the1,858ms negative-intent outlier
+are retained. This is a different host/browser from the October23Mac observations, not proof
+of a code regression or actual phone performance. Worker throttling is not independently verified.
+
+Readiness takes105.8–108.4seconds, of which90.5–92.8seconds are measured Worker preparation.
+Instantaneous browser PSS is3.14–3.33GiB. Warm navigation still requests nearly691MB; no full-data
+cache-hit or peak-memory claim follows. Profile phases before selecting an optimization.
+The original `absent` fixture actually returns10candidates. Its source-bound raw evidence is
+preserved; the helper label is corrected to `absence-intent`. A true empty-result case is unmeasured.
+
+Current canonical hosted Verify passes. Local Debian `/usr/bin/unzip` lacks `-O UTF-8`, causing
+two integration failures; the approved Ubuntu tool in private scratch enables actual replay
+without changing production code, test expectations or system tools. Pinned browser download
+is403blocked, while supplementary installed Chromium passes66UI/a11y tests. Physical-device
+access and independent final performance/publication acceptance remain open. See
+[evidence](../reports/performance-2026-10-25-task-009.md).
+
 ## TASK-009 performance risk after search follow-up — 2026-10-23
 
 Local corrected-observer full-data search observations now remain below 500ms in all 24 samples,
