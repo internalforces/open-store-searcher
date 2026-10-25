@@ -1,0 +1,197 @@
+
+> open-store-searcher@0.1.0-dev verify
+> npm run lint && npm run format:check && npm run typecheck && npm run test:coverage && npm run build && npm run quality:search:check
+
+
+> open-store-searcher@0.1.0-dev lint
+> biome lint --error-on-warnings .
+
+.testagent/static-delivery-research/browser-profile.mjs:124:15 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    122 │             url: message.url.replace(
+    123 │               /compact-manifest-[a-f0-9]+/,
+  > 124 │               'compact-manifest-' + '0'.repeat(64),
+        │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    125 │             ),
+    126 │           };
+
+  i Unsafe fix: Use a template literal.
+
+    122 122 │               url: message.url.replace(
+    123 123 │                 /compact-manifest-[a-f0-9]+/,
+    124     │ - ··············'compact-manifest-'·+·'0'.repeat(64),
+        124 │ + ··············`compact-manifest-${'0'.repeat(64)}`,
+    125 125 │               ),
+    126 126 │             };
+
+
+.testagent/static-delivery-research/full-search-parity.mjs:74:21 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    72 │         const reduced = reduce(match);
+    73 │         assert.deepEqual(reduced, oracle[count++]);
+  > 74 │         hash.update(JSON.stringify(reduced) + '\n');
+       │                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    75 │       }
+    76 │     }
+
+  i Unsafe fix: Use a template literal.
+
+     72  72 │           const reduced = reduce(match);
+     73  73 │           assert.deepEqual(reduced, oracle[count++]);
+     74     │ - ········hash.update(JSON.stringify(reduced)·+·'\n');
+         74 │ + ········hash.update(`${JSON.stringify(reduced)}\n`);
+     75  75 │         }
+     76  76 │       }
+
+
+.testagent/static-delivery-research/full-search-parity.mjs:90:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+     88 │   await writeFile(
+     89 │     join(root, 'full-search-parity.json'),
+   > 90 │     JSON.stringify(
+        │     ^^^^^^^^^^^^^^^
+   > 91 │       {
+         ...
+   > 99 │       2,
+  > 100 │     ) + '\n',
+        │     ^^^^^^^^
+    101 │   );
+    102 │ } finally {
+
+  i Unsafe fix: Use a template literal.
+
+     88  88 │     await writeFile(
+     89  89 │       join(root, 'full-search-parity.json'),
+     90     │ - ····JSON.stringify(
+         90 │ + ····`${JSON.stringify(
+     91  91 │         {
+     92  92 │           recordCount: store.recordCount,
+    ······· │
+     98  98 │         null,
+     99  99 │         2,
+    100     │ - ····)·+·'\n',
+        100 │ + ····)}\n`,
+    101 101 │     );
+    102 102 │   } finally {
+
+
+scripts/sample-search-source.mjs:253:23 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    251 │   };
+    252 │   const corpus = { id: 'seoul-restaurants-source-v1', provenance, records, cases };
+  > 253 │   const corpusBytes = JSON.stringify(corpus, null, 2) + '\n';
+        │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    254 │   const audit = {
+    255 │     schemaVersion: 1,
+
+  i Unsafe fix: Use a template literal.
+
+    251 251 │     };
+    252 252 │     const corpus = { id: 'seoul-restaurants-source-v1', provenance, records, cases };
+    253     │ - ··const·corpusBytes·=·JSON.stringify(corpus,·null,·2)·+·'\n';
+        253 │ + ··const·corpusBytes·=·`${JSON.stringify(corpus,·null,·2)}\n`;
+    254 254 │     const audit = {
+    255 255 │       schemaVersion: 1,
+
+
+scripts/sample-search-source.mjs:301:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    299 │   await mkdir(outputRoot, { recursive: false });
+    300 │   await writeFile(resolve(outputRoot, 'corpus.json'), corpusBytes, { flag: 'wx' });
+  > 301 │   await writeFile(resolve(outputRoot, 'audit.json'), JSON.stringify(audit, null, 2) + '\n', {
+        │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    302 │     flag: 'wx',
+    303 │   });
+
+  i Unsafe fix: Use a template literal.
+
+    299 299 │     await mkdir(outputRoot, { recursive: false });
+    300 300 │     await writeFile(resolve(outputRoot, 'corpus.json'), corpusBytes, { flag: 'wx' });
+    301     │ - ··await·writeFile(resolve(outputRoot,·'audit.json'),·JSON.stringify(audit,·null,·2)·+·'\n',·{
+        301 │ + ··await·writeFile(resolve(outputRoot,·'audit.json'),·`${JSON.stringify(audit,·null,·2)}\n`,·{
+    302 302 │       flag: 'wx',
+    303 303 │     });
+
+
+Checked 324 files in 451ms. No fixes applied.
+Found 5 infos.
+
+> open-store-searcher@0.1.0-dev format:check
+> biome format .
+
+Checked 322 files in 344ms. No fixes applied.
+
+> open-store-searcher@0.1.0-dev typecheck
+> tsc --noEmit
+
+
+> open-store-searcher@0.1.0-dev test:coverage
+> vitest run --coverage
+
+
+ RUN  v4.1.11 /workspace/open-store-searcher
+      Coverage enabled with v8
+
+ ❯ |pipeline| src/pipeline/unzip-archive.test.ts (7 tests | 2 failed) 86ms
+     × preserves UTF-8 Korean DOS-origin filenames and exact entry bytes 24ms
+     × lists and streams entries from a valid local archive 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |pipeline| src/pipeline/unzip-archive.test.ts > UnzipArchiveAdapter > preserves UTF-8 Korean DOS-origin filenames and exact entry bytes
+AssertionError: expected { ok: false } to deeply equal { ok: true }
+
+- Expected
++ Received
+
+  {
+-   "ok": true,
++   "ok": false,
+  }
+
+ ❯ src/pipeline/unzip-archive.test.ts:14:49
+     12|     const adapter = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_…
+     13|     const archive = fixture('korean-dos-utf8.zip');
+     14|     await expect(adapter.testIntegrity(archive)).resolves.toEqual({ ok…
+       |                                                 ^
+     15|     await expect(adapter.listEntries(archive)).resolves.toEqual([
+     16|       { name: '가상_한글 자료.csv', modifiedDate: '2026-09-12' },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |pipeline| src/pipeline/unzip-archive.test.ts > UnzipArchiveAdapter > lists and streams entries from a valid local archive
+AssertionError: expected { ok: false } to deeply equal { ok: true }
+
+- Expected
++ Received
+
+  {
+-   "ok": true,
++   "ok": false,
+  }
+
+ ❯ src/pipeline/unzip-archive.test.ts:24:75
+     22|   infoZipTest('lists and streams entries from a valid local archive', …
+     23|     const adapter = new UnzipArchiveAdapter('/usr/bin/unzip', DEFAULT_…
+     24|     await expect(adapter.testIntegrity(fixture('valid-two-category.zip…
+       |                                                                           ^
+     25|       ok: true,
+     26|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 58 passed (59)
+      Tests  2 failed | 1434 passed (1436)
+   Start at  06:06:28
+   Duration  95.30s (transform 2.58s, setup 2.68s, import 6.95s, tests 153.40s, environment 12.86s)

@@ -7,6 +7,75 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## Authorized PR43 integration — 2026-10-25
+
+The user explicitly requested commit, push and PR creation, followed by review, verification
+and main merge. Diagnostic delivery is in [PR43](https://github.com/internalforces/open-store-searcher/pull/43)
+on `codex/task-009-full-data-cloud-diagnostics`, based on main `abe4b0a`.
+Implementation/evidence checkpoint125a29d is pushed; this entry is subsequent delivery metadata.
+Final-head canonical Verify and the repository's configured independent Codex review are
+mandatory before normal integration. Authors cannot supply their own final approval.
+The live PR records the eventual exact head, review/check results and merge SHA; this checkpoint
+does not claim those later outcomes. See [delivery record](../reports/delivery-2026-10-25-task-009-diagnostics.md).
+TASK-009 performance/publication acceptance remains open regardless of code integration.
+No deployment or operational configuration change is part of this request.
+
+## TASK-009 complete-data continuation — 2026-10-25
+
+The user requested execution after repository refresh. Exact-main Verify39943753135 on
+`abe4b0a6ec89cd25b687c946186c5ebd6ad2f21e` is successful. Local lint/format/types, build,
+quality and102Node checks pass; coverage runs1,436tests with1,434pass/two Debian Info-ZIP
+integration failures. System Chromium154 passes66unchanged desktop/mobile-emulated UI/a11y
+checks through an ignored temporary configuration. Pinned-browser download is explicitly403
+blocked; no policy bypass or canonical configuration change occurred. Prior root-owned outputs
+remain preserved under locally ignored `.task009-preserved-*` directories.
+
+Downloaded exact approved ZIP/observation hashes match. Extracted Ubuntu Info-ZIP in private
+scratch enables the unmodified production `local-proof` operator: all195categories/2,951,024rows,
+unchanged quality/manifest, full tar packaging and730file extracted inspection pass.
+Private data, tar, site, inspection and helper controls remain at
+`/workspace/scratch/task009-20261025`. Rebuild app code against that verified site when profiling;
+do not repeat source collection/replay without a new reason. The tar is not a hosted candidate.
+
+Full-data browser diagnostics retain all4loads/24search samples. Readiness105.8–108.4seconds,
+Worker preparation90.5–92.8seconds and PSS3.14–3.33GiB remain unresolved. District/name queries
+miss500ms in desktop and mobile emulation, with additional emulated misses and a retained1,858ms
+outlier. The fixture formerly labeled `absent` returns10candidates; no empty-result performance
+claim is made. Its executed helper is archived byte-for-byte; the current helper only corrects
+that label to `absence-intent`. Nearly691MB is requested again on cache-enabled warm navigation.
+Worker CPU throttling, physical paint/device/network and hosted acceptance are not established.
+
+Next: profile preparation CPU/heap and search scan/predicate/sort phases, then implement and
+verify a measured lossless improvement with full ranking/page/cancellation evidence. Establish
+an actual zero-candidate fixture. Device availability was asked asynchronously and remains
+unconfirmed; elapsed time is not an answer. TASK-009 alone stays active; TASK-028 paused,
+TASK-010 sequential, TASK-021 gated. No deployment/dispatch/settings/policy/recovery change or
+task completion occurred. See [report](../reports/performance-2026-10-25-task-009.md) and raw evidence.
+Final lint/format/whitespace checks pass with only the five pre-existing informational notices.
+Evidence consistency confirms185unchanged original code/config bindings,730site files, all4loads/
+24samples and exact raw helper/receipt/inventory identity. The final source fetch still matches
+the current-main checkpoint; no commit or push is included in this continuation.
+
+## Repository refresh and next-work assessment — 2026-10-25
+
+Fetched origin with pruning and ran a fast-forward-only synchronization. The clean `work`
+checkout already matched `origin/main` at `abe4b0a` (merged PR41); no product changes were needed.
+PR41's former draft/unmerged wording below is historical. Fresh hosted CI success was not
+established during this assessment; retain the dated verification scope of existing reports.
+
+TASK-009 remains the sole active task. Next, establish current-head supported verification and
+complete controlled full-data loading/LCP, browser-memory and physical/mobile/hosted performance
+evidence. Existing 24 desktop observations (maximum 365.2ms) and a 393x727 desktop viewport do not
+close those gates. Earlier device-access failures describe the prior macOS environment, not this
+Linux workspace or current physical-device availability.
+
+After performance acceptance, prepare a fresh current-main candidate: the October23 preparation
+expired October24 at 02:35:18.721Z, and its skipped deployment cannot be resumed. Continue protected
+first publication, complete public-byte equality, durable backup/redownload/adoption and
+expired-original-artifact recovery under the existing operational approval boundaries. TASK-010
+follows sequentially and retains actual 30-day reliability evidence; TASK-028 stays paused and
+TASK-021 gated. This assessment performs no deployment, dispatch or operational-setting change.
+
 ## TASK-009 lossless search follow-up — 2026-10-23
 
 The user instructed continuation. TASK-009 remains the sole active task; TASK-028 stays paused

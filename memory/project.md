@@ -7,6 +7,24 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
+## TASK-009 current-main performance continuation — 2026-10-25
+
+Current main is `abe4b0a` (PR41 merged); exact-main hosted Verify39943753135 passed.
+TASK-009 alone is active. Complete approved-source private replay passed all195categories,
+2,951,024rows and730extracted site files, with the unchanged compact manifest and quality inputs.
+Local diagnostics expose unresolved performance: readiness105.8–108.4seconds, Worker preparation
+90.5–92.8seconds, instantaneous browser PSS3.14–3.33GiB, and district/name search above500ms in
+both desktop and mobile-emulated runs. The mobile negative-intent outlier1,858ms is retained;
+that fixture has10candidates, not zero. Warm navigation still requests nearly691MB.
+
+Next is source-bound CPU/heap and search-phase profiling, followed by measured lossless changes
+and actual device/hosted acceptance. The new diagnostic helper changes no product code or data
+contract. Local Node102 and supplementary Chromium UI/a11y66pass; local coverage has1,434pass/
+two hardcoded Debian Info-ZIP failures. No local canonical full-suite or performance pass is claimed.
+No deployment, operational dispatch, schedule, permissions, recovery authority or policy changed.
+TASK-028 stays paused, TASK-010 follows sequentially and TASK-021 remains gated. Earlier snapshots
+below retain their dated scope. See [current report](../reports/performance-2026-10-25-task-009.md).
+
 ## TASK-009 hosted preparation checkpoint — 2026-10-23
 
 TASK-009 is the sole active task; TASK-028 is paused with prior acceptance gaps retained and

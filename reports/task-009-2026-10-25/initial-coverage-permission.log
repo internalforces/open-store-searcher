@@ -1,0 +1,161 @@
+
+> open-store-searcher@0.1.0-dev verify:full
+> npm run verify && npm run test:e2e:full && npm run test:a11y
+
+
+> open-store-searcher@0.1.0-dev verify
+> npm run lint && npm run format:check && npm run typecheck && npm run test:coverage && npm run build && npm run quality:search:check
+
+
+> open-store-searcher@0.1.0-dev lint
+> biome lint --error-on-warnings .
+
+.testagent/static-delivery-research/browser-profile.mjs:124:15 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    122 │             url: message.url.replace(
+    123 │               /compact-manifest-[a-f0-9]+/,
+  > 124 │               'compact-manifest-' + '0'.repeat(64),
+        │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    125 │             ),
+    126 │           };
+
+  i Unsafe fix: Use a template literal.
+
+    122 122 │               url: message.url.replace(
+    123 123 │                 /compact-manifest-[a-f0-9]+/,
+    124     │ - ··············'compact-manifest-'·+·'0'.repeat(64),
+        124 │ + ··············`compact-manifest-${'0'.repeat(64)}`,
+    125 125 │               ),
+    126 126 │             };
+
+
+.testagent/static-delivery-research/full-search-parity.mjs:74:21 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    72 │         const reduced = reduce(match);
+    73 │         assert.deepEqual(reduced, oracle[count++]);
+  > 74 │         hash.update(JSON.stringify(reduced) + '\n');
+       │                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    75 │       }
+    76 │     }
+
+  i Unsafe fix: Use a template literal.
+
+     72  72 │           const reduced = reduce(match);
+     73  73 │           assert.deepEqual(reduced, oracle[count++]);
+     74     │ - ········hash.update(JSON.stringify(reduced)·+·'\n');
+         74 │ + ········hash.update(`${JSON.stringify(reduced)}\n`);
+     75  75 │         }
+     76  76 │       }
+
+
+.testagent/static-delivery-research/full-search-parity.mjs:90:5 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+     88 │   await writeFile(
+     89 │     join(root, 'full-search-parity.json'),
+   > 90 │     JSON.stringify(
+        │     ^^^^^^^^^^^^^^^
+   > 91 │       {
+         ...
+   > 99 │       2,
+  > 100 │     ) + '\n',
+        │     ^^^^^^^^
+    101 │   );
+    102 │ } finally {
+
+  i Unsafe fix: Use a template literal.
+
+     88  88 │     await writeFile(
+     89  89 │       join(root, 'full-search-parity.json'),
+     90     │ - ····JSON.stringify(
+         90 │ + ····`${JSON.stringify(
+     91  91 │         {
+     92  92 │           recordCount: store.recordCount,
+    ······· │
+     98  98 │         null,
+     99  99 │         2,
+    100     │ - ····)·+·'\n',
+        100 │ + ····)}\n`,
+    101 101 │     );
+    102 102 │   } finally {
+
+
+scripts/sample-search-source.mjs:253:23 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    251 │   };
+    252 │   const corpus = { id: 'seoul-restaurants-source-v1', provenance, records, cases };
+  > 253 │   const corpusBytes = JSON.stringify(corpus, null, 2) + '\n';
+        │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    254 │   const audit = {
+    255 │     schemaVersion: 1,
+
+  i Unsafe fix: Use a template literal.
+
+    251 251 │     };
+    252 252 │     const corpus = { id: 'seoul-restaurants-source-v1', provenance, records, cases };
+    253     │ - ··const·corpusBytes·=·JSON.stringify(corpus,·null,·2)·+·'\n';
+        253 │ + ··const·corpusBytes·=·`${JSON.stringify(corpus,·null,·2)}\n`;
+    254 254 │     const audit = {
+    255 255 │       schemaVersion: 1,
+
+
+scripts/sample-search-source.mjs:301:54 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    299 │   await mkdir(outputRoot, { recursive: false });
+    300 │   await writeFile(resolve(outputRoot, 'corpus.json'), corpusBytes, { flag: 'wx' });
+  > 301 │   await writeFile(resolve(outputRoot, 'audit.json'), JSON.stringify(audit, null, 2) + '\n', {
+        │                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    302 │     flag: 'wx',
+    303 │   });
+
+  i Unsafe fix: Use a template literal.
+
+    299 299 │     await mkdir(outputRoot, { recursive: false });
+    300 300 │     await writeFile(resolve(outputRoot, 'corpus.json'), corpusBytes, { flag: 'wx' });
+    301     │ - ··await·writeFile(resolve(outputRoot,·'audit.json'),·JSON.stringify(audit,·null,·2)·+·'\n',·{
+        301 │ + ··await·writeFile(resolve(outputRoot,·'audit.json'),·`${JSON.stringify(audit,·null,·2)}\n`,·{
+    302 302 │       flag: 'wx',
+    303 303 │     });
+
+
+Checked 324 files in 612ms. No fixes applied.
+Found 5 infos.
+
+> open-store-searcher@0.1.0-dev format:check
+> biome format .
+
+Checked 322 files in 356ms. No fixes applied.
+
+> open-store-searcher@0.1.0-dev typecheck
+> tsc --noEmit
+
+
+> open-store-searcher@0.1.0-dev test:coverage
+> vitest run --coverage
+
+
+ RUN  v4.1.11 /workspace/open-store-searcher
+      Coverage enabled with v8
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: EACCES: permission denied, rmdir '/workspace/open-store-searcher/coverage/app'
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -13, code: 'EACCES', syscall: 'rmdir', path: '/workspace/open-store-searcher/coverage/app' }
+
+
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

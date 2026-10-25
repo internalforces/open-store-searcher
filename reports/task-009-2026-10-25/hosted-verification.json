@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "checkedOn": "2026-10-25",
+  "repository": "internalforces/open-store-searcher",
+  "commit": "abe4b0a6ec89cd25b687c946186c5ebd6ad2f21e",
+  "runId": 39943753135,
+  "jobId": 120381232820,
+  "conclusion": "success",
+  "url": "https://github.com/internalforces/open-store-searcher/actions/runs/39943753135",
+  "verifiedSteps": [
+    "npm install --global npm@11.17.0",
+    "npm ci",
+    "npx --no-install playwright install --with-deps",
+    "npm run verify:full",
+    "Verify Pages artifact packaging without publication"
+  ],
+  "scope": "Readback of completed exact-main verification; no new workflow dispatched."
+}

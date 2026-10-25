@@ -1,0 +1,28 @@
+desktop: cold full-data load
+desktop: warm full-data load
+desktop: broad-district 673.2ms
+desktop: broad-district 659.9ms
+desktop: broad-district 666.2ms
+desktop: partial-address 353.3ms
+desktop: partial-address 320.9ms
+desktop: partial-address 320.5ms
+desktop: business-name 598.0ms
+desktop: business-name 586.7ms
+desktop: business-name 590.0ms
+desktop: absent 461.2ms
+desktop: absent 475.4ms
+desktop: absent 470.3ms
+mobile-emulated: cold full-data load
+mobile-emulated: warm full-data load
+mobile-emulated: broad-district 886.4ms
+mobile-emulated: broad-district 942.3ms
+mobile-emulated: broad-district 964.9ms
+mobile-emulated: partial-address 538.5ms
+mobile-emulated: partial-address 426.7ms
+mobile-emulated: partial-address 423.9ms
+mobile-emulated: business-name 720.7ms
+mobile-emulated: business-name 686.4ms
+mobile-emulated: business-name 698.9ms
+mobile-emulated: absent 507.0ms
+mobile-emulated: absent 510.0ms
+mobile-emulated: absent 1858.0ms
