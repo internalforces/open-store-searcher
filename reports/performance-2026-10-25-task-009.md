@@ -176,6 +176,8 @@ Complete-data evidence: [browser measurements](task-009-2026-10-25/full-data-bro
 [verified identity](task-009-2026-10-25/verified-identity.json.raw),
 [source replay log](task-009-2026-10-25/source-replay.log).
 Raw receipt/inventory/helper files retain their exact bytes under `.raw` extensions.
+Console `.log` files normalize trailing horizontal whitespace and extra terminal blank lines;
+no observations, diagnostics or numeric values are removed by this presentation cleanup.
 Final lint, formatting and whitespace checks pass; the five existing informational lint notices
 remain nonblocking and unchanged. The [evidence consistency check](task-009-2026-10-25/evidence-check.json)
 verifies all185original code/config bindings against current files, all730site bindings,
