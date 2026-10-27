@@ -7,6 +7,20 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## Remaining performance and local verification limits — 2026-10-27
+
+TASK-009 preparation is reduced in bounded Node diagnostics, but mixed searches remain
+781.8–802.2 ms and no new browser/mobile/hosted performance acceptance exists. Retained raw
+profiles include the intermediate833.5–841.2 ms regression. Warm691MB transfer and original
+full readiness/browser memory remain open. The old10-candidate negative fixture is not empty;
+a separate fixed fixture is now source-verified0/0. Physical testing remains user-skipped.
+
+Local Node 22.22.3/macOS full verification has1,435 pass/4 fail: Node 24.19.0 pin, two approved-Linux
+Info-ZIP checks and GNU tar packaging. Operator63 pass/36 fail reflects unsupported bsdtar.
+No assertions, skips or platform policies changed. Ubuntu PR CI is the canonical check.
+Owner: Implementer / Performance Engineer; performance/publication/recovery gates remain open.
+
+
 ## TASK-009 cloud full-data performance gaps — 2026-10-25
 
 Exact-main full-source diagnostics retain all2,951,024rows but do not pass the500ms search gate.

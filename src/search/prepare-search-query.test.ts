@@ -1,11 +1,30 @@
 import { describe, expect, test } from 'vitest';
 import {
+  normalizeSearchNotation,
   normalizeSearchText,
   prepareSearchQuery,
+  projectSearchName,
   projectSearchText,
 } from './prepare-search-query.js';
 
 describe('TASK-011 query preparation', () => {
+  test('specialized name and normalized projections preserve one-pass notation and Unicode semantics', () => {
+    for (const value of [
+      '',
+      '봄',
+      '  ＡＢＣ, 카페 &amp; 빵  ',
+      '&amp;lt;봄&amp;gt;',
+      'e\u0301 👨‍👩‍👧‍👦',
+      '&#x0; &#xD800; &#1114112;',
+      '서울 강남구 테헤란로１２-３',
+    ]) {
+      const full = projectSearchText(value);
+      expect(projectSearchName(value)).toBe(full.nameKey);
+      expect(normalizeSearchNotation(value)).toBe(full.normalized);
+    }
+    expect(normalizeSearchNotation('&amp;lt;ＡＢＣ&#xA0;')).toBe('&lt;abc');
+    expect(projectSearchName('봄 &amp; 빵')).toBe('봄 빵');
+  });
   test('projects short candidate fields without applying query minimum length', () => {
     expect(projectSearchText('봄')).toEqual({
       normalized: '봄',

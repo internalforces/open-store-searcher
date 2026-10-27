@@ -161,6 +161,24 @@ export function matchesLiteralAddress(
   );
 }
 
+/** Equivalent admission over a canonical space-delimited key, without retained token arrays. */
+export function matchesLiteralAddressKey(
+  key: string,
+  literalTokens: readonly { value: string; numeric: boolean }[],
+): boolean {
+  return literalTokens.every(({ value, numeric }) => {
+    if (!key || value.includes(' ')) return false;
+    if (!numeric) return key.includes(value);
+    if (!value) return false;
+    for (let index = key.indexOf(value); index !== -1; index = key.indexOf(value, index + 1)) {
+      const end = index + value.length;
+      if ((index === 0 || key[index - 1] === ' ') && (end === key.length || key[end] === ' '))
+        return true;
+    }
+    return false;
+  });
+}
+
 export function scoreCandidate(
   entry: ScoringEntry,
   query: InterpretedSearchQuery,

@@ -1,4 +1,5 @@
 import {
+  normalizeSearchNotation,
   normalizeSearchText,
   projectSearchText,
   type SearchTextProjection,
@@ -24,7 +25,7 @@ const NUMBER = /^\d+(?:-\d+)?$/u;
 const SEOUL = new Set(['서울', '서울시', '서울특별시']);
 
 /** Keep embedded road digits intact until components have been identified. */
-export function addressWords(projection: SearchTextProjection): string[] {
+export function addressWords(projection: Pick<SearchTextProjection, 'normalized'>): string[] {
   const text = normalizeSearchText(
     projection.normalized
       .replace(/\p{Pd}/gu, '-')
@@ -102,7 +103,7 @@ export function parseSearchAddress(value: string): AddressParts {
       depth = Math.max(0, depth - 1);
       continue;
     }
-    for (const word of addressWords(projectSearchText(token)))
+    for (const word of addressWords({ normalized: normalizeSearchNotation(token) }))
       componentWords.push({ word, annotation: depth > 0 });
   }
   for (const { word, annotation } of componentWords) {

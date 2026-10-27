@@ -7,6 +7,18 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
+## TASK-009 preparation optimization evidence — 2026-10-27
+
+FR-02/03/07 preserve all 2,951,024 source records and55 complete original/current candidate-vector
+and boundary-page identities. New projection/literal-key regressions are observed RED→GREEN;
+all 105 search tests pass, including full-page oracle/cancellation coverage. FR-08/12/13/14
+data/source/date/privacy/retained-state contracts remain unchanged. Apple M3/Node 22 diagnostics
+show46.9→30.1second preparation and598.9 MiB lower post-GC heap, not performance acceptance.
+Mixed queries exceed500 ms; no requirement, TASK-009/010, release or milestone gate closes.
+Canonical PR CI remains required after local4 runtime/tool failures. See
+[performance evidence](../reports/performance-2026-10-27-task-009.md).
+
+
 ## TASK-009 complete-data diagnostic — 2026-10-25
 
 FR-02/03/07 and performance NFR retain all2,951,024rows in approved-source replay and four actual
