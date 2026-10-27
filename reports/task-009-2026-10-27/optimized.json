@@ -1,0 +1,1164 @@
+{
+  "version": 1,
+  "kind": "offline-compact-cpu-allocation-diagnostic",
+  "recordedAt": "2026-10-27T05:16:31.429Z",
+  "runtime": {
+    "node": "v22.22.3",
+    "platform": "darwin",
+    "cpu": "Apple M3"
+  },
+  "physicalDeviceVerified": false,
+  "publicationApproved": false,
+  "profiles": {
+    "prepare": {
+      "elapsedMs": 30328.149292000002,
+      "cpuSha256": "73db329846019c5d9649d8d98edfa3b654c935dfb496c24b8fb1e71bd7f16f53",
+      "cpuSelf": [
+        {
+          "function": "projectSearchText",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/prepare-search-query.ts",
+          "line": 40,
+          "selfMs": 3234.87
+        },
+        {
+          "function": "normalizeSearchText",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/prepare-search-query.ts",
+          "line": 10,
+          "selfMs": 2302.733
+        },
+        {
+          "function": "(idle)",
+          "url": "",
+          "line": 0,
+          "selfMs": 2283.919
+        },
+        {
+          "function": "(garbage collector)",
+          "url": "",
+          "line": 0,
+          "selfMs": 2124.906
+        },
+        {
+          "function": "addressWords",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 18,
+          "selfMs": 2058.089
+        },
+        {
+          "function": "parseSearchAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 51,
+          "selfMs": 1610.869
+        },
+        {
+          "function": "addressIndex",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 122,
+          "selfMs": 1476.3
+        },
+        {
+          "function": "normalizeSearchText",
+          "url": "",
+          "line": 10,
+          "selfMs": 1342.206
+        },
+        {
+          "function": "normalizeSearchText",
+          "url": "",
+          "line": 10,
+          "selfMs": 1240.34
+        },
+        {
+          "function": "normalizeSearchText",
+          "url": "",
+          "line": 10,
+          "selfMs": 1191.202
+        },
+        {
+          "function": "nameIndex",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 114,
+          "selfMs": 846.96
+        },
+        {
+          "function": "RegExp: (?<![\\p{L}\\p{N}])(?:(?:지상|지하)?\\d+(?:-\\d+)?(?:,\\s*\\d+(?:-\\d+)?)*(?:층|호)+)+(?:\\d+(?:-\\d+)?(?:,\\s*\\d+(?:-\\d+)?)*)?(?![\\p{L}\\p{N}])",
+          "url": "",
+          "line": 0,
+          "selfMs": 777.872
+        },
+        {
+          "function": "RegExp: (\\p{L})(\\d)",
+          "url": "",
+          "line": 0,
+          "selfMs": 606.786
+        },
+        {
+          "function": "RegExp: \\p{P}+",
+          "url": "",
+          "line": 0,
+          "selfMs": 578.839
+        },
+        {
+          "function": "RegExp: \\p{P}",
+          "url": "",
+          "line": 0,
+          "selfMs": 556.746
+        },
+        {
+          "function": "withoutFloorUnitDetails",
+          "url": "",
+          "line": 44,
+          "selfMs": 538.622
+        },
+        {
+          "function": "RegExp: \\p{White_Space}+",
+          "url": "",
+          "line": 0,
+          "selfMs": 507.632
+        },
+        {
+          "function": "RegExp: \\p{P}",
+          "url": "",
+          "line": 0,
+          "selfMs": 504.997
+        },
+        {
+          "function": "addressWord",
+          "url": "",
+          "line": 22,
+          "selfMs": 418.498
+        },
+        {
+          "function": "post",
+          "url": "node:inspector",
+          "line": 118,
+          "selfMs": 400.584
+        },
+        {
+          "function": "RegExp: [()]|[^\\s()]+",
+          "url": "",
+          "line": 0,
+          "selfMs": 391.342
+        },
+        {
+          "function": "decodeNotation",
+          "url": "",
+          "line": 22,
+          "selfMs": 389.544
+        },
+        {
+          "function": "decodeNotation",
+          "url": "",
+          "line": 22,
+          "selfMs": 371.377
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 63,
+          "selfMs": 274.419
+        },
+        {
+          "function": "RegExp: ^(.+(?:대로|로|길|구|동|읍|면|리|\\d+가))(\\d+(?:-\\d+)?)?$",
+          "url": "",
+          "line": 0,
+          "selfMs": 270.584
+        },
+        {
+          "function": "normalizeSearchText",
+          "url": "",
+          "line": 10,
+          "selfMs": 267.995
+        },
+        {
+          "function": "RegExp: \\p{Pd}",
+          "url": "",
+          "line": 0,
+          "selfMs": 240.877
+        },
+        {
+          "function": "RegExp: \\p{White_Space}+",
+          "url": "",
+          "line": 0,
+          "selfMs": 238.127
+        },
+        {
+          "function": "normalizeSearchText",
+          "url": "",
+          "line": 10,
+          "selfMs": 232.998
+        },
+        {
+          "function": "RegExp: \\p{White_Space}+",
+          "url": "",
+          "line": 0,
+          "selfMs": 232.21
+        },
+        {
+          "function": "decodeNotation",
+          "url": "",
+          "line": 22,
+          "selfMs": 211.539
+        },
+        {
+          "function": "prepare",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 98,
+          "selfMs": 205.257
+        },
+        {
+          "function": "(program)",
+          "url": "",
+          "line": 0,
+          "selfMs": 188.33
+        },
+        {
+          "function": "listOnTimeout",
+          "url": "node:internal/timers",
+          "line": 526,
+          "selfMs": 188.173
+        },
+        {
+          "function": "RegExp: (\\d)(\\p{L})",
+          "url": "",
+          "line": 0,
+          "selfMs": 180.126
+        }
+      ],
+      "allocationSha256": "d2a2812da96425201f1de7b13d423a0413a6741f050be50a96d19b7f4cb7ddc9",
+      "retainedSampledAllocations": [
+        {
+          "function": "parseSearchAddress",
+          "url": "",
+          "line": 51,
+          "bytes": 363882520
+        },
+        {
+          "function": "join",
+          "url": "",
+          "line": 0,
+          "bytes": 183514872
+        },
+        {
+          "function": "nameIndex",
+          "url": "",
+          "line": 114,
+          "bytes": 40817224
+        },
+        {
+          "function": "prepare",
+          "url": "",
+          "line": 98,
+          "bytes": 35214320
+        },
+        {
+          "function": "replace",
+          "url": "",
+          "line": 0,
+          "bytes": 35128744
+        },
+        {
+          "function": "replace",
+          "url": "",
+          "line": 0,
+          "bytes": 33555192
+        },
+        {
+          "function": "addressIndex",
+          "url": "",
+          "line": 122,
+          "bytes": 23476128
+        },
+        {
+          "function": "split",
+          "url": "",
+          "line": 0,
+          "bytes": 11534632
+        },
+        {
+          "function": "match",
+          "url": "",
+          "line": 0,
+          "bytes": 6815904
+        },
+        {
+          "function": "profile",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/scripts/profile-compact-search.mjs",
+          "line": 58,
+          "bytes": 896368
+        },
+        {
+          "function": "post",
+          "url": "node:inspector",
+          "line": 118,
+          "bytes": 525800
+        },
+        {
+          "function": "parseSearchAddress",
+          "url": "",
+          "line": 51,
+          "bytes": 524400
+        },
+        {
+          "function": "",
+          "url": "",
+          "line": 7,
+          "bytes": 524328
+        },
+        {
+          "function": "addressWords",
+          "url": "",
+          "line": 18,
+          "bytes": 524320
+        }
+      ]
+    },
+    "search-district": {
+      "elapsedMs": 423.39495799999713,
+      "cpuSha256": "a697f2ee9f308d74e24ed709006f2d7feefad2e06da4b715015b91c4b2fabe02",
+      "cpuSelf": [
+        {
+          "function": "post",
+          "url": "node:inspector",
+          "line": 118,
+          "selfMs": 750.583
+        },
+        {
+          "function": "(program)",
+          "url": "",
+          "line": 0,
+          "selfMs": 122.539
+        },
+        {
+          "function": "(idle)",
+          "url": "",
+          "line": 0,
+          "selfMs": 57.255
+        },
+        {
+          "function": "sortOrdinals",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 44,
+          "selfMs": 52.001
+        },
+        {
+          "function": "possibleName",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 195,
+          "selfMs": 43.958
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 42.415
+        },
+        {
+          "function": "search",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 171,
+          "selfMs": 33.71
+        },
+        {
+          "function": "matchName",
+          "url": "",
+          "line": 61,
+          "selfMs": 22.459
+        },
+        {
+          "function": "",
+          "url": "",
+          "line": 248,
+          "selfMs": 13.708
+        },
+        {
+          "function": "listOnTimeout",
+          "url": "node:internal/timers",
+          "line": 526,
+          "selfMs": 9.29
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 5,
+          "selfMs": 8.666
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 7,
+          "selfMs": 3.75
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 2.542
+        },
+        {
+          "function": "processTimers",
+          "url": "node:internal/timers",
+          "line": 506,
+          "selfMs": 2.333
+        },
+        {
+          "function": "removeAt",
+          "url": "node:internal/priority_queue",
+          "line": 94,
+          "selfMs": 2.333
+        },
+        {
+          "function": "percolateDown",
+          "url": "node:internal/priority_queue",
+          "line": 38,
+          "selfMs": 2.333
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 36,
+          "selfMs": 1.25
+        },
+        {
+          "function": "sortOrdinals",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 44,
+          "selfMs": 1.166
+        },
+        {
+          "function": "addressWords",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 18,
+          "selfMs": 0.667
+        },
+        {
+          "function": "possibleName",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 195,
+          "selfMs": 0.625
+        }
+      ]
+    },
+    "search-name": {
+      "elapsedMs": 353.41979100000026,
+      "cpuSha256": "86d0ee77315931e38e7dcb0a9bf5a0ff11c8b8f88093cbeafa2d0e0a87f34c3c",
+      "cpuSelf": [
+        {
+          "function": "post",
+          "url": "node:inspector",
+          "line": 118,
+          "selfMs": 737.917
+        },
+        {
+          "function": "possibleAddress",
+          "url": "",
+          "line": 202,
+          "selfMs": 66.461
+        },
+        {
+          "function": "",
+          "url": "",
+          "line": 98,
+          "selfMs": 66.291
+        },
+        {
+          "function": "possibleName",
+          "url": "",
+          "line": 195,
+          "selfMs": 51.539
+        },
+        {
+          "function": "(idle)",
+          "url": "",
+          "line": 0,
+          "selfMs": 48.291
+        },
+        {
+          "function": "search",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 171,
+          "selfMs": 41.501
+        },
+        {
+          "function": "matchName",
+          "url": "",
+          "line": 61,
+          "selfMs": 36.417
+        },
+        {
+          "function": "(program)",
+          "url": "",
+          "line": 0,
+          "selfMs": 18.292
+        },
+        {
+          "function": "listOnTimeout",
+          "url": "node:internal/timers",
+          "line": 526,
+          "selfMs": 5.667
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 5,
+          "selfMs": 3.792
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 3.709
+        },
+        {
+          "function": "processTimers",
+          "url": "node:internal/timers",
+          "line": 506,
+          "selfMs": 3.416
+        },
+        {
+          "function": "possibleName",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 195,
+          "selfMs": 2.5
+        },
+        {
+          "function": "score",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 283,
+          "selfMs": 2.458
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 94,
+          "selfMs": 1.292
+        },
+        {
+          "function": "(garbage collector)",
+          "url": "",
+          "line": 0,
+          "selfMs": 1.208
+        },
+        {
+          "function": "search",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 171,
+          "selfMs": 0.208
+        },
+        {
+          "function": "possibleName",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 195,
+          "selfMs": 0.083
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 0
+        }
+      ]
+    },
+    "search-address": {
+      "elapsedMs": 246.34041699999943,
+      "cpuSha256": "9a45427fe7ba37a82ab5c1654453ff6c4fbc443a15c2e5ce87931bac14988cf1",
+      "cpuSelf": [
+        {
+          "function": "post",
+          "url": "node:inspector",
+          "line": 118,
+          "selfMs": 743.292
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 61.416
+        },
+        {
+          "function": "possibleName",
+          "url": "",
+          "line": 195,
+          "selfMs": 39.959
+        },
+        {
+          "function": "search",
+          "url": "",
+          "line": 171,
+          "selfMs": 35.206
+        },
+        {
+          "function": "(idle)",
+          "url": "",
+          "line": 0,
+          "selfMs": 30.168
+        },
+        {
+          "function": "(program)",
+          "url": "",
+          "line": 0,
+          "selfMs": 18.25
+        },
+        {
+          "function": "matchName",
+          "url": "",
+          "line": 61,
+          "selfMs": 15.041
+        },
+        {
+          "function": "(garbage collector)",
+          "url": "",
+          "line": 0,
+          "selfMs": 9.875
+        },
+        {
+          "function": "score",
+          "url": "",
+          "line": 283,
+          "selfMs": 7.542
+        },
+        {
+          "function": "sortOrdinals",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 44,
+          "selfMs": 6.209
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 5.042
+        },
+        {
+          "function": "listOnTimeout",
+          "url": "node:internal/timers",
+          "line": 526,
+          "selfMs": 4.626
+        },
+        {
+          "function": "compareSearchAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 123,
+          "selfMs": 3.75
+        },
+        {
+          "function": "scoreCandidate",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 109,
+          "selfMs": 2.417
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 114,
+          "selfMs": 1.291
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 8,
+          "selfMs": 1.25
+        },
+        {
+          "function": "matchName",
+          "url": "",
+          "line": 61,
+          "selfMs": 1.25
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 7,
+          "selfMs": 1.25
+        },
+        {
+          "function": "cooperativeYield",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 25,
+          "selfMs": 1.125
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 0.458
+        },
+        {
+          "function": "scoreCandidate",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 109,
+          "selfMs": 0.042
+        }
+      ]
+    },
+    "search-zero-candidate": {
+      "elapsedMs": 301.53420899999765,
+      "cpuSha256": "e82cc1926df00e8e15aa9fc163c08e0fc381f8b8ac62c651a26d8af0d3957547",
+      "cpuSelf": [
+        {
+          "function": "post",
+          "url": "node:inspector",
+          "line": 118,
+          "selfMs": 739.375
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 66.125
+        },
+        {
+          "function": "possibleName",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 195,
+          "selfMs": 58.04
+        },
+        {
+          "function": "",
+          "url": "",
+          "line": 98,
+          "selfMs": 39.044
+        },
+        {
+          "function": "matchName",
+          "url": "",
+          "line": 61,
+          "selfMs": 34.916
+        },
+        {
+          "function": "search",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 171,
+          "selfMs": 31.498
+        },
+        {
+          "function": "(garbage collector)",
+          "url": "",
+          "line": 0,
+          "selfMs": 22.709
+        },
+        {
+          "function": "(program)",
+          "url": "",
+          "line": 0,
+          "selfMs": 19.708
+        },
+        {
+          "function": "(idle)",
+          "url": "",
+          "line": 0,
+          "selfMs": 13.752
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 5,
+          "selfMs": 6.25
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 11,
+          "selfMs": 5.083
+        },
+        {
+          "function": "search",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 171,
+          "selfMs": 2.625
+        },
+        {
+          "function": "insert",
+          "url": "node:internal/timers",
+          "line": 367,
+          "selfMs": 1.25
+        }
+      ]
+    },
+    "search-mixed": {
+      "elapsedMs": 823.4561669999966,
+      "cpuSha256": "e97c9febdeb4582c7064096219d05751c33166074b9c13d5f0df9ed39568fadf",
+      "cpuSelf": [
+        {
+          "function": "post",
+          "url": "node:inspector",
+          "line": 118,
+          "selfMs": 740.625
+        },
+        {
+          "function": "(program)",
+          "url": "",
+          "line": 0,
+          "selfMs": 128.707
+        },
+        {
+          "function": "score",
+          "url": "",
+          "line": 283,
+          "selfMs": 106.252
+        },
+        {
+          "function": "(idle)",
+          "url": "",
+          "line": 0,
+          "selfMs": 87.96
+        },
+        {
+          "function": "sortOrdinals",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 44,
+          "selfMs": 58.917
+        },
+        {
+          "function": "matchName",
+          "url": "",
+          "line": 61,
+          "selfMs": 57.501
+        },
+        {
+          "function": "possibleAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 202,
+          "selfMs": 56.458
+        },
+        {
+          "function": "search",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compact-search.ts",
+          "line": 171,
+          "selfMs": 53.753
+        },
+        {
+          "function": "scoreCandidate",
+          "url": "",
+          "line": 109,
+          "selfMs": 52.664
+        },
+        {
+          "function": "possibleName",
+          "url": "",
+          "line": 195,
+          "selfMs": 51.292
+        },
+        {
+          "function": "",
+          "url": "",
+          "line": 114,
+          "selfMs": 46.292
+        },
+        {
+          "function": "(garbage collector)",
+          "url": "",
+          "line": 0,
+          "selfMs": 42.792
+        },
+        {
+          "function": "compareSearchAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 123,
+          "selfMs": 21.457
+        },
+        {
+          "function": "matchName",
+          "url": "",
+          "line": 61,
+          "selfMs": 20
+        },
+        {
+          "function": "listOnTimeout",
+          "url": "node:internal/timers",
+          "line": 526,
+          "selfMs": 17.415
+        },
+        {
+          "function": "",
+          "url": "",
+          "line": 248,
+          "selfMs": 7.542
+        },
+        {
+          "function": "",
+          "url": "",
+          "line": 82,
+          "selfMs": 5
+        },
+        {
+          "function": "",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/search-candidates.ts",
+          "line": 7,
+          "selfMs": 4.999
+        },
+        {
+          "function": "processTimers",
+          "url": "node:internal/timers",
+          "line": 506,
+          "selfMs": 3.457
+        },
+        {
+          "function": "compareSearchAddress",
+          "url": "file:///Users/sonmyeong-gwan/Documents/open-store-searcher/.worktrees/task009-current-main-20261027/src/search/compare-search-address.ts",
+          "line": 123,
+          "selfMs": 0.5
+        }
+      ]
+    }
+  },
+  "searches": [
+    {
+      "fixture": "district",
+      "query": "강남구",
+      "samples": [
+        {
+          "searchAndPageMs": 435.25895899999887,
+          "eligibleCount": 0,
+          "similarCount": 323695
+        },
+        {
+          "searchAndPageMs": 429.1171250000043,
+          "eligibleCount": 0,
+          "similarCount": 323695
+        },
+        {
+          "searchAndPageMs": 427.8130420000016,
+          "eligibleCount": 0,
+          "similarCount": 323695
+        }
+      ],
+      "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "similarVectorSha256": "258dff96c803051ac6170d77208e3b50303d716249a3ce6bafacc3ceb3becc2b",
+      "pageHashes": [
+        {
+          "page": 0,
+          "sha256": "81de68d26849f242c93a2c76d44860317f243586b29ab32bb887a64683b70070"
+        },
+        {
+          "page": 8092,
+          "sha256": "b7e7193ad7605619f07db52e700761e2ba5f22d36e47202ee33f9d4855bb0f07"
+        },
+        {
+          "page": 16184,
+          "sha256": "5c7b572c56e9cde3582f6d189ec69ff939cf00f37a347b214adfdfe891221fad"
+        }
+      ]
+    },
+    {
+      "fixture": "name",
+      "query": "스타벅스",
+      "samples": [
+        {
+          "searchAndPageMs": 342.87950000000274,
+          "eligibleCount": 0,
+          "similarCount": 1282
+        },
+        {
+          "searchAndPageMs": 333.07245899999543,
+          "eligibleCount": 0,
+          "similarCount": 1282
+        },
+        {
+          "searchAndPageMs": 333.8957500000033,
+          "eligibleCount": 0,
+          "similarCount": 1282
+        }
+      ],
+      "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "similarVectorSha256": "4314e23f698839131618aea3681fdb8777fc9910fbd3f731715d8367c633bf7c",
+      "pageHashes": [
+        {
+          "page": 0,
+          "sha256": "e29e12c9cad521e7c6fb6f6d564ec6da709f0708b61624b4068dff066f949d12"
+        },
+        {
+          "page": 32,
+          "sha256": "7707fb2b0fcb9a478e7ee8d242f6807e3b339fbe0b48854da447148507688c68"
+        },
+        {
+          "page": 64,
+          "sha256": "5af9525165bd2b36b7f8aae3a9680aea48a94ebd7ec2791fbcaa9f5465e25f42"
+        }
+      ]
+    },
+    {
+      "fixture": "address",
+      "query": "테헤란로",
+      "samples": [
+        {
+          "searchAndPageMs": 244.45770800000173,
+          "eligibleCount": 0,
+          "similarCount": 32418
+        },
+        {
+          "searchAndPageMs": 238.41270899999654,
+          "eligibleCount": 0,
+          "similarCount": 32418
+        },
+        {
+          "searchAndPageMs": 238.54208300000028,
+          "eligibleCount": 0,
+          "similarCount": 32418
+        }
+      ],
+      "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "similarVectorSha256": "556b8b45a8cccc0a8f1ca3387f84a310d1a537b7b7de9eae8952d556cccb02b4",
+      "pageHashes": [
+        {
+          "page": 0,
+          "sha256": "f7aeab0ac4d35e9dc3b1542e19954843fa9b35967414cf004bb42d9349b56e39"
+        },
+        {
+          "page": 810,
+          "sha256": "357be3da602bc46a916393512d3c30dc5ce06459c00247ce96960a1cfa2c791a"
+        },
+        {
+          "page": 1620,
+          "sha256": "fea01d74c78d9cc661e7a1e43624f929682cc386e558a4722810a04bffebb627"
+        }
+      ]
+    },
+    {
+      "fixture": "zero-candidate",
+      "query": "龘靐齉爩",
+      "samples": [
+        {
+          "searchAndPageMs": 262.7607500000013,
+          "eligibleCount": 0,
+          "similarCount": 0
+        },
+        {
+          "searchAndPageMs": 261.0115000000005,
+          "eligibleCount": 0,
+          "similarCount": 0
+        },
+        {
+          "searchAndPageMs": 270.18787500000326,
+          "eligibleCount": 0,
+          "similarCount": 0
+        }
+      ],
+      "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "similarVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pageHashes": [
+        {
+          "page": 0,
+          "sha256": "0f2fcae5b2c1ff7b86c819b4fbba2f6630af38b97ed1e5930c8badac0707a953"
+        },
+        {
+          "page": 0,
+          "sha256": "0f2fcae5b2c1ff7b86c819b4fbba2f6630af38b97ed1e5930c8badac0707a953"
+        },
+        {
+          "page": 0,
+          "sha256": "0f2fcae5b2c1ff7b86c819b4fbba2f6630af38b97ed1e5930c8badac0707a953"
+        }
+      ]
+    },
+    {
+      "fixture": "mixed",
+      "query": "스타벅스 서울특별시 강남구 테헤란로 123",
+      "samples": [
+        {
+          "searchAndPageMs": 837.9040830000013,
+          "eligibleCount": 0,
+          "similarCount": 325012
+        },
+        {
+          "searchAndPageMs": 833.4971670000014,
+          "eligibleCount": 0,
+          "similarCount": 325012
+        },
+        {
+          "searchAndPageMs": 841.2041250000038,
+          "eligibleCount": 0,
+          "similarCount": 325012
+        }
+      ],
+      "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "similarVectorSha256": "bb245b6a8ab2d9d660a3fef6bdc85eab1d31efaa323f2beeccf13496db158d9d",
+      "pageHashes": [
+        {
+          "page": 0,
+          "sha256": "8fed3e37ce81a074cef2f7ec6971031ff2e286de03e409053f6e7c204c466354"
+        },
+        {
+          "page": 8125,
+          "sha256": "639c9ad70525418169de4a62ef077cd0caf77cd7d7e8c4c83b920f7795bd1ecd"
+        },
+        {
+          "page": 16250,
+          "sha256": "87a2f3449fb4e1fda2b2b86fdfb72c1ccfdf0ba70080a4d423e221209977558e"
+        }
+      ]
+    }
+  ],
+  "codeBindings": {
+    "src/search/compact-search.ts": {
+      "bytes": 17180,
+      "sha256": "17c8651ca72178d356af6d3fc3330d57db69711236fea6286e0b8995254babd1"
+    },
+    "src/search/compare-search-address.ts": {
+      "bytes": 7021,
+      "sha256": "030807fb647813e1d148268f1fec34fcd7190211ce6c57f7ac9d4cdd710d463b"
+    },
+    "src/search/prepare-search-query.ts": {
+      "bytes": 3485,
+      "sha256": "35b952ac0bb3f225a97460437343446e2b729447edca09207eff1260437e21c2"
+    },
+    "src/search/search-candidates.ts": {
+      "bytes": 10890,
+      "sha256": "7d051043c8fd81ab20f04502e15a9efe0ac2413bc1a73f4b01b37e8d46e4e346"
+    },
+    "src/shared/load-compact-data.ts": {
+      "bytes": 4588,
+      "sha256": "0b5456b1ad4bc7a35d303a89d891e8fc231c8444c4e2c278a25eb0080cb0fe36"
+    },
+    "src/shared/compact-data.ts": {
+      "bytes": 14016,
+      "sha256": "762bdefcbe61fd9aceafad7e48461defd8a4f74e4dbc41d4ab1eb612c84fda83"
+    },
+    "scripts/profile-compact-search.mjs": {
+      "bytes": 7390,
+      "sha256": "f64e308bab4da4b931c4fd9f7abf65caf0fce07e7984744022e02e582b57254f"
+    }
+  },
+  "limitations": [
+    "Node CPU/allocation diagnostics are not browser, Worker, hosted or physical-mobile acceptance.",
+    "Sampling profiles perturb timing; unprofiled repetitions are reported separately.",
+    "Heap sampling and process snapshots are not peak or total browser memory.",
+    "Retained original compact inputs are hash-validated; no source collection is repeated."
+  ],
+  "manifestSha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+  "sourceArchiveSha256": "c90758c2d3922e78d636ab2c9967b80c690bdcd8aeca283cf9f6ecc2cc992352",
+  "beforeLoad": {
+    "rss": 104398848,
+    "heapTotal": 36569088,
+    "heapUsed": 16727688,
+    "external": 21096014,
+    "arrayBuffers": 100492
+  },
+  "loadMs": 6012.166125,
+  "recordCount": 2951024,
+  "afterLoad": {
+    "rss": 1798684672,
+    "heapTotal": 1314963456,
+    "heapUsed": 1258790152,
+    "external": 212843142,
+    "arrayBuffers": 100492
+  },
+  "afterPrepare": {
+    "rss": 2223554560,
+    "heapTotal": 2058911744,
+    "heapUsed": 1988749552,
+    "external": 56315789,
+    "arrayBuffers": 35512780
+  },
+  "projectionCounts": {
+    "names": 1729684,
+    "addresses": 2318683
+  },
+  "afterSearch": {
+    "rss": 2330165248,
+    "heapTotal": 2058911744,
+    "heapUsed": 1988999832,
+    "external": 127401330,
+    "arrayBuffers": 36812828
+  }
+}

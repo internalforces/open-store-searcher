@@ -8,13 +8,13 @@ import {
   requireCompact,
 } from '../shared/compact-data.js';
 import { type AddressParts, parseSearchAddress } from './compare-search-address.js';
-import { prepareSearchQuery, projectSearchText } from './prepare-search-query.js';
+import { prepareSearchQuery, projectSearchName } from './prepare-search-query.js';
 import {
   type CandidateMatch,
   compareCandidateRank,
   compareSimilarCandidateRank,
   hasConflict,
-  matchesLiteralAddress,
+  matchesLiteralAddressKey,
   matchName,
   prepareScoringQuery,
   type ScoredCandidate,
@@ -30,11 +30,6 @@ const SEARCH_BATCH = 2_048;
 const SORT_BATCH = 8_192;
 const COOPERATIVE_BUDGET_MS = 8;
 const EMPTY_ORDINALS = new Uint32Array();
-
-interface AddressProjection {
-  readonly parts: AddressParts;
-  readonly tokens: readonly string[];
-}
 
 interface PreparedBlock {
   readonly block: CompactBlock;
@@ -131,7 +126,7 @@ export class CompactSearch {
   private readonly dictionaries: Dictionaries;
   private preparedBlocks: readonly PreparedBlock[] | null = null;
   private nameProjections: readonly string[] = [];
-  private addressProjections: readonly AddressProjection[] = [];
+  private addressProjections: readonly AddressParts[] = [];
   private state: SearchState | null = null;
   private identifiers: readonly string[] = [];
 
@@ -161,7 +156,7 @@ export class CompactSearch {
 
     const names: string[] = [];
     const identifiers: string[] = [];
-    const addresses: AddressProjection[] = [];
+    const addresses: AddressParts[] = [];
     const nameIndexes = new Map<string, number>();
     const addressIndexes = new Map<string, number>();
     const prepared: PreparedBlock[] = [];
@@ -172,7 +167,7 @@ export class CompactSearch {
       const existing = nameIndexes.get(value);
       if (existing !== undefined) return existing;
       const next = names.length;
-      names.push(projectSearchText(value).nameKey);
+      names.push(projectSearchName(value));
       nameIndexes.set(value, next);
       return next;
     };
@@ -180,8 +175,7 @@ export class CompactSearch {
       const existing = addressIndexes.get(value);
       if (existing !== undefined) return existing;
       const next = addresses.length;
-      const parts = parseSearchAddress(value);
-      addresses.push({ parts, tokens: parts.key ? parts.key.split(' ') : [] });
+      addresses.push(parseSearchAddress(value));
       addressIndexes.set(value, next);
       return next;
     };
@@ -287,10 +281,10 @@ export class CompactSearch {
     };
     const possibleAddress = (reference: number) => {
       if (!addresses[reference]) {
-        const address = this.addressProjections[reference] as AddressProjection;
+        const address = this.addressProjections[reference] as AddressParts;
         if (scoring.query.address) {
           const query = scoring.query.address;
-          const candidate = address.parts;
+          const candidate = address;
           const sameFamily = query.family !== 'unspecified' && query.family === candidate.family;
           const anchor = query.family === 'road' ? 'road' : 'locality';
           // Conservatively retain every relevance or exact-key path. Detailed conflicts,
@@ -302,7 +296,7 @@ export class CompactSearch {
               ? 2
               : 1;
         } else
-          addresses[reference] = matchesLiteralAddress(address.tokens, scoring.literalTokens)
+          addresses[reference] = matchesLiteralAddressKey(address.key, scoring.literalTokens)
             ? 2
             : 1;
       }
@@ -322,14 +316,12 @@ export class CompactSearch {
         if (possible && districtQuery) {
           // A district without a core address cannot earn a score or eligibility.
           // Its only comparable conflict is district; defer full reasons to page materialization.
-          const road = this.addressProjections[block.roadRefs[row] as number] as AddressProjection;
-          const parcel = this.addressProjections[
-            block.parcelRefs[row] as number
-          ] as AddressProjection;
+          const road = this.addressProjections[block.roadRefs[row] as number] as AddressParts;
+          const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressParts;
           conflicts[ordinal] = Number(
             Boolean(
-              (road.parts.district && road.parts.district !== districtQuery.district) ||
-                (parcel.parts.district && parcel.parts.district !== districtQuery.district),
+              (road.district && road.district !== districtQuery.district) ||
+                (parcel.district && parcel.district !== districtQuery.district),
             ),
           );
           similar.push(ordinal);
@@ -413,12 +405,14 @@ export class CompactSearch {
   }
 
   private score(block: PreparedBlock, row: number, scoring: ScoringQuery): ScoredCandidate | null {
-    const road = this.addressProjections[block.roadRefs[row] as number] as AddressProjection;
-    const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressProjection;
+    const road = this.addressProjections[block.roadRefs[row] as number] as AddressParts;
+    const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressParts;
     const entry: ScoringEntry = {
       nameKey: this.nameProjections[block.nameRefs[row] as number] as string,
-      addresses: [road.parts, parcel.parts],
-      addressTokens: [road.tokens, parcel.tokens],
+      addresses: [road, parcel],
+      addressTokens: scoring.query.address
+        ? []
+        : [road.key ? road.key.split(' ') : [], parcel.key ? parcel.key.split(' ') : []],
     };
     return scoreCandidate(entry, scoring.query, scoring.validation, scoring.literalTokens);
   }

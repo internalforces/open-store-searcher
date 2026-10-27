@@ -7,6 +7,17 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
+## TASK-009 preparation optimization — 2026-10-27
+
+User-authorized profiling and lossless optimization reuse the complete2,951,024-row source.
+All55 original/current candidate vectors and boundary pages agree. Apple M3/Node 22 diagnostics
+show unprofiled preparation46.9→30.1 seconds and post-GC heap598.9 MiB lower; these are not
+browser/mobile/hosted acceptance. Search105 pass; local full verification retains4 runtime/tool
+failures and canonical PR CI remains required. Mixed-search500 ms, full loading, publication and
+recovery gates remain open. TASK-009 stays active; physical testing remains explicitly skipped.
+See reports/performance-2026-10-27-task-009.md. No deployment or successor activation occurs.
+
+
 ## TASK-009 current-main performance continuation — 2026-10-25
 
 Current main is `abe4b0a` (PR41 merged); exact-main hosted Verify39943753135 passed.

@@ -7,6 +7,28 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## TASK-009 lossless preparation and requested PR — 2026-10-27
+
+The user requested steps 2/3 and PR creation. The new isolated worktree is based on65cb9e6;
+prior dirty workspaces and their preservation archives remain untouched. Reused all 2,951,024
+hash-validated compact records without source collection or delivery/status changes. Specialized
+name/token normalization and key-only address admission remove unused work and retained arrays.
+Unprofiled preparation46,928.6→30,106.9 ms; post-GC Node heap decreases598.9 MiB/24.0%.
+All55 original/current complete rank vectors, counts and full-field boundary pages match.
+The zero fixture is genuinely0/0; mixed searches still exceed500 ms. All intermediate samples
+and exact raw profiles/helpers/reports remain preserved. These are Apple M3/Node 22 compatibility
+diagnostics, not browser/Worker/mobile/hosted acceptance. Full search tests105 pass.
+
+Local types/lint/format/build/quality pass. verify:full stops at 1,435 pass/4 environment failures
+(Node 24 pin, two Linux Info-ZIP cases, GNU tar); operator suite63 pass/36 macOS packaging failures.
+No test is skipped or weakened. Independent source/test review is Approved with no blocking
+findings; final55-query/report evidence is checked separately. Canonical PR CI remains required.
+PR creation is authorized, not merge/deployment. TASK-009 stays active, TASK-028 paused, TASK-010
+sequential and TASK-021 gated. Preserve the explicit physical-device skip and local Ubuntu site
+functional checkpoint; do not infer physical availability or repeat setup. See
+reports/performance-2026-10-27-task-009.md and the matching design/plan for exact evidence.
+
+
 ## Authorized PR43 integration — 2026-10-25
 
 The user explicitly requested commit, push and PR creation, followed by review, verification

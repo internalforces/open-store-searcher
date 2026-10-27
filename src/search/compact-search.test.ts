@@ -150,6 +150,34 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('preserves all pages when key-only admission meets numeric substrings, Unicode and empty addresses', async () => {
+    const records = [
+      ...Array.from({ length: 49 }, (_, i) =>
+        record(
+          950 - i,
+          `봄&amp;빵${i}`,
+          i % 3 === 0 ? '112 12' : i % 3 === 1 ? '서울 강남구 테헤란로 12-3' : '',
+          i % 2 === 0 ? 'a bc 121' : '서초구 서초동 12',
+        ),
+      ),
+      record(990, '&amp;lt;봄&amp;gt;', '서울 강남구 테헤란로１２길 34 (역삼동 1)', ''),
+    ];
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    for (const query of [
+      '12',
+      '12-3',
+      'abc',
+      'a bc',
+      '봄 빵',
+      '&amp;lt;봄&amp;gt;',
+      '서초구',
+      '테헤란로12길 34',
+      '龘靐齉爩',
+    ])
+      await expectCompleteOracleParity(store, records, query);
+  });
   test('preserves district-only zero-score conflict ordering and keeps strong named queries fully scored', async () => {
     const records = [
       ...Array.from({ length: 90 }, (_, index) =>

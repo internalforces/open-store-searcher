@@ -7,6 +7,16 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
+## Bounded TASK-009 preparation implementation — 2026-10-27
+
+Under the user's steps 2/3 execution request, compute only required projection fields and retain
+canonical address parts/keys without eager token arrays. Preserve the original detailed scorer;
+split tokens only when admitted literal/name scoring consumes them. Complete source/data
+contracts, ranking, cancellation, dates, status and privacy remain unchanged. This is an internal
+implementation choice, not a new accepted data-delivery/status/deployment ADR. Evidence:
+reports/performance-2026-10-27-task-009.md; all 55 full rank/page identities match.
+
+
 ## Implementation note: lossless query specialization — 2026-10-23
 
 Implementer choice within the authorized TASK-009 performance work: use a conservative boolean

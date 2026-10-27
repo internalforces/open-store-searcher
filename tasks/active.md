@@ -7,6 +7,24 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 preparation optimization continuation — 2026-10-27
+
+TASK-009 alone remains active. User authorizes profiling, measured lossless changes and PR creation.
+
+- [x] Reuse the existing clean65cb9e6 worktree and immutable complete compact data.
+- [x] Profile CPU/allocation; preserve exact original, intermediate and final evidence.
+- [x] Implement field-specific projection and key-only address admission with RED/GREEN tests.
+- [x] Verify all 55 complete rank/count/boundary-page identities and105focused search tests.
+- [x] Run local verification; record unsupported runtime/GNU tar/Info-ZIP failures without waivers.
+- [x] Obtain independent static source/test review; no blocking findings.
+- [ ] Create requested PR and establish canonical final-head Ubuntu verification.
+
+Node unprofiled preparation46.9→30.1 seconds and heap598.9 MiB lower are diagnostic improvements.
+Mixed searches still exceed500 ms; original browser/mobile/hosted/publication/recovery gates remain.
+Physical-device measurement remains explicitly user-skipped. TASK-028 remains paused, TASK-010
+sequential and TASK-021 gated. See reports/performance-2026-10-27-task-009.md.
+
+
 ## TASK-009 complete-data cloud diagnostic — 2026-10-25
 
 TASK-009 alone remains active on merged PR41/main `abe4b0a`. Exact-main hosted Verify39943753135

@@ -1,0 +1,2450 @@
+{
+  "version": 1,
+  "kind": "complete-source-original-current-parity",
+  "node": "v22.22.3",
+  "recordedAt": "2026-10-27T05:20:52.599Z",
+  "publicationApproved": false,
+  "physicalDeviceVerified": false,
+  "queries": [
+    {
+      "original": {
+        "query": "종로구",
+        "eligibleCount": 0,
+        "similarCount": 101944,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "929819e5754e25df45e7cefa48469ba0b4ce44a9d5e8dc4be117bdfdac67f079",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "c806996cc4f9233d6509363d899e8e177a18e214698c8827fd5dab7018e88c1d"
+          },
+          {
+            "page": 2548,
+            "sha256": "875ef52613f5d6a7be5fdd5168ceabf9e106e8fb87d2aebdad32f26fe9fdf17f"
+          },
+          {
+            "page": 5097,
+            "sha256": "ed1f53a24fb534cd10742ec5abc315ab7caa82943126c33c55df8cc1d79a1eea"
+          }
+        ]
+      },
+      "current": {
+        "query": "종로구",
+        "eligibleCount": 0,
+        "similarCount": 101944,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "929819e5754e25df45e7cefa48469ba0b4ce44a9d5e8dc4be117bdfdac67f079",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "c806996cc4f9233d6509363d899e8e177a18e214698c8827fd5dab7018e88c1d"
+          },
+          {
+            "page": 2548,
+            "sha256": "875ef52613f5d6a7be5fdd5168ceabf9e106e8fb87d2aebdad32f26fe9fdf17f"
+          },
+          {
+            "page": 5097,
+            "sha256": "ed1f53a24fb534cd10742ec5abc315ab7caa82943126c33c55df8cc1d79a1eea"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "중구",
+        "eligibleCount": 0,
+        "similarCount": 139169,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "885ddfa07a765070c425340b4274fa3acbe2edf6e70f9ed14c95361807d8f0f3",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "74aea422d1fb104b7f1bdc651cf3e986d5c3a9ebb6bed215b09f18ae07be6327"
+          },
+          {
+            "page": 3479,
+            "sha256": "598ed2b619e11cf713b3429a8c314584b3f52898879fc81f7614111ba27146f1"
+          },
+          {
+            "page": 6958,
+            "sha256": "2a757273759c854e4f749bbd9551f64dd2ee907186e9caafd9796304fc404081"
+          }
+        ]
+      },
+      "current": {
+        "query": "중구",
+        "eligibleCount": 0,
+        "similarCount": 139169,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "885ddfa07a765070c425340b4274fa3acbe2edf6e70f9ed14c95361807d8f0f3",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "74aea422d1fb104b7f1bdc651cf3e986d5c3a9ebb6bed215b09f18ae07be6327"
+          },
+          {
+            "page": 3479,
+            "sha256": "598ed2b619e11cf713b3429a8c314584b3f52898879fc81f7614111ba27146f1"
+          },
+          {
+            "page": 6958,
+            "sha256": "2a757273759c854e4f749bbd9551f64dd2ee907186e9caafd9796304fc404081"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "용산구",
+        "eligibleCount": 0,
+        "similarCount": 90375,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "b831bf33eeeca8dce5fc6446b1f80f8c38907192dbf327fc765fd10dc98a83a4",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "7e5523fcd2df7465ac75031ade18ce44c858ae7f38636fde3ff150d87e585e4d"
+          },
+          {
+            "page": 2259,
+            "sha256": "f890dc3da66eb8586d4689f9858c7ba5724395228a32b566de6e29ced84a0a47"
+          },
+          {
+            "page": 4518,
+            "sha256": "370bd4059104527ad709679135bf1f4baef046193d7c8cb3de2782f2aea1c028"
+          }
+        ]
+      },
+      "current": {
+        "query": "용산구",
+        "eligibleCount": 0,
+        "similarCount": 90375,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "b831bf33eeeca8dce5fc6446b1f80f8c38907192dbf327fc765fd10dc98a83a4",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "7e5523fcd2df7465ac75031ade18ce44c858ae7f38636fde3ff150d87e585e4d"
+          },
+          {
+            "page": 2259,
+            "sha256": "f890dc3da66eb8586d4689f9858c7ba5724395228a32b566de6e29ced84a0a47"
+          },
+          {
+            "page": 4518,
+            "sha256": "370bd4059104527ad709679135bf1f4baef046193d7c8cb3de2782f2aea1c028"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "성동구",
+        "eligibleCount": 0,
+        "similarCount": 95198,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "9393dde40a97454f31f80e095d1312be3aa01b7338bf7643e8471006bf4c7099",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8fed06cbb8fa3e06680fefcc7b08e7f38ef34b043e48f185e2bb31d3a86ac659"
+          },
+          {
+            "page": 2379,
+            "sha256": "035479d5fb54758da22ecb2b1d006c917fe7fc7acf82fda297b9e3e7f2bf5b11"
+          },
+          {
+            "page": 4759,
+            "sha256": "17affba24f58310c11e2251c03a98a2ea11ece712cd192f91fefae678d31c99c"
+          }
+        ]
+      },
+      "current": {
+        "query": "성동구",
+        "eligibleCount": 0,
+        "similarCount": 95198,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "9393dde40a97454f31f80e095d1312be3aa01b7338bf7643e8471006bf4c7099",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8fed06cbb8fa3e06680fefcc7b08e7f38ef34b043e48f185e2bb31d3a86ac659"
+          },
+          {
+            "page": 2379,
+            "sha256": "035479d5fb54758da22ecb2b1d006c917fe7fc7acf82fda297b9e3e7f2bf5b11"
+          },
+          {
+            "page": 4759,
+            "sha256": "17affba24f58310c11e2251c03a98a2ea11ece712cd192f91fefae678d31c99c"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "광진구",
+        "eligibleCount": 0,
+        "similarCount": 96516,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "c745372ba15a37c20530bcd4df79dfa99c40db497d638fb448f76c0cd80ab1d5",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "faa6d6d65cd1c185e0c43eae49e01d4ba7e1e5c84d1287eb2f0186e7b6c8e0e2"
+          },
+          {
+            "page": 2412,
+            "sha256": "e4d9cbccae68935bdaa9a56b8a60c59aa3ed7caed8e7ae31b53f1c15344ceaaf"
+          },
+          {
+            "page": 4825,
+            "sha256": "eb32aec94a0f18e5c3d029a5e18fd4e7f2c81012584ad44d04a442b92f1bfcc1"
+          }
+        ]
+      },
+      "current": {
+        "query": "광진구",
+        "eligibleCount": 0,
+        "similarCount": 96516,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "c745372ba15a37c20530bcd4df79dfa99c40db497d638fb448f76c0cd80ab1d5",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "faa6d6d65cd1c185e0c43eae49e01d4ba7e1e5c84d1287eb2f0186e7b6c8e0e2"
+          },
+          {
+            "page": 2412,
+            "sha256": "e4d9cbccae68935bdaa9a56b8a60c59aa3ed7caed8e7ae31b53f1c15344ceaaf"
+          },
+          {
+            "page": 4825,
+            "sha256": "eb32aec94a0f18e5c3d029a5e18fd4e7f2c81012584ad44d04a442b92f1bfcc1"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "동대문구",
+        "eligibleCount": 0,
+        "similarCount": 103296,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6ab464f8156ade41fe6f5f2edd05e5692b4cb5ed657e13a5e723008621952d45",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "dd8f4f0b9debdc1a22d1c3052f79f27b3aa418b74c5350b67a09ee02b900e62d"
+          },
+          {
+            "page": 2582,
+            "sha256": "97a27e483d11fd36ba72aa1234c49f7ebb1707b9e4d6533d3bc8ddd2162d03bc"
+          },
+          {
+            "page": 5164,
+            "sha256": "2d8019844b137d72c1b9ff0a32599e54f324468aaa1a6de3ed7269b61068de3c"
+          }
+        ]
+      },
+      "current": {
+        "query": "동대문구",
+        "eligibleCount": 0,
+        "similarCount": 103296,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6ab464f8156ade41fe6f5f2edd05e5692b4cb5ed657e13a5e723008621952d45",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "dd8f4f0b9debdc1a22d1c3052f79f27b3aa418b74c5350b67a09ee02b900e62d"
+          },
+          {
+            "page": 2582,
+            "sha256": "97a27e483d11fd36ba72aa1234c49f7ebb1707b9e4d6533d3bc8ddd2162d03bc"
+          },
+          {
+            "page": 5164,
+            "sha256": "2d8019844b137d72c1b9ff0a32599e54f324468aaa1a6de3ed7269b61068de3c"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "중랑구",
+        "eligibleCount": 0,
+        "similarCount": 86996,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "cb1d075f6818dc8562bc4541ca85eb00c9fc43927e9c34d0a1c614d78183b8be",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "f6f28ffa104a9ac00dd27aa5d5640d251c44298ea4f19c233a1d6882101454fa"
+          },
+          {
+            "page": 2174,
+            "sha256": "d279da822959c08d3b299b2af281be04321c33686b6ab9d44031b4bdb741e2c1"
+          },
+          {
+            "page": 4349,
+            "sha256": "150aeecb2d3d256e8d4b90e620d4457c171d63277d431e741a36bdd2cf1114d2"
+          }
+        ]
+      },
+      "current": {
+        "query": "중랑구",
+        "eligibleCount": 0,
+        "similarCount": 86996,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "cb1d075f6818dc8562bc4541ca85eb00c9fc43927e9c34d0a1c614d78183b8be",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "f6f28ffa104a9ac00dd27aa5d5640d251c44298ea4f19c233a1d6882101454fa"
+          },
+          {
+            "page": 2174,
+            "sha256": "d279da822959c08d3b299b2af281be04321c33686b6ab9d44031b4bdb741e2c1"
+          },
+          {
+            "page": 4349,
+            "sha256": "150aeecb2d3d256e8d4b90e620d4457c171d63277d431e741a36bdd2cf1114d2"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "성북구",
+        "eligibleCount": 0,
+        "similarCount": 91888,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "8a4e7af93a5cc1e1710734a66d259f94cc59482e349b14ebb4aea5e6d4295e8e",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6fcf6f00ed990a32f47fd3fb46e3016be7d4ef0dc3a54abcc4514db1d94bcc21"
+          },
+          {
+            "page": 2297,
+            "sha256": "efbaf8b842c1f3ba07357ea803c92f8d3d4eb823d7dfe8efd77bf077f47a9ce4"
+          },
+          {
+            "page": 4594,
+            "sha256": "b65ad0108fe36451de1dcb16e2b17834a43b77c67aba979bba16d5333d2d2504"
+          }
+        ]
+      },
+      "current": {
+        "query": "성북구",
+        "eligibleCount": 0,
+        "similarCount": 91888,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "8a4e7af93a5cc1e1710734a66d259f94cc59482e349b14ebb4aea5e6d4295e8e",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6fcf6f00ed990a32f47fd3fb46e3016be7d4ef0dc3a54abcc4514db1d94bcc21"
+          },
+          {
+            "page": 2297,
+            "sha256": "efbaf8b842c1f3ba07357ea803c92f8d3d4eb823d7dfe8efd77bf077f47a9ce4"
+          },
+          {
+            "page": 4594,
+            "sha256": "b65ad0108fe36451de1dcb16e2b17834a43b77c67aba979bba16d5333d2d2504"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "강북구",
+        "eligibleCount": 0,
+        "similarCount": 68899,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6cc93edc396afb39f6ecd51b1db83e49914bbe97a60b76635e40753be520580b",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4dc01a827ae120ff0ff52557d72b2523f73c313396edc221b05a63e21c50fac4"
+          },
+          {
+            "page": 1722,
+            "sha256": "c2170512813017bfbc0864ba3362e8e309df1a236e72b4a3f2dabe2fec5f32d8"
+          },
+          {
+            "page": 3444,
+            "sha256": "106452548f872d344f0ffed387b377fb6a6e1a8ced349ca85ec9d112a26f4fc3"
+          }
+        ]
+      },
+      "current": {
+        "query": "강북구",
+        "eligibleCount": 0,
+        "similarCount": 68899,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6cc93edc396afb39f6ecd51b1db83e49914bbe97a60b76635e40753be520580b",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4dc01a827ae120ff0ff52557d72b2523f73c313396edc221b05a63e21c50fac4"
+          },
+          {
+            "page": 1722,
+            "sha256": "c2170512813017bfbc0864ba3362e8e309df1a236e72b4a3f2dabe2fec5f32d8"
+          },
+          {
+            "page": 3444,
+            "sha256": "106452548f872d344f0ffed387b377fb6a6e1a8ced349ca85ec9d112a26f4fc3"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "도봉구",
+        "eligibleCount": 0,
+        "similarCount": 58734,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a4567ca851e706f60a29650991640a68172c04db5fbad38b355b0ce857b35feb",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6310587965af333339875477db3b15b95aa03aed57d3bc36d9e948b083f77036"
+          },
+          {
+            "page": 1468,
+            "sha256": "32d44a6967aaa41cbaead0e39bc89a31dafcd2495042ade4af234003bd73bb82"
+          },
+          {
+            "page": 2936,
+            "sha256": "69687070c91467325050c1619acb8c4b6b5531fe6e58039d7f0ac5f15f8d348e"
+          }
+        ]
+      },
+      "current": {
+        "query": "도봉구",
+        "eligibleCount": 0,
+        "similarCount": 58734,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a4567ca851e706f60a29650991640a68172c04db5fbad38b355b0ce857b35feb",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6310587965af333339875477db3b15b95aa03aed57d3bc36d9e948b083f77036"
+          },
+          {
+            "page": 1468,
+            "sha256": "32d44a6967aaa41cbaead0e39bc89a31dafcd2495042ade4af234003bd73bb82"
+          },
+          {
+            "page": 2936,
+            "sha256": "69687070c91467325050c1619acb8c4b6b5531fe6e58039d7f0ac5f15f8d348e"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "노원구",
+        "eligibleCount": 0,
+        "similarCount": 87682,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "55f5d64db507454ec3726456a5891373c0296ce97d33bc363c0a6d2485ad5a7a",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "870a43bc218d9f0667853194a91603462ae81016161ce101f3408656f9269ed7"
+          },
+          {
+            "page": 2192,
+            "sha256": "3e4e72039c41240060f6de172e8ed7a1c6aa092c10cbb95e377c94427bf680f2"
+          },
+          {
+            "page": 4384,
+            "sha256": "33979a871c6a15037aff642a8cd745e6aee0318c94d151fd0a9110f9344b78c6"
+          }
+        ]
+      },
+      "current": {
+        "query": "노원구",
+        "eligibleCount": 0,
+        "similarCount": 87682,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "55f5d64db507454ec3726456a5891373c0296ce97d33bc363c0a6d2485ad5a7a",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "870a43bc218d9f0667853194a91603462ae81016161ce101f3408656f9269ed7"
+          },
+          {
+            "page": 2192,
+            "sha256": "3e4e72039c41240060f6de172e8ed7a1c6aa092c10cbb95e377c94427bf680f2"
+          },
+          {
+            "page": 4384,
+            "sha256": "33979a871c6a15037aff642a8cd745e6aee0318c94d151fd0a9110f9344b78c6"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "은평구",
+        "eligibleCount": 0,
+        "similarCount": 90852,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "e05f91c8f21918e3ea7e959aaefe657f740ccdbaed6b22bfa1f1f326edfdeaf8",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "0c6fc392db9a5425c6b367f897571345f0ff765131192da1eb257cbfd3d517b7"
+          },
+          {
+            "page": 2271,
+            "sha256": "190156ab3c71c7bf9c868ba007bdd8f950f4e32cab221007183370a890e460b5"
+          },
+          {
+            "page": 4542,
+            "sha256": "10f36a7a29c128e1ac8ceb3325427bb69163f8d4f9dd3c08139cb792a3e3b25a"
+          }
+        ]
+      },
+      "current": {
+        "query": "은평구",
+        "eligibleCount": 0,
+        "similarCount": 90852,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "e05f91c8f21918e3ea7e959aaefe657f740ccdbaed6b22bfa1f1f326edfdeaf8",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "0c6fc392db9a5425c6b367f897571345f0ff765131192da1eb257cbfd3d517b7"
+          },
+          {
+            "page": 2271,
+            "sha256": "190156ab3c71c7bf9c868ba007bdd8f950f4e32cab221007183370a890e460b5"
+          },
+          {
+            "page": 4542,
+            "sha256": "10f36a7a29c128e1ac8ceb3325427bb69163f8d4f9dd3c08139cb792a3e3b25a"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서대문구",
+        "eligibleCount": 0,
+        "similarCount": 78210,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "46fad4a3201ba6f7fc4e091435b66b23ac4eeedea407d5d1d874107651bcbc21",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "a8679f53ca70f71e757ffcc7b8ed4c0f4492187a6ac8059cb806a70557272e91"
+          },
+          {
+            "page": 1955,
+            "sha256": "9ec93a06eeea312bcf4cceea69ebb0a8cb8ad54bef64817a2eb480c74d1beacd"
+          },
+          {
+            "page": 3910,
+            "sha256": "8d62a86b1361694a990f736aae93676b126aa6a57067747db2c5bc47d440f66b"
+          }
+        ]
+      },
+      "current": {
+        "query": "서대문구",
+        "eligibleCount": 0,
+        "similarCount": 78210,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "46fad4a3201ba6f7fc4e091435b66b23ac4eeedea407d5d1d874107651bcbc21",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "a8679f53ca70f71e757ffcc7b8ed4c0f4492187a6ac8059cb806a70557272e91"
+          },
+          {
+            "page": 1955,
+            "sha256": "9ec93a06eeea312bcf4cceea69ebb0a8cb8ad54bef64817a2eb480c74d1beacd"
+          },
+          {
+            "page": 3910,
+            "sha256": "8d62a86b1361694a990f736aae93676b126aa6a57067747db2c5bc47d440f66b"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "마포구",
+        "eligibleCount": 0,
+        "similarCount": 164255,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "5ca3ccc8ba0e9e50eb945813644cf6d647a16340be309440d5c39f59c8abdc14",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "2d3e2780f4268af18b8762dc9df3cddebc6788168deb1f68a275e8aec07755bf"
+          },
+          {
+            "page": 4106,
+            "sha256": "4d673f35f3508f328a95918f7c8b0a98ed5164faa31d1426acf333491f2a967e"
+          },
+          {
+            "page": 8212,
+            "sha256": "3229ec70a7dcba8554dd0172900a560b9f0a4bb5771a414a751c2e5adcfb86f4"
+          }
+        ]
+      },
+      "current": {
+        "query": "마포구",
+        "eligibleCount": 0,
+        "similarCount": 164255,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "5ca3ccc8ba0e9e50eb945813644cf6d647a16340be309440d5c39f59c8abdc14",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "2d3e2780f4268af18b8762dc9df3cddebc6788168deb1f68a275e8aec07755bf"
+          },
+          {
+            "page": 4106,
+            "sha256": "4d673f35f3508f328a95918f7c8b0a98ed5164faa31d1426acf333491f2a967e"
+          },
+          {
+            "page": 8212,
+            "sha256": "3229ec70a7dcba8554dd0172900a560b9f0a4bb5771a414a751c2e5adcfb86f4"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "양천구",
+        "eligibleCount": 0,
+        "similarCount": 92944,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "b65dab19b7891418f0096357f0a74a13c13daa5473b5ee0b4312da39a30ea30d",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "9f0521dac70ed822264fa5a173623e723e808b536107d42e0a91c16d8e9b4a43"
+          },
+          {
+            "page": 2323,
+            "sha256": "adc01391c2302b767f20afc6c766595570e067d3db36c5d274537118d2b19d49"
+          },
+          {
+            "page": 4647,
+            "sha256": "8bdc61433071e7fe1ed01851843b76d7ff1106b6ff652f55f21766dd3a082afe"
+          }
+        ]
+      },
+      "current": {
+        "query": "양천구",
+        "eligibleCount": 0,
+        "similarCount": 92944,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "b65dab19b7891418f0096357f0a74a13c13daa5473b5ee0b4312da39a30ea30d",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "9f0521dac70ed822264fa5a173623e723e808b536107d42e0a91c16d8e9b4a43"
+          },
+          {
+            "page": 2323,
+            "sha256": "adc01391c2302b767f20afc6c766595570e067d3db36c5d274537118d2b19d49"
+          },
+          {
+            "page": 4647,
+            "sha256": "8bdc61433071e7fe1ed01851843b76d7ff1106b6ff652f55f21766dd3a082afe"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "강서구",
+        "eligibleCount": 0,
+        "similarCount": 138487,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "acc44581e0e73498a4f2eb0864df7add90711981a0a7bd3e5f83754a4911fe79",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "c8e2f4007006eb402b26944b1b015ae36d0b17ddbeb4235c785ac848f6bf3a99"
+          },
+          {
+            "page": 3462,
+            "sha256": "7f1d2d2eda4081dc7d1857465c1c0f99286ccd114bc103cd7d2090c438c2f60a"
+          },
+          {
+            "page": 6924,
+            "sha256": "2cf5a90b824aec9232e785c37d270215b2d57620616e5848b6133e2b891970e6"
+          }
+        ]
+      },
+      "current": {
+        "query": "강서구",
+        "eligibleCount": 0,
+        "similarCount": 138487,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "acc44581e0e73498a4f2eb0864df7add90711981a0a7bd3e5f83754a4911fe79",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "c8e2f4007006eb402b26944b1b015ae36d0b17ddbeb4235c785ac848f6bf3a99"
+          },
+          {
+            "page": 3462,
+            "sha256": "7f1d2d2eda4081dc7d1857465c1c0f99286ccd114bc103cd7d2090c438c2f60a"
+          },
+          {
+            "page": 6924,
+            "sha256": "2cf5a90b824aec9232e785c37d270215b2d57620616e5848b6133e2b891970e6"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "구로구",
+        "eligibleCount": 0,
+        "similarCount": 111025,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "8f52befe08ff86a75094c82afbfe9a9b55b8f6ba1c2795bac405efbca2d661b9",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "c369225449122efa6b73c0eca357917963cd0b9c06fa91988f721ea94e66ea25"
+          },
+          {
+            "page": 2775,
+            "sha256": "6fea39e4c2a45737a33738a2c843508096414231aeb70d396113ec5031491094"
+          },
+          {
+            "page": 5551,
+            "sha256": "68069652d969a157aa24a7c4c753860dffee50150b601b7ee3881269cb14b416"
+          }
+        ]
+      },
+      "current": {
+        "query": "구로구",
+        "eligibleCount": 0,
+        "similarCount": 111025,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "8f52befe08ff86a75094c82afbfe9a9b55b8f6ba1c2795bac405efbca2d661b9",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "c369225449122efa6b73c0eca357917963cd0b9c06fa91988f721ea94e66ea25"
+          },
+          {
+            "page": 2775,
+            "sha256": "6fea39e4c2a45737a33738a2c843508096414231aeb70d396113ec5031491094"
+          },
+          {
+            "page": 5551,
+            "sha256": "68069652d969a157aa24a7c4c753860dffee50150b601b7ee3881269cb14b416"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "금천구",
+        "eligibleCount": 0,
+        "similarCount": 89947,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "319e4f7a4796351e10db799bd38faa094c93d3809246b5d15bc87bd82d34857b",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "eec24eb9ecd64e51928e89ec888a54d5c3837c568d99d6aa82ec8df1f34da605"
+          },
+          {
+            "page": 2248,
+            "sha256": "65599a818dc096724e8d5e2c7c3751fbb6e632a689ba42b3b68b31275e0c6693"
+          },
+          {
+            "page": 4497,
+            "sha256": "9f5206dcf8dba96e0b98bbef9145322c2fc2494e1c8bfef47ae70edee12b2228"
+          }
+        ]
+      },
+      "current": {
+        "query": "금천구",
+        "eligibleCount": 0,
+        "similarCount": 89947,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "319e4f7a4796351e10db799bd38faa094c93d3809246b5d15bc87bd82d34857b",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "eec24eb9ecd64e51928e89ec888a54d5c3837c568d99d6aa82ec8df1f34da605"
+          },
+          {
+            "page": 2248,
+            "sha256": "65599a818dc096724e8d5e2c7c3751fbb6e632a689ba42b3b68b31275e0c6693"
+          },
+          {
+            "page": 4497,
+            "sha256": "9f5206dcf8dba96e0b98bbef9145322c2fc2494e1c8bfef47ae70edee12b2228"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "영등포구",
+        "eligibleCount": 0,
+        "similarCount": 154931,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a368c4971290201a5f40487e6fb6b6288d79789bd293813dd5432d56e59ece02",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "b2d9248f3deba3256f4df2036e46be204f1fa09beb55a3cffb2dbabd5d6e4eb2"
+          },
+          {
+            "page": 3873,
+            "sha256": "de3ed5db5052ec76f05bfde199dc9ce4d6fbd549d49673809a516a3cd1c35f0e"
+          },
+          {
+            "page": 7746,
+            "sha256": "bbe527e0ad5f2d0d2cd4b9afb0420d0fc777b57df9ca0c2dad09b4651d5e1b50"
+          }
+        ]
+      },
+      "current": {
+        "query": "영등포구",
+        "eligibleCount": 0,
+        "similarCount": 154931,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a368c4971290201a5f40487e6fb6b6288d79789bd293813dd5432d56e59ece02",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "b2d9248f3deba3256f4df2036e46be204f1fa09beb55a3cffb2dbabd5d6e4eb2"
+          },
+          {
+            "page": 3873,
+            "sha256": "de3ed5db5052ec76f05bfde199dc9ce4d6fbd549d49673809a516a3cd1c35f0e"
+          },
+          {
+            "page": 7746,
+            "sha256": "bbe527e0ad5f2d0d2cd4b9afb0420d0fc777b57df9ca0c2dad09b4651d5e1b50"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "동작구",
+        "eligibleCount": 0,
+        "similarCount": 75399,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "0a32db64564ba808b4f5673f33845f8e4960973c1d4b2cd9036adb9bcd097001",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "1436fae2b0a1fb71418fe54625a130335b18e0e50074b2ba370c1b12bea3c924"
+          },
+          {
+            "page": 1884,
+            "sha256": "77413ec4415bb51b6727b5027a87bd28302746fe74ece9f9047b1400c1412636"
+          },
+          {
+            "page": 3769,
+            "sha256": "bc02b98901c0e4753539151952ee6eba53a648aa66b485ff126dc56875bbfbda"
+          }
+        ]
+      },
+      "current": {
+        "query": "동작구",
+        "eligibleCount": 0,
+        "similarCount": 75399,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "0a32db64564ba808b4f5673f33845f8e4960973c1d4b2cd9036adb9bcd097001",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "1436fae2b0a1fb71418fe54625a130335b18e0e50074b2ba370c1b12bea3c924"
+          },
+          {
+            "page": 1884,
+            "sha256": "77413ec4415bb51b6727b5027a87bd28302746fe74ece9f9047b1400c1412636"
+          },
+          {
+            "page": 3769,
+            "sha256": "bc02b98901c0e4753539151952ee6eba53a648aa66b485ff126dc56875bbfbda"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "관악구",
+        "eligibleCount": 0,
+        "similarCount": 109264,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "ce02247b2ed88300e2f4769f938a136b6ee17f0953bf89ce25aed905d9a08f95",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "d12621b901926e291b2b8885a176d83b016f3f94a4b257019db5a3eb00972fd0"
+          },
+          {
+            "page": 2731,
+            "sha256": "ff499621d82c286cb0bc1be31f8d346d844f009be420c84f480e326f76766b8c"
+          },
+          {
+            "page": 5463,
+            "sha256": "7b6d7eb06ca1dbfc4b8c41c9022ddf33ddb8cffc24c0ca426ed0da9d28207544"
+          }
+        ]
+      },
+      "current": {
+        "query": "관악구",
+        "eligibleCount": 0,
+        "similarCount": 109264,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "ce02247b2ed88300e2f4769f938a136b6ee17f0953bf89ce25aed905d9a08f95",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "d12621b901926e291b2b8885a176d83b016f3f94a4b257019db5a3eb00972fd0"
+          },
+          {
+            "page": 2731,
+            "sha256": "ff499621d82c286cb0bc1be31f8d346d844f009be420c84f480e326f76766b8c"
+          },
+          {
+            "page": 5463,
+            "sha256": "7b6d7eb06ca1dbfc4b8c41c9022ddf33ddb8cffc24c0ca426ed0da9d28207544"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서초구",
+        "eligibleCount": 0,
+        "similarCount": 187975,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "248669829d484120b1457a21f9c7771a9d93d7053d8aef3e4f479fc8b68f76a6",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8f225b50621ba685797013644da921d2a29be646ebd9ba626fa5994218f12862"
+          },
+          {
+            "page": 4699,
+            "sha256": "36032c7ac8b86c1c63f10e012e0bcce7489e4deea2d03a0bf1b1d42bc7004a9d"
+          },
+          {
+            "page": 9398,
+            "sha256": "5b55b620dfbd5a238dc82bcbcc11a044529d490fa70308bc96bea593fa4ec578"
+          }
+        ]
+      },
+      "current": {
+        "query": "서초구",
+        "eligibleCount": 0,
+        "similarCount": 187975,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "248669829d484120b1457a21f9c7771a9d93d7053d8aef3e4f479fc8b68f76a6",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8f225b50621ba685797013644da921d2a29be646ebd9ba626fa5994218f12862"
+          },
+          {
+            "page": 4699,
+            "sha256": "36032c7ac8b86c1c63f10e012e0bcce7489e4deea2d03a0bf1b1d42bc7004a9d"
+          },
+          {
+            "page": 9398,
+            "sha256": "5b55b620dfbd5a238dc82bcbcc11a044529d490fa70308bc96bea593fa4ec578"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "강남구",
+        "eligibleCount": 0,
+        "similarCount": 323695,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "258dff96c803051ac6170d77208e3b50303d716249a3ce6bafacc3ceb3becc2b",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "81de68d26849f242c93a2c76d44860317f243586b29ab32bb887a64683b70070"
+          },
+          {
+            "page": 8092,
+            "sha256": "b7e7193ad7605619f07db52e700761e2ba5f22d36e47202ee33f9d4855bb0f07"
+          },
+          {
+            "page": 16184,
+            "sha256": "5c7b572c56e9cde3582f6d189ec69ff939cf00f37a347b214adfdfe891221fad"
+          }
+        ]
+      },
+      "current": {
+        "query": "강남구",
+        "eligibleCount": 0,
+        "similarCount": 323695,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "258dff96c803051ac6170d77208e3b50303d716249a3ce6bafacc3ceb3becc2b",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "81de68d26849f242c93a2c76d44860317f243586b29ab32bb887a64683b70070"
+          },
+          {
+            "page": 8092,
+            "sha256": "b7e7193ad7605619f07db52e700761e2ba5f22d36e47202ee33f9d4855bb0f07"
+          },
+          {
+            "page": 16184,
+            "sha256": "5c7b572c56e9cde3582f6d189ec69ff939cf00f37a347b214adfdfe891221fad"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "송파구",
+        "eligibleCount": 0,
+        "similarCount": 182162,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4909f69f53976ec988511acebaa5517fff03e6e0bd246b06c9884ee798a655b5",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "39169d612ac72be051f9b982d38b8ae508114cd9ace2a0a94ce673d45f8f1288"
+          },
+          {
+            "page": 4554,
+            "sha256": "25b94d6f1cba39f00079c05a398520623e154ab80572cad7a764a814e40ef81c"
+          },
+          {
+            "page": 9108,
+            "sha256": "9fc038fcabc6c87adffad7be81fe64fb515ffb5bb66df424910b9a83f5d6a749"
+          }
+        ]
+      },
+      "current": {
+        "query": "송파구",
+        "eligibleCount": 0,
+        "similarCount": 182162,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4909f69f53976ec988511acebaa5517fff03e6e0bd246b06c9884ee798a655b5",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "39169d612ac72be051f9b982d38b8ae508114cd9ace2a0a94ce673d45f8f1288"
+          },
+          {
+            "page": 4554,
+            "sha256": "25b94d6f1cba39f00079c05a398520623e154ab80572cad7a764a814e40ef81c"
+          },
+          {
+            "page": 9108,
+            "sha256": "9fc038fcabc6c87adffad7be81fe64fb515ffb5bb66df424910b9a83f5d6a749"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "강동구",
+        "eligibleCount": 0,
+        "similarCount": 114743,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "7b4640e1cf8613e8d29011824871a2b2069161734fe557fa907fc9f6f1b0e332",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "1edef327f706c9931818e8cd837fc6dd667b63668f4c81bc08a611a18c035ba2"
+          },
+          {
+            "page": 2868,
+            "sha256": "dfa9da97c2c5d5f4c4d9ca39fd333648d2f45950c9908cd23554df7b7ac0a1c4"
+          },
+          {
+            "page": 5737,
+            "sha256": "fea83d6448a3524f2322f04706645729e7d8d42b271e7659365f77c7aebfa153"
+          }
+        ]
+      },
+      "current": {
+        "query": "강동구",
+        "eligibleCount": 0,
+        "similarCount": 114743,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "7b4640e1cf8613e8d29011824871a2b2069161734fe557fa907fc9f6f1b0e332",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "1edef327f706c9931818e8cd837fc6dd667b63668f4c81bc08a611a18c035ba2"
+          },
+          {
+            "page": 2868,
+            "sha256": "dfa9da97c2c5d5f4c4d9ca39fd333648d2f45950c9908cd23554df7b7ac0a1c4"
+          },
+          {
+            "page": 5737,
+            "sha256": "fea83d6448a3524f2322f04706645729e7d8d42b271e7659365f77c7aebfa153"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 종로구",
+        "eligibleCount": 0,
+        "similarCount": 102140,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "3883d17e7de945e1689801598ec2977242f067e9bfd6eb3817753dce59f3e7ea",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4531d2e28073ae016bb3555f36b890161679627ea74b00c7f9797dd847cfb69f"
+          },
+          {
+            "page": 2553,
+            "sha256": "1d33cc86f298d0582998904fcf32e8a9abe642a0189d13c7e3be1b051e1bba60"
+          },
+          {
+            "page": 5106,
+            "sha256": "e28030dc8ae902b3521a5985a50e3734735d3bf3f90ed105aa95bce40e34fc4a"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 종로구",
+        "eligibleCount": 0,
+        "similarCount": 102140,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "3883d17e7de945e1689801598ec2977242f067e9bfd6eb3817753dce59f3e7ea",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4531d2e28073ae016bb3555f36b890161679627ea74b00c7f9797dd847cfb69f"
+          },
+          {
+            "page": 2553,
+            "sha256": "1d33cc86f298d0582998904fcf32e8a9abe642a0189d13c7e3be1b051e1bba60"
+          },
+          {
+            "page": 5106,
+            "sha256": "e28030dc8ae902b3521a5985a50e3734735d3bf3f90ed105aa95bce40e34fc4a"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 중구",
+        "eligibleCount": 0,
+        "similarCount": 139275,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4ea3609c0ad720124a68e06a0e1f0c52a5645dd5c1798e39252dcfe498bb1da7",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "d7bdba1d92436269b92acf3ee94ca1a47642ddf44a04a8ca0be5d73355361a66"
+          },
+          {
+            "page": 3481,
+            "sha256": "2e22e800d1c3e6f401392ad4b8e460a062b8d031828f591cf35d0198d0fcec01"
+          },
+          {
+            "page": 6963,
+            "sha256": "e10b6788d0f9a074449dbe2b49ac22f6a40f0e09231e589aca2af4d74796a495"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 중구",
+        "eligibleCount": 0,
+        "similarCount": 139275,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4ea3609c0ad720124a68e06a0e1f0c52a5645dd5c1798e39252dcfe498bb1da7",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "d7bdba1d92436269b92acf3ee94ca1a47642ddf44a04a8ca0be5d73355361a66"
+          },
+          {
+            "page": 3481,
+            "sha256": "2e22e800d1c3e6f401392ad4b8e460a062b8d031828f591cf35d0198d0fcec01"
+          },
+          {
+            "page": 6963,
+            "sha256": "e10b6788d0f9a074449dbe2b49ac22f6a40f0e09231e589aca2af4d74796a495"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 용산구",
+        "eligibleCount": 0,
+        "similarCount": 90573,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "9cf3e3bad1aa41c3fbf7b22c13e79b3200cedbaec3ca45daf45ea4d47d7ec041",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "ede7f3c59be36d5bbdf8da5de3bd3a062c05a7f3a9f5d54eba41af0b8a2c7b18"
+          },
+          {
+            "page": 2264,
+            "sha256": "28b279787063f59a67538726760f73db3d109fc605daeca38639791a01737b00"
+          },
+          {
+            "page": 4528,
+            "sha256": "46e84ef1562b70ac5077bf93dff887d12cdaf2491c1def222effb87a8ccb56b4"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 용산구",
+        "eligibleCount": 0,
+        "similarCount": 90573,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "9cf3e3bad1aa41c3fbf7b22c13e79b3200cedbaec3ca45daf45ea4d47d7ec041",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "ede7f3c59be36d5bbdf8da5de3bd3a062c05a7f3a9f5d54eba41af0b8a2c7b18"
+          },
+          {
+            "page": 2264,
+            "sha256": "28b279787063f59a67538726760f73db3d109fc605daeca38639791a01737b00"
+          },
+          {
+            "page": 4528,
+            "sha256": "46e84ef1562b70ac5077bf93dff887d12cdaf2491c1def222effb87a8ccb56b4"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 성동구",
+        "eligibleCount": 0,
+        "similarCount": 95398,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "f513e022245daa36d8569cfe84a254d8a1ebe0d2f060dad37cc8725893dbd389",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "d58b6ad92b3830e4d0e1cbdcc06592e79c6043c72f1a7ece8b217a05071d835e"
+          },
+          {
+            "page": 2384,
+            "sha256": "0c4ad8cddd48b13ca6f1e3a0bf2bedd22091a568d611e2d904df52da4eceb290"
+          },
+          {
+            "page": 4769,
+            "sha256": "b9fe3e7f944fca9e3c1e35e1f7a87716ed3b809bd116f7fb7e34be31038dc955"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 성동구",
+        "eligibleCount": 0,
+        "similarCount": 95398,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "f513e022245daa36d8569cfe84a254d8a1ebe0d2f060dad37cc8725893dbd389",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "d58b6ad92b3830e4d0e1cbdcc06592e79c6043c72f1a7ece8b217a05071d835e"
+          },
+          {
+            "page": 2384,
+            "sha256": "0c4ad8cddd48b13ca6f1e3a0bf2bedd22091a568d611e2d904df52da4eceb290"
+          },
+          {
+            "page": 4769,
+            "sha256": "b9fe3e7f944fca9e3c1e35e1f7a87716ed3b809bd116f7fb7e34be31038dc955"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 광진구",
+        "eligibleCount": 0,
+        "similarCount": 96718,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "0c4b92fbd0e34c27d59d2e6362264e7f56ded05aa0c5bedddccbd0e0712a765f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "31f2df708e9c5933cc7b91693445b973df9baf50bbc1c7d1e1de43a22ae9ffc3"
+          },
+          {
+            "page": 2417,
+            "sha256": "2261d307d0b8e1adf95560fe3d9fcfeb4df6c5520f35f5d23b504a61d2d52ab8"
+          },
+          {
+            "page": 4835,
+            "sha256": "9e9a0e8c90790b727ab828b5628ede605a08947ad67d9e3ab5bee2e518053387"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 광진구",
+        "eligibleCount": 0,
+        "similarCount": 96718,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "0c4b92fbd0e34c27d59d2e6362264e7f56ded05aa0c5bedddccbd0e0712a765f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "31f2df708e9c5933cc7b91693445b973df9baf50bbc1c7d1e1de43a22ae9ffc3"
+          },
+          {
+            "page": 2417,
+            "sha256": "2261d307d0b8e1adf95560fe3d9fcfeb4df6c5520f35f5d23b504a61d2d52ab8"
+          },
+          {
+            "page": 4835,
+            "sha256": "9e9a0e8c90790b727ab828b5628ede605a08947ad67d9e3ab5bee2e518053387"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 동대문구",
+        "eligibleCount": 0,
+        "similarCount": 103493,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "5ed54b064e49b75d9c4b791b153ff9cb380f165324828f6fc65f17a17b7ce561",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6b87937f74e94cf0f16ab015cb97fbbc9200b294d4e1928502b612532d528090"
+          },
+          {
+            "page": 2587,
+            "sha256": "101441acc786ab0d6aad0398faf44d466722665abd77f9f82abaef28f25a4216"
+          },
+          {
+            "page": 5174,
+            "sha256": "4e93d1e7f80506ec98228f22ee452c8a2d6c2cf7ed235f547314e8d9430aa982"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 동대문구",
+        "eligibleCount": 0,
+        "similarCount": 103493,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "5ed54b064e49b75d9c4b791b153ff9cb380f165324828f6fc65f17a17b7ce561",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6b87937f74e94cf0f16ab015cb97fbbc9200b294d4e1928502b612532d528090"
+          },
+          {
+            "page": 2587,
+            "sha256": "101441acc786ab0d6aad0398faf44d466722665abd77f9f82abaef28f25a4216"
+          },
+          {
+            "page": 5174,
+            "sha256": "4e93d1e7f80506ec98228f22ee452c8a2d6c2cf7ed235f547314e8d9430aa982"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 중랑구",
+        "eligibleCount": 0,
+        "similarCount": 87192,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "79fd40d89143ff0d5259392682072270ad7f3eefb1d4f21a316eccdc2cc097c7",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8fc7c8abd3c28562f827440636e1c2b5c61ddd339a930cf8a3005702032159c2"
+          },
+          {
+            "page": 2179,
+            "sha256": "0d061a0babb53139145e33c95319e1302164145517145a39c3dd7d9e8f326aca"
+          },
+          {
+            "page": 4359,
+            "sha256": "d43ecce09ee09236bc721df9fd6a0ea6f5e0e197bb0685bd903b2bc16e2746d1"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 중랑구",
+        "eligibleCount": 0,
+        "similarCount": 87192,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "79fd40d89143ff0d5259392682072270ad7f3eefb1d4f21a316eccdc2cc097c7",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8fc7c8abd3c28562f827440636e1c2b5c61ddd339a930cf8a3005702032159c2"
+          },
+          {
+            "page": 2179,
+            "sha256": "0d061a0babb53139145e33c95319e1302164145517145a39c3dd7d9e8f326aca"
+          },
+          {
+            "page": 4359,
+            "sha256": "d43ecce09ee09236bc721df9fd6a0ea6f5e0e197bb0685bd903b2bc16e2746d1"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 성북구",
+        "eligibleCount": 0,
+        "similarCount": 92082,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "46692598bab0e3c4045aca6f629f57d84e2ab280b63be7542e4fbbd2d32c07cd",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "9ef1c0fb8cb73fbb62103297a4e12fb97006e32d5e68f9ebb37a439282e93ddc"
+          },
+          {
+            "page": 2302,
+            "sha256": "e761812d576f6eea2a6353a59ee69e02dfe970677f4530a792a3aee66ada706c"
+          },
+          {
+            "page": 4604,
+            "sha256": "d2ecfe1586e21285900c2924291b969e3d16a0080442e6f9a16416749b805c4b"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 성북구",
+        "eligibleCount": 0,
+        "similarCount": 92082,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "46692598bab0e3c4045aca6f629f57d84e2ab280b63be7542e4fbbd2d32c07cd",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "9ef1c0fb8cb73fbb62103297a4e12fb97006e32d5e68f9ebb37a439282e93ddc"
+          },
+          {
+            "page": 2302,
+            "sha256": "e761812d576f6eea2a6353a59ee69e02dfe970677f4530a792a3aee66ada706c"
+          },
+          {
+            "page": 4604,
+            "sha256": "d2ecfe1586e21285900c2924291b969e3d16a0080442e6f9a16416749b805c4b"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 강북구",
+        "eligibleCount": 0,
+        "similarCount": 69100,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4c9b120508fcd9fe945c31218f7ed4b7edd75fd9972e56a6bbab2a24319e3226",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "337bdc89ad52ca7e20c070d9d29d06e8c86f69f72e98320017f6dc8d859ef8b7"
+          },
+          {
+            "page": 1727,
+            "sha256": "f935a856ed46aefa048efafff004e47f95a1057130ddaa49e1a60c938bd9e504"
+          },
+          {
+            "page": 3454,
+            "sha256": "86e28e0a2d711f673afa340cc4521c099d159eccf241ff9d6c5b80248e08bc6b"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 강북구",
+        "eligibleCount": 0,
+        "similarCount": 69100,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4c9b120508fcd9fe945c31218f7ed4b7edd75fd9972e56a6bbab2a24319e3226",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "337bdc89ad52ca7e20c070d9d29d06e8c86f69f72e98320017f6dc8d859ef8b7"
+          },
+          {
+            "page": 1727,
+            "sha256": "f935a856ed46aefa048efafff004e47f95a1057130ddaa49e1a60c938bd9e504"
+          },
+          {
+            "page": 3454,
+            "sha256": "86e28e0a2d711f673afa340cc4521c099d159eccf241ff9d6c5b80248e08bc6b"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 도봉구",
+        "eligibleCount": 0,
+        "similarCount": 58935,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "dbee72a9c0125f1c439e870d0a3724eb74fdeb7401550dbc4d33d5d7cebb805a",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6ea9866e124b4a110b8ba8e07b1e9e36bafc6756b274b8f0bce47a8206882857"
+          },
+          {
+            "page": 1473,
+            "sha256": "2b622d6886aae5529d01f7409e070c9995496fa1548a6eac1f04519850384326"
+          },
+          {
+            "page": 2946,
+            "sha256": "cc78373a725ba7f2ed4585bdd5a2a2c3d325e543d270fb75a2f938bad6b96751"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 도봉구",
+        "eligibleCount": 0,
+        "similarCount": 58935,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "dbee72a9c0125f1c439e870d0a3724eb74fdeb7401550dbc4d33d5d7cebb805a",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "6ea9866e124b4a110b8ba8e07b1e9e36bafc6756b274b8f0bce47a8206882857"
+          },
+          {
+            "page": 1473,
+            "sha256": "2b622d6886aae5529d01f7409e070c9995496fa1548a6eac1f04519850384326"
+          },
+          {
+            "page": 2946,
+            "sha256": "cc78373a725ba7f2ed4585bdd5a2a2c3d325e543d270fb75a2f938bad6b96751"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 노원구",
+        "eligibleCount": 0,
+        "similarCount": 87883,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "1a72d865c818bd228ecaba5c216f61162b53233cb97f5d718a520f2ca34cc9ab",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "fea30811a0124e33a522fb4e9acbb4efd8fee17b3a36b95572167ab2a5266287"
+          },
+          {
+            "page": 2197,
+            "sha256": "9a30bdbe81657ca6cc6bbc22d98db13581967ff21ab913b3919d17493b0dc840"
+          },
+          {
+            "page": 4394,
+            "sha256": "1a3395524c6cea3ae9c09164e2c2b05a38db5a7888c825954941e87f158df1ca"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 노원구",
+        "eligibleCount": 0,
+        "similarCount": 87883,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "1a72d865c818bd228ecaba5c216f61162b53233cb97f5d718a520f2ca34cc9ab",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "fea30811a0124e33a522fb4e9acbb4efd8fee17b3a36b95572167ab2a5266287"
+          },
+          {
+            "page": 2197,
+            "sha256": "9a30bdbe81657ca6cc6bbc22d98db13581967ff21ab913b3919d17493b0dc840"
+          },
+          {
+            "page": 4394,
+            "sha256": "1a3395524c6cea3ae9c09164e2c2b05a38db5a7888c825954941e87f158df1ca"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 은평구",
+        "eligibleCount": 0,
+        "similarCount": 91056,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a7a296d56495af0f397bba368d295f869e8075ebc62727e9a253e85cb3586629",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "5769abfb532b9760885cd77bbb5dc15fd442d45cb5dbee0e4b6881c034399c86"
+          },
+          {
+            "page": 2276,
+            "sha256": "8335ee7fa8b7d0739d15e0c97b96cfa909f9b7c59f001119b6bc0501c88f6b71"
+          },
+          {
+            "page": 4552,
+            "sha256": "fa161fd7cf0eac8265793483de6d44cadd7d229ed631c1475a8f482d8e6c68ae"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 은평구",
+        "eligibleCount": 0,
+        "similarCount": 91056,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a7a296d56495af0f397bba368d295f869e8075ebc62727e9a253e85cb3586629",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "5769abfb532b9760885cd77bbb5dc15fd442d45cb5dbee0e4b6881c034399c86"
+          },
+          {
+            "page": 2276,
+            "sha256": "8335ee7fa8b7d0739d15e0c97b96cfa909f9b7c59f001119b6bc0501c88f6b71"
+          },
+          {
+            "page": 4552,
+            "sha256": "fa161fd7cf0eac8265793483de6d44cadd7d229ed631c1475a8f482d8e6c68ae"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 서대문구",
+        "eligibleCount": 0,
+        "similarCount": 78408,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "bab6c2f834c5ff10623e70200277051fd83d1d935efaa28f5a97e0d85e87069f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "62c0459ebf8f7829dcbb6801e5d9714266fbe514745c87d81d25f92353aa47a5"
+          },
+          {
+            "page": 1960,
+            "sha256": "8555ebcb4af1513f248fd69904a07f21944b9a80d4f659e5b56e2fde886bf510"
+          },
+          {
+            "page": 3920,
+            "sha256": "f6b0838a1fec12b995272f941fea9664c7a11e1393f71c9e714c6d32d41272c7"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 서대문구",
+        "eligibleCount": 0,
+        "similarCount": 78408,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "bab6c2f834c5ff10623e70200277051fd83d1d935efaa28f5a97e0d85e87069f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "62c0459ebf8f7829dcbb6801e5d9714266fbe514745c87d81d25f92353aa47a5"
+          },
+          {
+            "page": 1960,
+            "sha256": "8555ebcb4af1513f248fd69904a07f21944b9a80d4f659e5b56e2fde886bf510"
+          },
+          {
+            "page": 3920,
+            "sha256": "f6b0838a1fec12b995272f941fea9664c7a11e1393f71c9e714c6d32d41272c7"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 마포구",
+        "eligibleCount": 0,
+        "similarCount": 164457,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "44425a3b11acf746cfd50b3271b6577bc57bf423d224d478f8529b77c28c2e34",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4a064b9aa570ccb2a46f52dcc6ce738463617724ac071b629c7519df128a7d47"
+          },
+          {
+            "page": 4111,
+            "sha256": "9aa6f3871f893f630220fe611160e3bff05e9384fa38e62f360c0565da616054"
+          },
+          {
+            "page": 8222,
+            "sha256": "a7243ff624ec0181b72ff921c87b0ccbf44d06009cbeb6394b6f3bfc5947774a"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 마포구",
+        "eligibleCount": 0,
+        "similarCount": 164457,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "44425a3b11acf746cfd50b3271b6577bc57bf423d224d478f8529b77c28c2e34",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4a064b9aa570ccb2a46f52dcc6ce738463617724ac071b629c7519df128a7d47"
+          },
+          {
+            "page": 4111,
+            "sha256": "9aa6f3871f893f630220fe611160e3bff05e9384fa38e62f360c0565da616054"
+          },
+          {
+            "page": 8222,
+            "sha256": "a7243ff624ec0181b72ff921c87b0ccbf44d06009cbeb6394b6f3bfc5947774a"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 양천구",
+        "eligibleCount": 0,
+        "similarCount": 93146,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "078604907c3c6b7b437d8055245541950f04dddf3da2f4b22a53757ca81f570f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4d19d8d5818329c90b2ff7656b440b89b33d844b2b7e509d9c9608488926f3d5"
+          },
+          {
+            "page": 2328,
+            "sha256": "685f2f3c08266a6d5ed4d96405185a02c66e49c31c6e01f0196d46eee3c238d4"
+          },
+          {
+            "page": 4657,
+            "sha256": "c341c4795e9ef00630a818f9c5e373fe4772aa01cb3fec704d4bcd591a5a4fad"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 양천구",
+        "eligibleCount": 0,
+        "similarCount": 93146,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "078604907c3c6b7b437d8055245541950f04dddf3da2f4b22a53757ca81f570f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "4d19d8d5818329c90b2ff7656b440b89b33d844b2b7e509d9c9608488926f3d5"
+          },
+          {
+            "page": 2328,
+            "sha256": "685f2f3c08266a6d5ed4d96405185a02c66e49c31c6e01f0196d46eee3c238d4"
+          },
+          {
+            "page": 4657,
+            "sha256": "c341c4795e9ef00630a818f9c5e373fe4772aa01cb3fec704d4bcd591a5a4fad"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 강서구",
+        "eligibleCount": 0,
+        "similarCount": 138690,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a198ce85f39de5260733b80746170a1310ec5a979e2fa330fa0015d528860442",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "09e6222b3adb4bb1cae77cf52374e76cbefc4cc1a4a46fde7ffc9f8368622eba"
+          },
+          {
+            "page": 3467,
+            "sha256": "8a6716393950230e1c008c1c471949993e71b8e912b6b69f72bdca67213078a9"
+          },
+          {
+            "page": 6934,
+            "sha256": "03650da65d8454d20f35b3077fffd41a1f353f10e07418375249f83d380e08be"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 강서구",
+        "eligibleCount": 0,
+        "similarCount": 138690,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a198ce85f39de5260733b80746170a1310ec5a979e2fa330fa0015d528860442",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "09e6222b3adb4bb1cae77cf52374e76cbefc4cc1a4a46fde7ffc9f8368622eba"
+          },
+          {
+            "page": 3467,
+            "sha256": "8a6716393950230e1c008c1c471949993e71b8e912b6b69f72bdca67213078a9"
+          },
+          {
+            "page": 6934,
+            "sha256": "03650da65d8454d20f35b3077fffd41a1f353f10e07418375249f83d380e08be"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 구로구",
+        "eligibleCount": 0,
+        "similarCount": 111225,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "274349ca8d1fac4f44723a78433472b6052ea9bbc62f3cc12520e392f1048833",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "16741406533ea145159945e0f4f9236d0fc6c04950c0734008c097675163cb91"
+          },
+          {
+            "page": 2780,
+            "sha256": "c0354ae39e39c77adb55274e0670c892a60d035d765390100f60e4258322546f"
+          },
+          {
+            "page": 5561,
+            "sha256": "2037609f1a8944b884eea8504d80d5490ad127871f47f8986a936018dfcaa04f"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 구로구",
+        "eligibleCount": 0,
+        "similarCount": 111225,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "274349ca8d1fac4f44723a78433472b6052ea9bbc62f3cc12520e392f1048833",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "16741406533ea145159945e0f4f9236d0fc6c04950c0734008c097675163cb91"
+          },
+          {
+            "page": 2780,
+            "sha256": "c0354ae39e39c77adb55274e0670c892a60d035d765390100f60e4258322546f"
+          },
+          {
+            "page": 5561,
+            "sha256": "2037609f1a8944b884eea8504d80d5490ad127871f47f8986a936018dfcaa04f"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 금천구",
+        "eligibleCount": 0,
+        "similarCount": 90141,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a5da1e3933f6640a2c3691070bd2a31b7d99bf684f55e65d5de2b9ab34085d27",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "b7b362a82f2a8af058010162113a17bb2e848e7d380b82e5b56a3eadcd3a8e97"
+          },
+          {
+            "page": 2253,
+            "sha256": "fea5a5db496e5175b37240866e5b45108798e5bf056602850ef243b873799060"
+          },
+          {
+            "page": 4507,
+            "sha256": "ae4681d1ea9399ce3bc8716f042857479ba98b7ec6c365b06a540eb3f9dffa3a"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 금천구",
+        "eligibleCount": 0,
+        "similarCount": 90141,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "a5da1e3933f6640a2c3691070bd2a31b7d99bf684f55e65d5de2b9ab34085d27",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "b7b362a82f2a8af058010162113a17bb2e848e7d380b82e5b56a3eadcd3a8e97"
+          },
+          {
+            "page": 2253,
+            "sha256": "fea5a5db496e5175b37240866e5b45108798e5bf056602850ef243b873799060"
+          },
+          {
+            "page": 4507,
+            "sha256": "ae4681d1ea9399ce3bc8716f042857479ba98b7ec6c365b06a540eb3f9dffa3a"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 영등포구",
+        "eligibleCount": 0,
+        "similarCount": 155116,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "7b5ea8329af9e237130c892590a74e77e330a2411d90a05c689b90f5c51f5a79",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "83a0a10f097e90b459faf3da082275cc4d4af8a33ee45d9c15ca2c0caa84d9ad"
+          },
+          {
+            "page": 3877,
+            "sha256": "cb8181b277993a2b5873f9f0f00c087d9e9e099d8c754f9d7c331aecfaa8b6cc"
+          },
+          {
+            "page": 7755,
+            "sha256": "aeb9971aba9ac507e142b11663d8cb4131f85d205c2b2b7a12d213bdbe9f55da"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 영등포구",
+        "eligibleCount": 0,
+        "similarCount": 155116,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "7b5ea8329af9e237130c892590a74e77e330a2411d90a05c689b90f5c51f5a79",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "83a0a10f097e90b459faf3da082275cc4d4af8a33ee45d9c15ca2c0caa84d9ad"
+          },
+          {
+            "page": 3877,
+            "sha256": "cb8181b277993a2b5873f9f0f00c087d9e9e099d8c754f9d7c331aecfaa8b6cc"
+          },
+          {
+            "page": 7755,
+            "sha256": "aeb9971aba9ac507e142b11663d8cb4131f85d205c2b2b7a12d213bdbe9f55da"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 동작구",
+        "eligibleCount": 0,
+        "similarCount": 75603,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "b4a209eef5b6e6780f5c0a1504d725088dac9c234fab5d2dc8e03eab4608a03f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8502dd833ee9cad6ecc9945257481c3af2f9b7fc951194b08a9fb7c37f6ff227"
+          },
+          {
+            "page": 1890,
+            "sha256": "d32afaa6035d3b6bf2b122bb3b78b17396f34d8927e0c58a2ad45ee70c1d04ce"
+          },
+          {
+            "page": 3780,
+            "sha256": "c5ef873f141ca52f6be1691344a4b2187f76b07c76173df50d68f80c23002f0c"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 동작구",
+        "eligibleCount": 0,
+        "similarCount": 75603,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "b4a209eef5b6e6780f5c0a1504d725088dac9c234fab5d2dc8e03eab4608a03f",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8502dd833ee9cad6ecc9945257481c3af2f9b7fc951194b08a9fb7c37f6ff227"
+          },
+          {
+            "page": 1890,
+            "sha256": "d32afaa6035d3b6bf2b122bb3b78b17396f34d8927e0c58a2ad45ee70c1d04ce"
+          },
+          {
+            "page": 3780,
+            "sha256": "c5ef873f141ca52f6be1691344a4b2187f76b07c76173df50d68f80c23002f0c"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 관악구",
+        "eligibleCount": 0,
+        "similarCount": 109446,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6dac223d88d23aa301a86714bf5d1236bb8c0dcc6e7822a6c9e05e22996a805d",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "41f931f8d215bf62fddbb6e73505f27540ab95861659eb652a4088e4de610007"
+          },
+          {
+            "page": 2736,
+            "sha256": "ae71094ffb6b7e21b817891080e0fb3d078c32eb9486a6a0f0657406fca254f1"
+          },
+          {
+            "page": 5472,
+            "sha256": "3629f1229f4d5a114c1386521a78dbb7de6a30d610b9c7f19fec022e85e7d430"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 관악구",
+        "eligibleCount": 0,
+        "similarCount": 109446,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6dac223d88d23aa301a86714bf5d1236bb8c0dcc6e7822a6c9e05e22996a805d",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "41f931f8d215bf62fddbb6e73505f27540ab95861659eb652a4088e4de610007"
+          },
+          {
+            "page": 2736,
+            "sha256": "ae71094ffb6b7e21b817891080e0fb3d078c32eb9486a6a0f0657406fca254f1"
+          },
+          {
+            "page": 5472,
+            "sha256": "3629f1229f4d5a114c1386521a78dbb7de6a30d610b9c7f19fec022e85e7d430"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 서초구",
+        "eligibleCount": 0,
+        "similarCount": 188176,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "05d00f30892c12ddc00df39da76c0b8347d31cc4db8f8d8f404780fbafa76ee1",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "5054ed68dcd61bbfb1fd4f17da017f045aa780279a8a717e4bcddd1199210496"
+          },
+          {
+            "page": 4704,
+            "sha256": "42cdaa17a558449c440ac9d472838ae3a0ad19b78410174706817cf601064ee9"
+          },
+          {
+            "page": 9408,
+            "sha256": "d810dcbe4d59aac09195b40b976eab1c5d5df37b01db59b7dcf95ec6a3de8997"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 서초구",
+        "eligibleCount": 0,
+        "similarCount": 188176,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "05d00f30892c12ddc00df39da76c0b8347d31cc4db8f8d8f404780fbafa76ee1",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "5054ed68dcd61bbfb1fd4f17da017f045aa780279a8a717e4bcddd1199210496"
+          },
+          {
+            "page": 4704,
+            "sha256": "42cdaa17a558449c440ac9d472838ae3a0ad19b78410174706817cf601064ee9"
+          },
+          {
+            "page": 9408,
+            "sha256": "d810dcbe4d59aac09195b40b976eab1c5d5df37b01db59b7dcf95ec6a3de8997"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 강남구",
+        "eligibleCount": 0,
+        "similarCount": 323891,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "d26ec4d2cd53f5c29bdef9a3cb89c2709d8f675ea97f142ef4dd08e0483a5d94",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "bf104773cd35e3eda65282bfeabba054f7c53de0ca2af16fa1d8dbb40f093c2d"
+          },
+          {
+            "page": 8097,
+            "sha256": "cbea9ad48617a81f07e1eb5f4d88842deb0878e4cd6b314a07ec837e89f19beb"
+          },
+          {
+            "page": 16194,
+            "sha256": "25a4ebaf7a32c310449a6f5b04b2d19e9e9ee139a5cc67c6584352c3f904fd36"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 강남구",
+        "eligibleCount": 0,
+        "similarCount": 323891,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "d26ec4d2cd53f5c29bdef9a3cb89c2709d8f675ea97f142ef4dd08e0483a5d94",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "bf104773cd35e3eda65282bfeabba054f7c53de0ca2af16fa1d8dbb40f093c2d"
+          },
+          {
+            "page": 8097,
+            "sha256": "cbea9ad48617a81f07e1eb5f4d88842deb0878e4cd6b314a07ec837e89f19beb"
+          },
+          {
+            "page": 16194,
+            "sha256": "25a4ebaf7a32c310449a6f5b04b2d19e9e9ee139a5cc67c6584352c3f904fd36"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 송파구",
+        "eligibleCount": 0,
+        "similarCount": 182349,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "cefe0661bde40b87ffcbde5cbdbb94e099c36a4c5d5fa6f7ce6039f07b593e57",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "5cfadb7f02924efe8c06bb2db73d1f3fe747d87ccdd31a7a453064d8f107c7bd"
+          },
+          {
+            "page": 4558,
+            "sha256": "f747be3bfeeda4cd3e1fd03a604cf08367fd5b352aadf72bdaa3d76d89a39986"
+          },
+          {
+            "page": 9117,
+            "sha256": "a54d063e19c68e6386b7ec30ebdec939443f4b9918da58ec553b00c27c17257e"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 송파구",
+        "eligibleCount": 0,
+        "similarCount": 182349,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "cefe0661bde40b87ffcbde5cbdbb94e099c36a4c5d5fa6f7ce6039f07b593e57",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "5cfadb7f02924efe8c06bb2db73d1f3fe747d87ccdd31a7a453064d8f107c7bd"
+          },
+          {
+            "page": 4558,
+            "sha256": "f747be3bfeeda4cd3e1fd03a604cf08367fd5b352aadf72bdaa3d76d89a39986"
+          },
+          {
+            "page": 9117,
+            "sha256": "a54d063e19c68e6386b7ec30ebdec939443f4b9918da58ec553b00c27c17257e"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "서울특별시 강동구",
+        "eligibleCount": 0,
+        "similarCount": 114938,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6492ed2a7a3d9b340ae2969370ec45503a85623d2def53f9a7d79bf7de545900",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "670d521e706ced136685144060ae5c0a8cb625b69936edf428567bcb152d3e45"
+          },
+          {
+            "page": 2873,
+            "sha256": "b049cac52d8d3f58df8eabc9715978a9c916e4f230a6ff697c76245383192c17"
+          },
+          {
+            "page": 5746,
+            "sha256": "684cbacd7bb576f93b2329c7b93b83b5e9d938d24f66004dd66606c13ffec22d"
+          }
+        ]
+      },
+      "current": {
+        "query": "서울특별시 강동구",
+        "eligibleCount": 0,
+        "similarCount": 114938,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "6492ed2a7a3d9b340ae2969370ec45503a85623d2def53f9a7d79bf7de545900",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "670d521e706ced136685144060ae5c0a8cb625b69936edf428567bcb152d3e45"
+          },
+          {
+            "page": 2873,
+            "sha256": "b049cac52d8d3f58df8eabc9715978a9c916e4f230a6ff697c76245383192c17"
+          },
+          {
+            "page": 5746,
+            "sha256": "684cbacd7bb576f93b2329c7b93b83b5e9d938d24f66004dd66606c13ffec22d"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "스타벅스",
+        "eligibleCount": 0,
+        "similarCount": 1282,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4314e23f698839131618aea3681fdb8777fc9910fbd3f731715d8367c633bf7c",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "e29e12c9cad521e7c6fb6f6d564ec6da709f0708b61624b4068dff066f949d12"
+          },
+          {
+            "page": 32,
+            "sha256": "7707fb2b0fcb9a478e7ee8d242f6807e3b339fbe0b48854da447148507688c68"
+          },
+          {
+            "page": 64,
+            "sha256": "5af9525165bd2b36b7f8aae3a9680aea48a94ebd7ec2791fbcaa9f5465e25f42"
+          }
+        ]
+      },
+      "current": {
+        "query": "스타벅스",
+        "eligibleCount": 0,
+        "similarCount": 1282,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "4314e23f698839131618aea3681fdb8777fc9910fbd3f731715d8367c633bf7c",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "e29e12c9cad521e7c6fb6f6d564ec6da709f0708b61624b4068dff066f949d12"
+          },
+          {
+            "page": 32,
+            "sha256": "7707fb2b0fcb9a478e7ee8d242f6807e3b339fbe0b48854da447148507688c68"
+          },
+          {
+            "page": 64,
+            "sha256": "5af9525165bd2b36b7f8aae3a9680aea48a94ebd7ec2791fbcaa9f5465e25f42"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "테헤란로",
+        "eligibleCount": 0,
+        "similarCount": 32418,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "556b8b45a8cccc0a8f1ca3387f84a310d1a537b7b7de9eae8952d556cccb02b4",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "f7aeab0ac4d35e9dc3b1542e19954843fa9b35967414cf004bb42d9349b56e39"
+          },
+          {
+            "page": 810,
+            "sha256": "357be3da602bc46a916393512d3c30dc5ce06459c00247ce96960a1cfa2c791a"
+          },
+          {
+            "page": 1620,
+            "sha256": "fea01d74c78d9cc661e7a1e43624f929682cc386e558a4722810a04bffebb627"
+          }
+        ]
+      },
+      "current": {
+        "query": "테헤란로",
+        "eligibleCount": 0,
+        "similarCount": 32418,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "556b8b45a8cccc0a8f1ca3387f84a310d1a537b7b7de9eae8952d556cccb02b4",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "f7aeab0ac4d35e9dc3b1542e19954843fa9b35967414cf004bb42d9349b56e39"
+          },
+          {
+            "page": 810,
+            "sha256": "357be3da602bc46a916393512d3c30dc5ce06459c00247ce96960a1cfa2c791a"
+          },
+          {
+            "page": 1620,
+            "sha256": "fea01d74c78d9cc661e7a1e43624f929682cc386e558a4722810a04bffebb627"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "龘靐齉爩",
+        "eligibleCount": 0,
+        "similarCount": 0,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "0f2fcae5b2c1ff7b86c819b4fbba2f6630af38b97ed1e5930c8badac0707a953"
+          }
+        ]
+      },
+      "current": {
+        "query": "龘靐齉爩",
+        "eligibleCount": 0,
+        "similarCount": 0,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "0f2fcae5b2c1ff7b86c819b4fbba2f6630af38b97ed1e5930c8badac0707a953"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "스타벅스 서울특별시 강남구 테헤란로 123",
+        "eligibleCount": 0,
+        "similarCount": 325012,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "bb245b6a8ab2d9d660a3fef6bdc85eab1d31efaa323f2beeccf13496db158d9d",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8fed3e37ce81a074cef2f7ec6971031ff2e286de03e409053f6e7c204c466354"
+          },
+          {
+            "page": 8125,
+            "sha256": "639c9ad70525418169de4a62ef077cd0caf77cd7d7e8c4c83b920f7795bd1ecd"
+          },
+          {
+            "page": 16250,
+            "sha256": "87a2f3449fb4e1fda2b2b86fdfb72c1ccfdf0ba70080a4d423e221209977558e"
+          }
+        ]
+      },
+      "current": {
+        "query": "스타벅스 서울특별시 강남구 테헤란로 123",
+        "eligibleCount": 0,
+        "similarCount": 325012,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "bb245b6a8ab2d9d660a3fef6bdc85eab1d31efaa323f2beeccf13496db158d9d",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "8fed3e37ce81a074cef2f7ec6971031ff2e286de03e409053f6e7c204c466354"
+          },
+          {
+            "page": 8125,
+            "sha256": "639c9ad70525418169de4a62ef077cd0caf77cd7d7e8c4c83b920f7795bd1ecd"
+          },
+          {
+            "page": 16250,
+            "sha256": "87a2f3449fb4e1fda2b2b86fdfb72c1ccfdf0ba70080a4d423e221209977558e"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "query": "테헤란로 12-3",
+        "eligibleCount": 0,
+        "similarCount": 32392,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "d409fd36763c1c26af64ed6d98dcfca2dc764efb2de04c8f7f92ba5cdc567570",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "25c93fb9fda8f8d1aa721b1fb56fab073d19f8c8ddb57bb6a538eb558e330990"
+          },
+          {
+            "page": 809,
+            "sha256": "92a5209a3dab1f456cb4665431f54b40b4f5fe5c782a1005713c84b079045ade"
+          },
+          {
+            "page": 1619,
+            "sha256": "1d0b0eb5bbd65466a738203de54fadc6268deb4b03b4a92c1e17149ab6dd601b"
+          }
+        ]
+      },
+      "current": {
+        "query": "테헤란로 12-3",
+        "eligibleCount": 0,
+        "similarCount": 32392,
+        "eligibleVectorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "similarVectorSha256": "d409fd36763c1c26af64ed6d98dcfca2dc764efb2de04c8f7f92ba5cdc567570",
+        "pages": [
+          {
+            "page": 0,
+            "sha256": "25c93fb9fda8f8d1aa721b1fb56fab073d19f8c8ddb57bb6a538eb558e330990"
+          },
+          {
+            "page": 809,
+            "sha256": "92a5209a3dab1f456cb4665431f54b40b4f5fe5c782a1005713c84b079045ade"
+          },
+          {
+            "page": 1619,
+            "sha256": "1d0b0eb5bbd65466a738203de54fadc6268deb4b03b4a92c1e17149ab6dd601b"
+          }
+        ]
+      }
+    }
+  ],
+  "codeBindings": {
+    "src/search/compact-search.ts": {
+      "original": "64c68505ecf04da2a767ec538d2472da46ec0796d25f8f8fb1cc9f259d493d39",
+      "current": "3323108f3acb00591bb205af7d317368cdabca0fa7e1cde4c609cfe53f170f92"
+    },
+    "src/search/compare-search-address.ts": {
+      "original": "844db0c847ef93bd4ffeb7ef395a57033e34cf72bda7dfd20384a391f14ee942",
+      "current": "22a39d32e2b98588032a0c9d6c76c684a50f94ddb892dcb631c609605f7b73a1"
+    },
+    "src/search/prepare-search-query.ts": {
+      "original": "279c78dfbdd111e90dd6a4e1378277435b2deb3a05c0d0493e3bbc6346df2dae",
+      "current": "35b952ac0bb3f225a97460437343446e2b729447edca09207eff1260437e21c2"
+    },
+    "src/search/search-candidates.ts": {
+      "original": "9c4f36e5c30b9e95a852c05437a3435a0f57169f546cd62d39ea37a5bc0b15bc",
+      "current": "7d051043c8fd81ab20f04502e15a9efe0ac2413bc1a73f4b01b37e8d46e4e346"
+    },
+    "src/shared/compact-data.ts": {
+      "original": "762bdefcbe61fd9aceafad7e48461defd8a4f74e4dbc41d4ab1eb612c84fda83",
+      "current": "762bdefcbe61fd9aceafad7e48461defd8a4f74e4dbc41d4ab1eb612c84fda83"
+    },
+    "src/shared/load-compact-data.ts": {
+      "original": "0b5456b1ad4bc7a35d303a89d891e8fc231c8444c4e2c278a25eb0080cb0fe36",
+      "current": "0b5456b1ad4bc7a35d303a89d891e8fc231c8444c4e2c278a25eb0080cb0fe36"
+    }
+  },
+  "limitations": [
+    "Offline Node equivalence and timing only; no browser/network/mobile acceptance.",
+    "One preparation per implementation, original first; order/JIT/GC effects are not isolated."
+  ],
+  "recordCount": 2951024,
+  "manifestSha256": "1f5ec4815d7412021ee9b7a6703ee8c3141ab853479413e5d7d1ea9f2f7f06c1",
+  "orderedSourceIdsSha256": "c054a07c0b831175270b023548ab6879198778a9c8f37ef206b35a4a2f1c5127",
+  "originalPrepareMs": 46928.594750000004,
+  "currentPrepareMs": 30106.925457999998,
+  "allEqual": true
+}
