@@ -7,6 +7,15 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
+## Query-local address rank flags — 2026-10-28
+
+CompactSearch compares each distinct address projection once for nameless address queries
+without literal-name fallback, retaining a transient byte of rank/conflict/relevance flags.
+Requested pages use the unchanged detailed scorer. Flags never become retained query state;
+static delivery, prepared fields, schema and Worker boundaries are unchanged. Evidence:
+reports/ci-2026-10-28-pr42-address-ranking.md.
+
+
 ## Prepared search memory continuation — 2026-10-27
 
 The Worker/static delivery architecture and compact schema remain unchanged. CompactSearch

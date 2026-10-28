@@ -7,6 +7,15 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## PR42 address allocation and hosted performance — 2026-10-28
+
+Run40647644280 retains mobile address failures up to1341.4ms with correct full counts and
+zero query-time requests/browser errors. Query-local comparison/rank flags reduce detailed
+scoring allocations; full-page oracle tests pass. Actual exact-head browser CI is still required.
+Keep every earlier failed sample and the broader mixed-query/publication/recovery gates open.
+See reports/ci-2026-10-28-pr42-address-ranking.md. Local Node22/macOS retains four known failures.
+
+
 ## Remaining performance and local verification limits — 2026-10-27
 
 TASK-009 preparation is reduced in bounded Node diagnostics, but mixed searches remain

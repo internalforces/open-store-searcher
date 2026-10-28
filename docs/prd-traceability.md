@@ -7,6 +7,16 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
+## PR42 address-ranking verification — 2026-10-28
+
+FR-02/03/07 retain complete admission/ranking/page evidence through query-local address flags.
+The repeated-field regression is observed RED(400comparisons)→GREEN(at most2), and an oracle
+matrix covers conflicts, ambiguity, missing fields and literal-name fallback. All108search
+tests pass. FR-08/12/13/14 source/date/privacy behavior is unchanged. Performance acceptance
+requires the actual exact-head diagnostic; no budget or broader task gate is relaxed. See
+[CI evidence](../reports/ci-2026-10-28-pr42-address-ranking.md).
+
+
 ## TASK-009 preparation optimization evidence — 2026-10-27
 
 FR-02/03/07 preserve all 2,951,024 source records and55 complete original/current candidate-vector

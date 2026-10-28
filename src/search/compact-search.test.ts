@@ -8,6 +8,7 @@ import {
   flattenRecord,
 } from '../shared/compact-data.js';
 import { CompactSearch } from './compact-search.js';
+import * as addressComparison from './compare-search-address.js';
 import { createSearchIndex, searchCandidates } from './search-candidates.js';
 
 const archiveSha256 = 'a'.repeat(64);
@@ -150,6 +151,61 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('compares repeated address projections once per address-only search', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `상점${index}`, '서울특별시 강남구 테헤란로 124'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    try {
+      await store.search('테헤란로 123');
+      expect(compare.mock.calls.length).toBeLessThanOrEqual(2);
+      expect(store.page(0).similarCount).toBe(200);
+    } finally {
+      compare.mockRestore();
+    }
+    for (const query of ['테헤란로 123', '테헤란로 124', '테헤란로', '역삼동 12'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('preserves address-only ranks, literal-name fallback and contradictory field evidence', async () => {
+    const roads = [
+      '테헤란로 123',
+      '서울특별시 강남구 테헤란로 123',
+      '서울특별시 강남구 테헤란로 124',
+      '서울특별시 서초구 테헤란로 123',
+      '테헤란로 서초대로 123',
+      '',
+      '테헤란로',
+      '역삼동 123',
+    ];
+    const records = Array.from({ length: 89 }, (_, index) =>
+      record(
+        1000 + ((index * 37) % 89),
+        index % 5 === 0 ? '테헤란로 123' : index % 7 === 0 ? '' : `상점${index}`,
+        roads[index % roads.length],
+        index % 3 === 0 ? '서울특별시 서초구 역삼동 123' : '',
+      ),
+    );
+    const input = fixture(records, 11);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    for (const query of [
+      '테헤란로 123',
+      '테헤란로 124',
+      '테헤란로',
+      '서울특별시 강남구 테헤란로 123',
+      '역삼동 123',
+      '강남구 역삼동',
+      '테헤란로 서초대로 123',
+      '상점 테헤란로 123',
+      '테헤란로 123',
+    ])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
   test('preserves full ID ranking across interleaved district conflicts and empty searches', async () => {
     const roads = [
       '서울특별시 강남구 테헤란로 12',

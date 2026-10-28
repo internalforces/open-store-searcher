@@ -7,6 +7,16 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 PR42 address CI correction — 2026-10-28
+
+The user's CI-fix request authorizes this bounded continuation within TASK-009. Investigate
+run40647644280, reduce address scoring allocations with complete-result parity, and read the
+actual final-head ordinary/full-source checks. No other task is activated or completed.
+Acceptance: repeated-field RED→GREEN; full-page oracle parity and exact-source rank/page parity;
+relevant local checks; supported Ubuntu ordinary and unchanged performance diagnostics.
+See reports/ci-2026-10-28-pr42-address-ranking.md and PR42 for actual evidence and remaining gates.
+
+
 ## TASK-009 preparation optimization continuation — 2026-10-27
 
 TASK-009 alone remains active. User authorizes profiling, measured lossless changes and PR creation.

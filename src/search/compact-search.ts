@@ -7,7 +7,11 @@ import {
   materializeRecord,
   requireCompact,
 } from '../shared/compact-data.js';
-import { type AddressParts, parseSearchAddress } from './compare-search-address.js';
+import {
+  type AddressParts,
+  compareSearchAddress,
+  parseSearchAddress,
+} from './compare-search-address.js';
 import { prepareSearchQuery, projectSearchName } from './prepare-search-query.js';
 import {
   type CandidateMatch,
@@ -324,6 +328,33 @@ export class CompactSearch {
       }
       return addresses[reference] === 2;
     };
+    // For address-only queries without a literal name match, ranking depends only
+    // on the two address projections. Compare each distinct field once and retain
+    // only query-local flags; detailed reasons are still materialized for each page.
+    const addressOnly = !scoring.query.nameKey && addressQuery && !districtQuery;
+    const addressRanks = addressOnly ? new Uint8Array(this.addressProjections.length) : null;
+    const addressRank = (reference: number): number => {
+      const ranks = addressRanks as Uint8Array;
+      if (!ranks[reference]) {
+        const candidate = this.addressProjections[reference] as AddressParts;
+        const comparison = compareSearchAddress(addressQuery as AddressParts, candidate);
+        const match =
+          comparison.match === 'exact'
+            ? 3
+            : comparison.match === 'core'
+              ? 2
+              : comparison.match === 'partial'
+                ? 1
+                : 0;
+        ranks[reference] =
+          1 |
+          (match << 1) |
+          (comparison.conflicts.length ? 8 : 0) |
+          (comparison.relevant ? 16 : 0) |
+          (candidate.ambiguous ? 32 : 0);
+      }
+      return ranks[reference] as number;
+    };
     const scores = districtQuery ? null : new Int16Array(this.recordCount);
     const conflicts = new Uint8Array(this.recordCount);
     let districtCount = 0;
@@ -333,8 +364,9 @@ export class CompactSearch {
     for (const block of blocks) {
       for (let row = 0; row < block.block.count; row++) {
         const ordinal = block.block.start + row;
+        const namePossible = possibleName(block.nameRefs[row] as number);
         const possible =
-          possibleName(block.nameRefs[row] as number) ||
+          namePossible ||
           possibleAddress(block.roadRefs[row] as number) ||
           possibleAddress(block.parcelRefs[row] as number);
         if (possible && districtQuery) {
@@ -349,6 +381,20 @@ export class CompactSearch {
           conflicts[ordinal] = conflict ? 2 : 1;
           districtCount++;
           if (!conflict) nonconflictingCount++;
+        } else if (possible && addressOnly && !namePossible) {
+          const road = addressRank(block.roadRefs[row] as number);
+          const parcel = addressRank(block.parcelRefs[row] as number);
+          const match = Math.max((road >> 1) & 3, (parcel >> 1) & 3);
+          if (match || (road | parcel) & 16) {
+            const conflict = Boolean((road | parcel) & 8);
+            const exact = match === 3 && addressQuery.strong;
+            const low =
+              !exact || conflict || scoring.query.ambiguous || Boolean((road | parcel) & 32);
+            (scores as Int16Array)[ordinal] = exact ? 100 : 0;
+            conflicts[ordinal] = Number(conflict);
+            if (low) similar.push(ordinal);
+            else eligible.push(ordinal);
+          }
         } else {
           const scored = possible ? this.score(block, row, scoring) : null;
           if (scored) {
