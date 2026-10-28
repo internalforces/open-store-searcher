@@ -77,9 +77,10 @@ function cooperativeCheckpoint(signal?: AbortSignal): () => Promise<void> {
 }
 
 async function sortOrdinals(
-  values: readonly number[],
+  values: ArrayLike<number>,
   compare: (left: number, right: number) => number,
   signal?: AbortSignal,
+  checkpoint = cooperativeCheckpoint(signal),
 ): Promise<Uint32Array> {
   let source = Uint32Array.from(values);
   if (source.length < 2) {
@@ -87,7 +88,6 @@ async function sortOrdinals(
     return source;
   }
   let target = new Uint32Array(source.length);
-  const checkpoint = cooperativeCheckpoint(signal);
   let work = 0;
   for (let width = 1; width < source.length; width *= 2) {
     for (let left = 0; left < source.length; left += width * 2) {
@@ -129,6 +129,7 @@ export class CompactSearch {
   private addressProjections: readonly AddressParts[] = [];
   private state: SearchState | null = null;
   private identifiers: readonly string[] = [];
+  private identifierOrder: Uint32Array = EMPTY_ORDINALS;
 
   constructor(
     manifest: CompactManifest,
@@ -156,6 +157,7 @@ export class CompactSearch {
 
     const names: string[] = [];
     const identifiers: string[] = [];
+    const identifierOrdinals = new Uint32Array(this.recordCount);
     const addresses: AddressParts[] = [];
     const nameIndexes = new Map<string, number>();
     const addressIndexes = new Map<string, number>();
@@ -210,6 +212,7 @@ export class CompactSearch {
             typeof roadAddress === 'string' &&
             typeof parcelAddress === 'string',
         );
+        identifierOrdinals[identifiers.length] = identifiers.length;
         identifiers.push(identifier);
         nameRefs[row] = nameIndex(name);
         roadRefs[row] = addressIndex(roadAddress);
@@ -224,9 +227,23 @@ export class CompactSearch {
     }
     requireCompact(expectedStart === this.recordCount);
 
+    // District-only candidates all have score zero. Sort immutable IDs once, then
+    // partition that order by conflict instead of comparing strings on every query.
+    const identifierOrder = await sortOrdinals(
+      identifierOrdinals,
+      (left, right) => {
+        const a = identifiers[left] as string;
+        const b = identifiers[right] as string;
+        return a < b ? -1 : a > b ? 1 : 0;
+      },
+      signal,
+      checkpoint,
+    );
+
     // loadCompactSnapshot owns global identity validation before constructing this store.
     throwIfAborted(signal);
     this.identifiers = identifiers;
+    this.identifierOrder = identifierOrder;
     this.preparedBlocks = prepared;
     this.nameProjections = names;
     this.addressProjections = addresses;
@@ -302,8 +319,10 @@ export class CompactSearch {
       }
       return addresses[reference] === 2;
     };
-    const scores = new Int16Array(this.recordCount);
+    const scores = districtQuery ? null : new Int16Array(this.recordCount);
     const conflicts = new Uint8Array(this.recordCount);
+    let districtCount = 0;
+    let nonconflictingCount = 0;
     let scanned = 0;
     const checkpoint = cooperativeCheckpoint(signal);
     for (const block of blocks) {
@@ -318,17 +337,17 @@ export class CompactSearch {
           // Its only comparable conflict is district; defer full reasons to page materialization.
           const road = this.addressProjections[block.roadRefs[row] as number] as AddressParts;
           const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressParts;
-          conflicts[ordinal] = Number(
-            Boolean(
-              (road.district && road.district !== districtQuery.district) ||
-                (parcel.district && parcel.district !== districtQuery.district),
-            ),
+          const conflict = Boolean(
+            (road.district && road.district !== districtQuery.district) ||
+              (parcel.district && parcel.district !== districtQuery.district),
           );
-          similar.push(ordinal);
+          conflicts[ordinal] = conflict ? 2 : 1;
+          districtCount++;
+          if (!conflict) nonconflictingCount++;
         } else {
           const scored = possible ? this.score(block, row, scoring) : null;
           if (scored) {
-            scores[ordinal] = scored.score;
+            (scores as Int16Array)[ordinal] = scored.score;
             conflicts[ordinal] = Number(hasConflict(scored));
             if (scored.confidence === 'low') similar.push(ordinal);
             else eligible.push(ordinal);
@@ -341,13 +360,32 @@ export class CompactSearch {
       }
     }
 
+    if (districtQuery) {
+      const similarOrdinals = new Uint32Array(districtCount);
+      let first = 0;
+      let second = nonconflictingCount;
+      const rankingCheckpoint = cooperativeCheckpoint(signal);
+      await rankingCheckpoint();
+      for (let index = 0; index < this.identifierOrder.length; index++) {
+        const ordinal = this.identifierOrder[index] as number;
+        const kind = conflicts[ordinal];
+        if (kind === 1) similarOrdinals[first++] = ordinal;
+        else if (kind === 2) similarOrdinals[second++] = ordinal;
+        if ((index + 1) % SORT_BATCH === 0) await rankingCheckpoint();
+      }
+      // Allow a queued cancellation to run even when the partition fits in one slice.
+      await cooperativeYield(signal);
+      this.state = { validation, scoring, eligibleOrdinals: EMPTY_ORDINALS, similarOrdinals };
+      return;
+    }
+
     const eligibleOrdinals = await sortOrdinals(
       eligible,
       (left, right) =>
         compareCandidateRank(
-          scores[left] as number,
+          (scores as Int16Array)[left] as number,
           this.idAt(left),
-          scores[right] as number,
+          (scores as Int16Array)[right] as number,
           this.idAt(right),
         ),
       signal,
@@ -357,10 +395,10 @@ export class CompactSearch {
       (left, right) =>
         compareSimilarCandidateRank(
           Boolean(conflicts[left]),
-          scores[left] as number,
+          (scores as Int16Array)[left] as number,
           this.idAt(left),
           Boolean(conflicts[right]),
-          scores[right] as number,
+          (scores as Int16Array)[right] as number,
           this.idAt(right),
         ),
       signal,

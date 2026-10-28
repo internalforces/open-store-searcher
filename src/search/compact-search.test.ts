@@ -150,6 +150,33 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('preserves full ID ranking across interleaved district conflicts and empty searches', async () => {
+    const roads = [
+      '서울특별시 강남구 테헤란로 12',
+      '서울특별시 서초구 서초대로 20',
+      '',
+      '강남구 서초구 테헤란로 123',
+      '서울특별시 강남구',
+    ];
+    const records = Array.from({ length: 67 }, (_, index) =>
+      record(
+        10_000 + ((index * 37) % 67),
+        index % 7 === 0 ? '강남구문구' : `순서상점${index}`,
+        roads[index % roads.length],
+        index % 3 === 0
+          ? '서울특별시 강남구 역삼동 12'
+          : index % 3 === 1
+            ? '서울특별시 서초구 서초동 12'
+            : '',
+      ),
+    );
+    const input = fixture(records, 11);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    for (const query of ['강남구', '서초구', '서울특별시 강남구', '강동구', '강남구'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
   test('preserves all pages when key-only admission meets numeric substrings, Unicode and empty addresses', async () => {
     const records = [
       ...Array.from({ length: 49 }, (_, i) =>
