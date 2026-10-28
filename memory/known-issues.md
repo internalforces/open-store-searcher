@@ -7,6 +7,16 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## PR42 retained collection pause and scratch follow-up — 2026-10-28
+
+Run40651993497 ordinary Ubuntu verification passes, but mobile address819/838.9ms samples
+remain failures after comparison reuse. Workspace reuse now removes repeated record-sized
+buffer allocations; separate active leases and finally-clearing preserve query isolation.
+110search tests and complete-source56-query parity pass. Actual new-head hosted evidence,
+broader performance/publication/recovery gates and four local runtime/tool failures stay open.
+See reports/ci-2026-10-28-pr42-address-ranking.md; no earlier failed sample is erased.
+
+
 ## PR42 address allocation and hosted performance — 2026-10-28
 
 Run40647644280 retains mobile address failures up to1341.4ms with correct full counts and

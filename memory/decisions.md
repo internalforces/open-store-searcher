@@ -7,6 +7,15 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
+## PR42 leased scratch reuse — 2026-10-28
+
+The first hosted allocation correction still fails address latency. Reuse cleared scratch
+buffers through exclusive per-search leases, keeping only one idle workspace. Accept the
+bounded retained scratch cost in exchange for avoiding repeated full-record allocations;
+retain independent result vectors and existing cancellation/state-publication boundaries.
+Actual hosted performance remains required. No accepted public/data/status contract changes.
+
+
 ## PR42 bounded address-rank reuse — 2026-10-28
 
 Use per-query address comparison flags only when interpreted name and literal-name match are

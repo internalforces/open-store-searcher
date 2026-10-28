@@ -43,6 +43,14 @@ interface PreparedBlock {
   readonly parcelRefs: Uint32Array;
 }
 
+interface SearchWorkspace {
+  readonly names: Uint8Array;
+  readonly addresses: Uint8Array;
+  readonly addressRanks: Uint8Array;
+  readonly conflicts: Uint8Array;
+  scores: Int16Array | null;
+}
+
 interface SearchState {
   readonly validation: ReturnType<typeof prepareSearchQuery>;
   readonly scoring: ScoringQuery | null;
@@ -134,6 +142,7 @@ export class CompactSearch {
   private state: SearchState | null = null;
   private identifiers: readonly string[] = [];
   private identifierOrder: Uint32Array = EMPTY_ORDINALS;
+  private workspace: SearchWorkspace | null = null;
 
   constructor(
     manifest: CompactManifest,
@@ -273,6 +282,35 @@ export class CompactSearch {
       return;
     }
 
+    // Lease scratch storage: overlapping searches must never share mutable flags.
+    const workspace = this.workspace ?? {
+      names: new Uint8Array(this.nameProjections.length),
+      addresses: new Uint8Array(this.addressProjections.length),
+      addressRanks: new Uint8Array(this.addressProjections.length),
+      conflicts: new Uint8Array(this.recordCount),
+      scores: null,
+    };
+    this.workspace = null;
+    try {
+      await this.searchPrepared(validation, blocks, workspace, signal);
+    } finally {
+      // Published results contain independent ordinal arrays, never scratch storage.
+      // Clear all query-derived flags before retaining at most one idle workspace.
+      workspace.names.fill(0);
+      workspace.addresses.fill(0);
+      workspace.addressRanks.fill(0);
+      workspace.conflicts.fill(0);
+      workspace.scores?.fill(0);
+      this.workspace ??= workspace;
+    }
+  }
+
+  private async searchPrepared(
+    validation: Extract<ReturnType<typeof prepareSearchQuery>, { ok: true }>,
+    blocks: readonly PreparedBlock[],
+    workspace: SearchWorkspace,
+    signal?: AbortSignal,
+  ): Promise<void> {
     const scoring = prepareScoringQuery(validation);
     const eligible: number[] = [];
     const similar: number[] = [];
@@ -292,8 +330,8 @@ export class CompactSearch {
     // Lossless projection retrieval: score only rows that can satisfy the oracle's
     // name, literal-address, address-match or broad-relevance acceptance predicate.
     // Every ordinal is still visited; no posting cutoff or result cap is applied.
-    const names = new Uint8Array(this.nameProjections.length);
-    const addresses = new Uint8Array(this.addressProjections.length);
+    const names = workspace.names;
+    const addresses = workspace.addresses;
     const possibleName = (reference: number) => {
       if (!names[reference]) {
         const key = this.nameProjections[reference] as string;
@@ -332,7 +370,7 @@ export class CompactSearch {
     // on the two address projections. Compare each distinct field once and retain
     // only query-local flags; detailed reasons are still materialized for each page.
     const addressOnly = !scoring.query.nameKey && addressQuery && !districtQuery;
-    const addressRanks = addressOnly ? new Uint8Array(this.addressProjections.length) : null;
+    const addressRanks = workspace.addressRanks;
     const addressRank = (reference: number): number => {
       const ranks = addressRanks as Uint8Array;
       if (!ranks[reference]) {
@@ -355,8 +393,9 @@ export class CompactSearch {
       }
       return ranks[reference] as number;
     };
-    const scores = districtQuery ? null : new Int16Array(this.recordCount);
-    const conflicts = new Uint8Array(this.recordCount);
+    if (!districtQuery && !workspace.scores) workspace.scores = new Int16Array(this.recordCount);
+    const scores = districtQuery ? null : workspace.scores;
+    const conflicts = workspace.conflicts;
     let districtCount = 0;
     let nonconflictingCount = 0;
     let scanned = 0;

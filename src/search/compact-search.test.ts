@@ -151,6 +151,76 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('reuses zeroed scratch buffers across distinct searches without changing full results', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    let byteArrays = 0;
+    let scoreArrays = 0;
+    vi.stubGlobal(
+      'Uint8Array',
+      new Proxy(Uint8Array, {
+        construct(target, args) {
+          byteArrays++;
+          return Reflect.construct(target, args);
+        },
+      }),
+    );
+    vi.stubGlobal(
+      'Int16Array',
+      new Proxy(Int16Array, {
+        construct(target, args) {
+          scoreArrays++;
+          return Reflect.construct(target, args);
+        },
+      }),
+    );
+    try {
+      for (const query of ['강남구', '테헤란로 12', '없는상호', '서초구', '봄카페', '테헤란로 123'])
+        await expectCompleteOracleParity(store, records, query);
+      expect(byteArrays).toBeLessThanOrEqual(4);
+      expect(scoreArrays).toBe(1);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  test('isolates scratch buffers for an overlapping cancelled search', async () => {
+    const records = Array.from({ length: 2500 }, (_, index) =>
+      record(index + 1, `검색상점${index}`, `서울특별시 강남구 테헤란로 ${index + 1}`),
+    );
+    const input = fixture(records, 500);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    let release: (() => void) | undefined;
+    let first = true;
+    vi.stubGlobal('scheduler', {
+      yield() {
+        if (!first) return Promise.resolve();
+        first = false;
+        return new Promise<void>((resolve) => {
+          release = resolve;
+        });
+      },
+    });
+    const controller = new AbortController();
+    try {
+      const pending = store.search('테헤란로 123', controller.signal);
+      const rejection = expect(pending).rejects.toMatchObject({ name: 'AbortError' });
+      await expectCompleteOracleParity(store, records, '검색상점1000');
+      const accepted = store.page(0);
+      controller.abort();
+      release?.();
+      await rejection;
+      expect(store.page(0)).toEqual(accepted);
+      await expectCompleteOracleParity(store, records, '테헤란로 2500');
+    } finally {
+      release?.();
+      vi.unstubAllGlobals();
+    }
+  });
+
   test('compares repeated address projections once per address-only search', async () => {
     const records = Array.from({ length: 200 }, (_, index) =>
       record(index + 1, `상점${index}`, '서울특별시 강남구 테헤란로 124'),

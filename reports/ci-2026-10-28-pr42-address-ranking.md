@@ -55,7 +55,7 @@ verification and the unchanged browser diagnostic remain required; see the live 
 checks and description for their eventual actual outcome. TASK-009, broader mixed-query
 performance, public delivery/equality and backup/recovery acceptance remain open.
 
-## Complete-source parity before delivery
+## First correction complete-source parity
 
 All 56 fixed searches over all 2,951,024 records preserve every eligible/similar ordinal,
 count and all fields of first/middle/last pages against the frozen original scorer.
@@ -65,3 +65,40 @@ Source SHA-256: `bb460584570c7a97f4f69a291524605d80f7108ba8433f6cdac03b383be4f59
 Full local parity receipt SHA-256: `5438c040e0f8d8681e3026de7bfd06c2600f18789e8d521c1aa7050139c0844a`.
 The raw profiling artifacts remain local. Preparation observations are 41.40/35.02 seconds
 (original first; order/JIT/GC are not isolated). No browser performance inference follows.
+
+## Scratch-buffer follow-up and final local checkpoint
+
+Run40651993497 at6fad420 passes supported Ubuntu verification:1442Vitest,92browser,
+20accessibility and the operator/admission checks. The unchanged full-source diagnostic
+still fails. Mobile cold address samples are324.5/819/282.6ms and warm samples are
+275.9/838.9/261ms. All other observations pass500ms; counts/layout remain correct and
+query-time requests/browser errors remain zero. The trace shows Worker major collections
+of741.989/712.362ms. These retained failures show the first correction is insufficient;
+it moves the slow repetition rather than proving the collection problem resolved.
+
+The second correction leases a private scratch workspace per active search and keeps at
+most one idle workspace. Reuse the name/address admission flags, address ranks, ordinal
+conflict flags and lazily allocated score array instead of repeatedly allocating buffers
+proportional to all2951024records. Clear every query-derived flag/score in finally before
+retaining storage. Overlapping searches receive distinct leases; cancellation returns only
+its own lease. Published state contains independent ordinal vectors, so clearing scratch
+cannot modify an accepted result. No query text or result cache is added. Retained scratch
+adds3bytes per record plus one byte per distinct name and two per distinct address; this
+is a bounded memory trade-off, not a peak-memory or physical-performance claim.
+
+A real-allocation regression first fails with20Uint8Arrayallocations across six queries,
+then passes with at most4byte arrays and one score array. A concurrent-search/cancellation
+regression checks that another accepted query survives and later queries retain full
+oracle parity. All110search tests, types, Biome, build, both quality checks and8admission
+tests pass. The final complete local run records1440pass/4existing unsupported runtime/tool
+failures,1444total. Exact supported-runtime and browser results remain required after push.
+
+Final complete-source parity again passes all56fixed searches over2951024records,
+including complete ordinal vectors/counts and full-field boundary pages. Source SHA-256:
+`8b2fd72457bbb44f97da3c4aea953687fceba934b5b38c87cf7f71644afcaba5`.
+Final parity receipt SHA-256:
+`046320e3cb2e832e12fd4d65f7d83b47ec1c627ab29bce7cf30fa0090611cf53`.
+Single original/current preparation observations are35.16/35.79seconds and cannot identify
+causal preparation cost. This follow-up removes demonstrated repeated allocations; whether
+it prevents the observed hosted pauses must be established by the next actual diagnostic.
+No retries, dropped samples, forced GC, warming or weakened acceptance are introduced.

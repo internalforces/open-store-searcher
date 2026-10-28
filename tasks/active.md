@@ -7,6 +7,15 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 PR42 scratch follow-up — 2026-10-28
+
+First correction6fad420 ordinary CI passes, but actual diagnostic40651993497 retains mobile
+819/838.9ms failures. The bounded follow-up leases/clears reusable search scratch buffers.
+110search tests, overlap/cancellation isolation and complete-source56-query parity pass.
+Read the final-head ordinary and unchanged complete-source diagnostic before closing this
+CI correction. TASK-009 and broader acceptance remain open. See the PR42 address CI report.
+
+
 ## TASK-009 PR42 address CI correction — 2026-10-28
 
 The user's CI-fix request authorizes this bounded continuation within TASK-009. Investigate

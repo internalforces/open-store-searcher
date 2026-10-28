@@ -7,6 +7,16 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
+## PR42 scratch isolation and allocation evidence — 2026-10-28
+
+FR-02/03/07 add a real-allocation RED20→GREENat-most4byte-array regression across distinct
+queries and an overlapping-query/cancellation oracle regression. All110search tests and56
+complete-source ordinal/count/full-field boundary-page comparisons pass. The first corrected
+Ubuntu ordinary suite passes1442/92/20, but retains819/838.9ms mobile failures. The final
+scratch-reuse head still requires actual unchanged hosted checks; no performance or task
+acceptance is fabricated. See the PR42 address CI evidence report.
+
+
 ## PR42 address-ranking verification — 2026-10-28
 
 FR-02/03/07 retain complete admission/ranking/page evidence through query-local address flags.
