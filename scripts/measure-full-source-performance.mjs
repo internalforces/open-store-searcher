@@ -48,6 +48,7 @@ const report = {
     'Primary means visible heading/input; full searchable readiness is recorded separately.',
     'Two animation frames and layout checks are paint opportunities, not physical-screen paint proof.',
     'Memory is sampled RSS of CDP-reported browser processes, not a continuous whole-system maximum.',
+    'Diagnostic tracing adds overhead; event durations may overlap and are not additive CPU time.',
   ],
   physicalDeviceVerified: false,
   publicationApproved: false,
@@ -178,12 +179,15 @@ try {
                 };
               if (reply.kind !== 'page') return;
               const submittedAt = evidence.submittedAt;
+              const repliedAt = performance.now();
               const visible = document.visibilityState === 'visible';
               requestAnimationFrame(() =>
                 requestAnimationFrame(() => {
                   const box = document.getElementById('search-results')?.getBoundingClientRect();
                   evidence.replies.push({
                     elapsedMs: performance.now() - submittedAt,
+                    workerReplyMs: repliedAt - submittedAt,
+                    renderOpportunityMs: performance.now() - repliedAt,
                     visible: visible && document.visibilityState === 'visible',
                     resultRegionHasLayout: Boolean(box && box.width > 0 && box.height > 0),
                     eligibleCount: reply.result.eligibleCount,
@@ -203,6 +207,26 @@ try {
           waitUntil: 'domcontentloaded',
           timeout: 30000,
         });
+        const trace = [];
+        let tracing = false;
+        const collectTrace = ({ value }) => {
+          for (const event of value) {
+            if (
+              (event.ph === 'X' && event.dur >= 1000) ||
+              event.name?.startsWith('task009-') ||
+              (event.ph === 'M' && event.name === 'thread_name')
+            )
+              trace.push({
+                name: event.name,
+                ph: event.ph,
+                ts: event.ts,
+                dur: event.dur,
+                pid: event.pid,
+                tid: event.tid,
+                threadName: event.name === 'thread_name' ? event.args?.name : undefined,
+              });
+          }
+        };
         try {
           await page.waitForFunction(() => Boolean(window.fullSourceDiagnostic?.ready), undefined, {
             timeout: 120000,
@@ -215,11 +239,19 @@ try {
             preInteractionLcpMs: window.fullSourceDiagnostic.lcpMs,
           }));
           Object.assign(row, initial, { readyMs: initial.at });
+          cdp.on('Tracing.dataCollected', collectTrace);
+          await cdp.send('Tracing.start', {
+            categories: 'devtools.timeline,v8,blink.user_timing',
+            transferMode: 'ReportEvents',
+          });
+          tracing = true;
           for (const fixture of fullSourceFixtures) {
-            await measureFixture(row.searches, fixture.id, async () => {
+            await measureFixture(row.searches, fixture.id, async (repetition) => {
               const count = await page.evaluate(() => window.fullSourceDiagnostic.replies.length);
               await page.locator('#business-query').fill(fixture.value);
               const before = requestCount;
+              const marker = `task009-${fixture.id}-${repetition}`;
+              await page.evaluate((marker) => performance.mark(`${marker}-start`), marker);
               await page.locator('button[type=submit]').click();
               await page.waitForFunction(
                 (count) => window.fullSourceDiagnostic.replies.length === count + 1,
@@ -229,6 +261,7 @@ try {
               const measured = await page.evaluate(() =>
                 window.fullSourceDiagnostic.replies.at(-1),
               );
+              await page.evaluate((marker) => performance.mark(`${marker}-end`), marker);
               return { ...measured, requestDelta: requestCount - before };
             });
           }
@@ -255,6 +288,22 @@ try {
         } catch (error) {
           row.error = error.name;
           row.readyMs ??= null;
+        } finally {
+          if (tracing) {
+            const complete = new Promise((accept) => cdp.once('Tracing.tracingComplete', accept));
+            await cdp.send('Tracing.end');
+            const { dataLossOccurred } = await complete;
+            row.trace = {
+              dataLossOccurred,
+              threads: trace.filter((event) => event.threadName),
+              markers: trace.filter((event) => event.name.startsWith('task009-')),
+              longestEvents: trace
+                .filter((event) => event.ph === 'X')
+                .sort((left, right) => right.dur - left.dur)
+                .slice(0, 40),
+            };
+          }
+          cdp.off('Tracing.dataCollected', collectTrace);
         }
       }
     } finally {
