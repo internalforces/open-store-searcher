@@ -1,0 +1,18 @@
+
+> open-store-searcher@0.1.0-dev build
+> vite build
+
+vite v8.2.1 building client environment for production...
+transforming...
+✓ 34 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                 0.40 kB │ gzip:  0.27 kB
+dist/assets/demo-3-DYrVXLTo.json                1.77 kB │ gzip:  0.54 kB
+dist/assets/demo-2-Cwgu9dF3.json                1.78 kB │ gzip:  0.57 kB
+dist/assets/demo-1-Dgx1yC7q.json                1.78 kB │ gzip:  0.56 kB
+dist/assets/compact-search.worker-Cmeo7vjc.js  21.84 kB
+dist/assets/index-DmOe2V3A.css                 14.35 kB │ gzip:  3.70 kB
+dist/assets/index-CJk42ozU.js                  56.12 kB │ gzip: 20.13 kB
+
+✓ built in 102ms

@@ -7,6 +7,16 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
+## Prepared search memory continuation — 2026-10-27
+
+The Worker/static delivery architecture and compact schema remain unchanged. CompactSearch
+now retains canonical AddressParts directly; its admission scan checks literal tokens against
+keys without eager arrays. Only admitted literal/name rows allocate detailed-scoring tokens.
+Field-specific normalization preserves existing Unicode/notation semantics. No persistent index,
+query-derived request, new state owner or external dependency is introduced. See the TASK-009
+preparation design and full-source parity evidence dated2026-10-27.
+
+
 _Last updated: 2026-10-22_
 
 ## System Overview

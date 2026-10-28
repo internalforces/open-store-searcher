@@ -7,6 +7,34 @@ Harness Version: 1.1
 
 # TASK-009 hosted performance continuation — 2026-10-24
 
+## Current-main remeasurement — 2026-10-28
+
+The user requests resuming step 4. The local executor disconnected again before its loopback
+preflight returned; no fresh local browser or listener result exists. Reuse this existing
+read-only branch-scoped hosted diagnostic with the exact current main application and
+the unchanged previously exercised diagnostic scripts. Main b6a94f294ea3d23612864c8d38780da53bedba1d
+includes merged PR44's preparation/address-memory optimization and successful canonical Verify.
+This continuation merges that main tree into this draft branch, preserving only this PR's
+five diagnostic files. No application code, quality/source contract, dependency, workflow
+permission or publication setting is changed. Full and diagnostic CI at the resulting head
+must be read before claiming any pass.
+
+The user's October 24 skip of physical-device measurement remains controlling. Earlier phone
+instructions below are historical and must not trigger renewed phone setup requests. Hosted
+loopback/mobile emulation remains distinct from public Pages delivery and physical evidence.
+The unchanged three diagnostic fixtures do not measure the known mixed-query limitation;
+a pass in this bounded diagnostic would not by itself close performance or authorize publication.
+
+Initial-import 40489801035 on this main completed successfully and its deploy job skipped.
+Candidate 12727554616 expires October 28 at 11:00:35 UTC; metadata 12727814680 expires at
+11:00:58 UTC. Its raw tar is 691824640 bytes with SHA-256
+ee926daafbe32287e48b431b0104429771b4e5c18a4af94b3661b005acabda41.
+The preparation-only run cannot later resume deployment by changing a flag; publication
+requires a new dispatch after prerequisites. Public equality, durable backup/adoption and
+positive restoration/public equality remain unperformed. TASK-009 stays active.
+
+## Historical October 24 design and execution
+
 The user requests resolving access blockers and completing the active task, and reports a
 Galaxy Z Flip7 connected to the Mac. That model is user-reported; no actual Android device
 connection or physical performance result has been verified. Local ADB is absent. Chrome

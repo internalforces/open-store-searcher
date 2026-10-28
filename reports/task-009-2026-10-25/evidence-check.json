@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "checkedOn": "2026-10-25",
+  "status": "pass",
+  "scope": "Evidence consistency only; performance and task acceptance remain open",
+  "unchangedOriginalCodeBindings": 185,
+  "matchedSiteFiles": 730,
+  "completeLoads": 4,
+  "searchSamples": 24,
+  "executedHelperSha256": "36fe85974f843cd9c9c9cb8be9d7b5d0004b6ea3b7cf47277da2ab546f003c92",
+  "currentHelperSha256": "73f6927c3686328dc3354563730ec416b0b0907454b4b40387eeb8060410ab30",
+  "currentHelperChange": "Fixture label only: absent -> absence-intent",
+  "sourceReceiptAndInventoryBindings": true
+}

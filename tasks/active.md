@@ -7,6 +7,46 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 preparation optimization continuation — 2026-10-27
+
+TASK-009 alone remains active. User authorizes profiling, measured lossless changes and PR creation.
+
+- [x] Reuse the existing clean65cb9e6 worktree and immutable complete compact data.
+- [x] Profile CPU/allocation; preserve exact original, intermediate and final evidence.
+- [x] Implement field-specific projection and key-only address admission with RED/GREEN tests.
+- [x] Verify all 55 complete rank/count/boundary-page identities and105focused search tests.
+- [x] Run local verification; record unsupported runtime/GNU tar/Info-ZIP failures without waivers.
+- [x] Obtain independent static source/test review; no blocking findings.
+- [ ] Create requested PR and establish canonical final-head Ubuntu verification.
+
+Node unprofiled preparation46.9→30.1 seconds and heap598.9 MiB lower are diagnostic improvements.
+Mixed searches still exceed500 ms; original browser/mobile/hosted/publication/recovery gates remain.
+Physical-device measurement remains explicitly user-skipped. TASK-028 remains paused, TASK-010
+sequential and TASK-021 gated. See reports/performance-2026-10-27-task-009.md.
+
+
+## TASK-009 complete-data cloud diagnostic — 2026-10-25
+
+TASK-009 alone remains active on merged PR41/main `abe4b0a`. Exact-main hosted Verify39943753135
+is successful. Private production local-proof replay verified all195categories/2,951,024rows,
+unchanged quality and all730extracted site files. No hosted import or deployment was dispatched.
+
+Current Debian/system-Chromium diagnostics do not pass the500ms search gate: desktop district
+659.9–673.2ms/name586.7–598.0ms; mobile emulation district886.4–964.9ms/name686.4–720.7ms,
+with additional address/negative-intent misses. The negative-intent fixture returned10candidates;
+it does not establish empty-result performance. All24observations and the1,858ms outlier are retained.
+Search-ready time is105.8–108.4seconds, including90.5–92.8seconds in Worker preparation.
+Instantaneous browser PSS is3.14–3.33GiB. Cache-enabled warm navigations still fetch nearly691MB.
+These are local diagnostics, not physical/mobile/hosted acceptance or a regression attribution.
+
+Next: CPU/heap-profile preparation and scan/predicate/sort phases; make a measured lossless change
+with complete ranking/page/cancellation evidence, and establish a true zero-candidate fixture.
+Reuse the private verified data in `/workspace/scratch/task009-20261025` for application rebuilds.
+The source replay need not be repeated merely to profile unchanged data. Physical-device access
+is unconfirmed. Keep the performance gate before fresh hosted publication and public/backup/recovery
+acceptance. TASK-028 stays paused, TASK-010 sequential and TASK-021 gated.
+See [current report](../reports/performance-2026-10-25-task-009.md).
+
 ## TASK-009 search follow-up checkpoint — 2026-10-23
 
 TASK-009 alone remains active under the user's continuation. The conservative address filter

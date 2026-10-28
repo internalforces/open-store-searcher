@@ -36,9 +36,19 @@ export interface SearchTextProjection {
   addressTokens: string[];
 }
 
+/** Preserve the existing one-pass notation decoding without computing unused search keys. */
+export function normalizeSearchNotation(value: string): string {
+  return normalizeSearchText(decodeNotation(value));
+}
+
+/** Candidate names need no address-token projection. */
+export function projectSearchName(value: string): string {
+  return normalizeSearchText(normalizeSearchNotation(value).replace(/\p{P}+/gu, ' '));
+}
+
 /** Project query or candidate fields identically, including empty and single-character fields. */
 export function projectSearchText(value: string): SearchTextProjection {
-  const normalized = normalizeSearchText(decodeNotation(value));
+  const normalized = normalizeSearchNotation(value);
   const nameKey = normalizeSearchText(normalized.replace(/\p{P}+/gu, ' '));
   // Canonicalize dash punctuation to a hyphen without erasing number separators.
   const addressKey = normalizeSearchText(
