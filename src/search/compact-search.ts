@@ -227,6 +227,11 @@ export class CompactSearch {
     }
     requireCompact(expectedStart === this.recordCount);
 
+    // These lookup maps are used only while collecting projections. Release their
+    // backing storage before ordering IDs, rather than retaining it until readiness.
+    nameIndexes.clear();
+    addressIndexes.clear();
+
     // District-only candidates all have score zero. Sort immutable IDs once, then
     // partition that order by conflict instead of comparing strings on every query.
     const identifierOrder = await sortOrdinals(
