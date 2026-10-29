@@ -7,6 +7,25 @@ Harness Version: 1.1
 
 # Architecture — open-store-searcher
 
+## Leased search scratch storage — 2026-10-28
+
+Each active CompactSearch query owns a distinct scratch workspace. At most one idle workspace
+retains name/address admission flags, address rank flags, conflicts and lazy score storage;
+all flags/scores are zeroed in finally before reuse. Result ordinal vectors remain independent.
+This avoids repeated record-sized typed-array pressure and remains safe under overlap and
+cancellation. No query-text cache, new Worker boundary, schema or delivery contract is added.
+The retained cost is3bytes per record,1per unique name and2per unique address projection.
+
+
+## Query-local address rank flags — 2026-10-28
+
+CompactSearch compares each distinct address projection once for nameless address queries
+without literal-name fallback, retaining a transient byte of rank/conflict/relevance flags.
+Requested pages use the unchanged detailed scorer. Flags never become retained query state;
+static delivery, prepared fields, schema and Worker boundaries are unchanged. Evidence:
+reports/ci-2026-10-28-pr42-address-ranking.md.
+
+
 ## Prepared search memory continuation — 2026-10-27
 
 The Worker/static delivery architecture and compact schema remain unchanged. CompactSearch

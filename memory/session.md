@@ -7,6 +7,29 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## PR42 scratch-buffer CI follow-up — 2026-10-28
+
+First correction6fad420 passes Ubuntu1442/92/20and operator/admission checks, but retains
+mobile address819/838.9ms failures in run40651993497. Major collections remain visible.
+Lease/reuse scratch buffers per active search, clear all query flags on release, and retain
+only one idle lease. Repeated-allocation regression20→at most4byte arrays plus one score
+array and overlap/cancellation regression pass. All110search tests and full-source56-query
+rank/page parity pass; local full1440pass/4existing Node22/macOS failures. New-head hosted
+ordinary and unchanged diagnostic results are required before a success claim. This remains
+within TASK-009; no merge/deployment/task closure. See the PR42 address CI report and live PR.
+
+
+## PR42 address-ranking CI continuation — 2026-10-28
+
+The user requests fixing PR42 CI. Run40647644280 passes ordinary verification but fails
+mobile address latency (1290.4/1341.4 ms first repetitions); traces include Worker collection.
+The bounded query-local address rank path avoids repeated scoring allocations while retaining
+literal-name fallback and page reasons. All108search tests and types/build/quality checks pass.
+Local full execution:1438pass/4existing Node22/macOS failures. Full-source parity and final-head
+hosted evidence are required before any CI-success claim. See reports/ci-2026-10-28-pr42-address-ranking.md
+and live PR42. Existing dirty worktrees are preserved. No deployment or task closure occurs.
+
+
 ## TASK-009 lossless preparation and requested PR — 2026-10-27
 
 The user requested steps 2/3 and PR creation. The new isolated worktree is based on65cb9e6;

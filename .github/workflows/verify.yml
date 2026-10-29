@@ -26,3 +26,55 @@ jobs:
       - run: npm run verify:full
       - name: Verify Pages artifact packaging without publication
         run: node --test scripts/check-pages-artifact.test.mjs scripts/check-publication-state.test.mjs scripts/check-publication-workflows.test.mjs scripts/publication-operators.test.mjs scripts/initial-import-operators.test.mjs
+      - name: Verify full-source diagnostic evidence admission
+        run: node --test scripts/full-source-performance-support.test.mjs
+  full-source-diagnostic:
+    if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'codex/task-009-hosted-performance')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24.19.0
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+      - run: npx --no-install playwright install chromium --with-deps
+      - name: Rebuild the exact retained source as a non-publishable local proof
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: |
+          node --input-type=module <<'JS'
+          import { join } from 'node:path';
+          import { mkdir } from 'node:fs/promises';
+          import { readJson, trustedCode } from './scripts/publication-operator-support.mjs';
+          import { prepareInitialImport } from './scripts/initial-import-support.mjs';
+          const root = join(process.env.RUNNER_TEMP, 'full-source-diagnostic');
+          await mkdir(root);
+          const files = await trustedCode(async load => {
+            const { selectInitialSourceApproval } = await load('initial-import-approval');
+            const { downloadInitialSource } = await load('initial-source-download');
+            const config = await readJson('publication/config.json', 4 * 1024 * 1024);
+            const registry = await readJson('publication/initial-import-approvals.json', 4 * 1024 * 1024);
+            const approval = selectInitialSourceApproval(registry, 'seoul-2026-10-16-initial', config);
+            return downloadInitialSource(approval, join(root, 'source'));
+          });
+          await prepareInitialImport({ mode: 'local-proof', configPath: 'publication/config.json',
+            archivePath: files.archivePath, observationPath: files.observationPath, output: join(root, 'prepared') });
+          JS
+      - name: Measure complete-source desktop and emulated-mobile diagnostics
+        run: |
+          mkdir "$RUNNER_TEMP/full-source-diagnostic/site"
+          tar -xf "$RUNNER_TEMP/full-source-diagnostic/prepared/artifact.tar" -C "$RUNNER_TEMP/full-source-diagnostic/site"
+          node scripts/measure-full-source-performance.mjs "$RUNNER_TEMP/full-source-diagnostic/prepared" "$RUNNER_TEMP/full-source-diagnostic/site" "$RUNNER_TEMP/full-source-diagnostic/results"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: full-source-performance-diagnostic
+          path: ${{ runner.temp }}/full-source-diagnostic/results/
+          retention-days: 7
+          if-no-files-found: warn

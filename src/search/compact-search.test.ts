@@ -8,6 +8,7 @@ import {
   flattenRecord,
 } from '../shared/compact-data.js';
 import { CompactSearch } from './compact-search.js';
+import * as addressComparison from './compare-search-address.js';
 import { createSearchIndex, searchCandidates } from './search-candidates.js';
 
 const archiveSha256 = 'a'.repeat(64);
@@ -150,6 +151,158 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('reuses zeroed scratch buffers across distinct searches without changing full results', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    let byteArrays = 0;
+    let scoreArrays = 0;
+    vi.stubGlobal(
+      'Uint8Array',
+      new Proxy(Uint8Array, {
+        construct(target, args) {
+          byteArrays++;
+          return Reflect.construct(target, args);
+        },
+      }),
+    );
+    vi.stubGlobal(
+      'Int16Array',
+      new Proxy(Int16Array, {
+        construct(target, args) {
+          scoreArrays++;
+          return Reflect.construct(target, args);
+        },
+      }),
+    );
+    try {
+      for (const query of ['강남구', '테헤란로 12', '없는상호', '서초구', '봄카페', '테헤란로 123'])
+        await expectCompleteOracleParity(store, records, query);
+      expect(byteArrays).toBeLessThanOrEqual(4);
+      expect(scoreArrays).toBe(1);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  test('isolates scratch buffers for an overlapping cancelled search', async () => {
+    const records = Array.from({ length: 2500 }, (_, index) =>
+      record(index + 1, `검색상점${index}`, `서울특별시 강남구 테헤란로 ${index + 1}`),
+    );
+    const input = fixture(records, 500);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    let release: (() => void) | undefined;
+    let first = true;
+    vi.stubGlobal('scheduler', {
+      yield() {
+        if (!first) return Promise.resolve();
+        first = false;
+        return new Promise<void>((resolve) => {
+          release = resolve;
+        });
+      },
+    });
+    const controller = new AbortController();
+    try {
+      const pending = store.search('테헤란로 123', controller.signal);
+      const rejection = expect(pending).rejects.toMatchObject({ name: 'AbortError' });
+      await expectCompleteOracleParity(store, records, '검색상점1000');
+      const accepted = store.page(0);
+      controller.abort();
+      release?.();
+      await rejection;
+      expect(store.page(0)).toEqual(accepted);
+      await expectCompleteOracleParity(store, records, '테헤란로 2500');
+    } finally {
+      release?.();
+      vi.unstubAllGlobals();
+    }
+  });
+
+  test('compares repeated address projections once per address-only search', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `상점${index}`, '서울특별시 강남구 테헤란로 124'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    try {
+      await store.search('테헤란로 123');
+      expect(compare.mock.calls.length).toBeLessThanOrEqual(2);
+      expect(store.page(0).similarCount).toBe(200);
+    } finally {
+      compare.mockRestore();
+    }
+    for (const query of ['테헤란로 123', '테헤란로 124', '테헤란로', '역삼동 12'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('preserves address-only ranks, literal-name fallback and contradictory field evidence', async () => {
+    const roads = [
+      '테헤란로 123',
+      '서울특별시 강남구 테헤란로 123',
+      '서울특별시 강남구 테헤란로 124',
+      '서울특별시 서초구 테헤란로 123',
+      '테헤란로 서초대로 123',
+      '',
+      '테헤란로',
+      '역삼동 123',
+    ];
+    const records = Array.from({ length: 89 }, (_, index) =>
+      record(
+        1000 + ((index * 37) % 89),
+        index % 5 === 0 ? '테헤란로 123' : index % 7 === 0 ? '' : `상점${index}`,
+        roads[index % roads.length],
+        index % 3 === 0 ? '서울특별시 서초구 역삼동 123' : '',
+      ),
+    );
+    const input = fixture(records, 11);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    for (const query of [
+      '테헤란로 123',
+      '테헤란로 124',
+      '테헤란로',
+      '서울특별시 강남구 테헤란로 123',
+      '역삼동 123',
+      '강남구 역삼동',
+      '테헤란로 서초대로 123',
+      '상점 테헤란로 123',
+      '테헤란로 123',
+    ])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('preserves full ID ranking across interleaved district conflicts and empty searches', async () => {
+    const roads = [
+      '서울특별시 강남구 테헤란로 12',
+      '서울특별시 서초구 서초대로 20',
+      '',
+      '강남구 서초구 테헤란로 123',
+      '서울특별시 강남구',
+    ];
+    const records = Array.from({ length: 67 }, (_, index) =>
+      record(
+        10_000 + ((index * 37) % 67),
+        index % 7 === 0 ? '강남구문구' : `순서상점${index}`,
+        roads[index % roads.length],
+        index % 3 === 0
+          ? '서울특별시 강남구 역삼동 12'
+          : index % 3 === 1
+            ? '서울특별시 서초구 서초동 12'
+            : '',
+      ),
+    );
+    const input = fixture(records, 11);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    for (const query of ['강남구', '서초구', '서울특별시 강남구', '강동구', '강남구'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
   test('preserves all pages when key-only admission meets numeric substrings, Unicode and empty addresses', async () => {
     const records = [
       ...Array.from({ length: 49 }, (_, i) =>

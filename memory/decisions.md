@@ -7,6 +7,23 @@ Harness Version: 1.1
 
 # Decision Log — open-store-searcher
 
+## PR42 leased scratch reuse — 2026-10-28
+
+The first hosted allocation correction still fails address latency. Reuse cleared scratch
+buffers through exclusive per-search leases, keeping only one idle workspace. Accept the
+bounded retained scratch cost in exchange for avoiding repeated full-record allocations;
+retain independent result vectors and existing cancellation/state-publication boundaries.
+Actual hosted performance remains required. No accepted public/data/status contract changes.
+
+
+## PR42 bounded address-rank reuse — 2026-10-28
+
+Use per-query address comparison flags only when interpreted name and literal-name match are
+absent. Keep the oracle scorer for pages/fallback and the unchanged complete comparator order.
+This internal allocation reduction changes no accepted data/status/public-interface contract.
+The500msbudget and actual hosted verification remain mandatory. See the PR42 address CI report.
+
+
 ## Bounded TASK-009 preparation implementation — 2026-10-27
 
 Under the user's steps 2/3 execution request, compute only required projection fields and retain
