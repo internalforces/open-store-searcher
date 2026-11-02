@@ -152,6 +152,79 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('owns packed column references and releases source containers without changing input', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const original = JSON.stringify(input.blocks);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const prepared = store as unknown as {
+      blocks: readonly CompactBlock[] | null;
+      preparedBlocks: { block: CompactBlock; evidence: CompactBlock }[];
+    };
+    const packed = prepared.preparedBlocks.flatMap(({ block, evidence }) => [block, evidence]);
+    const columns = packed.flatMap((block) => block.columns).filter((column) => 'refs' in column);
+    expect(columns.length).toBeGreaterThan(0);
+    expect(columns.every((column) => 'refs' in column && column.refs instanceof Uint32Array)).toBe(
+      true,
+    );
+    expect(prepared.blocks).toBeNull();
+    expect(JSON.stringify(input.blocks)).toBe(original);
+    for (const block of packed) {
+      const source = input.blocks.find(
+        (value) => value.role === block.role && value.start === block.start,
+      );
+      expect(block).not.toBe(source);
+      block.columns.forEach((column, index) => {
+        if ('refs' in column) {
+          const before = source?.columns[index];
+          expect(before && 'refs' in before && Array.from(column.refs)).toEqual(
+            before && 'refs' in before ? before.refs : null,
+          );
+        }
+      });
+    }
+    for (const query of ['강남구', '봄카페', '테헤란로 123'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('retains original data for retry when cancellation arrives while packing evidence references', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const original = JSON.stringify(input.blocks);
+    const column = input.blocks
+      .find((block) => block.role === 'evidence')
+      ?.columns.find((value) => 'refs' in value);
+    if (!column || !('refs' in column)) throw new Error('Fixture needs evidence references');
+    const descriptor = Object.getOwnPropertyDescriptor(column.refs, '0') as PropertyDescriptor;
+    const value = column.refs[0];
+    const controller = new AbortController();
+    Object.defineProperty(column.refs, '0', {
+      configurable: true,
+      enumerable: true,
+      get() {
+        controller.abort();
+        return value;
+      },
+    });
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    try {
+      await expect(store.prepare(controller.signal)).rejects.toMatchObject({ name: 'AbortError' });
+    } finally {
+      Object.defineProperty(column.refs, '0', descriptor);
+    }
+    const retryable = (store as unknown as { blocks: CompactBlock[] }).blocks;
+    expect(retryable).not.toBe(input.blocks);
+    expect(retryable).toHaveLength(input.blocks.length);
+    expect(
+      retryable[0]?.columns.some((value) => 'refs' in value && value.refs instanceof Uint32Array),
+    ).toBe(true);
+    expect(JSON.stringify(input.blocks)).toBe(original);
+    await store.prepare();
+    await expectCompleteOracleParity(store, records, '강남구');
+    await expectCompleteOracleParity(store, records, '봄카페');
+  });
+
   test('reuses zeroed scratch buffers across distinct searches without changing full results', async () => {
     const records = representativeRecords();
     const input = fixture(records);

@@ -1,7 +1,7 @@
-import { seoulCalendarDate } from './data-freshness.js';
-import { isCalendarDate } from '../pipeline/calendar-date.js';
 import type { DisplayDataset, DisplayRecord } from '../app/display-data.js';
 import { mapLicenseStatusV1 } from '../domain/map-license-status.js';
+import { isCalendarDate } from '../pipeline/calendar-date.js';
+import { seoulCalendarDate } from './data-freshness.js';
 
 export const COMPACT_BLOCK_ROWS = 8192;
 export const COMPACT_MAX_BYTES = 8 * 1024 * 1024;
@@ -29,10 +29,11 @@ export const COMPACT_FIELDS = [
   'sourceUrl',
 ] as const;
 export type CompactRecord = DisplayRecord & { readonly processedStatus: string };
+// Network validation still requires JSON arrays. An owned prepared copy may pack references.
 export type Column =
   | { values: unknown[] }
-  | { dictionary: unknown[]; refs: number[] }
-  | { shared: number; refs: number[] };
+  | { dictionary: unknown[]; refs: number[] | Uint32Array }
+  | { shared: number; refs: number[] | Uint32Array };
 export type Dictionaries = (unknown[] | null)[];
 export interface CompactEntry {
   name: string;

@@ -7,6 +7,74 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Owned progressive storage after retained mobile failures
+
+Run 41416612445 at be30350 passes canonical 1,461 Vitest / 92 browser / 20 accessibility
+and 102 operator / 9 admission checks. Full-source performance still fails three of
+60 observations: mobile-cold name598.0/693.5 ms and mobile-warm partial-address891.1 ms.
+Worker MajorGC402.5/803.8 ms remains. Every desktop observation passes; result counts,
+layout and query-time request checks remain correct and browser errors are empty.
+Readiness is65.3–72.4 seconds, initial code117,935 bytes, sampled browser-process RSS
+2.28–3.30 GB. Primary/LCP meet unchanged budgets; the overall run is still a failure.
+
+Retained-memory experiments are separate Node22 diagnostics with explicit GC before/
+after offline mutations. They are not application latency or hosted acceptance. One
+in-place experiment on the preceding representation records:
+
+| Stage | Managed heap bytes | ArrayBuffer bytes |
+|---|---:|---:|
+| Original prepared state | 1,952,067,328 | 78,723,076 |
+| Equal parsed component strings shared | 1,780,790,896 | 78,723,076 |
+| Numeric column references packed | 1,349,523,576 | 294,776,132 |
+
+There are103,773 unique province/district/locality/road/number values across millions
+of repeated fields, and54,013,264 references in6,608 columns. Packed references use
+216,053,056 native buffer bytes. Managed heap decreases602,543,752 bytes while buffers
+increase216,053,056 bytes; this is a representation trade-off, not an RSS claim. RSS
+in this same in-place experiment increases219,840,512 bytes. No peak or isolated
+cross-process memory improvement is inferred.
+
+Production code now shares only equal primitive component strings, preserving full
+address keys, family, ambiguity and scoring values. It copies reference columns into
+owned Uint32 buffers after checking integer/range exactness. Original column values
+and dictionaries remain shared immutable data; caller inputs are never changed. The
+wire validator still requires JSON arrays, with its original bounds and semantic
+checks. The TypeScript Column union additionally permits private prepared Uint32 refs;
+no public compact JSON, delivery, status, source or interface changes.
+
+Preparation maintains a complete per-call retryable block list. Each completed pair
+replaces obsolete references in owned/local lists before its cooperative checkpoint.
+Cancellation retains all data for retry; final containers release on success. Worker
+captures metadata/count and releases its input snapshot before preparation. Its
+generation/request/abort checks and final store replacement are preserved. No query
+warming, forced app GC, wait, result pooling or changed acceptance budget is added.
+
+Initial storage-ownership and evidence-packing cancellation tests are observed RED/
+GREEN. The progressive retry-ownership assertion is also observed RED/GREEN. All129
+search tests/types pass; full local verification has1,459 passes/four unchanged
+Node22/macOS failures (1,463 total). Build, both quality checks and9admission checks pass.
+Two independent reviewers approve hosted verification with no findings. Independent
+checks reject typed wire refs and negative/fractional/overflowing/nonfinite conversion;
+overlapping prepare cancellation/retry and accepted-result preservation also pass.
+
+The actual progressive production-code diagnostic, with the caller snapshot released,
+records heap1,388,610,672 bytes before explicit diagnostic GC and1,349,576,040 afterward;
+post-GC ArrayBuffers294,776,132 and RSS1,968,046,080 bytes. Basic final-copy storage had
+before-GC heap1,821,374,616 in a separate run. These snapshots are not continuous peaks
+or an isolated causal comparison. All three recorded source hashes match current code.
+All56 final progressive complete-source vectors/counts/full-field boundary pages match
+frozen main. Receipt SHA256:
+`72157bf06cbebeb62c8f4dc127f62ab153e4148846873a75c8952a43da27ed0d`.
+Current code bindings match. Original/current preparation33.14/31.76 seconds is
+descriptive, not an isolated causal comparison. The production-memory diagnostic SHA256
+is`4b16ce323fa39a6fbb338dc7ab4bcb8b1e128cb11a0a0d2233cc38137c86e30d`.
+Separate unprofiled serial observations (caller snapshot released before preparation,
+without sampling or forced GC) are district159–181 ms, partial-address169–179 ms,
+absent128–137 ms, name185–190 ms and mixed219–244 ms. All15 meet500 ms. Preparation
+is31.03 seconds after5.88 seconds validated load; ready heap1,388,555,304 bytes.
+These remain Node22 diagnostics. New-head supported ordinary/full-source browser
+outcomes remain pending. Earlier failures remain evidence.
+
 ## Split numeric filters after retained hosted failure
 
 Run 41410100414 at PR head a3c58f1 passes canonical 1,458 Vitest / 92 browser /

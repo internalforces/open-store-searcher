@@ -59,13 +59,20 @@
 - [ ] Deliver only the requested source/tests and readable evidence in a focused PR; read final-head canonical ordinary and full-source browser outcomes.
 - [ ] Record complete readiness, primary/LCP, sampled memory, full-source identity and limitations.
 
-Hosted follow-ups retain every failure. Query-phase allocation sampling after run
-41410100414 suggests numeric-mask boxing. Final reviewed storage keeps the full
-32-bit predicate as two interleaved Uint16 values, preserving four retained bytes
-per projection. Observed RED/GREEN, 127 search tests and all 56 final split complete-
-source comparisons pass. Sampled allocations decrease 63,805,840 to 39,898,904 bytes;
-all 15 unprofiled Node serial samples meet 500 ms. Profiling/host limitations and
-temporary preparation entries remain explicit.
+Hosted follow-ups retain every failure, including be30350's three mobile misses in
+run41416612445. Final reviewed preparation shares only equal address components,
+owns packed Uint32 column refs and releases completed original reference containers
+through a complete retryable per-call list. Worker drops its caller snapshot before
+preparing while retaining metadata/count and original publication guards. Strict wire
+JSON arrays, source/status/date, full matching/ranking and input immutability remain.
+
+Observed RED/GREEN ownership/cancellation/progressive-retry regressions and all129
+search tests/types pass. Final56-query source parity passes with source hashes bound;
+local full1463 retains four unchanged unsupported-host errors. Actual production-code
+offline memory snapshots show1.39GB managed heap before diagnostic GC/1.35GB afterward,
+plus216MB of typed reference buffers. These are not peak/RSS or hosted latency claims.
+All15 final unprofiled Node serial observations meet500 ms, with source/host limitations
+retained. Supported final-head ordinary/full-source browser outcomes remain pending.
 
 ## Task 4: Publication/recovery, then TASK-010
 

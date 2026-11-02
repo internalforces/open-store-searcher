@@ -7,6 +7,32 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 owned progressive storage continuation — 2026-11-02
+
+Run41416612445 at be30350 passes canonical1461/92/20 plus102operator/9admission but
+fails3of60 mobile observations. Major collections remain. No performance acceptance,
+integration or publication occurs; every earlier failure and budget stays authoritative.
+
+The current reviewed candidate shares equal parsed components and owns Uint32 column
+references while preserving strict JSON-array wire validation and exact numeric values.
+A complete per-call working list replaces each completed pair, remains retryable after
+cancellation, and releases final source containers on success. Worker captures reply
+metadata/count and drops its snapshot before preparation; caller inputs stay unchanged.
+
+Storage-ownership/cancellation/progressive-retry regressions observe RED/GREEN. All129
+search tests/types and56full-source vectors/counts/full-field boundary pages pass; final
+receipt72157bf06cbebeb62c8f4dc127f62ab153e4148846873a75c8952a43da27ed0d.
+Full local suite1459passes/4unchanged Node22/macOS failures (1463total), build, quality
+and9admission pass. Independent address/storage/lifetime reviews approve hosted checks;
+o peak, physical or hosted latency pass follows from the offline memory diagnostics.
+Unprofiled Node serial all15 meet500 ms (name185–190 ms, mixed219–244 ms), with
+31.03s preparation/5.88s load; this is not browser acceptance. Fresh final-head canonical/
+full-source outcomes remain required.
+
+TASK-009 alone is active; exact-candidate protected approval/public equality/durable
+backup/recovery remain downstream. TASK-010 needs actual30-day evidence afterward;
+TASK-028 paused, TASK-021 gated and physical measurement user-skipped.
+
 ## TASK-009 split numeric-filter continuation — 2026-11-02
 
 Canonical Verify 41410100414 passes 1,458 Vitest / 92 browser / 20 accessibility

@@ -33,6 +33,24 @@ const SEARCH_BATCH = 2_048;
 const SORT_BATCH = 8_192;
 const COOPERATIVE_BUDGET_MS = 8;
 const EMPTY_ORDINALS = new Uint32Array();
+const ADDRESS_COMPONENTS = ['province', 'district', 'locality', 'road', 'number'] as const;
+
+/** Own numeric storage without mutating the validated input or changing reference values. */
+function packBlockReferences(block: CompactBlock): CompactBlock {
+  return {
+    ...block,
+    columns: block.columns.map((column) => {
+      if ('values' in column) return column;
+      requireCompact(
+        column.refs.every(
+          (reference) =>
+            Number.isSafeInteger(reference) && reference >= 0 && reference <= 0xffffffff,
+        ),
+      );
+      return { ...column, refs: new Uint32Array(column.refs) };
+    }),
+  };
+}
 
 /** Necessary character membership only: collisions admit extra comparisons, never drop a match. */
 function characterMask(value: string): number {
@@ -187,7 +205,7 @@ export class CompactSearch {
   readonly recordCount: number;
 
   private readonly manifest: CompactManifest;
-  private readonly blocks: readonly CompactBlock[];
+  private blocks: readonly CompactBlock[] | null;
   private readonly dictionaries: Dictionaries;
   private preparedBlocks: readonly PreparedBlock[] | null = null;
   private nameProjections: readonly string[] = [];
@@ -213,6 +231,7 @@ export class CompactSearch {
   async prepare(signal?: AbortSignal): Promise<void> {
     throwIfAborted(signal);
     if (this.preparedBlocks) return;
+    requireCompact(this.blocks);
     requireCompact(this.dictionaries.length === 21);
     const searchBlocks = this.blocks
       .filter((block) => block.role === 'search')
@@ -221,6 +240,13 @@ export class CompactSearch {
       .filter((block) => block.role === 'evidence')
       .toSorted((left, right) => left.start - right.start);
     requireCompact(searchBlocks.length === evidenceBlocks.length);
+    // Replace each processed pair with its owned copy. Cancellation can retry
+    // this complete mixture while obsolete numeric arrays become collectible.
+    const workingBlocks = searchBlocks.flatMap((block, index) => [
+      block,
+      evidenceBlocks[index] as CompactBlock,
+    ]);
+    this.blocks = workingBlocks;
 
     const names: string[] = [];
     const nameMasks: number[] = [];
@@ -230,6 +256,7 @@ export class CompactSearch {
     const addressMasks: number[] = [];
     const nameIndexes = new Map<string, number>();
     const addressIndexes = new Map<string, number>();
+    const addressComponents = new Map<string, string>();
     const prepared: PreparedBlock[] = [];
     let expectedStart = 0;
     let preparedRows = 0;
@@ -250,6 +277,12 @@ export class CompactSearch {
       if (existing !== undefined) return existing;
       const next = addresses.length;
       const address = parseSearchAddress(value);
+      for (const field of ADDRESS_COMPONENTS) {
+        const part = address[field];
+        const existingPart = addressComponents.get(part);
+        if (existingPart === undefined) addressComponents.set(part, part);
+        else address[field] = existingPart;
+      }
       addresses.push(address);
       const mask = characterMask(address.key);
       addressMasks.push(mask & 0xffff, mask >>> 16);
@@ -297,8 +330,21 @@ export class CompactSearch {
           await checkpoint();
         }
       }
-      prepared.push({ block, evidence, nameRefs, roadRefs, parcelRefs });
+      const packedBlock = packBlockReferences(block);
+      const packedEvidence = packBlockReferences(evidence);
+      prepared.push({
+        block: packedBlock,
+        evidence: packedEvidence,
+        nameRefs,
+        roadRefs,
+        parcelRefs,
+      });
+      workingBlocks[blockIndex * 2] = packedBlock;
+      workingBlocks[blockIndex * 2 + 1] = packedEvidence;
+      searchBlocks[blockIndex] = packedBlock;
+      evidenceBlocks[blockIndex] = packedEvidence;
       expectedStart += block.count;
+      await checkpoint();
     }
     requireCompact(expectedStart === this.recordCount);
 
@@ -306,6 +352,7 @@ export class CompactSearch {
     // backing storage before ordering IDs, rather than retaining it until readiness.
     nameIndexes.clear();
     addressIndexes.clear();
+    addressComponents.clear();
 
     // Preserve all 32 membership bits as two small integers, avoiding boxed
     // unsigned values during hot reads without weakening projection rejection.
@@ -344,6 +391,7 @@ export class CompactSearch {
     this.nameMasks = preparedNameMasks;
     this.addressMasks = preparedAddressMasks;
     this.workspace = workspace;
+    this.blocks = null;
   }
 
   async search(original: string, signal?: AbortSignal): Promise<void> {
