@@ -7,6 +7,29 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 split numeric-filter continuation — 2026-11-02
+
+Canonical Verify 41410100414 passes 1,458 Vitest / 92 browser / 20 accessibility
+plus 102 operator / 9 admission checks, but retains five of 60 full-source observations
+above 500 ms. No performance acceptance, integration or publication occurs.
+
+Final reviewed local storage keeps the original 32 membership bits in two interleaved
+Uint16 values (four bytes/projection). This avoids large candidate numeric reads while
+preserving exactly the original filter predicate. Numeric-range and high-bit collision
+regressions have observed RED/GREEN; all 127 search tests/types pass. Independent review
+checks 96 extra oracle queries across all 32 buckets and exact four-byte reconstruction.
+Node sampled allocation estimates are 63,805,840 to 39,898,904 total and 22,148,480 to
+225,504 in `possibleName`, not zero. These are profiled compatibility diagnostics.
+All 56 final split complete-source vectors/counts/full-field boundary pages match.
+Unprofiled Node serial observations all meet 500 ms (name188–194 ms, mixed219–230 ms).
+Local full execution has 1,457 passes/four unchanged Node22/macOS failures (1,461 total).
+These diagnostics do not establish hosted acceptance.
+Read actual new-head canonical/browser outcomes before acceptance or publication.
+
+TASK-009 alone remains active. Publication/public equality/durable backup/recovery stay
+downstream; TASK-010 requires actual 30-day evidence afterward. TASK-028 stays paused,
+TASK-021 gated and physical measurement user-skipped. See the current performance report.
+
 ## TASK-009 prioritized completion continuation — 2026-11-02
 
 The user requests execution of the identified priorities. TASK-009 alone remains active.

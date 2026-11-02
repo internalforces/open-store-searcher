@@ -238,6 +238,64 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
     }
   });
 
+  test('keeps prepared numeric filters within the allocation-free small-integer range', async () => {
+    const records = [
+      record(1, 'abcdefghijklmnopqrstuvwxyz 가나다라마사아자차카타파하'),
+      record(2, '봄카페', '서울특별시 강남구 테헤란로 123'),
+    ];
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    const arrays: (Uint16Array | Uint32Array)[] = [];
+    for (const [name, Native] of [
+      ['Uint16Array', Uint16Array],
+      ['Uint32Array', Uint32Array],
+    ] as const)
+      vi.stubGlobal(
+        name,
+        new Proxy(Native, {
+          construct(target, args) {
+            const value = Reflect.construct(target, args) as Uint16Array | Uint32Array;
+            arrays.push(value);
+            return value;
+          },
+        }),
+      );
+    try {
+      await store.prepare();
+    } finally {
+      vi.unstubAllGlobals();
+    }
+    expect(arrays.length).toBeGreaterThan(0);
+    expect(arrays.every((values) => values.every((value) => value <= 0x3fffffff))).toBe(true);
+    for (const query of ['봄카페', '테헤란로 123', 'ab b', '가나다'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test.each([
+    ['an', 'z'],
+    ['nn', 'f'],
+  ])(
+    'retains distinct character rejection for %s using small numeric values',
+    async (query, letter) => {
+      const records = Array.from({ length: 200 }, (_, index) =>
+        record(index + 1, letter.repeat(index + 2), '', ''),
+      );
+      const input = fixture(records);
+      const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+      await store.prepare();
+      const compare = vi.spyOn(candidateScoring, 'matchName');
+      let comparisons = 0;
+      try {
+        await store.search(query);
+        comparisons = compare.mock.calls.length;
+      } finally {
+        compare.mockRestore();
+      }
+      expect(comparisons).toBe(0);
+      await expectCompleteOracleParity(store, records, query);
+    },
+  );
+
   test('filters incompatible name projections before detailed substring comparison', async () => {
     const records = Array.from({ length: 200 }, (_, index) => record(index + 1, `봄카페${index}`));
     const input = fixture(records);

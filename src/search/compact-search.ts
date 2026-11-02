@@ -192,8 +192,8 @@ export class CompactSearch {
   private preparedBlocks: readonly PreparedBlock[] | null = null;
   private nameProjections: readonly string[] = [];
   private addressProjections: readonly AddressParts[] = [];
-  private nameMasks: Uint32Array = EMPTY_ORDINALS;
-  private addressMasks: Uint32Array = EMPTY_ORDINALS;
+  private nameMasks = new Uint16Array();
+  private addressMasks = new Uint16Array();
   private state: SearchState | null = null;
   private identifierOrder: Uint32Array = EMPTY_ORDINALS;
   private workspace: SearchWorkspace | null = null;
@@ -240,7 +240,8 @@ export class CompactSearch {
       const next = names.length;
       const key = projectSearchName(value);
       names.push(key);
-      nameMasks.push(characterMask(key));
+      const mask = characterMask(key);
+      nameMasks.push(mask & 0xffff, mask >>> 16);
       nameIndexes.set(value, next);
       return next;
     };
@@ -250,7 +251,8 @@ export class CompactSearch {
       const next = addresses.length;
       const address = parseSearchAddress(value);
       addresses.push(address);
-      addressMasks.push(characterMask(address.key));
+      const mask = characterMask(address.key);
+      addressMasks.push(mask & 0xffff, mask >>> 16);
       addressIndexes.set(value, next);
       return next;
     };
@@ -305,8 +307,10 @@ export class CompactSearch {
     nameIndexes.clear();
     addressIndexes.clear();
 
-    const preparedNameMasks = Uint32Array.from(nameMasks);
-    const preparedAddressMasks = Uint32Array.from(addressMasks);
+    // Preserve all 32 membership bits as two small integers, avoiding boxed
+    // unsigned values during hot reads without weakening projection rejection.
+    const preparedNameMasks = Uint16Array.from(nameMasks);
+    const preparedAddressMasks = Uint16Array.from(addressMasks);
     nameMasks.length = 0;
     addressMasks.length = 0;
     // Query-sized scratch belongs to preparation, not the first user search.
@@ -421,19 +425,38 @@ export class CompactSearch {
     const literalAddressMask = characterMask(
       scoring.literalTokens.map(({ value }) => value).join(''),
     );
-    const nameMatches = (query: string, queryMask: number, key: string, candidateMask: number) => {
+    const nameMatches = (
+      query: string,
+      queryMask: number,
+      key: string,
+      candidateLow: number,
+      candidateHigh: number,
+    ) => {
       if (!query || !key) return false;
-      const required = query.length <= key.length ? queryMask : candidateMask;
-      return (queryMask & candidateMask) >>> 0 === required && matchName(query, key) !== 'none';
+      const queryLow = queryMask & 0xffff;
+      const queryHigh = queryMask >>> 16;
+      const shorterQuery = query.length <= key.length;
+      return (
+        (queryLow & candidateLow) === (shorterQuery ? queryLow : candidateLow) &&
+        (queryHigh & candidateHigh) === (shorterQuery ? queryHigh : candidateHigh) &&
+        matchName(query, key) !== 'none'
+      );
     };
     const possibleName = (reference: number) => {
       if (!names[reference]) {
         const key = this.nameProjections[reference] as string;
-        const candidateMask = this.nameMasks[reference] as number;
+        const candidateLow = this.nameMasks[reference * 2] as number;
+        const candidateHigh = this.nameMasks[reference * 2 + 1] as number;
         names[reference] =
-          nameMatches(scoring.query.nameKey, queryNameMask, key, candidateMask) ||
+          nameMatches(scoring.query.nameKey, queryNameMask, key, candidateLow, candidateHigh) ||
           (scoring.query.nameKey !== scoring.validation.nameKey &&
-            nameMatches(scoring.validation.nameKey, literalNameMask, key, candidateMask))
+            nameMatches(
+              scoring.validation.nameKey,
+              literalNameMask,
+              key,
+              candidateLow,
+              candidateHigh,
+            ))
             ? 2
             : 1;
       }
@@ -456,8 +479,10 @@ export class CompactSearch {
               : 1;
         } else
           addresses[reference] =
-            ((this.addressMasks[reference] as number) & literalAddressMask) >>> 0 ===
-              literalAddressMask &&
+            ((this.addressMasks[reference * 2] as number) & (literalAddressMask & 0xffff)) ===
+              (literalAddressMask & 0xffff) &&
+            ((this.addressMasks[reference * 2 + 1] as number) & (literalAddressMask >>> 16)) ===
+              literalAddressMask >>> 16 &&
             matchesLiteralAddressKey(
               (this.addressProjections[reference] as AddressParts).key,
               scoring.literalTokens,

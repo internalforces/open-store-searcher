@@ -35,29 +35,37 @@
 **Files:** `src/search/compact-search.ts`, `src/search/compact-search.test.ts`.
 
 - [x] Run the unchanged 110 search tests and profile the complete retained source on current main.
-- [ ] Add a repeated-address mixed-query comparison regression and blank/nonblank-name oracle cases.
-- [ ] Observe the expected repeated-comparison failure before changing production code.
-- [ ] Reuse query-local address ranks for rows with neither interpreted nor literal name matches; preserve score 100 only where the existing scorer permits it.
-- [ ] Run search/type/quality checks and complete-source rank/count/page parity; retain timings.
-- [ ] If ranking still exceeds budget, profile and test a bounded ranking correction before adopting it.
+- [x] Add a repeated-address mixed-query comparison regression and blank/nonblank-name oracle cases.
+- [x] Observe the expected repeated-comparison failure before changing production code.
+- [x] Reuse query-local address ranks for rows with neither interpreted nor literal name matches; preserve score 100 only where the existing scorer permits it.
+- [x] Run search/type/quality checks and complete-source rank/count/page parity; retain timings.
+- [x] If ranking still exceeds budget, profile and test a bounded ranking correction before adopting it.
 
 ## Task 2: Preparation and memory follow-up
 
 **Files:** The measured preparation bottleneck and its existing owning test file only.
 
-- [ ] Use actual CPU/allocation evidence to identify redundant preparation work.
-- [ ] Write and observe a failing regression for the chosen behavior, implement the smallest correction and run its complete relevant tests.
-- [ ] Compare full-source preparation, memory and search identities without treating Node diagnostics as browser acceptance.
+- [x] Use actual CPU/allocation evidence to identify redundant preparation work.
+- [x] Write and observe a failing regression for the chosen behavior, implement the smallest correction and run its complete relevant tests.
+- [x] Compare full-source preparation, memory and search identities without treating Node diagnostics as browser acceptance.
 
 ## Task 3: Supported hosted verification and independent review
 
 **Files:** Existing full-source diagnostic support/tests and focused evidence/handoff records.
 
-- [ ] Add fixed name/mixed fixtures with exact source counts while keeping all existing fixtures and budgets.
-- [ ] Run local full verification; identify unsupported Node/macOS failures explicitly.
-- [ ] Obtain a fresh independent review of production changes, tests and evidence.
+- [x] Add fixed name/mixed fixtures with exact source counts while keeping all existing fixtures and budgets.
+- [x] Run local full verification; identify unsupported Node/macOS failures explicitly.
+- [x] Obtain a fresh independent review of production changes, tests and evidence.
 - [ ] Deliver only the requested source/tests and readable evidence in a focused PR; read final-head canonical ordinary and full-source browser outcomes.
 - [ ] Record complete readiness, primary/LCP, sampled memory, full-source identity and limitations.
+
+Hosted follow-ups retain every failure. Query-phase allocation sampling after run
+41410100414 suggests numeric-mask boxing. Final reviewed storage keeps the full
+32-bit predicate as two interleaved Uint16 values, preserving four retained bytes
+per projection. Observed RED/GREEN, 127 search tests and all 56 final split complete-
+source comparisons pass. Sampled allocations decrease 63,805,840 to 39,898,904 bytes;
+all 15 unprofiled Node serial samples meet 500 ms. Profiling/host limitations and
+temporary preparation entries remain explicit.
 
 ## Task 4: Publication/recovery, then TASK-010
 

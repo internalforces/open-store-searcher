@@ -7,6 +7,65 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Split numeric filters after retained hosted failure
+
+Run 41410100414 at PR head a3c58f1 passes canonical 1,458 Vitest / 92 browser /
+20 accessibility plus 102 operator / 9 admission checks. Its full-source diagnostic
+retains five failures among 60 observations: desktop partial-address 753.4 ms, desktop
+mixed 920.3 ms, mobile-cold partial-address 516.4/805.3 ms and mobile-warm partial-address
+802.0 ms. Counts/layouts remain correct, query-time requests are zero and browser errors
+are empty. Worker major collections remain; primitive comparisons alone do not resolve
+performance. Readiness is 65.0–72.6 seconds. Primary/LCP and 117,745 initial code bytes
+meet unchanged budgets; the run is still a failure.
+
+Query-phase Node sampling includes objects collected by major/minor GC, without an
+explicit collection command. Stopping the profiler records a collection after queries;
+profiled timings are not acceptance evidence. Estimated sampled bytes are:
+
+| Variant | Total sampled bytes | `possibleName` bytes |
+|---|---:|---:|
+| Original unsigned masks | 63,805,840 | 22,148,480 |
+| Intermediate two-bit omission | 38,153,016 | 66,600 |
+| Intermediate folded bits | 40,960,024 | 331,816 |
+| Final two 16-bit halves | 39,898,904 | 225,504 |
+
+Inference: the profiles are consistent with numeric boxing. V8 describes signed
+31-bit small integers under pointer compression in its
+[primary explanation](https://v8.dev/blog/pointer-compression). Final storage retains
+the original 32 membership bits as two interleaved Uint16 values. Each candidate read
+fits the small-integer range; comparing both halves implements exactly the original
+unsigned containment predicate, including bit 31 and both substring directions.
+Literal-address tokens retain overlap semantics. No additional filter collision or
+weakened rejection is introduced. Retained capacity stays four bytes per projection
+(15.44 MiB on this source); preparation uses two temporary numeric entries instead of
+one, so no peak-preparation-memory reduction is claimed.
+
+Both intermediate variants remain in raw evidence. Omission/folding can only add
+comparisons, but offline name cost rises; final split storage preserves the original
+filter. The numeric-range regression is observed RED/GREEN. The `an`/z fixture records
+RED200 comparisons with omitted bits, and `nn`/f records RED200 with folded bits; both
+are GREEN0 with split storage. All 127 search tests/types pass. Independent final review
+approves hosted verification with no findings: 96 extra oracle queries exercise all
+32 hash buckets and reconstruct every stored name/address mask from four bytes.
+
+All 56 final split complete-source vectors/counts/full-field boundary pages match
+frozen main. Receipt SHA256:
+`7cb04bcffe20ca8fbb4f9ac935bb8bfd35039d02c4d275de80c057bae2bf5d7d`.
+Current source bindings match that receipt. Original/current preparation is 34.58/31.34
+seconds, original first and not an isolated speed comparison. Local full execution has
+1,457 passes/four unchanged Node22/macOS failures (1,461 total); build, both quality
+checks and 9 admission checks pass. Separate unprofiled serial observations are district176–190 ms, partial-address170–172 ms,
+absent128–137 ms, name188–194 ms and mixed219–230 ms. All15 meet500 ms; preparation
+is32.07 seconds after6.15 seconds validated loading. These are Node diagnostics, not
+browser/hosted acceptance, without sampling or forced collection.
+All intermediate receipts remain historical: omitted-bit 56-query receipt
+`11e7034cef4a4fe31c057dca55c6cc2784b818729162356a1588b582263340b5`, folded-bit receipt
+`34df89bfd3f951991c8f1be30b91708ebbf2e7e3d310d3e71152f145ccee417a`.
+No source/schema/ranking/status/interface/dependency, accepted-state ownership or
+publication contract changes. Every failed observation, fixture and repetition remains;
+no favorable rerun, warming, forced collection, artificial delay or budget waiver occurs.
+Fresh supported ordinary and full-source browser outcomes remain required.
+
 ## Remaining field-comparison allocation correction
 
 Run41404984533 at115de55 passes supported1454Vitest/92browser/20accessibility,
