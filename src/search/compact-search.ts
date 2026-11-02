@@ -13,6 +13,7 @@ import {
   parseSearchAddress,
 } from './compare-search-address.js';
 import { prepareSearchQuery, projectSearchName } from './prepare-search-query.js';
+import { createAddressTarget, PreparedAddresses } from './prepared-addresses.js';
 import {
   type CandidateMatch,
   compareCandidateRank,
@@ -33,7 +34,6 @@ const SEARCH_BATCH = 2_048;
 const SORT_BATCH = 8_192;
 const COOPERATIVE_BUDGET_MS = 8;
 const EMPTY_ORDINALS = new Uint32Array();
-const ADDRESS_COMPONENTS = ['province', 'district', 'locality', 'road', 'number'] as const;
 
 /** Own numeric storage without mutating the validated input or changing reference values. */
 function packBlockReferences(block: CompactBlock): CompactBlock {
@@ -209,7 +209,7 @@ export class CompactSearch {
   private readonly dictionaries: Dictionaries;
   private preparedBlocks: readonly PreparedBlock[] | null = null;
   private nameProjections: readonly string[] = [];
-  private addressProjections: readonly AddressParts[] = [];
+  private addressProjections = new PreparedAddresses();
   private nameMasks = new Uint16Array();
   private addressMasks = new Uint16Array();
   private state: SearchState | null = null;
@@ -252,11 +252,10 @@ export class CompactSearch {
     const nameMasks: number[] = [];
     const identifiers: string[] = [];
     const identifierOrdinals = new Uint32Array(this.recordCount);
-    const addresses: AddressParts[] = [];
+    const addresses = new PreparedAddresses();
     const addressMasks: number[] = [];
     const nameIndexes = new Map<string, number>();
     const addressIndexes = new Map<string, number>();
-    const addressComponents = new Map<string, string>();
     const prepared: PreparedBlock[] = [];
     let expectedStart = 0;
     let preparedRows = 0;
@@ -277,13 +276,7 @@ export class CompactSearch {
       if (existing !== undefined) return existing;
       const next = addresses.length;
       const address = parseSearchAddress(value);
-      for (const field of ADDRESS_COMPONENTS) {
-        const part = address[field];
-        const existingPart = addressComponents.get(part);
-        if (existingPart === undefined) addressComponents.set(part, part);
-        else address[field] = existingPart;
-      }
-      addresses.push(address);
+      addresses.add(address, value);
       const mask = characterMask(address.key);
       addressMasks.push(mask & 0xffff, mask >>> 16);
       addressIndexes.set(value, next);
@@ -352,7 +345,7 @@ export class CompactSearch {
     // backing storage before ordering IDs, rather than retaining it until readiness.
     nameIndexes.clear();
     addressIndexes.clear();
-    addressComponents.clear();
+    addresses.seal();
 
     // Preserve all 32 membership bits as two small integers, avoiding boxed
     // unsigned values during hot reads without weakening projection rejection.
@@ -447,6 +440,14 @@ export class CompactSearch {
       new Map<number, number>(),
     ];
     const addressQuery = scoring.query.address;
+    const projections = this.addressProjections;
+    const queryDistrict = addressQuery ? projections.componentReference(addressQuery.district) : 0;
+    const queryAnchor = addressQuery
+      ? projections.componentReference(
+          addressQuery.family === 'road' ? addressQuery.road : addressQuery.locality,
+        )
+      : 0;
+    const addressTargets = [createAddressTarget(), createAddressTarget()] as const;
     const districtQuery =
       !scoring.query.nameKey &&
       addressQuery?.district &&
@@ -514,15 +515,11 @@ export class CompactSearch {
       if (!addresses[reference]) {
         if (scoring.query.address) {
           const query = scoring.query.address;
-          const candidate = this.addressProjections[reference] as AddressParts;
-          const sameFamily = query.family !== 'unspecified' && query.family === candidate.family;
-          const anchor = query.family === 'road' ? 'road' : 'locality';
           // Conservatively retain every relevance or exact-key path. Detailed conflicts,
           // ambiguity and confidence are still decided by the unchanged scorer below.
           addresses[reference] =
-            (query.district && query.district === candidate.district) ||
-            (sameFamily && query[anchor] && query[anchor] === candidate[anchor]) ||
-            (query.key && query.key === candidate.key)
+            projections.isRelevant(reference, queryDistrict, queryAnchor, query.family) ||
+            (query.key && query.key === projections.key(reference))
               ? 2
               : 1;
         } else
@@ -531,10 +528,7 @@ export class CompactSearch {
               (literalAddressMask & 0xffff) &&
             ((this.addressMasks[reference * 2 + 1] as number) & (literalAddressMask >>> 16)) ===
               literalAddressMask >>> 16 &&
-            matchesLiteralAddressKey(
-              (this.addressProjections[reference] as AddressParts).key,
-              scoring.literalTokens,
-            )
+            matchesLiteralAddressKey(projections.key(reference), scoring.literalTokens)
               ? 2
               : 1;
       }
@@ -548,7 +542,7 @@ export class CompactSearch {
     const addressRank = (reference: number): number => {
       const ranks = addressRanks as Uint8Array;
       if (!ranks[reference]) {
-        const candidate = this.addressProjections[reference] as AddressParts;
+        const candidate = projections.read(reference, addressTargets[0]);
         ranks[reference] = compareSearchAddressFlags(addressQuery as AddressParts, candidate);
       }
       return ranks[reference] as number;
@@ -580,12 +574,9 @@ export class CompactSearch {
         if (possible && districtQuery) {
           // A district without a core address cannot earn a score or eligibility.
           // Its only comparable conflict is district; defer full reasons to page materialization.
-          const road = this.addressProjections[block.roadRefs[row] as number] as AddressParts;
-          const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressParts;
-          const conflict = Boolean(
-            (road.district && road.district !== districtQuery.district) ||
-              (parcel.district && parcel.district !== districtQuery.district),
-          );
+          const conflict =
+            projections.hasConflictingDistrict(block.roadRefs[row] as number, queryDistrict) ||
+            projections.hasConflictingDistrict(block.parcelRefs[row] as number, queryDistrict);
           conflicts[ordinal] = conflict ? 2 : 1;
           districtCount++;
           if (!conflict) nonconflictingCount++;
@@ -604,7 +595,7 @@ export class CompactSearch {
             admit(ordinal, exact ? 100 : 0, low, conflict);
           }
         } else {
-          const scored = possible ? this.score(block, row, scoring) : null;
+          const scored = possible ? this.score(block, row, scoring, addressTargets) : null;
           if (scored) {
             admit(ordinal, scored.score, scored.confidence === 'low', hasConflict(scored));
           }
@@ -683,9 +674,14 @@ export class CompactSearch {
     };
   }
 
-  private score(block: PreparedBlock, row: number, scoring: ScoringQuery): ScoredCandidate | null {
-    const road = this.addressProjections[block.roadRefs[row] as number] as AddressParts;
-    const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressParts;
+  private score(
+    block: PreparedBlock,
+    row: number,
+    scoring: ScoringQuery,
+    targets?: readonly [AddressParts, AddressParts],
+  ): ScoredCandidate | null {
+    const road = this.addressProjections.read(block.roadRefs[row] as number, targets?.[0]);
+    const parcel = this.addressProjections.read(block.parcelRefs[row] as number, targets?.[1]);
     const entry: ScoringEntry = {
       nameKey: this.nameProjections[block.nameRefs[row] as number] as string,
       addresses: [road, parcel],

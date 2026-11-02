@@ -7,6 +7,65 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Native address projections and isolated decoration measurement
+
+Run 41424723438 at 43cd7f8 remains a failure. Full-source diagnostics pass 57/60:
+desktop mixed809.5/767.7 ms and mobile-warm broad-district901.9 ms exceed500 ms.
+MajorGC571.5/295.9/305.8 ms remains, while all source/count/layout/request checks pass
+and browser errors are empty. Readiness is56.2–64.6 seconds and code118,406 bytes.
+The ordinary job passes1,463 Vitest checks, but one Chromium decoration test fails on
+its first attempt and passes its retry; failOnFlaky still fails the job. Accessibility/
+operator steps do not run after that failure. No favorable rerun or pass is claimed.
+
+The native store replaces2,318,683 retained AddressParts objects with five Uint32
+component-reference columns, a Uint16 family/strong/core/ambiguity column and exact
+keys. It retains103,773 source component strings; query lookup never inserts unknown
+input (empty0, unknown-1). Growth/sealing preserves each value, and byte-identical raw
+keys can share their source string. Ranking hydrates only two query-local targets;
+page evidence receives fresh objects. Numeric relevance/district conflicts and the
+original full-key fallback retain the original predicates. No source/schema/status/
+interface/dependency or budget changes. Existing four byte-workspace and one score-
+array assertions remain unchanged.
+
+New storage roundtrip/growth/seal/input independence tests pass. The integrated target
+regression is observed RED0 versus400 reads, then GREEN400 using exactly two targets.
+All133 search tests/types pass; full local tests have1,463 passes/four unchanged Node22/
+macOS failures (1,467 total). Build, both quality checks and9admission checks pass.
+Independent reviews find no product defects:9,880 query/candidate predicate/flag pairs
+and complete vectors/every page for53 queries on169 records agree with frozen main.
+
+Final full-source parity agrees for all56 queries and2,951,024 records, including all
+candidate vectors/counts/full-field boundary pages. Receipt SHA256:
+`1d8fc76bccca7a5f3747e3dbaef91219cbb9f884b3f17fdb999eed3eeefd3ebf`.
+An Important evidence omission is fixed: parity and profiler lists now bind the new
+module, recording its actual absence on frozen main as null. Its current digest is
+`8fca99fc15fb349d26ea9066610d55ae01756928965c2ed74053dce5ca3c70ca`.
+Independent readback verifies every receipt source hash and resolves the finding.
+
+Actual production-code offline memory diagnostics record before-GC heap1,151,200,816;
+after diagnostic GC heap1,112,164,768 / ArrayBuffers345,787,158 / RSS1,978,007,552 bytes.
+Native address columns use51,011,026 bytes; existing row-reference buffers216,053,056.
+Diagnostic SHA256:`4e75cb727a6c32c147aa64a4162ae3ed54888171ef45894da78dd107537f85b2`.
+These explicit-GC snapshots are not application timing, peak memory or an RSS reduction.
+Separate unprofiled observations (no sampling/forced GC) are district142–167 ms,
+partial-address161–169 ms, absent129–137 ms, name178–194 ms and mixed207–212 ms;
+all15 meet500 ms. Preparation31.01 seconds follows6.08 seconds validated loading.
+These remain Node22 diagnostics, not supported browser acceptance.
+
+The ordinary failure records nativeCLS0.0267064 while initial data becomes ready;
+the ready DOM gate plus34 ms virtual advance did not establish a native paint boundary.
+The authoritative refinement design/QM-07 requires no motion-induced geometry shift.
+The test-only correction holds actual untouched same-origin demo responses through the
+static loading window, preserving editable input/disabled submit, exact bounds,
+700 ms/zero-shift/static-accent assertions. It then releases in finally and awaits real
+ready markers before the original request baseline and accepted-result/detail checks.
+One recorder handles callbacks plus takeRecords; every strict sample drains pending
+entries and atomically snapshots/switches delivery windows. Native clocks/all entries
+remain, user actions are separate, and evidence attaches in teardown after timing checks.
+Independent review approves after fixing queued-entry attribution and attachment-I/O
+findings. No thresholds/retries/timeouts change. Actual browser verification remains
+required on the next head, alongside unchanged full-source performance.
+
 ## Owned progressive storage after retained mobile failures
 
 Run 41416612445 at be30350 passes canonical 1,461 Vitest / 92 browser / 20 accessibility

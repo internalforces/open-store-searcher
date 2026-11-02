@@ -51,6 +51,22 @@
 
 ## Task 3: Supported hosted verification and independent review
 
+The reviewed native parsed-address follow-up addresses retained collections after43cd7f8:
+replace per-projection AddressParts objects with five Uint32 component-reference
+columns, a small Uint16 flag column and exact keys. Source components are interned;
+query lookup is read-only and unknown values are never inserted. Preserve every
+field/key/family/strong/core/ambiguity value, reuse one explicit address target for
+ranking, and reconstruct fresh objects only for page evidence. Keep existing byte/
+score workspace allocation assertions and all budgets. Roundtrip/growth/input independence/unknown lookup tests and integrated target RED/GREEN
+pass;133search tests and56full-source vectors/counts/pages agree. Source receipts bind
+thenewmodule with frozen-originalnull. Independent semantic/evidence review and memory/
+unprofiled Node checks pass; fresh supported ordinary/full-source outcomes remain.
+
+The ordinary43cd7f8 decoration flake is separately addressed by a test-only held-response
+loading window. Keep zero motion thresholds, all native observations, atomic takeRecords
+snapshots/delivery phases, unchanged user-action/resource checks and teardown attachment.
+Independent review/type/style pass; its real browser check remains required.
+
 **Files:** Existing full-source diagnostic support/tests and focused evidence/handoff records.
 
 - [x] Add fixed name/mixed fixtures with exact source counts while keeping all existing fixtures and budgets.

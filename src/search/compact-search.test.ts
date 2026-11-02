@@ -9,6 +9,7 @@ import {
 } from '../shared/compact-data.js';
 import { CompactSearch } from './compact-search.js';
 import * as addressComparison from './compare-search-address.js';
+import { PreparedAddresses } from './prepared-addresses.js';
 import * as candidateScoring from './search-candidates.js';
 import { createSearchIndex, searchCandidates } from './search-candidates.js';
 
@@ -152,6 +153,27 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('reuses query-local address targets while ranking names and keeps page evidence independent', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, '봄카페', `서울특별시 강남구 테헤란로 ${index + 1}`),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const read = vi.spyOn(PreparedAddresses.prototype, 'read');
+    try {
+      await store.search('봄카페');
+      const targets = read.mock.calls.map(([, target]) => target);
+      expect(targets).toHaveLength(records.length * 2);
+      expect(targets.every((target) => target !== undefined)).toBe(true);
+      expect(new Set(targets).size).toBe(2);
+    } finally {
+      read.mockRestore();
+    }
+    expect(store.page(0).similarCount).toBe(200);
+    await expectCompleteOracleParity(store, records, '봄카페');
+  });
+
   test('owns packed column references and releases source containers without changing input', async () => {
     const records = representativeRecords();
     const input = fixture(records);

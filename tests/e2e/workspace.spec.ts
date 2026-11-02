@@ -1,6 +1,6 @@
-import { beginFailureObservation, reportFailureObservation } from '../setup/failure-observation.js';
 import { expect, type Page, test } from '@playwright/test';
 import { scanPageForWcag21Violations } from '../setup/accessibility.js';
+import { beginFailureObservation, reportFailureObservation } from '../setup/failure-observation.js';
 import { mountMapSearch } from '../setup/map-browser.js';
 import { mountPagination } from '../setup/pagination-browser.js';
 
@@ -189,8 +189,49 @@ test.beforeEach(async ({ page }, info) => {
   await beginFailureObservation(page, info);
 });
 test.afterEach(async ({ page }, info) => {
+  if (
+    info.title === 'decoration preserves immediate content, stable geometry and resource boundaries'
+  ) {
+    try {
+      const observations = await page.evaluate(() => {
+        const sample = Reflect.get(window, '__workspaceTakeLayoutSample') as
+          | (() => unknown)
+          | undefined;
+        return {
+          available: !!sample,
+          supportsLayoutShift: Reflect.get(window, '__workspaceLayoutShiftSupported'),
+          phaseMeaning: 'Observer delivery windows; startTime uses the native layout-shift clock.',
+          sample: sample?.() ?? null,
+        };
+      });
+      await info.attach('workspace-layout-phases.json', {
+        body: JSON.stringify(observations),
+        contentType: 'application/json',
+      });
+    } catch (error) {
+      console.log(
+        JSON.stringify({
+          diagnostic: 'workspace-layout-attachment-unavailable',
+          error: error instanceof Error ? error.name : 'UnknownError',
+        }),
+      );
+    }
+  }
   await reportFailureObservation(page, info);
 });
+
+async function layoutSample(page: Page, nextDeliveryPhase?: string, clear = false) {
+  return page.evaluate(
+    ({ nextDeliveryPhase, clear }) => {
+      const sample = Reflect.get(window, '__workspaceTakeLayoutSample') as (
+        next?: string,
+        reset?: boolean,
+      ) => { noInputShifts: number[] };
+      return sample(nextDeliveryPhase, clear);
+    },
+    { nextDeliveryPhase, clear },
+  );
+}
 
 test('decoration preserves immediate content, stable geometry and resource boundaries', async ({
   page,
@@ -198,43 +239,107 @@ test('decoration preserves immediate content, stable geometry and resource bound
   await page.clock.install({ time: new Date('2026-09-07T14:59:00Z') });
   const requests: string[] = [];
   page.on('request', (request) => requests.push(request.url()));
-  await page.goto('./');
-  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
-  const originalUrl = page.url();
-  // Let the accepted loading state receive its first paint before isolating decoration.
-  await page.clock.runFor(34);
-  const supportsLayoutShift = await page.evaluate(() => {
-    const shifts: number[] = [];
-    Reflect.set(window, '__workspaceLayoutShifts', shifts);
-    if (!PerformanceObserver.supportedEntryTypes.includes('layout-shift')) return false;
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        if (!Reflect.get(entry, 'hadRecentInput')) shifts.push(Number(Reflect.get(entry, 'value')));
-        try {
-          const observation = Reflect.get(window, '__failureObservation') as
-            | { layout: (entry: PerformanceEntry) => void }
-            | undefined;
-          observation?.layout(entry);
-        } catch {
-          // Diagnostic failures must not suppress this or later shift entries.
-        }
-      }
-    });
-    observer.observe({ type: 'layout-shift' });
-    return true;
+  let releaseData!: () => void;
+  const dataGate = new Promise<void>((resolve) => {
+    releaseData = resolve;
   });
+  const heldRequests: string[] = [];
+  await page.route('**/assets/demo-*.json', async (route) => {
+    heldRequests.push(new URL(route.request().url()).pathname);
+    await dataGate;
+    await route.continue();
+  });
+  let originalUrl = '';
+  let supportsLayoutShift = false;
+  try {
+    await page.goto('./');
+    originalUrl = page.url();
+    await expect(page.getByRole('searchbox')).toBeVisible();
+    await expect(page.getByRole('searchbox')).toBeEditable();
+    await expect.poll(() => heldRequests.length).toBe(2);
+    await expect(page.getByRole('button', { name: '검색', exact: true })).toBeDisabled();
+    // Hold the real data state constant; virtual time is not a native paint barrier.
+    await page.clock.runFor(34);
+    supportsLayoutShift = await page.evaluate(() => {
+      const shifts: number[] = [];
+      const entries: {
+        clock: string;
+        startTime: number;
+        value: number;
+        hadRecentInput: boolean;
+        deliveryPhase: string;
+      }[] = [];
+      const samples: { deliveryPhase: string; noInputShifts: number[]; next: string | null }[] = [];
+      Reflect.set(window, '__workspaceLayoutShifts', shifts);
+      Reflect.set(window, '__workspaceInitialLayoutEntries', entries);
+      Reflect.set(window, '__workspaceLayoutDeliveryPhase', 'loading-decoration');
+      let observer: PerformanceObserver | undefined;
+      const record = (records: readonly PerformanceEntry[]) => {
+        for (const entry of records) {
+          const value = Number(Reflect.get(entry, 'value'));
+          const hadRecentInput = Boolean(Reflect.get(entry, 'hadRecentInput'));
+          entries.push({
+            clock: 'native-layout-shift-startTime-ms',
+            startTime: entry.startTime,
+            value,
+            hadRecentInput,
+            deliveryPhase: String(Reflect.get(window, '__workspaceLayoutDeliveryPhase')),
+          });
+          if (!hadRecentInput) shifts.push(value);
+          try {
+            const observation = Reflect.get(window, '__failureObservation') as
+              | { layout: (entry: PerformanceEntry) => void }
+              | undefined;
+            observation?.layout(entry);
+          } catch {
+            // Diagnostic failures must not suppress this or later shift entries.
+          }
+        }
+      };
+      Reflect.set(window, '__workspaceTakeLayoutSample', (next?: string, reset = false) => {
+        if (observer) record(observer.takeRecords());
+        const deliveryPhase = String(Reflect.get(window, '__workspaceLayoutDeliveryPhase'));
+        const noInputShifts = [...shifts];
+        samples.push({ deliveryPhase, noInputShifts, next: next ?? null });
+        const sample = {
+          deliveryPhase,
+          noInputShifts,
+          entries: [...entries],
+          samples: [...samples],
+        };
+        if (reset) shifts.length = 0;
+        if (next !== undefined) Reflect.set(window, '__workspaceLayoutDeliveryPhase', next);
+        return sample;
+      });
+      const supported = PerformanceObserver.supportedEntryTypes.includes('layout-shift');
+      Reflect.set(window, '__workspaceLayoutShiftSupported', supported);
+      if (!supported) return false;
+      observer = new PerformanceObserver((list) => record(list.getEntries()));
+      observer.observe({ type: 'layout-shift' });
+      return true;
+    });
+    expect(
+      await page
+        .locator('.search-glint')
+        .evaluate((node) => getComputedStyle(node, '::after').animationName),
+    ).toBe('none');
+    const initial = await page.locator('.search-panel').boundingBox();
+    await page.clock.fastForward(700);
+    expect(await page.locator('.search-panel').boundingBox()).toEqual(initial);
+    const loadingLayout = await layoutSample(page, 'initial-data-transition', true);
+    if (supportsLayoutShift) expect(loadingLayout.noInputShifts).toEqual([]);
+  } finally {
+    releaseData();
+  }
+  await expect(page.getByRole('button', { name: '검색', exact: true })).toBeEnabled();
+  await expect(page.getByRole('button', { name: /예시 입력/ })).toBeVisible();
+  await expect(page.locator('.load-time')).toBeVisible();
   expect(
     await page
       .locator('.search-glint')
       .evaluate((node) => getComputedStyle(node, '::after').animationName),
   ).toBe('none');
-  const initial = await page.locator('.search-panel').boundingBox();
-  await expect(page.getByRole('searchbox')).toBeVisible();
-  await page.clock.fastForward(700);
-  expect(await page.locator('.search-panel').boundingBox()).toEqual(initial);
-  if (supportsLayoutShift) {
-    expect(await page.evaluate(() => Reflect.get(window, '__workspaceLayoutShifts'))).toEqual([]);
-  }
+  await layoutSample(page, 'user-actions', true);
   const beforeRequests = [...requests];
   await page.evaluate(() => {
     const writes: string[] = [];
@@ -277,15 +382,12 @@ test('decoration preserves immediate content, stable geometry and resource bound
     if (!result || !detail) throw new Error('The accepted result and detail glints must exist.');
     Reflect.set(window, '__workspaceSavedAnimationNodes', { result, detail });
   });
-  await page.evaluate(() => {
-    const shifts = Reflect.get(window, '__workspaceLayoutShifts') as number[];
-    shifts.length = 0;
-  });
+  await layoutSample(page, 'accepted-decoration', true);
   const detail = await page.locator('.workspace-detail').boundingBox();
   await page.clock.fastForward(250);
   expect(await page.locator('.workspace-detail').boundingBox()).toEqual(detail);
   if (supportsLayoutShift) {
-    expect(await page.evaluate(() => Reflect.get(window, '__workspaceLayoutShifts'))).toEqual([]);
+    expect((await layoutSample(page)).noInputShifts).toEqual([]);
   }
   await expect
     .poll(() =>
@@ -315,7 +417,7 @@ test('decoration preserves immediate content, stable geometry and resource bound
     .toEqual({ accepted: 1, detail: 1, other: 0, sameNodes: true });
   expect(await page.locator('.workspace-detail').boundingBox()).toEqual(detail);
   if (supportsLayoutShift) {
-    expect(await page.evaluate(() => Reflect.get(window, '__workspaceLayoutShifts'))).toEqual([]);
+    expect((await layoutSample(page)).noInputShifts).toEqual([]);
   }
   const animationBaseline = await page.evaluate(() => {
     try {

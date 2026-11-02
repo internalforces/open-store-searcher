@@ -7,6 +7,28 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 native projection continuation — 2026-11-02
+
+Remote43cd7f8 run41424723438 fails both jobs:3/60 full-source search misses and one
+ordinary decoration-layout flake (1463unit pass; a11y/operators not run). Keep every
+failure, all fixtures/repetitions and the unchanged500ms/2.5s/300KB budgets.
+
+Current reviewed native parsed-address columns preserve exact fields/keys/flags and
+source-only lookup, with two query-local read targets and fresh page evidence. All133
+search tests/types and56full-source vectors/counts/full-field pages pass; receipt
+1d8fc76bccca7a5f3747e3dbaef91219cbb9f884b3f17fdb999eed3eeefd3ebf binds the new module
+(originalnull/currenthash verified). Full local1463passes/4sameplatformerrors, build,
+quality and9admission pass. Actual memory snapshots/15under500ms Node samples are
+not browser acceptance. Independent semantic/evidence reviews approve hosted checks.
+
+The separate test-only held-response decoration window preserves zero thresholds and
+all native observations, drains queued entries atomically, attaches delivery-phase
+records after timing checks and retains unchanged user-action/resource assertions.
+Review/typecheck/style pass; actual supported browser verification is still required.
+TASK-009 alone stays active; publication/public/backup/recovery follow exact-candidate
+approval. TASK-010 needs real30days afterward; TASK-028 paused, TASK-021 gated, physical
+user-skipped. No merge/setup/flags/dispatch/deployment occurs from this checkpoint.
+
 ## TASK-009 owned progressive storage continuation — 2026-11-02
 
 Run41416612445 at be30350 passes canonical1461/92/20 plus102operator/9admission but

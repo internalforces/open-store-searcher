@@ -76,14 +76,19 @@ const report = {
 };
 for (const name of [
   'src/search/compact-search.ts',
+  'src/search/prepared-addresses.ts',
   'src/search/compare-search-address.ts',
   'src/search/prepare-search-query.ts',
   'src/search/search-candidates.ts',
   'src/shared/compact-data.ts',
   'src/shared/load-compact-data.ts',
 ]) {
+  const originalBytes = await readFile(join(original, name)).catch((error) => {
+    if (name === 'src/search/prepared-addresses.ts' && error.code === 'ENOENT') return null;
+    throw error;
+  });
   report.codeBindings[name] = {
-    original: hash(await readFile(join(original, name))),
+    original: originalBytes === null ? null : hash(originalBytes),
     current: hash(await readFile(name)),
   };
 }
