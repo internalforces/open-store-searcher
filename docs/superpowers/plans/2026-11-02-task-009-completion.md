@@ -51,6 +51,30 @@
 
 ## Task 3: Supported hosted verification and independent review
 
+### Cached admission after final-head variance
+
+Run41500086829/head346de5c passes ordinary1,469/92/20 plus102/9 but retains one519.3ms
+mobile-cold mixed observation:403.5ms worker reply plus115.8ms paint opportunity.
+All59other observations pass; priorfef1e36's60/60pass remains evidence, not a waiver.
+Current-code CPU sampling places most mixed cost in per-row name/address admission.
+A private cache-hit prototype records mixed193–199ms versus separate scalar218–230ms;
+these uncontrolled Node observations are not browser acceptance.
+
+Preserve all cache sentinels/flags and short-circuit order. Read cached admission
+bytes directly in the scan, call the unchanged computation only on a zero byte,
+and reuse the row's name flags/reference scalars. No algorithm, rank, record, buffer,
+page, ownership, cancellation, source/status/date or budget change. Existing semantic/
+call-count tests plus full frozen-main parity and fresh independent review precede
+delivery; actual final-head ordinary/full-source verification remains mandatory.
+
+Cache-hit final verification:135search/types/style/build/quality/9admission pass;
+full local1,465pass/four unchanged platform failures. All56complete-source vectors/
+counts/pages equal frozen main with all bindings verified, receipt24abd14f8673c34dd2c33d72a71b12fd5ba816875e7b4df8372876079f27ab85.
+Separate final serial all15 meet500ms, mixed194.5–195.3ms; no sampling/GC/warming.
+Fresh independent exact-delta/oracle/every-page/cancellation review approves with no
+findings. Deliver the four owned source/report/plan/active files, then read both real
+canonical jobs; no prior observation or budget is replaced.
+
 Run41458949548/headfef1e36 passes canonical1,468/92/20 plus102/9 and all60 complete-source
 searches179.3–436.3 ms, preserving all prior failures. Product bindings match; one
 existing local inferred-boundary regression was omitted from delivery and is included

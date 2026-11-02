@@ -495,55 +495,51 @@ export class CompactSearch {
       const match = matchName(query, key);
       return match === 'exact' ? 1 : match === 'partial' ? 2 : 0;
     };
-    const possibleName = (reference: number) => {
-      if (!names[reference]) {
-        const key = this.nameProjections[reference] as string;
-        const candidateLow = this.nameMasks[reference * 2] as number;
-        const candidateHigh = this.nameMasks[reference * 2 + 1] as number;
-        const interpreted = nameMatches(
-          scoring.query.nameKey,
-          queryNameMask,
-          key,
-          candidateLow,
-          candidateHigh,
-        );
-        const literal =
-          !interpreted && scoring.query.nameKey !== scoring.validation.nameKey
-            ? nameMatches(
-                scoring.validation.nameKey,
-                literalNameMask,
-                key,
-                candidateLow,
-                candidateHigh,
-              )
-            : 0;
-        // Keep match kind and fallback provenance; bit0 distinguishes cached none.
-        names[reference] = 1 | (interpreted << 1) | (literal << 3);
-      }
-      return names[reference] !== 1;
+    const computeName = (reference: number) => {
+      const key = this.nameProjections[reference] as string;
+      const candidateLow = this.nameMasks[reference * 2] as number;
+      const candidateHigh = this.nameMasks[reference * 2 + 1] as number;
+      const interpreted = nameMatches(
+        scoring.query.nameKey,
+        queryNameMask,
+        key,
+        candidateLow,
+        candidateHigh,
+      );
+      const literal =
+        !interpreted && scoring.query.nameKey !== scoring.validation.nameKey
+          ? nameMatches(
+              scoring.validation.nameKey,
+              literalNameMask,
+              key,
+              candidateLow,
+              candidateHigh,
+            )
+          : 0;
+      // Keep match kind and fallback provenance; bit0 distinguishes cached none.
+      names[reference] = 1 | (interpreted << 1) | (literal << 3);
+      return names[reference] as number;
     };
-    const possibleAddress = (reference: number) => {
-      if (!addresses[reference]) {
-        if (scoring.query.address) {
-          const query = scoring.query.address;
-          // Conservatively retain every relevance or exact-key path. Detailed conflicts,
-          // ambiguity and confidence are still decided by the unchanged scorer below.
-          addresses[reference] =
-            projections.isRelevant(reference, queryDistrict, queryAnchor, query.family) ||
-            (query.key && query.key === projections.key(reference))
-              ? 2
-              : 1;
-        } else
-          addresses[reference] =
-            ((this.addressMasks[reference * 2] as number) & (literalAddressMask & 0xffff)) ===
-              (literalAddressMask & 0xffff) &&
-            ((this.addressMasks[reference * 2 + 1] as number) & (literalAddressMask >>> 16)) ===
-              literalAddressMask >>> 16 &&
-            matchesLiteralAddressKey(projections.key(reference), scoring.literalTokens)
-              ? 2
-              : 1;
-      }
-      return addresses[reference] === 2;
+    const computeAddress = (reference: number) => {
+      if (scoring.query.address) {
+        const query = scoring.query.address;
+        // Conservatively retain every relevance or exact-key path. Detailed conflicts,
+        // ambiguity and confidence are still decided by the unchanged scorer below.
+        addresses[reference] =
+          projections.isRelevant(reference, queryDistrict, queryAnchor, query.family) ||
+          (query.key && query.key === projections.key(reference))
+            ? 2
+            : 1;
+      } else
+        addresses[reference] =
+          ((this.addressMasks[reference * 2] as number) & (literalAddressMask & 0xffff)) ===
+            (literalAddressMask & 0xffff) &&
+          ((this.addressMasks[reference * 2 + 1] as number) & (literalAddressMask >>> 16)) ===
+            literalAddressMask >>> 16 &&
+          matchesLiteralAddressKey(projections.key(reference), scoring.literalTokens)
+            ? 2
+            : 1;
+      return addresses[reference] as number;
     };
     // Cache each distinct field's primitive comparison even when its name qualifies;
     // detailed reasons are materialized by the original scorer only for a page.
@@ -575,17 +571,21 @@ export class CompactSearch {
     for (const block of blocks) {
       for (let row = 0; row < block.block.count; row++) {
         const ordinal = block.block.start + row;
-        const namePossible = possibleName(block.nameRefs[row] as number);
+        const nameReference = block.nameRefs[row] as number;
+        const roadReference = block.roadRefs[row] as number;
+        const parcelReference = block.parcelRefs[row] as number;
+        const nameFlags = names[nameReference] || computeName(nameReference);
+        const namePossible = nameFlags !== 1;
         const possible =
           namePossible ||
-          possibleAddress(block.roadRefs[row] as number) ||
-          possibleAddress(block.parcelRefs[row] as number);
+          (addresses[roadReference] || computeAddress(roadReference)) === 2 ||
+          (addresses[parcelReference] || computeAddress(parcelReference)) === 2;
         if (possible && districtQuery) {
           // A district without a core address cannot earn a score or eligibility.
           // Its only comparable conflict is district; defer full reasons to page materialization.
           const conflict =
-            projections.hasConflictingDistrict(block.roadRefs[row] as number, queryDistrict) ||
-            projections.hasConflictingDistrict(block.parcelRefs[row] as number, queryDistrict);
+            projections.hasConflictingDistrict(roadReference, queryDistrict) ||
+            projections.hasConflictingDistrict(parcelReference, queryDistrict);
           conflicts[ordinal] = conflict ? 2 : 1;
           districtCount++;
           if (!conflict) nonconflictingCount++;
@@ -594,19 +594,19 @@ export class CompactSearch {
           // address the shared scorer always ranks at zero, low and no conflict.
           admit(ordinal, 0, true, false);
         } else if (possible && addressQuery) {
-          const road = addressRank(block.roadRefs[row] as number);
-          const parcel = addressRank(block.parcelRefs[row] as number);
+          const road = addressRank(roadReference);
+          const parcel = addressRank(parcelReference);
           const match = Math.max((road >> 1) & 3, (parcel >> 1) & 3);
           if (namePossible || match || (road | parcel) & 16) {
             const conflict = Boolean((road | parcel) & 8);
-            const flags = names[block.nameRefs[row] as number] as number;
+            const flags = nameFlags;
             const interpreted = (flags >> 1) & 3;
             const literal = (flags >> 3) & 3;
             const rank = scoreCandidateRank(
               NAME_MATCHES[interpreted || literal] as 'none' | 'exact' | 'partial',
               ADDRESS_MATCHES[match] as 'none' | 'partial' | 'core' | 'exact',
               scoring.query,
-              Boolean(this.nameProjections[block.nameRefs[row] as number]),
+              Boolean(this.nameProjections[nameReference]),
               conflict,
               Boolean((road | parcel) & 32),
               !interpreted && literal !== 0,

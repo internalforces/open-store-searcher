@@ -7,6 +7,46 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Final test-head variance and cached-admission follow-up
+
+Verify41500086829/head346de5c passes ordinary1,469/92/20 plus102/9 but full-source
+59/60 only. Mobile-cold mixed third observation is519.3ms (403.5ms worker reply and
+115.8ms render opportunity). All other counts/layout/requests are correct; browser
+errors are empty. The preceding product-identical60/60pass remains evidence and does
+not override this failure. Actual checkout/operator291f7c55afd78cd95c4a4ba21966a611600c1787
+binds all194 current source/test files. Raw report SHA256:
+`ef5503dbe4f7e8e67e065c717680f33badcaf908feaa03293b9b34958634140f`.
+
+Separate current-code Node CPU sampling across three mixed queries places154.7ms in
+possibleName,157.1ms in possibleAddress,114.6ms in searchPrepared and43.7ms in ranking.
+These are perturbed diagnostics; inspector overhead is excluded from this comparison.
+No stop-the-world MajorGC is among retained longest query events. Background marking,
+layout and paint overlap; their durations cannot be added to infer a single cause.
+
+The bounded correction reads name/address cache bytes directly inside the existing
+full scan. Zero alone triggers unchanged slow computation; computed-name none remains1,
+name exact/partial/fallback flags remain exact and address1/2 remain false/true.
+The row's three immutable numeric references and name flags are reused. Both address
+fields still determine rank/conflicts; road/parcel short-circuit order, scratch leases,
+clearing, checkpoints, full ordering/page evidence and every budget remain unchanged.
+No new buffer, dependency, source, schema, policy, UI or interface is introduced.
+
+A private unprofiled prototype records mixed192.6–199.4ms versus separate original
+scalar218–230ms. This uncontrolled Node comparison motivates verification; it is not
+browser acceptance. Fresh135 search tests/types/style/build/quality/9admission pass;
+full local1,465pass/four unchanged Node22/macOS platform failures remain documented.
+Final formatted-source full56-query/2,951,024row candidate vectors/counts/full-field
+boundary pages equal frozen main. Receipt SHA256:
+`24abd14f8673c34dd2c33d72a71b12fd5ba816875e7b4df8372876079f27ab85`.
+Every current source binding matches. A separate final serial run (no concurrent
+profiler/parity, forced GC or warming) records district125–143, partial145–151,
+absent102–115, name146–151 and mixed194.5–195.3ms. Preparation31.92s follows6.25s
+validated loading. These remain Node22 diagnostics, not hosted acceptance.
+Independent exact-delta review approves with no findings:1,728records/39queries/
+1,902every-page/full-vector comparisons and8,400-row overlap/cancellation/scratch checks.
+Actual new-head canonical results remain required. No merge, publication or task
+closure occurs; all preceding failures and successful observations remain retained.
+
 ## Supported scalar-ranking result
 
 PR45 head`fef1e36a8b9144722faee5961bf9e80c1a35e436` passes both jobs in

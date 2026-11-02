@@ -7,6 +7,23 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 cache-hit CPU correction
+
+Actual final346de5c Verify41500086829 passes1,469/92/20 plus102/9 but retains one
+519.3ms mobile-cold mixed miss among60. Preserve it and the preceding60/60pass.
+Current one-file correction reads existing cache bytes directly in the scan, returning
+exact name/address sentinel flags from unchanged slow computation only on zero.
+It reuses row reference/name scalars, preserving all rows/ranks/pages/conflicts,
+short-circuit order, buffers, leases, clearing, checkpoints and source/status/date.
+
+All135search/types/style/build/quality/9admission pass; full local1,465pass/four same
+platform failures. All56complete-source vectors/counts/full-field pages equal frozen
+main, receipt24abd14f8673c34dd2c33d72a71b12fd5ba816875e7b4df8372876079f27ab85;
+every current binding matches. Final unprofiled serial all15 meet500ms, mixed194.5–195.3ms.
+Independent1,902page/complete-vector/cancellation review approves with no findings.
+Actual new-head ordinary/full-source checks remain required before integration.
+TASK-009 alone active; no merge/setup/flags/dispatch/deployment/recovery/schedule change.
+
 ## TASK-009 supported scalar result — 2026-11-02
 
 PR45fef1e36 Verify41458949548 passes both jobs:1,468/92/20 plus102/9 and all60
