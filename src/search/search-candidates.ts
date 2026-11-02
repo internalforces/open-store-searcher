@@ -179,6 +179,38 @@ export function matchesLiteralAddressKey(
   });
 }
 
+/** Shared ranking policy: score in upper bits, low/medium/high confidence as 0/1/2. */
+export function scoreCandidateRank(
+  nameMatch: NameMatch,
+  addressMatch: AddressMatch,
+  query: InterpretedSearchQuery,
+  candidateHasName: boolean,
+  conflicts: boolean,
+  ambiguousAddress: boolean,
+  fallbackName: boolean,
+): number {
+  let score = 0;
+  let confidence = 0;
+  const exact = addressMatch === 'exact' && query.address?.strong;
+  const core = addressMatch === 'core' || (addressMatch === 'exact' && query.address?.core);
+  if (nameMatch === 'exact' && exact) {
+    score = 500;
+    confidence = 2;
+  } else if (nameMatch === 'exact' && core) {
+    score = 400;
+    confidence = 1;
+  } else if (nameMatch === 'partial' && core) {
+    score = 300;
+    confidence = 1;
+  } else if (exact && (!query.nameKey || !candidateHasName)) {
+    score = 100;
+    confidence = 1;
+  }
+  if (query.inferredNameBoundary && confidence === 2) confidence = 1;
+  if (conflicts || query.ambiguous || ambiguousAddress || fallbackName) confidence = 0;
+  return (score << 2) | confidence;
+}
+
 export function scoreCandidate(
   entry: ScoringEntry,
   query: InterpretedSearchQuery,
@@ -215,28 +247,19 @@ export function scoreCandidate(
   if (ambiguousAddress) reasons.push('ambiguous_record_address');
   if (fallbackName) reasons.push('literal_name_fallback');
   if (literalAddress) reasons.push('literal_address_fallback');
-  let score = 0;
-  let confidence: CandidateMatch['confidence'] = 'low';
-  const exact = addressMatch === 'exact' && query.address?.strong;
-  const core = addressMatch === 'core' || (addressMatch === 'exact' && query.address?.core);
-  if (nameMatch === 'exact' && exact) {
-    score = 500;
-    confidence = 'high';
-  } else if (nameMatch === 'exact' && core) {
-    score = 400;
-    confidence = 'medium';
-  } else if (nameMatch === 'partial' && core) {
-    score = 300;
-    confidence = 'medium';
-  } else if (exact && (!query.nameKey || !entry.nameKey)) {
-    score = 100;
-    confidence = 'medium';
-  }
-  if (query.inferredNameBoundary && confidence === 'high') {
-    confidence = 'medium';
-    reasons.push('inferred_name_boundary');
-  }
-  if (conflicts.length || query.ambiguous || ambiguousAddress || fallbackName) confidence = 'low';
+  const rank = scoreCandidateRank(
+    nameMatch,
+    addressMatch,
+    query,
+    Boolean(entry.nameKey),
+    conflicts.length > 0,
+    ambiguousAddress,
+    fallbackName,
+  );
+  const score = rank >> 2;
+  const confidence = (rank & 3) === 2 ? 'high' : (rank & 3) === 1 ? 'medium' : 'low';
+  // This reason records the original high-confidence boundary, before later demotions.
+  if (query.inferredNameBoundary && score === 500) reasons.push('inferred_name_boundary');
   if (confidence === 'low' && !query.address) reasons.push('name_only_or_literal_evidence');
   return { score, confidence, nameMatch, addressMatch, reasons };
 }

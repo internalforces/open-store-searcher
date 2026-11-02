@@ -51,6 +51,32 @@
 
 ## Task 3: Supported hosted verification and independent review
 
+### Rank-only allocation follow-up after native-store failure
+
+Actual run41432858991/head2f26f05 passes canonical1,467/92/20 plus102/9 but full-source
+55/60 only: mixed879.8/892.1/876.6 ms and mobile-cold district614.4/624.5 ms. Preserve
+the raw report and all failed samples. Two collections begin during the preceding
+name fixture, so the first mixed search is not proven to initiate them. Current-code
+collected-object sampling measures13.77MB across three name searches and17.58MB across
+three mixed searches, with detailed scorer/name/split/Set allocations prominent.
+Sampling perturbs timings and does not establish browser acceptance.
+
+Bounded design: existing byte name workspace caches exact/partial/none interpreted
+and literal matches. No-address admitted rows rank at score0/low/no-conflict, deferring
+exact reasons to page materialization. Address-bearing rows reuse projection flags
+even when names qualify. Extract the existing score/confidence policy into one shared
+scalar primitive consumed by both detailed scoring and compact ranking; preserve all
+500/400/300/100 scores, ambiguity/conflict/fallback/inferred-boundary behavior, complete
+vectors/page reasons and independent state. No new buffers, policy, data, budget,
+warming, app GC, source/schema or public interface changes.
+
+- [x] Observe rank-only detailed-scorer and repeated named-projection regression failures.
+- [x] Implement shared scalar ranking, then run all search/types/quality checks.
+- [x] Compare collected allocations and separate unprofiled full-source observations.
+- [x] Run fresh56-query frozen-main parity binding every changed scorer/module.
+- [x] Obtain independent policy/cache/alias review.
+- [ ] Obtain final-head supported verification.
+
 The reviewed native parsed-address follow-up addresses retained collections after43cd7f8:
 replace per-projection AddressParts objects with five Uint32 component-reference
 columns, a small Uint16 flag column and exact keys. Source components are interned;

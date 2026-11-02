@@ -153,7 +153,7 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
-  test('reuses query-local address targets while ranking names and keeps page evidence independent', async () => {
+  test('defers detailed address hydration and scoring until materializing name-only pages', async () => {
     const records = Array.from({ length: 200 }, (_, index) =>
       record(index + 1, '봄카페', `서울특별시 강남구 테헤란로 ${index + 1}`),
     );
@@ -161,17 +161,47 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
     const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
     await store.prepare();
     const read = vi.spyOn(PreparedAddresses.prototype, 'read');
+    const detailed = vi.spyOn(candidateScoring, 'scoreCandidate');
     try {
       await store.search('봄카페');
-      const targets = read.mock.calls.map(([, target]) => target);
-      expect(targets).toHaveLength(records.length * 2);
-      expect(targets.every((target) => target !== undefined)).toBe(true);
-      expect(new Set(targets).size).toBe(2);
+      expect(read.mock.calls).toHaveLength(0);
+      expect(detailed.mock.calls).toHaveLength(0);
     } finally {
       read.mockRestore();
+      detailed.mockRestore();
     }
     expect(store.page(0).similarCount).toBe(200);
     await expectCompleteOracleParity(store, records, '봄카페');
+  });
+
+  test('caches matching-name ranks and both address fields without per-row detailed scoring', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, '봄카페', '서울특별시 강남구 테헤란로 123', '서울특별시 강북구 수유동 12'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const read = vi.spyOn(PreparedAddresses.prototype, 'read');
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddressFlags');
+    const detailed = vi.spyOn(candidateScoring, 'scoreCandidate');
+    const name = vi.spyOn(candidateScoring, 'matchName');
+    const query = '봄카페 서울특별시 강남구 테헤란로 123';
+    try {
+      await store.search(query);
+      expect(detailed.mock.calls).toHaveLength(0);
+      expect(compare.mock.calls).toHaveLength(2);
+      expect(read.mock.calls).toHaveLength(2);
+      expect(read.mock.calls.every(([, target]) => target !== undefined)).toBe(true);
+      expect(new Set(read.mock.calls.map(([, target]) => target)).size).toBe(1);
+      expect(name.mock.calls).toHaveLength(1);
+    } finally {
+      read.mockRestore();
+      compare.mockRestore();
+      detailed.mockRestore();
+      name.mockRestore();
+    }
+    expect(store.page(0).similarCandidates[0]).toMatchObject({ score: 500, confidence: 'low' });
+    await expectCompleteOracleParity(store, records, query);
   });
 
   test('owns packed column references and releases source containers without changing input', async () => {

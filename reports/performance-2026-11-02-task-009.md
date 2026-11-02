@@ -7,6 +7,81 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Scalar ranking after the native-store hosted failure
+
+Actual native-store run41432858991/head2f26f05 passes canonical1,467 Vitest/92 browser/
+20 accessibility plus102 operator/9 admission checks, without the previous decoration
+flake. Full-source55/60 is still a failure: first mixed desktop cold879.8/warm892.1/
+mobile warm876.6 ms and mobile-cold district614.4/624.5 ms exceed500 ms. MajorGC614.9/
+353.2/395.4/768.6 ms remains; first mobile district also records Layout235.7 ms.
+Readiness67.3–77.5 s, code120,481 bytes, sampled RSS2.15–2.50GB. Counts/layout/query
+requests are correct, browser errors empty. All failed observations remain retained.
+
+Worker trace chronology places two collections before the mixed-start marker, during
+the preceding name fixture. The first mixed query absorbs collection time; these
+events do not establish mixed-query initiation. The actual checkout/operator SHA is
+12095942e94f0409853d828aee082213145df4ac, the PR merge revision. Its code bindings,
+including the native module, match the reviewed source. No performance acceptance.
+
+A separate current-code fixed-sequence diagnostic includes allocations collected by
+both minor and major GC. Across three queries each, name sampling estimates13,774,288
+allocated bytes and mixed17,578,176. Detailed scoring/name comparisons, address token
+splits and Sets are prominent. These sampled estimates perturb timing and are not
+browser acceptance or proof that those allocations initiated the observed collections.
+
+The bounded follow-up caches interpreted/literal exact/partial match flags in the
+existing byte workspace, retaining fallback precedence. No-address admitted rows
+rank at score0/low/no-conflict. Address-bearing rows compare both fields through the
+existing cached primitive, including name-qualified rows. A shared scalar scorer
+retains the existing500/400/300/100 score and confidence rules for both compact ranking
+and detailed scoring. Detailed reasons/independent address objects are produced only
+when materializing a page; inferred-boundary reasons survive later demotions.
+
+Observed REDs: name-only ranking hydrates400 fields versus expected0; matching-name
+mixed ranking calls200 detailed scorers versus0. GREEN requires0 detailed rank calls,
+one cached name comparison and exactly2 primitive address comparisons/read calls on
+one query-local target. The conflicting secondary field still yields score500/low.
+All135 search tests/types, lint/format, build, both quality and9 admission checks pass.
+Full local suite1,465 passes/four unchanged Node22/macOS compatibility failures
+(1,469 total). No skips, new buffers, policy, budget, warming or forced app GC.
+
+All56 full-source candidate vectors/counts/full-field boundary pages equal frozen
+main. Receipt SHA256:
+`7ad8f5d6d51d5fdfca2cc59a0fa477d42fed9e436ba4667283f438e81c3bf418`.
+Every current source binding, including the changed scorer, independently matches.
+Independent reviews approve:7,680 score/confidence/reason combinations;69 queries on
+2,156 synthetic records with full vectors/every page; a second1,053-record/23-query
+comparison with596 page objects. Cancellation/overlap and all45 focused checks pass.
+Collected-allocation remeasurement uses the same fixed five-fixture sequence, three
+queries per fixture, without forcing application GC. Sampling estimates, including
+objects collected by minor/major GC, are:
+
+| Fixture | Native detailed ranking | Scalar ranking |
+|---|---:|---:|
+| District | 3,217,112 bytes | 3,237,344 bytes |
+| Partial address | 3,188,640 bytes | 3,313,168 bytes |
+| Absent | 2,730,360 bytes | 2,578,888 bytes |
+| Name | 13,774,288 bytes | 4,587,520 bytes |
+| Mixed | 17,578,176 bytes | 5,003,488 bytes |
+
+These estimates suggest reduced query allocation; sampling perturbs execution and
+does not prove the cause of hosted collections. A separate unprofiled serial run
+records district144–164, partial167–169, absent129–137, name182–184 and mixed218–230 ms.
+All15 samples meet500 ms locally. Preparation31.73 s follows5.78 s validated loading.
+Both diagnostic receipts bind the current scorer/compact/native modules. No sampling,
+forced GC, query warming or additional wait occurs in the serial measurements.
+Fresh resumption reruns all135 search tests/types successfully. Final-head supported
+verification remains required; publication/public equality/durable backup/recovery
+stay open. The archive snapshot's blanket lint sees ignored diagnostic scratch files;
+source-only style checks and canonical clean-checkout checks determine source validity.
+Source-only style, build, both quality checks and9admission checks freshly pass.
+Fresh independent review approves focused delivery with no introduced findings:
+126,720 frozen scorer cases,1,728 records/39queries/1,902 complete-page comparisons,
+complete vectors and8,400-row overlap/cancellation/scratch clearing checks agree.
+Returned reasons/scalar fields are independent. A nested businessTypes-array alias
+reproduces identically on frozen main/current; existing read-only UI consumers do not
+mutate it. Record that pre-existing consumer-mutation debt without changing this scope.
+
 ## Native address projections and isolated decoration measurement
 
 Run 41424723438 at 43cd7f8 remains a failure. Full-source diagnostics pass 57/60:

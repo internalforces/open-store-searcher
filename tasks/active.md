@@ -7,6 +7,31 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 scalar ranking continuation — 2026-11-02
+
+Remote PR45head2f26f05 run41432858991 passes1,467/92/20 plus102/9, but full-source
+55/60 fails (mixed879.8/892.1/876.6 ms; mobile district614.4/624.5 ms). Preserve all
+observations and budgets. GC chronology does not attribute every collection to mixed.
+
+Current local follow-up removes detailed per-row rank objects with exact name-kind/
+fallback byte caching and one shared scalar score/confidence policy. Both address
+fields remain compared; independent page reasons and accepted/cancelled state stay
+exact. RED400 hydrations/200 detailed scorers becomes GREEN0, with two unique mixed
+address comparisons on one target. All135 search tests/types and56 full-source vectors/
+counts/pages pass; receipt7ad8f5d6d51d5fdfca2cc59a0fa477d42fed9e436ba4667283f438e81c3bf418.
+Independent frozen-policy/whole-page/cache/cancellation reviews have no findings.
+Full local1,465 passes/four unchanged platform failures, build/quality/9 admission pass.
+Collected allocations fall from13.77MB to4.59MB for name and17.58MB to5.00MB for mixed
+over three sampled queries; these perturbed estimates are not browser acceptance.
+Separate unprofiled serial all15 meet500 ms (mixed218–230 ms, name182–184 ms), with
+source bindings verified. Final-head supported results remain required.
+
+Only TASK-009 is active; no integration/publication/completion claim. After actual
+supported acceptance, prepare a new current-main candidate and obtain the separate
+exact-candidate protected deployment approval, then public equality and durable
+backup/recovery. TASK-010 follows real30 days; TASK-028 paused, TASK-021 gated and
+physical measurement user-skipped. No setup/flags/import dispatch/deployment change.
+
 ## TASK-009 native projection continuation — 2026-11-02
 
 Remote43cd7f8 run41424723438 fails both jobs:3/60 full-source search misses and one
