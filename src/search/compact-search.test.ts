@@ -240,6 +240,80 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
       await expectCompleteOracleParity(store, records, query);
   });
 
+  test('reuses repeated address comparisons for mixed queries without inventing name matches', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `다른상점${index}`, '서울특별시 강남구 테헤란로 124'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    try {
+      await store.search('봄카페 서울특별시 강남구 테헤란로 123');
+      expect(compare.mock.calls.length).toBeLessThanOrEqual(2);
+      expect(store.page(0).similarCount).toBe(200);
+    } finally {
+      compare.mockRestore();
+    }
+    for (const query of [
+      '봄카페 서울특별시 강남구 테헤란로 123',
+      '봄카페 서울특별시 강남구 테헤란로 124',
+    ])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('bounds transient ordinal allocation while retaining every mixed-query candidate', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(500 - index, '봄카페', '서울특별시 강남구 테헤란로 123'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const Native = Uint32Array;
+    let allocatedEntries = 0;
+    vi.stubGlobal(
+      'Uint32Array',
+      new Proxy(Native, {
+        construct(target, args) {
+          const value = Reflect.construct(target, args) as Uint32Array;
+          allocatedEntries += value.length;
+          return value;
+        },
+      }),
+    );
+    try {
+      await store.search('봄카페 서울특별시 강남구 테헤란로 123');
+      expect(store.page(0).eligibleCount).toBe(200);
+      expect(allocatedEntries).toBeLessThanOrEqual(records.length);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+    await expectCompleteOracleParity(store, records, '봄카페 서울특별시 강남구 테헤란로 123');
+  });
+
+  test('preserves blank-name eligibility and nonmatching-name rejection in exact mixed queries', async () => {
+    const records = [
+      record(1, '', '서울특별시 강남구 테헤란로 123'),
+      record(2, '다른상점', '서울특별시 강남구 테헤란로 123'),
+      record(3, '봄카페', '서울특별시 강남구 테헤란로 123'),
+      record(4, '봄카페', '서울특별시 강남구 테헤란로 124'),
+      record(5, '', '서울특별시 강남구 테헤란로 123', '서초구 역삼동 12'),
+    ];
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    await expectCompleteOracleParity(store, records, '봄카페 서울특별시 강남구 테헤란로 123');
+    const page = store.page(0);
+    expect(page.topMatches.find((match) => match.record.id === id(1))).toMatchObject({
+      score: 100,
+      confidence: 'medium',
+    });
+    expect(page.similarCandidates.find((match) => match.record.id === id(2))).toMatchObject({
+      score: 0,
+      confidence: 'low',
+    });
+  });
+
   test('preserves address-only ranks, literal-name fallback and contradictory field evidence', async () => {
     const roads = [
       '테헤란로 123',

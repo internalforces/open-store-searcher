@@ -1,7 +1,7 @@
 import {
   normalizeSearchNotation,
   normalizeSearchText,
-  projectSearchText,
+  projectSearchAddress,
   type SearchTextProjection,
 } from './prepare-search-query.js';
 
@@ -70,7 +70,7 @@ export function withoutFloorUnitDetails(value: string): string {
 
 /** Parse a single address field, never combining evidence from different fields. */
 export function parseSearchAddress(value: string): AddressParts {
-  const projection = projectSearchText(value);
+  const projection = projectSearchAddress(value);
   const parts: AddressParts = {
     province: '',
     district: '',
@@ -81,7 +81,8 @@ export function parseSearchAddress(value: string): AddressParts {
     strong: false,
     core: false,
     ambiguous: false,
-    key: projection.addressTokens
+    key: projection.addressKey
+      .split(' ')
       .map((token) => (SEOUL.has(token) ? '서울특별시' : token))
       .join(' '),
   };

@@ -7,6 +7,21 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 prioritized completion continuation — 2026-11-02
+
+The user requests execution of the identified priorities. TASK-009 alone remains active.
+PR42 is merged as2344bb6; its bounded final diagnostic passed. The broader mixed-query
+baseline remains above500ms. Current lossless comparison/ranking and preparation changes
+pass114search tests, type/quality checks and56complete-source rank/count/page comparisons.
+Local Node22/macOS full verification retains four known runtime/tool failures. Fresh
+independent review approves hosted verification with two minor follow-ups retained.
+
+Next: read actual final-head canonical ordinary and extended name/mixed hosted diagnostics;
+only after performance acceptance prepare a fresh candidate and complete public equality,
+durable backup and recovery. TASK-010 follows with actual30-day reliability evidence;
+TASK-028 stays paused and TASK-021 gated. Physical measurement remains user-skipped.
+See reports/performance-2026-11-02-task-009.md and the corresponding completion plan.
+
 ## TASK-009 PR42 scratch follow-up — 2026-10-28
 
 First correction6fad420 ordinary CI passes, but actual diagnostic40651993497 retains mobile

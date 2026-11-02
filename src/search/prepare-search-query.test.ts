@@ -3,11 +3,23 @@ import {
   normalizeSearchNotation,
   normalizeSearchText,
   prepareSearchQuery,
+  projectSearchAddress,
   projectSearchName,
   projectSearchText,
 } from './prepare-search-query.js';
 
 describe('TASK-011 query preparation', () => {
+  test('projects address keys without losing embedded road digits, dash numbers or notation', () => {
+    expect(projectSearchAddress('  서울시 강남구 테헤란로１２길 ３４－５ &amp;  ')).toEqual({
+      normalized: '서울시 강남구 테헤란로12길 34-5 &',
+      addressKey: '서울시 강남구 테헤란로 12 길 34-5',
+    });
+    expect(projectSearchAddress('&amp;lt;ＡＢＣ&#xA0;')).toEqual({
+      normalized: '&lt;abc',
+      addressKey: 'lt abc',
+    });
+    expect(projectSearchAddress('')).toEqual({ normalized: '', addressKey: '' });
+  });
   test('specialized name and normalized projections preserve one-pass notation and Unicode semantics', () => {
     for (const value of [
       '',
