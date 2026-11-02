@@ -7,6 +7,21 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 supported scalar result — 2026-11-02
+
+PR45fef1e36 Verify41458949548 passes both jobs:1,468/92/20 plus102/9 and all60
+complete-source searches179.3–436.3 ms. All counts/layout/request/source checks pass;
+browser errors are empty. Primary/LCP/code budgets pass; readiness64.6–71.7seconds
+and sampled3.63–3.84GB RSS remain explicit limitations. Physical testing stays skipped.
+Product bindings match; one locally added inferred-boundary regression was omitted
+from delivery and is now included with evidence updates. Read the final test-only
+continuation's actual canonical checks before integration. Keep all earlier failures.
+
+TASK-009 alone stays active for fresh candidate/publication/public equality/durable
+backup/recovery. Exact-candidate protected approval remains after concrete preparation.
+TASK-010 needs real30-day evidence; TASK-028 paused and TASK-021 gated. No Pages setup,
+flag, import dispatch, deployment or recovery-authority change has occurred.
+
 ## TASK-009 scalar ranking continuation — 2026-11-02
 
 Remote PR45head2f26f05 run41432858991 passes1,467/92/20 plus102/9, but full-source

@@ -51,6 +51,13 @@
 
 ## Task 3: Supported hosted verification and independent review
 
+Run41458949548/headfef1e36 passes canonical1,468/92/20 plus102/9 and all60 complete-source
+searches179.3–436.3 ms, preserving all prior failures. Product bindings match; one
+existing local inferred-boundary regression was omitted from delivery and is included
+in the final test/evidence-only continuation. Final continuation checks precede merge.
+Readiness64.6–71.7s and sampled3.63–3.84GB RSS remain limitations; physical testing
+remains user-skipped and publication/recovery acceptance is separate.
+
 ### Rank-only allocation follow-up after native-store failure
 
 Actual run41432858991/head2f26f05 passes canonical1,467/92/20 plus102/9 but full-source

@@ -7,6 +7,32 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Supported scalar-ranking result
+
+PR45 head`fef1e36a8b9144722faee5961bf9e80c1a35e436` passes both jobs in
+Verify41458949548. Ordinary125322738634 passes1,468 Vitest/92 browser/20 accessibility
+plus102 operator/9 admission checks. Full-source125322739275 passes all60 unchanged
+search observations: desktop179.3–332.6 ms and emulated-mobile191.4–436.3 ms. Every
+candidate count, visible layout and zero-query-request check passes; browser errors
+and assessment failures are empty. Primary26.3–228.9 ms/LCP44–244 ms and120,681 code
+bytes meet unchanged budgets. Full searchable readiness remains64.6–71.7 seconds;
+sampled browser-process RSS3.63–3.84GB is not a continuous peak or a mobile guarantee.
+No major collection appears among retained longest traced query events; this does
+not prove an absence of every GC event.
+
+Actual checkout/operator`9a23b6ed09636d9dedf6016bf93cdfd6aea0dae0` is the PR merge
+revision. All194 code bindings were checked:193 match local bytes; the only mismatch
+is the local additional inferred-boundary regression in search-candidates.test.ts,
+which was inadvertently omitted from the six-file delivery. It adds one test and
+changes no product code. Include it in the final continuation, preserving this
+successful measurement and all older failed outcomes. The final test/evidence-only
+head still requires its actual canonical outcomes before integration.
+
+This closes the measured hosted/emulated search-budget gap for the reviewed product
+bytes, not physical-device, Pages delivery, publication, public equality, backup or
+recovery acceptance. TASK-009 remains active and TASK-010 remains sequential. Raw
+hosted-scalar-rank.json.raw and the independent review remain retained locally.
+
 ## Scalar ranking after the native-store hosted failure
 
 Actual native-store run41432858991/head2f26f05 passes canonical1,467 Vitest/92 browser/
