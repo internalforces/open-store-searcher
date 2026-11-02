@@ -9,7 +9,7 @@ import {
 } from '../shared/compact-data.js';
 import {
   type AddressParts,
-  compareSearchAddress,
+  compareSearchAddressFlags,
   parseSearchAddress,
 } from './compare-search-address.js';
 import { prepareSearchQuery, projectSearchName } from './prepare-search-query.js';
@@ -476,21 +476,7 @@ export class CompactSearch {
       const ranks = addressRanks as Uint8Array;
       if (!ranks[reference]) {
         const candidate = this.addressProjections[reference] as AddressParts;
-        const comparison = compareSearchAddress(addressQuery as AddressParts, candidate);
-        const match =
-          comparison.match === 'exact'
-            ? 3
-            : comparison.match === 'core'
-              ? 2
-              : comparison.match === 'partial'
-                ? 1
-                : 0;
-        ranks[reference] =
-          1 |
-          (match << 1) |
-          (comparison.conflicts.length ? 8 : 0) |
-          (comparison.relevant ? 16 : 0) |
-          (candidate.ambiguous ? 32 : 0);
+        ranks[reference] = compareSearchAddressFlags(addressQuery as AddressParts, candidate);
       }
       return ranks[reference] as number;
     };

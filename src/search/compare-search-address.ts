@@ -153,38 +153,75 @@ export interface AddressComparison {
   relevant: boolean;
 }
 
+/**
+ * Allocation-free comparison. Low bits retain rank/conflict/relevance/ambiguity;
+ * bits 6–9 retain ordered district/road/locality/number conflict evidence.
+ */
+export function compareSearchAddressFlags(query: AddressParts, candidate: AddressParts): number {
+  let conflicts = 0;
+  const sameFamily = query.family !== 'unspecified' && query.family === candidate.family;
+  if (query.district && candidate.district && query.district !== candidate.district)
+    conflicts |= 64;
+  if (
+    sameFamily &&
+    query.family === 'road' &&
+    query.road &&
+    candidate.road &&
+    query.road !== candidate.road
+  )
+    conflicts |= 128;
+  if (
+    sameFamily &&
+    query.family === 'parcel' &&
+    query.locality &&
+    candidate.locality &&
+    query.locality !== candidate.locality
+  )
+    conflicts |= 256;
+  const anchor = query.family === 'road' ? 'road' : 'locality';
+  if (
+    sameFamily &&
+    query[anchor] === candidate[anchor] &&
+    query.number &&
+    candidate.number &&
+    query.number !== candidate.number
+  )
+    conflicts |= 512;
+  const relevant = Boolean(
+    (query.district && query.district === candidate.district) ||
+      (sameFamily && query[anchor] && query[anchor] === candidate[anchor]),
+  );
+  const flags =
+    1 | conflicts | (conflicts ? 8 : 0) | (relevant ? 16 : 0) | (candidate.ambiguous ? 32 : 0);
+  if (!query.key || !candidate.key || conflicts || query.ambiguous || candidate.ambiguous)
+    return flags;
+  const exact =
+    query.key === candidate.key && Boolean(query.district || query.road || query.locality);
+  if (exact) return flags | 6 | 16;
+  const allAgree =
+    (!query.province || query.province === candidate.province) &&
+    (!query.district || query.district === candidate.district) &&
+    (!query.locality || (sameFamily && query.locality === candidate.locality)) &&
+    (!query.road || (sameFamily && query.road === candidate.road)) &&
+    (!query.number || (sameFamily && query.number === candidate.number));
+  return allAgree && relevant ? flags | (query.core ? 4 : 2) : flags;
+}
+
 /** Missing or cross-family evidence is unknown; only comparable contradictions are conflicts. */
 export function compareSearchAddress(
   query: AddressParts,
   candidate: AddressParts,
 ): AddressComparison {
+  const flags = compareSearchAddressFlags(query, candidate);
   const conflicts: AddressConflict[] = [];
-  const sameFamily = query.family !== 'unspecified' && query.family === candidate.family;
-  const contradicts = (key: AddressConflict) =>
-    query[key] && candidate[key] && query[key] !== candidate[key];
-  if (contradicts('district')) conflicts.push('district');
-  if (sameFamily && query.family === 'road' && contradicts('road')) conflicts.push('road');
-  if (sameFamily && query.family === 'parcel' && contradicts('locality'))
-    conflicts.push('locality');
-  const anchor = query.family === 'road' ? 'road' : 'locality';
-  if (sameFamily && query[anchor] === candidate[anchor] && contradicts('number'))
-    conflicts.push('number');
-  const relevant = Boolean(
-    (query.district && query.district === candidate.district) ||
-      (sameFamily && query[anchor] && query[anchor] === candidate[anchor]),
-  );
-  if (!query.key || !candidate.key || conflicts.length || query.ambiguous || candidate.ambiguous) {
-    return { match: 'none', conflicts, relevant };
-  }
-  const exact =
-    query.key === candidate.key && Boolean(query.district || query.road || query.locality);
-  if (exact) return { match: 'exact', conflicts, relevant: true };
-  const supplied: Component[] = ['province', 'district', 'locality', 'road', 'number'];
-  const allAgree = supplied.every(
-    (key) =>
-      !query[key] ||
-      (query[key] === candidate[key] && (key === 'district' || key === 'province' || sameFamily)),
-  );
-  const match = allAgree && relevant ? (query.core ? 'core' : 'partial') : 'none';
-  return { match, conflicts, relevant };
+  if (flags & 64) conflicts.push('district');
+  if (flags & 128) conflicts.push('road');
+  if (flags & 256) conflicts.push('locality');
+  if (flags & 512) conflicts.push('number');
+  const rank = (flags >> 1) & 3;
+  return {
+    match: rank === 3 ? 'exact' : rank === 2 ? 'core' : rank === 1 ? 'partial' : 'none',
+    conflicts,
+    relevant: Boolean(flags & 16),
+  };
 }

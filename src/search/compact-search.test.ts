@@ -305,6 +305,25 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
       await expectCompleteOracleParity(store, records, query);
   });
 
+  test('ranks address-only candidates without constructing detailed field-comparison objects', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `상점${index}`, `테헤란로 ${index + 1}`),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    let detailedComparisons = 0;
+    try {
+      await store.search('테헤란로 123');
+      detailedComparisons = compare.mock.calls.length;
+    } finally {
+      compare.mockRestore();
+    }
+    expect(detailedComparisons).toBe(0);
+    await expectCompleteOracleParity(store, records, '테헤란로 123');
+  });
+
   test('compares repeated address projections once per address-only search', async () => {
     const records = Array.from({ length: 200 }, (_, index) =>
       record(index + 1, `상점${index}`, '서울특별시 강남구 테헤란로 124'),
@@ -312,13 +331,16 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
     const input = fixture(records);
     const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
     await store.prepare();
-    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddressFlags');
+    const detailed = vi.spyOn(addressComparison, 'compareSearchAddress');
     try {
       await store.search('테헤란로 123');
-      expect(compare.mock.calls.length).toBeLessThanOrEqual(2);
+      expect(compare.mock.calls.length).toBe(2);
+      expect(detailed.mock.calls.length).toBe(0);
       expect(store.page(0).similarCount).toBe(200);
     } finally {
       compare.mockRestore();
+      detailed.mockRestore();
     }
     for (const query of ['테헤란로 123', '테헤란로 124', '테헤란로', '역삼동 12'])
       await expectCompleteOracleParity(store, records, query);
@@ -331,13 +353,16 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
     const input = fixture(records);
     const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
     await store.prepare();
-    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddressFlags');
+    const detailed = vi.spyOn(addressComparison, 'compareSearchAddress');
     try {
       await store.search('봄카페 서울특별시 강남구 테헤란로 123');
-      expect(compare.mock.calls.length).toBeLessThanOrEqual(2);
+      expect(compare.mock.calls.length).toBe(2);
+      expect(detailed.mock.calls.length).toBe(0);
       expect(store.page(0).similarCount).toBe(200);
     } finally {
       compare.mockRestore();
+      detailed.mockRestore();
     }
     for (const query of [
       '봄카페 서울특별시 강남구 테헤란로 123',

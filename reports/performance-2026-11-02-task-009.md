@@ -7,6 +7,43 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Remaining field-comparison allocation correction
+
+Run41404984533 at115de55 passes supported1454Vitest/92browser/20accessibility,
+102operator and9admission checks. Its extended diagnostic passes59of60observations.
+Only mobile-cold partial-address repetition1 fails at790.6ms, with a726.6ms Worker
+MajorGC event. Names are230–316ms and mixed329–447ms across the retained cells.
+All counts/layouts/requests remain correct and browser errors are empty. The failure
+is preserved; it is not a performance pass or permission to publish.
+
+Ranking still constructed detailed comparison objects, conflict arrays and component
+iteration arrays for each distinct admitted address. A shared primitive now computes
+the same match/conflict/relevance flags as one number. The existing detailed comparison
+API decodes those flags into fresh ordered conflict arrays only where needed. Ranking
+retains its low-byte cache; high bits preserve full district/road/locality/number
+evidence for the detailed scorer. No input/output status, ranking rule or source/schema
+contract changes. The new regression is observed RED201detailed calls→GREEN0, with
+ordered multiple-conflict/relevance cases and all124search tests/types passing.
+
+The independent reviewer found no production differences in1125000component combinations
+against frozen main, including all family pairs and byte truncation. Review required
+strengthening both reuse tests to assert exactly2primitive calls and0detailed calls.
+The known slow-path mutation is observed RED(0versus2primitive calls), restored code
+passes all124search tests/types, and fresh reviewer confirmation approves hosted
+verification with no remaining findings. Assertions are strengthened, not relaxed.
+
+All56complete-source vectors/counts/full-field boundary pages remain identical to
+main after the final correction; both source hashes still match the receipt after
+the intentional mutation was restored. Receipt SHA256:
+`b5aa6809f024b76a04c7d0f7e25e16a6bb9b7152c52e233008148e19c9b54047`.
+Local full execution has1454passes/four unchanged Node22/macOS failures (1458total).
+Build, both quality checks and9admission checks pass. Separate offline observations
+are district163–185ms, partial address170–171ms, absent124–133ms, name171–177ms and
+mixed209–211ms; all15meet500ms. Preparation is30.81s after6.16s validated loading.
+These remain Node evidence. Actual final-head supported browser outcomes must show
+whether the retained collection pause is resolved. No retry, dropped sample, warming,
+forced GC, artificial delay, fixture change or budget waiver is introduced.
+
 ## Extended hosted failure and measured follow-up
 
 Actual run41400869374 at a3dc00a passes canonical1448Vitest/92browser/20accessibility
