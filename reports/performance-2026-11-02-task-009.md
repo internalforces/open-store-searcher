@@ -7,6 +7,50 @@ Harness Version: 1.1
 
 # TASK-009 mixed-query performance continuation — 2026-11-02
 
+## Extended hosted failure and measured follow-up
+
+Actual run41400869374 at a3dc00a passes canonical1448Vitest/92browser/20accessibility
+verification. Its extended complete-source diagnostic fails: mobile name598–639ms,
+mixed536–601ms, additional address/absent misses and a946ms desktop district sample.
+Worker MajorGC715–835ms events remain recorded. Counts/layout/requests remain correct
+and browser errors are empty. The failed run is preserved; no retry-to-green occurs.
+
+The bounded follow-up avoids duplicate identical interpreted/literal name checks,
+uses static32-bit necessary-character masks to reject incompatible projections before
+substring/token comparison, and counts rank groups during the complete scan without
+transient JS ordinal arrays. Mask collisions can only admit extra comparisons. Names
+retain both substring directions; literal-token masks omit separators because tokens
+may overlap inside one candidate word. Original detailed scoring remains unchanged.
+Masks retain4bytes per distinct name/address projection (16193468bytes on this source).
+Reusable flag/score storage is initialized during preparation before full-ID ordering,
+with unchanged exclusive leases/clearing. No query warming, forced GC or artificial
+delay is added. Whether this prevents the observed hosted pauses remains unproven.
+
+New regression evidence: duplicate comparisons RED400→GREEN200; incompatible name/
+literal comparisons RED200/201→GREENbelow100; transient ordinal appends RED200→GREEN
+below200; first-query scratch allocation RED804bytes→GREEN0. The exact-one-score-array
+lifetime assertion is retained and now measures preparation as well as later searches.
+The duplicate-check fixture survives the mask so its exact200-call assertion remains
+an independent regression. Unicode, unsigned-bit membership, substring directions,
+overlapping tokens and full-page evidence are exercised by the120passing search tests.
+Types, build, quality checks and9diagnostic-admission checks pass. Local full execution
+has1450pass/4unchanged Node22/macOS failures (1454total), without skips or weakened gates.
+
+All56complete-source vectors/counts/full-field boundary pages match main again;
+receipt SHA256:`1dd05ae930457ff12029dcdd2fdad8d7a9dabf021eecca8847d243887c948f04`.
+Single original/current preparation observations are33.78/33.59s. A separate offline
+run without sampling or forced GC records district175–190ms, partial address175–183ms,
+absent127–136ms, name172–175ms and mixed235–250ms. All15observations meet500ms;
+preparation is31.61s after6.26s validated load. These remain Node diagnostics.
+
+A fresh independent whole-change review approves hosted verification, finding no
+Critical/Important source issue. The duplicate-name test fixture was strengthened as
+noted above. Final supported ordinary and unchanged five-fixture browser outcomes
+remain required before any performance/publication acceptance. Sparse-query full-ID
+traversal and dedicated placement-cancellation regression coverage remain follow-ups.
+
+Earlier pending/initial-source measurements below are retained as historical evidence.
+
 Requirements: FR-02/03/07; performance NFRs. FR-08/12/13/14 and all source,
 quality, collection-date, privacy and publication contracts remain unchanged.
 
