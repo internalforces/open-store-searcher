@@ -7,6 +7,22 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 verified performance; integration approval held — 2026-11-03
+
+PR45 product head3c65585025405d6ef3550d7ed89d4b63fef2266c passes actual Verify41566322384:
+1,473Vitest/92browser/20a11y plus102operator/9admission and all60 complete-source
+searches112.4–283.9ms. All196 hosted code bindings match; all56 frozen-main vectors/
+counts/full-field pages agree. All7,958,240converted strings and2,951,024IDs agree.
+Independent review has no blockers. See reports/verification-2026-11-03-pr45.md.
+
+Automatic approval review rejected Draft release, citing retained Draft intent and
+missing explicit authorization. Later GitHub readback shows Ready; its execution
+origin is unknown and no merge authorization is inferred. Hold main integration
+for explicit user approval. Publication/public equality/durable backup/recovery
+remain open; TASK010 still requires its actual30-day interval. No deployment,
+settings, recurrence or whole-task closure occurred. Earlier snapshots are historical.
+
+
 ## TASK-009 native inline-column continuation — 2026-11-03
 
 PR45 d383401 passes ordinary but retains two mobile district misses in actual

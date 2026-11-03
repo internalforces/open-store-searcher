@@ -7,6 +7,47 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## Verified native-column delivery; integration approval blocked — 2026-11-03
+
+PR45 head `3c65585025405d6ef3550d7ed89d4b63fef2266c` is delivered. Actual Verify
+41566322384 passes ordinary1,473Vitest/92browser/20a11y plus102operator/9admission
+and all60 complete-source desktop/mobile searches112.4–283.9ms. Actual merge-revision
+operator a5e910c77e86a896786ea3bae30ccc9121c85f3f binds all196 source/test/operator
+files to current bytes. Primary19.4–169.9ms, full readiness44.6–49.2s, code121,505bytes.
+Sampled browser RSS2.64–3.81GiB is not a peak or a claimed memory improvement.
+
+Fresh current-code local source reconstruction passes195categories/2,951,024rows.
+Frozen-main56-query full vectors/counts/boundary-page parity is exact; receipt
+3a3122b65094a85f06815dcd4f6d052cc7932ddeef182d116f953e63eda63aea binds all8modules.
+Every7,958,240converted native value and all2,951,024IDs exactly match original
+compact columns across973columns. Native strings313,835,940bytes. Offline retained
+managed heap1,110,743,736→622,057,056bytes; buffers357,781,983→671,619,547bytes;
+RSS rises. Explicit GC occurs only in this separate retained-size diagnostic.
+Independent source/string/cancellation/retry review has no blockers. Earlier d383401
+58/60failure and all previous observations remain retained, never waived.
+
+Automatic approval review rejected changing Draft PR45 to ready-for-review, citing
+retained Draft instruction and lack of explicit authorization. Do not bypass via
+another route or attempt merge without resolving that approval. A later readback shows Ready and an internalforces ready_for_review event at
+2026-11-03T02:46:40Z; its execution origin is unknown. Do not attribute that change
+to a successful agent action or infer merge authorization. Main integration still
+requires explicit user authorization. Actual production publication,
+durable backup/recovery and TASK010real30days remain incomplete. Connected GitHub
+admin operations support source/PR/CI, not Pages settings/workflow dispatch; the
+inspected cloud browser is signed out. No deployment/settings/schedule changed.
+
+New cloud checkout: /workspace/scratch/f508cd802bd2/open-store-searcher. Current
+source equals delivered remote head; original Mac workspaces are unavailable and
+were not cleaned. Raw logs/receipts/prepared691,834,880byte tar remain in
+.testagent/performance-20261103, never uploaded as public PR evidence. The exact
+ZIP/observation were redownloaded with adopted hashes. Local full1471pass/two
+Debian absolute-Info-ZIP failures are superseded for acceptance by actual Ubuntu
+CI1473/1473. Local browser socket policy still blocks execution. The optional public validation snapshot read was stopped when integration was
+blocked: 476/723compact files are hash-verified; no complete public equality or new
+deployment is claimed.
+The live PR description records current verified outcomes; the dated report is its
+earlier checkpoint. No TASK009/010 whole-task completion is claimed.
+
 ## PR42 scratch-buffer CI follow-up — 2026-10-28
 
 First correction6fad420 passes Ubuntu1442/92/20and operator/admission checks, but retains

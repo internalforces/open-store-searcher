@@ -7,6 +7,19 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
+## Verified hosted performance; integration approval held — 2026-11-03
+
+PR45 head3c65585025405d6ef3550d7ed89d4b63fef2266c passes actual canonical Verify41566322384:
+1,473/92/20 plus102/9 and all60 full-source searches112.4–283.9ms. All196 code bindings,
+56 complete-source rank/count/page identities and7,958,240 native string values match.
+Independent review has no blockers. Full readiness44.6–49.2s, sampled RSS and physical
+limits remain explicit. Automatic approval review blocked Draft release for retained
+Draft intent/missing authorization. Later Ready readback does not establish merge
+authorization; main integration is held for explicit user approval. No deployment or
+whole-task closure; publication/recovery and TASK010real30days remain open. See
+reports/verification-2026-11-03-pr45.md and the latest memory/session.md.
+
+
 ## TASK-009 preparation optimization — 2026-10-27
 
 User-authorized profiling and lossless optimization reuse the complete2,951,024-row source.
