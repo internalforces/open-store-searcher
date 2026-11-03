@@ -7,6 +7,7 @@ import {
   materializeRecord,
   requireCompact,
 } from '../shared/compact-data.js';
+import { PackedStringValues } from '../shared/packed-string-values.js';
 import {
   type AddressParts,
   compareSearchAddressFlags,
@@ -42,7 +43,12 @@ function packBlockReferences(block: CompactBlock): CompactBlock {
   return {
     ...block,
     columns: block.columns.map((column) => {
-      if ('values' in column) return column;
+      if ('values' in column) {
+        if (column.values instanceof PackedStringValues) return column;
+        return column.values.every((value): value is string => typeof value === 'string')
+          ? { values: new PackedStringValues(column.values) }
+          : column;
+      }
       requireCompact(
         column.refs.every(
           (reference) =>

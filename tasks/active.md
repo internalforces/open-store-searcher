@@ -7,6 +7,17 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 native inline-column continuation — 2026-11-03
+
+PR45 d383401 passes ordinary but retains two mobile district misses in actual
+Verify41505700206. Native inline-column packing preserves exact source strings and
+the existing complete search/page/retry contracts.188focused tests and111operator
+checks pass; independent review has no blockers. Full-source parity and new-head
+hosted verification remain before performance acceptance/integration. Publication,
+public equality and durable backup/recovery remain open; TASK-010 follows with its
+actual30-day interval. See reports/performance-2026-11-03-task-009.md.
+
+
 ## TASK-009 cache-hit CPU correction
 
 Actual final346de5c Verify41500086829 passes1,469/92/20 plus102/9 but retains one

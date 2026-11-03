@@ -3,6 +3,7 @@ import {
   type CompactBlock,
   type CompactManifest,
   type CompactRecord,
+  columnValue,
   type Dictionaries,
   encodeColumns,
   flattenRecord,
@@ -153,6 +154,27 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('releases inline string arrays in owned prepared blocks while preserving every value', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const original = JSON.stringify(input);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const prepared = (store as unknown as { preparedBlocks: { block: CompactBlock }[] })
+      .preparedBlocks;
+    for (const { block } of prepared) {
+      const identifiers = block.columns[0];
+      if (!identifiers) throw new Error('Missing identifier column');
+      if ('values' in identifiers) expect(Array.isArray(identifiers.values)).toBe(false);
+      for (let row = 0; row < block.count; row++)
+        expect(columnValue(identifiers, row, input.dictionaries)).toBe(
+          records[block.start + row]?.id,
+        );
+    }
+    expect(JSON.stringify(input)).toBe(original);
+    await expectCompleteOracleParity(store, records, '강남구');
+  });
+
   test('defers detailed address hydration and scoring until materializing name-only pages', async () => {
     const records = Array.from({ length: 200 }, (_, index) =>
       record(index + 1, '봄카페', `서울특별시 강남구 테헤란로 ${index + 1}`),
@@ -283,6 +305,7 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
     const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
     let byteArrays = 0;
     let scoreArrays = 0;
+    await store.prepare();
     vi.stubGlobal(
       'Uint8Array',
       new Proxy(Uint8Array, {
@@ -302,12 +325,11 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
       }),
     );
     try {
-      // Include initialization so preparation-time allocation is counted too.
-      await store.prepare();
+      // Measure query scratch separately from the owned native source columns.
       for (const query of ['강남구', '테헤란로 12', '없는상호', '서초구', '봄카페', '테헤란로 123'])
         await expectCompleteOracleParity(store, records, query);
-      expect(byteArrays).toBeLessThanOrEqual(4);
-      expect(scoreArrays).toBe(1);
+      expect(byteArrays).toBe(0);
+      expect(scoreArrays).toBe(0);
     } finally {
       vi.unstubAllGlobals();
     }
