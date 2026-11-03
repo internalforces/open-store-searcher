@@ -3,12 +3,15 @@ import {
   type CompactBlock,
   type CompactManifest,
   type CompactRecord,
+  columnValue,
   type Dictionaries,
   encodeColumns,
   flattenRecord,
 } from '../shared/compact-data.js';
 import { CompactSearch } from './compact-search.js';
 import * as addressComparison from './compare-search-address.js';
+import { PreparedAddresses } from './prepared-addresses.js';
+import * as candidateScoring from './search-candidates.js';
 import { createSearchIndex, searchCandidates } from './search-candidates.js';
 
 const archiveSha256 = 'a'.repeat(64);
@@ -151,13 +154,158 @@ async function expectCompleteOracleParity(
 }
 
 describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
+  test('releases inline string arrays in owned prepared blocks while preserving every value', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const original = JSON.stringify(input);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const prepared = (store as unknown as { preparedBlocks: { block: CompactBlock }[] })
+      .preparedBlocks;
+    for (const { block } of prepared) {
+      const identifiers = block.columns[0];
+      if (!identifiers) throw new Error('Missing identifier column');
+      if ('values' in identifiers) expect(Array.isArray(identifiers.values)).toBe(false);
+      for (let row = 0; row < block.count; row++)
+        expect(columnValue(identifiers, row, input.dictionaries)).toBe(
+          records[block.start + row]?.id,
+        );
+    }
+    expect(JSON.stringify(input)).toBe(original);
+    await expectCompleteOracleParity(store, records, '강남구');
+  });
+
+  test('defers detailed address hydration and scoring until materializing name-only pages', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, '봄카페', `서울특별시 강남구 테헤란로 ${index + 1}`),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const read = vi.spyOn(PreparedAddresses.prototype, 'read');
+    const detailed = vi.spyOn(candidateScoring, 'scoreCandidate');
+    try {
+      await store.search('봄카페');
+      expect(read.mock.calls).toHaveLength(0);
+      expect(detailed.mock.calls).toHaveLength(0);
+    } finally {
+      read.mockRestore();
+      detailed.mockRestore();
+    }
+    expect(store.page(0).similarCount).toBe(200);
+    await expectCompleteOracleParity(store, records, '봄카페');
+  });
+
+  test('caches matching-name ranks and both address fields without per-row detailed scoring', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, '봄카페', '서울특별시 강남구 테헤란로 123', '서울특별시 강북구 수유동 12'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const read = vi.spyOn(PreparedAddresses.prototype, 'read');
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddressFlags');
+    const detailed = vi.spyOn(candidateScoring, 'scoreCandidate');
+    const name = vi.spyOn(candidateScoring, 'matchName');
+    const query = '봄카페 서울특별시 강남구 테헤란로 123';
+    try {
+      await store.search(query);
+      expect(detailed.mock.calls).toHaveLength(0);
+      expect(compare.mock.calls).toHaveLength(2);
+      expect(read.mock.calls).toHaveLength(2);
+      expect(read.mock.calls.every(([, target]) => target !== undefined)).toBe(true);
+      expect(new Set(read.mock.calls.map(([, target]) => target)).size).toBe(1);
+      expect(name.mock.calls).toHaveLength(1);
+    } finally {
+      read.mockRestore();
+      compare.mockRestore();
+      detailed.mockRestore();
+      name.mockRestore();
+    }
+    expect(store.page(0).similarCandidates[0]).toMatchObject({ score: 500, confidence: 'low' });
+    await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('owns packed column references and releases source containers without changing input', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const original = JSON.stringify(input.blocks);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const prepared = store as unknown as {
+      blocks: readonly CompactBlock[] | null;
+      preparedBlocks: { block: CompactBlock; evidence: CompactBlock }[];
+    };
+    const packed = prepared.preparedBlocks.flatMap(({ block, evidence }) => [block, evidence]);
+    const columns = packed.flatMap((block) => block.columns).filter((column) => 'refs' in column);
+    expect(columns.length).toBeGreaterThan(0);
+    expect(columns.every((column) => 'refs' in column && column.refs instanceof Uint32Array)).toBe(
+      true,
+    );
+    expect(prepared.blocks).toBeNull();
+    expect(JSON.stringify(input.blocks)).toBe(original);
+    for (const block of packed) {
+      const source = input.blocks.find(
+        (value) => value.role === block.role && value.start === block.start,
+      );
+      expect(block).not.toBe(source);
+      block.columns.forEach((column, index) => {
+        if ('refs' in column) {
+          const before = source?.columns[index];
+          expect(before && 'refs' in before && Array.from(column.refs)).toEqual(
+            before && 'refs' in before ? before.refs : null,
+          );
+        }
+      });
+    }
+    for (const query of ['강남구', '봄카페', '테헤란로 123'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('retains original data for retry when cancellation arrives while packing evidence references', async () => {
+    const records = representativeRecords();
+    const input = fixture(records);
+    const original = JSON.stringify(input.blocks);
+    const column = input.blocks
+      .find((block) => block.role === 'evidence')
+      ?.columns.find((value) => 'refs' in value);
+    if (!column || !('refs' in column)) throw new Error('Fixture needs evidence references');
+    const descriptor = Object.getOwnPropertyDescriptor(column.refs, '0') as PropertyDescriptor;
+    const value = column.refs[0];
+    const controller = new AbortController();
+    Object.defineProperty(column.refs, '0', {
+      configurable: true,
+      enumerable: true,
+      get() {
+        controller.abort();
+        return value;
+      },
+    });
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    try {
+      await expect(store.prepare(controller.signal)).rejects.toMatchObject({ name: 'AbortError' });
+    } finally {
+      Object.defineProperty(column.refs, '0', descriptor);
+    }
+    const retryable = (store as unknown as { blocks: CompactBlock[] }).blocks;
+    expect(retryable).not.toBe(input.blocks);
+    expect(retryable).toHaveLength(input.blocks.length);
+    expect(
+      retryable[0]?.columns.some((value) => 'refs' in value && value.refs instanceof Uint32Array),
+    ).toBe(true);
+    expect(JSON.stringify(input.blocks)).toBe(original);
+    await store.prepare();
+    await expectCompleteOracleParity(store, records, '강남구');
+    await expectCompleteOracleParity(store, records, '봄카페');
+  });
+
   test('reuses zeroed scratch buffers across distinct searches without changing full results', async () => {
     const records = representativeRecords();
     const input = fixture(records);
     const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
-    await store.prepare();
     let byteArrays = 0;
     let scoreArrays = 0;
+    await store.prepare();
     vi.stubGlobal(
       'Uint8Array',
       new Proxy(Uint8Array, {
@@ -177,10 +325,11 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
       }),
     );
     try {
+      // Measure query scratch separately from the owned native source columns.
       for (const query of ['강남구', '테헤란로 12', '없는상호', '서초구', '봄카페', '테헤란로 123'])
         await expectCompleteOracleParity(store, records, query);
-      expect(byteArrays).toBeLessThanOrEqual(4);
-      expect(scoreArrays).toBe(1);
+      expect(byteArrays).toBe(0);
+      expect(scoreArrays).toBe(0);
     } finally {
       vi.unstubAllGlobals();
     }
@@ -221,6 +370,165 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
     }
   });
 
+  test('does not repeat identical interpreted and literal name comparisons', async () => {
+    const records = Array.from({ length: 200 }, (_, index) => record(index + 1, `페카봄${index}`));
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(candidateScoring, 'matchName');
+    try {
+      await store.search('봄카페');
+      expect(compare.mock.calls.length).toBe(records.length);
+      expect(store.page(0).similarCount).toBe(0);
+    } finally {
+      compare.mockRestore();
+    }
+  });
+
+  test('keeps prepared numeric filters within the allocation-free small-integer range', async () => {
+    const records = [
+      record(1, 'abcdefghijklmnopqrstuvwxyz 가나다라마사아자차카타파하'),
+      record(2, '봄카페', '서울특별시 강남구 테헤란로 123'),
+    ];
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    const arrays: (Uint16Array | Uint32Array)[] = [];
+    for (const [name, Native] of [
+      ['Uint16Array', Uint16Array],
+      ['Uint32Array', Uint32Array],
+    ] as const)
+      vi.stubGlobal(
+        name,
+        new Proxy(Native, {
+          construct(target, args) {
+            const value = Reflect.construct(target, args) as Uint16Array | Uint32Array;
+            arrays.push(value);
+            return value;
+          },
+        }),
+      );
+    try {
+      await store.prepare();
+    } finally {
+      vi.unstubAllGlobals();
+    }
+    expect(arrays.length).toBeGreaterThan(0);
+    expect(arrays.every((values) => values.every((value) => value <= 0x3fffffff))).toBe(true);
+    for (const query of ['봄카페', '테헤란로 123', 'ab b', '가나다'])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test.each([
+    ['an', 'z'],
+    ['nn', 'f'],
+  ])(
+    'retains distinct character rejection for %s using small numeric values',
+    async (query, letter) => {
+      const records = Array.from({ length: 200 }, (_, index) =>
+        record(index + 1, letter.repeat(index + 2), '', ''),
+      );
+      const input = fixture(records);
+      const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+      await store.prepare();
+      const compare = vi.spyOn(candidateScoring, 'matchName');
+      let comparisons = 0;
+      try {
+        await store.search(query);
+        comparisons = compare.mock.calls.length;
+      } finally {
+        compare.mockRestore();
+      }
+      expect(comparisons).toBe(0);
+      await expectCompleteOracleParity(store, records, query);
+    },
+  );
+
+  test('filters incompatible name projections before detailed substring comparison', async () => {
+    const records = Array.from({ length: 200 }, (_, index) => record(index + 1, `봄카페${index}`));
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(candidateScoring, 'matchName');
+    let comparisons = 0;
+    try {
+      await store.search('스타벅스');
+      comparisons = compare.mock.calls.length;
+    } finally {
+      compare.mockRestore();
+    }
+    expect(comparisons).toBeLessThan(records.length / 2);
+    await expectCompleteOracleParity(store, records, '스타벅스');
+  });
+
+  test('filters incompatible literal address projections before detailed token comparison', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `봄카페${index}`, `서울특별시 강남구 테헤란로 ${index + 1}`),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(candidateScoring, 'matchesLiteralAddressKey');
+    let comparisons = 0;
+    try {
+      await store.search('스타벅스');
+      comparisons = compare.mock.calls.length;
+    } finally {
+      compare.mockRestore();
+    }
+    expect(comparisons).toBeLessThan(records.length / 2);
+    await expectCompleteOracleParity(store, records, '스타벅스');
+  });
+
+  test('preserves substring direction, overlapping literal tokens and Unicode character evidence', async () => {
+    const names = [
+      '봄카페',
+      '카페',
+      '봄카페본점',
+      '봄 카페',
+      '가👨‍👩‍👧‍👦',
+      'e\u0301카페',
+      '①カフェ',
+    ];
+    const records = names.map((name, index) =>
+      record(index + 1, name, index % 2 ? 'ab' : '112 12', index % 3 ? '' : '카페 길 12-3'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    for (const query of [
+      '봄카페',
+      '카페',
+      '봄카페본점',
+      'ab b',
+      '12',
+      '12-3',
+      '가👨‍👩‍👧‍👦',
+      'é카페',
+      '①カフェ',
+      '龘靐齉爩',
+    ])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('ranks address-only candidates without constructing detailed field-comparison objects', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `상점${index}`, `테헤란로 ${index + 1}`),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    let detailedComparisons = 0;
+    try {
+      await store.search('테헤란로 123');
+      detailedComparisons = compare.mock.calls.length;
+    } finally {
+      compare.mockRestore();
+    }
+    expect(detailedComparisons).toBe(0);
+    await expectCompleteOracleParity(store, records, '테헤란로 123');
+  });
+
   test('compares repeated address projections once per address-only search', async () => {
     const records = Array.from({ length: 200 }, (_, index) =>
       record(index + 1, `상점${index}`, '서울특별시 강남구 테헤란로 124'),
@@ -228,16 +536,157 @@ describe('TASK-008 compact complete search (FR-02, FR-03, FR-07)', () => {
     const input = fixture(records);
     const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
     await store.prepare();
-    const compare = vi.spyOn(addressComparison, 'compareSearchAddress');
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddressFlags');
+    const detailed = vi.spyOn(addressComparison, 'compareSearchAddress');
     try {
       await store.search('테헤란로 123');
-      expect(compare.mock.calls.length).toBeLessThanOrEqual(2);
+      expect(compare.mock.calls.length).toBe(2);
+      expect(detailed.mock.calls.length).toBe(0);
       expect(store.page(0).similarCount).toBe(200);
     } finally {
       compare.mockRestore();
+      detailed.mockRestore();
     }
     for (const query of ['테헤란로 123', '테헤란로 124', '테헤란로', '역삼동 12'])
       await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('reuses repeated address comparisons for mixed queries without inventing name matches', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `다른상점${index}`, '서울특별시 강남구 테헤란로 124'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const compare = vi.spyOn(addressComparison, 'compareSearchAddressFlags');
+    const detailed = vi.spyOn(addressComparison, 'compareSearchAddress');
+    try {
+      await store.search('봄카페 서울특별시 강남구 테헤란로 123');
+      expect(compare.mock.calls.length).toBe(2);
+      expect(detailed.mock.calls.length).toBe(0);
+      expect(store.page(0).similarCount).toBe(200);
+    } finally {
+      compare.mockRestore();
+      detailed.mockRestore();
+    }
+    for (const query of [
+      '봄카페 서울특별시 강남구 테헤란로 123',
+      '봄카페 서울특별시 강남구 테헤란로 124',
+    ])
+      await expectCompleteOracleParity(store, records, query);
+  });
+
+  test('prepares reusable flag and score storage before the first search', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(index + 1, `상점${index}`, '서울특별시 강남구 테헤란로 124'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    let allocatedBytes = 0;
+    for (const [name, Native] of [
+      ['Uint8Array', Uint8Array],
+      ['Int16Array', Int16Array],
+    ] as const)
+      vi.stubGlobal(
+        name,
+        new Proxy(Native, {
+          construct(target, args) {
+            const value = Reflect.construct(target, args) as Uint8Array | Int16Array;
+            allocatedBytes += value.byteLength;
+            return value;
+          },
+        }),
+      );
+    try {
+      await store.search('테헤란로 123');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+    expect(allocatedBytes).toBe(0);
+    await expectCompleteOracleParity(store, records, '테헤란로 123');
+  });
+
+  test('does not accumulate admitted ordinals in transient JavaScript arrays', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(500 - index, '봄카페', '서울특별시 강남구 테헤란로 123'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const descriptor = Object.getOwnPropertyDescriptor(
+      Array.prototype,
+      'push',
+    ) as PropertyDescriptor;
+    const push = Array.prototype.push;
+    let numericEntries = 0;
+    Object.defineProperty(Array.prototype, 'push', {
+      ...descriptor,
+      value(this: unknown[], ...values: unknown[]) {
+        for (const value of values) if (typeof value === 'number') numericEntries++;
+        return Reflect.apply(push, this, values);
+      },
+    });
+    try {
+      await store.search('봄카페 서울특별시 강남구 테헤란로 123');
+    } finally {
+      Object.defineProperty(Array.prototype, 'push', descriptor);
+    }
+    expect(store.page(0).eligibleCount).toBe(200);
+    expect(numericEntries).toBeLessThan(records.length);
+    await expectCompleteOracleParity(store, records, '봄카페 서울특별시 강남구 테헤란로 123');
+  });
+
+  test('bounds transient ordinal allocation while retaining every mixed-query candidate', async () => {
+    const records = Array.from({ length: 200 }, (_, index) =>
+      record(500 - index, '봄카페', '서울특별시 강남구 테헤란로 123'),
+    );
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    const Native = Uint32Array;
+    let allocatedEntries = 0;
+    vi.stubGlobal(
+      'Uint32Array',
+      new Proxy(Native, {
+        construct(target, args) {
+          const value = Reflect.construct(target, args) as Uint32Array;
+          allocatedEntries += value.length;
+          return value;
+        },
+      }),
+    );
+    try {
+      await store.search('봄카페 서울특별시 강남구 테헤란로 123');
+      expect(store.page(0).eligibleCount).toBe(200);
+      expect(allocatedEntries).toBeLessThanOrEqual(records.length);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+    await expectCompleteOracleParity(store, records, '봄카페 서울특별시 강남구 테헤란로 123');
+  });
+
+  test('preserves blank-name eligibility and nonmatching-name rejection in exact mixed queries', async () => {
+    const records = [
+      record(1, '', '서울특별시 강남구 테헤란로 123'),
+      record(2, '다른상점', '서울특별시 강남구 테헤란로 123'),
+      record(3, '봄카페', '서울특별시 강남구 테헤란로 123'),
+      record(4, '봄카페', '서울특별시 강남구 테헤란로 124'),
+      record(5, '', '서울특별시 강남구 테헤란로 123', '서초구 역삼동 12'),
+    ];
+    const input = fixture(records);
+    const store = new CompactSearch(input.manifest, input.blocks, input.dictionaries);
+    await store.prepare();
+    await expectCompleteOracleParity(store, records, '봄카페 서울특별시 강남구 테헤란로 123');
+    const page = store.page(0);
+    expect(page.topMatches.find((match) => match.record.id === id(1))).toMatchObject({
+      score: 100,
+      confidence: 'medium',
+    });
+    expect(page.similarCandidates.find((match) => match.record.id === id(2))).toMatchObject({
+      score: 0,
+      confidence: 'low',
+    });
   });
 
   test('preserves address-only ranks, literal-name fallback and contradictory field evidence', async () => {

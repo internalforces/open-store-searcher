@@ -46,10 +46,11 @@ export function projectSearchName(value: string): string {
   return normalizeSearchText(normalizeSearchNotation(value).replace(/\p{P}+/gu, ' '));
 }
 
-/** Project query or candidate fields identically, including empty and single-character fields. */
-export function projectSearchText(value: string): SearchTextProjection {
+/** Candidate addresses need no name projection or retained token array. */
+export function projectSearchAddress(
+  value: string,
+): Pick<SearchTextProjection, 'normalized' | 'addressKey'> {
   const normalized = normalizeSearchNotation(value);
-  const nameKey = normalizeSearchText(normalized.replace(/\p{P}+/gu, ' '));
   // Canonicalize dash punctuation to a hyphen without erasing number separators.
   const addressKey = normalizeSearchText(
     normalized
@@ -58,6 +59,13 @@ export function projectSearchText(value: string): SearchTextProjection {
       .replace(/(\p{L})(\d)/gu, '$1 $2')
       .replace(/(\d)(\p{L})/gu, '$1 $2'),
   );
+  return { normalized, addressKey };
+}
+
+/** Project query or candidate fields identically, including empty and single-character fields. */
+export function projectSearchText(value: string): SearchTextProjection {
+  const { normalized, addressKey } = projectSearchAddress(value);
+  const nameKey = normalizeSearchText(normalized.replace(/\p{P}+/gu, ' '));
   return {
     normalized,
     nameKey,

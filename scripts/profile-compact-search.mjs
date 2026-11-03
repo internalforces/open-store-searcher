@@ -35,6 +35,7 @@ const report = {
 };
 for (const path of [
   'src/search/compact-search.ts',
+  'src/search/prepared-addresses.ts',
   'src/search/compare-search-address.ts',
   'src/search/prepare-search-query.ts',
   'src/search/search-candidates.ts',

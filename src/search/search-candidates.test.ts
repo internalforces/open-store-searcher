@@ -354,3 +354,18 @@ test('keeps recovered address-like names eligible without automatic primary sele
     result.similarCandidates.find((match) => match.record.id === 'conflict')?.reasons,
   ).toContain('address_conflict:district');
 });
+
+test('keeps the inferred high-boundary reason when a secondary conflict lowers confidence', () => {
+  const result = searchCandidates(
+    createSearchIndex([
+      record('conflict', '신사동', '서울특별시 강남구 테헤란로 12', '서울특별시 서초구 반포동 12'),
+    ]),
+    '신사동 서울특별시 강남구 테헤란로 12',
+  );
+  expect(result.topMatches).toEqual([]);
+  expect(result.similarCandidates[0]).toMatchObject({
+    score: 500,
+    confidence: 'low',
+    reasons: ['name:exact', 'address:exact', 'address_conflict:district', 'inferred_name_boundary'],
+  });
+});

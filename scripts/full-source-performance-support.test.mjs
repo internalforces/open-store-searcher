@@ -20,14 +20,19 @@ function sample(profile = 'desktop', cache = 'cold') {
     primaryMs: 2500,
     preInteractionLcpMs: 2500,
     readyMs: 60000,
-    searches: ['broad-district', 'partial-address', 'absent'].map((fixtureId) => ({
+    searches: ['broad-district', 'partial-address', 'absent', 'name', 'mixed'].map((fixtureId) => ({
       fixtureId,
       elapsedMs: 500,
       visible: true,
       resultRegionHasLayout: true,
       eligibleCount: 0,
-      similarCount:
-        fixtureId === 'broad-district' ? 323695 : fixtureId === 'partial-address' ? 32399 : 0,
+      similarCount: {
+        'broad-district': 323695,
+        'partial-address': 32399,
+        absent: 0,
+        name: 1282,
+        mixed: 325012,
+      }[fixtureId],
       requestDelta: 0,
     })),
   };
@@ -44,6 +49,13 @@ test('post-search errors cannot yield a passing diagnostic', () => {
   const error = complete();
   error[0].error = 'ProtocolError';
   assert.equal(assessFullSourceSamples(error, identity, 1).budgetsMet, false);
+});
+test('missing mixed and name measurements cannot pass full-source assessment', () => {
+  for (const fixtureId of ['name', 'mixed']) {
+    const rows = complete();
+    rows[0].searches = rows[0].searches.filter((search) => search.fixtureId !== fixtureId);
+    assert.equal(assessFullSourceSamples(rows, identity, 1).budgetsMet, false);
+  }
 });
 test('missing raw repetitions cannot yield a passing diagnostic', () => {
   const missing = complete();

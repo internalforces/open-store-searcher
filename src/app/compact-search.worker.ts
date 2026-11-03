@@ -1,7 +1,12 @@
-import { COMPACT_MAX_BYTES, requireCompact } from '../shared/compact-data.js';
-import { loadCompactSnapshot, readCompactResponse } from '../shared/load-compact-data.js';
 import { CompactSearch } from '../search/compact-search.js';
+import { COMPACT_MAX_BYTES, requireCompact } from '../shared/compact-data.js';
+import {
+  type CompactSnapshot,
+  loadCompactSnapshot,
+  readCompactResponse,
+} from '../shared/load-compact-data.js';
 import type { WorkerReply, WorkerRequest } from './compact-worker-protocol.js';
+
 const scope = self as unknown as {
   onmessage: ((event: MessageEvent<WorkerRequest>) => void) | null;
   postMessage: (v: WorkerReply) => void;
@@ -77,7 +82,7 @@ scope.onmessage = (event) => {
       );
       const bytes = await readCompactResponse(url.href, COMPACT_MAX_BYTES, signal);
       const base = new URL('../', url);
-      const snapshot = await loadCompactSnapshot(
+      let snapshot: CompactSnapshot | null = await loadCompactSnapshot(
         bytes,
         required(match[1]),
         (name, max) => readCompactResponse(new URL(name, base).href, max, signal),
@@ -89,6 +94,9 @@ scope.onmessage = (event) => {
         snapshot.blocks,
         snapshot.dictionaries,
       );
+      const metadata = snapshot.manifest.metadata;
+      const recordCount = snapshot.manifest.recordCount;
+      snapshot = null;
       await candidate.prepare(signal);
       signal.throwIfAborted();
       store = candidate;
@@ -97,8 +105,8 @@ scope.onmessage = (event) => {
         generation,
         request,
         kind: 'ready',
-        metadata: snapshot.manifest.metadata,
-        recordCount: snapshot.manifest.recordCount,
+        metadata,
+        recordCount,
         manifestHash: required(match[1]),
         timings: { loadMs: loaded - started, prepareMs: performance.now() - loaded },
       });

@@ -1,7 +1,8 @@
-import { seoulCalendarDate } from './data-freshness.js';
-import { isCalendarDate } from '../pipeline/calendar-date.js';
 import type { DisplayDataset, DisplayRecord } from '../app/display-data.js';
 import { mapLicenseStatusV1 } from '../domain/map-license-status.js';
+import { isCalendarDate } from '../pipeline/calendar-date.js';
+import { seoulCalendarDate } from './data-freshness.js';
+import { PackedStringValues } from './packed-string-values.js';
 
 export const COMPACT_BLOCK_ROWS = 8192;
 export const COMPACT_MAX_BYTES = 8 * 1024 * 1024;
@@ -29,10 +30,11 @@ export const COMPACT_FIELDS = [
   'sourceUrl',
 ] as const;
 export type CompactRecord = DisplayRecord & { readonly processedStatus: string };
+// Network validation still requires JSON arrays. An owned prepared copy may pack references.
 export type Column =
-  | { values: unknown[] }
-  | { dictionary: unknown[]; refs: number[] }
-  | { shared: number; refs: number[] };
+  | { values: unknown[] | PackedStringValues }
+  | { dictionary: unknown[]; refs: number[] | Uint32Array }
+  | { shared: number; refs: number[] | Uint32Array };
 export type Dictionaries = (unknown[] | null)[];
 export interface CompactEntry {
   name: string;
@@ -163,7 +165,8 @@ export function materializeRecord(v: readonly unknown[]): CompactRecord {
   } as CompactRecord;
 }
 export function columnValue(column: Column, row: number, dictionaries: Dictionaries): unknown {
-  if ('values' in column) return column.values[row];
+  if ('values' in column)
+    return column.values instanceof PackedStringValues ? column.values.at(row) : column.values[row];
   const values = 'dictionary' in column ? column.dictionary : dictionaries[column.shared];
   requireCompact(values && integer(column.refs[row]) && column.refs[row] < values.length);
   return values[column.refs[row]];

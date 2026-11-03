@@ -10,6 +10,18 @@ function query(value: string) {
 }
 
 describe('TASK-012 address interpretation and comparison', () => {
+  test.each([
+    ['서초구 테헤란로 124', ['district', 'number'], true],
+    ['서초구 봉은사로 124', ['district', 'road'], false],
+    ['강남구 봉은사로 124', ['road'], true],
+  ])('preserves complete ordered road conflicts for %s', (candidate, conflicts, relevant) => {
+    expect(
+      compareSearchAddress(
+        parseSearchAddress('강남구 테헤란로 123'),
+        parseSearchAddress(candidate),
+      ),
+    ).toEqual({ match: 'none', conflicts, relevant });
+  });
   test('extracts name-first and address-first spans with attached road numbers', () => {
     for (const value of [
       '봄카페 서울 강남구 테헤란로12길34-5',

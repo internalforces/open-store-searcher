@@ -36,6 +36,12 @@ export const fullSourceFixtures = [
   { id: 'broad-district', value: '강남구', similarCount: 323695 },
   { id: 'partial-address', value: '테헤란로 123', similarCount: 32399 },
   { id: 'absent', value: '龘靐齉爩', similarCount: 0 },
+  { id: 'name', value: '스타벅스', similarCount: 1282 },
+  {
+    id: 'mixed',
+    value: '스타벅스 서울특별시 강남구 테헤란로 123',
+    similarCount: 325012,
+  },
 ];
 
 const finite = (value) => typeof value === 'number' && Number.isFinite(value) && value >= 0;

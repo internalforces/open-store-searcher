@@ -7,6 +7,160 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 native inline-column continuation — 2026-11-03
+
+PR45 d383401 passes ordinary but retains two mobile district misses in actual
+Verify41505700206. Native inline-column packing preserves exact source strings and
+the existing complete search/page/retry contracts.188focused tests and111operator
+checks pass; independent review has no blockers. Full-source parity and new-head
+hosted verification remain before performance acceptance/integration. Publication,
+public equality and durable backup/recovery remain open; TASK-010 follows with its
+actual30-day interval. See reports/performance-2026-11-03-task-009.md.
+
+
+## TASK-009 cache-hit CPU correction
+
+Actual final346de5c Verify41500086829 passes1,469/92/20 plus102/9 but retains one
+519.3ms mobile-cold mixed miss among60. Preserve it and the preceding60/60pass.
+Current one-file correction reads existing cache bytes directly in the scan, returning
+exact name/address sentinel flags from unchanged slow computation only on zero.
+It reuses row reference/name scalars, preserving all rows/ranks/pages/conflicts,
+short-circuit order, buffers, leases, clearing, checkpoints and source/status/date.
+
+All135search/types/style/build/quality/9admission pass; full local1,465pass/four same
+platform failures. All56complete-source vectors/counts/full-field pages equal frozen
+main, receipt24abd14f8673c34dd2c33d72a71b12fd5ba816875e7b4df8372876079f27ab85;
+every current binding matches. Final unprofiled serial all15 meet500ms, mixed194.5–195.3ms.
+Independent1,902page/complete-vector/cancellation review approves with no findings.
+Actual new-head ordinary/full-source checks remain required before integration.
+TASK-009 alone active; no merge/setup/flags/dispatch/deployment/recovery/schedule change.
+
+## TASK-009 supported scalar result — 2026-11-02
+
+PR45fef1e36 Verify41458949548 passes both jobs:1,468/92/20 plus102/9 and all60
+complete-source searches179.3–436.3 ms. All counts/layout/request/source checks pass;
+browser errors are empty. Primary/LCP/code budgets pass; readiness64.6–71.7seconds
+and sampled3.63–3.84GB RSS remain explicit limitations. Physical testing stays skipped.
+Product bindings match; one locally added inferred-boundary regression was omitted
+from delivery and is now included with evidence updates. Read the final test-only
+continuation's actual canonical checks before integration. Keep all earlier failures.
+
+TASK-009 alone stays active for fresh candidate/publication/public equality/durable
+backup/recovery. Exact-candidate protected approval remains after concrete preparation.
+TASK-010 needs real30-day evidence; TASK-028 paused and TASK-021 gated. No Pages setup,
+flag, import dispatch, deployment or recovery-authority change has occurred.
+
+## TASK-009 scalar ranking continuation — 2026-11-02
+
+Remote PR45head2f26f05 run41432858991 passes1,467/92/20 plus102/9, but full-source
+55/60 fails (mixed879.8/892.1/876.6 ms; mobile district614.4/624.5 ms). Preserve all
+observations and budgets. GC chronology does not attribute every collection to mixed.
+
+Current local follow-up removes detailed per-row rank objects with exact name-kind/
+fallback byte caching and one shared scalar score/confidence policy. Both address
+fields remain compared; independent page reasons and accepted/cancelled state stay
+exact. RED400 hydrations/200 detailed scorers becomes GREEN0, with two unique mixed
+address comparisons on one target. All135 search tests/types and56 full-source vectors/
+counts/pages pass; receipt7ad8f5d6d51d5fdfca2cc59a0fa477d42fed9e436ba4667283f438e81c3bf418.
+Independent frozen-policy/whole-page/cache/cancellation reviews have no findings.
+Full local1,465 passes/four unchanged platform failures, build/quality/9 admission pass.
+Collected allocations fall from13.77MB to4.59MB for name and17.58MB to5.00MB for mixed
+over three sampled queries; these perturbed estimates are not browser acceptance.
+Separate unprofiled serial all15 meet500 ms (mixed218–230 ms, name182–184 ms), with
+source bindings verified. Final-head supported results remain required.
+
+Only TASK-009 is active; no integration/publication/completion claim. After actual
+supported acceptance, prepare a new current-main candidate and obtain the separate
+exact-candidate protected deployment approval, then public equality and durable
+backup/recovery. TASK-010 follows real30 days; TASK-028 paused, TASK-021 gated and
+physical measurement user-skipped. No setup/flags/import dispatch/deployment change.
+
+## TASK-009 native projection continuation — 2026-11-02
+
+Remote43cd7f8 run41424723438 fails both jobs:3/60 full-source search misses and one
+ordinary decoration-layout flake (1463unit pass; a11y/operators not run). Keep every
+failure, all fixtures/repetitions and the unchanged500ms/2.5s/300KB budgets.
+
+Current reviewed native parsed-address columns preserve exact fields/keys/flags and
+source-only lookup, with two query-local read targets and fresh page evidence. All133
+search tests/types and56full-source vectors/counts/full-field pages pass; receipt
+1d8fc76bccca7a5f3747e3dbaef91219cbb9f884b3f17fdb999eed3eeefd3ebf binds the new module
+(originalnull/currenthash verified). Full local1463passes/4sameplatformerrors, build,
+quality and9admission pass. Actual memory snapshots/15under500ms Node samples are
+not browser acceptance. Independent semantic/evidence reviews approve hosted checks.
+
+The separate test-only held-response decoration window preserves zero thresholds and
+all native observations, drains queued entries atomically, attaches delivery-phase
+records after timing checks and retains unchanged user-action/resource assertions.
+Review/typecheck/style pass; actual supported browser verification is still required.
+TASK-009 alone stays active; publication/public/backup/recovery follow exact-candidate
+approval. TASK-010 needs real30days afterward; TASK-028 paused, TASK-021 gated, physical
+user-skipped. No merge/setup/flags/dispatch/deployment occurs from this checkpoint.
+
+## TASK-009 owned progressive storage continuation — 2026-11-02
+
+Run41416612445 at be30350 passes canonical1461/92/20 plus102operator/9admission but
+fails3of60 mobile observations. Major collections remain. No performance acceptance,
+integration or publication occurs; every earlier failure and budget stays authoritative.
+
+The current reviewed candidate shares equal parsed components and owns Uint32 column
+references while preserving strict JSON-array wire validation and exact numeric values.
+A complete per-call working list replaces each completed pair, remains retryable after
+cancellation, and releases final source containers on success. Worker captures reply
+metadata/count and drops its snapshot before preparation; caller inputs stay unchanged.
+
+Storage-ownership/cancellation/progressive-retry regressions observe RED/GREEN. All129
+search tests/types and56full-source vectors/counts/full-field boundary pages pass; final
+receipt72157bf06cbebeb62c8f4dc127f62ab153e4148846873a75c8952a43da27ed0d.
+Full local suite1459passes/4unchanged Node22/macOS failures (1463total), build, quality
+and9admission pass. Independent address/storage/lifetime reviews approve hosted checks;
+o peak, physical or hosted latency pass follows from the offline memory diagnostics.
+Unprofiled Node serial all15 meet500 ms (name185–190 ms, mixed219–244 ms), with
+31.03s preparation/5.88s load; this is not browser acceptance. Fresh final-head canonical/
+full-source outcomes remain required.
+
+TASK-009 alone is active; exact-candidate protected approval/public equality/durable
+backup/recovery remain downstream. TASK-010 needs actual30-day evidence afterward;
+TASK-028 paused, TASK-021 gated and physical measurement user-skipped.
+
+## TASK-009 split numeric-filter continuation — 2026-11-02
+
+Canonical Verify 41410100414 passes 1,458 Vitest / 92 browser / 20 accessibility
+plus 102 operator / 9 admission checks, but retains five of 60 full-source observations
+above 500 ms. No performance acceptance, integration or publication occurs.
+
+Final reviewed local storage keeps the original 32 membership bits in two interleaved
+Uint16 values (four bytes/projection). This avoids large candidate numeric reads while
+preserving exactly the original filter predicate. Numeric-range and high-bit collision
+regressions have observed RED/GREEN; all 127 search tests/types pass. Independent review
+checks 96 extra oracle queries across all 32 buckets and exact four-byte reconstruction.
+Node sampled allocation estimates are 63,805,840 to 39,898,904 total and 22,148,480 to
+225,504 in `possibleName`, not zero. These are profiled compatibility diagnostics.
+All 56 final split complete-source vectors/counts/full-field boundary pages match.
+Unprofiled Node serial observations all meet 500 ms (name188–194 ms, mixed219–230 ms).
+Local full execution has 1,457 passes/four unchanged Node22/macOS failures (1,461 total).
+These diagnostics do not establish hosted acceptance.
+Read actual new-head canonical/browser outcomes before acceptance or publication.
+
+TASK-009 alone remains active. Publication/public equality/durable backup/recovery stay
+downstream; TASK-010 requires actual 30-day evidence afterward. TASK-028 stays paused,
+TASK-021 gated and physical measurement user-skipped. See the current performance report.
+
+## TASK-009 prioritized completion continuation — 2026-11-02
+
+The user requests execution of the identified priorities. TASK-009 alone remains active.
+PR42 is merged as2344bb6; its bounded final diagnostic passed. The broader mixed-query
+baseline remains above500ms. Current lossless comparison/ranking and preparation changes
+pass114search tests, type/quality checks and56complete-source rank/count/page comparisons.
+Local Node22/macOS full verification retains four known runtime/tool failures. Fresh
+independent review approves hosted verification with two minor follow-ups retained.
+
+Next: read actual final-head canonical ordinary and extended name/mixed hosted diagnostics;
+only after performance acceptance prepare a fresh candidate and complete public equality,
+durable backup and recovery. TASK-010 follows with actual30-day reliability evidence;
+TASK-028 stays paused and TASK-021 gated. Physical measurement remains user-skipped.
+See reports/performance-2026-11-02-task-009.md and the corresponding completion plan.
+
 ## TASK-009 PR42 scratch follow-up — 2026-10-28
 
 First correction6fad420 ordinary CI passes, but actual diagnostic40651993497 retains mobile

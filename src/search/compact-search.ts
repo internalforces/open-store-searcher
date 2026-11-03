@@ -7,17 +7,17 @@ import {
   materializeRecord,
   requireCompact,
 } from '../shared/compact-data.js';
+import { PackedStringValues } from '../shared/packed-string-values.js';
 import {
   type AddressParts,
-  compareSearchAddress,
+  compareSearchAddressFlags,
   parseSearchAddress,
 } from './compare-search-address.js';
 import { prepareSearchQuery, projectSearchName } from './prepare-search-query.js';
+import { createAddressTarget, PreparedAddresses } from './prepared-addresses.js';
 import {
   type CandidateMatch,
   compareCandidateRank,
-  compareSimilarCandidateRank,
-  hasConflict,
   matchesLiteralAddressKey,
   matchName,
   prepareScoringQuery,
@@ -26,6 +26,7 @@ import {
   type ScoringQuery,
   type SearchResult,
   scoreCandidate,
+  scoreCandidateRank,
 } from './search-candidates.js';
 
 const PAGE_SIZE = 20;
@@ -34,6 +35,38 @@ const SEARCH_BATCH = 2_048;
 const SORT_BATCH = 8_192;
 const COOPERATIVE_BUDGET_MS = 8;
 const EMPTY_ORDINALS = new Uint32Array();
+const NAME_MATCHES = ['none', 'exact', 'partial'] as const;
+const ADDRESS_MATCHES = ['none', 'partial', 'core', 'exact'] as const;
+
+/** Own numeric storage without mutating the validated input or changing reference values. */
+function packBlockReferences(block: CompactBlock): CompactBlock {
+  return {
+    ...block,
+    columns: block.columns.map((column) => {
+      if ('values' in column) {
+        if (column.values instanceof PackedStringValues) return column;
+        return column.values.every((value): value is string => typeof value === 'string')
+          ? { values: new PackedStringValues(column.values) }
+          : column;
+      }
+      requireCompact(
+        column.refs.every(
+          (reference) =>
+            Number.isSafeInteger(reference) && reference >= 0 && reference <= 0xffffffff,
+        ),
+      );
+      return { ...column, refs: new Uint32Array(column.refs) };
+    }),
+  };
+}
+
+/** Necessary character membership only: collisions admit extra comparisons, never drop a match. */
+function characterMask(value: string): number {
+  let mask = 0;
+  for (let index = 0; index < value.length; index++)
+    mask |= 1 << (Math.imul(value.charCodeAt(index), 0x9e3779b1) >>> 27);
+  return mask >>> 0;
+}
 
 interface PreparedBlock {
   readonly block: CompactBlock;
@@ -128,19 +161,66 @@ async function sortOrdinals(
   return source;
 }
 
+/** Preserve complete score/conflict/ID ranking without record-sized merge buffers. */
+async function rankCandidates(
+  counts: readonly Map<number, number>[],
+  eligibleCount: number,
+  similarCount: number,
+  scores: Int16Array,
+  flags: Uint8Array,
+  identifierOrder: Uint32Array,
+  signal?: AbortSignal,
+): Promise<{ eligibleOrdinals: Uint32Array; similarOrdinals: Uint32Array }> {
+  const eligibleOrdinals = new Uint32Array(eligibleCount);
+  const similarOrdinals = new Uint32Array(similarCount);
+  const checkpoint = cooperativeCheckpoint(signal);
+  await checkpoint();
+  if (!eligibleCount && !similarCount) return { eligibleOrdinals, similarOrdinals };
+
+  // There are few observed scores. Count rank groups, then place candidates in
+  // the immutable full-ID order instead of repeatedly comparing those strings.
+  const positions = counts.map(() => new Map<number, number>());
+  let offset = 0;
+  for (let kind = 0; kind < counts.length; kind++) {
+    if (kind < 2) offset = 0;
+    const bucket = positions[kind] as Map<number, number>;
+    for (const [score, count] of [...(counts[kind] as Map<number, number>)].sort(([a], [b]) =>
+      compareCandidateRank(a, '', b, ''),
+    )) {
+      bucket.set(score, offset);
+      offset += count;
+    }
+  }
+  for (let index = 0; index < identifierOrder.length; index++) {
+    const ordinal = identifierOrder[index] as number;
+    const kind = flags[ordinal] as number;
+    if (kind) {
+      const bucket = positions[kind - 1] as Map<number, number>;
+      const score = scores[ordinal] as number;
+      const position = bucket.get(score) as number;
+      (kind === 1 ? eligibleOrdinals : similarOrdinals)[position] = ordinal;
+      bucket.set(score, position + 1);
+    }
+    if ((index + 1) % SORT_BATCH === 0) await checkpoint();
+  }
+  await cooperativeYield(signal);
+  return { eligibleOrdinals, similarOrdinals };
+}
+
 /** Compact in-memory search storage for a validated manifest generation. */
 export class CompactSearch {
   readonly metadata: CompactManifest['metadata'];
   readonly recordCount: number;
 
   private readonly manifest: CompactManifest;
-  private readonly blocks: readonly CompactBlock[];
+  private blocks: readonly CompactBlock[] | null;
   private readonly dictionaries: Dictionaries;
   private preparedBlocks: readonly PreparedBlock[] | null = null;
   private nameProjections: readonly string[] = [];
-  private addressProjections: readonly AddressParts[] = [];
+  private addressProjections = new PreparedAddresses();
+  private nameMasks = new Uint16Array();
+  private addressMasks = new Uint16Array();
   private state: SearchState | null = null;
-  private identifiers: readonly string[] = [];
   private identifierOrder: Uint32Array = EMPTY_ORDINALS;
   private workspace: SearchWorkspace | null = null;
 
@@ -159,6 +239,7 @@ export class CompactSearch {
   async prepare(signal?: AbortSignal): Promise<void> {
     throwIfAborted(signal);
     if (this.preparedBlocks) return;
+    requireCompact(this.blocks);
     requireCompact(this.dictionaries.length === 21);
     const searchBlocks = this.blocks
       .filter((block) => block.role === 'search')
@@ -167,11 +248,20 @@ export class CompactSearch {
       .filter((block) => block.role === 'evidence')
       .toSorted((left, right) => left.start - right.start);
     requireCompact(searchBlocks.length === evidenceBlocks.length);
+    // Replace each processed pair with its owned copy. Cancellation can retry
+    // this complete mixture while obsolete numeric arrays become collectible.
+    const workingBlocks = searchBlocks.flatMap((block, index) => [
+      block,
+      evidenceBlocks[index] as CompactBlock,
+    ]);
+    this.blocks = workingBlocks;
 
     const names: string[] = [];
+    const nameMasks: number[] = [];
     const identifiers: string[] = [];
     const identifierOrdinals = new Uint32Array(this.recordCount);
-    const addresses: AddressParts[] = [];
+    const addresses = new PreparedAddresses();
+    const addressMasks: number[] = [];
     const nameIndexes = new Map<string, number>();
     const addressIndexes = new Map<string, number>();
     const prepared: PreparedBlock[] = [];
@@ -182,7 +272,10 @@ export class CompactSearch {
       const existing = nameIndexes.get(value);
       if (existing !== undefined) return existing;
       const next = names.length;
-      names.push(projectSearchName(value));
+      const key = projectSearchName(value);
+      names.push(key);
+      const mask = characterMask(key);
+      nameMasks.push(mask & 0xffff, mask >>> 16);
       nameIndexes.set(value, next);
       return next;
     };
@@ -190,7 +283,10 @@ export class CompactSearch {
       const existing = addressIndexes.get(value);
       if (existing !== undefined) return existing;
       const next = addresses.length;
-      addresses.push(parseSearchAddress(value));
+      const address = parseSearchAddress(value);
+      addresses.add(address, value);
+      const mask = characterMask(address.key);
+      addressMasks.push(mask & 0xffff, mask >>> 16);
       addressIndexes.set(value, next);
       return next;
     };
@@ -235,8 +331,21 @@ export class CompactSearch {
           await checkpoint();
         }
       }
-      prepared.push({ block, evidence, nameRefs, roadRefs, parcelRefs });
+      const packedBlock = packBlockReferences(block);
+      const packedEvidence = packBlockReferences(evidence);
+      prepared.push({
+        block: packedBlock,
+        evidence: packedEvidence,
+        nameRefs,
+        roadRefs,
+        parcelRefs,
+      });
+      workingBlocks[blockIndex * 2] = packedBlock;
+      workingBlocks[blockIndex * 2 + 1] = packedEvidence;
+      searchBlocks[blockIndex] = packedBlock;
+      evidenceBlocks[blockIndex] = packedEvidence;
       expectedStart += block.count;
+      await checkpoint();
     }
     requireCompact(expectedStart === this.recordCount);
 
@@ -244,6 +353,22 @@ export class CompactSearch {
     // backing storage before ordering IDs, rather than retaining it until readiness.
     nameIndexes.clear();
     addressIndexes.clear();
+    addresses.seal();
+
+    // Preserve all 32 membership bits as two small integers, avoiding boxed
+    // unsigned values during hot reads without weakening projection rejection.
+    const preparedNameMasks = Uint16Array.from(nameMasks);
+    const preparedAddressMasks = Uint16Array.from(addressMasks);
+    nameMasks.length = 0;
+    addressMasks.length = 0;
+    // Query-sized scratch belongs to preparation, not the first user search.
+    const workspace: SearchWorkspace = {
+      names: new Uint8Array(names.length),
+      addresses: new Uint8Array(addresses.length),
+      addressRanks: new Uint8Array(addresses.length),
+      conflicts: new Uint8Array(this.recordCount),
+      scores: new Int16Array(this.recordCount),
+    };
 
     // District-only candidates all have score zero. Sort immutable IDs once, then
     // partition that order by conflict instead of comparing strings on every query.
@@ -260,11 +385,14 @@ export class CompactSearch {
 
     // loadCompactSnapshot owns global identity validation before constructing this store.
     throwIfAborted(signal);
-    this.identifiers = identifiers;
     this.identifierOrder = identifierOrder;
     this.preparedBlocks = prepared;
     this.nameProjections = names;
     this.addressProjections = addresses;
+    this.nameMasks = preparedNameMasks;
+    this.addressMasks = preparedAddressMasks;
+    this.workspace = workspace;
+    this.blocks = null;
   }
 
   async search(original: string, signal?: AbortSignal): Promise<void> {
@@ -312,9 +440,22 @@ export class CompactSearch {
     signal?: AbortSignal,
   ): Promise<void> {
     const scoring = prepareScoringQuery(validation);
-    const eligible: number[] = [];
-    const similar: number[] = [];
+    let eligibleCount = 0;
+    let similarCount = 0;
+    const rankCounts = [
+      new Map<number, number>(),
+      new Map<number, number>(),
+      new Map<number, number>(),
+    ];
     const addressQuery = scoring.query.address;
+    const projections = this.addressProjections;
+    const queryDistrict = addressQuery ? projections.componentReference(addressQuery.district) : 0;
+    const queryAnchor = addressQuery
+      ? projections.componentReference(
+          addressQuery.family === 'road' ? addressQuery.road : addressQuery.locality,
+        )
+      : 0;
+    const addressTarget = createAddressTarget();
     const districtQuery =
       !scoring.query.nameKey &&
       addressQuery?.district &&
@@ -332,70 +473,103 @@ export class CompactSearch {
     // Every ordinal is still visited; no posting cutoff or result cap is applied.
     const names = workspace.names;
     const addresses = workspace.addresses;
-    const possibleName = (reference: number) => {
-      if (!names[reference]) {
-        const key = this.nameProjections[reference] as string;
-        names[reference] =
-          matchName(scoring.query.nameKey, key) !== 'none' ||
-          matchName(scoring.validation.nameKey, key) !== 'none'
+    const queryNameMask = characterMask(scoring.query.nameKey);
+    const literalNameMask =
+      scoring.query.nameKey === scoring.validation.nameKey
+        ? queryNameMask
+        : characterMask(scoring.validation.nameKey);
+    // Tokens may overlap in one candidate word, so separators are not required characters.
+    const literalAddressMask = characterMask(
+      scoring.literalTokens.map(({ value }) => value).join(''),
+    );
+    const nameMatches = (
+      query: string,
+      queryMask: number,
+      key: string,
+      candidateLow: number,
+      candidateHigh: number,
+    ) => {
+      if (!query || !key) return 0;
+      const queryLow = queryMask & 0xffff;
+      const queryHigh = queryMask >>> 16;
+      const shorterQuery = query.length <= key.length;
+      if (
+        (queryLow & candidateLow) !== (shorterQuery ? queryLow : candidateLow) ||
+        (queryHigh & candidateHigh) !== (shorterQuery ? queryHigh : candidateHigh)
+      )
+        return 0;
+      const match = matchName(query, key);
+      return match === 'exact' ? 1 : match === 'partial' ? 2 : 0;
+    };
+    const computeName = (reference: number) => {
+      const key = this.nameProjections[reference] as string;
+      const candidateLow = this.nameMasks[reference * 2] as number;
+      const candidateHigh = this.nameMasks[reference * 2 + 1] as number;
+      const interpreted = nameMatches(
+        scoring.query.nameKey,
+        queryNameMask,
+        key,
+        candidateLow,
+        candidateHigh,
+      );
+      const literal =
+        !interpreted && scoring.query.nameKey !== scoring.validation.nameKey
+          ? nameMatches(
+              scoring.validation.nameKey,
+              literalNameMask,
+              key,
+              candidateLow,
+              candidateHigh,
+            )
+          : 0;
+      // Keep match kind and fallback provenance; bit0 distinguishes cached none.
+      names[reference] = 1 | (interpreted << 1) | (literal << 3);
+      return names[reference] as number;
+    };
+    const computeAddress = (reference: number) => {
+      if (scoring.query.address) {
+        const query = scoring.query.address;
+        // Conservatively retain every relevance or exact-key path. Detailed conflicts,
+        // ambiguity and confidence are still decided by the unchanged scorer below.
+        addresses[reference] =
+          projections.isRelevant(reference, queryDistrict, queryAnchor, query.family) ||
+          (query.key && query.key === projections.key(reference))
             ? 2
             : 1;
-      }
-      return names[reference] === 2;
-    };
-    const possibleAddress = (reference: number) => {
-      if (!addresses[reference]) {
-        const address = this.addressProjections[reference] as AddressParts;
-        if (scoring.query.address) {
-          const query = scoring.query.address;
-          const candidate = address;
-          const sameFamily = query.family !== 'unspecified' && query.family === candidate.family;
-          const anchor = query.family === 'road' ? 'road' : 'locality';
-          // Conservatively retain every relevance or exact-key path. Detailed conflicts,
-          // ambiguity and confidence are still decided by the unchanged scorer below.
-          addresses[reference] =
-            (query.district && query.district === candidate.district) ||
-            (sameFamily && query[anchor] && query[anchor] === candidate[anchor]) ||
-            (query.key && query.key === candidate.key)
-              ? 2
-              : 1;
-        } else
-          addresses[reference] = matchesLiteralAddressKey(address.key, scoring.literalTokens)
+      } else
+        addresses[reference] =
+          ((this.addressMasks[reference * 2] as number) & (literalAddressMask & 0xffff)) ===
+            (literalAddressMask & 0xffff) &&
+          ((this.addressMasks[reference * 2 + 1] as number) & (literalAddressMask >>> 16)) ===
+            literalAddressMask >>> 16 &&
+          matchesLiteralAddressKey(projections.key(reference), scoring.literalTokens)
             ? 2
             : 1;
-      }
-      return addresses[reference] === 2;
+      return addresses[reference] as number;
     };
-    // For address-only queries without a literal name match, ranking depends only
-    // on the two address projections. Compare each distinct field once and retain
-    // only query-local flags; detailed reasons are still materialized for each page.
-    const addressOnly = !scoring.query.nameKey && addressQuery && !districtQuery;
+    // Cache each distinct field's primitive comparison even when its name qualifies;
+    // detailed reasons are materialized by the original scorer only for a page.
     const addressRanks = workspace.addressRanks;
     const addressRank = (reference: number): number => {
       const ranks = addressRanks as Uint8Array;
       if (!ranks[reference]) {
-        const candidate = this.addressProjections[reference] as AddressParts;
-        const comparison = compareSearchAddress(addressQuery as AddressParts, candidate);
-        const match =
-          comparison.match === 'exact'
-            ? 3
-            : comparison.match === 'core'
-              ? 2
-              : comparison.match === 'partial'
-                ? 1
-                : 0;
-        ranks[reference] =
-          1 |
-          (match << 1) |
-          (comparison.conflicts.length ? 8 : 0) |
-          (comparison.relevant ? 16 : 0) |
-          (candidate.ambiguous ? 32 : 0);
+        const candidate = projections.read(reference, addressTarget);
+        ranks[reference] = compareSearchAddressFlags(addressQuery as AddressParts, candidate);
       }
       return ranks[reference] as number;
     };
     if (!districtQuery && !workspace.scores) workspace.scores = new Int16Array(this.recordCount);
     const scores = districtQuery ? null : workspace.scores;
     const conflicts = workspace.conflicts;
+    const admit = (ordinal: number, score: number, low: boolean, conflict: boolean) => {
+      const kind = low ? 1 + Number(conflict) : 0;
+      const counts = rankCounts[kind] as Map<number, number>;
+      counts.set(score, (counts.get(score) ?? 0) + 1);
+      (scores as Int16Array)[ordinal] = score;
+      conflicts[ordinal] = kind + 1;
+      if (low) similarCount++;
+      else eligibleCount++;
+    };
     let districtCount = 0;
     let nonconflictingCount = 0;
     let scanned = 0;
@@ -403,44 +577,47 @@ export class CompactSearch {
     for (const block of blocks) {
       for (let row = 0; row < block.block.count; row++) {
         const ordinal = block.block.start + row;
-        const namePossible = possibleName(block.nameRefs[row] as number);
+        const nameReference = block.nameRefs[row] as number;
+        const roadReference = block.roadRefs[row] as number;
+        const parcelReference = block.parcelRefs[row] as number;
+        const nameFlags = names[nameReference] || computeName(nameReference);
+        const namePossible = nameFlags !== 1;
         const possible =
           namePossible ||
-          possibleAddress(block.roadRefs[row] as number) ||
-          possibleAddress(block.parcelRefs[row] as number);
+          (addresses[roadReference] || computeAddress(roadReference)) === 2 ||
+          (addresses[parcelReference] || computeAddress(parcelReference)) === 2;
         if (possible && districtQuery) {
           // A district without a core address cannot earn a score or eligibility.
           // Its only comparable conflict is district; defer full reasons to page materialization.
-          const road = this.addressProjections[block.roadRefs[row] as number] as AddressParts;
-          const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressParts;
-          const conflict = Boolean(
-            (road.district && road.district !== districtQuery.district) ||
-              (parcel.district && parcel.district !== districtQuery.district),
-          );
+          const conflict =
+            projections.hasConflictingDistrict(roadReference, queryDistrict) ||
+            projections.hasConflictingDistrict(parcelReference, queryDistrict);
           conflicts[ordinal] = conflict ? 2 : 1;
           districtCount++;
           if (!conflict) nonconflictingCount++;
-        } else if (possible && addressOnly && !namePossible) {
-          const road = addressRank(block.roadRefs[row] as number);
-          const parcel = addressRank(block.parcelRefs[row] as number);
+        } else if (possible && !addressQuery) {
+          // Exact name/literal admission is already known. Without an interpreted
+          // address the shared scorer always ranks at zero, low and no conflict.
+          admit(ordinal, 0, true, false);
+        } else if (possible && addressQuery) {
+          const road = addressRank(roadReference);
+          const parcel = addressRank(parcelReference);
           const match = Math.max((road >> 1) & 3, (parcel >> 1) & 3);
-          if (match || (road | parcel) & 16) {
+          if (namePossible || match || (road | parcel) & 16) {
             const conflict = Boolean((road | parcel) & 8);
-            const exact = match === 3 && addressQuery.strong;
-            const low =
-              !exact || conflict || scoring.query.ambiguous || Boolean((road | parcel) & 32);
-            (scores as Int16Array)[ordinal] = exact ? 100 : 0;
-            conflicts[ordinal] = Number(conflict);
-            if (low) similar.push(ordinal);
-            else eligible.push(ordinal);
-          }
-        } else {
-          const scored = possible ? this.score(block, row, scoring) : null;
-          if (scored) {
-            (scores as Int16Array)[ordinal] = scored.score;
-            conflicts[ordinal] = Number(hasConflict(scored));
-            if (scored.confidence === 'low') similar.push(ordinal);
-            else eligible.push(ordinal);
+            const flags = nameFlags;
+            const interpreted = (flags >> 1) & 3;
+            const literal = (flags >> 3) & 3;
+            const rank = scoreCandidateRank(
+              NAME_MATCHES[interpreted || literal] as 'none' | 'exact' | 'partial',
+              ADDRESS_MATCHES[match] as 'none' | 'partial' | 'core' | 'exact',
+              scoring.query,
+              Boolean(this.nameProjections[nameReference]),
+              conflict,
+              Boolean((road | parcel) & 32),
+              !interpreted && literal !== 0,
+            );
+            admit(ordinal, rank >> 2, (rank & 3) === 0, conflict);
           }
         }
         if (++scanned >= SEARCH_BATCH) {
@@ -469,28 +646,13 @@ export class CompactSearch {
       return;
     }
 
-    const eligibleOrdinals = await sortOrdinals(
-      eligible,
-      (left, right) =>
-        compareCandidateRank(
-          (scores as Int16Array)[left] as number,
-          this.idAt(left),
-          (scores as Int16Array)[right] as number,
-          this.idAt(right),
-        ),
-      signal,
-    );
-    const similarOrdinals = await sortOrdinals(
-      similar,
-      (left, right) =>
-        compareSimilarCandidateRank(
-          Boolean(conflicts[left]),
-          (scores as Int16Array)[left] as number,
-          this.idAt(left),
-          Boolean(conflicts[right]),
-          (scores as Int16Array)[right] as number,
-          this.idAt(right),
-        ),
+    const { eligibleOrdinals, similarOrdinals } = await rankCandidates(
+      rankCounts,
+      eligibleCount,
+      similarCount,
+      scores as Int16Array,
+      conflicts,
+      this.identifierOrder,
       signal,
     );
     throwIfAborted(signal);
@@ -533,8 +695,8 @@ export class CompactSearch {
   }
 
   private score(block: PreparedBlock, row: number, scoring: ScoringQuery): ScoredCandidate | null {
-    const road = this.addressProjections[block.roadRefs[row] as number] as AddressParts;
-    const parcel = this.addressProjections[block.parcelRefs[row] as number] as AddressParts;
+    const road = this.addressProjections.read(block.roadRefs[row] as number);
+    const parcel = this.addressProjections.read(block.parcelRefs[row] as number);
     const entry: ScoringEntry = {
       nameKey: this.nameProjections[block.nameRefs[row] as number] as string,
       addresses: [road, parcel],
@@ -556,10 +718,6 @@ export class CompactSearch {
       columnValue(column, row, this.dictionaries),
     );
     return { record: materializeRecord([...searchValues, ...evidenceValues]), ...scored };
-  }
-
-  private idAt(ordinal: number): string {
-    return this.identifiers[ordinal] as string;
   }
 
   private locate(ordinal: number): { block: PreparedBlock; row: number } {
