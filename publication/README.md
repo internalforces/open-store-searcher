@@ -1,5 +1,10 @@
 # Collection-date publication and durable recovery
 
+The [deployment runbook](../docs/deployment.md) records the November 7 first protected
+deployment. Follow the [active task](../tasks/active.md) for outstanding public verification,
+durable backup, and restoration work. The dated checkpoints below record earlier state. The
+[local operator contract](#exact-local-operator-contract) provides command and artifact details.
+
 ## Verified initial source adoption — 2026-10-23
 
 The user authorized prerequisite resolution and real-data connection. TASK-009 is the sole active
@@ -84,8 +89,8 @@ Recovery accepts successful provenance from exactly `.github/workflows/refresh.y
 registry and date/hash guards remain; source assets or local proof are never recovery authority.
 At the October21 checkpoint no operational source Release/asset IDs existed. Both enable flags remain default-off,
 scheduling stays paused and publication uses shared noncancelling `pages-publication` concurrency.
-See [current evidence](../reports/test-2026-10-21-task-009-initial-import.md) and the
-[remaining operational gates](../docs/deployment.md#initial-import-operational-gates--2026-10-21).
+See the [October 21 evidence](../reports/test-2026-10-21-task-009-initial-import.md) and the
+[pre-publication gates recorded on that date](../docs/deployment.md#initial-import-operational-gates--2026-10-21).
 
 ## Current operational state — 2026-10-19
 

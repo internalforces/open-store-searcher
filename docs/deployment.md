@@ -1,5 +1,8 @@
 # Deployment and recovery
 
+Use this runbook to prepare and verify GitHub Pages operations. Every deployment requires
+human approval under the [project constitution](../AGENTS.md).
+
 ## First protected deployment — 2026-11-07
 
 The first protected deployment completed at 2026-11-07T05:51:23Z in
@@ -20,116 +23,18 @@ After account reauthentication, GitHub readback confirmed `PAGES_PUBLICATION_ENA
 and `PAGES_SCHEDULE_ENABLED` unset. Keep routine refresh disabled while TASK-009 verification
 and recovery remain open.
 
-Earlier dated checkpoints below are historical.
-
-## Verified initial source adoption — 2026-10-23
-
-The user authorized prerequisite resolution and real-data connection. TASK-009 is the sole active
-task; TASK-028 is paused with its remaining evidence retained and TASK-010 follows sequentially.
-The source registry now selects `seoul-2026-10-16-initial`: actual Release421355167, archive asset
-667614415 and observation667616298. Both complete assets passed the existing production downloader
-in Ubuntu run39884746237. See [source-adoption evidence](../reports/test-2026-10-23-source-adoption.md).
-The source-only verifier selects this same runtime registry on every push to the verification
-branch, including executable/input dependency edits; current main supports manual verification.
-The dated proposal remains historical evidence. An inactive registry rejects before download.
-Recovery authority remains null/empty. Publication and schedule flags remain unset/off; Pages is
-currently disabled. No import, refresh, restore or deployment has been dispatched at this checkpoint.
-Original October16 collection/null coverage and all approved quality/configuration bytes remain.
-Full-data/mobile/performance, protected candidate/publication, full public equality, durable recovery
-and real thirty-day reliability remain acceptance work. Dated inactive/no-source snapshots below
-are historical and do not override this current adoption checkpoint.
-
-## Source transport preflight — 2026-10-22
-
-The [preflight report](../reports/research-2026-10-22-task-009-source-transport.md) and
-[exact asset request](../reports/source-transport-2026-10-22.json) supply the concrete source
-transport preparation for the sequence below. PR #34 and exact-main CI have completed; step 1
-is satisfied for that implementation. The request fixes the source tag target to
-`cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a`; later documentation delivery does not retarget it.
-Upload is blocked until the original approved ZIP is located and rehashed and the exact
-source/resource action is approved. The request is documentary evidence, not runtime authority.
-The four current license spot checks do not replace the dated full 195-category audit.
-Detailed protection reads are restricted by the current integration; actual deployment requires
-a fresh permitted inspection rather than an assumed historic protection state. All later
-performance, physical/mobile, public equality, durable backup/recovery and action-time gates
-remain. The source/recovery registries and default-off controls are unchanged.
-
-## Initial-import operational gates — 2026-10-21
-
-The user approved the exact retained October 16 source, complete initial-import design and local
-implementation/verification. The importer and manual workflow are now implemented locally;
-[the operator contract](../publication/README.md#initial-import-local-implementation--2026-10-21)
-provides both exact CLI forms, private output schemas and run/clock bindings. Earlier dated
-statements that bootstrap is unimplemented or source selection is unresolved are historical.
-The [current local proof](../reports/test-2026-10-21-task-009-initial-import.md) is local readiness
-only. TASK-009/II-10/AC-009-4/5 remain open; TASK-010 and routine operation stay paused.
-
-These are separate future approval gates, not instructions to execute from local acceptance:
-
-1. Authorize exact code delivery and protected-main integration; require actual current-main CI.
-2. Confirm attribution/redistribution and account/resource evidence, then separately approve the
-   exact source transport tag target and both public asset names, lengths, hashes and upload.
-   The tag is `initial-source-seoul-2026-10-16`; assets are `seoul-source-2026-10-16.zip` and
-   `source-observation.json`. Local synthetic metadata/IDs are never uploaded authority.
-3. Redownload the approved actual asset IDs, re-read tag/metadata, then separately review/deliver
-   the exact real source-registry entry to protected main. It remains null/empty until then.
-4. Satisfy full-data performance, physical/mobile and release prerequisites; re-read protections
-   and actual public state. Obtain exact Pages setup, one-time flag and dispatch authorization.
-   Keep `PAGES_SCHEDULE_ENABLED` false/unset. Set publication enablement only for the approved run.
-5. Before approving the protected environment, review actual same-run candidate/metadata IDs,
-   exact main/config/operator/identity/tar/inventory hashes, collection date, warnings and URL.
-   Recheck current main and descriptor absence; reset one-time publication enablement after the
-   run or failure. Prepared evidence expires exactly 24 hours after preparation.
-6. Verify every public file and successful deployment history separately. Then separately approve
-   complete backup publication, redownload equality, registry adoption and durable recovery
-   deployment/public verification. Only the exact two approved originating workflow paths are
-   admitted; the source ZIP and local proof never provide recovery authority.
-7. Keep routine operation paused pending its separate live-policy/operational decision.
-
-Initial-import retries require a new authorized manual run. Both jobs reject any run attempt
-other than the first before doing work; do not use GitHub's job-rerun controls or remove earlier
-artifacts to reuse a run. Keep the fixed artifact names and review the new run's own IDs and
-24-hour window. After the protected environment approval and public-404 probe, the final guard
-reads current main again and rechecks expiry against the actual clock immediately before
-`deploy-pages`. This preserves the approved manual/current-main/same-run contract without
-additional permissions, source selection or quality changes.
-
-The source remains collected `2026-10-16T01:52:52.043Z` with null/unverified source coverage.
-It is five Seoul calendar days old on October 21 and warns from October 23 midnight Seoul.
-Rebuild, import, upload and deployment clocks never refresh it. Configuration/quality/source
-identity, protected deployment permissions and zero-cost constraints remain unchanged. No
-upload, tag, settings change, dispatch, environment approval, deployment, recovery adoption,
-commit/push/PR/merge or recurrence occurred during this local work.
-
-## Current local state — 2026-10-19
-
-The approved local operational configuration, default-off schedule hold, trusted durable restore
-and public-byte verification are implemented. [`publication/config.json`](../publication/config.json)
-equals the approved proposal and preserves all three approved quality objects. The registry is
-empty; no hosted successful backup exists. Local proof and verification are in the
-[October 19 report](../reports/test-2026-10-19-task-009-operational-recovery.md).
-TASK-009 remains active; TASK-010, recurring operation and release remain paused.
-
-Dated October 19 readbacks find remote main `9569ffbce4ce141e06f0883d90bc19305890972c`,
-no Pages site, either enable variable, Release or Actions artifact, and a direct descriptor404.
-Transport/tool failures before the direct probe are uncertain observations, never evidence of absence.
-No remote setup, dispatch, approval, deployment or archive publication was performed. Readbacks
-are dated evidence and must be repeated at operation time; configuration in a local branch
-cannot enable remote workflows. No handbook or production data was changed.
+Track the outstanding checks in the [active task](../tasks/active.md) and the evidence
+against each criterion in [PRD traceability](prd-traceability.md#task-009-first-protected-publication-evidence--2026-11-07).
 
 ## Preconditions and separate approvals
 
-The October 19 source transfer accepted195 categories /2,952,086 rows but unchanged strict
-count/count-change/status-share gates rejected it. No publishable candidate exists. Resolve the
-source/quality decision with evidence and explicit approval; do not relax limits or silently
-select retained October16 data. Retained-input bootstrap is not implemented and requires its own
-trusted import design and candidate approval. Collection time remains explicitly labeled;
-source coverage stays null/unverified, and age>=7 Seoul calendar days triggers the warning.
+Use the approved source and quality policy for the exact operation. In collection-date mode,
+label collection time explicitly and report unverified source coverage. The warning starts when
+the collection is at least seven Seoul calendar days old.
 
-Before first preparation/deployment obtain accepted full-data performance, physical/mobile-device
-and hosted evidence and the applicable release prerequisites (TASK-018/021). Local shell/browser
-fixtures cannot satisfy those gates or30-day reliability. Complete exact protected-main CI after
-separately authorized commit/push/PR/merge. Keep code delivery, remote Pages/variable setup,
+For the proposed operation, confirm the applicable performance, device, hosted and release
+prerequisites (TASK-018/021). Verify the exact protected-main revision. TASK-010 tracks the
+separate 30-day reliability interval. Keep code delivery, remote Pages/variable setup,
 source/quality selection, preparation dispatch, each candidate deployment, public tag/Release/assets,
 recovery deployment and recurring operation as separate approval scopes. Placeholder IDs/URLs
 in examples cannot approve a run or candidate.
@@ -214,6 +119,110 @@ and authority, not retention of the old run. Verify complete public equality plu
 successful deployment record afterward; reset flags and keep schedule off. Re-register the last
 successful complete verified publication before permitting another publication.
 
-Hosted successful/failed/uncertain promotion, environment enforcement, durable upload/redownload,
-original-artifact-expired recovery, actual whole-site public equality and30-day reliability remain
-unperformed. Offline tests and retained local proof do not close AC-009-4/5, TASK-010 or release.
+The November 7 run records successful protected deployment and sampled public equality.
+Complete public equality, durable backup and hosted restoration remain open under TASK-009.
+TASK-010 tracks actual 30-day reliability after TASK-009 acceptance.
+
+## Pre-publication checkpoints
+
+These records preserve the prerequisites, approvals, and observations at each date. For the
+deployed snapshot, see the [November 7 outcome](#first-protected-deployment--2026-11-07).
+
+### Verified initial source adoption — 2026-10-23
+
+The user authorized prerequisite resolution and real-data connection. TASK-009 is the sole active
+task; TASK-028 is paused with its remaining evidence retained and TASK-010 follows sequentially.
+The source registry now selects `seoul-2026-10-16-initial`: actual Release421355167, archive asset
+667614415 and observation667616298. Both complete assets passed the existing production downloader
+in Ubuntu run39884746237. See [source-adoption evidence](../reports/test-2026-10-23-source-adoption.md).
+The source-only verifier selects this same runtime registry on every push to the verification
+branch, including executable/input dependency edits; current main supports manual verification.
+The dated proposal remains historical evidence. An inactive registry rejects before download.
+Recovery authority remains null/empty. Publication and schedule flags remain unset/off; Pages is
+currently disabled. No import, refresh, restore or deployment has been dispatched at this checkpoint.
+Original October16 collection/null coverage and all approved quality/configuration bytes remain.
+Full-data/mobile/performance, protected candidate/publication, full public equality, durable recovery
+and real thirty-day reliability remain acceptance work. Dated inactive/no-source snapshots below
+are historical and do not override this current adoption checkpoint.
+
+### Source transport preflight — 2026-10-22
+
+The [preflight report](../reports/research-2026-10-22-task-009-source-transport.md) and
+[exact asset request](../reports/source-transport-2026-10-22.json) supply the concrete source
+transport preparation for the sequence below. PR #34 and exact-main CI have completed; step 1
+is satisfied for that implementation. The request fixes the source tag target to
+`cd16e7c4dd84d6c8520399f3a7ffb72cc88f167a`; later documentation delivery does not retarget it.
+Upload is blocked until the original approved ZIP is located and rehashed and the exact
+source/resource action is approved. The request is documentary evidence, not runtime authority.
+The four current license spot checks do not replace the dated full 195-category audit.
+Detailed protection reads are restricted by the current integration; actual deployment requires
+a fresh permitted inspection rather than an assumed historic protection state. All later
+performance, physical/mobile, public equality, durable backup/recovery and action-time gates
+remain. The source/recovery registries and default-off controls are unchanged.
+
+### Initial-import operational gates — 2026-10-21
+
+The user approved the exact retained October 16 source, complete initial-import design and local
+implementation/verification. The importer and manual workflow are now implemented locally;
+[the operator contract](../publication/README.md#initial-import-local-implementation--2026-10-21)
+provides both exact CLI forms, private output schemas and run/clock bindings. Earlier dated
+statements that bootstrap is unimplemented or source selection is unresolved are historical.
+The [current local proof](../reports/test-2026-10-21-task-009-initial-import.md) is local readiness
+only. TASK-009/II-10/AC-009-4/5 remain open; TASK-010 and routine operation stay paused.
+
+These are separate future approval gates, not instructions to execute from local acceptance:
+
+1. Authorize exact code delivery and protected-main integration; require actual current-main CI.
+2. Confirm attribution/redistribution and account/resource evidence, then separately approve the
+   exact source transport tag target and both public asset names, lengths, hashes and upload.
+   The tag is `initial-source-seoul-2026-10-16`; assets are `seoul-source-2026-10-16.zip` and
+   `source-observation.json`. Local synthetic metadata/IDs are never uploaded authority.
+3. Redownload the approved actual asset IDs, re-read tag/metadata, then separately review/deliver
+   the exact real source-registry entry to protected main. It remains null/empty until then.
+4. Satisfy full-data performance, physical/mobile and release prerequisites; re-read protections
+   and actual public state. Obtain exact Pages setup, one-time flag and dispatch authorization.
+   Keep `PAGES_SCHEDULE_ENABLED` false/unset. Set publication enablement only for the approved run.
+5. Before approving the protected environment, review actual same-run candidate/metadata IDs,
+   exact main/config/operator/identity/tar/inventory hashes, collection date, warnings and URL.
+   Recheck current main and descriptor absence; reset one-time publication enablement after the
+   run or failure. Prepared evidence expires exactly 24 hours after preparation.
+6. Verify every public file and successful deployment history separately. Then separately approve
+   complete backup publication, redownload equality, registry adoption and durable recovery
+   deployment/public verification. Only the exact two approved originating workflow paths are
+   admitted; the source ZIP and local proof never provide recovery authority.
+7. Keep routine operation paused pending its separate live-policy/operational decision.
+
+Initial-import retries require a new authorized manual run. Both jobs reject any run attempt
+other than the first before doing work; do not use GitHub's job-rerun controls or remove earlier
+artifacts to reuse a run. Keep the fixed artifact names and review the new run's own IDs and
+24-hour window. After the protected environment approval and public-404 probe, the final guard
+reads current main again and rechecks expiry against the actual clock immediately before
+`deploy-pages`. This preserves the approved manual/current-main/same-run contract without
+additional permissions, source selection or quality changes.
+
+The source remains collected `2026-10-16T01:52:52.043Z` with null/unverified source coverage.
+It is five Seoul calendar days old on October 21 and warns from October 23 midnight Seoul.
+Rebuild, import, upload and deployment clocks never refresh it. Configuration/quality/source
+identity, protected deployment permissions and zero-cost constraints remain unchanged. No
+upload, tag, settings change, dispatch, environment approval, deployment, recovery adoption,
+commit/push/PR/merge or recurrence occurred during this local work.
+
+### Current local state — 2026-10-19
+
+The approved local operational configuration, default-off schedule hold, trusted durable restore
+and public-byte verification are implemented. [`publication/config.json`](../publication/config.json)
+equals the approved proposal and preserves all three approved quality objects. The registry is
+empty; no hosted successful backup exists. Local proof and verification are in the
+[October 19 report](../reports/test-2026-10-19-task-009-operational-recovery.md).
+TASK-009 remains active; TASK-010, recurring operation and release remain paused.
+
+Dated October 19 readbacks find remote main `9569ffbce4ce141e06f0883d90bc19305890972c`,
+no Pages site, either enable variable, Release or Actions artifact, and a direct descriptor404.
+Transport/tool failures before the direct probe are uncertain observations, never evidence of absence.
+No remote setup, dispatch, approval, deployment or archive publication was performed. Readbacks
+are dated evidence and must be repeated at operation time; configuration in a local branch
+cannot enable remote workflows. No handbook or production data was changed.
+
+The October 19 source transfer produced 195 categories and 2,952,086 rows. The approved
+count, count-change and status-share gates rejected that transfer. Retained-input bootstrap
+still required its own trusted import design and candidate approval at that checkpoint.

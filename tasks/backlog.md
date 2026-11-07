@@ -7,7 +7,26 @@ Harness Version: 1.1
 
 # Backlog — open-store-searcher
 
+## Current Execution Order
+
+1. Keep [TASK-009](active.md) active for complete public verification, durable backup, and recovery after the first deployment.
+2. Start TASK-010 after TASK-009 acceptance and preserve its actual 30-day reliability gate.
+3. Keep TASK-028 paused with its retained acceptance gaps. TASK-021 remains gated by release prerequisites.
+
+## Backlog Items
+
+| ID | Task | Priority | Milestone | Size | Related requirement |
+|---|---|---|---|---|---|
+| TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
+| TASK-021 | Run full P0 traceability and v1.0 release-candidate verification | High | M3 | L | FR-01 through FR-14, Section 17 |
+| TASK-022 | Design and implement identifier-based share URLs | Medium | M4 | M | FR-15 |
+| TASK-023 | Improve candidate-list keyboard navigation | Medium | M4 | M | FR-16 |
+| TASK-024 | Design static-file expansion outside Seoul | Low | M4 | L | FR-17 |
+| TASK-026 | At each milestone close, update or review affected Korean handbook documents and obtain human language review | High | Recurring | S | Documentation NFR; all safety invariants |
+
 ## TASK-009 hosted preparation checkpoint — 2026-10-23
+
+This historical checkpoint records preparation before the first deployment.
 
 TASK-009 is the sole active task; TASK-028 is paused with prior acceptance gaps retained and
 TASK-010 follows sequentially. PR39 merged at `bc7c3d3a43580084e6a1c7f3684c48b84cf802ca`.
@@ -35,23 +54,6 @@ prerequisite. No task or milestone is marked complete. Earlier pending/no-source
 snapshots are historical. See [the current preparation acceptance](../reports/acceptance-2026-10-23-task-009-preparation.md)
 and [machine bindings](../reports/task-009-2026-10-23/hosted-preparation.json).
 
-
-_Last updated: 2026-10-22_
-
-| ID | Task | Priority | Milestone | Size | Related requirement |
-|---|---|---|---|---|---|
-| TASK-010 | Configure daily change check, validation, and Pages publication in GitHub Actions | High | M1 | M | Section 12.3, success metrics |
-| TASK-021 | Run full P0 traceability and v1.0 release-candidate verification | High | M3 | L | FR-01 through FR-14, Section 17 |
-| TASK-022 | Design and implement identifier-based share URLs | Medium | M4 | M | FR-15 |
-| TASK-023 | Improve candidate-list keyboard navigation | Medium | M4 | M | FR-16 |
-| TASK-024 | Design static-file expansion outside Seoul | Low | M4 | L | FR-17 |
-| TASK-026 | At each milestone close, update or review affected Korean handbook documents and obtain human language review | High | Recurring | S | Documentation NFR; all safety invariants |
-
-## Current Execution Order — 2026-10-23
-
-1. Keep TASK-009 as the sole active task through performance and hosted publication/recovery acceptance.
-2. Resume TASK-010 sequentially after TASK-009 acceptance; preserve its actual thirty-day reliability gate.
-3. Keep TASK-028 paused with retained acceptance gaps. TASK-021 remains gated by applicable release prerequisites.
 
 ## Historical Recommended Start Order — superseded 2026-10-23
 

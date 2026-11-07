@@ -7,7 +7,7 @@ Harness Version: 1.1
 
 # Documentation Index
 
-_Last updated: 2026-10-22_
+_Last updated: 2026-11-08_
 
 ## Source Requirements
 
@@ -18,18 +18,24 @@ _Last updated: 2026-10-22_
 
 The source PRD is the source of truth for product requirements. This harness turns the PRD into implementation work. If meanings conflict, consult the user's latest instructions and the source PRD.
 
+## Current Project Status
+
+- [Active task](../tasks/active.md) tracks TASK-009 and its remaining acceptance work.
+- [Deployment and recovery](deployment.md) records the first protected deployment and the procedures for public verification, backup, and recovery.
+- [PRD traceability](prd-traceability.md) maps publication evidence to the acceptance criteria.
+- [Session record](../memory/session.md) preserves the deployment receipt and sampled verification.
+
+## Historical Task Evidence
+
+- [TASK-009 waiting register](../reports/status-2026-10-22-task-009-waiting.md) records the October 22 prerequisites and approval state.
+- [TASK-027 design](superpowers/specs/2026-10-22-prism-glass-dashboard-design.md) and [handoff](../reports/delivery-2026-10-22-task-027-handoff.md) document the October design and delivery.
+
 ## Harness Documents
-
-- `superpowers/specs/2026-10-22-prism-glass-dashboard-design.md`: selected TASK-027 design and prospective acceptance
-- `../reports/delivery-2026-10-22-task-027-handoff.md`: current delivery and activation evidence
-
-- `../reports/status-2026-10-22-task-009-waiting.md`: current TASK-009 materials/approval waiting register and resumption rules
 
 - `../AGENTS.md`: project constitution and absolute constraints
 - `../ORCHESTRATOR.md`: cross-role workflows and approval gates
 - `../roadmap.md`: implementation milestones
 - `../tasks/backlog.md`: executable task backlog
-- `prd-traceability.md`: requirement-to-task-to-verification traceability matrix
 - `open-questions.md`: unresolved questions that replace placeholders
 - `../memory/architecture.md`: system structure and data flow
 - `../memory/decisions.md`: architecture decision records
@@ -57,6 +63,6 @@ The implemented `../handbook/ko/` tree is human-facing explanatory documentation
 
 ## Remaining Documentation Gates
 
-- Update operational claims when TASK-008 calibration and TASK-009/010 publication gates close.
+- Update operational claims as TASK-009 verification and recovery and TASK-010 reliability evidence are accepted.
 - Complete TASK-021 release-candidate documentation verification.
 - Run the separate TASK-026 Korean handbook review at the applicable milestone close.

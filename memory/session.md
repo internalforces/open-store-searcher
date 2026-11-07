@@ -7,6 +7,13 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## Documentation reconciliation — 2026-11-08
+
+Reconciled the documentation against merged PR #46 at `5fa1f77`. The
+[active task](../tasks/active.md) lists the outstanding TASK-009 checks. The
+[deployment runbook](../docs/deployment.md) separates operational procedures from pre-publication
+history. The November 7 receipt below remains the basis for the documented deployment state.
+
 ## TASK-009 first Pages publication verified — 2026-11-07
 
 [Initial-import run 42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496)
