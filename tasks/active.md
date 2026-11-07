@@ -9,16 +9,19 @@ Harness Version: 1.1
 
 ## TASK-009 first Pages deployment — 2026-11-07
 
-The approved initial-import run `42342079496` deployed candidate `13562073013` from `main`
-at `492ac22`. The public shell opens. The public release descriptor, manifest, baseline,
-dictionary and one evidence block match their expected lengths and hashes.
-The first Chrome load failed. A retry loaded all data with zero excluded records and passed
-fixed name, candidate detail and empty-result checks.
+TASK-009 is the sole active task. The first protected Pages deployment and sampled public
+verification are recorded in the [deployment runbook](../docs/deployment.md) and the
+[session evidence](../memory/session.md#task-009-first-pages-publication-verified--2026-11-07).
 
-Continue with complete public-file verification and the separately approved durable backup,
-redownload, registry adoption and restoration. TASK-009 remains the only active task.
-TASK-010 follows with actual 30-day evidence, TASK-028 remains paused, and TASK-021 remains gated. See the [session record](../memory/session.md).
-Earlier task checkpoints below are historical.
+- [ ] Compare every public file with the exact deployed inventory by length and SHA-256 (AC-009-4).
+- [ ] Obtain separate approval for the durable backup, verify the downloaded assets, and adopt the exact registry entry (AC-009-5).
+- [ ] Obtain separate approval for the hosted restore exercise after the original Actions artifact expires, then verify the public files and deployment history (AC-009-5).
+
+See the [acceptance evidence](../docs/prd-traceability.md#task-009-first-protected-publication-evidence--2026-11-07).
+TASK-010 follows sequentially and requires an actual 30-day reliability interval. TASK-028 remains
+paused and TASK-021 remains gated.
+
+Earlier task checkpoints below describe the evidence and open gates at their respective dates.
 
 ## TASK-009 native inline-column continuation — 2026-11-03
 

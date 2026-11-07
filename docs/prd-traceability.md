@@ -9,14 +9,16 @@ Harness Version: 1.1
 
 ## TASK-009 first protected publication evidence — 2026-11-07
 
-FR-13 / AC-009-4 / II-10: [initial-import run 42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496)
-records human approval and successful deployment of the exact current-main candidate. The
-public shell opens, and the descriptor, manifest, baseline and two sampled data files match
-their expected hashes. FR-08 / FR-12 / FR-14: the public descriptor preserves the original
-collection date, null source coverage and both warning codes. FR-02 / FR-07 / FR-08: desktop
-Chrome passed name, evidence detail and empty-result smoke checks after a load retry. Complete
-public inventory comparison remains open. AC-009-5 / II-10 still require durable backup and a
-hosted recovery exercise. TASK-010's actual 30-day reliability interval remains a separate gate.
+| Requirement | Verified evidence | Remaining acceptance |
+|---|---|---|
+| FR-13 / AC-009-4 / II-10 | [Run 42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496) records human approval and deployment of the exact current-main candidate. The descriptor, manifest, baseline, dictionary, and one evidence block matched their expected lengths and hashes. | Compare the full public inventory against the deployed candidate. |
+| AC-009-5 / II-10 | The first successful deployment supplies the candidate and run identities for recovery work. | Verify the durable backup by redownload, adopt the exact registry entry, and exercise hosted recovery after the original artifact expires. |
+| FR-08 / FR-12 / FR-14 | The public descriptor preserved the collection date, null source coverage, and both warning codes. | — |
+| FR-02 / FR-07 / FR-08 | One desktop Chrome session passed fixed name, candidate detail, and empty-result smoke checks after a data-load retry. | — |
+
+[Session evidence](../memory/session.md#task-009-first-pages-publication-verified--2026-11-07) records the sampled hashes and browser observations.
+[TASK-009](../tasks/active.md) remains active. TASK-010's actual 30-day reliability interval is a separate gate.
+The earlier evidence below describes the state at each checkpoint.
 
 ## PR42 scratch isolation and allocation evidence — 2026-10-28
 

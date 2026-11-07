@@ -7,6 +7,10 @@ Harness Version: 1.1
 
 # Completed Tasks — open-store-searcher
 
+The [completed task register](#completed-task-register) records whole-task completions. The dated
+TASK-009 entries record individual verification checkpoints. Track TASK-009 acceptance in the
+[active task](active.md).
+
 ## TASK-009 bounded search optimization evidence — 2026-10-23
 
 Recorded the local lossless-search follow-up: conservative address admission, guarded district
@@ -36,7 +40,9 @@ hosted performance, publication, complete public equality and durable recovery r
 TASK-010 follows sequentially, and TASK-028 stays paused. No milestone closes here.
 
 
-_Last updated: 2026-10-22_
+## Completed Task Register
+
+_Register last updated: 2026-10-22_
 
 | ID | Task | Completed | Owner | Notes |
 |---|---|---|---|---|
