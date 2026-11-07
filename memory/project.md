@@ -7,6 +7,16 @@ Harness Version: 1.1
 
 # Project: open-store-searcher
 
+## First GitHub Pages deployment — 2026-11-07
+
+[Initial-import run 42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496)
+successfully deployed the approved retained snapshot from `main` at `492ac22`. The public
+descriptor, manifest, baseline and two sampled compact files match their expected hashes.
+Desktop Chrome passed search smoke checks after a data-load retry. TASK-009 stays active for
+the complete public inventory, durable backup and recovery. TASK-010 follows sequentially.
+See the latest [session record](session.md).
+Earlier project snapshots below are historical.
+
 ## TASK-009 preparation optimization — 2026-10-27
 
 User-authorized profiling and lossless optimization reuse the complete2,951,024-row source.

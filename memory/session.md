@@ -7,6 +7,73 @@ Harness Version: 1.1
 
 # Current Session — open-store-searcher
 
+## TASK-009 first Pages publication verified — 2026-11-07
+
+[Initial-import run 42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496)
+completed successfully at 2026-11-07T05:51:23Z. GitHub records approval by `internalforces`
+for `github-pages`. Deploy job `128317037092` confirmed the current `main` commit
+`492ac224d51846196d458f3816a726d65c7adbde`, a direct pre-deploy descriptor 404, and the
+same-run binding for artifact `13562073013`. Pages reported successful deployment to
+https://internalforces.github.io/open-store-searcher/. Metadata artifact: `13562776891`.
+
+The public shell opened in desktop Chrome. The public descriptor was read before and after
+checking the manifest and baseline. Its 793-byte UTF-8 body hash is
+`f776fb12db07d1a282e2052fb05ac8d06bd67b99f65f4742e0ee169f4420e33d`, matching the
+candidate. Both entries matched their SHA-256 and length (manifest 172,739 bytes, baseline
+135,035 bytes). The compact dictionary (512,867 bytes) and final evidence block (112,102
+bytes) also matched the public manifest. The descriptor records 2,951,024 rows, collection
+on October 16, null source coverage, and stale-collection and unverified-coverage warnings.
+
+The initial browser load failed and kept search disabled. One in-app retry completed with zero
+excluded records. The fixed name fixture returned zero exact and 1,282 similar candidates.
+Candidate details showed raw and processed status, source, collection date and coverage
+uncertainty. The fixed absent fixture returned zero candidates and showed the closure disclaimer.
+The seven-day stale warning was visible. These are functional observations from one desktop
+browser, with no timing or device acceptance implied.
+
+The user completed GitHub reauthentication. The repository variables page confirmed that
+`PAGES_PUBLICATION_ENABLED` was saved as `false` at 15:08 Asia/Seoul and the schedule flag is unset.
+Complete public inventory verification, durable backup and restoration remain open. TASK-009
+stays active. Earlier approval and preparation checkpoints below are historical.
+
+## TASK-009 first publication awaiting exact-candidate review — 2026-11-07
+
+The user requested a new run for protected first publication. The Pages source was
+set to GitHub Actions and `PAGES_PUBLICATION_ENABLED` was set to `true` for this
+run. `PAGES_SCHEDULE_ENABLED` is unset. The existing `github-pages` protection
+requires the `internalforces` reviewer, permits only `main`, and disallows admin
+bypass. No environment protection was changed.
+
+Initial-import [42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496),
+attempt 1 on current main `492ac224d51846196d458f3816a726d65c7adbde`, passed prepare
+for `seoul-2026-10-16-initial` (2,951,024 records) and verified the 404 precondition.
+Candidate `13562073013` and metadata `13562776891` match the same run and commit.
+Raw tar SHA-256 is `40aeae77e3e1239b0edea68ce48a6f22d2d2da97af102076a4610f0ded685a5a`.
+Inventory SHA-256 is `69b23c73678b420febf3edfae23d8bd2dae780fd9cb6a9bcd4382d30a772b82a`.
+The candidate expires at `2026-11-08T05:41:01.988Z`. The deploy job `128317037092`
+is waiting for exact-candidate human review in `github-pages`. After the run is
+resolved, reset the one-time publication flag. Publication, public byte equality,
+durable backup and recovery remain open.
+
+## TASK-009 first-publication candidate prepared — 2026-11-07
+
+The user authorized candidate preparation. Actual initial-import run
+[42339827690](https://github.com/internalforces/open-store-searcher/actions/runs/42339827690),
+attempt 1 on current main `492ac224d51846196d458f3816a726d65c7adbde`, passed
+full verification, publication operator checks and preparation for source
+`seoul-2026-10-16-initial` with 2,951,024 records. The public descriptor precondition
+was 404. Prepare succeeded, and deploy was skipped with Pages disabled and no
+publication variable set. No repository settings were changed.
+
+Candidate `13561901234` and metadata `13561567298` match the run and commit.
+The hosted post-upload binding rehashed the 691,834,880-byte raw tar to SHA-256
+`4490ce1dd05e9311410f4b55d94bc7a96ac23c66519a978acf8b4277ef5c5185`.
+Inventory SHA-256 is `69b23c73678b420febf3edfae23d8bd2dae780fd9cb6a9bcd4382d30a772b82a`.
+The preparation expires at `2026-11-08T05:09:31.300Z`. This preparation-only run
+cannot later publish. TASK-009 remains active for a separate authorized run and
+exact-candidate environment approval, public equality, durable backup and recovery.
+Earlier performance and publication checkpoints below are historical.
+
 ## PR42 scratch-buffer CI follow-up — 2026-10-28
 
 First correction6fad420 passes Ubuntu1442/92/20and operator/admission checks, but retains

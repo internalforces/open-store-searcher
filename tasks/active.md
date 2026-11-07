@@ -7,6 +7,19 @@ Harness Version: 1.1
 
 # Active Tasks — open-store-searcher
 
+## TASK-009 first Pages deployment — 2026-11-07
+
+The approved initial-import run `42342079496` deployed candidate `13562073013` from `main`
+at `492ac22`. The public shell opens. The public release descriptor, manifest, baseline,
+dictionary and one evidence block match their expected lengths and hashes.
+The first Chrome load failed. A retry loaded all data with zero excluded records and passed
+fixed name, candidate detail and empty-result checks.
+
+Continue with complete public-file verification and the separately approved durable backup,
+redownload, registry adoption and restoration. TASK-009 remains the only active task.
+TASK-010 follows with actual 30-day evidence, TASK-028 remains paused, and TASK-021 remains gated. See the [session record](../memory/session.md).
+Earlier task checkpoints below are historical.
+
 ## TASK-009 native inline-column continuation — 2026-11-03
 
 PR45 d383401 passes ordinary but retains two mobile district misses in actual

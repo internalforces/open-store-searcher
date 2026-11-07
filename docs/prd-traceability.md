@@ -7,6 +7,17 @@ Harness Version: 1.1
 
 # PRD Traceability Matrix — open-store-searcher
 
+## TASK-009 first protected publication evidence — 2026-11-07
+
+FR-13 / AC-009-4 / II-10: [initial-import run 42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496)
+records human approval and successful deployment of the exact current-main candidate. The
+public shell opens, and the descriptor, manifest, baseline and two sampled data files match
+their expected hashes. FR-08 / FR-12 / FR-14: the public descriptor preserves the original
+collection date, null source coverage and both warning codes. FR-02 / FR-07 / FR-08: desktop
+Chrome passed name, evidence detail and empty-result smoke checks after a load retry. Complete
+public inventory comparison remains open. AC-009-5 / II-10 still require durable backup and a
+hosted recovery exercise. TASK-010's actual 30-day reliability interval remains a separate gate.
+
 ## PR42 scratch isolation and allocation evidence — 2026-10-28
 
 FR-02/03/07 add a real-allocation RED20→GREENat-most4byte-array regression across distinct

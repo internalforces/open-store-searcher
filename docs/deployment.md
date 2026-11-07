@@ -1,5 +1,27 @@
 # Deployment and recovery
 
+## First protected deployment — 2026-11-07
+
+The first protected deployment completed at 2026-11-07T05:51:23Z in
+[initial-import run 42342079496](https://github.com/internalforces/open-store-searcher/actions/runs/42342079496).
+`internalforces` approved the `github-pages` environment. The deploy job rechecked current
+`main`, the same-run candidate, and descriptor absence before publishing artifact `13562073013`
+from commit `492ac224d51846196d458f3816a726d65c7adbde`.
+
+The [public site](https://internalforces.github.io/open-store-searcher/) serves the snapshot
+collected on 2026-10-16 with 2,951,024 records and unverified source coverage. The public
+descriptor, manifest, baseline, dictionary and one evidence block match the expected hashes.
+Desktop Chrome completed data loading on retry with zero excluded records and passed the fixed
+name, candidate detail and empty-result smoke checks. The first load failure is recorded in the
+[session record](../memory/session.md). Full public inventory comparison, durable backup and
+restoration acceptance remain open.
+
+After account reauthentication, GitHub readback confirmed `PAGES_PUBLICATION_ENABLED=false`
+and `PAGES_SCHEDULE_ENABLED` unset. Keep routine refresh disabled while TASK-009 verification
+and recovery remain open.
+
+Earlier dated checkpoints below are historical.
+
 ## Verified initial source adoption — 2026-10-23
 
 The user authorized prerequisite resolution and real-data connection. TASK-009 is the sole active
