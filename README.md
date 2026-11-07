@@ -4,9 +4,9 @@
 licensing records by business name or address. It shows the administrative status recorded in
 public data, the raw status evidence, the data date evidence, and uncertainty around the match.
 
-> The current default build uses synthetic demonstration records. It is not a live business
-> lookup service. Production publication remains disabled until the reviewed data-quality,
-> baseline, hosted-performance, recovery, and release gates pass.
+The [public GitHub Pages deployment](https://internalforces.github.io/open-store-searcher/)
+uses a retained Seoul snapshot collected on 2026-10-16. Source coverage is unverified.
+The default local build uses synthetic demonstration records.
 
 ## What the result means
 
@@ -49,9 +49,9 @@ structure.
 
 - The browser search, uncertainty UI, accessibility flow, compact data reader, validation pipeline,
   and guarded GitHub Actions publication path are implemented and tested.
-- The production build configuration and initial accepted baseline are intentionally absent.
-- A 30-Seoul-calendar-day source calibration that began on 2026-09-17 remains in progress.
-- No production Pages deployment or recovery exercise has been accepted.
+- The first protected Pages deployment succeeded on 2026-11-07 with 2,951,024 records.
+- Complete public-file verification and the durable backup and recovery exercise remain open.
+- Routine refresh and its 30-day operational reliability check remain pending.
 
 The detailed operator sequence and open gates are in [Deployment and recovery](docs/deployment.md).
 The data source, schema, status rules, date interpretation, and reuse terms are in

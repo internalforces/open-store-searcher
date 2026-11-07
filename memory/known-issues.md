@@ -7,6 +7,13 @@ Harness Version: 1.1
 
 # Known Issues — open-store-searcher
 
+## First public browser load failed once — 2026-11-07
+
+After successful Pages run `42342079496`, the public shell opened in desktop Chrome but the
+first data load entered the error state and kept search disabled. One in-app retry completed
+with zero exclusions and passed the fixed name, detail and empty-result checks. The root cause
+and repeatability are unverified. See the [session evidence](session.md).
+
 ## PR42 retained collection pause and scratch follow-up — 2026-10-28
 
 Run40651993497 ordinary Ubuntu verification passes, but mobile address819/838.9ms samples
